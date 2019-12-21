@@ -1,0 +1,22 @@
+<root>
+        <styles>
+                <!-- 导入官方css -->
+                <include src="s2r://panorama/styles/dotastyles.vcss_c"/>
+                <!-- file://{resources}/就是指你的地图目录下的panorama -->
+                <include src="file://{resources}/styles/game_info.vcss_c"/>
+        </styles>
+ 
+        <!-- 使用脚本 -->
+        <script>
+                function onBtnClick()
+                {
+                        $("#label").text("HELLO")
+                }
+        </script>
+ 
+        <Panel hittest="false">
+		<DOTAAvatarImage id="image" steamid="76561198088998682"  hittest="false" />
+		<DOTAUserName id="name" steamid="128732954"  hittest="false" />
+                <Label id="label" text="希望大家快樂享受遊戲！"  hittest="false" />
+        </Panel>
+</root>
