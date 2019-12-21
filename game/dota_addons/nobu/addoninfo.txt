@@ -1,0 +1,15 @@
+"AddonInfo"
+{
+	"TeamCount"		"1"
+	
+	"maps"			"nobu nobu_pk"
+	"IsPlayable"	"1"
+	"nobu"
+	{
+		"MaxPlayers"    "10"
+	}
+	"nobu_pk"
+	{
+		"MaxPlayers"    "2"
+	}
+}

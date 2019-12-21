@@ -1,0 +1,941 @@
+"DOTAAbilities"
+{
+	"C22_precache"
+	{
+		"BaseClass"             		"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"precache"
+		{
+			"soundfile"	"soundevents/c22.vsndevts"
+		}
+	}
+	// 佐佐木小次郎 嚴流
+	"C22D"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/cps_h10_5 (Copy)"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
+		"HotKeyOverride"	"D"
+		"MaxLevel"	"4"
+		"AbilityCooldown"	"6"
+		"AbilityManaCost"	"50"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+				"Function"	"sound"
+				"sound"	"fur_army_channel"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+				"Function"	"C22D_GetAbility"
+			}
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_C22D"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_C22D"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%atkspd"
+				}
+				"Duration"	"4"
+				"IsHidden"	"0"
+				"IsBuff"	"1"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"Target"	"CASTER"
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+						"Function"	"C22D_SE_END"
+					}
+				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+						"Function"	"C22R"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"atkspd"	"175 200 225 250"
+			}
+		}
+	}
+
+	// 佐佐木小次郎 祕劍．燕巢
+	"C22W"
+	{
+		// General
+		// -------------------------------------------------------------------------------------------------------------
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/cps_h10_1 (Copy)"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"HotKeyOverride"	"W"
+		// Casting
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"	"0"
+		// Time
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"	"20 16 14 12"
+		// Cost
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"	"100 115 130 145"
+		"AbilityChannelTime"	"2 3 4 5"
+		// Data driven
+		// -------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"	"particles/c20w/c20w.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_puck.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"C22W.vo1"
+			}
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_C22W"
+			}
+			"RunScript"
+			{
+				"Target"	"CASTER"
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+				"Function"	"C22W_Damage"
+			}
+		}
+		"OnChannelInterrupted"
+		{
+			"RunScript"
+			{
+				"Target"	"CASTER"
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+				"Function"	"C22W_Stop"
+			}
+		}
+		"OnChannelFinish"
+		{
+			"RemoveModifier"
+			{
+				"ModifierName"	"modifier_C22W"
+				"Target"	"CASTER"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_C22W"
+			{
+				"Duration"	"%duration"
+				"EffectName"	"particles/c20w/c20w.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Puck.Phase_Shift"
+						"Target"	"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+						"Function"	"HideCaster"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+						"Function"	"StopSound"
+						"Target"	"TARGET"
+						"sound_name"	"Hero_Puck.Phase_Shift"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+						"Function"	"ShowCaster"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"			"MODIFIER_STATE_VALUE_ENABLED"	// Don't use these state for a channeling ability.
+					// 	"MODIFIER_STATE_OUT_OF_GAME"			"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+		// Special
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"2 3 4 5"
+			}
+		}
+		"AbilityDamage"	"200 300 400 500"
+	}
+
+	// 佐佐木小次郎 祕劍．飛燕
+	"C22E"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/cps_h10_2 (Copy)"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"HotKeyOverride"	"E"
+		"MaxLevel"	"4"
+		"RequiredLevel"	"1"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCooldown"	"18"
+		"AbilityManaCost"	"95 120 135 150"
+		"AbilityCastRange"	"500 625 750 875"
+		"precache"
+		{
+			"particle"	"particles/c20e/c20e.vpcf"
+			"particle"	"particles/a23r/necronomicon_archer_projectile_2.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+			"particle"	"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+			"particle"	"particles/generic_gameplay/generic_stunned.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"C22E.vo1"
+			}
+			"TrackingProjectile"
+			{
+				"Target"	"TARGET"
+				"EffectName"	"particles/c20e/c20e.vpcf"
+				"Dodgeable"	"1"
+				"ProvidesVision"	"1"
+				"MoveSpeed"	"1800"
+				"VisionRadius"	"225"
+				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"Hero_Sven.StormBolt"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"FireSound"
+			{
+				"Target"	"TARGET"
+				"EffectName"	"Hero_Sven.StormBoltImpact"
+			}
+			"FireEffect"
+			{
+				"Target"	"TARGET"
+				"EffectName"	"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+				"EffectAttachType"	"attach_origin"
+				"ControlPointEntities"
+				{
+					"TARGET"	"attach_origin"
+					"TARGET"	"attach_origin"
+					"TARGET"	"attach_origin"
+					"TARGET"	"attach_origin"
+				}
+			}
+			"ActOnTargets"
+			{
+				"Target"	"TARGET"
+				"Action"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"	"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"%C22R_Damage"
+					}
+					"ApplyModifier"
+					{
+						"Target"	"TARGET"
+						"ModifierName"	"modifier_C22E"
+					}
+				}
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_C22E"
+			{
+				"IsPurgable"	"1"
+				"IsDebuff"		"1"
+				"IsHidden"	"0"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Duration"	"%C22R_Duration"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"IsDebuff"	"1"
+				"OverrideAnimation"	"ACT_DOTA_DISABLED"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"C22R_Duration"	"1.5"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"C22R_Damage"	"100 200 300 400"
+			}
+		}
+		"AbilityDamage"	"100 200 300 400"
+	}
+
+	// 佐佐木小次郎 祕劍．燕閃
+	"C22R"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/cps_h10_3 (Copy)"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"precache"
+		{
+			"particle"	"particles/c20r3/c20r3.vpcf"
+			"particle"	"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"Function"	"C22R_Levelup"
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ninja_cloth"
+			{
+				"IsBuff"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"18"
+				}
+				"Passive"	"1"
+				"IsHidden"	"1"
+			}
+			"modifier_C22R_Passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"%Attack_Range"
+				}
+				"OnAttack"
+				{
+					"AttachEffect"
+					{
+						"Target"	"CASTER"
+						"EffectName"	"particles/c20r3/c20r3.vpcf"
+						"EffectAttachType"	"attach_attack"
+					}
+					"RunScript"
+					{
+						"Target"	"TARGET"
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+						"Function"	"C22R_SE"
+					}
+				}
+			}
+			"modifier_C22R"
+			{
+				"IsHidden"	"0"
+				"OnAttackStart"	{}
+				"Properties"	{}
+				"Duration"	"4"
+			}
+			"modifier_C22R_critical_strike_crit"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"	"%crit_bonus"
+				}
+				"OnAttackLanded"
+				{
+					"FireEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+						"Target"	"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_C22R_critical_strike_crit"
+						"Target"	"CASTER"
+					}
+					"RunScript"
+					{
+						"Target"	"CASTER"
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+						"Function"	"C22R__ATTACK_SE"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"Attack_Range"	"100 150 200 250"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"crit_bonus"	"150 200 250 300"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"crit_chance"	"25"
+			}
+		}
+	}
+
+	// 佐佐木小次郎 奧義．滅剎夢霞
+	"C22T"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/cps_h10_4 (Copy)"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"	"3"
+		"RequiredLevel"	"6"
+		"LevelsBetweenUpgrades"	"6"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCooldown"	"110"
+		"AbilityManaCost"	"350 450 550"
+		"AoERadius"	"750"
+		"precache"
+		{
+			"particle"	"particles/generic_gameplay/generic_stunned.vpcf"
+			"particle"  "particles/econ/items/monkey_king/arcana/death/monkey_king_spring_arcana_death.vpcf"
+		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+				"Function"			"C22T_upgrade"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+				"Function"	"sound"
+				"sound"	"split_earth"
+			}
+			"RunScript"
+			{
+				"Target"	"CASTER"
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+				"Function"	"C22T_Damage"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_C22T"
+			{
+				"Duration"	"%Stun_Time"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"	"follow_overhead"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"Stun_Time"	"1.0 1.5 2.0"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"750"
+			}
+		}
+	}
+	
+// 11.2B
+// ------------------------------------------------------------------------------------------------------
+	// 佐佐木小次郎 [秘劍．燕]
+	"C22W_old"
+	{
+		// General
+		// -------------------------------------------------------------------------------------------------------------
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/cps_h10_1 (Copy)"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags""DOTA_UNIT_TARGET_FLAG_NONE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"HotKeyOverride"	"W"
+		// Casting
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"			"200"
+		"AbilityCastPoint" "0.25" //stun
+		"AbilityCastAnimation"		"ACT_DOTA_ECHO_SLAM"
+		"AnimationPlayBackRate"		"2"
+		// Time
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"	"10"
+		// Cost
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"	"100 120 140 160"
+		// Data driven
+		// -------------------------------------------------------------------------------------------------------------
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"C22W_old.vo1"
+			}
+			"Damage"
+			{
+				"Target"		"TARGET"
+				"Type"			"DAMAGE_TYPE_MAGICAL"
+				"Damage"		"%AbilityDamage"
+			}
+			"Stun"
+			{
+				"Duration"   "%stun_time"
+				"Target" 	 "TARGET"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_C22W_old"
+				"Target" 		"CASTER"
+			}
+			"FireSound"
+			{
+				"Target"	"TARGET"
+				"EffectName"	"Hero_Sven.StormBoltImpact"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_C22W_old"
+			{
+				"Duration"		"3"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%atkspd"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_time"			"0.5 1 1.5 2"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"atkspd"	"50 100 150 200"
+			}
+		}
+		"AbilityDamage"				"150 250 350 450"
+	}
+	// 佐佐木小次郎 [秘劍．返]
+	"C22E_old"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/cps_h10_2 (Copy)"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"HotKeyOverride"	"E"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCooldown"	"22 21 20 19"
+		"AbilityManaCost"	"100 120 140 160"
+		"AbilityCastRange"	"900 1000 1100 1200"
+		"precache"
+		{
+			"particle"	"particles/c20e/c20e.vpcf"
+			"particle"	"particles/a23r/necronomicon_archer_projectile_2.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+			"particle"	"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+			"particle"	"particles/generic_gameplay/generic_stunned.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"C22E_old.vo1"
+			}
+			"TrackingProjectile"
+			{
+				"Target"	"TARGET"
+				"EffectName"	"particles/c20e/c20e.vpcf"
+				"Dodgeable"	"1"
+				"ProvidesVision"	"1"
+				"MoveSpeed"	"1800"
+				"VisionRadius"	"225"
+				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+			}
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"Hero_Sven.StormBolt"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"FireSound"
+			{
+				"Target"	"TARGET"
+				"EffectName"	"Hero_Sven.StormBoltImpact"
+			}
+			"Damage"
+			{
+				"Target"	"TARGET"
+				"Type"		"DAMAGE_TYPE_MAGICAL"
+				"Damage"	"%AbilityDamage"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_C22E_old_stun"
+				"Target" 		"TARGET"
+				"Duration"		"%stun_time"
+			}
+			"DelayedAction"
+			{
+				"Delay"     "%pull_back_delay"
+				"Action"    
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+						"Function"		"C22E_old_pull_back"
+					}
+				}
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_C22E_old_stun"
+			{
+				"IsDebuff"		"1"
+				"IsHidden"		"0"
+				"Duration"		"%stun_time"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+				"EffectName" "particles/c22/c22e_old_stun.vpcf"
+				"EffectAttachType" "follow_origin"
+				
+				"OverrideAnimation"	"ACT_DOTA_DISABLED"
+			}
+			"modifier_C22E_old"
+			{
+				"Duration"		"3"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%atkspd"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_time"	"2.5"
+			}
+			"02" // 命中後拉回的延遲
+			{
+				"var_type"	"FIELD_FLOAT"
+				"pull_back_delay"	"0.1"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"atkspd"	"50 100 150 200"
+			}
+		}
+		"AbilityDamage"	"100 200 300 400"
+	}
+	// 佐佐木小次郎 [巖流]
+	"C22R_old"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/cps_h10_3 (Copy)"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"precache"
+		{
+			"particle"	"particles/c20r3/c20r3.vpcf"
+			"particle"	"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+			"particle"  "particles/c22/c22t_old.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_ninja_cloth"
+			{
+				"IsBuff"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"%evasion"
+				}
+				"Passive"	"1"
+				"IsHidden"	"1"
+			}
+			"modifier_C22R_old_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"OnAttackStart"
+				{
+					"AttachEffect"
+					{
+						"Target"	"CASTER"
+						"EffectName"	"particles/c20r3/c20r3.vpcf"
+						"EffectAttachType"	"attach_attack"
+					}
+					"RunScript"
+					{
+						"Target"	"TARGET"
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+						"Function"	"C22R_old_on_attack"
+					}
+				}
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"EffectName"        "particles/c20d3/c20d3.vpcf"
+						"EffectAttachType"  "follow_origin"
+						"Target"            "CASTER"
+						"ControlPointEntities"
+            			{
+               			 	"CASTER" "attach_hand"
+            			}
+					}
+				}
+			}
+			"modifier_C22R_old_critical_strike_crit"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"	"%crit_bonus"
+				}
+				"OnAttackLanded"
+				{
+					"FireEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+						"Target"	"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_C22R_old_critical_strike_crit"
+						"Target"	"CASTER"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+						"Function"		"C22R_old_play_crit_animation"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01" // 閃避
+			{
+				"var_type"	"FIELD_INTEGER"
+				"evasion"	"10 15 20 25" // %
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"crit_bonus"	"130 160 190 220"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"crit_chance"	"30 35 40 45"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"heal"	"40 60 80 100"
+			}
+		}
+	}
+	// 佐佐木小次郎 [隱秘劍．地燕斬]
+	"C22T_old"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/cps_h10_4 (Copy)"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"	"3"
+		"RequiredLevel"	"6"
+		"LevelsBetweenUpgrades"	"6"
+		"AbilityCastAnimation" "ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"110 100 90"
+		"AbilityManaCost"	"260 310 360"
+		"AbilityDamage"		"1200 1400 1600"
+		"AoERadius" "600"
+		"precache"
+		{
+			"particle"	"particles/generic_gameplay/generic_stunned.vpcf"
+			"particle"  "particles/units/heroes/hero_elder_titan/elder_titan_earth_splitter.vpcf"
+			"particle"  "particles/c22/c22t_old.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+				"Function"	"sound"
+				"sound"	"split_earth"
+			}
+			"RunScript"
+			{
+				"Target"	"CASTER"
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
+				"Function"	"C22T_old"
+			}
+		}
+		"Modifiers"
+		{
+			// 沒用到
+			"modifier_C22T_old_aura"
+			{
+				"IsHidden"			"1"
+			
+				"EffectName"		"particle_name"
+				"EffectAttachType"	"follow_origin"
+
+				"Duration" "%dot_duration"
+				"Aura"	"modifier_C22T_old_apply_aoe_damage"
+				"Aura_Radius"	"%aoe_radius"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster"	"0"
+			}
+			"modifier_C22T_old_apply_dot_damage"
+			{
+				"IsDebuff" "1"
+				"Duration" "%dot_duration"
+				"ThinkInterval"  "%dot_damage_delay"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%dot_damage"
+					}
+				}
+				"EffectName"		"particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"start_delay"	"1.0"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"aoe_radius"	"600 625 650"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"dot_damage"	"40 60 80"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"dot_damage_delay"		"1.0"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"dot_duration"	"10.1" // 稍微多一些時間確保打出最後一下傷害
+			}
+		} // AbilitySpecial end
+	} // C22T_old end
+
+} // DOTAAbilities end

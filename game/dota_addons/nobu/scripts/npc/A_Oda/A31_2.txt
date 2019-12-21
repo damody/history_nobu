@@ -1,0 +1,90 @@
+"DOTAHeroes"
+{
+	// 森蘭丸
+	"A31"
+	{
+		// General
+		// ----------------------------------------------------------------
+		// Add model
+		"Model"	"models/a31/a31_model.vmdl"
+		"ModelScale"	"1.5"
+		//"Level"	"1"
+		"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
+		"HealthBarOffset"	"180"
+		// Abilities
+		// ---------------
+		"Ability1"	"A31W"
+		"Ability2"	"A31E"
+		"Ability3"	"A31R"
+		"Ability4"	"attribute_bonusx"
+		"Ability5"	"A31T"
+		"Ability6"	"A31_precache"
+		"Ability7"	""
+		// Armor
+		// ----------------------------------------------------------------
+		"ArmorPhysical"	"5"
+		"MagicalResistance"	"30"
+		// Attack
+		// ----------------------------------------------------------------
+		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackDamageMin"	"95.0"
+		"AttackDamageMax"	"107.0"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"	"1.80"
+		"AttackAnimationPoint"	"0.70"
+		"AttackAcquisitionRange"	"700"
+		"AttackRange"	"700"
+		"ProjectileSpeed"	"1800"
+		// Attributes
+		// ----------------------------------------------------------------
+		"AttributePrimary"	"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"	"33"
+		"AttributeStrengthGain"	"2.1"
+		"AttributeBaseAgility"	"35"
+		"AttributeAgilityGain"	"2.9"
+		"AttributeBaseIntelligence"	"25"
+		"AttributeIntelligenceGain"	"2.1"
+		
+		// Bounty
+		// ----------------------------------------------------------------
+		"BountyGoldMin"	"300.0"
+		"BountyGoldMax"	"300.0"
+		// Movement
+		// ----------------------------------------------------------------
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"	"300"
+		"MovementTurnRate"	"1.50"
+		// Status
+		// ----------------------------------------------------------------
+		"StatusHealth"	"400"
+		"StatusHealthRegen"	"0.25"
+		"StatusMana"	"0"
+		"StatusManaRegen"	"0.01"
+		"StatusStartingMana"	"100"
+		// Vision
+		// ----------------------------------------------------------------
+		"VisionDaytimeRange"	"1800"
+		"VisionNighttimeRange"	"800"
+		// Team
+		// ----------------------------------------------------------------
+		"TeamName"	"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_HERO"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
+		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		"Ability8"	""
+		"Ability9"	""
+		"Ability10"	""
+		"Ability11"	""
+		"Ability12"	""
+		"Ability13"	""
+		"Ability14"	""
+		"Ability15"	""
+		"Ability16"	""
+		"override_hero"	"npc_dota_hero_medusa"
+		"IdleSoundLoop"	"Hero_NagaSiren.IdleLoop"
+		"GameSoundsFile"	"soundevents/game_sounds_heroes/game_sounds_naga_siren.vsndevts"
+		"SoundSet"	"Hero_NagaSiren"
+		"ProjectileModel"	"particles/items2_fx/necronomicon_archer_projectile.vpcf"
+		"DisableWearables"	"1"
+	}	
+}
