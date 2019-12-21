@@ -1,6 +1,6 @@
 "AddonInfo"
 {
-	"TeamCount"		"1"
+	"TeamCount"		"2"
 	
 	"maps"			"nobu nobu_pk"
 	"IsPlayable"	"1"
