@@ -1,6 +1,6 @@
 
 die_time = {1, 2, 4, 7, 11, 16, 22, 29, 37, 46, 47, 49, 52, 56, 61, 67, 74, 80, 87, 95, 104, 114, 120}
-die_tim2 = {2, 4, 7, 10, 14, 20, 22, 25, 28, 32, 36, 42, 45, 48, 52, 56, 60, 66, 70, 74, 78, 85}
+die_tim2 = {1, 2, 4, 7, 11, 16, 22, 25, 28, 32, 36, 49, 60, 67, 74, 80, 87, 95, 104, 114, 120, 140}
 
 function Nobu:OnUnitKill( keys )
 --每当单位死亡，检查其是否符合条件，如果符合就刷新任务
@@ -152,7 +152,7 @@ function Nobu:OnUnitKill( keys )
       end
     end
     ------------------------------------------------------------------
-  	local name = killedUnit:GetUnitName()
+    local name = killedUnit:GetUnitName()
   	if string.match(name,"silencer") then
   		-- 這隻角色天生會帶一個modifier我們需要砍掉他
       -- 一般是立花道雪在用他
@@ -189,26 +189,12 @@ function Nobu:OnUnitKill( keys )
   	end
 
     if killedUnit:IsRealHero() then
-      if _G.hardcore then
-        --AMHC:GivePlayerGold_UnReliable(killedUnit:GetPlayerOwnerID(), -300)
-      end
+      AMHC:GivePlayerGold_UnReliable(killedUnit:GetPlayerOwnerID(), -300)
       if killedUnit.death_count == nil then
         killedUnit.death_count = 1
       else
         killedUnit.death_count = killedUnit.death_count + 1
       end
-
-      --[[
-      if killedUnit:GetLevel() >= 18 then
-        killedUnit:SetTimeUntilRespawn(killedUnit:GetLevel()*2+20)
-      elseif killedUnit:GetLevel() >= 12 then
-        killedUnit:SetTimeUntilRespawn(killedUnit:GetLevel()*2+11)
-      elseif killedUnit:GetLevel() >= 6 then
-        killedUnit:SetTimeUntilRespawn(killedUnit:GetLevel()*2+3)
-      else
-        killedUnit:SetTimeUntilRespawn(killedUnit:GetLevel()*2)
-      end
-      ]]
       
       if die_tim2[killedUnit:GetLevel()] then
         killedUnit:SetTimeUntilRespawn(die_tim2[killedUnit:GetLevel()])
@@ -218,10 +204,10 @@ function Nobu:OnUnitKill( keys )
           killedUnit.death = nil
           end)
       else
-        killedUnit:SetTimeUntilRespawn(85)
+        killedUnit:SetTimeUntilRespawn(140)
         killedUnit.death = true
-        killedUnit.deathtime = 85
-        Timers:CreateTimer(85, function()
+        killedUnit.deathtime = 140
+        Timers:CreateTimer(140, function()
           killedUnit.death = nil
           end)
       end

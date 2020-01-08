@@ -86,10 +86,10 @@ function A07R_old( keys )
 	caster.A07R_noncrit_count = 0 or caster.A07R_noncrit_count
 	caster:RemoveModifierByName("A07R_critical")
 	if not keys.target:IsUnselectable() or keys.target:IsUnselectable() then
-		if (ran > 36) then
+		if (ran > 30) then
 			caster.A07R_noncrit_count = caster.A07R_noncrit_count + 1
 		end
-		if (caster.A07R_noncrit_count > 3 or ran <= 36) then
+		if (caster.A07R_noncrit_count > 4 or ran <= 30) then
 			caster.A07R_noncrit_count = 0
 			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
 			local rate = caster:GetAttackSpeed()
@@ -192,13 +192,9 @@ function A07E_SE( keys )
 	local caster = keys.caster
 	if (keys.target ~= nil) then
 		caster = keys.target
-		local dummy = CreateUnitByName( "hide_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber() )
-		AMHC:CreateParticle("particles/a07e/a07e.vpcf",PATTACH_ABSORIGIN,false,dummy,2.0,nil)
-		dummy:ForceKill( true )
+		AMHC:CreateParticle("particles/a07e/a07e.vpcf",PATTACH_ABSORIGIN,false,caster,2.0,nil)
 	else
-		local dummy = CreateUnitByName( "hide_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber() )
-		AMHC:CreateParticle("particles/a07e/a07e.vpcf",PATTACH_ABSORIGIN,false,dummy,2.0,nil)
-		dummy:ForceKill( true )
+		AMHC:CreateParticle("particles/a07e/a07e.vpcf",PATTACH_ABSORIGIN,false,caster,2.0,nil)
 	end
 end
 

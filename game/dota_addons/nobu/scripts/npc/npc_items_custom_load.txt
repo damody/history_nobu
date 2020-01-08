@@ -213,7 +213,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"60"
+		"AbilityCooldown"	"120"
 		"AbilityDamage"		"800"
 		"AbilityManaCost"	"500"
 
@@ -284,14 +284,14 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"60"
+		"AbilityCooldown"	"180"
 		
 		"AbilityManaCost"	"600"
 		"AbilityCastPoint"	"0.1"
 		"AbilitySharedCooldown" "share_the_overflame_art_of_war"
 		"AbilityDamage"		"1000"
 		"AOERadius"	"650"
-		"AbilityCastRange"	"700"
+		"AbilityCastRange"	"300"
 		"ID"	"2624"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -335,7 +335,7 @@
 				"IsHidden"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-100"
 				}
 				"EffectName"	"particles/generic_gameplay/move_slow.vpcf"
 				"EffectAttachType"	"follow_overhead"
@@ -377,14 +377,14 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"60"
+		"AbilityCooldown"	"120"
 		"AbilityCastPoint"	"0.1"
 		"AbilityDamage"		"800"
-		"AbilityManaCost"	"500"
+		"AbilityManaCost"	"300"
 		"AbilitySharedCooldown" "share_the_overflame_art_of_war"
 		
 		"AOERadius"	"650"
-		"AbilityCastRange"	"700"
+		"AbilityCastRange"	"500"
 		"ID"	"2517"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -742,8 +742,8 @@
 		"AbilityTextureName"	"item_custom/magic_ring"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"40"
-		"AbilityManaCost"	"200"
+		"AbilityCooldown"	"180"
+		"AbilityManaCost"	"300"
 		"AOERadius"	"425"
 		// Stats
 		
@@ -831,8 +831,8 @@
 		"AbilityTextureName"	"item_custom/flash_ring"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"40"
-		"AbilityManaCost"	"250"
+		"AbilityCooldown"	"180"
+		"AbilityManaCost"	"400"
 		"AOERadius"	"850"
 		// Stats
 		"AbilitySharedCooldown" "share_flash_ring"
@@ -901,7 +901,7 @@
 		"AbilityTextureName"	"item_custom/perceive_wine"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"20"
+		"AbilityCooldown"	"60"
 		// Valve's version of this item uses the ID "1".
 		"ID"	"2600"
 		"ItemQuality"	"component"
@@ -975,7 +975,7 @@
 		"AbilityTextureName"	"item_custom/perceive_wine_hyper"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"45"
+		"AbilityCooldown"	"100"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		// Valve's version of this item uses the ID "1".
 		"ID"	"2621"
@@ -984,7 +984,7 @@
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
-		"ItemCost"	"500"
+		"ItemCost"	"465"
 		"ItemShopTags"					"consumable"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
@@ -1049,8 +1049,9 @@
 		"AbilityTextureName"	"item_custom/mountain_scroll"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"26"
-		"AbilityManaCost"	"100"
+		"AbilityCooldown"	"80"
+		"AbilityManaCost"	"150"
+		"AbilitySharedCooldown" "mountain_scroll"
 		// Valve's version of this item uses the ID "1".
 		"ID"	"2501"
 		"ItemQuality"	"component"
@@ -1092,8 +1093,7 @@
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"50"
-					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE" "-10"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"60"
 				}
 				"Passive"	"0"
 				"Duration"	"5"
@@ -1559,7 +1559,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"10"
+		"AbilityCooldown"	"20"
 		"AbilitySharedCooldown" "share_lightning_scroll"
 		"AbilityManaCost"	"120"
 		"AbilityCastPoint"	"0.1"
@@ -2507,14 +2507,13 @@
 		}
 		"Modifiers"
 		{
-			"Passive_strength_ingot"
+			"Passive_item_pleated_skirt"
 			{
 				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "80"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "30"	//跑速
 				}
 			}
 		}
@@ -3250,7 +3249,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"10"
+		"AbilityCooldown"	"25"
 		
 		"AbilityManaCost"	"120"
 		"AbilitySharedCooldown" "share_lightning_scroll"
@@ -4477,7 +4476,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"40"
+		"AbilityCooldown"	"60"
 		
 		"AbilityManaCost"	"225"
 		"AbilityCastPoint"	"0.1"
@@ -4563,7 +4562,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"25"
+		"AbilityCooldown"	"40"
 		
 		"AbilityManaCost"	"300"
 		"AbilityCastPoint"	"0.1"
@@ -4878,7 +4877,7 @@
 		"FightRecapLevel"	"1"
 		// Time
 		
-		"AbilityCooldown"	"80"
+		"AbilityCooldown"	"100"
 		// Cost
 		
 		"AbilityManaCost"	"300"
@@ -5049,7 +5048,7 @@
 		"FightRecapLevel"	"1"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 
-		"AbilityCooldown"	"60"
+		"AbilityCooldown"	"100"
 		"AbilityManaCost"	"280"
 		"AbilityDamage"		"600"
 		"AbilityCastRange"	"1200"
@@ -5160,7 +5159,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"60"
+		"AbilityCooldown"	"80"
 		"AbilityCastPoint"	"0.1"
 		"AbilityManaCost"	"285"
 		"AbilityCastRange"				"800"
@@ -5231,7 +5230,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"40"
+		"AbilityCooldown"	"60"
 		
 		"AbilityManaCost"	"260"
 		"AbilityCastPoint"	"0.1"
@@ -5299,7 +5298,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"26"
+		"AbilityCooldown"	"36"
 		
 		"AbilityManaCost"	"185"
 		"AbilityCastPoint"	"0.1"
@@ -5577,7 +5576,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"45"
+		"AbilityCooldown"	"65"
 		
 		"AbilityManaCost"	"250"
 		"AbilityCastPoint"	"0.1"
@@ -5689,7 +5688,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"60"
+		"AbilityCooldown"	"100"
 		
 		"AbilityManaCost"	"285"
 		"AbilityCastPoint"	"0.1"
@@ -5698,7 +5697,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/weapon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"7900"
+		"ItemCost"	"12900"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"						"1"
@@ -7533,7 +7532,7 @@
 					{
 						"ScriptFile"	"items/Addon_Items/item_the_spear_of_ghost.lua"
 						"Function"	"Shock2"
-						"dmg"	"10"
+						"dmg"	"3"
 					}
 				}
 			}
@@ -8684,7 +8683,7 @@
 	{
 	    "ID" "3070"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "800"
+		"ItemCost" "1000"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_red_lightning_chapter"  //合成後物品
@@ -8699,7 +8698,7 @@
 	{
 	    "ID" "3071"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1750"
+		"ItemCost" "2750"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_red_lightning_chapter_hyper"  //合成後物品
@@ -8714,7 +8713,7 @@
 	{
 	    "ID" "3072"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1750"
+		"ItemCost" "2750"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_overflame_art_of_war"  //合成後物品
@@ -8729,7 +8728,7 @@
 	{
 	    "ID" "3073"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "2100"
+		"ItemCost" "4100"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_over_lightning_art_of_war"  //合成後物品
@@ -9224,7 +9223,7 @@
 					{
 						"ScriptFile"	"items/Addon_Items/item_the_spear_of_ghost.lua"
 						"Function"	"Shock2"
-						"dmg"	"15"
+						"dmg"	"5"
 					}
 				}	
 			}
@@ -10965,7 +10964,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"45"
+		"AbilityCooldown"	"100"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		"AbilityManaCost"	"200"
 		"ID"	"2808"
@@ -11028,7 +11027,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "90"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
 				}
 			}
 		}
@@ -11048,7 +11047,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"45"
+		"AbilityCooldown"	"100"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		"AbilityManaCost"	"200"
 		"ID"	"2809"
@@ -11111,7 +11110,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "150" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "80"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
 				}
 			}
 		}
@@ -11131,7 +11130,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"45"
+		"AbilityCooldown"	"100"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		"AbilityManaCost"	"200"
 		"ID"	"2810"
@@ -11194,7 +11193,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "80"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20" //魔抗
 				}
 			}
@@ -11215,7 +11214,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"45"
+		"AbilityCooldown"	"100"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		"AbilityManaCost"	"200"
 		"ID"	"2811"
@@ -11285,7 +11284,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "80"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
 				}
 			}
 			"shield_modifier5"
@@ -11514,7 +11513,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
-		"AbilityCooldown"	"30"
+		"AbilityCooldown"	"60"
 		"AbilityCastPoint"	"0.1"
 		"AbilityManaCost"	"200"
 		"AbilityCastRange"	"1000"
@@ -12018,11 +12017,9 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		
-		"AbilityCooldown"	"26"
-		
-		"AbilityManaCost"	"100"
-		
+		"AbilityCooldown"	"80"
+		"AbilityManaCost"	"200"
+		"AbilitySharedCooldown" "mountain_scroll"
 		
 		"ID"	"2533"
 		"ItemQuality"	"component"
@@ -12073,8 +12070,7 @@
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"50"
-					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE" "-15"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"70"
 				}
 				"Passive"	"0"
 				"Duration"	"5"
@@ -12292,9 +12288,9 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"35"
+		"AbilityCooldown"	"80"
 		
-		"AbilityManaCost"	"120"
+		"AbilityManaCost"	"250"
 		
 		
 		"ID"	"2535"
@@ -12349,8 +12345,7 @@
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"50"
-					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE" "-30"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"80"
 				}
 				"Passive"	"0"
 				"Duration"	"5"
@@ -12425,7 +12420,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"		
-		"AbilityCooldown"	"40"		
+		"AbilityCooldown"	"100"		
 		"AbilityManaCost"	"700"
 		"AbilitySharedCooldown" "the_art_of_war"
 		
@@ -12527,8 +12522,7 @@
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"50"
-					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE" "-40"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"100"
 				}
 				"Passive"	"0"
 				"Duration"	"5"
@@ -14259,7 +14253,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"70"
+		"AbilityCooldown"	"100"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		"AbilityManaCost"	"500"
 		
@@ -14323,7 +14317,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "90"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
 				}
 			}
 		}
@@ -14343,7 +14337,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"70"
+		"AbilityCooldown"	"100"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		"AbilityManaCost"	"500"
 		
@@ -14407,7 +14401,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "150" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "80"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
 				}
 			}
 		}
@@ -14427,7 +14421,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"70"
+		"AbilityCooldown"	"100"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		"AbilityManaCost"	"500"
 		
@@ -14491,7 +14485,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "80"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20" //魔抗
 				}
 			}
@@ -14512,7 +14506,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"70"
+		"AbilityCooldown"	"100"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		"AbilityManaCost"	"500"
 		
@@ -14583,7 +14577,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "80"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
 				}
 			}
 			"shield_modifier3"
@@ -14874,7 +14868,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"70"
+		"AbilityCooldown"	"100"
 		"AbilityManaCost"	"500"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		"SecretShop" "1"
@@ -15013,7 +15007,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"350"
+		"ItemCost"	"550"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"						"1"
@@ -15084,7 +15078,7 @@
 	{
 	    "ID" "2830"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "650"
+		"ItemCost" "2650"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"SideShop"						"1"
@@ -15092,48 +15086,6 @@
 		"ItemRequirements"
 		{
 			"01" "item_insight_gem_s"  //合成所需物品
-		}
-	}
-	// 犒賞
-	"item_reward6300"
-	{
-		// General
-		
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/reward6300"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		
-		"AbilityCooldown"	"60"
-		
-		"ID"	"3831"
-		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
-		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"1000"
-		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"						"1"
-
-		"ItemShopTags"					"consumable"
-		"ItemQuality"					"consumable"
-		"ItemStackable"					"1"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
-		"ItemPermanent"					"0"
-		"ItemInitialCharges"			"1"
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
-				"Function"		"reward6300"
-			}
-			"SpendCharge"
-			{}
 		}
 	}
 	
@@ -15316,7 +15268,7 @@
 				{
 					"MODIFIER_PROPERTY_MANA_BONUS" "500"				//魔
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "3"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "90"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
 				}
 			}
 		}
@@ -15711,7 +15663,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		"AbilityChannelTime"	"6"
+		"AbilityChannelTime"	"10"
 		"AbilityCooldown"	"25"
 		
 		"AbilityManaCost"	"155"
@@ -15720,7 +15672,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"2500"
+		"ItemCost"	"1500"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"OnSpellStart"
@@ -15729,7 +15681,7 @@
 			{
 				"ModifierName"	"modifier_invisible"
 				"Target" 		"CASTER"
-				"Duration"		"6"
+				"Duration"		"10"
 			}
 		}
 		"OnChannelInterrupted"
@@ -16316,7 +16268,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"25"
+		"AbilityCooldown"	"40"
 		
 		"AbilityManaCost"	"260"
 		"AbilityCastPoint"	"0.1"
@@ -16461,7 +16413,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"50"
+		"AbilityCooldown"	"80"
 		
 		"AbilityManaCost"	"350"
 		"AbilityCastRange"	"450"
@@ -16470,7 +16422,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"6000"
+		"ItemCost"	"8000"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"						"1"
@@ -16538,112 +16490,6 @@
 		}
 	}
 	
-	// 真．三日月宗近．銘刀
-	"item_the_great_sword_of_xnew_moon_x"
-	{
-		// General
-		
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/the_great_sword_of_new_moon"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"100"
-		
-		"AbilityManaCost"	"500"
-		"AbilityCastRange"				"2500"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
-		"AbilityCastPoint"	"0.1"
-		"ID"	"3875"
-		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
-		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"7750"
-		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"						"1"
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_new_moon.lua"
-				"Function"	"OnEquip"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_new_moon.lua"
-				"Function"	"OnUnequip"
-			}
-		}
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_moon_x2"
-				"Target" 		"CASTER"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_new_moon.lua"
-				"Function"	"Shock2"
-			}
-		}
-		
-		"Modifiers"
-		{
-			"Passive_sword_of_xnew_moon_x"
-			{
-				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Passive"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "40"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
-					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-				}
-			}
-			"modifier_moon_x2"
-			{
-				"Passive"	"0"
-				"Duration"	"5"
-				"EffectName"	"particles/a19/a19_wfire/mk_arcana_spring_fire_ring_glow_2.vpcf"
-				"States"
-				{
-					"MODIFIER_STATE_PROVIDES_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-	}
-	"item_recipe_the_great_sword_of_xnew_moon_x"
-	{
-	    "ID" "3876"
-	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "50"
-		"ItemShopTags" ""
-		"ItemRecipe" "1"
-		"SideShop"						"1"
-		"ItemResult" "item_the_great_sword_of_xnew_moon_x"  //合成後物品
-		"ItemRequirements"
-		{
-			"01" "item_the_great_sword_of_xnew_moon"  //合成所需物品
-		}
-	}
 
 	// 黑漆塗十字槍
 	"item_the_dark_cross_spear"

@@ -16,10 +16,10 @@
 		"Ability1"	"C14W"
 		"Ability2"	"C14E"
 		"Ability3"	"C14R"
-		"Ability4"	""
-		"Ability5"	"attribute_bonusx"
+		"Ability4"	"attribute_bonusx"
+		"Ability5"	"C14_precache"
 		"Ability6"	"C14T"
-		"Ability7"	"C14_precache"
+		"Ability7"	""
 		//Armor
 		// --------------------------------------------------------------
 		"ArmorPhysical"	"6"

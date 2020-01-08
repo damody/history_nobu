@@ -32,8 +32,8 @@
 		"Ability2"	"C10E"
 		"Ability3"	"C10R"
 		"Ability4"	"attribute_bonusx"
-		"Ability5"	"C10T"
-		"Ability6"	"C10_precache"
+		"Ability5"	"C10_precache"
+		"Ability6"	"C10T"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"7"

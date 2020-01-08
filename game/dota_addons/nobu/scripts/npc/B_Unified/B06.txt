@@ -59,12 +59,12 @@
 			{
 				"EffectName"	"particles/b06w2/b06w2.vpcf"
 				"EffectAttachType"	"follow_overhead"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Duration"	"12"
 				"IsBuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%Re_Mana"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%Re_hp"
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%Attack_Bonus"
 				}
 			}
@@ -79,7 +79,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"Attack_Bonus"	"20 40 60 80"
+				"Attack_Bonus"	"20 30 40 50"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"Re_hp"	"10 15 20 25"
 			}
 		}
 	}

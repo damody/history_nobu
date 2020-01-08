@@ -355,7 +355,7 @@ function ExorcismPhysics( event )
 							end
 							ability:ApplyDataDrivenModifier(caster,unit.current_target,"modifier_B10W_slow",{})
 							-- Calculate how much physical damage was dealt
-							local targetArmor = unit.current_target:GetPhysicalArmorValue()
+							local targetArmor = unit.current_target:GetPhysicalArmorValue(true)
 							local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 							local damagePostReduction = spirit_damage * (1 - damageReduction)
 

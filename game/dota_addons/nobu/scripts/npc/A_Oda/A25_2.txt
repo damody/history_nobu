@@ -14,8 +14,9 @@
 		"Ability2"	"A25E"
 		"Ability3"	"A25R"
 		"Ability4"	"attribute_bonusx"
-		"Ability5"	"A25T"
-		"Ability6"	"A25_precache"
+		
+		"Ability5"	"A25_precache"
+		"Ability6"	"A25T"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"6"

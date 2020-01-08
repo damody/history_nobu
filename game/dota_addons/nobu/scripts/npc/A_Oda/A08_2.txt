@@ -13,19 +13,13 @@
 		"HealthBarOffset"	"180"
 		// Abilities
 		// ----------------------------------------------------------------
-		// Reference: AInv
+		
 		"Ability1"	"A08W"
-		// Reference: A0DN
 		"Ability2"	"A08E"
-		// Reference: Aamk
 		"Ability3"	"A08R"
-		// Reference: A00O
-		"Ability4"	"A08T"
-		// Reference: A00P
-		"Ability5"	"attribute_bonusx"
-		// Reference: A00Q
+		"Ability4"	"attribute_bonusx"
+		"Ability5"	""
 		"Ability6"	"A08T"
-		// Reference: A0NZ
 		"Ability7"	"A08_precache"
 		// Armor
 		// ----------------------------------------------------------------

@@ -961,7 +961,7 @@
  		//----------------------------------------------------------------
  		// "Model"						"models/heroes/lycan/summon_wolves.vmdl"	// Model.
  		"Model"						"models/heroes/lycan/lycan_wolf.vmdl"
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"Level"						"1"
  		"ModelScale" 				"1"
  		// "IsNeutralUnitType"			"1"
@@ -1036,7 +1036,7 @@
  		//----------------------------------------------------------------
  		// "Model"						"models/heroes/lycan/summon_wolves.vmdl"	// Model.
  		"Model"						"models/heroes/lycan/lycan_wolf.vmdl"
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"Level"						"1"
  		"ModelScale" 				"1"
  		// "IsNeutralUnitType"			"1"
@@ -4784,7 +4784,7 @@
  		//----------------------------------------------------------------
  		// "Model"						"models/heroes/lycan/summon_wolves.vmdl"	// Model.
  		"Model"						"models/items/lycan/wolves/alpha_summon_01/alpha_summon_01.vmdl"
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"Level"						"1"
  		"ModelScale" 				"1"
  		// "IsNeutralUnitType"			"1"
@@ -4859,7 +4859,7 @@
  		//----------------------------------------------------------------
  		// "Model"						"models/heroes/lycan/summon_wolves.vmdl"	// Model.
  		"Model"						"models/items/lycan/wolves/alpha_summon_01/alpha_summon_01.vmdl"
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"Level"						"1"
  		"ModelScale" 				"1"
  		// "IsNeutralUnitType"			"1"
@@ -5087,7 +5087,7 @@
 
 	"npc_dummy_unit"
 	{
-		"BaseClass"	"npc_dota_creep_neutral"
+		"BaseClass"	"npc_dota_creep_lane"
 		"Model"	"models/development/invisiblebox.vmdl"
 		"SoundSet"	"Creep_Good_Range"
 		"Level"	"0"
@@ -5113,7 +5113,7 @@
 
 	"npc_dummy_unit_new"
 	{
-		"BaseClass"	"npc_dota_creep_neutral"
+		"BaseClass"	"npc_dota_creep_lane"
 		"Model"	"models/development/invisiblebox.vmdl"
 		"SoundSet"	"Creep_Good_Range"
 		"Level"	"0"
@@ -10729,7 +10729,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/neutral_creeps/n_creep_ogre_med/n_creep_ogre_med.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"2"
  		"ModelScale" 					".90"
@@ -17240,7 +17240,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/item_creeps/i_creep_necro_archer/necro_archer.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"1"
  		"ModelScale" 					".90"
@@ -17310,7 +17310,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/neutral_creeps/n_creep_troll_dark_a/n_creep_troll_dark_a.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"2"
  		"ModelScale" 					".90"
@@ -17380,7 +17380,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/item_creeps/i_creep_necro_warrior/necro_warrior.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"3"
  		"ModelScale" 					".90"
@@ -17450,7 +17450,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/items/lone_druid/true_form/dark_wood_true_form/dark_wood_true_form.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"3"
  		"ModelScale" 					".90"
@@ -17520,7 +17520,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/items/lone_druid/true_form/wolf_hunter_true_form/wolf_hunter_true_form.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"4"
  		"ModelScale" 					".70"
@@ -17590,7 +17590,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_big.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"4"
  		"ModelScale" 					".90"
@@ -17660,7 +17660,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/heroes/lycan/summon_wolves.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"4"
  		"ModelScale" 					"1.40"
@@ -17730,7 +17730,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/heroes/lone_druid/spirit_bear.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"4"
  		"ModelScale" 					"1.40"
@@ -17800,7 +17800,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"4"
  		"ModelScale" 					"2.20"
@@ -17870,7 +17870,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/lane_creeps/creep_radiant_hulk/creep_radiant_diretide_ancient_hulk.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"4"
  		"ModelScale" 					".50"
@@ -17940,7 +17940,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/heroes/bounty_hunter/bounty_hunter.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"5"
  		"ModelScale" 				"1.50"
@@ -18010,7 +18010,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/neutral_creeps/n_creep_beast/n_creep_beast.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"5"
  		"ModelScale" 					"1.50"
@@ -18080,7 +18080,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/neutral_creeps/n_creep_forest_trolls/n_creep_forest_troll_high_priest.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"4"
  		"ModelScale" 					"1.60"
@@ -18150,7 +18150,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/lane_creeps/creep_bad_melee_diretide/creep_bad_melee_diretide.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"6"
  		"ModelScale" 					"2.0"
@@ -18220,7 +18220,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/items/terrorblade/marauders_demon/marauders_demon.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"6"
  		"ModelScale" 					"2.2"
@@ -18290,7 +18290,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/neutral_creeps/n_creep_centaur_lrg/n_creep_centaur_lrg.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"7"
  		"ModelScale" 					"1.50"
@@ -18360,7 +18360,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/neutral_creeps/n_creep_forest_trolls/n_creep_forest_troll_berserker.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"1"
  		"ModelScale" 					".90"
@@ -18430,7 +18430,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_melee.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"1"
  		"ModelScale" 					".90"
@@ -18500,7 +18500,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_melee_mega.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"1"
  		"ModelScale" 					".90"
@@ -18570,7 +18570,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/lane_creeps/creep_bad_ranged/lane_dire_ranged.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"1"
  		"ModelScale" 					"1.30"
@@ -18640,7 +18640,7 @@
  		// General
  		//----------------------------------------------------------------
  		"Model"						"models/creeps/lane_creeps/creep_bad_melee/creep_bad_melee.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_neutral"
+ 		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"1"
  		"ModelScale" 					"1.6"

@@ -420,7 +420,7 @@
 				"IsBuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"	"2"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"	"6"
 				}
 				"EffectName" "particles/generic_gameplay/natures_attendants.vpcf"
 				"EffectAttachType" "follow_overhead"

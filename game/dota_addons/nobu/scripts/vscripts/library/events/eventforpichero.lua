@@ -35,46 +35,26 @@ function Nobu:PickHero( keys )
           return 5
         end
         end)
-      -- 難度調整
-      Timers:CreateTimer( 2, function()
-        --[[
-        if _G.game_level == 1 and caster:IsAlive() then
-          if caster.level == 2 and not caster:HasModifier("modifier_debuff_1") then
-            caster:AddAbility("debuff_1"):SetLevel(1)
-            caster.modify_damage = 0.9
-          elseif caster.level == 3 and not caster:HasModifier("modifier_debuff_2") then
-            caster:AddAbility("debuff_2"):SetLevel(1)
-            caster.modify_damage = 0.8
-          end
-        elseif _G.game_level == 2 and caster:IsAlive() then
-          if caster.level == 3 and not caster:HasModifier("modifier_debuff_1") then
-            caster:AddAbility("debuff_1"):SetLevel(1)
-            caster.modify_damage = 0.9
-          end
-        end
-        ]]
-        if _G.game_level ~= nil and _G.game_level < 0 and IsValidEntity(caster) and caster:IsAlive() and caster.level ~= nil then
-          if caster.level == -1 and not caster:HasModifier("modifier_buff_4") then
-            caster:AddAbility("buff_4"):SetLevel(1)
-          elseif caster.level == 0 and not caster:HasModifier("modifier_buff_3") then
-            caster:AddAbility("buff_3"):SetLevel(1)
-          elseif caster.level == 1 and not caster:HasModifier("modifier_buff_2") then
-            caster:AddAbility("buff_2"):SetLevel(1)
-          elseif caster.level == 2 and not caster:HasModifier("modifier_buff_1") then
-            caster:AddAbility("buff_1"):SetLevel(1)
-          end
-        end
-        return 2
-      end)
-      -- 預設切換加入切換版本技能
+      caster:RemoveModifierByName("equilibrium_constant")
+      caster:RemoveAbility("Ability_capture")
       local nobu_id = _G.heromap[caster:GetName()]
+      -- 預設切換加入切換版本技能
+      --[[
+      
         for i = 0, caster:GetAbilityCount() - 1 do
           local ability = caster:GetAbilityByIndex( i )
           if ability  then
             caster:RemoveAbility(ability:GetName())
           end
         end
+        ]]
       if caster:GetTeamNumber() < 4 then
+        -- 要自動學習的技能
+        local askill = _G.heromap_autoskill[nobu_id]["16"]
+        for si=1,#askill do
+          caster:FindAbilityByName(nobu_id..askill:sub(si,si)):SetLevel(1)
+        end
+        --[[
         if _G.heromap_version[nobu_id] and _G.heromap_version[nobu_id]["11"] and _G.heromap_version[nobu_id]["11"] == true then
           caster:AddAbility("choose_11"):SetLevel(1)
         end
@@ -84,6 +64,7 @@ function Nobu:PickHero( keys )
         if _G.heromap_version[nobu_id] and _G.heromap_version[nobu_id]["20"] and _G.heromap_version[nobu_id]["20"] == true and _G.has20 == true then
           caster:AddAbility("choose_20"):SetLevel(1)
         end
+        ]]
         if _G.CountUsedAbility_Table == nil then
           _G.CountUsedAbility_Table = {}
         end

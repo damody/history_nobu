@@ -282,6 +282,11 @@ function B32T_20_upgrade( keys )
 	keys.caster:FindAbilityByName("B32D_20"):SetLevel(keys.ability:GetLevel())
 end
 
+function B32T_upgrade( keys )
+	keys.caster:FindAbilityByName("B32D"):SetLevel(keys.ability:GetLevel())
+end
+
+
 function B32D_20_OnHeroKilled( keys )
 	local caster = keys.caster
 	local ability = keys.ability

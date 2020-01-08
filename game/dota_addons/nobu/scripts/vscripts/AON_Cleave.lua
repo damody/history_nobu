@@ -6,7 +6,7 @@ function AON_Cleave_B32x(keys)
 	local level = ability:GetLevel() - 1
 	local dmg = keys.dmg
 	local per_atk = 0
-	local targetArmor = target:GetPhysicalArmorValue()
+	local targetArmor = target:GetPhysicalArmorValue(true)
 	local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 	--local dmg = dmg / (1 - damageReduction)
 
@@ -23,7 +23,7 @@ function AON_Cleave_A28T(keys)
 		local level = ability:GetLevel() - 1
 		local dmg = keys.dmg
 		local per_atk = 0
-		local targetArmor = target:GetPhysicalArmorValue()
+		local targetArmor = target:GetPhysicalArmorValue(true)
 		local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 		--local dmg = dmg / (1 - damageReduction)
 
@@ -48,7 +48,7 @@ function AON_Cleave_B32(keys)
 		local level = ability:GetLevel() - 1
 		local dmg = keys.dmg
 		local per_atk = 0
-		local targetArmor = target:GetPhysicalArmorValue()
+		local targetArmor = target:GetPhysicalArmorValue(true)
 		local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 		--local dmg = dmg / (1 - damageReduction)
 
@@ -75,7 +75,7 @@ function AON_Cleave_A07E(keys)
 		local level = ability:GetLevel() - 1
 		local dmg = keys.dmg
 		local per_atk = 0
-		local targetArmor = target:GetPhysicalArmorValue()
+		local targetArmor = target:GetPhysicalArmorValue(true)
 		local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 
 		local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
@@ -105,7 +105,7 @@ function AON_Cleave_A07T(keys)
 		local level = ability:GetLevel() - 1
 		local dmg = keys.dmg
 		local per_atk = 0
-		local targetArmor = target:GetPhysicalArmorValue()
+		local targetArmor = target:GetPhysicalArmorValue(true)
 		local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 
 		local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
@@ -137,7 +137,7 @@ function AON_Cleave_A07_20(keys)
 		local level = ability:GetLevel() - 1
 		local dmg = keys.dmg
 		local per_atk = 0
-		local targetArmor = target:GetPhysicalArmorValue()
+		local targetArmor = target:GetPhysicalArmorValue(true)
 		local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 
 		local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
@@ -173,7 +173,7 @@ function AON_Cleave_A07_old(keys)
 		local level = ability:GetLevel() - 1
 		local dmg = keys.dmg * dmgp
 		local per_atk = 0
-		local targetArmor = target:GetPhysicalArmorValue()
+		local targetArmor = target:GetPhysicalArmorValue(true)
 		local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 		--local dmg = dmg / (1 - damageReduction)
 
@@ -206,7 +206,7 @@ function AON_Cleave_A06(keys)
 		local level = ability:GetLevel() - 1
 		local dmg = keys.dmg
 		local per_atk = 0
-		local targetArmor = target:GetPhysicalArmorValue()
+		local targetArmor = target:GetPhysicalArmorValue(true)
 		local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 		--local dmg = dmg / (1 - damageReduction)
 		local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
@@ -238,7 +238,7 @@ function AON_Cleave(keys)
 		local level = ability:GetLevel() - 1
 		local dmg = keys.dmg
 		local per_atk = 0
-		local targetArmor = target:GetPhysicalArmorValue()
+		local targetArmor = target:GetPhysicalArmorValue(true)
 		local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 		--local dmg = dmg / (1 - damageReduction)
 		local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
@@ -255,12 +255,12 @@ function AON_Cleave(keys)
 			--看防的擴散
 			--[[
 			if it ~= target and it:IsHero() then
-				local targetArmor = it:GetPhysicalArmorValue()
+				local targetArmor = it:GetPhysicalArmorValue(true)
 				local damageReduction = ((0.06 * targetArmor) / (1 + 0.06* targetArmor))
 				print(keys.dmg.." damageReduction "..damageReduction)
 				
 			elseif it ~= target then
-				local targetArmor = it:GetPhysicalArmorValue()
+				local targetArmor = it:GetPhysicalArmorValue(true)
 				local damageReduction = ((0.5 * targetArmor) / (1 + 0.5* targetArmor))
 				print(keys.dmg.." damageReduction "..damageReduction)
 				AMHC:Damage( caster,it,keys.dmg*(1-damageReduction),AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
@@ -278,7 +278,7 @@ function AON_Cleave_C14(keys)
 		local ability = keys.ability
 		local dmg = keys.dmg
 		local per_atk = 0
-		local targetArmor = target:GetPhysicalArmorValue()
+		local targetArmor = target:GetPhysicalArmorValue(true)
 		local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 		--local dmg = dmg / (1 - damageReduction)
 
@@ -309,7 +309,7 @@ function AON_Cleave_C20(keys)
 		local ability = keys.ability
 		local dmg = keys.dmg
 		local per_atk = 0
-		local targetArmor = target:GetPhysicalArmorValue()
+		local targetArmor = target:GetPhysicalArmorValue(true)
 		local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 		--local dmg = dmg / (1 - damageReduction)
 
@@ -342,7 +342,7 @@ function AON_Cleave_robbers_skill(keys)
 		local ability = keys.ability
 		local dmg = keys.dmg
 		local per_atk = 0
-		local targetArmor = target:GetPhysicalArmorValue()
+		local targetArmor = target:GetPhysicalArmorValue(true)
 		local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 		--local dmg = dmg / (1 - damageReduction)
 
@@ -367,7 +367,7 @@ function AON_Cleave_A08(keys)
 	local ability = keys.ability
 	local dmg = keys.dmg
 	local per_atk = 0
-	local targetArmor = target:GetPhysicalArmorValue()
+	local targetArmor = target:GetPhysicalArmorValue(true)
 	local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 	--local dmg = dmg / (1 - damageReduction)
 
@@ -378,7 +378,7 @@ function AON_Cleave_A08(keys)
 	for _, it in pairs(group) do
 		if _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then
 			if it ~= target then
-				AMHC:Damage( caster,it,keys.dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				AMHC:Damage( caster,it,keys.dmg*0.6,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 			end
 		end
 	end
@@ -392,7 +392,7 @@ function AON_Cleave_A03(keys)
 	local ability = keys.ability
 	local dmg = keys.dmg
 	local per_atk = 0
-	local targetArmor = target:GetPhysicalArmorValue()
+	local targetArmor = target:GetPhysicalArmorValue(true)
 	local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 	--local dmg = dmg / (1 - damageReduction)
 

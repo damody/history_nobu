@@ -16,9 +16,9 @@
 		"Ability1"	"B10W"
 		"Ability2"	"B10E"
 		"Ability3"	"B10R"
-		"Ability4"	"B10T"
-		"Ability5"	"attribute_bonusx"
-		"Ability6"	"B10_precache"
+		"Ability4"	"attribute_bonusx"
+		"Ability5"	"B10_precache"
+		"Ability6"	"B10T"
 		"Ability7"	""
 		//Armor
 		// --------------------------------------------------------------

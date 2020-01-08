@@ -94,13 +94,13 @@ function _G.Nobu:InitGameMode()
   GameMode:SetRecommendedItemsDisabled( false )--禁止推薦
   GameMode:SetBuybackEnabled( false ) --關閉英雄買活功能
   GameMode:SetTopBarTeamValuesOverride ( false )
-  --GameMode:SetTopBarTeamValuesVisible( true ) --?
+  GameMode:SetTopBarTeamValuesVisible( false ) --?
   -- GameMode:SetUnseenFogOfWarEnabled( UNSEEN_FOG_ENABLED )
   GameMode:SetTowerBackdoorProtectionEnabled( false )--關閉偷塔保護
   -- GameMode:SetGoldSoundDisabled( false )
   GameMode:SetRemoveIllusionsOnDeath( true )--死亡會不會有陰影
   --GameMode:SetAnnouncerDisabled( true )
-  GameMode:SetLoseGoldOnDeath( false )--死亡會不會掉錢
+  GameMode:SetLoseGoldOnDeath( true )--死亡會不會掉錢
   --GameMode:SetCameraDistanceOverride( 1150 )--攝像頭距離
   GameMode:SetUseCustomHeroLevels ( true )-- 允許自定義英雄等級
   --GameMode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
@@ -120,9 +120,9 @@ function _G.Nobu:InitGameMode()
   --GameMode:SetCustomGameForceHero("npc_dota_hero_dragon_knight") --強迫選擇英雄 (可以跳過選角畫面)
   
   --【HUD】
-  -- GameMode:SetHUDVisible(0,  false) --Clock
-  -- GameMode:SetHUDVisible(1,  false)
-  -- GameMode:SetHUDVisible(2,  false)
+  --GameMode:SetHUDVisible(0,  false) --Clock
+   GameMode:SetHUDVisible(1,  false)
+   GameMode:SetHUDVisible(2,  false)
   -- GameMode:SetHUDVisible(3,  false) --Action Panel
   -- GameMode:SetHUDVisible(4,  false) --Minimap
   -- GameMode:SetHUDVisible(5,  false) --Inventory

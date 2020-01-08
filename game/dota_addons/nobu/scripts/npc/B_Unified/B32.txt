@@ -29,10 +29,10 @@
 		"AbilityCastPoint"	"0.1"
 		"AbilityCastAnimation"	"ACT_DOTA_ATTACK"
 		"AnimationPlaybackRate"	"2"
-		"MaxLevel" "1"
+		"MaxLevel" "3"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"12"
+		"AbilityCooldown"	"25"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"80"
@@ -68,14 +68,15 @@
 				"States"
 				{
 					"MODIFIER_STATE_PROVIDES_VISION"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_DISABLED"
 					"MODIFIER_STATE_SILENCED" "MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"-30"
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%nerf"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%nerf"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%nerf"
 				}
-				"Duration"	"8"
+				"Duration"	"%duration"
 				"ThinkInterval"	"1"
 				"OnIntervalThink"
 				{
@@ -83,9 +84,68 @@
 					{
 						"Target"		"TARGET"
 						"Type"			"DAMAGE_TYPE_MAGICAL"
-						"Damage"		"50"
+						"Damage"		"%damage"
 					}
 				}
+			}
+			"modifier_B32D_20_buff_for_soldier"
+			{
+				"IsBuff"	"1"
+				"Duration"	"5"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"50"
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" 	"50" 
+				}
+			}
+			"modifier_B32D_20_buff_for_hero"
+			{
+				"IsBuff"	"1"
+				"Duration"	"5"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+			
+				"EffectName" "particles/b32/b32d20buff.vpcf"
+				"EffectAttachType"	"follow_overhead"
+			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"50"
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" 	"50" 
+				}
+			}
+			"modifier_B32D_20"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+
+				"OnHeroKilled"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B32_Uesugi_Kenshin.lua"
+						"Function"	"B32D_20_OnHeroKilled"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"5"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"10 20 30"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"nerf"	"-10 -20 -30"
 			}
 		}
 	}
@@ -250,7 +310,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"speed"	"50 80 110 140"
+				"speed"	"90 120 150 180"
 			}
 			"03"
 			{
@@ -899,6 +959,14 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_brewmaster.vsndevts"
 			"particle"	"particles/b32/b32t_orb.vpcf"
 		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B32_Uesugi_Kenshin.lua"
+				"Function"		"B32T_upgrade"
+			}
+		}
 		"OnSpellStart"
 		{
 			"FireSound"
@@ -924,11 +992,6 @@
 			{
 				"Target"	"CASTER"
 				"EffectName"	"stormspirit_ss_ability_lightning_14"
-			}
-			"RunScript"
-			{
-				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B32_Uesugi_Kenshin.lua"
-				"Function"	"B32T_Start"
 			}
 			"RunScript"
 			{
@@ -962,15 +1025,6 @@
 					}
 				}
 				"ThinkInterval"	"0.5"
-				"States"	{}
-				"OnDestroy"	
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B32_Uesugi_Kenshin.lua"
-						"Function"	"B32T_End"
-					}
-				}
 				"OnAttackLanded"
 				{
 					"RunScript"
@@ -1249,19 +1303,19 @@
 			"modifier_B32D_20_buff_for_soldier"
 			{
 				"IsBuff"	"1"
-				"Duration"	"10"
+				"Duration"	"5"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"20"
-				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" 	"20" 
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"50"
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" 	"50" 
 				}
 			}
 			"modifier_B32D_20_buff_for_hero"
 			{
 				"IsBuff"	"1"
-				"Duration"	"10"
+				"Duration"	"5"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 			
 				"EffectName" "particles/b32/b32d20buff.vpcf"
@@ -1269,8 +1323,8 @@
 			
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"20"
-				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" 	"20" 
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"50"
+				    "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" 	"50" 
 				}
 			}
 			"modifier_B32D_20"
@@ -1298,12 +1352,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"20 30 40"
+				"damage"	"10 20 30"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"nerf"	"-20 -30 -40"
+				"nerf"	"-10 -20 -30"
 			}
 		}
 	}

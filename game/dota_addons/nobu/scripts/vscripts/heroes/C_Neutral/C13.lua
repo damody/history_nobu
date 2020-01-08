@@ -81,7 +81,7 @@ function C13R_OnAttackLanded( keys )
 	local attacker = keys.attacker
 	local target = keys.target
 	local ability = keys.ability
-	local targetArmor = target:GetPhysicalArmorValue()
+	local targetArmor = target:GetPhysicalArmorValue(true)
 	--print("steal "..dmg*keys.StealPercent*0.02*(1-damageReduction))
 	if target:IsBuilding() then
 		local hp = target:GetHealth()

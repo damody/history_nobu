@@ -13,8 +13,8 @@
  		"Ability2"	"A34E"
  		"Ability3"	"A34R"
  		"Ability4"	"attribute_bonusx"
- 		"Ability5"	"A34T"
- 		"Ability6"	"A34_precache"
+ 		"Ability5"	"A34_precache"
+ 		"Ability6"	"A34T"
  		// Armor
  		// ----------------------------------------------------------------
  		"ArmorPhysical"	"2"
@@ -78,7 +78,7 @@
  		"Ability13"	""
  		"Ability14"	""
  		"Ability15"	""
- 		"Ability16"	""
+		 
  		"override_hero"	"npc_dota_hero_crystal_maiden"
  		"AbilityLayout"	"6"
  	}	

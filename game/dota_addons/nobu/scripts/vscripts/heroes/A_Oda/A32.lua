@@ -314,7 +314,7 @@ function A32F_OnToggleOn( event )
 		if caster.next_attack ~= nil then
 			caster.next_attack.ability = ability
 
-			local targetArmor = caster.next_attack.victim:GetPhysicalArmorValue()
+			local targetArmor = caster.next_attack.victim:GetPhysicalArmorValue(true)
 			local damageReduction = ((0.06 * targetArmor) / (1 + 0.06* targetArmor))
 			caster.next_attack.damage = caster.next_attack.damage/(1-damageReduction)
 
@@ -447,7 +447,7 @@ function A32T_old_OnToggleOn( event )
 		if caster.next_attack ~= nil then
 			caster.next_attack.ability = ability
 			--[[
-			local targetArmor = caster.next_attack.victim:GetPhysicalArmorValue()
+			local targetArmor = caster.next_attack.victim:GetPhysicalArmorValue(true)
 			local damageReduction = ((0.06 * targetArmor) / (1 + 0.06* targetArmor))
 			caster.next_attack.damage = caster.next_attack.damage/(1-damageReduction)
 			]]

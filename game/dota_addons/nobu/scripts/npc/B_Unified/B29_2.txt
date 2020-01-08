@@ -1,4 +1,4 @@
-﻿//三好長慶
+﻿//村上義清	
 "DOTAHeroes"
  {
 	"B29"
@@ -16,9 +16,9 @@
 		"Ability1"	"B29W"
 		"Ability2"	"B29E"
 		"Ability3"	"B29R"
-		"Ability4"	"B29T"
-		"Ability5"	"attribute_bonusx"
-		"Ability6"	"B29_precache"
+		"Ability4"	"attribute_bonusx"
+		"Ability5"	"B29_precache"
+		"Ability6"	"B29T"
 		"Ability7"	""
 		//Armor
 		// --------------------------------------------------------------

@@ -25,7 +25,7 @@ function StealLife(keys)
 		if (caster.nobuorb1 == "muramasa_katana" or caster.nobuorb1 == "illusion" or caster.nobuorb1 == nil) and not target:IsBuilding() then
 			caster.nobuorb1 = "muramasa_katana"
 			local damageReduction = 0
-			local targetArmor = target:GetPhysicalArmorValue()
+			local targetArmor = target:GetPhysicalArmorValue(true)
 			if targetArmor > 0 then
 				damageReduction = ((0.06 * targetArmor) / (1 + 0.06* targetArmor))
 			else
@@ -56,7 +56,7 @@ function StealLife2(keys)
 		local dmg = keys.dmg
 		if not target:IsBuilding() then
 			local damageReduction = 0
-			local targetArmor = target:GetPhysicalArmorValue()
+			local targetArmor = target:GetPhysicalArmorValue(true)
 			if targetArmor > 0 then
 				damageReduction = ((0.06 * targetArmor) / (1 + 0.06* targetArmor))
 			else

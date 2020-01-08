@@ -112,7 +112,7 @@ function C10R(keys)
 	local level = ability:GetLevel() - 1
 	local dmg = keys.dmg
 	local per_atk = 0
-	local targetArmor = target:GetPhysicalArmorValue()
+	local targetArmor = target:GetPhysicalArmorValue(true)
 	local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
 	local dmg = dmg / (1 - damageReduction)
 	local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),

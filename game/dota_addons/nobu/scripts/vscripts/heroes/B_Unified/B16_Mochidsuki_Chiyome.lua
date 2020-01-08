@@ -497,7 +497,7 @@ function B16W_old_attack(keys)
 	local dmg = keys.dmg
 	--print("B01R "..dmg)
 	local per_atk = 0
-	local targetArmor = target:GetPhysicalArmorValue()
+	local targetArmor = target:GetPhysicalArmorValue(true)
 
 	if target:IsHero() then 
 		per_atk = ability:GetLevelSpecialValueFor("atk_hero",level)

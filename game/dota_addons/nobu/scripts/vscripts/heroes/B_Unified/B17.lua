@@ -30,7 +30,7 @@ function B17W_onAttackLanded( keys )
 	if RandomInt(1,100) < 20 and not target:IsMagicImmune() and not target:IsBuilding() then
 		ability:ApplyDataDrivenModifier(attacker,target,"modifier_stunned",{duration=0.5})
 	end
-	local targetArmor = target:GetPhysicalArmorValue()
+	local targetArmor = target:GetPhysicalArmorValue(true)
 	if target:IsHero() then
 		damageReduction = ((0.06 * targetArmor) / (1 + 0.06* targetArmor))
 	else

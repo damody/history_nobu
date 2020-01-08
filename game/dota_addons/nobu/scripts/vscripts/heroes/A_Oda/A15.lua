@@ -235,7 +235,7 @@ function A15_LifeSteal( caster, target, damage, lifeSteal )
 end
 
 function CalcDamageAfterReduction( target, damage )
-	local armor = target:GetPhysicalArmorValue()
+	local armor = target:GetPhysicalArmorValue(true)
 	-- The damage multiplier for both positive and negative armor:
 	-- Damage multiplier = 1 - 0.06 × armor ÷ (1 + 0.06 × |armor|)
 	local multiplier = 1 - 0.06 * armor / ( 1 + 0.06 * math.abs(armor) )

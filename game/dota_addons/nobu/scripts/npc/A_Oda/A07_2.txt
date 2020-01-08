@@ -15,15 +15,10 @@
 		// ----------------------------------------------------------------
 		// Reference: AInv
 		"Ability1"	"A07W"
-		
 		"Ability2"	"A07E"
-
 		"Ability3"	"A07R"
-
-		"Ability4"	"A07D"
-
-		"Ability5"	"attribute_bonusx"
-
+		"Ability4"	"attribute_bonusx"
+		"Ability5"	"A07D"
 		"Ability6"	"A07T"
 
 		"Ability7"	"A07_precache"
