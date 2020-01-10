@@ -224,7 +224,7 @@
 			"01" // 每次彈跳增加的傷害比例
 			{
 				"var_type" 				"FIELD_FLOAT"
-				"bonus_damage" 			"-0.1"
+				"bonus_damage" 			"-0.2"
 			}
 			"02"
 			{

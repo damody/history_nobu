@@ -195,10 +195,7 @@ function B16_AbilityAdjust( keys )
 		-- Todo: 調整月月能力
 		local caster_level = caster:GetLevel()
 		moonMoon:FindModifierByName("modifier_B16D_MoonMoon"):SetStackCount(caster_level)
-		local hp = caster:GetMaxHealth()+caster:GetLevel()*100
-		if hp > 2200 then
-			hp =  2200
-		end
+		local hp = caster:GetMaxHealth()
 		moonMoon:SetBaseMaxHealth(hp)
 	end
 end
@@ -270,7 +267,7 @@ function B16MMD_M_Think( keys )
 	local ability = keys.ability
 
 	-- 判斷雙方距離決定是否開啟此技能
-	if IsValidEntity(target) and target:IsAlive() and CalcDistanceBetweenEntityOBB(caster,target) <= 1600 then
+	if IsValidEntity(target) and target:IsAlive() and CalcDistanceBetweenEntityOBB(caster,target) <= 1000 then
 		ability:SetActivated(true)
 	else
 		ability:SetActivated(false)

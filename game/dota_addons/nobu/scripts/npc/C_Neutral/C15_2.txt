@@ -15,7 +15,7 @@
 		"SoundSet"	"Hero_Mirana"
 		"PickSound"	"mirana_mir_spawn_01"
 		"BanSound"	"mirana_mir_anger_01"
-		"ModelScale"	"1.3"
+		"ModelScale"	"1.1"
 		//"Model"	"models/c15/c15.vmdl"
 		//"DisableWearables"	"1"
 		"HeroGlowColor"	"220 194 248"
@@ -29,8 +29,8 @@
 		"Ability2"	"C15E"
 		"Ability3"	"C15R"
 		"Ability4"	"attribute_bonusx"
-		"Ability5"	"C15T"
-		"Ability6"	"C15_precache"
+		"Ability5"	"C15_precache"
+		"Ability6"	"C15T"
 		"Ability7"	""
 		// Armor
 		// ----------------------------------------------------------------

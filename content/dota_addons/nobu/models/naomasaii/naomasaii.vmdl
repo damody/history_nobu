@@ -13,8 +13,10 @@
 				m_bExpensiveTangents = false
 				m_bHighPrecisionTexCoords = false
 				m_bPerVertexCurvature = false
+				m_bBentNormals = false
 				m_bIgnoreCloth = false
 				m_bGetSkinningFromLod0 = false
+				m_bPreferHighDensityTrianglesInUvDensityCalculation = false
 				m_pMorphInfo = null
 			},
 		]
@@ -30,7 +32,7 @@
 		m_flMatchProxiesToMeshes = 1.0
 		m_flFallbackEnvelope = 1.0
 		m_nReservedInt = 0
-		m_bReservedBool1 = false
+		m_bSoftSkinAnimation = false
 		m_bReservedBool2 = false
 		m_bReservedBool3 = false
 		m_bReservedBool4 = false
@@ -279,10 +281,6 @@
 		m_pObject = 
 		{
 			m_Name = ""
-			m_pReferenceSkeleton = 
-			{
-				m_pObject = null
-			}
 			m_pBoneFlagList = 
 			{
 				m_pObject = null
@@ -779,6 +777,10 @@
 			m_sScripts = [  ]
 			m_folderNames = [  ]
 			m_sCompileScripts = [  ]
+			m_pActivityWhiteList = 
+			{
+				m_pObject = null
+			}
 		}
 	}
 	m_pMaterialGroupList = 
@@ -813,7 +815,7 @@
 		m_vMaterialRemapList = 
 		[
 			{
-				m_sSearchMaterial = "tornado2b.vmat"
+				m_sSearchMaterial = "03_-_default.vmat"
 				m_sReplaceMaterial = "materials/naomasaii/naomasaii.vmat"
 			},
 			{
@@ -829,6 +831,7 @@
 	m_flFbxScale = 1.0
 	m_flQCScale = 1.0
 	m_vOrigin = [ 0.0, 0.0, 0.0 ]
+	m_bEmbedAnimsInAnimGroup = false
 	m_pPsfList = null
 	m_keyValueText = ""
 	m_bStaticProp = false

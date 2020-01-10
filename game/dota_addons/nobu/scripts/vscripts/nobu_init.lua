@@ -13,24 +13,6 @@ function _G.Nobu:InitGameMode()
     _G.mo = 1
     _G.game_level = 99
   end
-  if _G.GameMap == "nobu_hardcore" then
-    _G.hardcore = 1
-  end
-  if GetMapName() == "nobu" then
-    _G.game_level = -99
-  end
-  if GetMapName() == "lv1_bronze" then
-    _G.game_level = 1
-  end
-  if GetMapName() == "lv2_silver" then
-    _G.game_level = 2
-  end
-  if GetMapName() == "lv3_gold" then
-    _G.game_level = 3
-  end
-  if GetMapName() == "nobu_rank" then
-    _G.game_level = 4
-  end
 
   --【Setup rules】
   -- --LimitPathingSearchDepth(0.5)
@@ -53,7 +35,7 @@ function _G.Nobu:InitGameMode()
   -- 別在顯示pk畫面了
   GameRules:SetStrategyTime( 10 )
   GameRules:SetShowcaseTime( 1 )
-  GameRules:SetStartingGold( 2000 )
+  
   --GameRules:SetCustomGameTeamMaxPlayers(2, 7)
   --GameRules:SetCustomGameTeamMaxPlayers(3, 7)
 
@@ -69,14 +51,11 @@ function _G.Nobu:InitGameMode()
   GameRules:SetTreeRegrowTime( 10000.0 )--设置砍倒的树木重生时间
   GameRules:SetUseCustomHeroXPValues ( true )-- 是否使用自定義的英雄經驗
   
-  if _G.mo then
-    GameRules:SetGoldPerTick(20)-- 設置金錢
-    GameRules:SetGoldTickTime(2)--金錢跳錢秒數
-  else
-    GameRules:SetGoldPerTick(15)-- 設置金錢
-    GameRules:SetGoldTickTime(3)--金錢跳錢秒數
-  end
-  GameRules:SetUseBaseGoldBountyOnHeroes( true ) --设置是否对英雄使用基础金钱奖励
+  GameRules:SetStartingGold(0)
+  GameRules:SetGoldPerTick(0)
+  GameRules:SetGoldTickTime(0)
+
+  GameRules:SetUseBaseGoldBountyOnHeroes( false ) --设置是否对英雄使用基础金钱奖励
   GameRules:SetFirstBloodActive(true) --設置第一殺獎勵
   GameRules:SetCustomGameEndDelay(30) --遊戲結束時間 --正常30
   GameRules:SetCustomVictoryMessageDuration(3)  --遊戲結束發送訊息時間
@@ -90,7 +69,6 @@ function _G.Nobu:InitGameMode()
   -- GameRules:EnableCustomGameSetupAutoLaunch( false )
 
   --【Set game GameMode rules】
-  -- GameMode = GameRules:GetGameModeEntity()
   GameMode:SetRecommendedItemsDisabled( false )--禁止推薦
   GameMode:SetBuybackEnabled( false ) --關閉英雄買活功能
   GameMode:SetTopBarTeamValuesOverride ( false )
@@ -121,8 +99,8 @@ function _G.Nobu:InitGameMode()
   
   --【HUD】
   --GameMode:SetHUDVisible(0,  false) --Clock
-   GameMode:SetHUDVisible(1,  false)
-   GameMode:SetHUDVisible(2,  false)
+  --GameMode:SetHUDVisible(1,  false)
+  --GameMode:SetHUDVisible(2,  false)
   -- GameMode:SetHUDVisible(3,  false) --Action Panel
   -- GameMode:SetHUDVisible(4,  false) --Minimap
   -- GameMode:SetHUDVisible(5,  false) --Inventory

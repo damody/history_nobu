@@ -125,7 +125,6 @@
 	"item"      "item_mana_boots"			//仕手能靴
 	"item"      "item_magic_defence_boots"			//禦魔長踏
 	"item"      "item_ryukyu_ronin_clogs"			//琉球浪人木屐
-	"item"      "item_death_of_scepter"			//逝者之笏
 	"item"      "item_the_shell_of_spirituality_kappa"			//妖化河童殼
 	"item"      "item_kotennmyohiragumo"			//平蜘蛛釜
 	"item"      "item_magic_talisman"			//御魔護符

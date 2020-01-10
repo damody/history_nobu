@@ -42,7 +42,7 @@
 		"AbilityManaCost"	"120 140 160 180"
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"	"1800"
+		"AbilityCastRange"	"800"
 		"AOERadius"	"%radius"
 		// Data driven
 		// -------------------------------------------------------------------------------------------------------------
@@ -338,7 +338,7 @@
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityCooldown"	"5 7 9"
+		"AbilityCooldown"	"5"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
 		"AbilityManaCost"	"100 175 250"
@@ -462,7 +462,7 @@
 			"06"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"attack_speed_bonus"	"-100"
+				"attack_speed_bonus"	"-125"
 			}
 			"07"
 			{
@@ -472,7 +472,7 @@
 			"08"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"lock"	"4 6 8"
+				"lock"	"5"
 			}
 		}
 	}

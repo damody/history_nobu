@@ -374,18 +374,14 @@ function B05T( event )
 		if it:IsHero() then
 			ParticleManager:CreateParticle("particles/shake2.vpcf", PATTACH_ABSORIGIN, it)
 		end
-		ability:ApplyDataDrivenModifier(caster, it,"modifier_B05T",nil)
+		--ability:ApplyDataDrivenModifier(caster, it,"modifier_B05T",nil)
 	end
 
 	
 	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
    --添加馬甲技能
 	dummy:AddAbility("majia"):SetLevel(1)
-	--刪除馬甲
-   	Timers:CreateTimer( 10.0, function()
-		dummy:ForceKill( true )
-		return nil
-	end )
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=10})
 
 	--SE1
 	-- Checks if the target has been set yet
@@ -397,7 +393,7 @@ function B05T( event )
 
 	-- Plays the sound on the target
 	--EmitSoundOn(event.sound, dummy)
-  	dummy:EmitSoundParams(event.sound,1000,1000.0,5.0)
+  	dummy:EmitSoundParams(event.sound,1,1,5.0)
 	-- dummy:EmitSoundParams("event.sound",100,100.0,5.0)
 
 								-- local particle2=ParticleManager:CreateParticle("particles/b05t4/b05t4.vpcf",PATTACH_WORLDORIGIN,dummy)

@@ -144,9 +144,9 @@ function Nobu:PickHero( keys )
         end)
       elseif nobu_id == "B08" then -- 淺井長政
         Timers:CreateTimer(1, function ()
-          if (caster:GetLevel() >= 18) then
-            if caster:FindAbilityByName("B08D_old") then
-              caster:FindAbilityByName("B08D_old"):SetLevel(1)
+          if (caster:GetLevel() >= 16) then
+            if caster:FindAbilityByName("B08D") then
+              caster:FindAbilityByName("B08D"):SetLevel(1)
             end
             return nil
           end

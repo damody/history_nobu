@@ -250,6 +250,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%A25R_attack"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%A25R_attack"
 				}
 				"IsBuff"	"0"
 			}
@@ -259,7 +260,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"crit_persent"	"250 300 350 400"
+				"crit_persent"	"200 250 300 350"
 			}
 			"02"
 			{
@@ -382,7 +383,7 @@
 // 織田信長 11.2B
 // ----------------------------------------------------------------------------------------------------------------
 	// 織田信長 [天下布武]
-	"A25D_old"
+	"A25D"
 	{
 		"MaxLevel" 						"1"
 		"BaseClass"             		"ability_datadriven"
@@ -452,17 +453,17 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"buff_duration"		"10.0"
+				"buff_duration"		"5.0"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"buff_atk_spd"	"20"
+				"buff_atk_spd"	"100"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"buff_mov_spd"	"15"
+				"buff_mov_spd"	"100"
 			}
 		}
 	}	

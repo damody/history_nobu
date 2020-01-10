@@ -58,7 +58,7 @@ function GameCanPlay(callback)
 end
 
 _G.blacklist = {
-	"338693950", --玩遊戲玩死你
+	--"338693950", --玩遊戲玩死你
 	
 }
 
@@ -157,18 +157,6 @@ function Nobu:OpenRoom()
 	if GetMapName() == "nobu_pk" then
 		_G.game_level = 99
 	end
-	if GetMapName() == "lv1_bronze" then
-		_G.game_level = 1
-	end
-	if GetMapName() == "lv2_silver" then
-		_G.game_level = 2
-	end
-	if GetMapName() == "lv3_gold" then
-		_G.game_level = 3
-	end
-	if GetMapName() == "nobu_rank" then
-		_G.game_level = 4
-	end
 	Timers:CreateTimer( 5, function()
 		local ids = {}
 		local idcount = 0
@@ -182,80 +170,6 @@ function Nobu:OpenRoom()
 		SendHTTPRequest("open_room", "POST",
 		ids,
 		function(result)
-			-- Decode response into a lua table
-			local resultTable = {}
-			if not pcall(function()
-				resultTable = json.decode(result)
-				DumpTable(resultTable)
-			end) then
-				Warning("[dota2.tools.Storage] Can't decode result: " .. result)
-			end
-			_G.rankTable = resultTable
-			for pID = 0, 9 do
-				local steamID = PlayerResource:GetSteamAccountID(pID)
-				local player = PlayerResource:GetPlayer(pID)
-		        if player then
-		          local hero = player:GetAssignedHero()
-		          if hero then
-			        local nobu_id = _G.heromap[hero:GetName()]
-			        local heroname = _G.hero_name_zh[nobu_id]
-					steamID = tostring(steamID)
-					if resultTable[steamID] ~= nil then
-						local playcount = 100
-						if resultTable[steamID.."count"] then
-							playcount = resultTable[steamID.."count"]
-						end
-						if idcount < 2 then
-							GameRules: SendCustomMessage("<font color='#fcac4b'>".."你的勝率為 "..(resultTable[steamID]*100).." </font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-							if resultTable[steamID.."count"] then
-								GameRules: SendCustomMessage("<font color='#fcac4b'>".."你的信長總場數為 "..(playcount).." 場</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-							end
-						end
-						
-						if resultTable[steamID] <=0.35 or playcount < 10 or (playcount < 50 and resultTable[steamID] < 0.6) then
-							hero.level = -1
-							if _G.game_level < 0 then
-								if idcount < 2 then
-									GameRules: SendCustomMessage("<font color='#fcac4b'>"..heroname.."是新銅學大家不要欺負他喔".."</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-								end
-							else
-								GameRules: SendCustomMessage("<font color='#bb6c00'>"..heroname.."為木牌".."</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-							end
-						elseif resultTable[steamID] <=0.50 then
-							if idcount < 2 then
-								GameRules: SendCustomMessage("<font color='#bb6c00'>"..heroname.."為銅牌".."</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-							end
-							hero.level = 0
-						elseif resultTable[steamID] <=0.55 then
-							if idcount < 2 then
-								GameRules: SendCustomMessage("<font color='#ff8c00'>"..heroname.."為銅牌".."</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-							end
-							hero.level = 1
-						elseif resultTable[steamID] <=0.65 then
-							if idcount < 2 then
-								GameRules: SendCustomMessage("<font color='#b5b4b3'>"..heroname.."為銀牌".."</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-							end
-							hero.level = 2
-						else
-							if idcount < 2 then
-								GameRules: SendCustomMessage("<font color='#ffe01c'>"..heroname.."為金牌".."</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-							end
-							hero.level = 3
-						end
-					end
-				  end
-				end
-			end
-			-- If we get an error response, successBool should be false
-			if resultTable ~= nil and resultTable["errors"] ~= nil then
-				callback(resultTable["errors"], false)
-				return
-			end
-			-- If we get a success response, successBool should be true
-			if resultTable ~= nil and resultTable["data"] ~= nil  then
-				callback(resultTable["data"], true)
-				return
-			end
 		end )
 	end)
 end

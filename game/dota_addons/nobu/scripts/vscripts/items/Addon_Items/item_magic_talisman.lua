@@ -85,7 +85,7 @@ function modifier_magic_talisman:OnTakeDamage(event)
 								local item = self.caster:GetItemInSlot(itemSlot)
 								if item ~= nil and item:GetName() == "item_magic_talisman" then
 									hasitem = true
-									item:StartCooldown(20)
+									item:StartCooldown(80)
 								end
 							end
 						end

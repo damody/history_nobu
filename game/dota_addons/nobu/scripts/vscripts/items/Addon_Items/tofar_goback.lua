@@ -88,8 +88,6 @@ function choose_16( keys )
     		caster:AddAbility("buff_"..i):SetLevel(1)
     	end
     end
-    caster:AddAbility("halloween_attack"):SetLevel(1)
-    
 end
 
 function choose_11( keys )

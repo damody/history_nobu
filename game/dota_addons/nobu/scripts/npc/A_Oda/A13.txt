@@ -258,9 +258,9 @@
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"HotKeyOverride"	"W"
 		"MaxLevel"	"4"
-		"AbilityCastPoint"	"0.3"
-		"AbilityCooldown"	"3"
-		"AbilityManaCost"	"250 300 350 400"
+		"AbilityCastPoint"	"0"
+		"AbilityCooldown"	"15"
+		"AbilityManaCost"	"200 250 300 350"
 		"precache"
 		{
 			"soundfile"	"sounds/weapons/hero/riki/riki_blinkstrike.vsnd"
@@ -409,7 +409,7 @@
 		"AbilityTextureName"	"custom/A13E"
 		"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A13_Hattori_Hanzo.lua"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"	"1"
 		"AbilityCastPoint"	"0.3"	//move
@@ -418,10 +418,10 @@
 		"AbilityCooldown"	"14 11 8 5"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"140 160 180 200"
+		"AbilityManaCost"	"100 120 140 160"
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"	"400 600 800 1200"
+		"AbilityCastRange"	"400 600 800 1000"
 		// Precache
 		// -------------------------------------------------------------------------------------------------------------
 		"precache"
@@ -456,7 +456,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"hook_distance"	"500 700 900 1300"
+				"hook_distance"	"400 600 800 1000"
 			}
 			"04"
 			{
@@ -657,7 +657,7 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"riki_tricks_of_the_trade"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
 		"LevelsBetweenUpgrades"	"6"
@@ -668,7 +668,7 @@
 		"AbilityCooldown"	"130"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"200 300 400"
+		"AbilityManaCost"	"200"
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"	"300"
@@ -806,7 +806,7 @@
 			"09"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"65 90 115"
+				"damage"	"90 110 130"
 			}
 		}
 	}

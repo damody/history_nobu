@@ -461,8 +461,9 @@ function modifier_C08T_bleeding_OnIntervalThink( keys )
 	else
 		target:SetAbsOrigin(caster:GetAbsOrigin())
 		if caster.C08T_IsMagicImmune == false then
-			AMHC:Damage(caster.donkey,target,abilityDamage,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+			
 		end
+		AMHC:Damage(caster.donkey,target,abilityDamage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 	end
 	caster.last_pos = caster:GetAbsOrigin()
 end

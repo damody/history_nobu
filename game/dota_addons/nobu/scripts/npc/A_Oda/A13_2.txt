@@ -15,8 +15,8 @@
 		"Ability1"	"A13W"
 		"Ability2"	"A13E"
 		"Ability3"	"A13R"
-		"Ability4"	"A13D"
-		"Ability5"	"attribute_bonusx"
+		"Ability4"	"attribute_bonusx"
+		"Ability5"	"A13D"
 		"Ability6"	"A13T"
 		"Ability7"	"A13_precache"
 		// Armor
@@ -41,7 +41,7 @@
 		"AttributeStrengthGain"	"2.0"
 		"AttributeBaseAgility"	"32"
 		"AttributeAgilityGain"	"2.85"
-		"AttributeBaseIntelligence"	"24"
+		"AttributeBaseIntelligence"	"28"
 		"AttributeIntelligenceGain"	"2"
 		// Bounty
 		// ----------------------------------------------------------------

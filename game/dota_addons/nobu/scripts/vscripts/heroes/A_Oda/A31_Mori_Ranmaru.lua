@@ -58,10 +58,12 @@ function A31W( keys )
 	
 	caster:StartGesture( ACT_DOTA_OVERRIDE_ABILITY_1 )
 	local lv = caster:FindAbilityByName("A31T"):GetLevel()
-	keys.ability:ApplyDataDrivenModifier(caster, caster,"modifier_A31W", {duration = 10})
-	local handle = caster:FindModifierByName("modifier_A31W")
-	if handle then
-		handle:SetStackCount(lv)
+	if lv > 0 then
+		keys.ability:ApplyDataDrivenModifier(caster, caster,"modifier_A31W", {duration = 10})
+		local handle = caster:FindModifierByName("modifier_A31W")
+		if handle then
+			handle:SetStackCount(lv)
+		end
 	end
 
 	Timers:CreateTimer( 1, 

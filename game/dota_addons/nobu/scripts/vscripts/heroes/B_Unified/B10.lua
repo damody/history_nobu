@@ -494,9 +494,9 @@ function B10R_OnAttackLanded( keys )
 			caster.B10R = 0
 			caster:Heal(ability:GetAbilityDamage(),ability)
 			if target:IsMagicImmune() then
-				AMHC:Damage( caster,target,ability:GetAbilityDamage()*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+				AMHC:Damage( caster,target,ability:GetAbilityDamage()*0.5,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			else
-				AMHC:Damage( caster,target,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+				AMHC:Damage( caster,target,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			end
 		end
 	end

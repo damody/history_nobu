@@ -296,12 +296,12 @@
 			"04"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"stun_chance"	"38"
+				"stun_chance"	"100"
 			}
 			"05"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"stun_time"		"0.22"
+				"stun_time"		"0.15"
 			}
 		}
 

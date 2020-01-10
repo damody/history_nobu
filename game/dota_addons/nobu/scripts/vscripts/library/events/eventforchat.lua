@@ -346,11 +346,6 @@ local function chat_of_test(keys)
 		local dis = tonumber(string.match(s, '%d+'))
 			GameRules: GetGameModeEntity() :SetCameraDistanceOverride(dis)
 		end
-		if string.match(s,"-gg") then
-			GameRules:SetCustomGameEndDelay(1)
-			GameRules:SetCustomVictoryMessage("遊戲時間到了喔~")
-			GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
-		end
 		if string.match(s,"ss") then
 			caster:AddAbility("for_move1500"):SetLevel(1)
 		end

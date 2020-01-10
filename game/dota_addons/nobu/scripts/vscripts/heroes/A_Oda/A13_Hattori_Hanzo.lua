@@ -490,9 +490,6 @@ function a13e_modifier:OnIntervalThink()
 					if not string.match(it:GetUnitName(), "npc_dota_courier2") and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil and not it:HasAbility("majia") then
 						local tbl = { victim = it, attacker = self:GetCaster(), damage = self.hook_damage, 
 							damage_type = self.damage_type, ability = self:GetAbility()}
-						if it:IsMagicImmune() then
-							tbl.damage = tbl.damage*0.5
-						end
 						ApplyDamage(tbl)
 						hashook = true
 						if (it:HasModifier("modifier_invisible")) then
@@ -771,19 +768,10 @@ function A13T_break( keys )
 	for _,it in pairs(direUnits) do
 		if _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then
 			if IsValidEntity(caster) and caster:IsAlive() then
-				if it:IsMagicImmune() then
-					AMHC:Damage(caster, it, dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-				else
-					AMHC:Damage(caster, it, dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-				end
+				AMHC:Damage(caster, it, dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 			else
-				if it:IsMagicImmune() then
-					AMHC:Damage(caster.dummy, it, dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-					caster.takedamage = caster.takedamage + dmg*0.5
-				else
-					AMHC:Damage(caster.dummy, it, dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-					caster.takedamage = caster.takedamage + dmg
-				end
+				AMHC:Damage(caster.dummy, it, dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				caster.takedamage = caster.takedamage + dmg
 				
 				if (it:IsRealHero()) then
 					caster.herodamage = caster.herodamage + dmg

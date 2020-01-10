@@ -83,9 +83,10 @@ function Nobu:OnGameRulesStateChange( keys )
       for_test_equiment()
     end
     
-    GameRules:SendCustomMessage("歡迎來到 AON信長的野望 20.7D", DOTA_TEAM_GOODGUYS, 0)
+    GameRules:SendCustomMessage("歡迎來到 AON信長的野望 21版", DOTA_TEAM_GOODGUYS, 0)
     GameRules:SendCustomMessage("5分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS, 0)
-    GameRules:SendCustomMessage("目前作者: Damody, 佐佐木小籠包, DowDow", DOTA_TEAM_GOODGUYS, 0)
+	GameRules:SendCustomMessage("目前作者: Damody", DOTA_TEAM_GOODGUYS, 0)
+	GameRules:SendCustomMessage("感謝 Ian 大力贊助", DOTA_TEAM_GOODGUYS, 0)
 	elseif(newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then --遊戲開始 --7
 	if _G.nobu_server_b then
       Nobu:OpenRoom()
@@ -130,19 +131,23 @@ function Nobu:OnGameRulesStateChange( keys )
 	    end
 	    return 1
     end)
-    local ccpres = 0
-	Timers:CreateTimer( 0, function()
+    local ccpres = -1
+	Timers:CreateTimer(0, function()
 		ccpres = ccpres + 1
 		for n=2,3 do
-			local pres = (ccpres/3)*100
-			if GetMapName() == "nobu_rank" then
-				pres = prestige[n] -- goldprestige[n]
-			end
-			if pres > 100 then
-				local money = math.floor(pres/100)*50
-				if money > 300 then
-					money = 300
+			local pres = 50
+			for playerID = 0, 9 do
+				local player = PlayerResource:GetPlayer(playerID)
+				if player then
+					local hero = player:GetAssignedHero()
+					if hero and hero:GetTeamNumber()==n then
+						pres = (hero.kill_hero_count or 0)*10 + pres
+						pres = (hero.building_count or 0)*5 + pres
+					end
 				end
+			end
+			local money = pres
+			if ccpres > 0 then
 				if n == 3 then
 					GameRules: SendCustomMessage("<font color='#ffff00'>聯合將領得到了"..(money).."金錢支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 				elseif n == 2 then
@@ -162,7 +167,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		return 60
 		end)
 
-    Timers:CreateTimer(60, function()
+    Timers:CreateTimer(120, function()
     	_G.can_bomb = true
 	    GameRules:SendCustomMessage("可以開始使用爆裂彈了！",0,0)
     end)
@@ -171,7 +176,7 @@ function Nobu:OnGameRulesStateChange( keys )
 			_G.war_magic_mana = 0
 		end)
     local start = 0
-    
+    --[[]
     for playerID = 0, 9 do
 		local id       = playerID
   		local p        = PlayerResource:GetPlayer(id)
@@ -210,7 +215,8 @@ function Nobu:OnGameRulesStateChange( keys )
   			start = start + 7
   		
   		end
-  	end
+	  end
+	  ]]
 
 	elseif(newState == DOTA_GAMERULES_STATE_POST_GAME) then
     if _G.nobu_server_b then

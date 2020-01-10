@@ -37,11 +37,7 @@ function C01W2( keys )
 		nil,  400 , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
 	for _,enemy in pairs(group) do
-		if enemy:IsMagicImmune() then
-			AMHC:Damage(caster,enemy, damage*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-		else
-			AMHC:Damage(caster,enemy, damage,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-		end
+		AMHC:Damage(caster,enemy, damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 	end
 end
 
@@ -137,10 +133,6 @@ function C01E_Mitsuhide_Akechi( keys )
 	local level = keys.ability:GetLevel()
 	local skillcount = 0
 
-	local dummy = CreateUnitByName("npc_dummy_unit_new",point,false,nil,nil,caster:GetTeamNumber())
-	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=5})
-	local ifx = ParticleManager:CreateParticleForTeam("particles/c01/c01e_aoe_hint.vpcf",PATTACH_ABSORIGIN,dummy, caster:GetTeamNumber())
-	ParticleManager:ReleaseParticleIndex(ifx)
 	
 	--timer : 第一次火焰
     Timers:CreateTimer(time, function()

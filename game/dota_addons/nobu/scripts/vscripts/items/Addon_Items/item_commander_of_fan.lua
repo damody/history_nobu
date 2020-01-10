@@ -7,7 +7,7 @@ function Shock( keys )
           point,
           nil,
           400,
-          DOTA_UNIT_TARGET_TEAM_ENEMY,
+          DOTA_UNIT_TARGET_TEAM_ENEMY + DOTA_UNIT_TARGET_TEAM_FRIENDLY,
           DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
           DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
           0,

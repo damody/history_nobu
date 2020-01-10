@@ -54,7 +54,7 @@ function B08D_old( keys )
 	ability:ApplyDataDrivenModifier(caster, caster,"modifier_invulnerable", {duration = 2.2})
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = 2.2})
 	for i=1,maxrock do
-		a	=	(	(360.0/maxrock)	*	i	)* bj_DEGTORAD
+		a	=	(	(720.0/maxrock)	*	i	)* bj_DEGTORAD
 		pointx2 	=  	pointx 	+ 	700 	* 	math.cos(a)
 		pointy2 	=  	pointy 	+ 	700 	*	math.sin(a)
 		point = Vector(pointx2 ,pointy2 , pointz)
@@ -105,8 +105,9 @@ function B08E_Action( keys )
 	--move
 	caster:AddNewModifier(nil,nil,"modifier_phased",{duration=0.1})--添加0.1秒的相位状态避免卡位
 	caster:SetAbsOrigin(target:GetAbsOrigin())
+	local stun_duration = keys.ability:GetLevelSpecialValueFor("B08E_Stun_Time", keys.ability:GetLevel() - 1 )
 	if not target:IsMagicImmune() then
-		ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = 1.1})
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = stun_duration})
 	end
 	if target:IsMagicImmune() then return end
 	local dmg = keys.ability:GetLevelSpecialValueFor("B08E_Damage", keys.ability:GetLevel() - 1 )

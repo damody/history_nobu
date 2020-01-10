@@ -18,7 +18,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"20"
+		"AbilityCooldown"	"25"
 		
 		"AbilityManaCost"	"200"
 		
@@ -116,7 +116,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"15"
+		"AbilityCooldown"	"25"
 		
 		"AbilityManaCost"	"200"
 		"AbilityDamage"		"455"
@@ -284,7 +284,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"180"
+		"AbilityCooldown"	"120"
 		
 		"AbilityManaCost"	"600"
 		"AbilityCastPoint"	"0.1"
@@ -2204,7 +2204,7 @@
 		"ID"	"2610"
 		"ItemQuality"	"component"
 		"ItemShopTags"		"damage"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
@@ -2252,7 +2252,7 @@
 		"ID"	"2611"
 		"ItemQuality"	"component"
 		"ItemShopTags"		"agi"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
@@ -2395,7 +2395,7 @@
 		"FightRecapLevel"	"1"
 		"ID"	"2614"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
@@ -2507,13 +2507,14 @@
 		}
 		"Modifiers"
 		{
-			"Passive_item_pleated_skirt"
+			"Passive_item_pleated_skirt1"
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "30"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "10"	//跑速
 				}
 			}
 		}
@@ -2891,7 +2892,7 @@
 		"FightRecapLevel"	"1"
 		"ID"	"2702"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
@@ -2948,7 +2949,7 @@
 		"FightRecapLevel"	"1"
 		"ID"	"2704"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
@@ -3005,7 +3006,7 @@
 		"FightRecapLevel"	"1"
 		"ID"	"2707"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
@@ -3074,7 +3075,7 @@
 		"FightRecapLevel"	"1"
 		"ID"	"4001"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
@@ -3207,7 +3208,7 @@
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
-		"ItemCost"	"650"
+		"ItemCost"	"1250"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"	"1"
@@ -3256,7 +3257,7 @@
 		"AbilityCastRange"	"700"
 		"ID"	"2570"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"2220"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -3681,7 +3682,7 @@
 		"FightRecapLevel"	"1"
 		"ID"	"2573"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"2000"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -3729,7 +3730,7 @@
 		"FightRecapLevel"	"1"
 		"ID"	"2574"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"2450"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -3873,7 +3874,7 @@
 		"AbilityCastRange"	"700"
 		"ID"	"2576"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"2150"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -4127,7 +4128,7 @@
 		
 		"ID"	"2581"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"3290"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -4202,7 +4203,7 @@
 		"AbilityCastRange"	"700"
 		"ID"	"2585"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"2770"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -4372,7 +4373,7 @@
 		"AbilityManaCost"	"300"
 		"ID"	"2700"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"7200"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -4483,7 +4484,7 @@
 		"AbilityCastRange"	"700"
 		"ID"	"2701"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"6325"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -4571,7 +4572,7 @@
 		"AOERadius"		"350"
 		"ID"	"2703"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"7800"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -4648,7 +4649,7 @@
 
 		"ID"	"2705"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"8600"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -4712,7 +4713,7 @@
 		"AbilityManaCost"	"175"
 		"ID"	"2706"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"11850"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -4884,7 +4885,7 @@
 
 		"ID"	"2709"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"11200"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -5056,7 +5057,7 @@
 		"AoERadius"			"500"
 		"ID"	"4002"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"11200"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -5166,7 +5167,7 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"ID"	"2710"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"6525"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -5237,7 +5238,7 @@
 		"AbilityCastRange"	"1000"
 		"ID"	"2711"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"7750"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -5305,7 +5306,7 @@
 		"AbilityCastRange"	"1000"
 		"ID"	"2712"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"5800"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -5443,7 +5444,7 @@
 		
 		"ID"	"2713"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"7300"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -5583,7 +5584,7 @@
 		"AbilityCastRange"	"700"
 		"ID"	"2714"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"7900"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -5695,7 +5696,7 @@
 		"AbilityCastRange"	"700"
 		"ID"	"2715"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"12900"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -5763,7 +5764,7 @@
 		"AbilityCastRange"	"700"
 		"ID"	"2716"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"8000"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -5849,7 +5850,7 @@
 
 		"ID"	"2717"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"7900"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -5945,7 +5946,7 @@
 		"AbilityCastRange"				"800"
 		"ID"	"2718"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"6850"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -6340,7 +6341,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"25"
+		"AbilityCooldown"	"35"
 		"AbilitySharedCooldown" "share_ronin_jitte"
 		"AbilityManaCost"	"450"
 		"AbilityCastPoint"	"0.1"
@@ -6426,7 +6427,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"25"
+		"AbilityCooldown"	"35"
 		"AbilitySharedCooldown" "share_ronin_jitte"
 		"AbilityManaCost"	"450"
 		"AbilityCastPoint"	"0.1"
@@ -6512,7 +6513,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"25"
+		"AbilityCooldown"	"35"
 		"AbilitySharedCooldown" "share_ronin_jitte"
 		"AbilityManaCost"	"450"
 		"AbilityCastPoint"	"0.1"
@@ -6581,7 +6582,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"15"
+		"AbilityCooldown"	"25"
 		
 		"AbilityManaCost"	"225"
 		"AbilityCastPoint"	"0.1"
@@ -6700,10 +6701,10 @@
 		"AbilityCastPoint"	"0.1"
 		"AbilityManaCost"	"0"
 		
-		"AbilityCastRange"	"1000"
+		"AbilityCastRange"	"700"
 		"ID"	"2583"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"3650"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -6797,7 +6798,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"15"
+		"AbilityCooldown"	"20"
 		"AbilityManaCost"	"100"
 		"AbilityCastPoint"	"0.1"
 		"AbilityCastRange"	"700"
@@ -6902,13 +6903,13 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"30"
+		"AbilityCooldown"	"80"
 		
 		"AbilityManaCost"	"155"
 
 		"ID"	"2586"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"3320"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -7014,10 +7015,10 @@
 		
 		"AbilityManaCost"	"190"
 		"AbilityCastPoint"	"0.1"
-		"AbilityCastRange"	"800"
+		"AbilityCastRange"	"600"
 		"ID"	"2587"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"2550"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -7089,7 +7090,7 @@
 		"AbilityTextureName"	"item_custom/commander_of_fan"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
@@ -7132,9 +7133,9 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "12"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "12"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "12"	//智
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "15"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "15"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "15"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "20"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
@@ -7212,7 +7213,7 @@
 		"ItemKillable" "1"
 		"ID"	"2589"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"4050"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -7243,7 +7244,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"	//防禦
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-7"	//防禦
 				}
 			}
 			"modifier_spear_of_saddle2"
@@ -7254,7 +7255,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"	//防禦
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-7"	//防禦
 				}
 			}
 			"Passive_spear_of_saddle"
@@ -7308,7 +7309,7 @@
 		"FightRecapLevel"	"1"
 		"ID"	"25891"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"5350"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -7340,7 +7341,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"	//防禦
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-12"	//防禦
 				}
 			}
 			"modifier_spear_of_saddle2"
@@ -7351,7 +7352,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"	//防禦
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-12"	//防禦
 				}
 			}
 			"Passive_spear_of_saddle_1"
@@ -7405,7 +7406,7 @@
 		"FightRecapLevel"	"1"
 		"ID"	"25892"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"6650"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -7436,7 +7437,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-20"	//防禦
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"	//防禦
 				}
 			}
 			"modifier_spear_of_saddle2"
@@ -7447,7 +7448,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-20"	//防禦
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"	//防禦
 				}
 			}
 			"Passive_spear_of_saddle_2"
@@ -7498,7 +7499,7 @@
 
 		"ID"	"2590"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"3400"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -7532,7 +7533,7 @@
 					{
 						"ScriptFile"	"items/Addon_Items/item_the_spear_of_ghost.lua"
 						"Function"	"Shock2"
-						"dmg"	"3"
+						"dmg"	"2"
 					}
 				}
 			}
@@ -7577,7 +7578,7 @@
 
 		"ID"	"2591"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"3750"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -7768,7 +7769,7 @@
 	{
 	    "ID" "3089"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "930"
+		"ItemCost" "1930"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_samurai_cloth_x"  //合成後物品
@@ -8453,21 +8454,6 @@
 		}
 	}
 
-	//逝者之笏製作單
-	"item_recipe_death_of_scepter" 
-	{
-	    "ID" "3055"
-	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1000"
-		"ItemShopTags" ""
-		"ItemRecipe" "1"
-		"ItemResult" "item_death_of_scepter"  //合成後物品
-		"ItemRequirements"
-		{
-			"01" "item_energy_ingot;item_mana_ingot"  //合成所需物品
-		}
-	}
-
 	//妖化河童殼製作單
 	"item_recipe_the_shell_of_spirituality_kappa" 
 	{
@@ -8757,7 +8743,7 @@
 		"AbilityManaCost"	"100"
 		"ID"	"2519"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"6150"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -8860,7 +8846,7 @@
 		"AbilityCastRange"	"700"
 		"ID"	"2520"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"4450"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -8976,7 +8962,7 @@
 
 		"ID"	"2521"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"4750"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -9059,7 +9045,7 @@
 		"AbilityCastRange"	"1000"
 		"ID"	"2522"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"6070"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -9151,7 +9137,8 @@
 
 		"ID"	"2523"
 		"ItemQuality"	"component"
-		"Model"	"models/weapon/weapon.vmdl"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
+		
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"7650"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -9223,7 +9210,7 @@
 					{
 						"ScriptFile"	"items/Addon_Items/item_the_spear_of_ghost.lua"
 						"Function"	"Shock2"
-						"dmg"	"5"
+						"dmg"	"3"
 					}
 				}	
 			}
@@ -10092,7 +10079,7 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50" //攻速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "40" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
 			}
@@ -10190,7 +10177,7 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "70" //攻速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "60" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
 			}
@@ -10210,7 +10197,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"30"
+		"AbilityCooldown"	"60"
 		"ID"	"2596"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -11008,11 +10995,11 @@
 		
 		"Modifiers"
 		{
-			"Passive_lightning_katana"
+			"Passive_item_pleated_skirt"
 			{
 				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Passive"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
@@ -11027,7 +11014,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
 				}
 			}
 		}
@@ -11091,11 +11078,11 @@
 		
 		"Modifiers"
 		{
-			"Passive_lightning_katana"
+			"Passive_item_pleated_skirt"
 			{
 				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Passive"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
@@ -11110,7 +11097,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "150" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
 				}
 			}
 		}
@@ -11174,11 +11161,11 @@
 		
 		"Modifiers"
 		{
-			"Passive_lightning_katana"
+			"Passive_item_pleated_skirt"
 			{
 				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Passive"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
@@ -11193,7 +11180,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20" //魔抗
 				}
 			}
@@ -11265,11 +11252,11 @@
 		}
 		"Modifiers"
 		{
-			"Passive_lightning_katana"
+			"Passive_item_pleated_skirt"
 			{
 				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Passive"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
@@ -11284,7 +11271,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
 				}
 			}
 			"shield_modifier5"
@@ -11326,91 +11313,6 @@
 			    {
 			        "MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK" "20000"
 			    }
-			}
-		}
-	}
-
-	// 逝者之笏
-	"item_death_of_scepter"
-	{
-		// General
-		
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/death_of_scepter"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"40"
-		"AbilityCastPoint"	"0.1"
-		"AbilityManaCost"	"400"
-		
-		"AbilityCastRange"	"400"
-		"ID"	"2812"
-		"ItemQuality"	"component"
-		"Model"	"models/props_gameplay/tpscroll01.vmdl"
-		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"3550"
-		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_death_of_scepter.lua"
-				"Function"	"Shock"
-				"Target"	"TARGET"
-			}
-			"RunScript"
-			{
-			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
-				"Function"	"sound"
-				"sound"	"death_ghost"
-			}
-		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_mana_ingot.lua"
-				"Function"	"OnEquip"
-				"mana"	"300"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_mana_ingot.lua"
-				"Function"	"OnUnequip"
-				"mana"	"300"
-			}
-		}
-		"Modifiers"
-		{
-			"Passive_lightning_katana"
-			{
-				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Passive"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "15"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "15"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "15"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
-					"MODIFIER_PROPERTY_MANA_BONUS" "300"			//魔
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-				}
 			}
 		}
 	}
@@ -11516,7 +11418,7 @@
 		"AbilityCooldown"	"60"
 		"AbilityCastPoint"	"0.1"
 		"AbilityManaCost"	"200"
-		"AbilityCastRange"	"1000"
+		"AbilityCastRange"	"800"
 		"ID"	"2814"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -11581,7 +11483,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"40"
+		"AbilityCooldown"	"80"
 		
 		"ID"	"2815"
 		"ItemQuality"	"component"
@@ -14039,7 +13941,7 @@
 	{
 	    "ID" "3075"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "3000"
+		"ItemCost" "7000"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_overflame_art_of_war_hyper"  //合成後物品
@@ -14298,11 +14200,11 @@
 		
 		"Modifiers"
 		{
-			"Passive_lightning_katana"
+			"Passive_item_pleated_skirt"
 			{
 				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Passive"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
@@ -14317,7 +14219,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
 				}
 			}
 		}
@@ -14382,11 +14284,11 @@
 		
 		"Modifiers"
 		{
-			"Passive_lightning_katana"
+			"Passive_item_pleated_skirt"
 			{
 				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Passive"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
@@ -14401,7 +14303,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "150" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
 				}
 			}
 		}
@@ -14466,11 +14368,11 @@
 		
 		"Modifiers"
 		{
-			"Passive_lightning_katana"
+			"Passive_item_pleated_skirt"
 			{
 				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Passive"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
@@ -14485,7 +14387,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20" //魔抗
 				}
 			}
@@ -14558,11 +14460,11 @@
 		}
 		"Modifiers"
 		{
-			"Passive_ryukyu_ronin_clogs_1"
+			"Passive_item_pleated_skirt"
 			{
 				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Passive"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
@@ -14577,7 +14479,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
 				}
 			}
 			"shield_modifier3"
@@ -15202,8 +15104,8 @@
 		"AbilityTextureName"	"item_custom/flash_shoes"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"40"
-		"AbilityManaCost"	"250"
+		"AbilityCooldown"	"180"
+		"AbilityManaCost"	"300"
 		"AOERadius"	"850"
 		// Stats
 		"AbilitySharedCooldown" "share_flash_ring"
@@ -15259,7 +15161,7 @@
 		}
 		"Modifiers"
 		{
-			"Passive_flash_shoes"
+			"Passive_item_pleated_skirt"
 			{
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
@@ -15268,7 +15170,7 @@
 				{
 					"MODIFIER_PROPERTY_MANA_BONUS" "500"				//魔
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "3"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
 				}
 			}
 		}

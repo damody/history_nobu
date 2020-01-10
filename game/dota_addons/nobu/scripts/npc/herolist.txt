@@ -41,6 +41,7 @@
 	"npc_dota_hero_lycan" "1" //加藤段藏
 	"npc_dota_hero_vengefulspirit" "1" //立花誾千代
 	"npc_dota_hero_tiny" "1" // 立花宗茂
+	"npc_dota_hero_naga_siren" "1" // 望月千代女
 
 	"npc_dota_hero_ancient_apparition" "1" //竹中重治
 	"npc_dota_hero_necrolyte" "1" //齋藤道三
@@ -62,7 +63,6 @@
 	//"npc_dota_hero_oracle" "1" //石田三成
 	//"npc_dota_hero_jakiro" "1" //佐佐木小次郎
 	//"npc_dota_hero_alchemist" "1" //宮本武藏
-	//"npc_dota_hero_naga_siren" "1" // 望月千代女
 	//"npc_dota_hero_legion_commander" "1" // 明智秀滿
 	//"npc_dota_hero_chaos_knight" "1" // 馬場信房
 	//"npc_dota_hero_juggernaut" "1" // 瀧川一益

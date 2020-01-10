@@ -88,7 +88,6 @@ function Nobu:ModifyGoldFilter(filterTable)
   --     filterTable["gold"] = 0
   --     return false
   -- end
-
   return true
 end
 

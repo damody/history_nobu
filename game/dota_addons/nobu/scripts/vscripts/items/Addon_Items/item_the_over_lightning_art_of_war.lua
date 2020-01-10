@@ -76,13 +76,12 @@ function Shock( keys )
 		      FIND_ANY_ORDER,
 		      false)
 
-		--effect:傷害+暈眩
 		for _,it in pairs(direUnits) do
 			if _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then
 				if it:IsMagicImmune() then
-					AMHC:Damage(dummy,it, it:GetMaxHealth()*0.016,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+					AMHC:Damage(dummy,it, it:GetMaxHealth()*0.022,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 				else
-					AMHC:Damage(dummy,it, it:GetMaxHealth()*0.016,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+					AMHC:Damage(dummy,it, it:GetMaxHealth()*0.022,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 				end
 			end
 		end

@@ -156,7 +156,7 @@ function spell_ability ( filterTable )
 				end
 				return false
 			end
-		else
+		elseif target.HasModifier ~= nil then
 			local pro = false
 			local itemx = ""
 			for i,v in pairs(items_protection) do
@@ -456,7 +456,10 @@ function Nobu:eventfororder( filterTable )
 	elseif ordertype == DOTA_UNIT_ORDER_PICKUP_RUNE then --15
 	elseif ordertype == DOTA_UNIT_ORDER_PURCHASE_ITEM then --16
 		local itemID = filterTable.entindex_ability
-    	local itemName = Containers.itemIDs[itemID]
+		local itemName = Containers.itemIDs[itemID]
+		if itemName == nil then
+			return false
+		end
     	if filterTable.units and filterTable.units["0"] then
 			local unit = EntIndexToHScript(filterTable.units["0"])
 			if IsValidEntity(unit) then

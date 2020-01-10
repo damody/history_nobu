@@ -27,13 +27,13 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"AbilityCastPoint"	"0.1"
-		"AbilityCooldown"	"22"
+		"AbilityCooldown"	"22 20 18 16"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"120 140 160 180"
+		"AbilityManaCost"	"120 140 180 200"
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"	"1800"
+		"AbilityCastRange"	"1000"
 		"AOERadius"	"%radius"
 		// Data driven
 
@@ -55,7 +55,6 @@
 				"IsDebuff"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%dmg"
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "15"
 				}
 			}
@@ -67,7 +66,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"radius"	"700 800 900 1000"
+				"radius"	"700"
 			}
 			"02"
 			{
@@ -121,7 +120,7 @@
 		"AbilityCastPoint"	"0.0"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"20 16 12 8"
+		"AbilityCooldown"	"20 18 16 14"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"80 100 120 140"
@@ -194,10 +193,10 @@
 		"AbilityCastPoint"	"0.1"	
 		"AbilityCooldown"	"9"
 		"AbilityManaCost"	"100 120 140 160"
-		"AbilityCastRange"	"1000"
+		"AbilityCastRange"	"700"
 		"precache"
 		{
-			"particle"	"particles/a23r/necronomicon_archer_projectile_2.vpcf"
+			"particle"	"particles/items2_fx/necronomicon_archer_manaburn.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
 			"particle"	"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
@@ -213,10 +212,10 @@
 			"TrackingProjectile"
 			{
 				"Target"	"TARGET"
-				"EffectName"	"particles/a23r/necronomicon_archer_projectile_2.vpcf"
+				"EffectName"	"particles/items2_fx/necronomicon_archer_manaburn.vpcf"
 				"Dodgeable"	"1"
 				"ProvidesVision"	"1"
-				"MoveSpeed"	"1800"
+				"MoveSpeed"	"1200"
 				"VisionRadius"	"225"
 				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
 			}
@@ -304,7 +303,7 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"medusa_split_shot"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
@@ -314,7 +313,7 @@
 		"MaxLevel"	"3"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
-		"AbilityCooldown"	"1"
+		"AbilityCooldown"	"100"
 		// Precache
 		// -------------------------------------------------------------------------------------------------------------
 		"precache"
@@ -324,7 +323,7 @@
 			"particle"	"particles/units/heroes/hero_lina/lina_spell_laguna_blade_startpoint.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
 		}
-		"OnToggleOn"
+		"OnSpellStart"
 		{
 			"FireEffect"
 			{
@@ -334,32 +333,8 @@
 			}
 			"ApplyModifier"
 			{
-				"ModifierName"	"modifier_split_shot_datadriven"
+				"ModifierName"	"modifier_A31T"
 				"Target"	"CASTER"
-			}
-			"RunScript"
-			{
-			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
-				"Function"	"sound"
-				"sound"	"panorama_find_match_change_options_01"
-			}
-		}
-		"OnToggleOff"
-		{
-			"FireEffect"
-			{
-				"EffectName"	"particles/units/heroes/hero_lina/lina_spell_laguna_blade_startpoint.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Target"	"CASTER"
-			}
-			"RemoveModifier"
-			{
-				"ModifierName"	"modifier_split_shot_datadriven"
-				"Target"
-				{
-					"Center"	"CASTER"
-					"Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
-				}
 			}
 			"RunScript"
 			{
@@ -394,7 +369,7 @@
 		{
 			"modifier_split_shot_datadriven"
 			{
-				"Passive"	"0"
+				"Passive"	"1"
 				"IsHidden"	"1"
 				"IsDebuff"	"0"
 				"OnAttack"
@@ -406,9 +381,16 @@
 						"split_shot_projectile"	"particles/items2_fx/necronomicon_archer_projectile.vpcf"
 					}
 				}
+			}
+			"modifier_A31T"
+			{
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
+				"Duration"	"5"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%damage_modifier"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "200" //攻速
 				}
 			}
 		}
@@ -429,12 +411,12 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"arrow_count"	"4 6 8"
+				"arrow_count"	"2 4 6"
 			}
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"total_arrow_count"	"5 7 9"
+				"total_arrow_count"	"3 5 7"
 			}
 			"05"
 			{

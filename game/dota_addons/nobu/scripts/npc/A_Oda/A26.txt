@@ -27,11 +27,11 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
-		"AbilityCooldown"				"17 14 11 8"
+		"AbilityCooldown"				"13 12 11 8"
 		"AbilityManaCost"				"100 120 140 160"
-		"AbilityDamage"					"250 350 450 550"
+		"AbilityDamage"					"150 250 350 450"
 
-		"AbilityCastRange"				"1000"
+		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.1"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 
@@ -342,16 +342,16 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
-		"AbilityCooldown"				"3"
+		"AbilityCooldown"				"6"
 		"AbilityManaCost"				"140"
-		"AbilityDamage"					"250 400 550"
+		"AbilityDamage"					"400 600 800"
 
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.3"
-		"AbilityCastAnimation"			"ACT_DOTA_ATTACK"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AnimationPlaybackRate"			"2"
 		"AoERadius"						"400"
 

@@ -17,8 +17,8 @@
 		"Ability2"	"A31E"
 		"Ability3"	"A31R"
 		"Ability4"	"attribute_bonusx"
-		"Ability5"	"A31T"
-		"Ability6"	"A31_precache"
+		"Ability5"	"A31_precache"
+		"Ability6"	"A31T"
 		"Ability7"	""
 		// Armor
 		// ----------------------------------------------------------------

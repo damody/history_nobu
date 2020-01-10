@@ -72,28 +72,21 @@ function findanything( keys )
 	local caster = keys.caster
 	local point = keys.target_points[1] 
 	local ability = keys.ability
+	local donkey = CreateUnitByName("findeverything_unit", point, true, nil, nil, caster:GetTeamNumber())
+	donkey:FindAbilityByName("true_gem"):SetLevel(1)
+	donkey:FindAbilityByName("majia_2"):SetLevel(1)
+	donkey:FindAbilityByName("for_no_damage"):SetLevel(1)
+	local spell_hint_table = {
+		duration   = aura_duration,		-- 持續時間
+		radius     = 1200,		-- 半徑
+		teamonly   = true,
+	}
+	donkey:AddNewModifier(donkey,nil,"nobu_modifier_spell_hint",spell_hint_table)
 	if (caster:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
-		GameRules: SendCustomMessage("<font color=\"#cc3333\">織田軍即將發動偵隱戰法</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		GameRules: SendCustomMessage("<font color=\"#cc3333\">織田軍發動偵隱戰法</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	else
-		GameRules: SendCustomMessage("<font color=\"#cc3333\">聯合軍即將發動偵隱戰法</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
+		GameRules: SendCustomMessage("<font color=\"#cc3333\">聯合軍發動偵隱戰法</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
 	end
-	Timers:CreateTimer(3, function()
-			local donkey = CreateUnitByName("findeverything_unit", point, true, nil, nil, caster:GetTeamNumber())
-			donkey:FindAbilityByName("true_gem"):SetLevel(1)
-			donkey:FindAbilityByName("majia_2"):SetLevel(1)
-			donkey:FindAbilityByName("for_no_damage"):SetLevel(1)
-			local spell_hint_table = {
-				duration   = aura_duration,		-- 持續時間
-				radius     = 1200,		-- 半徑
-				teamonly   = true,
-			}
-			donkey:AddNewModifier(donkey,nil,"nobu_modifier_spell_hint",spell_hint_table)
-			if (caster:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
-				GameRules: SendCustomMessage("<font color=\"#cc3333\">織田軍發動偵隱戰法</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-			else
-				GameRules: SendCustomMessage("<font color=\"#cc3333\">聯合軍發動偵隱戰法</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
-			end
-		end)
 end
 
 function light( keys )
@@ -107,18 +100,10 @@ function light( keys )
 	end
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 50, 7.0, false)
 	AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 50, 7.0, false)
-	Timers:CreateTimer(0.5, function() 
-			local particle = ParticleManager:CreateParticle("particles/item/war_light.vpcf", PATTACH_ABSORIGIN, caster)
-			ParticleManager:SetParticleControl(particle, 0, Vector(point.x,point.y,200 ))
-			AddFOWViewer(caster:GetTeamNumber(), point, 50, 1.0, false)
-		end)
-
-	Timers:CreateTimer(0.8, function() 
-			AddFOWViewer(caster:GetTeamNumber(), point, 100, 1.0, false)
-		end)
-	Timers:CreateTimer(1, function() 
-			AddFOWViewer(caster:GetTeamNumber(), point, 600, 5.0, false)
-		end)
+	local particle = ParticleManager:CreateParticle("particles/item/war_light.vpcf", PATTACH_ABSORIGIN, caster)
+	ParticleManager:SetParticleControl(particle, 0, Vector(point.x,point.y,200 ))
+	
+	AddFOWViewer(caster:GetTeamNumber(), point, 1000, 10.0, false)
 end
 
 function treecut_check( keys )
@@ -149,7 +134,7 @@ function slowattack( keys )
 	local point = keys.target_points[1] 
 	local ability = keys.ability
 	local dummy = CreateUnitByName("npc_dummy_unit",point,false,nil,nil,caster:GetTeamNumber())
-	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=6})
+	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=10})
 	
 	if (caster:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
 		GameRules: SendCustomMessage("<font color=\"#cc3333\">織田軍發動阻撓戰法</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
@@ -169,7 +154,7 @@ function slowattack( keys )
 			ability:ApplyDataDrivenModifier(caster,it,"modifier_slowattack",{duration = 2.9})
 		end
 		if count < 10 then
-			return 1
+			--return 1
 		else
 			return nil
 		end
@@ -353,13 +338,13 @@ function to_war_magic_unit(keys)
 	    	if p ~= nil and (p: GetAssignedHero()) ~= nil then
 			  local hero     = p: GetAssignedHero()
 			  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
-			  	donkey:SetOwner(hero)
+			  	--donkey:SetOwner(hero)
 			  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
 			  	return nil
 			  end
 			end
     	end
-		return 1
+		--return 1
     	end)
 	donkey:AddNewModifier(donkey, ability, "modifier_war_magic", {})
 	
@@ -382,8 +367,8 @@ function to_war_magic_unit2(keys)
 		    end
 			donkey:AddAbility("war_magic_gohome"):SetLevel(1)
 		    donkey:AddAbility("war_magic_findanything"):SetLevel(1)
-		    donkey:AddAbility("war_magic_treecut"):SetLevel(1)
-		    donkey:AddAbility("war_magic_back_wall"):SetLevel(1)
+		    --donkey:AddAbility("war_magic_treecut"):SetLevel(1)
+		    --donkey:AddAbility("war_magic_back_wall"):SetLevel(1)
 		    caster:ForceKill(true)
 		end)
 	Timers:CreateTimer(1, function()
@@ -401,13 +386,13 @@ function to_war_magic_unit2(keys)
 	    	if p ~= nil and (p: GetAssignedHero()) ~= nil then
 			  local hero     = p: GetAssignedHero()
 			  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
-			  	donkey:SetOwner(hero)
+			  	--donkey:SetOwner(hero)
 			  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
 			  	return nil
 			  end
 			end
     	end
-		return 1
+		--return 1
     	end)
 	donkey:AddNewModifier(donkey, ability, "modifier_war_magic", {})
 
@@ -465,13 +450,13 @@ function to_soldier_Oda(keys)
 	    	if p ~= nil and (p: GetAssignedHero()) ~= nil then
 			  local hero     = p: GetAssignedHero()
 			  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
-			  	donkey:SetOwner(hero)
+			  	--donkey:SetOwner(hero)
 			  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
 			  	return nil
 			  end
 			end
     	end
-		return 1
+		--return 1
     	end)
 	donkey:SetModel("models/ashigaru/infantry_oda_6.vmdl")
 	donkey:SetOriginalModel("models/ashigaru/infantry_oda_6.vmdl")
@@ -522,13 +507,13 @@ function to_soldier_Unified(keys)
 	    	if p ~= nil and (p: GetAssignedHero()) ~= nil then
 			  local hero     = p: GetAssignedHero()
 			  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
-			  	donkey:SetOwner(hero)
+			  	--donkey:SetOwner(hero)
 			  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
 			  	return nil
 			  end
 			end
     	end
-		return 1
+		--return 1
     	end)
 	donkey:SetModel("models/ashigaru/infantry_unified_2.vmdl")
 	donkey:SetOriginalModel("models/ashigaru/infantry_unified_2.vmdl")
@@ -572,13 +557,13 @@ function to_archer_Oda(keys)
 	    	if p ~= nil and (p: GetAssignedHero()) ~= nil then
 			  local hero     = p: GetAssignedHero()
 			  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
-			  	donkey:SetOwner(hero)
+			  	--donkey:SetOwner(hero)
 			  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
 			  	return nil
 			  end
 			end
     	end
-		return 1
+		--return 1
     	end)
 	donkey:SetModel("models/archer/archer_oda_6.vmdl")
 	donkey:SetOriginalModel("models/archer/archer_oda_6.vmdl")
@@ -622,13 +607,13 @@ function to_archer_Unified(keys)
 	    	if p ~= nil and (p: GetAssignedHero()) ~= nil then
 			  local hero     = p: GetAssignedHero()
 			  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
-			  	donkey:SetOwner(hero)
+			  	--donkey:SetOwner(hero)
 			  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
 			  	return nil
 			  end
 			end
     	end
-		return 1
+		--return 1
     	end)
 	donkey:SetModel("models/archer/archer_unified_2.vmdl")
 	donkey:SetOriginalModel("models/archer/archer_unified_2.vmdl")
@@ -672,13 +657,13 @@ function to_gunner_Oda(keys)
 	    	if p ~= nil and (p: GetAssignedHero()) ~= nil then
 			  local hero     = p: GetAssignedHero()
 			  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
-			  	donkey:SetOwner(hero)
+			  	--donkey:SetOwner(hero)
 			  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
 			  	return nil
 			  end
 			end
     	end
-		return 1
+		--return 1
     	end)
 	donkey:SetModel("models/arquebusier/gunner_oda_6.vmdl")
 	donkey:SetOriginalModel("models/arquebusier/gunner_oda_6.vmdl")
@@ -722,13 +707,13 @@ function to_gunner_Unified(keys)
 	    	if p ~= nil and (p: GetAssignedHero()) ~= nil then
 			  local hero     = p: GetAssignedHero()
 			  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
-			  	donkey:SetOwner(hero)
+			  	--donkey:SetOwner(hero)
 			  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
 			  	return nil
 			  end
 			end
     	end
-		return 1
+		--return 1
     	end)
 	donkey:SetModel("models/arquebusier/gunner_unified_2.vmdl")
 	donkey:SetOriginalModel("models/arquebusier/gunner_unified_2.vmdl")
@@ -773,13 +758,13 @@ function to_cavalry_Oda(keys)
 	    	if p ~= nil and (p: GetAssignedHero()) ~= nil then
 			  local hero     = p: GetAssignedHero()
 			  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
-			  	donkey:SetOwner(hero)
+			  	--donkey:SetOwner(hero)
 			  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
 			  	return nil
 			  end
 			end
     	end
-		return 1
+		--return 1
     	end)
 	donkey:SetModel("models/cavalry/cavalry_oda_6.vmdl")
 	donkey:SetOriginalModel("models/cavalry/cavalry_oda_6.vmdl")
@@ -823,13 +808,13 @@ function to_cavalry_Unified(keys)
 	    	if p ~= nil and (p: GetAssignedHero()) ~= nil then
 			  local hero     = p: GetAssignedHero()
 			  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
-			  	donkey:SetOwner(hero)
+			  	--donkey:SetOwner(hero)
 			  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
 			  	return nil
 			  end
 			end
     	end
-		return 1
+		--return 1
     	end)
 	donkey:SetModel("models/cavalry/cavalry_unified_2.vmdl")
 	donkey:SetOriginalModel("models/cavalry/cavalry_unified_2.vmdl")
@@ -900,7 +885,7 @@ function check_Oda_is_dead(keys)
 			end
 			return nil
 		end
-		return 1
+		--return 1
 		end)
 end
 
@@ -956,7 +941,7 @@ function check_Unified_is_dead(keys)
 			end
 			return nil
 		end
-		return 1
+		--return 1
 		end)
 end
 
@@ -993,13 +978,13 @@ function to_sell_ninja_unit(keys)
 	    	if p ~= nil and (p: GetAssignedHero()) ~= nil then
 			  local hero     = p: GetAssignedHero()
 			  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
-			  	donkey:SetOwner(hero)
+			  	--donkey:SetOwner(hero)
 			  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
 			  	return nil
 			  end
 			end
     	end
-		return 1
+		--return 1
     	end)
 	donkey:AddNewModifier(donkey, ability, "modifier_ninja", {})
 end

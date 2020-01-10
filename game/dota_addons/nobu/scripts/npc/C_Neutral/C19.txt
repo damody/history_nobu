@@ -22,7 +22,8 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityCooldown"	"13"
 		"AbilityManaCost"	"80"
-		"AbilityCastRange"				"700"
+		"AbilityCooldown"	"0.3"
+		"AbilityCastRange"				"600"
 		"precache"
 		{
 			"particle"	"particles/c15w/c15w.vpcf"
@@ -210,12 +211,13 @@
 	"C19E"
 	{
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"morphling_adaptive_strike_ethereal_blade"
+		"AbilityTextureName"	"custom/icon_128x128_38"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityCooldown"	"10"
-		"AbilityManaCost"	"80"
+		"AbilityCooldown"	"20"
+		"AbilityManaCost"	"120"
+		"AbilityCooldown"	"0.3"
 		"AbilityCastRange"	"1000"
 		"OnSpellStart"
 		{
@@ -741,18 +743,6 @@
 					"MODIFIER_STATE_COMMAND_RESTRICTED"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_FROZEN"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-			}
-			"modifier_C19D2"
-			{
-				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-50"
-				}
-				"EffectName"	"particles/generic_gameplay/move_slow.vpcf"
-				"EffectAttachType"	"follow_overhead"
-				"IsDebuff"	"1"
-				"Duration"  "5"
 			}
 		}
 	}

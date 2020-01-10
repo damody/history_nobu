@@ -43,15 +43,6 @@ function Teleport( event )
     FindClearSpaceForUnit(caster, point, true)
     caster:Stop() 
     EndTeleport(event)
-    local units1 = FindUnitsInRadius(caster:GetTeamNumber(),	
-				caster:GetAbsOrigin(),nil,500,DOTA_UNIT_TARGET_TEAM_ENEMY, 
-		   		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		   		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
-		   		0, 
-				false) 	
-	for _,unit in ipairs(units1) do
-    	ability:ApplyDataDrivenModifier(caster,unit,"modifier_C19D2",nil)
-    end
 end
 
 function CreateTeleportParticles( event )

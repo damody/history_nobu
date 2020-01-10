@@ -268,7 +268,7 @@ _G.heromap_skill = {
   B05 = {["11"] = "WERT" , ["16"] = "WERT"},
   B06 = {["11"] = "WERT" , ["16"] = "WERT"},
   B07 = {["11"] = "WERT" , ["16"] = "WERT"},
-  B08 = {["11"] = "WERDT" , ["16"] = "WERT"},
+  B08 = {["11"] = "WERDT" , ["16"] = "WERDT"},
   B09 = {["11"] = "WERT" , ["16"] = "WERT"},
   B10 = {["11"] = "WERT" , ["16"] = "WERT"},
   B11 = {["11"] = "WERDFT" , ["16"] = "WERDFT"},
@@ -351,7 +351,7 @@ _G.heromap_autoskill = {
   A22 = {["11"] = "D" , ["16"] = ""},
   A23 = {["11"] = "" , ["16"] = ""},
   A24 = {["11"] = "" , ["16"] = "D"},
-  A25 = {["11"] = "D" , ["16"] = ""},
+  A25 = {["11"] = "D" , ["16"] = "D"},
   A26 = {["11"] = "" , ["16"] = "D" , ["20"] = "D"},
   A27 = {["11"] = "" , ["16"] = ""},
   A28 = {["11"] = "" , ["16"] = "" , ["20"] = "D"},
@@ -733,7 +733,6 @@ function Precache( context )
     "particles/item/great_sword_of_disarmament_2.vpcf",
     "particles/item/great_sword_of_disarmament.vpcf",
     
-    "particles/halloween.vpcf",
     --注意要加,
     }
     for i,v in ipairs(particle_Precache_Table) do

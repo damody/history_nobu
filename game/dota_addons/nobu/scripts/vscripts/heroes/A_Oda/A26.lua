@@ -235,8 +235,8 @@ function A26T_OnSpellStart( keys )
 		caster:RemoveModifierByName("modifier_A26T_big_bomb")
 	end
 
-	local dummy = CreateUnitByName("npc_dummy_unit",point,false,nil,nil,caster:GetTeamNumber())
-	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=20})
+	local dummy = CreateUnitByName("hide_unit",point,false,nil,nil,caster:GetTeamNumber())
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
 	local diff = point-caster:GetAbsOrigin()
 	diff.z = 0
 	dummy:SetForwardVector(diff:Normalized())
@@ -286,25 +286,14 @@ function A26T_OnProjectileHitUnit( keys )
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
 		-- 製造傷害
-		if unit:IsMagicImmune() then
-			ApplyDamage({
-				victim = unit,
-				attacker = caster,
-				ability = ability,
-				damage = ability:GetAbilityDamage()*0.5,
-				damage_type = ability:GetAbilityDamageType(),
-				damage_flags = DOTA_DAMAGE_FLAG_NONE
-			})
-		else
-			ApplyDamage({
-				victim = unit,
-				attacker = caster,
-				ability = ability,
-				damage = ability:GetAbilityDamage(),
-				damage_type = ability:GetAbilityDamageType(),
-				damage_flags = DOTA_DAMAGE_FLAG_NONE
-			})
-		end
+		ApplyDamage({
+			victim = unit,
+			attacker = caster,
+			ability = ability,
+			damage = ability:GetAbilityDamage(),
+			damage_type = ability:GetAbilityDamageType(),
+			damage_flags = DOTA_DAMAGE_FLAG_NONE
+		})
 		
 		if ability.need_stun then
 			ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration=stun_time})
