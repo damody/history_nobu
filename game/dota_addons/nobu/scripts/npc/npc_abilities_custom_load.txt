@@ -2679,10 +2679,10 @@
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastPoint"	"0.1"
-		"AbilityCooldown"	"60"
+		"AbilityCooldown"	"1"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityCastRange"	"50000"
-		"AbilityManaCost"	"20"
+		"AbilityManaCost"	"0"
 
 		"OnSpellStart"
 		{
@@ -2784,31 +2784,6 @@
 			}
 		}
 	}
-	// 砍樹戰法
-	"war_magic_treecut"
-	{
-		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"custom/icon_128x128_113"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityCastPoint"	"0.1"
-		"AbilityCooldown"	"10"
-		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
-		"AbilityManaCost"	"0"
-		"AOERadius"	"300"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/war_magic.lua"
-				"Function"	"treecut"
-				"Target"	"POINT"
-			}
-		}
-	}
 	// 神速戰法
 	"war_magic_speedup"
 	{
@@ -2818,7 +2793,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
-		"AbilityCooldown"	"600"
+		"AbilityCooldown"	"180"
 		"MaxLevel"	"3"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
@@ -2848,7 +2823,7 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"20"
 				}
-				"Duration"	"10"
+				"Duration"	"5"
 				"TextureName"	"icon_128x128_54"
 			}
 		}
@@ -2862,12 +2837,12 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 
-		"AbilityCooldown"	"300"
+		"AbilityCooldown"	"180"
 		"MaxLevel"	"3"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
 		"AbilityManaCost"	"0"
-		"AOERadius"		"400"
+		"AOERadius"		"500"
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -2956,7 +2931,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
-		"AbilityCooldown"	"600"
+		"AbilityCooldown"	"300"
 		"MaxLevel"	"3"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
@@ -2986,7 +2961,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30" //攻速
 				}
 				"Passive"	"0"
-				"Duration"	"10"
+				"Duration"	"5"
 				"EffectName"	"particles/item/d03/d03.vpcf"
 				"EffectAttachType"	"follow_overhead"
 			}
@@ -3027,10 +3002,10 @@
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "40"	//回血
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "80"	//回血
 				}
 				"Passive"	"0"
-				"Duration"	"20"
+				"Duration"	"10"
 				"EffectName"	"particles/econ/courier/courier_onibi/courier_onibi_green_ambient_c.vpcf"
 				"EffectAttachType"	"follow_overhead"
 			}
@@ -3607,7 +3582,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"regen"	"40 80 120"
+				"regen"	"40 50 60"
 			}
 			"02"
 			{

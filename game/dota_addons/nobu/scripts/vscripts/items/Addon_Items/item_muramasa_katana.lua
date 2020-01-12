@@ -22,7 +22,8 @@ function StealLife(keys)
 		local ability = keys.ability
 		local level = ability:GetLevel() - 1
 		local dmg = keys.dmg
-		if (caster.nobuorb1 == "muramasa_katana" or caster.nobuorb1 == "illusion" or caster.nobuorb1 == nil) and not target:IsBuilding() then
+		--if (caster.nobuorb1 == "muramasa_katana" or caster.nobuorb1 == "illusion" or caster.nobuorb1 == nil) and not target:IsBuilding() then
+		if not target:IsBuilding() then
 			caster.nobuorb1 = "muramasa_katana"
 			local damageReduction = 0
 			local targetArmor = target:GetPhysicalArmorValue(true)

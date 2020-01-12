@@ -372,7 +372,8 @@ function near_hero_then_can_use_ability(keys)
 
     for _,it in pairs(group) do
     	caster.buyer = it
-    	caster:SetOwner(caster.buyer)
+		caster:SetOwner(caster.buyer)
+		caster:SetControllableByPlayer(caster.buyer:GetPlayerID(), true)
     	--print("caster.buyer "..it:GetUnitName())
     	break
     end
@@ -405,7 +406,7 @@ end
 function call_ninja1_OnAbilityPhaseStart(keys)
 	local caster = keys.caster
 	if caster.buyer.buy_ninja1 == nil then caster.buyer.buy_ninja1 = 0 end
-	if caster.buyer.buy_ninja1 >= 4 then
+	if caster.buyer.buy_ninja1 >= 1 then
 		caster:Interrupt()
 	else
 		caster.buyer.buy_ninja1 = caster.buyer.buy_ninja1 + 1
@@ -419,7 +420,8 @@ function call_ninja1(keys)
     donkey:SetOwner(caster.buyer)
     donkey.owner = caster.buyer
     donkey:SetControllableByPlayer(caster.buyer:GetPlayerOwnerID(), true)
-    donkey:AddNewModifier(donkey,ability,"modifier_phased",{duration=0.1})
+	donkey:AddNewModifier(donkey,ability,"modifier_phased",{duration=0.1})
+	donkey:AddNewModifier(donkey,nil,"modifier_kill",{duration=300})
 end
 
 function call_ninja2(keys)
@@ -490,7 +492,7 @@ function afk_gogo(keys)
 	   			hero.stop = nil
 	   			hero.donkey:SetAbsOrigin(hero.donkey.oripos)
    			end
-   			if hero.donkey ~= nil and hero.donkey:GetAbsOrigin().x > 90000 then
+   			if hero.donkey and hero.donkey.GetAbsOrigin and hero.donkey:GetAbsOrigin().x > 90000 then
    				FindClearSpaceForUnit(hero.donkey,hero.donkey.oripos,true)
    			end
 		end

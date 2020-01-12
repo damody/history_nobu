@@ -145,7 +145,7 @@ end
 -- 產生一個單位讓他打
 function C11W_miss_target( keys )
 	local caster = keys.caster
-	local dummy = CreateUnitByName("npc_dummy_unit",keys.target_points[1],false,nil,nil,caster:GetTeamNumber())
+	local dummy = CreateUnitByName("hide_unit",keys.target_points[1],false,nil,nil,caster:GetTeamNumber())
 	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=5})
 	keys.target = dummy
 	C11W_hit_unit(keys)
@@ -200,7 +200,7 @@ function C11R_start( keys )
 		local point = center + Vector(dx,dy,0)
 		point.z = GetGroundHeight(point,nil)
 
-		local dummy = CreateUnitByName("npc_dummy_unit",point,false,nil,nil,caster:GetTeamNumber())
+		local dummy = CreateUnitByName("hide_unit",point,false,nil,nil,caster:GetTeamNumber())
 		dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=5})
 		local ifx = ParticleManager:CreateParticle("particles/item/item_thunderstorms.vpcf",PATTACH_ABSORIGIN,dummy)
 		ParticleManager:SetParticleControl(ifx,1,point)
@@ -208,7 +208,7 @@ function C11R_start( keys )
 	end
 
 	-- 打雷音效
-	local dummy = CreateUnitByName("npc_dummy_unit",center,false,nil,nil,caster:GetTeamNumber())
+	local dummy = CreateUnitByName("hide_unit",center,false,nil,nil,caster:GetTeamNumber())
 	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=5})
 	EmitSoundOn("ITEM_D09.sound",dummy)
 	AddFOWViewer(caster:GetTeamNumber(), center, radius, 0.5, false)
@@ -224,16 +224,13 @@ function C11T_on_attack_landed( keys )
 	if target:IsBuilding() or target:GetMaxMana() == 0 then return end
 	-----------------------------------------
 
-	local damage = ability:GetAbilityDamage()
+	local damage = target:GetMaxHealth() * ability:GetSpecialValueFor("damage") * 0.01
 	local remove_mana_percentage = ability:GetSpecialValueFor("remove_mana_percentage")
 	local bouns70 = 1.2
 	local bouns40 = 1.5
 	local bouns15 = 2.0
 
 	-- 特效
-	--local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_antimage/antimage_loadout.vpcf",PATTACH_POINT,target)
-	--local ifx = ParticleManager:CreateParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_manaburn_basher_ti_5_gold.vpcf",PATTACH_POINT,target)
-	--local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_antimage/antimage_spellshield_reflect.vpcf",PATTACH_POINT,target)
 	local ifx = ParticleManager:CreateParticle("particles/c11/c11t_ntimage_manavoid_ti_5.vpcf",PATTACH_POINT,target)
 	ParticleManager:ReleaseParticleIndex(ifx)
 
@@ -246,7 +243,7 @@ function C11T_on_attack_landed( keys )
 	local damage_table = {
 		victim = target,
 		attacker = caster,
-		damage_type = DAMAGE_TYPE_PURE,
+		damage_type = DAMAGE_TYPE_PHYSICAL,
 		damage = damage
 	}
 	

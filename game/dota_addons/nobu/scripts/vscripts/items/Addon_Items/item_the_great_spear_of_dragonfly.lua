@@ -11,10 +11,8 @@ function Shock( keys )
 		if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] then
 			return
 		end
-		if (ran > 20) then
-			caster.great_spear_of_dragonfly_count = caster.great_spear_of_dragonfly_count + 1
-		end
-		if (caster.great_spear_of_dragonfly_count > 5 or ran <= 20) then
+		caster.great_spear_of_dragonfly_count = caster.great_spear_of_dragonfly_count + 1
+		if (caster.great_spear_of_dragonfly_count >= 3) then
 			caster.great_spear_of_dragonfly_count = 0
 			if (caster.great_spear_of_dragonfly == nil) then
 				caster.great_spear_of_dragonfly = 1

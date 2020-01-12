@@ -93,7 +93,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"shock_speed"	"3750"
+				"shock_speed"	"2350"
 			}
 			"02"
 			{
@@ -377,7 +377,7 @@
 				"Damage"	"290 450 600"
 			}
 		}
-		"AbilityDamage"	"290 450 600"
+		"AbilityDamage"	"290 400 600"
 	}
 
 // 織田信長 11.2B
@@ -458,12 +458,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"buff_atk_spd"	"100"
+				"buff_atk_spd"	"50"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"buff_mov_spd"	"100"
+				"buff_mov_spd"	"50"
 			}
 		}
 	}	

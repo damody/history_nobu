@@ -11,10 +11,8 @@ function Shock( keys )
 		if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] then
 			return
 		end
-		if (ran > 30) then
-			caster.great_sword_of_tiger_count = caster.great_sword_of_tiger_count + 1
-		end
-		if (caster.great_sword_of_tiger_count > 4 or ran <= 30) then
+		caster.great_sword_of_tiger_count = caster.great_sword_of_tiger_count + 1
+		if (caster.great_sword_of_tiger_count >= 3) then
 			caster.great_sword_of_tiger_count = 0
 			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
 
@@ -23,7 +21,9 @@ function Shock( keys )
 					if IsValidEntity(target) then
 						ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = 0.2})
 					end
-					AMHC:Damage(caster,target,200,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+					if not target:IsMagicImmune() then
+						AMHC:Damage(caster,target,200,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+					end
 				end
 			end
 			

@@ -858,7 +858,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"bonus_movement_speed"	"115"
+				"bonus_movement_speed"	"65"
 			}
 			"03"
 			{

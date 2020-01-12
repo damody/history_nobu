@@ -231,14 +231,9 @@ function B09T_OnSpellStart( keys )
 	
 	for _,target in pairs(direUnits) do
 		if not target:IsBuilding() then
-			if (target:IsMagicImmune()) then
-				ability:ApplyDataDrivenModifier(caster,target,"modifier_B09T",{duration = duration*0.5})
-				target:SetMana(target:GetMana()*0.4)
-			else
-				target:SetMana(target:GetMana()*0.4)
-				ability:ApplyDataDrivenModifier(caster,target,"modifier_B09T",{duration = duration})
-				AMHC:Damage(caster,target, ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-			end
+			target:SetMana(target:GetMana()*0.4)
+			ability:ApplyDataDrivenModifier(caster,target,"modifier_B09T",{duration = duration})
+			AMHC:Damage(caster,target, ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		end
 	end
 end

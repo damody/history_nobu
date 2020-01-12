@@ -276,9 +276,9 @@
 		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_NONE"
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"                        "custom/B28/B28R"
-		"AbilityManaCost"							"160 180 200 220"
-		"AbilityCooldown"							"24 21 18 15"
-		"AbilityCastRange"              			"800"
+		"AbilityManaCost"							"120 140 160 180"
+		"AbilityCooldown"							"24 22 20 18"
+		"AbilityCastRange"              			"600"
 
 		"OnSpellStart"
 		{
@@ -356,7 +356,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"B28R_radius"			"800"
+				"B28R_radius"			"600"
 			}
 			"04"
 			{

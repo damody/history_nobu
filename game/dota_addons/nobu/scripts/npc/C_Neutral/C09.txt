@@ -133,7 +133,7 @@
 			"04"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"mana_cost"					"6 8 10 12"
+				"mana_cost"					"6 7 8 9"
 			}
 			"05"
 			{
@@ -196,7 +196,7 @@
 			"03"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"C09E_duration"						"3.0 4.0 5.0 6.0"
+				"C09E_duration"						"4 5 6 7"
 			}
 		}
 	}
@@ -292,7 +292,7 @@
 		"AbilityType"  								"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityTextureName"                        "custom/C09/C09T"
 
-		"AbilityCooldown"           				"70 55 40"
+		"AbilityCooldown"           				"60"
 		"AbilityManaCost"           				"150"
 		"AbilityCastRange"							"800"
 		
@@ -330,12 +330,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"C09T_armor"		"-30 -48 -46"
+				"C09T_armor"		"-40 -58 -66"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"C09T_duration"		"7.0 10.0 13.0"
+				"C09T_duration"		"7"
 			}
 			"03"
 			{

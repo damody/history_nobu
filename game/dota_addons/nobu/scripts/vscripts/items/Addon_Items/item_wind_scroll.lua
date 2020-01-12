@@ -27,13 +27,13 @@ function Shock( keys )
 
 	Timers:CreateTimer(0, function ()
 		time = time + 0.25
-		if time > 20 then
+		if time > 8 then
 			return nil
 		else
 			local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
 					caster_point,
 					nil,
-					1500,
+					1000,
 					DOTA_UNIT_TARGET_TEAM_FRIENDLY,
 					DOTA_UNIT_TARGET_ALL,
 					DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
@@ -51,7 +51,7 @@ function Shock( keys )
 
 	Timers:CreateTimer(0, function ()
 		num = num + 1
-		if num == 10 then
+		if num == 8 then
 			ParticleManager:DestroyParticle(particle,false)
 			ParticleManager:DestroyParticle(particle2,true)
 			ParticleManager:DestroyParticle(particle3,true)
@@ -63,7 +63,7 @@ function Shock( keys )
  			ParticleManager:DestroyParticle(particle,false)
 			particle = ParticleManager:CreateParticle("particles/item_d01_3/d01_3_c.vpcf",PATTACH_POINT,dummy)
 			ParticleManager:SetParticleControl(particle,0, tem_p1)
-			return 2	
+			return 1	
 		end
 	end)
 

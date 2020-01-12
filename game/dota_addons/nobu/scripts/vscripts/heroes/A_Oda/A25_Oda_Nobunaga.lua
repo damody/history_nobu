@@ -269,9 +269,9 @@ function A25T( keys )
 		--effect:傷害+暈眩
 		for _,it in pairs(direUnits) do
 			if (not(it:IsBuilding())) then
-				AMHC:Damage(caster,it,AbilityDamage*0.4,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
-			else
 				AMHC:Damage(caster,it,AbilityDamage*0.2,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+			else
+				AMHC:Damage(caster,it,AbilityDamage*0.1,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 			end
 		end
 		if (small_tornado_count % 4 == 0) then

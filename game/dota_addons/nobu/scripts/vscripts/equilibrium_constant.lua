@@ -6,13 +6,13 @@
 ]]
 
 -- 
-local HP_PER_STR = 25
+local HP_PER_STR = 20
 local HP_REGEN_PER_STR = 0.2
-local MANA_PER_INT = 20
+local MANA_PER_INT = 15
 local MANA_REGEN_PER_INT = 0.15
 local ARMOR_PER_AGI = 0.333
 local ATKSPD_PER_AGI = 2
-local MAX_MS = 3000
+local MAX_MS = 1000
 
 -- default value from dota
 local DEFAULT_HP_PER_STR = 20
@@ -147,12 +147,19 @@ end
 
 function equilibrium_constant:x_OnNPCSpawned(keys)
     local hSpawnedUnit = EntIndexToHScript( keys.entindex )
+    if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("for_cp_position") then
+        hSpawnedUnit:FindAbilityByName("for_cp_position"):SetLevel(1)
+    end
+    if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("tofar_goback") then
+        hSpawnedUnit:FindAbilityByName("tofar_goback"):SetLevel(1)
+    end
     if IsValidEntity(hSpawnedUnit)
         and hSpawnedUnit.GetAgility and hSpawnedUnit.GetIntellect and hSpawnedUnit.GetStrength
         and not hSpawnedUnit:HasModifier("equilibrium_constant")
         then
+        if hSpawnedUnit.AddNewModifier ~= nil then
             hSpawnedUnit:AddNewModifier(hSpawnedUnit,nil,"equilibrium_constant",{})
-        
+        end
     end
 end
 

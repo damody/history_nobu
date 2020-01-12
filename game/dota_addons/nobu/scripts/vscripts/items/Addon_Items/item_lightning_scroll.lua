@@ -214,16 +214,15 @@ function item_raikiri( keys )
 	--local point2 = ability:GetCursorPosition()
 	local level = ability:GetLevel() - 1
 	local vec = (point2-point):Normalized() --caster:GetForwardVector():Normalized()
-	if (caster.nobuorb1 == "item_raikiri" or caster.nobuorb1 == nil) and not target:IsBuilding() and caster.goraikiri == nil then
+	--if (caster.nobuorb1 == "item_raikiri" or caster.nobuorb1 == nil) and not target:IsBuilding() and caster.goraikiri == nil then
+	if not target:IsBuilding() then
 		caster.nobuorb1 = "item_raikiri"
 		local ran =  RandomInt(0, 100)
 		if (caster.raikiri == nil) then
 			caster.raikiri = 0
 		end
-		if (ran > chance) then
-			caster.raikiri = caster.raikiri + 1
-		end
-		if (caster.raikiri > (100/chance) or ran <= chance) then
+		caster.raikiri = caster.raikiri + 1
+		if caster.raikiri >= 3 then
 			caster.raikiri = 0
 			--【KV】
 			--caster:SetForwardVector(vec)
@@ -235,17 +234,6 @@ function item_raikiri( keys )
 			local particle = ParticleManager:CreateParticle("particles/item/d09/d09.vpcf",PATTACH_POINT,caster)
 			ParticleManager:SetParticleControl(particle,0, point + vec * 100)
 			ParticleManager:SetParticleControl(particle,1, point2)
-
-			-- ParticleManager:SetParticleControl(lightningBolt,0,Vector(point.x,point.y,caster:GetAbsOrigin().z + caster:GetBoundingMaxs().z ))	
-			-- ParticleManager:SetParticleControl(lightningBolt,1,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
-			--【DMG】
-			ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = AbilityDamageType})
-			target.has_D09 = true
-			-- target:EmitSound("Hero_ShadowShaman.EtherShock.Target")
-
-			--【Varible Of Tem】
-			--local tem_point = nil
-
 
 			local cone_units = FindUnitsInRadius(caster:GetTeamNumber(),
 		                              point2,
@@ -273,7 +261,9 @@ function item_raikiri( keys )
 						ParticleManager:SetParticleControl(particle,1, tem_point)
 						
 						--【DMG】
-						ApplyDamage({ victim = unit, attacker = caster, damage = 500, damage_type = AbilityDamageType})
+						if not unit:IsMagicImmune() then
+							AMHC:Damage(caster,unit,200,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+						end
 
 						-- Increment counter
 						targets_shocked = targets_shocked + 1

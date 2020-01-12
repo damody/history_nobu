@@ -262,10 +262,10 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityCastPoint"	"0.1"
-		"AbilityCooldown"	"10 8 6 4"
+		"AbilityCooldown"	"10 9 8 7"
 		"AOERadius"	"%radius"
-		"AbilityManaCost"	"120 140 160 180"
-		"AbilityCastRange"	"900"
+		"AbilityManaCost"	"100 120 140 160"
+		"AbilityCastRange"	"800"
 		"precache"
 		{
 			"soundfile"	"sounds/weapons/hero/razor/razor_attack_crit_02.vsnd"
@@ -440,12 +440,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"Special_Damage"	"15 17 19"
+				"Special_Damage"	"16 18 20"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"SpendMana"	"200 235 270"
+				"SpendMana"	"150 170 190"
 			}
 		}
 	}	

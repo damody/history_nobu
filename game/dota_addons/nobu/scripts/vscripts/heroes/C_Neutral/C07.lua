@@ -262,23 +262,15 @@ function C07_Effect( keys )
 			end
 			if IsValidEntity(caster) and caster:IsAlive() then
 				if v2:IsBuilding() then
-					AMHC:Damage( caster,v2,dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+					AMHC:Damage( caster,v2,dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 				else
-					if v2:IsMagicImmune() then
-						AMHC:Damage( caster,v2,dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-					else
-						AMHC:Damage( caster,v2,dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-					end
+					AMHC:Damage( caster,v2,dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 				end
 			else
 				if v2:IsBuilding() then
-					AMHC:Damage( dummyx,v2*0.5,dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+					AMHC:Damage( dummyx,v2*0.5,dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 				else
-					if v2:IsMagicImmune() then
-						AMHC:Damage( dummyx,v2,dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-					else
-						AMHC:Damage( dummyx,v2,dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-					end
+					AMHC:Damage( dummyx,v2,dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 				end
 				caster.takedamage = caster.takedamage + dmg
 				if (v2:IsRealHero()) and caster.herodamage then
@@ -316,23 +308,15 @@ function C07_Effect( keys )
 					end
 					if IsValidEntity(caster) and caster:IsAlive() then
 						if v2:IsBuilding() then
-							AMHC:Damage( caster,v2,dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+							AMHC:Damage( caster,v2,dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 						else
-							if v2:IsMagicImmune() then
-								AMHC:Damage( caster,v2,dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-							else
-								AMHC:Damage( caster,v2,dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-							end
+							AMHC:Damage( dummyx,v2,dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 						end
 					else
 						if v2:IsBuilding() then
-							AMHC:Damage( dummyx,v2,dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+							AMHC:Damage( dummyx,v2,dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 						else
-							if v2:IsMagicImmune() then
-								AMHC:Damage( dummyx,v2,dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-							else
-								AMHC:Damage( dummyx,v2,dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-							end
+							AMHC:Damage( dummyx,v2,dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 						end
 						caster.takedamage = caster.takedamage + dmg
 						if (v2:IsRealHero()) and caster.herodamage then

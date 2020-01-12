@@ -21,9 +21,9 @@
 		"AbilityTextureName"			"nyx_assassin_mana_burn"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"	
-		"AbilityCastRange"				"900 1000 1100 1200"
+		"AbilityCastRange"				"1000"
 		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"10 9 8 7"
+		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"50 60 70 80"
 		"AbilitySpecial"
 		{
@@ -142,16 +142,16 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		//"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityCastPoint"				"0 0 0 0"
-		"AbilityCooldown"				"7 6 5 4"
+		"AbilityCooldown"				"8 8 7 7"
 		"AbilityDamage"					"150 250 350 450"
 		"AbilityManaCost"				"110 130 150 170"
-		"AbilityCastRange"				"1000 1300 1600 1900"
+		"AbilityCastRange"				"1000 1200 1400 1600"
 		"AbilitySpecial"
 		{ 
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"radius"			"1000 1300 1600 1900"
+				"radius"			"1000 1200 1400 1600"
 			}
 			"02"
 			{
@@ -338,9 +338,9 @@
 		"MaxLevel"	"4"
 		"RequiredLevel"	"1"
 		"AbilityCastPoint" "0.25" //stun
-		"AbilityCooldown"	"15 15 13 11"
+		"AbilityCooldown"	"20"
 		"AbilityManaCost"	"200 240 280 300"
-		"AbilityCastRange"	"2000 2500 3000 3500"
+		"AbilityCastRange"	"1800"
 		"precache"
 		{
 			"particle"	"particles/a12t2/a12t2.vpcf"
@@ -363,7 +363,7 @@
 				"EffectName"	"particles/a12t2/a12t2.vpcf"
 				"Dodgeable"	"1"
 				"ProvidesVision"	"1"
-				"MoveSpeed"	"1500"
+				"MoveSpeed"	"1300"
 				"VisionRadius"	"225"
 				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
 			}
@@ -600,13 +600,13 @@
 		"LevelsBetweenUpgrades"	"6"
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1500"
+		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0"
 		"AOERadius"	"1000 1100 1200"
 		
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"70 60 50"
+		"AbilityCooldown"				"80"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -628,12 +628,12 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"4 5 6"
+				"duration"				"6"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"400 600 1000"
+				"damage"				"400 500 600"
 			}
 			"04"
 			{

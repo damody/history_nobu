@@ -770,7 +770,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
 
-		"AbilityDamage"		"120 160 200 240"
+		"AbilityDamage"		"40 60 80 100"
 
 		"precache"
 		{
@@ -809,7 +809,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"B32R_strength"	"4 8 12 16"
+				"B32R_strength"	"8 12 16 20"
 			}
 		}
 	}
@@ -951,7 +951,6 @@
 			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_corrosive.vpcf"
 			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_fire.vpcf"
 			"particle"	"particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_frost.vpcf"
-			"model"	"models/heroes/dragon_knight/dragon_knight_dragon.vmdl"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_stormspirit.vsndevts"
 			"soundfile"	"soundevents/voscripts/game_sounds_vo_stormspirit.vsndevts"
 			"particle"	"particles/a07t2/a07t2.vpcf"
@@ -1057,7 +1056,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"50 90 130"
+				"damage"	"90 110 130"
 			}
 			"02"
 			{

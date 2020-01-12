@@ -71,8 +71,8 @@ function A12E_OnAttackLanded1( keys )
 	if caster:IsAlive() then
 		if caster.A12E_CHANCE >= 7 then 
 			local cure = caster:GetMaxMana() * cure_count / 100
-			caster:SetMana(caster:GetMana() + cure)
-			AMHC:CreateNumberEffect(caster,cure,2,AMHC.MSG_ORIT ,{0,0,225},0)
+			caster:Heal(cure,caster)
+			AMHC:CreateNumberEffect(caster,cure,2,AMHC.MSG_ORIT ,{0,225,0},0)
 			ParticleManager:CreateParticle("particles/a12w/a12w.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 		end
 	end
@@ -92,9 +92,8 @@ function A12E_OnAttackLanded2( keys )
 		if caster.A12E_CHANCE >= 7 then 
 			local cure = caster:GetMaxMana() * cure_count / 100
 			caster:SetMana(caster:GetMana() + cure)
-			caster:Heal(cure,caster)
 			AMHC:CreateNumberEffect(caster,cure,2,AMHC.MSG_ORIT ,{0,0,225},0)
-			AMHC:CreateNumberEffect(caster,cure,2,AMHC.MSG_ORIT ,{0,225,0},0)
+			
 			ParticleManager:CreateParticle("particles/a12w2/a12w2.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 			ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW, caster)
 		end
@@ -124,7 +123,7 @@ function A12R( keys )
 	    group = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false)
 		for _,v in ipairs(group) do
 			damage = v:GetMaxHealth()*Special_damage/100
-			AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+			AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		end
 	end
 
@@ -148,10 +147,10 @@ function A12T( keys )
 	local special_dmg = ability:GetLevelSpecialValueFor("Special_Damage",ability:GetLevel() - 1)
 	local SpendMana = ability:GetLevelSpecialValueFor("SpendMana",ability:GetLevel() - 1)
 	local damage = 0 
-	if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
+	--if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
 		if caster:GetMana() > 30 and not target:IsBuilding() and caster.nobuorb1 == nil then
 			damage = caster:GetMana()*special_dmg/100
-			AMHC:Damage( caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+			AMHC:Damage( caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			AMHC:CreateNumberEffect(target,damage,2,AMHC.MSG_ORIT ,{0,0,225},4)
 			if caster.A12T == true then
 				caster:SetMana(caster:GetMana() + SpendMana*2)
@@ -166,7 +165,7 @@ function A12T( keys )
 				]]
 			end
 		end
-	end
+	--end
 	caster.A12T = false
 end
 

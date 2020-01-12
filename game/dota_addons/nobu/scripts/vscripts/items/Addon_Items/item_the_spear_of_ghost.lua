@@ -27,7 +27,8 @@ function Shock( keys )
 	local target = keys.target
 	local skill = keys.ability
 
-	if (caster.nobuorb1 == "item_the_spear_of_ghost" or caster.nobuorb1 == nil) and not target:IsBuilding() and target:GetUnitName() ~= "npc_dota_cursed_warrior_souls" then
+	--if (caster.nobuorb1 == "item_the_spear_of_ghost" or caster.nobuorb1 == nil) and not target:IsBuilding() and target:GetUnitName() ~= "npc_dota_cursed_warrior_souls" then
+	if not target:IsBuilding() then
 		caster.nobuorb1 = "item_the_spear_of_ghost"
 		local ran =  RandomInt(0, 100)
 		if (caster.spear_of_ghost == nil) then
@@ -45,13 +46,10 @@ function Shock( keys )
 			if dmg < keys.MinDmg then
 				dmg = keys.MinDmg
 			end
-			if not keys.target:IsMagicImmune() then
+			if not target:IsMagicImmune() then
 				AMHC:Damage(caster,keys.target, dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-				AMHC:CreateNumberEffect(keys.target,dmg,1,AMHC.MSG_DAMAGE,'blue')
-			else
-				AMHC:Damage(caster,keys.target, dmg*1.5,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
-				AMHC:CreateNumberEffect(keys.target,dmg*1.5,1,AMHC.MSG_DAMAGE,{255,100,100})
 			end
+			AMHC:CreateNumberEffect(keys.target,dmg,1,AMHC.MSG_DAMAGE,'blue')
 			--SE
 			-- local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf", PATTACH_POINT, keys.target)
 			-- ParticleManager:SetParticleControlEnt(particle, 0, keys.target, PATTACH_POINT, "attach_hitloc", Vector(0,0,0), true)
@@ -76,7 +74,8 @@ function Shock2( keys )
 	local skill = keys.ability
 	local target = keys.target
 	
-	if (caster.nobuorb1 == "item_the_spear_of_ghost" or caster.nobuorb1 == nil) and not keys.target:IsBuilding() then
+	--if (caster.nobuorb1 == "item_the_spear_of_ghost" or caster.nobuorb1 == nil) and not keys.target:IsBuilding() then
+	if not target:IsBuilding() then
 		caster.nobuorb1 = "item_the_spear_of_ghost"
 		if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
 			local hp = target:GetMaxHealth()

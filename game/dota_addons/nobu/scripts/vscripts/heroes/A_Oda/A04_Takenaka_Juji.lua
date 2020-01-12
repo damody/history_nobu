@@ -417,7 +417,7 @@ function A04T( keys )
 					ability:ApplyDataDrivenModifier(caster,it,"modifier_freezing_field_debuff_datadriven", {duration=5})
 					AMHC:Damage(caster,it,damage_scepter,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				else
-					AMHC:Damage(caster,it,damage_scepter*0.5,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+					AMHC:Damage(caster,it,damage_scepter*0.55,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				end
 			end
 

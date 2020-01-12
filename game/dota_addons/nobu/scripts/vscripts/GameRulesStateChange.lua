@@ -141,7 +141,7 @@ function Nobu:OnGameRulesStateChange( keys )
 				if player then
 					local hero = player:GetAssignedHero()
 					if hero and hero:GetTeamNumber()==n then
-						pres = (hero.kill_hero_count or 0)*10 + pres
+						pres = (hero.kill_hero_count or 0)*5 + pres
 						pres = (hero.building_count or 0)*5 + pres
 					end
 				end
@@ -149,9 +149,9 @@ function Nobu:OnGameRulesStateChange( keys )
 			local money = pres
 			if ccpres > 0 then
 				if n == 3 then
-					GameRules: SendCustomMessage("<font color='#ffff00'>聯合將領得到了"..(money).."金錢支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+					GameRules: SendCustomMessage("<font color='#ffff00'>聯合將領得到了"..(money).." 支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 				elseif n == 2 then
-					GameRules: SendCustomMessage("<font color='#ffff00'>織田將領得到了"..(money).."金錢支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+					GameRules: SendCustomMessage("<font color='#ffff00'>織田將領得到了"..(money).." 支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 				end
 				for playerID = 0, 9 do
 					local player = PlayerResource:GetPlayer(playerID)

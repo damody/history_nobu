@@ -61,8 +61,8 @@ function C09W_OnOrbImpact( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			-- damage_flags = DOTA_DAMAGE_FLAG_NONE
 		})
-		ability:ApplyDataDrivenModifier(caster,target,"modifier_C09W_debuff",{})
 		if not target:IsMagicImmune() then
+			ability:ApplyDataDrivenModifier(caster,target,"modifier_C09W_debuff",{})
 			ability:ApplyDataDrivenModifier(caster,target,"modifier_C09W_debuff2",{})
 			PopupNumbers(target, "damage", Vector(0, 255, 255), 1.0, damage, POPUP_SYMBOL_PRE_MINUS , nil )
 		end

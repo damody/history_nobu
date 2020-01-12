@@ -35,7 +35,7 @@ function B28R_OnProjectileHitUnit( keys )
 	local ability = keys.ability
 	local caster = keys.caster
 	local target = keys.target
-	local dmg = ability:GetSpecialValueFor("B28R_damage")+caster:GetLevel()*3
+	local dmg = ability:GetSpecialValueFor("B28R_damage")
 	if target:IsBuilding() then
 		AMHC:Damage( caster,target,dmg*0.2,AMHC:DamageType("DAMAGE_TYPE_MAGICAL") )
 	else

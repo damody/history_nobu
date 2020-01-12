@@ -11,6 +11,7 @@
         <scripts>
 				<include src="file://{resources}/scripts/camera.js" />
         </scripts>
+        
 		<Panel class="AddonLoadingRoot">
 			<Slider class="HorizontalSlider" direction="horizontal" id="Slider1" />
 		</Panel>

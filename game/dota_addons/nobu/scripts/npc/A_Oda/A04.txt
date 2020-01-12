@@ -531,9 +531,9 @@
 		"LevelsBetweenUpgrades"	"6"
 		"AbilityCastPoint"	"0"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
-		"AbilityCooldown"	"120 110 100"
-		"AbilityManaCost"	"200 300 400"
-		"AbilityCastRange"	"1100"
+		"AbilityCooldown"	"120"
+		"AbilityManaCost"	"200"
+		"AbilityCastRange"	"800"
 		"AbilityChannelTime"	"8"
 		"AbilityChannelledManaCostPerSecond"	"0"
 		"AOERadius"	"800"
@@ -798,7 +798,7 @@
 			"10"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_scepter"	"170 250 310"
+				"damage_scepter"	"180 240 300"
 			}
 			"11"
 			{

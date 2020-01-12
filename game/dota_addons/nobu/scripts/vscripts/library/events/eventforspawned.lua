@@ -5,9 +5,7 @@ LinkLuaModifier( "modifier_record", "items/Addon_Items/record.lua",LUA_MODIFIER_
 heromap = _G.heromap 
 
 function Nobu:OnHeroIngame( keys )
-  PrintTable(keys)
   local hero = EntIndexToHScript( keys.entindex )
-    
   if hero ~= nil and IsValidEntity(hero) and hero:IsHero() then
     local caster = hero
     if caster:HasModifier("modifier_record") then
@@ -41,8 +39,10 @@ function Nobu:OnHeroIngame( keys )
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
           
-          local donkey = CreateUnitByName("npc_dota_courier2", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
-          donkey:SetOwner(hero)
+          local donkey = CreateUnitByName("npc_dota_courier", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
+          donkey.oripos = donkey:GetAbsOrigin()
+          hero.donkey = donkey
+          --donkey:SetOwner(hero)
           donkey:SetHullRadius(1)
           donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
           donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
@@ -63,8 +63,7 @@ function Nobu:OnHeroIngame( keys )
             return 1
             end)
             
-          donkey.oripos = donkey:GetAbsOrigin()
-          hero.donkey = donkey
+          
 
         end
       end

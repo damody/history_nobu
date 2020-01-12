@@ -251,7 +251,7 @@ function B01R(keys)
 	--【Basic】
 	local caster = keys.caster
 
-	if caster.nobuorb1 == nil then
+	--if caster.nobuorb1 == nil then
 		local target = keys.target
 		if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
 			local ability = keys.ability
@@ -283,7 +283,7 @@ function B01R(keys)
 					end)
 			end
 		end
-	end
+	--end
 end
 
 function B01R_old(keys)

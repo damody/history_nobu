@@ -71,16 +71,15 @@ function item_kokumo( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
-	if (caster.nobuorb1 == "item_kokumo" or caster.nobuorb1 == nil) and not target:IsBuilding() and caster.gokokumo == nil then
+	--if (caster.nobuorb1 == "item_kokumo" or caster.nobuorb1 == nil) and not target:IsBuilding() and caster.gokokumo == nil then
+	if not target:IsBuilding() then
 		caster.nobuorb1 = "item_kokumo"
 		local ran =  RandomInt(0, 100)
 		if (caster.kokumo == nil) then
 			caster.kokumo = 0
 		end
-		if (ran > 16) then
-			caster.kokumo = caster.kokumo + 1
-		end
-		if (caster.kokumo > (100/18) or ran <= 18) then
+		caster.kokumo = caster.kokumo + 1
+		if caster.kokumo >= 6 then
 			caster.kokumo = 0
 		local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
 							target:GetAbsOrigin(),
@@ -92,7 +91,9 @@ function item_kokumo( keys )
 							FIND_ANY_ORDER,
 							false)
 		local dmg = 400
-		AMHC:Damage(caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		if not target:IsMagicImmune() then
+			AMHC:Damage(caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		end
 		for _,it in pairs(direUnits) do
 			ability:ApplyDataDrivenModifier(caster, it,"modifier_frozen_ring",{duration=3})
 			if it ~= target then
@@ -132,10 +133,12 @@ function Shock4( keys )
 							DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 							FIND_ANY_ORDER,
 							false)
-		AMHC:Damage(caster,target,400,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		if not target:IsMagicImmune() then
+			AMHC:Damage(caster,target,400,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		end
 		for _,it in pairs(direUnits) do
 			ability:ApplyDataDrivenModifier(caster, it,"modifier_frozen_ring",{duration=3})
-			if it ~= target then
+			if it ~= target and not it:IsMagicImmune() then
 				AMHC:Damage(caster,it,100,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			end
 		end
@@ -172,7 +175,9 @@ function Shock5( keys )
 							DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 							FIND_ANY_ORDER,
 							false)
-		AMHC:Damage(caster,target,500,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		if not target:IsMagicImmune() then
+			AMHC:Damage(caster,target,500,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		end
 		for _,it in pairs(direUnits) do
 			ability:ApplyDataDrivenModifier(caster, it,"modifier_frozen_ring",{duration=4})
 			if it ~= target then

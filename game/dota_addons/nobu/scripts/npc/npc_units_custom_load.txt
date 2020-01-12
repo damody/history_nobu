@@ -3417,7 +3417,7 @@
 		
  		"WakesNeutrals"				"0"	// Model.
 	}
-	
+	//馬
 	//馬
 	"npc_dota_courier2"
  	{
@@ -5014,14 +5014,9 @@
 
 	"npc_dummy_unit"
 	{
-		"BaseClass"	"npc_dota_creep_lane"
-		"Model"	"models/development/invisiblebox.vmdl"
-		"SoundSet"	"Creep_Good_Range"
-		"Level"	"0"
-		"UnitLabel"	"healing_ward"
-		"Ability1"	"ability_dummy_unit"
-		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
-		"Ability2"	""
+		"BaseClass"	"npc_dota_creature"
+		"Ability1"	"majia"
+		"Ability2"	"for_no_collision"
 		"Ability3"	""
 		"Ability4"	""
 		"Ability5"	""
@@ -5036,18 +5031,28 @@
 		"Ability14"	""
 		"Ability15"	""
 		"Ability16"	""
+		"Model"	"models/empty.vmdl"
+		"HasInventory"	"1"
+		"ArmorPhysical"	"10000"
+		"MagicalResistance"	"100"
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"StatusHealth"	"1000"
+		"StatusHealthRegen"	"1000"
+		"StatusMana"	"10000"
+		"StatusManaRegen"	"100"
+		"StatusStartingMana"	"10000"
+		"VisionDaytimeRange"	"0"
+		"VisionNighttimeRange"	"0"
+		"Level"	"5"
+		"ConsideredHero"	"0"
 	}
 
 	"npc_dummy_unit_new"
 	{
-		"BaseClass"	"npc_dota_creep_lane"
-		"Model"	"models/development/invisiblebox.vmdl"
-		"SoundSet"	"Creep_Good_Range"
-		"Level"	"0"
-		"UnitLabel"	"healing_ward"
-		"Ability1"	"ability_dummy_unit_new"
-		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
-		"Ability2"	""
+		"BaseClass"	"npc_dota_creature"
+		"Ability1"	"majia"
+		"Ability2"	"for_no_collision"
 		"Ability3"	""
 		"Ability4"	""
 		"Ability5"	""
@@ -5062,12 +5067,21 @@
 		"Ability14"	""
 		"Ability15"	""
 		"Ability16"	""
-		"Ability17"	""
-
-		// Vision
-		// ----------------------------------------------------------------
+		"Model"	"models/empty.vmdl"
+		"HasInventory"	"1"
+		"ArmorPhysical"	"10000"
+		"MagicalResistance"	"100"
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"StatusHealth"	"1000"
+		"StatusHealthRegen"	"1000"
+		"StatusMana"	"10000"
+		"StatusManaRegen"	"100"
+		"StatusStartingMana"	"10000"
 		"VisionDaytimeRange"	"0"
 		"VisionNighttimeRange"	"0"
+		"Level"	"5"
+		"ConsideredHero"	"0"
 	}
 
 	// =================================================================================
@@ -5308,123 +5322,15 @@
 
 	"npc_dummy_unit_Ver2"
 	{
-		// General
-		//
-		// Class of entity of link to.
 		"BaseClass"	"npc_dota_creature"
-		// Model.
-		"Model"	"models/development/invisiblebox.vmdl"
-		// Name of sound set.
-		"SoundSet"	"Creep_Good_Range"
-		"Level"	"0"
-		"UnitLabel"	"healing_ward"
-		// Abilities
-		// ----------------------------------------------------------------
-		// Ability 1.
 		"Ability1"	"majia"
-		// Ability 2.
-		"Ability2"	"majia_2"
-		// Ability 3.
+		"Ability2"	""
 		"Ability3"	""
-		// Ability 4.
 		"Ability4"	""
-		// Ability 5.
 		"Ability5"	""
-		// Ability 6 - Extra.
 		"Ability6"	""
-		// Ability 7 - Extra.
 		"Ability7"	""
-		// Ability 8 - Extra.
 		"Ability8"	""
-		// Armor
-		// ----------------------------------------------------------------
-		// Physical protection.
-		"ArmorPhysical"	"0"
-		// Magical protection.
-		"MagicalResistance"	"0"
-		// Attack
-		// ----------------------------------------------------------------
-		// Type of attack - melee, ranged, etc.
-		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
-		// Damage range min.
-		"AttackDamageMin"	"0"
-		// Damage range max.
-		"AttackDamageMax"	"0"
-		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
-		// Speed of attack.
-		"AttackRate"	"1"
-		// Normalized time in animation cycle to attack.
-		"AttackAnimationPoint"	"0.5"
-		// Range within a target can be acquired.
-		"AttackAcquisitionRange"	"800"
-		// Range within a target can be attacked.
-		"AttackRange"	"500"
-		// Speed of projectile.
-		"ProjectileSpeed"	"900"
-		// Attributes
-		// ----------------------------------------------------------------
-		"AttributePrimary"	"DOTA_ATTRIBUTE_STRENGTH"
-		// Base strength
-		"AttributeBaseStrength"	"0"
-		// Strength bonus per level.
-		"AttributeStrengthGain"	"0"
-		// Base intelligence
-		"AttributeBaseIntelligence"	"0"
-		// Intelligence bonus per level.
-		"AttributeIntelligenceGain"	"0"
-		// Base agility
-		"AttributeBaseAgility"	"0"
-		// Agility bonus per level.
-		"AttributeAgilityGain"	"0"
-		// Bounty
-		// ----------------------------------------------------------------
-		// Experience earn.
-		"BountyXP"	"0"
-		// Gold earned min.
-		"BountyGoldMin"	"0"
-		// Gold earned max.
-		"BountyGoldMax"	"0"
-		// Bounds
-		// ----------------------------------------------------------------
-		// Hull type used for navigation/locomotion.
-		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"
-		// Movement
-		// ----------------------------------------------------------------
-		// Type of locomotion - ground, air
-		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
-		// Speed
-		"MovementSpeed"	"450"
-		// Turning rate.
-		"MovementTurnRate"	"10"
-		// Distance to keep when following
-		"FollowRange"	"250"
-		// Status
-		// ----------------------------------------------------------------
-		// Base health.
-		"StatusHealth"	"10000"
-		// Health regeneration rate.
-		"StatusHealthRegen"	"0"
-		// Base mana.
-		"StatusMana"	"0"
-		// Mana regeneration rate.
-		"StatusManaRegen"	"200"
-		// Team
-		// ----------------------------------------------------------------
-		// Team name.
-		"TeamName"	"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
-		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_BASIC"
-		"UnitRelationshipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_WARD"
-		// Vision
-		// ----------------------------------------------------------------
-		// Range of vision during day light.
-		"VisionDaytimeRange"	"0"
-		// Range of vision at night time.
-		"VisionNighttimeRange"	"0"
-		// Bots
-		// ----------------------------------------------------------------
-		// How much bots want to attack them vs other non-hero things
-		"AttackDesire"	"1.5"
 		"Ability9"	""
 		"Ability10"	""
 		"Ability11"	""
@@ -5433,8 +5339,21 @@
 		"Ability14"	""
 		"Ability15"	""
 		"Ability16"	""
-		"UseNeutralCreepBehavior"	"0"
-		"StatusStartingMana"	"200"
+		"Model"	"models/empty.vmdl"
+		"HasInventory"	"1"
+		"ArmorPhysical"	"10000"
+		"MagicalResistance"	"100"
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"StatusHealth"	"1000"
+		"StatusHealthRegen"	"1000"
+		"StatusMana"	"10000"
+		"StatusManaRegen"	"100"
+		"StatusStartingMana"	"10000"
+		"VisionDaytimeRange"	"0"
+		"VisionNighttimeRange"	"0"
+		"Level"	"5"
+		"ConsideredHero"	"0"
 	}
 
 	"Dummy_Ver1"
@@ -6211,8 +6130,8 @@
 		"MovementTurnRate"	"3"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"4000"
-		"StatusHealthRegen"	"50"
+		"StatusHealth"	"3000"
+		"StatusHealthRegen"	"150"
 		// Vision
 		// ----------------------------------------------------------------
 		"VisionDaytimeRange"	"1100"
@@ -6257,7 +6176,7 @@
 		// Reference: Aoar
 		"Ability3"	""
 		// Reference: A0BN
-		"Ability4"	"debuff_tower"
+		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"20"
@@ -6265,8 +6184,8 @@
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"350.0"
-		"AttackDamageMax"	"350.0"
+		"AttackDamageMin"	"250.0"
+		"AttackDamageMax"	"250.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0.25"
@@ -6291,7 +6210,7 @@
 		// Status
 		// ----------------------------------------------------------------
 		"StatusHealth"	"3000"
-		"StatusHealthRegen"	"50"
+		"StatusHealthRegen"	"20"
 		// Vision
 		// ----------------------------------------------------------------
 		"VisionDaytimeRange"	"1100"
@@ -6336,7 +6255,7 @@
 		// Reference: Aoar
 		"Ability3"	""
 		// Reference: A0BN
-		"Ability4"	"debuff_tower"
+		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"20"
@@ -6344,8 +6263,8 @@
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"350.0"
-		"AttackDamageMax"	"350.0"
+		"AttackDamageMin"	"250.0"
+		"AttackDamageMax"	"250.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0.25"
@@ -6370,7 +6289,7 @@
 		// Status
 		// ----------------------------------------------------------------
 		"StatusHealth"	"3000"
-		"StatusHealthRegen"	"50"
+		"StatusHealthRegen"	"20"
 		// Vision
 		// ----------------------------------------------------------------
 		"VisionDaytimeRange"	"1100"
@@ -10665,7 +10584,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -16035,7 +15954,7 @@
 		"Ability2"	"check_Unified_is_dead"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"51"
+		"ArmorPhysical"	"15"
 		"MagicalResistance"	"50"
 		// Attack
 		// ----------------------------------------------------------------
@@ -16058,7 +15977,7 @@
 		// Status
 		// ----------------------------------------------------------------
 		"StatusHealth"	"10000"
-		"StatusHealthRegen"	"40"
+		"StatusHealthRegen"	"20"
 		// Vision
 		// ----------------------------------------------------------------
 		"VisionDaytimeRange"	"1100"
@@ -16110,7 +16029,7 @@
 		"Ability2"	"check_Oda_is_dead"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"51"
+		"ArmorPhysical"	"15"
 		"MagicalResistance"	"50"
 		// Attack
 		// ----------------------------------------------------------------
@@ -16133,7 +16052,7 @@
 		// Status
 		// ----------------------------------------------------------------
 		"StatusHealth"	"10000"
-		"StatusHealthRegen"	"40"
+		"StatusHealthRegen"	"20"
 		// Vision
 		// ----------------------------------------------------------------
 		"VisionDaytimeRange"	"1100"
@@ -17130,7 +17049,7 @@
 	{
 		"BaseClass"	"npc_dota_creature"
 		"Ability1"	"majia"
-		"Ability2"	""
+		"Ability2"	"for_no_collision"
 		"Ability3"	""
 		"Ability4"	""
 		"Ability5"	""
@@ -17176,7 +17095,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -17203,7 +17122,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"24"		// Experience earn.
+ 		"BountyXP"					"12"		// Experience earn.
  		"BountyGoldMin"				"20"		// Gold earned min.
  		"BountyGoldMax"				"20"		// Gold earned max.
 
@@ -17246,7 +17165,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -17273,7 +17192,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"24"		// Experience earn.
+ 		"BountyXP"					"12"		// Experience earn.
  		"BountyGoldMin"				"20"		// Gold earned min.
  		"BountyGoldMax"				"20"		// Gold earned max.
 
@@ -17316,7 +17235,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -17343,7 +17262,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"24"		// Experience earn.
+ 		"BountyXP"					"12"		// Experience earn.
  		"BountyGoldMin"				"20"		// Gold earned min.
  		"BountyGoldMax"				"20"		// Gold earned max.
 
@@ -17386,7 +17305,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -17413,7 +17332,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"48"		// Experience earn.
+ 		"BountyXP"					"24"		// Experience earn.
  		"BountyGoldMin"				"40"		// Gold earned min.
  		"BountyGoldMax"				"40"		// Gold earned max.
 
@@ -17456,7 +17375,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -17483,7 +17402,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"60"		// Experience earn.
+ 		"BountyXP"					"30"		// Experience earn.
  		"BountyGoldMin"				"60"		// Gold earned min.
  		"BountyGoldMax"				"60"		// Gold earned max.
 
@@ -17526,7 +17445,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -17553,7 +17472,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"48"		// Experience earn.
+ 		"BountyXP"					"24"		// Experience earn.
  		"BountyGoldMin"				"40"		// Gold earned min.
  		"BountyGoldMax"				"40"		// Gold earned max.
 
@@ -17596,7 +17515,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -17623,7 +17542,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"48"		// Experience earn.
+ 		"BountyXP"					"20"		// Experience earn.
  		"BountyGoldMin"				"40"		// Gold earned min.
  		"BountyGoldMax"				"40"		// Gold earned max.
 
@@ -17666,7 +17585,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -17693,7 +17612,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"60"		// Experience earn.
+ 		"BountyXP"					"30"		// Experience earn.
  		"BountyGoldMin"				"60"		// Gold earned min.
  		"BountyGoldMax"				"60"		// Gold earned max.
 
@@ -17736,7 +17655,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -17763,7 +17682,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"36"		// Experience earn.
+ 		"BountyXP"					"18"		// Experience earn.
  		"BountyGoldMin"				"35"		// Gold earned min.
  		"BountyGoldMax"				"35"		// Gold earned max.
 
@@ -17806,7 +17725,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -17876,7 +17795,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -17903,7 +17822,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"60"		// Experience earn.
+ 		"BountyXP"					"30"		// Experience earn.
  		"BountyGoldMin"				"60"		// Gold earned min.
  		"BountyGoldMax"				"60"		// Gold earned max.
 
@@ -17946,7 +17865,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -17973,7 +17892,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"48"		// Experience earn.
+ 		"BountyXP"					"24"		// Experience earn.
  		"BountyGoldMin"				"60"		// Gold earned min.
  		"BountyGoldMax"				"60"		// Gold earned max.
 
@@ -18016,7 +17935,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -18043,7 +17962,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"60"		// Experience earn.
+ 		"BountyXP"					"30"		// Experience earn.
  		"BountyGoldMin"				"110"		// Gold earned min.
  		"BountyGoldMax"				"110"		// Gold earned max.
 
@@ -18086,7 +18005,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -18113,7 +18032,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"60"		// Experience earn.
+ 		"BountyXP"					"30"		// Experience earn.
  		"BountyGoldMin"				"120"		// Gold earned min.
  		"BountyGoldMax"				"120"		// Gold earned max.
 
@@ -18296,7 +18215,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -18366,7 +18285,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -18436,7 +18355,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -18506,7 +18425,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -18533,7 +18452,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"60"		// Experience earn.
+ 		"BountyXP"					"30"		// Experience earn.
  		"BountyGoldMin"				"50"		// Gold earned min.
  		"BountyGoldMax"				"50"		// Gold earned max.
 
@@ -18576,7 +18495,7 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
+ 		"Ability2"					"tofar_goback"			// Ability 2
  		"Ability3"					""			// Ability 3
  		"Ability4"					""			// Ability 4
 
@@ -18603,7 +18522,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"48"		// Experience earn.
+ 		"BountyXP"					"24"		// Experience earn.
  		"BountyGoldMin"				"77"		// Gold earned min.
  		"BountyGoldMax"				"77"		// Gold earned max.
 
@@ -18718,18 +18637,6 @@
 		"DisableWearables"	"1"
 		"vscripts"					"heroes/B_Unified/B08_ai.lua"
 	}	
-
-
-
-
-
-
-
-
-
-
-
-
 
 	// 叫兵織田足輕
 	"com_infantry_oda_1_D"
@@ -18944,7 +18851,7 @@
 		"RingRadius"	"45"
 	}
 
-// 叫兵織田足輕
+	// 叫兵織田足輕
 	"com_infantry_oda_5_D"
 	{
 		"BaseClass"	"npc_dota_creep_lane"
@@ -18998,7 +18905,7 @@
 		"RingRadius"	"45"
 	}
 
-// 叫兵織田足輕
+	// 叫兵織田足輕
 	"com_infantry_oda_6_D"
 	{
 		"BaseClass"	"npc_dota_creep_lane"
@@ -19052,7 +18959,7 @@
 		"RingRadius"	"45"
 	}
 
-// 叫兵織田足輕
+	// 叫兵織田足輕
 	"com_infantry_oda_7_D"
 	{
 		"BaseClass"	"npc_dota_creep_lane"
@@ -19106,7 +19013,7 @@
 		"RingRadius"	"45"
 	}
 
-// 叫兵織田足輕
+	// 叫兵織田足輕
 	"com_infantry_oda_8_D"
 	{
 		"BaseClass"	"npc_dota_creep_lane"

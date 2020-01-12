@@ -35,7 +35,6 @@ function Nobu:PickHero( keys )
           return 5
         end
         end)
-      caster:RemoveModifierByName("equilibrium_constant")
       caster:RemoveAbility("Ability_capture")
       local nobu_id = _G.heromap[caster:GetName()]
       -- 預設切換加入切換版本技能

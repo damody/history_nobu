@@ -27,11 +27,12 @@ function Shock( keys )
 	local caster = keys.caster
 	local skill = keys.ability
 
-	if (caster.nobuorb1 == "spear_of_saddle" or caster.nobuorb1 == nil) and not keys.target:IsBuilding() then
-		caster.nobuorb1 = "spear_of_saddle"
-		if _G.EXCLUDE_TARGET_NAME[keys.target:GetUnitName()] == nil then
+	--if (caster.nobuorb1 == "spear_of_saddle" or caster.nobuorb1 == nil) and not keys.target:IsBuilding() then
+	if not keys.target:IsBuilding() then
+		--caster.nobuorb1 = "spear_of_saddle"
+		--if _G.EXCLUDE_TARGET_NAME[keys.target:GetUnitName()] == nil then
 			skill:ApplyDataDrivenModifier(caster, keys.target,"modifier_spear_of_saddle",{ duration = 1 })
-		end
+		--end
 	end
 end
 

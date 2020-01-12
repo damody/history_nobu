@@ -17,8 +17,8 @@
 		"Ability1"	"C17W"
 		"Ability2"	"C17E"
 		"Ability3"	"C17R"
-		"Ability4"	"C17D"
-		"Ability5"	"attribute_bonusx"
+		"Ability4"	"attribute_bonusx"
+		"Ability5"	"C17D"
 		"Ability6"	"C17T"
 		"Ability7"	"C17_precache"
 		// Armor

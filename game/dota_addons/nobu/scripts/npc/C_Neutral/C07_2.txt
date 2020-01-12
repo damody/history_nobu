@@ -30,8 +30,8 @@
 		"Ability1"	"C07W"
 		"Ability2"	"C07E"
 		"Ability3"	"C07R"
-		"Ability4"	"C07D"
-		"Ability5"	"attribute_bonusx"
+		"Ability4"	"attribute_bonusx"
+		"Ability5"	"C07D"
 		"Ability6"	"C07T"
 		"Ability7"	"C07_precache"
 		// Armor

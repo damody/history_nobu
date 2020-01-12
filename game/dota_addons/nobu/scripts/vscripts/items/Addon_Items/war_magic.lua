@@ -142,7 +142,7 @@ function slowattack( keys )
 		GameRules: SendCustomMessage("<font color=\"#cc3333\">聯合軍發動阻撓戰法</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
 	end
 	local count = 0
-	Timers:CreateTimer(1, function()
+	Timers:CreateTimer(0, function()
 		count = count + 1
 		local particle = ParticleManager:CreateParticle("particles/slow/slow.vpcf", PATTACH_ABSORIGIN_FOLLOW, dummy)
 		ParticleManager:ReleaseParticleIndex(particle)
@@ -153,8 +153,8 @@ function slowattack( keys )
 		for _, it in pairs(group) do
 			ability:ApplyDataDrivenModifier(caster,it,"modifier_slowattack",{duration = 2.9})
 		end
-		if count < 10 then
-			--return 1
+		if count < 5 then
+			return 1
 		else
 			return nil
 		end
@@ -179,9 +179,9 @@ function gohome( keys )
 		end)
 		return 
 	end
-	target:AddNewModifier(target,ability,"modifier_gohomelua",{duration=7})
+	target:AddNewModifier(target,ability,"modifier_gohomelua",{duration=8})
 	target:FindModifierByName("modifier_gohomelua").caster = target
-	Timers:CreateTimer(7, function()
+	Timers:CreateTimer(8, function()
 		--ParticleManager:DestroyParticle(particle,false)
 		if target:HasModifier("modifier_wantgohome") then
 			if (caster:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
@@ -208,20 +208,18 @@ end
 function speedup( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	Timers:CreateTimer(0.5, function()
-		if (caster:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
-			GameRules: SendCustomMessage("<font color=\"#cc3333\">織田軍發動神速戰法</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-		else
-			GameRules: SendCustomMessage("<font color=\"#cc3333\">聯合軍發動神速戰法</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
-		end
-		local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
-			nil,  90000 , DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-			DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
+	if (caster:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
+		GameRules: SendCustomMessage("<font color=\"#cc3333\">織田軍發動神速戰法</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+	else
+		GameRules: SendCustomMessage("<font color=\"#cc3333\">聯合軍發動神速戰法</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
+	end
+	local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
+		nil,  90000 , DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
 
-		for _, it in pairs(group) do
-			ability:ApplyDataDrivenModifier(caster,it,"modifier_speedup",{duration = 10})
-		end
-	end)
+	for _, it in pairs(group) do
+		ability:ApplyDataDrivenModifier(caster,it,"modifier_speedup",{duration = 5})
+	end
 end
 
 
@@ -305,7 +303,7 @@ function to_war_magic_unit(keys)
 	local caster = keys.caster
 	local pos = caster:GetAbsOrigin()
 	print("to_war_magic_unit")
-	local donkey = CreateUnitByName("npc_dota_courier", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local donkey = CreateUnitByName("npc_dota_courier", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeam())
 	Timers:CreateTimer(1, function() 
 			for abilitySlot=0,15 do
 		        local ability = donkey:GetAbilityByIndex(abilitySlot)
@@ -331,6 +329,7 @@ function to_war_magic_unit(keys)
 		end
 		return 0.2
 		end)
+		local count = 0
 	Timers:CreateTimer(1, function()
     	for playerID = 0, 9 do
     		local id       = playerID
@@ -338,13 +337,13 @@ function to_war_magic_unit(keys)
 	    	if p ~= nil and (p: GetAssignedHero()) ~= nil then
 			  local hero     = p: GetAssignedHero()
 			  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
-			  	--donkey:SetOwner(hero)
+			  	donkey:SetOwner(hero)
 			  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
 			  	return nil
 			  end
 			end
-    	end
-		--return 1
+		end
+		return 5
     	end)
 	donkey:AddNewModifier(donkey, ability, "modifier_war_magic", {})
 	
@@ -355,7 +354,7 @@ function to_war_magic_unit2(keys)
 	local caster = keys.caster
 	local pos = caster:GetAbsOrigin()
 	print("to_war_magic_unit2")
-	local donkey = CreateUnitByName("npc_dota_courier", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local donkey = CreateUnitByName("npc_dota_courier", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeam())
 	Timers:CreateTimer(1, function()
 			for abilitySlot=0,15 do
 		        local ability = donkey:GetAbilityByIndex(abilitySlot)
@@ -379,6 +378,7 @@ function to_war_magic_unit2(keys)
 		end
 		return 0.2
 		end)
+		local count = 0
 	Timers:CreateTimer(1, function()
     	for playerID = 0, 9 do
     		local id       = playerID
@@ -386,13 +386,13 @@ function to_war_magic_unit2(keys)
 	    	if p ~= nil and (p: GetAssignedHero()) ~= nil then
 			  local hero     = p: GetAssignedHero()
 			  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
-			  	--donkey:SetOwner(hero)
+			  	donkey:SetOwner(hero)
 			  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
 			  	return nil
 			  end
 			end
-    	end
-		--return 1
+		end
+		return 5
     	end)
 	donkey:AddNewModifier(donkey, ability, "modifier_war_magic", {})
 
@@ -962,8 +962,8 @@ function to_sell_ninja_unit(keys)
 		    end
 		    donkey:AddAbility("majia_no_vison"):SetLevel(1)
 		    donkey:AddAbility("call_ninja1"):SetLevel(1)
-		    donkey:AddAbility("call_ninja2"):SetLevel(1)
-		    donkey:AddAbility("call_ninja3"):SetLevel(1)
+		    --donkey:AddAbility("call_ninja2"):SetLevel(1)
+		    --donkey:AddAbility("call_ninja3"):SetLevel(1)
 		    donkey:AddAbility("near_hero_then_can_use_ability"):SetLevel(1)
 		    caster:ForceKill(true)
 		end)

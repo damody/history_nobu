@@ -40,7 +40,6 @@ function _G.Nobu:InitGameMode()
   --GameRules:SetCustomGameTeamMaxPlayers(3, 7)
 
   GameRules:SetUseUniversalShopMode( false ) --开启/关闭全地图商店模式
-  
   GameRules:SetHeroSelectionTime( 30 )--設定選擇英雄時間
   if _G.nobu_debug then
     GameRules:SetPreGameTime( 0 )--設置遊戲準備時間
@@ -79,7 +78,7 @@ function _G.Nobu:InitGameMode()
   GameMode:SetRemoveIllusionsOnDeath( true )--死亡會不會有陰影
   --GameMode:SetAnnouncerDisabled( true )
   GameMode:SetLoseGoldOnDeath( true )--死亡會不會掉錢
-  --GameMode:SetCameraDistanceOverride( 1150 )--攝像頭距離
+  GameMode:SetCameraDistanceOverride( 1315 )--攝像頭距離
   GameMode:SetUseCustomHeroLevels ( true )-- 允許自定義英雄等級
   --GameMode:SetCustomXPRequiredToReachNextLevel( XP_PER_LEVEL_TABLE )
 
@@ -122,11 +121,7 @@ function _G.Nobu:InitGameMode()
   XpTable[1]=0
   for i=2,MaxLevel do
     XpTable[i]=xp
-    if i < 12 then
-      xp = xp + i*60
-    else
-      xp = xp + 12*60
-    end
+    xp = xp + i*80
   end
   GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(MaxLevel)
   GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(XpTable)--類型為table

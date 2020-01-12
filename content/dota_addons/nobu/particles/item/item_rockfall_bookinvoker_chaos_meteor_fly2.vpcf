@@ -1,11 +1,10 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf25:version{7bca2d8d-3a14-4a76-bd41-f483fdf78d50} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 1
 	m_flConstantRadius = 1.0
 	m_bShouldSort = false
-	m_flMaxRecreationTime = -1.0
 	m_Renderers = 
 	[
 		{
@@ -21,6 +20,7 @@
 			]
 			m_bAnimated = true
 			m_nLOD = 1
+			m_bForceLoopingAnimation = true
 		},
 	]
 	m_Operators = 
@@ -47,12 +47,8 @@
 		{
 			_class = "C_OP_RemapSpeed"
 			m_flOutputMax = -64.0
-			m_nFieldOutput = 5
+			m_nFieldOutput = "5"
 			m_flInputMax = 4000.0
-		},
-		{
-			_class = "C_OP_StopAfterCPDuration"
-			m_nCP = 2
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
@@ -68,7 +64,7 @@
 		{
 			_class = "C_INIT_RemapCPtoScalar"
 			m_flOutputMax = 100000.0
-			m_nFieldOutput = 1
+			m_nFieldOutput = "1"
 			m_flInputMax = 100000.0
 			m_nCPInput = 2
 		},
@@ -77,7 +73,11 @@
 	[
 		{
 			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 1
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
 		},
 	]
 	m_Constraints = 
@@ -129,4 +129,20 @@
 			]
 		},
 	]
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_StopAfterCPDuration"
+			m_flDuration = 
+			{
+				m_nType = "PF_TYPE_CONTROL_POINT_COMPONENT"
+				m_nControlPoint = 2
+				m_nVectorComponent = 0
+				m_nMapType = "PF_MAP_TYPE_MULT"
+				m_flMultFactor = 1.0
+			}
+		},
+	]
+	m_nBehaviorVersion = 10
+	m_nFirstMultipleOverride_BackwardCompat = 1
 }
