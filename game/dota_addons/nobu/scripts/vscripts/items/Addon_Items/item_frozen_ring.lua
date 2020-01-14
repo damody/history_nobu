@@ -79,7 +79,7 @@ function item_kokumo( keys )
 			caster.kokumo = 0
 		end
 		caster.kokumo = caster.kokumo + 1
-		if caster.kokumo >= 6 then
+		if caster.kokumo >= 5 then
 			caster.kokumo = 0
 		local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
 							target:GetAbsOrigin(),
@@ -90,13 +90,13 @@ function item_kokumo( keys )
 							DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 							FIND_ANY_ORDER,
 							false)
-		local dmg = 400
+		local dmg = 200
 		if not target:IsMagicImmune() then
 			AMHC:Damage(caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		end
 		for _,it in pairs(direUnits) do
 			ability:ApplyDataDrivenModifier(caster, it,"modifier_frozen_ring",{duration=3})
-			if it ~= target then
+			if it ~= target and not it:IsMagicImmune() then
 				AMHC:Damage(caster,it,100,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			end
 		end

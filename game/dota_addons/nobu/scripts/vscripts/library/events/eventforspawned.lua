@@ -45,13 +45,13 @@ function Nobu:OnHeroIngame( keys )
           --donkey:SetOwner(hero)
           donkey:SetHullRadius(1)
           donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
-          donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
+          --donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
           donkey:FindAbilityByName("courier_go_to_secretshop"):SetLevel(1)
           donkey:FindAbilityByName("courier_return_stash_items"):SetLevel(1)
           donkey:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
           donkey:FindAbilityByName("courier_transfer_items"):SetLevel(1)
           donkey:FindAbilityByName("courier_burst"):SetLevel(1)
-          donkey:FindAbilityByName("courier_morph"):SetLevel(1)
+          donkey:FindAbilityByName("courier_shield"):SetLevel(1)
           donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
           donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
           donkey:FindAbilityByName("for_no_collision"):SetLevel(1)
@@ -62,9 +62,6 @@ function Nobu:OnHeroIngame( keys )
             end
             return 1
             end)
-            
-          
-
         end
       end
     end)

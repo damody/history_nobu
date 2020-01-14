@@ -53,7 +53,59 @@ end
 function A13D( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	caster:AddNewModifier(caster,ability,"modifier_invisible",{duration=20})
+	if caster:FindAbilityByName("A13T"):GetLevel() == 0 then
+		return
+	end
+	local casterLoc = caster:GetAbsOrigin()
+	local targetLoc = casterLoc + caster:GetForwardVector()*10
+	local dir = caster:GetCursorPosition() - caster:GetOrigin()
+	local radius = 200
+	local projectile_speed = 2000
+	local distance = 800
+	local collision_radius = 100
+	-- Find forward vector
+	local forwardVec = targetLoc - casterLoc
+	forwardVec = forwardVec:Normalized()
+	
+	-- Find backward vector
+	local backwardVec = casterLoc - targetLoc
+	backwardVec = backwardVec:Normalized()
+	
+	-- Find middle point of the spawning line
+	local middlePoint = casterLoc + ( radius * backwardVec )
+	
+	-- Find perpendicular vector
+	local v = middlePoint - casterLoc
+	local dx = -v.y
+	local dy = v.x
+	local perpendicularVec = Vector( dx, dy, v.z )
+	perpendicularVec = perpendicularVec:Normalized()
+
+	for c = 1,4 do
+		local random_distance = RandomInt( -radius, radius )
+		local spawn_location = middlePoint + perpendicularVec * random_distance
+		
+		local velocityVec = Vector( forwardVec.x, forwardVec.y, 0 )
+		
+		-- Spawn projectiles
+		local projectileTable = {
+			Ability = ability,
+			EffectName = "particles/a11t/a11t.vpcf",
+			vSpawnOrigin = spawn_location,
+			fDistance = distance,
+			fStartRadius = collision_radius,
+			fEndRadius = collision_radius,
+			Source = caster,
+			bHasFrontalCone = false,
+			bReplaceExisting = false,
+			bProvidesVision = true,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			iUnitTargetFlags  = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+			vVelocity = velocityVec * projectile_speed
+		}
+		ProjectileManager:CreateLinearProjectile( projectileTable )
+	end
 end
 
 function A13D_End( keys )

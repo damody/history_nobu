@@ -402,9 +402,9 @@
 		"FightRecapLevel"	"0"
 		"RequiredLevel"		"6"
 		"LevelsBetweenUpgrades"	"6"
-		"AbilityCooldown"	"90 80 70"
+		"AbilityCooldown"	"100 90 80"
 		"AbilityManaCost"	"200 225 250"
-		"AbilityCastRange"	"1500"
+		"AbilityCastRange"	"800"
 		"AbilityCastRangeBuffer"	"250"
 
 		"precache"
@@ -425,7 +425,7 @@
 				    "Center" "CASTER"
 				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 				}
-				"ModifierName"	"modifier_A01T_aura"
+				"ModifierName"	"modifier_A01T_aura2"
 			}
 			"RunScript"
 			{
@@ -444,14 +444,13 @@
 		{
 			"modifier_A01T_aura"
 			{
-				"Passive"			"0"
+				"Passive"			"1"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
 				"EffectName"		"particles/a01/a01t.vpcf"
 				"EffectAttachType"	"follow_origin"
-				"Duration"	"7"
 				"ThinkInterval"  "0.5"
-				"OnCreated"
+				"OnIntervalThink"
 				{
 					"ActOnTargets"
 					{
@@ -474,6 +473,26 @@
 						}
 					}
 				}
+			}
+			"modifier_A01T"
+			{
+				"Passive"	"0"
+				"EffectName"		"particles/a01/a01t_ring.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
+				}
+			}
+			"modifier_A01T_aura2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"EffectName"		"particles/a01/a01t.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"ThinkInterval"  "0.5"
+            	"Duration"	"7"
 				"OnIntervalThink"
 				{
 					"ActOnTargets"
@@ -483,50 +502,19 @@
 							"Center"  	"CASTER"
 							"Radius" 	"%radius"
 							"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-							"Types" 	"DOTA_UNIT_TARGET_HERO"
+							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 						}
 					
 						"Action"    
 						{
 							"ApplyModifier"
 							{
-								"ModifierName"	"modifier_A01T"
+								"ModifierName"	"modifier_A01T2"
 								"Target" 		"TARGET"
 								"Duration"		"1"
 							}
 						}
 					}
-					"ActOnTargets"
-					{
-						"Target"
-						{
-							"Center"  	"CASTER"
-							"Radius" 	"%radius"
-							"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-							"Types" 	"DOTA_UNIT_TARGET_BASIC"
-						}
-					
-						"Action"    
-						{
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_A01T"
-								"Target" 		"TARGET"
-								"Duration"		"1"
-							}
-						}
-					}
-				}
-			}
-			"modifier_A01T"
-			{
-				"Passive"	"0"
-				"EffectName"		"particles/a01/a01t_ring.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%regen" //回血%
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"	//防禦
 				}
 			}
 			"modifier_A01T2"
@@ -536,8 +524,9 @@
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%regen2" //回血%
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"	//防禦
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"		"550"
 				}
 			}
 		}
@@ -551,12 +540,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"armor"	"25 35 45"
+				"armor"	"10 15 20"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"radius"	"1500"
+				"radius"	"800"
 			}
 			"04"
 			{

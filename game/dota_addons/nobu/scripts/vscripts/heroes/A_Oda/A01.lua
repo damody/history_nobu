@@ -140,14 +140,16 @@ function A01R_OnSpellStart( keys )
 			ParticleManager:SetParticleControl(particle, 1, unit:GetAbsOrigin()+Vector(0,0,100))
 			ParticleManager:SetParticleControl(particle, 2, unit:GetAbsOrigin()+Vector(0,0,100))
 		end
-		ApplyDamage({
-			victim = unit,
-			attacker = caster,
-			ability = ability,
-			damage = ability:GetAbilityDamage(),
-			damage_type = DAMAGE_TYPE_MAGICAL,
-			damage_flags = DOTA_DAMAGE_FLAG_NONE,
-		})
+		if not unit:IsMagicImmune() then
+			ApplyDamage({
+				victim = unit,
+				attacker = caster,
+				ability = ability,
+				damage = ability:GetAbilityDamage(),
+				damage_type = DAMAGE_TYPE_MAGICAL,
+				damage_flags = DOTA_DAMAGE_FLAG_NONE,
+			})
+		end
 	end
 end
 
@@ -182,13 +184,12 @@ function A01R_OnAttackLanded( keys )
 			attacker = caster,
 			ability = ability,
 			damage = dmg,
-			damage_type = DAMAGE_TYPE_PURE,
+			damage_type = DAMAGE_TYPE_MAGICAL,
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		}
-		if unit:IsMagicImmune() then
-			dt.damage = dmg * 0.5
+		if not unit:IsMagicImmune() then
+			ApplyDamage(dt)
 		end
-		ApplyDamage(dt)
 	end
 end
 

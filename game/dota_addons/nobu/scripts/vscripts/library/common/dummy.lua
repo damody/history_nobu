@@ -131,7 +131,7 @@ function nodmg_courier( keys )
           FIND_ANY_ORDER, 
         false)
   for _,it in pairs(units) do
-    if it:GetUnitName() == "npc_dota_courier" then
+    if it:GetUnitName() == "npc_dota_courier" or it:GetUnitName() == "npc_dota_courier2" then
       it:AddNewModifier(it, nil, "modifier_invulnerable", {duration = 5})
     end
   end

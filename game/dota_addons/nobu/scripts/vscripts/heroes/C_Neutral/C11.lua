@@ -248,20 +248,31 @@ function C11T_on_attack_landed( keys )
 	}
 	
 	local current_mana_percentage = target:GetManaPercent()
-	if current_mana_percentage <= 15 then
-		damage_table["damage"] = damage * bouns15
+	if current_mana_percentage <= 50 then
+		damage_table["damage"] = damage * 1.5
 		-- 螢幕特效
 		CreateScreenEffect(target)
-	elseif current_mana_percentage <= 40 then
-		damage_table["damage"] = damage * bouns40
-		CreateScreenEffect(target)
-	elseif current_mana_percentage <= 70 then
-		damage_table["damage"] = damage * bouns70
 	else
 		damage_table["damage"] = damage
 	end
 	SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,target,damage_table["damage"],nil)
 	ApplyDamage(damage_table)
+	if caster.C11T_count == nil then
+		caster.C11T_count = 0
+	end
+	caster.C11T_count = caster.C11T_count + 1
+	if caster.C11T_count >=2 then
+		caster.C11T_count = 0
+		Timers:CreateTimer(0.1, function()
+			caster:PerformAttack(target, true, true, true, true, true, false, true)
+			local rate = caster:GetAttackSpeed()
+			if rate < 1 then
+				caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,1)
+			else
+				caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,rate)
+			end
+		end)
+	end
 end
 
 function C11T_20_on_attack_landed( keys )

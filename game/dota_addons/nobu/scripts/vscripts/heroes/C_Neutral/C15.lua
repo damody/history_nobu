@@ -73,14 +73,8 @@ function new_C15T( keys )
 		deg = deg + 36
 		point_tem = point2 + Vector(distance*math.cos(nobu_degtorad(deg))  , distance*math.sin(nobu_degtorad(deg))  ,point2.z ) 
 		--【Dummy Kv】
-		local dummy = CreateUnitByName("C15T_dummy",point_tem ,false,caster,caster,caster:GetTeam())	
-		--dummy:SetControllableByPlayer(player,false)
-		--ability:ApplyDataDrivenModifier(caster,dummy,"modifier_C07T",nil)
+		local dummy = CreateUnitByName("C15T_dummy",point_tem ,false,caster,caster,caster:GetTeam())
 		dummy:AddAbility("majia_vison"):SetLevel(1)		
-		-- local dummy_ability = dummy:AddAbility("batrider_firefly")
-		-- dummy_ability:SetLevel(1)
-		-- ExecuteOrderFromTable({ UnitIndex = dummy:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_CAST_NO_TARGET, AbilityIndex = dummy_ability:GetEntityIndex(), Queue = false}) 
-		-- Execute the attack order for the caster
 		dummy:SetForwardVector(vec)
 		ability:ApplyDataDrivenModifier(caster,dummy,"modifier_C15T",nil)
 
@@ -110,36 +104,35 @@ function new_C15T( keys )
 	}
 
 	ExecuteOrderFromTable(order)		
-
-	--【Test】
-	--modifier_batrider_firefly
-	-- local modifier_S = "modifier_batrider_firefly"
-	-- local modifier_T = {damage_per_second = 10,radius = 200,duration = 18 ,tick_interval = 0.1 , tree_radius = 100}
-	-- caster:AddNewModifier(caster,caster,modifier_S,modifier_T)
-
-	--【Timer】
-	-- local num = 0
-	-- Timers:CreateTimer(0.03,function()
-	-- 	if num == 60 then
-	-- 		--dummy:ForceKill(false)
-	-- 		return nil
-	-- 	else
-
-	-- 		--deg = 5
-	-- 		--local rad = nobu_degtorad(deg)
-	-- 		--point_tem = Vector(point_tem.x+distance*math.cos(rad) ,  point_tem.y+distance*math.sin(rad) , point_tem.z) --point_tem.z
-	-- 		point_tem = Vector(point_tem.x+distance*vec.x ,  point_tem.y+distance*vec.y , point_tem.z)
-	-- 		dummy:SetAbsOrigin(point_tem)
-	-- 		AddFOWViewer ( caster:GetTeam(), point_tem, 200, 12, true)
-
-	-- 		num = num + 1
-	-- 		return 0.03
-	-- 	end
-	-- end)	
+end
 
 
-	--【DEBUG】
-	--print(vec)
+function C15T_OnAttackLanded( keys )
+    local caster=keys.caster
+	local ability=caster:FindAbilityByName("C15T")
+	target=keys.target
+	if (target.C15T == nil) then
+		target.C15T = 0
+	end
+	target.C15T = target.C15T + 1
+	if (target.C15T >= 5) then
+		target.C15T = 0
+		if ability:GetLevel() > 0 then
+			local dummy = CreateUnitByName("C15T_dummy",target:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
+			dummy:AddAbility("majia_vison"):SetLevel(1)		
+			dummy:SetForwardVector(caster:GetForwardVector())
+			ability:ApplyDataDrivenModifier(caster,dummy,"modifier_C15T",nil)
+			local order =
+			{
+				UnitIndex = dummy:entindex(),
+				OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+				TargetIndex = target:entindex(),
+				Queue = true
+			}
+
+			ExecuteOrderFromTable(order)
+		end
+	end
 end
 
 function new_C15T_attack( keys )
@@ -157,59 +150,6 @@ function new_C15T_end( keys )
 	target:ForceKill(true)
 	target:Destroy()
 end
-
--- --[[Author: Pizzalol
--- 	Date: 26.09.2015.
--- 	Clears current caster commands and disjoints projectiles while setting up everything required for movement]]
--- function Leap( keys )
--- 	local caster = keys.caster
--- 	local ability = keys.ability
--- 	local ability_level = ability:GetLevel() - 1	
-
--- 	-- Clears any current command and disjoints projectiles
--- 	caster:Stop()
--- 	ProjectileManager:ProjectileDodge(caster)
-
--- 	-- Ability variables
--- 	ability.leap_direction = caster:GetForwardVector()
--- 	ability.leap_distance = ability:GetLevelSpecialValueFor("leap_distance", ability_level)
--- 	ability.leap_speed = ability:GetLevelSpecialValueFor("leap_speed", ability_level) * 1/30
--- 	ability.leap_traveled = 0
--- 	ability.leap_z = 0
--- end
-
--- --[[Moves the caster on the horizontal axis until it has traveled the distance]]
--- function LeapHorizonal( keys )
--- 	local caster = keys.target
--- 	local ability = keys.ability
-
--- 	if ability.leap_traveled < ability.leap_distance then
--- 		caster:SetAbsOrigin(caster:GetAbsOrigin() + ability.leap_direction * ability.leap_speed)
--- 		ability.leap_traveled = ability.leap_traveled + ability.leap_speed
--- 	else
--- 		caster:InterruptMotionControllers(true)
--- 	end
--- end
-
--- --[[Moves the caster on the vertical axis until movement is interrupted]]
--- function LeapVertical( keys )
--- 	local caster = keys.target
--- 	local ability = keys.ability
-
--- 	-- For the first half of the distance the unit goes up and for the second half it goes down
--- 	if ability.leap_traveled < ability.leap_distance/2 then
--- 		-- Go up
--- 		-- This is to memorize the z point when it comes to cliffs and such although the division of speed by 2 isnt necessary, its more of a cosmetic thing
--- 		ability.leap_z = ability.leap_z + ability.leap_speed/2
--- 		-- Set the new location to the current ground location + the memorized z point
--- 		caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster) + Vector(0,0,ability.leap_z))
--- 	else
--- 		-- Go down
--- 		ability.leap_z = ability.leap_z - ability.leap_speed/2
--- 		caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(), caster) + Vector(0,0,ability.leap_z))
--- 	end
--- end
-
 -- 11.2B
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 

@@ -65,6 +65,32 @@ function C10T_SE( keys )
 	keys.caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_2,2.0)
 end
 
+function C10T_OnUpgrade( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	caster:RemoveModifierByName("modifier_C10T_2")
+	caster:RemoveModifierByName("modifier_C10T_1")
+	if GameRules:IsDaytime() and (caster:HasModifier("modifier_C10T_2") or not caster:HasModifier("modifier_C10T_1")) then
+		ability:ApplyDataDrivenModifier(caster,caster,"modifier_C10T_1",nil)
+		caster:RemoveModifierByName("modifier_C10T_2")
+	elseif not GameRules:IsDaytime() and (caster:HasModifier("modifier_C10T_1") or not caster:HasModifier("modifier_C10T_2")) then
+		ability:ApplyDataDrivenModifier(caster,caster,"modifier_C10T_2",nil)
+		caster:RemoveModifierByName("modifier_C10T_1")
+	end
+end
+
+function CheckDay( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	if GameRules:IsDaytime() and (caster:HasModifier("modifier_C10T_2") or not caster:HasModifier("modifier_C10T_1")) then
+		ability:ApplyDataDrivenModifier(caster,caster,"modifier_C10T_1",nil)
+		caster:RemoveModifierByName("modifier_C10T_2")
+	elseif not GameRules:IsDaytime() and (caster:HasModifier("modifier_C10T_1") or not caster:HasModifier("modifier_C10T_2")) then
+		ability:ApplyDataDrivenModifier(caster,caster,"modifier_C10T_2",nil)
+		caster:RemoveModifierByName("modifier_C10T_1")
+	end
+end
+
 function C10W( keys )
 	local caster = keys.caster
 	local ability = keys.ability

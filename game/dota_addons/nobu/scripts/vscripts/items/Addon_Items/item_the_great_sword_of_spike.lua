@@ -13,7 +13,7 @@ function Shock( keys )
 	local a	
 	local maxrock = 6
 
-	for radius=100,650,100 do
+	for radius=50,350,100 do
 		maxrock = maxrock + 8
 		local maxspike = maxrock
 		Timers:CreateTimer(radius*0.0003, function() 
@@ -34,7 +34,7 @@ function Shock( keys )
 	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
                               caster:GetAbsOrigin(),
                               nil,
-                              650,
+                              300,
                               DOTA_UNIT_TARGET_TEAM_ENEMY,
                               DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
                               DOTA_UNIT_TARGET_FLAG_NONE,

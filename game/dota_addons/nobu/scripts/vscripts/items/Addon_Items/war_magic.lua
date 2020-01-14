@@ -303,6 +303,7 @@ function to_war_magic_unit(keys)
 	local caster = keys.caster
 	local pos = caster:GetAbsOrigin()
 	print("to_war_magic_unit")
+	--[[
 	local donkey = CreateUnitByName("npc_dota_courier", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeam())
 	Timers:CreateTimer(1, function() 
 			for abilitySlot=0,15 do
@@ -346,7 +347,7 @@ function to_war_magic_unit(keys)
 		return 5
     	end)
 	donkey:AddNewModifier(donkey, ability, "modifier_war_magic", {})
-	
+	]]
 end
 
 
@@ -365,7 +366,7 @@ function to_war_magic_unit2(keys)
 		        end
 		    end
 			donkey:AddAbility("war_magic_gohome"):SetLevel(1)
-		    donkey:AddAbility("war_magic_findanything"):SetLevel(1)
+		    --donkey:AddAbility("war_magic_findanything"):SetLevel(1)
 		    --donkey:AddAbility("war_magic_treecut"):SetLevel(1)
 		    --donkey:AddAbility("war_magic_back_wall"):SetLevel(1)
 		    caster:ForceKill(true)

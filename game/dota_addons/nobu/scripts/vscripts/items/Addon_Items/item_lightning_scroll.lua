@@ -38,17 +38,9 @@ function Shock( keys )
 	local particle = ParticleManager:CreateParticle("particles/item/d09/d09.vpcf",PATTACH_POINT,caster)
 	ParticleManager:SetParticleControl(particle,0, point + vec * 100)
 	ParticleManager:SetParticleControl(particle,1, point2)
-
-	-- ParticleManager:SetParticleControl(lightningBolt,0,Vector(point.x,point.y,caster:GetAbsOrigin().z + caster:GetBoundingMaxs().z ))	
-	-- ParticleManager:SetParticleControl(lightningBolt,1,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
 	--【DMG】
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = AbilityDamageType})
 	target.has_D09 = true
-	-- target:EmitSound("Hero_ShadowShaman.EtherShock.Target")
-
-	--【Varible Of Tem】
-	--local tem_point = nil
-
 
 	local cone_units = FindUnitsInRadius( caster:GetTeamNumber(), point2, nil, 700, 
 					DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, 
@@ -262,7 +254,11 @@ function item_raikiri( keys )
 						
 						--【DMG】
 						if not unit:IsMagicImmune() then
-							AMHC:Damage(caster,unit,200,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+							if unit:IsHero() then
+								AMHC:Damage(caster,unit,200,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+							else
+								AMHC:Damage(caster,unit,400,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+							end
 						end
 
 						-- Increment counter

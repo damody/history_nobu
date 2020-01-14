@@ -299,7 +299,6 @@ function ShuaGuai_Of_B(num)
 				end
 				if go then
 					--超過三的時候出兵變為聯合軍
-
 					local ok = false
 					if _G.team_broken[2]["top"] < 2 and i == 3 then
 						ok = true
@@ -332,34 +331,51 @@ function ShuaGuai_Of_B(num)
 						elseif team == 3 then
 							unit_name = "com_gunner_unified_" .. randomkey
 						end
-						
+						local big = false
+						if _G.team_broken[3]["top"] == 2 and i == 3 then
+							big = true
+						end
+						if _G.team_broken[3]["mid"] == 2 and i == 2 then
+							big = true
+						end
+						if _G.team_broken[3]["down"] == 2 and i == 1 then
+							big = true
+						end
+						if _G.team_broken[2]["top"] == 2 and i == 4 then
+							big = true
+						end
+						if _G.team_broken[2]["mid"] == 2 and i == 5 then
+							big = true
+						end
+						if _G.team_broken[2]["down"] == 2 and i == 6 then
+							big = true
+						end
 						--創建單位
-						local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
-						unit:AddAbility("set_level_1"):SetLevel(1)
-						local hp = unit:GetMaxHealth()
-						unit:SetBaseMaxHealth(hp+A_count * 5)
-						local dmgmax = unit:GetBaseDamageMax()
-						local dmgmin = unit:GetBaseDamageMin()
-						unit:SetBaseDamageMax(dmgmax+A_count*5)
-						unit:SetBaseDamageMax(dmgmin+A_count*5)
-						local armor = unit:GetPhysicalArmorBaseValue()
-						unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
-						--creep:SetContextNum("isshibing",1,0)
+						local n = 1
+						if big then
+							n = 2
+						end
+						for x=1,n do
+							local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
+							unit:AddAbility("set_level_1"):SetLevel(1)
+							local hp = unit:GetMaxHealth()
+							unit:SetBaseMaxHealth(hp+A_count * 5)
+							local dmgmax = unit:GetBaseDamageMax()
+							local dmgmin = unit:GetBaseDamageMin()
+							unit:SetBaseDamageMax(dmgmax+A_count*5)
+							unit:SetBaseDamageMax(dmgmin+A_count*5)
+							local armor = unit:GetPhysicalArmorBaseValue()
+							unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
+							--creep:SetContextNum("isshibing",1,0)
 
-						--單位面向角度
-						unit:SetForwardVector(ShuaGuai_entity_forvec[i])
+							--單位面向角度
+							unit:SetForwardVector(ShuaGuai_entity_forvec[i])
 
-						--禁止單位尋找最短路徑
-						unit:SetMustReachEachGoalEntity(false)
+							--禁止單位尋找最短路徑
+							unit:SetMustReachEachGoalEntity(false)
 
-						--讓單位沿著設置好的路線開始行動
-						unit:SetInitialGoalEntity(ShuaGuai_entity[i])
-
-						--顏色
-						if team == 2 then
-							--unit:SetRenderColor(255,100,100)
-						elseif team == 3 then
-							--unit:SetRenderColor(100,255,100)
+							--讓單位沿著設置好的路線開始行動
+							unit:SetInitialGoalEntity(ShuaGuai_entity[i])
 						end
 					end
 				end
@@ -393,6 +409,7 @@ function ShuaGuai_Of_C(num)
 				if go then
 					--超過三的時候出兵變為聯合軍
 					local ok = false
+					
 					if _G.team_broken[2]["top"] == 0 and i == 3 then
 						ok = true
 					end
@@ -411,6 +428,25 @@ function ShuaGuai_Of_C(num)
 					if _G.team_broken[3]["down"] == 0 and i == 6 then
 						ok = true
 					end
+					local big = false
+					if _G.team_broken[3]["top"] == 2 and i == 3 then
+						big = true
+					end
+					if _G.team_broken[3]["mid"] == 2 and i == 2 then
+						big = true
+					end
+					if _G.team_broken[3]["down"] == 2 and i == 1 then
+						big = true
+					end
+					if _G.team_broken[2]["top"] == 2 and i == 4 then
+						big = true
+					end
+					if _G.team_broken[2]["mid"] == 2 and i == 5 then
+						big = true
+					end
+					if _G.team_broken[2]["down"] == 2 and i == 6 then
+						big = true
+					end
 					if ok then
 						local team = nil
 						local unit_name = nil
@@ -427,32 +463,31 @@ function ShuaGuai_Of_C(num)
 
 						--【騎兵】
 						--創建單位
-						local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
-						
-						local hp = unit:GetMaxHealth()
-						unit:SetBaseMaxHealth(hp+A_count * 10)
-						local dmgmax = unit:GetBaseDamageMax()
-						local dmgmin = unit:GetBaseDamageMin()
-						unit:SetBaseDamageMax(dmgmax+A_count*5)
-						unit:SetBaseDamageMax(dmgmin+A_count*5)
-						local armor = unit:GetPhysicalArmorBaseValue()
-						unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
-						--creep:SetContextNum("isshibing",1,0)
+						local n = 1
+						if big then
+							n = 2
+						end
+						for x=1,n do
+							local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
+							
+							local hp = unit:GetMaxHealth()
+							unit:SetBaseMaxHealth(hp+A_count * 10)
+							local dmgmax = unit:GetBaseDamageMax()
+							local dmgmin = unit:GetBaseDamageMin()
+							unit:SetBaseDamageMax(dmgmax+A_count*5)
+							unit:SetBaseDamageMax(dmgmin+A_count*5)
+							local armor = unit:GetPhysicalArmorBaseValue()
+							unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
+							--creep:SetContextNum("isshibing",1,0)
 
-						--單位面向角度
-						unit:SetForwardVector(ShuaGuai_entity_forvec[i])
+							--單位面向角度
+							unit:SetForwardVector(ShuaGuai_entity_forvec[i])
 
-						--禁止單位尋找最短路徑
-						unit:SetMustReachEachGoalEntity(false)
+							--禁止單位尋找最短路徑
+							unit:SetMustReachEachGoalEntity(false)
 
-						--讓單位沿著設置好的路線開始行動
-						unit:SetInitialGoalEntity(ShuaGuai_entity[i])
-
-						--顏色
-						if team == 2 then
-							--unit:SetRenderColor(255,100,100)
-						elseif team == 3 then
-							--unit:SetRenderColor(100,255,100)
+							--讓單位沿著設置好的路線開始行動
+							unit:SetInitialGoalEntity(ShuaGuai_entity[i])
 						end
 					end
 				end

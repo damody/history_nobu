@@ -349,6 +349,9 @@ local function chat_of_test(keys)
 		if string.match(s,"ss") then
 			caster:AddAbility("for_move1500"):SetLevel(1)
 		end
+		if string.match(s,"night") then
+			GameRules:BeginTemporaryNight(10)
+		end
 		if string.match(s,"xx") then
 			caster:RemoveAbility("for_move1500")
 			caster:RemoveModifierByName("modifier_for_move1500")
@@ -499,6 +502,14 @@ local function chat_of_test(keys)
 		if s == "smm" then
 			for _,m in ipairs(caster.donkey:FindAllModifiers()) do
 				GameRules: SendCustomMessage("[Modifier] "..m:GetName(),DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			end
+		end
+		if s == "saa" then
+			for i = 0, caster.donkey:GetAbilityCount() - 1 do
+				local ability = caster.donkey:GetAbilityByIndex( i )
+				if ability  then
+					GameRules: SendCustomMessage("[Ability] "..ability:GetName(),DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+				end
 			end
 		end
 

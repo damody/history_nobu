@@ -236,7 +236,7 @@
 		"AbilityTextureName"			"dota2/b11_r"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE" 	
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		//"AbilityCooldown"				"12"
 		//"AbilityCastPoint"				"0"
 
@@ -250,28 +250,18 @@
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"B11R_mark_Time"		"3 5 7 9"
+				"var_type"	"FIELD_INTEGER"
+				"illusion_incoming_damage"	"150"
 			}
 			"03"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"B11R_mark_Damage"		"1.4"
+				"var_type"	"FIELD_INTEGER"
+				"B11R_old_attack"	"-40"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"B11R_buff_Heal"		"2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"B11R_buff_CD"			"18 14 10 6"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"B11R_buff_times"		"5"
+				"var_type"			"FIELD_FLOAT"
+				"B11R_old_duration"	"35"
 			}
 		}
 
@@ -282,48 +272,16 @@
 			{
 				"Passive" 			"1"
 				"IsDebuff"			"0"
-				"OnTakeDamage"
+				"OnAttackLanded"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B11.lua"
-						"Function"		"modifier_B11R_trigger_OnTakeDamage"
+						"Function"		"B11R_OnAttackLanded"
 						
 					}
 				}
 			}
-
-			"modifier_B11R_mark"
-			{
-				"IsDebuff"					"1"
-				"Duration" 					"%B11R_mark_Time"
-				"EffectName"                "particles/units/heroes/hero_bounty_hunter/bounty_hunter_track_trail.vpcf"
-				"EffectAttachType"   	    "attach_hitloc"
-
-
-				"ThinkInterval"  "0.5"
-				//state 提供視野壞掉
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B11.lua"
-						"Function"		"modifier_B11R_mark_on_think"
-					}
-				}
-
-                "OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"		"scripts/vscripts/heroes/B_Unified/B11.lua"
-						"Function"			"modifier_B11R_mark_OnTakeDamage"
-						"B11R_mark_Damage" "%B11R_mark_Damage"
-					}
-				}
-				
-			}
-
 			"modifier_B11R_MoveSpeed_Bonus"
 			{
 				"Passive" 			"1"
@@ -352,10 +310,10 @@
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"120 100 80"
+		"AbilityCooldown"	"120 110 100"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"300 400 500"
+		"AbilityManaCost"	"150"
 		// Precache
 		// -------------------------------------------------------------------------------------------------------------
 
@@ -368,7 +326,7 @@
 			}
 			"ApplyModifier"
 			{
-				"ModifierName"	"modifier_B11T_Crit"
+				"ModifierName"	"modifier_B11T_Enable"
 				"Target" 		"CASTER"
 			}
 		}
@@ -376,9 +334,8 @@
 		{
 			"modifier_B11T_Crit"
             {
-            	"Passive" "0"
+            	"Passive" "1"
             	"IsHidden"	"0"
-            	"Duration"	"22"
             	"OnAttackStart"
             	{
 					"RunScript"
@@ -389,15 +346,28 @@
 					}
             	}
             }
-
-            "modifier_B11T_Crit2"
+			"modifier_B11T_Enable"
        		{
        			"Passive" "0"
             	"IsHidden"	"0"
-
+            	"Duration"	"%B11T_duration"
+       		}
+            "modifier_B11T_Crit2"
+       		{
+       			"Passive" "0"
+            	"IsHidden"	"1"
           		"Properties"
            		{
                 	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "250"
+           		}
+       		}
+			"modifier_B11T_Crit3"
+       		{
+       			"Passive" "0"
+            	"IsHidden"	"1"
+          		"Properties"
+           		{
+                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "450"
            		}
        		}
        	}
@@ -408,7 +378,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"B11T_duration"		"22"
+				"B11T_duration"		"13 20 27"
 			}
 		}
 	}
@@ -424,15 +394,13 @@
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityCastPoint"		"0.1"
+		"AbilityCooldown"	"4"
 		"AbilityCastAnimation"	"ACT_DOTA_ATTACK"
 		"MaxLevel" 				"3"
-		// Time
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"1"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"0"

@@ -5116,7 +5116,7 @@
 		"AttackRate"	"1"
 		"AttackRange"	"10"
 		"AttackAnimationPoint"	"0"
-		"AttackAcquisitionRange"	"3000"
+		"AttackAcquisitionRange"	"900"
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
@@ -5137,8 +5137,8 @@
 		"StatusHealthRegen"	"-1"
 		// Vision
 		// ----------------------------------------------------------------
-		"VisionDaytimeRange"	"1400"
-		"VisionNighttimeRange"	"1400"
+		"VisionDaytimeRange"	"400"
+		"VisionNighttimeRange"	"400"
 		// Team
 		// ----------------------------------------------------------------
 		"TeamName"	"DOTA_TEAM_NEUTRALS"

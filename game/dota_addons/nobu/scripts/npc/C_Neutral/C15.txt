@@ -363,6 +363,19 @@
 		}
 		"Modifiers"
 		{
+			"modifier_B11R_trigger"
+			{
+				"Passive" 			"1"
+				"IsDebuff"			"0"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C15.lua"
+						"Function"		"C15T_OnAttackLanded"
+					}
+				}
+			}
 			"modifier_C15T"
 			{
 				"EffectName"	"particles/c15t7/c15t7.vpcf"
@@ -436,7 +449,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"life_duration"	"15"
+				"life_duration"	"10"
 			}
 			"04"
 			{

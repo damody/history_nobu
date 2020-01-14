@@ -34,25 +34,15 @@ function Shock( keys )
 		if (caster.spear_of_ghost == nil) then
 			caster.spear_of_ghost = 0
 		end
-		if (ran > keys.Chance) then
-			caster.spear_of_ghost = caster.spear_of_ghost + 1
-		end
-		if (caster.spear_of_ghost > (100/keys.Chance)+1 or ran <= keys.Chance) then
+		caster.spear_of_ghost = caster.spear_of_ghost + 1
+		if caster.spear_of_ghost >= 3 then
 
 			caster.spear_of_ghost = 0
 			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
 
-			local dmg = keys.target:GetHealth() * keys.Percent / 100
-			if dmg < keys.MinDmg then
-				dmg = keys.MinDmg
-			end
-			if not target:IsMagicImmune() then
-				AMHC:Damage(caster,keys.target, dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-			end
+			local dmg = keys.target:GetHealth() * keys.dmg * 0.01
+			AMHC:Damage(caster,keys.target, dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			AMHC:CreateNumberEffect(keys.target,dmg,1,AMHC.MSG_DAMAGE,'blue')
-			--SE
-			-- local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf", PATTACH_POINT, keys.target)
-			-- ParticleManager:SetParticleControlEnt(particle, 0, keys.target, PATTACH_POINT, "attach_hitloc", Vector(0,0,0), true)
 			--動作
 			local rate = caster:GetAttackSpeed()
 			--print(tostring(rate))
