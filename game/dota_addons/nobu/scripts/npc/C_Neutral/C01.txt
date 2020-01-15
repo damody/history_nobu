@@ -156,7 +156,7 @@
 		"HotKeyOverride"	"E"
 		"MaxLevel"	"4"
 		"RequiredLevel"	"1"
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"          				"0.35"
 		"AbilityCooldown"	"13"
 		"AbilityManaCost"	"120 150 180 210"
 		"AbilityCastRange"	"1500"

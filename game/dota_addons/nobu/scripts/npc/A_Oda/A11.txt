@@ -32,7 +32,7 @@
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_NONE"
 
-		"AbilityCastPoint"                          "0.1"
+		"AbilityCastPoint"          				"0.25"
 		"AbilityCastRange"							"800"
 		"AbilityCooldown"                           "9"
 		"AbilityManaCost"                           "130 150 170 190"
@@ -292,7 +292,6 @@
 		"AbilityUnitDamageType"						"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"                        "custom/A11/A11T"
 		
-		"AbilityCastPoint"          				"0.1"
 		"AbilityCooldown"           				"100"
 		"AbilityManaCost"           				"300"
 		"AbilityCastRange"							"1000"
@@ -422,7 +421,7 @@
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_NONE"
 
-		"AbilityCastPoint"                          "0.1"
+		"AbilityCastPoint"          				"0.25"
 		"AbilityCastRange"							"1000"
 		"AbilityCooldown"                           "10"
 		"AbilityManaCost"                           "180 200 220 240"

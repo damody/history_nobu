@@ -147,7 +147,7 @@
 		"AbilityType"  								"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
 		
-		"AbilityCastPoint"                          "0.1"
+		"AbilityCastPoint"          				"0.25"
 		"AbilityCastRange"							"800"
 		"AbilityCooldown"                           "26"
 		"AbilityManaCost"                           "125 135 145 155"
@@ -388,7 +388,6 @@
 		//"AbilityUnitDamageType"						"DAMAGE_TYPE_PURE"
 		"AbilityTextureName"                        "custom/A15/A15T"
 		
-		"AbilityCastPoint"          				"0.1"
 		"AbilityCooldown"           				"60"
 		"AbilityManaCost"           				"155"
 		

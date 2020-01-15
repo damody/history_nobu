@@ -39,7 +39,7 @@
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_NONE"
 
-		"AbilityCastPoint"                          "0.1"
+		"AbilityCastPoint"          				"0.25"
 		"AbilityCastRange"							"1000"
 		"AbilityCooldown"                           "12"
 		"AbilityManaCost"                           "130 150 170 190"
@@ -384,8 +384,7 @@
 		"AbilityUnitDamageType"						"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"                        "custom/B28/B28T"
 		"AbilityCastRange"							"1000"
-		"AbilityCastPoint"							"0.1"
-		"AbilityCastPoint"          				"0.1"
+		"AbilityCastPoint"							"0.25"
 		"AbilityCooldown"           				"130 125 120"
 		"AbilityManaCost"           				"400 600 800"
 		"AOERadius"                                 "%B28T_radius"
@@ -484,7 +483,7 @@
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_NONE"
 
-		"AbilityCastPoint"                          "0.1"
+		"AbilityCastPoint"          				"0.25"
 		"AbilityCastRange"							"1000"
 		"AbilityCooldown"                           "12"
 		"AbilityManaCost"                           "170 190 210 230"

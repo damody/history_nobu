@@ -740,7 +740,7 @@
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"HotKeyOverride"	"W"
 		"MaxLevel"	"3"
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"          				"0.35"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate"	"2"
 		"AbilityCooldown"	"8"

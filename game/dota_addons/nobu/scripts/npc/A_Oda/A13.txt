@@ -616,7 +616,7 @@
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"HotKeyOverride"	"R"
 		"MaxLevel"	"4"
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"          				"0.35"
 		"AbilityCooldown"	"25"
 		"AbilityManaCost"	"100 120 140 160"
 		"precache"

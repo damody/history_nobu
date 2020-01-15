@@ -46,7 +46,7 @@
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_NONE"
 
-		"AbilityCastPoint"                          "0.1"
+		"AbilityCastPoint"          				"0.25"
 		"AbilityCastRange"							"1300"
 		"AbilityCooldown"                           "9"
 		"AbilityManaCost"                           "130 150 170 190"
@@ -226,7 +226,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityCastPoint"                          "0.1"
+		"AbilityCastPoint"          				"0.25"
 		"AbilityCooldown"                           "14"
 		"AbilityManaCost"                           "110 130 150 170"
 		"AOERadius"	"700"
@@ -492,7 +492,7 @@
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_NONE"
 
-		"AbilityCastPoint"                          "0.1"
+		"AbilityCastPoint"          				"0.25"
 		"AbilityCastRange"							"800"
 		"AbilityCooldown"                           "16 14 12 10"
 		"AbilityManaCost"                           "140 160 180 200"
@@ -581,7 +581,7 @@
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_NONE"
 
-		"AbilityCastPoint"                          "0.1"
+		"AbilityCastPoint"          				"0.25"
 		"AbilityCastRange"							"1300"
 		"AbilityCooldown"                           "30"
 		"AbilityManaCost"                           "200"

@@ -24,7 +24,7 @@
 		"FightRecapLevel"	"1"
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"HotKeyOverride"	"W"
-		"AbilityCastPoint"	"0.1"	
+		"AbilityCastPoint"          				"0.35"	
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"	"16"
@@ -128,7 +128,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"HotKeyOverride"	"E"
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"          				"0.35"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"	"10"
@@ -269,7 +269,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"HotKeyOverride"	"R"
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"          				"0.35"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate"	"1"
 		// Time
@@ -497,7 +497,7 @@
 		"FightRecapLevel"	"1"
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"HotKeyOverride"	"W"
-		"AbilityCastPoint"	"0.1"	
+		"AbilityCastPoint"          				"0.35"	
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"	"12 16 18 24"
@@ -601,7 +601,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"HotKeyOverride"	"E"
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"          				"0.35"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"	"10 9 8 7"
@@ -742,7 +742,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"HotKeyOverride"	"R"
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"          				"0.35"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate"	"1"
 		// Time
@@ -887,7 +887,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
 
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"          				"0.35"
 		"AbilityCooldown"	"150 135 120"
 		"AbilityManaCost"	"200 250 300"
 		"AbilityDuration"	"30 40 50"
@@ -971,7 +971,7 @@
 		"FightRecapLevel"	"1"
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"HotKeyOverride"	"W"
-		"AbilityCastPoint"	"0.1"	
+		"AbilityCastPoint"          				"0.35"	
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"	"10"
@@ -1069,7 +1069,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"HotKeyOverride"	"E"
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"          				"0.35"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"	"14 12 10 8"
@@ -1210,7 +1210,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"HotKeyOverride"	"R"
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"          				"0.35"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate"	"1"
 		// Time
@@ -1355,7 +1355,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
 
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"          				"0.35"
 		"AbilityCooldown"	"120"
 		"AbilityManaCost"	"150 200 250"
 		"AbilityDuration"	"30"
@@ -1433,7 +1433,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"HotKeyOverride"	"R"
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"          				"0.35"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate"	"1"
 		"Maxlevel"	"1"

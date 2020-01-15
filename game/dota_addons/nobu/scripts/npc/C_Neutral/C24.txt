@@ -29,7 +29,7 @@
 		"HotKeyOverride"	"W"
 		"MaxLevel"	"4"
 		"LevelsBetweenUpgrades"	"2"
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"          				"0.35"
 		"AbilityCooldown"	"14 11 8 5"
 		"AbilityManaCost"	"65"
 		"AbilityCastRange"	"200"
