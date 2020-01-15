@@ -18,9 +18,9 @@
 		"Ability2"	"A08E"
 		"Ability3"	"A08R"
 		"Ability4"	"attribute_bonusx"
-		"Ability5"	""
+		"Ability5"	"A08_precache"
 		"Ability6"	"A08T"
-		"Ability7"	"A08_precache"
+		"Ability7"	""
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"7"

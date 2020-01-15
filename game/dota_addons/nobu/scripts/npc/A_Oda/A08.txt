@@ -21,7 +21,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetFlags""DOTA_UNIT_TARGET_FLAG_NONE"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"HotKeyOverride"	"W"
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@
 			"Damage"
 			{
 				"Target"		"TARGET"
-				"Type"			"DAMAGE_TYPE_PURE"
+				"Type"			"DAMAGE_TYPE_MAGICAL"
 				"Damage"		"%AbilityDamage"
 			}
 			"ApplyModifier"
@@ -137,6 +137,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		
 		"Modifiers"
 		{
@@ -230,20 +231,12 @@
 				"EffectName" "particles/units/heroes/hero_clinkz/clinkz_strafe.vpcf"
 				"Properties"
 				{					
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"%Bonus_Health"
+					
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"100"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"0"
 				}
 				"Passive"	"0"
 				"Duration"	"%During"
-				"OnDeath"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_A08T"
-						"Target" 		"CASTER"
-					}
-				}
 				"OnAttackLanded"
 				{
 					"RunScript"
@@ -260,13 +253,22 @@
 						"CleaveEffect"	"particles/a07r/a07r.vpcf"
 					}
 				}
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A08.lua"
+						"Function"	"A08T_OnTakeDamage"
+						"dmg"	"%attack_damage"
+					}
+				}
 			}
 			"modifier_A08T2"
 			{
 				"Passive"	"1"
 				"Properties"
 				{					
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%add_defend"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"%Bonus_Health"
 				}
 			}
 		}
@@ -280,7 +282,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"Bonus_Health"	"1000 1500 2000"
+				"Bonus_Health"	"600 1000 1500"
 			}
 			"03"
 			{
@@ -528,11 +530,6 @@
 				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 				}
 				"ModifierName"	"modifier_A08T"
-			}
-			"Heal"
-			{
-				"Target"        "CASTER"
-				"HealAmount"	"%Bonus_Health"
 			}
 		}
 		"Modifiers"

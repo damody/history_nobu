@@ -117,7 +117,7 @@ function _G.Nobu:InitGameMode()
   -- --【經驗值設定】
   MaxLevel = 25 --最大等級
   XpTable = {} --升級所需經驗
-  local xp = 80
+  local xp = 120
   XpTable[1]=0
   for i=2,MaxLevel do
     XpTable[i]=xp

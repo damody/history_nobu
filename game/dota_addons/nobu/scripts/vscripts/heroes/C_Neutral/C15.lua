@@ -110,13 +110,13 @@ end
 function C15T_OnAttackLanded( keys )
     local caster=keys.caster
 	local ability=caster:FindAbilityByName("C15T")
-	target=keys.target
-	if (target.C15T == nil) then
-		target.C15T = 0
+	local target=keys.target
+	if (caster.C15T == nil) then
+		caster.C15T = 0
 	end
-	target.C15T = target.C15T + 1
-	if (target.C15T >= 5) then
-		target.C15T = 0
+	caster.C15T = caster.C15T + 1
+	if (caster.C15T >= 8) then
+		caster.C15T = 0
 		if ability:GetLevel() > 0 then
 			local dummy = CreateUnitByName("C15T_dummy",target:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
 			dummy:AddAbility("majia_vison"):SetLevel(1)		

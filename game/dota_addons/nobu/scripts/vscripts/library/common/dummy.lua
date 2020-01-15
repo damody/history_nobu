@@ -339,29 +339,22 @@ function buff_tower( keys )
   local caster = keys.caster
   local ability = keys.ability
   local team = caster:GetTeamNumber()
-  local enemys = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1500, 
-          DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 
-          0, FIND_ANY_ORDER, false )
+  
+  local enemys = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, 
+          DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 
+          DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_DEAD, FIND_ANY_ORDER, false )
+
   local counth = 0
   for i,v in pairs(enemys) do
-    counth = counth + 1
-  end
-  local enemys = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, 
-          DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, 
-          0, FIND_ANY_ORDER, false )
-  local count = 0
-  for i,v in pairs(enemys) do
-    if ok_unit[v:GetUnitName()] then
-      count = 1
-      break
-    end
-    if not v:IsIllusion() and not v:GetOwner() then
-      count = 1
-      break
+    if not ok_unit[v:GetUnitName()] and not v:IsIllusion() and not v:GetOwner() then
+      counth = counth + 1
     end
   end
-  if count == 0 and counth < 3 then
+  if counth < 3 then
     ability:ApplyDataDrivenModifier(caster, caster, "buff_tower", {duration = 2})
+  else
+    print("remove buff_tower")
+    caster:RemoveModifierByName("buff_tower")
   end
 end
 

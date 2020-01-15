@@ -105,19 +105,19 @@ function ShuaGuai( )
 			    	ent:SetBaseDamageMax(ent:GetBaseDamageMax() + 2)
 			    	ent:SetBaseDamageMin(ent:GetBaseDamageMin() + 2)
 			    end
-		    	ent:SetPhysicalArmorBaseValue(ent:GetPhysicalArmorBaseValue() + 0.1)
+		    	ent:SetPhysicalArmorBaseValue(ent:GetPhysicalArmorBaseValue() - 0.3)
 			end
 		end
 	  	ShuaGuai_Of_AA(3)
   		return 30
 	 end)
-	 Timers:CreateTimer(start_time+5, function()--50
+	 Timers:CreateTimer(start_time+3, function()--50
 		ShuaGuai_Of_AB(1)
 		 return 30
 	end)
 
 	--出兵觸發:火槍兵
- 	Timers:CreateTimer( start_time+35,function()
+ 	Timers:CreateTimer( start_time+34,function()
  		local B_num = 2 -- + 0.003*ShuaGuai_count
  	
   		ShuaGuai_Of_B(B_num)
@@ -127,7 +127,7 @@ function ShuaGuai( )
 	end)
 
 	--出兵觸發:騎兵
- 	Timers:CreateTimer( start_time+33, function()
+ 	Timers:CreateTimer( start_time+35, function()
  		local C_num = 1 -- + 0.005*ShuaGuai_count
 
   		ShuaGuai_Of_C(C_num)

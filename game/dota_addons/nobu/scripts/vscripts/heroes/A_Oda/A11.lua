@@ -99,10 +99,9 @@ function A11R( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		}
-		if unit:IsMagicImmune() then
-			damageTable.damage = damageTable.damage * 0.5
+		if not unit:IsMagicImmune() then
+			ApplyDamage(damageTable)
 		end
-		ApplyDamage(damageTable)
 	end
 end
 
@@ -112,7 +111,7 @@ function A11T( keys )
 	local radius = ability:GetSpecialValueFor("A11T_radius")
 	local A11T_damage = caster:GetIntellect()
 	local maxTarget = ability:GetSpecialValueFor("A11T_maxTarget")
-
+	caster:Heal( A11T_damage * 2, caster)
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetOrigin(), nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
 	for i,unit in ipairs(units) do
 		damageTable = {
@@ -121,17 +120,16 @@ function A11T( keys )
 			ability = ability,
 			damage = A11T_damage,
 			damage_type = ability:GetAbilityDamageType(),
-			damage_flags = DOTA_DAMAGE_FLAG_NONE,
+			damage_flags = DAMAGE_TYPE_MAGICAL,
 		}
-		if unit:IsMagicImmune() then
-			damageTable.damage = damageTable.damage * 0.5
+		if not unit:IsMagicImmune() then
+			ApplyDamage(damageTable)
 		end
-		caster:Heal( damageTable.damage * 0.5, caster)
-
+		
 		local particle = ParticleManager:CreateParticle("particles/a11t2/a11t5b.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControlEnt(particle, 0, unit, PATTACH_POINT_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true)
 
-		ApplyDamage(damageTable)
+		
 		if i==maxTarget then
 			break
 		end

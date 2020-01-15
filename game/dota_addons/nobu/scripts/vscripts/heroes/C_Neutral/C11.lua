@@ -221,10 +221,10 @@ function C11T_on_attack_landed( keys )
 
 	-- 直接離開
 	-----------------------------------------
-	if target:IsBuilding() or target:GetMaxMana() == 0 then return end
+	if target:IsBuilding() then return end
 	-----------------------------------------
 
-	local damage = target:GetMaxHealth() * ability:GetSpecialValueFor("damage") * 0.01
+	local damage = ability:GetSpecialValueFor("damage")
 	local remove_mana_percentage = ability:GetSpecialValueFor("remove_mana_percentage")
 	local bouns70 = 1.2
 	local bouns40 = 1.5
@@ -261,7 +261,7 @@ function C11T_on_attack_landed( keys )
 		caster.C11T_count = 0
 	end
 	caster.C11T_count = caster.C11T_count + 1
-	if caster.C11T_count >=2 then
+	if caster.C11T_count >= 2 then
 		caster.C11T_count = 0
 		Timers:CreateTimer(0.1, function()
 			caster:PerformAttack(target, true, true, true, true, true, false, true)

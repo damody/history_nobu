@@ -189,7 +189,7 @@ function Nobu:OnUnitKill( keys )
   	end
 
     if killedUnit:IsRealHero() then
-      AMHC:GivePlayerGold_UnReliable(killedUnit:GetPlayerOwnerID(), -300)
+      --AMHC:GivePlayerGold_UnReliable(killedUnit:GetPlayerOwnerID(), -300)
       if killedUnit.death_count == nil then
         killedUnit.death_count = 1
       else

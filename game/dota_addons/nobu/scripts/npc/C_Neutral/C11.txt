@@ -336,7 +336,7 @@
 			"02" // 消去現有法力
 			{
 				"var_type"	"FIELD_INTEGER"
-				"remove_mana_percentage" "12"
+				"remove_mana_percentage" "8"
 			}
 			"01"
 			{

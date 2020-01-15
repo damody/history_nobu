@@ -1,6 +1,40 @@
 -- 寧寧 by Nian Chen
 -- 2017.4.10
 
+function A15_Levelup( keys )
+	local caster = keys.caster
+	local ability = caster:FindAbilityByName("A15D")
+	local level = keys.ability:GetLevel()
+	
+	if (ability~= nil and ability:GetLevel() < level+1) then
+		ability:SetLevel(level+1)
+	end
+end
+
+
+function A15D_End( keys )
+	if not keys.target:IsUnselectable() or keys.target:IsUnselectable() then		-- This is to fail check if it is item. If it is item, error is expected
+		-- Variables
+		local caster = keys.caster
+		local target = keys.target
+		local ability = keys.ability
+		local abilityDamage = ability:GetLevelSpecialValueFor( "A15D_Damage", ability:GetLevel() - 1 )
+		local abilityDamageType = ability:GetAbilityDamageType()
+		if (not target:IsBuilding()) then
+			-- Deal damage and show VFX
+			local fxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta.vpcf", PATTACH_CUSTOMORIGIN, caster )
+			ParticleManager:SetParticleControl( fxIndex, 0, caster:GetAbsOrigin() )
+			ParticleManager:SetParticleControl( fxIndex, 1, target:GetAbsOrigin() )
+			
+			StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", target )
+			PopupCriticalDamage(target, abilityDamage)
+			AMHC:Damage( caster,target,abilityDamage,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+		end	
+		keys.caster:RemoveModifierByName( "modifier_A15D" )
+		keys.caster:RemoveModifierByName( "modifier_invisible" )
+	end
+end
+
 function A15W_OnSpellStart( keys )
 	local caster = keys.caster
 	local target = keys.target
@@ -77,6 +111,7 @@ function A15R_bounce_init( keys )
 	local target = keys.target
 	local ability = keys.ability
 	local damage = keys.Damage
+	local jump_max = ability:GetSpecialValueFor("jump_max")
 	-- Keeps track of the total number of instances of the ability (increments on cast)
 	if ability.instance == nil then
 		ability.instance = 0
@@ -88,7 +123,10 @@ function A15R_bounce_init( keys )
 		ability.instance = ability.instance + 1
 	end
 
-	ability.jump_count[ability.instance] = ability:GetSpecialValueFor("jump_max")
+	if caster:HasModifier("modifier_A15T2") then
+		jump_max = jump_max*2
+	end
+	ability.jump_count[ability.instance] = jump_max
 	ability.target[ability.instance] = target
 	ability.first_target[ability.instance] = target
 	ability.damage[ability.instance] = damage
@@ -102,11 +140,12 @@ function A15R_bounceAttack(keys)
 	local jump_radius = ability:GetSpecialValueFor("jump_radius")
 	local bonus_damage = ability:GetSpecialValueFor("bonus_damage")
 	local jump_max = ability:GetSpecialValueFor("jump_max")
+	if caster:HasModifier("modifier_A15T2") then
+		jump_max = jump_max*2
+	end
 	local pos
-
 	-- Removes the hidden modifier
 	target:RemoveModifierByName("modifier_A15R_bounceAttack")
-
 	-- Finds the current instance of the ability by ensuring both current targets are the same
 	local current
 	for i=0,ability.instance do
@@ -140,7 +179,9 @@ function A15R_bounceAttack(keys)
 	if ability.first_target[current] ~= target then
 		local base_damage = ability.damage[current]
 		local new_damage = base_damage * math.pow( 1 + bonus_damage, jump_max-ability.jump_count[current] )
-
+		if new_damage < 0.4*base_damage then
+			new_damage = 0.4*base_damage
+		end
 		local damageTable = {
 			victim = target, 
 			attacker = caster, 
@@ -174,6 +215,13 @@ function A15R_bounceAttack(keys)
 			if unit.hit == nil or unit.hit[current] == nil then
 				new_target = unit
 				break
+			end
+		end
+		if new_target == nil then
+			for i,unit in ipairs(units) do
+				if unit ~= target then
+					new_target = unit
+				end
 			end
 		end
 		-- Checks if there is a new target

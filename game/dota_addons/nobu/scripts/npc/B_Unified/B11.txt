@@ -125,7 +125,7 @@
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET" 	
 
-		"AbilityCooldown"				"12"
+		"AbilityCooldown"				"16"
 		"AbilityManaCost"				"55 65 75 85"
 
 		"AbilityCastPoint"				"0"
@@ -358,7 +358,7 @@
             	"IsHidden"	"1"
           		"Properties"
            		{
-                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "250"
+                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "200"
            		}
        		}
 			"modifier_B11T_Crit3"
@@ -367,7 +367,7 @@
             	"IsHidden"	"1"
           		"Properties"
            		{
-                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "450"
+                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "300"
            		}
        		}
        	}

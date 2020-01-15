@@ -144,12 +144,17 @@
 			"01"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"crit_chance"		"10 20 30 40"
+				"crit_chance"		"10 15 20 25"
 			}
 			"02"
 			{
 				"var_type"		"FIELD_INTEGER"
 				"crit_bonus"		"200"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"aspeed"		"30 45 60 75"
 			}
 		}
 
@@ -177,7 +182,10 @@
 			{
 				"Passive"			"1"
 				"IsHidden"			"1"
-
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%aspeed"
+				}
 				"OnAttackStart"
 				{
 					"RunScript"

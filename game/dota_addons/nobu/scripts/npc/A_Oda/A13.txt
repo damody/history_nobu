@@ -11,7 +11,7 @@
 			"particle"	"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact_dagger.vpcf"
 		}
 	}
-	// 服部半藏 忍法．風行步
+	// 忍法．迷蹤步
 	"A13D"
 	{
 		// General
@@ -690,7 +690,7 @@
 		"AbilityCastPoint"	"0"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"130"
+		"AbilityCooldown"	"130 120 110"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"200"
@@ -827,7 +827,7 @@
 			"09"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"110 130 150"
+				"damage"	"110 120 130"
 			}
 		}
 	}

@@ -38,3 +38,18 @@ function A08R_OnAttackLanded( keys )
 	AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 end
 
+
+function A08T_OnTakeDamage( keys )
+	--[[
+	O在這邊放計時器是因為節省particle的使用
+	O魔免的時候，不能在KV裡面傷害單位
+		要在lua裡面
+	]]
+	local caster = keys.caster
+	local attacker = keys.attacker
+	local ability = keys.ability
+	local dmg = keys.dmg
+	if not attacker:IsHero() then
+		caster:Heal(dmg,caster)
+	end
+end

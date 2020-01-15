@@ -148,22 +148,14 @@ function A12T( keys )
 	local SpendMana = ability:GetLevelSpecialValueFor("SpendMana",ability:GetLevel() - 1)
 	local damage = 0 
 	--if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
-		if caster:GetMana() > 30 and not target:IsBuilding() and caster.nobuorb1 == nil then
+		if not target:IsBuilding() then
 			damage = caster:GetMana()*special_dmg/100
-			AMHC:Damage( caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-			AMHC:CreateNumberEffect(target,damage,2,AMHC.MSG_ORIT ,{0,0,225},4)
-			if caster.A12T == true then
-				caster:SetMana(caster:GetMana() + SpendMana*2)
-				--[[
-				Physics:Unit(target)
-				local diff = target:GetAbsOrigin()-caster:GetAbsOrigin()
-				diff.z = 0
-				local dir = diff:Normalized()
-				target:SetVelocity(Vector(0,0,-9.8))
-				target:AddPhysicsVelocity(-dir*500)
-				ability:ApplyDataDrivenModifier(caster, target,"modifier_rooted", {duration = 0.4})
-				]]
+			if target:IsMagicImmune() then
+				AMHC:Damage( caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+			else
+				AMHC:Damage( caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			end
+			AMHC:CreateNumberEffect(target,damage,2,AMHC.MSG_ORIT ,{0,0,225},4)
 		end
 	--end
 	caster.A12T = false
@@ -177,19 +169,6 @@ function A12T_Start( keys )
 	local damage = 0
 	local SpendMana = ability:GetLevelSpecialValueFor("SpendMana",ability:GetLevel() - 1)
 	
-	if caster:GetMana() > 30 and not target:IsBuilding() then
-		caster:SpendMana(SpendMana,ability)	--消耗mana
-		if caster:GetMana() < SpendMana then
-		else
-			if caster.A12D_B == true then
-				ParticleManager:CreateParticle("particles/a12w2/a12w2.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-				caster.A12T = true
-			else
-				caster.A12T = false
-			end
-			caster.A12D_B = false
-		end
-	end	
 end
 
 

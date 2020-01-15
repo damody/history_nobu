@@ -292,7 +292,7 @@
 		"AbilityType"  								"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityTextureName"                        "custom/C09/C09T"
 
-		"AbilityCooldown"           				"60"
+		"AbilityCooldown"           				"100 90 80"
 		"AbilityManaCost"           				"150"
 		"AbilityCastRange"							"800"
 		

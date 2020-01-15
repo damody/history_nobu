@@ -568,7 +568,7 @@
 						"Damage"	"%damage"
 					}
 				}
-				"ThinkInterval"	"0.5"
+				"ThinkInterval"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed"
@@ -588,7 +588,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"75 100 125"
+				"damage"	"66 88 110"
 			}
 			"03"
 			{

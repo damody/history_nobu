@@ -572,7 +572,7 @@
 		"Ability2"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -1937,7 +1937,7 @@
 		"Ability2"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"75"
 		// Attack
 		// ----------------------------------------------------------------
@@ -2333,7 +2333,7 @@
 
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -3596,7 +3596,7 @@
 		"Ability1"	"healing_totem"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"100"
 		// Attack
 		// ----------------------------------------------------------------
@@ -3838,7 +3838,7 @@
 		"Ability1"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"75"
 		// Attack
 		// ----------------------------------------------------------------
@@ -4007,7 +4007,7 @@
 		"Ability2"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"75"
 		// Attack
 		// ----------------------------------------------------------------
@@ -4439,7 +4439,7 @@
 		
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -4571,7 +4571,7 @@
 		
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -6095,7 +6095,7 @@
 		// Reference: Amim
 		"Ability2"	"com_bigattack"
 		// Reference: Aoar
-		"Ability3"	"magical_1300"
+		"Ability3"	"buff_tower"
 		// Reference: A0BN
 		"Ability4"	""
 		// Armor
@@ -6174,7 +6174,7 @@
 		// Reference: Amim
 		"Ability2"	"com_bigattack"
 		// Reference: Aoar
-		"Ability3"	""
+		"Ability3"	"buff_tower"
 		// Reference: A0BN
 		"Ability4"	""
 		// Armor
@@ -6253,7 +6253,7 @@
 		// Reference: Amim
 		"Ability2"	"com_bigattack"
 		// Reference: Aoar
-		"Ability3"	""
+		"Ability3"	"buff_tower"
 		// Reference: A0BN
 		"Ability4"	""
 		// Armor
@@ -9723,7 +9723,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -9773,7 +9773,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -9823,7 +9823,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -9873,7 +9873,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -9923,7 +9923,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -9974,7 +9974,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -10025,7 +10025,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -10076,7 +10076,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -10127,7 +10127,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -10178,7 +10178,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -10228,7 +10228,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -10278,7 +10278,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -10329,7 +10329,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -10380,7 +10380,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -10431,7 +10431,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -10482,7 +10482,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -10533,7 +10533,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -13165,7 +13165,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13247,7 +13247,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13329,7 +13329,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13411,7 +13411,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13493,7 +13493,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13575,7 +13575,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13657,7 +13657,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13739,7 +13739,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13820,7 +13820,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13901,7 +13901,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13982,7 +13982,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -14063,7 +14063,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -14144,7 +14144,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -14225,7 +14225,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -14306,7 +14306,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -14387,7 +14387,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_HERO"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability3"	""
+		"Ability3"	"for_no_collision"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -16101,7 +16101,7 @@
 		"Ability1"	"play_on_die"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -16184,7 +16184,7 @@
 		"Ability1"	"play_on_die"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -16267,7 +16267,7 @@
 		"Ability1"	"play_on_die"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -16350,7 +16350,7 @@
 		"Ability1"	"play_on_die"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -16435,7 +16435,7 @@
 		"Ability1"	"play_on_die"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -16518,7 +16518,7 @@
 		"Ability1"	"play_on_die"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -16601,7 +16601,7 @@
 		"Ability1"	"play_on_die"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -16686,7 +16686,7 @@
 		"Ability1"	"play_on_die"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -16769,7 +16769,7 @@
 		"Ability1"	"play_on_die"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -16852,7 +16852,7 @@
 		"Ability1"	"play_on_die"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -19506,7 +19506,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -19556,7 +19556,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -19606,7 +19606,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -19656,7 +19656,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -19707,7 +19707,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -19758,7 +19758,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -19809,7 +19809,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -19860,7 +19860,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -19911,7 +19911,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -19961,7 +19961,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -20011,7 +20011,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -20062,7 +20062,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -20113,7 +20113,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -20164,7 +20164,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -20215,7 +20215,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
@@ -20266,7 +20266,7 @@
 		// Reference: A0GW
 		"Ability2"	"attack_building"
 		// Armor
-		"ArmorPhysical"	"10"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"

@@ -97,7 +97,8 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"OnTakeDamage"
+				"ThinkInterval"  "1"
+				"OnIntervalThink"
 				{
 					"RunScript"
 					{
@@ -112,7 +113,6 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					//"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"20"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-80"
 				}
 			}

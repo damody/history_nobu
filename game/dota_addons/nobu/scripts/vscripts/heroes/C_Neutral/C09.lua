@@ -7,8 +7,8 @@ function C09W_OnToggleOn( keys )
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_C09W",{})
 
 	-- 儲存當前的法球
-	ability.save_nobu_orb = caster.nobuorb1
-	caster.nobuorb1 = "C09W"
+	--ability.save_nobu_orb = caster.nobuorb1
+	--caster.nobuorb1 = "C09W"
 end
 
 function C09W_OnToggleOff( keys )
@@ -17,7 +17,7 @@ function C09W_OnToggleOff( keys )
 	caster:RemoveModifierByName("modifier_C09W")
 
 	-- 還原法球效果
-	caster.nobuorb1 = ability.save_nobu_orb
+	--caster.nobuorb1 = ability.save_nobu_orb
 end
 
 function C09W_OnAttackStart( keys )
@@ -26,12 +26,12 @@ function C09W_OnAttackStart( keys )
 	local ability = keys.ability
 	local mana_cost = ability:GetSpecialValueFor("mana_cost")
 
-	-- 當玩家裝備新的法球時，自動關閉技能
+	--[[當玩家裝備新的法球時，自動關閉技能
 	if caster.nobuorb1 ~= "C09W" then
 		ability.save_nobu_orb = caster.nobuorb1
 		ability:ToggleAbility()
 		return
-	end
+	end]]
 
 	-- 當魔力不足時自動關閉技能
 	if caster:GetMana() < mana_cost then
