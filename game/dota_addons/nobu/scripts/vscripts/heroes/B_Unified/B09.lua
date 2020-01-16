@@ -209,12 +209,14 @@ function B09T_OnSpellStart( keys )
 	local caster = keys.caster
 	local point = keys.target_points[1] 
 	local ability = keys.ability
+	local level = ability:GetLevel() - 1
 	local duration = ability:GetSpecialValueFor("duration")
+	local regen = ability:GetLevelSpecialValueFor("heal",level)
 	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
           point,
           nil,
           700,
-          DOTA_UNIT_TARGET_TEAM_ENEMY,
+          DOTA_UNIT_TARGET_TEAM_FRIENDLY,
           DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
           DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
           0,
@@ -228,7 +230,27 @@ function B09T_OnSpellStart( keys )
 	Timers:CreateTimer(1, function ()
 		ParticleManager:DestroyParticle(flame, false)
 	end)	
-	
+	for _,target in pairs(direUnits) do
+		if not target:IsBuilding() then
+			target:SetHealth(target:GetHealth() + regen)
+			target:SetMana(target:GetMaxMana())
+		end
+	end
+end
+function B09T_END( keys )
+	local caster = keys.caster
+	local point = keys.target_points[1] 
+	local ability = keys.ability
+	local duration = ability:GetSpecialValueFor("duration")
+	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
+          point,
+          nil,
+          700,
+          DOTA_UNIT_TARGET_TEAM_ENEMY,
+          DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+          DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+          0,
+          false)
 	for _,target in pairs(direUnits) do
 		if not target:IsBuilding() then
 			target:SetMana(target:GetMana()*0.4)
@@ -236,10 +258,7 @@ function B09T_OnSpellStart( keys )
 			AMHC:Damage(caster,target, ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		end
 	end
-end
-
-
-
+end	
 function B09W_old_OnSpellStart( keys )
 	local caster = keys.caster
 	local dummy = keys.target

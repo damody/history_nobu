@@ -270,17 +270,15 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityTextureName"	 "custom/B09/B09T"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityType"  			"DOTA_ABILITY_TYPE_ULTIMATE"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"	"1"
-		
 		"AbilityCooldown"	"140 130 120"
-		
 		"AbilityManaCost"	"250 300 350"
 		"AbilityDamage" 	"400 550 700"
-		"AbilityCastPoint"	"0"
+		"AbilityCastPoint"	"0.1"
 		"AOERadius"		"700"
 		"OnSpellStart"
 		{
@@ -295,6 +293,19 @@
 			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
 				"Function"	"sound"
 				"sound"	"magic_missile_impact"
+			}
+			"DelayedAction"
+			{
+				"Action"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B09.lua"
+						"Function"	"B09T_END"
+						"Target" "POINT"
+					}
+				}
+				"Delay"	"%delay"
 			}
 		}
 		
@@ -320,6 +331,16 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"duration"					"5 6 7"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"heal"						"400 550 700"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"delay"						"1"
 			}
 		}
 	}
