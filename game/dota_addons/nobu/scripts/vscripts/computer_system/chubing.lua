@@ -95,17 +95,20 @@ function ShuaGuai( )
 		_G.Oda_home:AddAbility("buff_tower"):SetLevel(1)
 		_G.Unified_home:AddAbility("buff_tower"):SetLevel(1)
 		end)
+	
+	local armor = 20
  	Timers:CreateTimer(start_time, function()--50
  		ShuaGuai_count = ShuaGuai_count + 1
  		--強化箭塔npc_dota_building
- 		local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+		local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+		armor = armor - 0.3
 		for k, ent in pairs(allBuildings) do
 		    if ent:IsTower() then
 		    	if no_buff[ent:GetUnitName()] == nil then
 			    	ent:SetBaseDamageMax(ent:GetBaseDamageMax() + 2)
 			    	ent:SetBaseDamageMin(ent:GetBaseDamageMin() + 2)
 			    end
-		    	ent:SetPhysicalArmorBaseValue(ent:GetPhysicalArmorBaseValue() - 0.3)
+		    	ent:SetPhysicalArmorBaseValue(armor)
 			end
 		end
 	  	ShuaGuai_Of_AA(3)
@@ -117,21 +120,21 @@ function ShuaGuai( )
 	end)
 
 	--出兵觸發:火槍兵
- 	Timers:CreateTimer( start_time+34,function()
- 		local B_num = 2 -- + 0.003*ShuaGuai_count
+ 	Timers:CreateTimer( start_time+94,function()
+ 		local B_num = 4 -- + 0.003*ShuaGuai_count
  	
   		ShuaGuai_Of_B(B_num)
-	    local time =  60
+	    local time =  180
 
 	    return time
 	end)
 
 	--出兵觸發:騎兵
- 	Timers:CreateTimer( start_time+35, function()
- 		local C_num = 1 -- + 0.005*ShuaGuai_count
+ 	Timers:CreateTimer( start_time+95, function()
+ 		local C_num = 4 -- + 0.005*ShuaGuai_count
 
   		ShuaGuai_Of_C(C_num)
-	    local time =  60 -- 0.5*ShuaGuai_count
+	    local time =  180 -- 0.5*ShuaGuai_count
 
 	    return time
 	end)
@@ -358,12 +361,12 @@ function ShuaGuai_Of_B(num)
 						for x=1,n do
 							local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 							unit:AddAbility("set_level_1"):SetLevel(1)
-							local hp = unit:GetMaxHealth()
+							local hp = unit:GetMaxHealth()+300
 							unit:SetBaseMaxHealth(hp+A_count * 5)
 							local dmgmax = unit:GetBaseDamageMax()
 							local dmgmin = unit:GetBaseDamageMin()
 							unit:SetBaseDamageMax(dmgmax+A_count*5)
-							unit:SetBaseDamageMax(dmgmin+A_count*5)
+							unit:GetBaseDamageMin(dmgmin+A_count*5)
 							local armor = unit:GetPhysicalArmorBaseValue()
 							unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
 							--creep:SetContextNum("isshibing",1,0)
@@ -470,12 +473,12 @@ function ShuaGuai_Of_C(num)
 						for x=1,n do
 							local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 							
-							local hp = unit:GetMaxHealth()
+							local hp = unit:GetMaxHealth()+800
 							unit:SetBaseMaxHealth(hp+A_count * 10)
 							local dmgmax = unit:GetBaseDamageMax()
 							local dmgmin = unit:GetBaseDamageMin()
 							unit:SetBaseDamageMax(dmgmax+A_count*5)
-							unit:SetBaseDamageMax(dmgmin+A_count*5)
+							unit:SetBaseDamageMin(dmgmin+A_count*5)
 							local armor = unit:GetPhysicalArmorBaseValue()
 							unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
 							--creep:SetContextNum("isshibing",1,0)

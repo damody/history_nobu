@@ -17122,7 +17122,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"12"		// Experience earn.
+ 		"BountyXP"					"20"		// Experience earn.
  		"BountyGoldMin"				"20"		// Gold earned min.
  		"BountyGoldMax"				"20"		// Gold earned max.
 
@@ -17192,7 +17192,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"12"		// Experience earn.
+ 		"BountyXP"					"20"		// Experience earn.
  		"BountyGoldMin"				"20"		// Gold earned min.
  		"BountyGoldMax"				"20"		// Gold earned max.
 
@@ -17262,7 +17262,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"12"		// Experience earn.
+ 		"BountyXP"					"20"		// Experience earn.
  		"BountyGoldMin"				"20"		// Gold earned min.
  		"BountyGoldMax"				"20"		// Gold earned max.
 
@@ -17332,7 +17332,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"24"		// Experience earn.
+ 		"BountyXP"					"36"		// Experience earn.
  		"BountyGoldMin"				"40"		// Gold earned min.
  		"BountyGoldMax"				"40"		// Gold earned max.
 
@@ -17402,7 +17402,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"30"		// Experience earn.
+ 		"BountyXP"					"50"		// Experience earn.
  		"BountyGoldMin"				"60"		// Gold earned min.
  		"BountyGoldMax"				"60"		// Gold earned max.
 
@@ -17472,7 +17472,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"24"		// Experience earn.
+ 		"BountyXP"					"30"		// Experience earn.
  		"BountyGoldMin"				"40"		// Gold earned min.
  		"BountyGoldMax"				"40"		// Gold earned max.
 
@@ -17542,7 +17542,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"20"		// Experience earn.
+ 		"BountyXP"					"25"		// Experience earn.
  		"BountyGoldMin"				"40"		// Gold earned min.
  		"BountyGoldMax"				"40"		// Gold earned max.
 
@@ -17612,7 +17612,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"30"		// Experience earn.
+ 		"BountyXP"					"40"		// Experience earn.
  		"BountyGoldMin"				"60"		// Gold earned min.
  		"BountyGoldMax"				"60"		// Gold earned max.
 
@@ -17682,7 +17682,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"18"		// Experience earn.
+ 		"BountyXP"					"24"		// Experience earn.
  		"BountyGoldMin"				"35"		// Gold earned min.
  		"BountyGoldMax"				"35"		// Gold earned max.
 
@@ -17752,7 +17752,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"24"		// Experience earn.
+ 		"BountyXP"					"36"		// Experience earn.
  		"BountyGoldMin"				"30"		// Gold earned min.
  		"BountyGoldMax"				"30"		// Gold earned max.
 
@@ -17822,7 +17822,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"30"		// Experience earn.
+ 		"BountyXP"					"40"		// Experience earn.
  		"BountyGoldMin"				"60"		// Gold earned min.
  		"BountyGoldMax"				"60"		// Gold earned max.
 
@@ -17892,7 +17892,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"24"		// Experience earn.
+ 		"BountyXP"					"40"		// Experience earn.
  		"BountyGoldMin"				"60"		// Gold earned min.
  		"BountyGoldMax"				"60"		// Gold earned max.
 
@@ -17962,7 +17962,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"30"		// Experience earn.
+ 		"BountyXP"					"40"		// Experience earn.
  		"BountyGoldMin"				"110"		// Gold earned min.
  		"BountyGoldMax"				"110"		// Gold earned max.
 
@@ -18032,7 +18032,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"30"		// Experience earn.
+ 		"BountyXP"					"40"		// Experience earn.
  		"BountyGoldMin"				"120"		// Gold earned min.
  		"BountyGoldMax"				"120"		// Gold earned max.
 
@@ -18242,7 +18242,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"48"		// Experience earn.
+ 		"BountyXP"					"58"		// Experience earn.
  		"BountyGoldMin"				"42"		// Gold earned min.
  		"BountyGoldMax"				"46"		// Gold earned max.
 
@@ -18254,146 +18254,6 @@
  		// Status
  		//----------------------------------------------------------------
  		"StatusHealth"				"1500"		// Base health.
- 		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
- 		"StatusMana"				"300"			// Base mana.
- 		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
-	
- 		// Vision
- 		//----------------------------------------------------------------
- 		"VisionDaytimeRange"		"1300"		// Range of vision during day light.
- 		"VisionNighttimeRange"		"800"		// Range of vision at night time.
-
- 		// Team
- 		//----------------------------------------------------------------
- 		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
- 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
- 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
- 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
- 	}
- 	//國一揆
- 	"npc_dota_country_riot"
- 	{
- 		// General
- 		//----------------------------------------------------------------
- 		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_melee.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_lane"
- 		"SoundSet"					"n_creep_Melee"
- 		"Level"						"1"
- 		"ModelScale" 					".90"
- 		"IsNeutralUnitType"			"1"
-
- 		// Abilities
- 		//----------------------------------------------------------------
- 		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
- 		"Ability4"					""			// Ability 4
-
- 		// Armor
- 		//----------------------------------------------------------------
- 		"ArmorPhysical"				"6"			// Physical protection.
-
- 		// Attack
- 		//----------------------------------------------------------------
- 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
- 		"AttackDamageMin"			"91"		// Damage range min.
- 		"AttackDamageMax"			"96"		// Damage range max.	
- 		"AttackRate"				"1.2"		// Speed of attack.
- 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
- 		"AttackAcquisitionRange"	"300"		// Range within a target can be acquired.
- 		"AttackRange"				"128"		// Range within a target can be attacked.
- 		"ProjectileModel"			""			// Particle system model for projectile.
- 		"ProjectileSpeed"			"0"			// Speed of projectile.		   
-
- 		// Bounds
- 		//----------------------------------------------------------------
- 		"RingRadius"				"60"
- 		"HealthBarOffset"			"190"
-
- 		// Bounty
- 		//----------------------------------------------------------------
- 		"BountyXP"					"60"		// Experience earn.
- 		"BountyGoldMin"				"52"		// Gold earned min.
- 		"BountyGoldMax"				"54"		// Gold earned max.
-
- 		// Movement
- 		//----------------------------------------------------------------
- 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
-
- 		// Status
- 		//----------------------------------------------------------------
- 		"StatusHealth"				"2250"		// Base health.
- 		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
- 		"StatusMana"				"300"			// Base mana.
- 		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
-	
- 		// Vision
- 		//----------------------------------------------------------------
- 		"VisionDaytimeRange"		"1300"		// Range of vision during day light.
- 		"VisionNighttimeRange"		"800"		// Range of vision at night time.
-
- 		// Team
- 		//----------------------------------------------------------------
- 		"TeamName"					"DOTA_TEAM_NEUTRALS"							// Team name.
- 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
- 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
- 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
- 	}
- 	//百姓一揆
- 	"npc_dota_peasants_revolt"
- 	{
- 		// General
- 		//----------------------------------------------------------------
- 		"Model"						"models/creeps/lane_creeps/creep_radiant_melee/radiant_melee_mega.vmdl"	// Model.
- 		"BaseClass"					"npc_dota_creep_lane"
- 		"SoundSet"					"n_creep_Melee"
- 		"Level"						"1"
- 		"ModelScale" 					".90"
- 		"IsNeutralUnitType"			"1"
-
- 		// Abilities
- 		//----------------------------------------------------------------
- 		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
- 		"Ability4"					""			// Ability 4
-
- 		// Armor
- 		//----------------------------------------------------------------
- 		"ArmorPhysical"				"3"			// Physical protection.
-
- 		// Attack
- 		//----------------------------------------------------------------
- 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
- 		"AttackDamageMin"			"71"		// Damage range min.
- 		"AttackDamageMax"			"76"		// Damage range max.	
- 		"AttackRate"				"1.2"		// Speed of attack.
- 		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
- 		"AttackAcquisitionRange"	"300"		// Range within a target can be acquired.
- 		"AttackRange"				"128"		// Range within a target can be attacked.
- 		"ProjectileModel"			""			// Particle system model for projectile.
- 		"ProjectileSpeed"			"0"			// Speed of projectile.		   
-
- 		// Bounds
- 		//----------------------------------------------------------------
- 		"RingRadius"				"60"
- 		"HealthBarOffset"			"190"
-
- 		// Bounty
- 		//----------------------------------------------------------------
- 		"BountyXP"					"48"		// Experience earn.
- 		"BountyGoldMin"				"37"		// Gold earned min.
- 		"BountyGoldMax"				"39"		// Gold earned max.
-
- 		// Movement
- 		//----------------------------------------------------------------
- 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
-
- 		// Status
- 		//----------------------------------------------------------------
- 		"StatusHealth"				"1850"		// Base health.
  		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
  		"StatusMana"				"300"			// Base mana.
  		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
@@ -18452,7 +18312,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"30"		// Experience earn.
+ 		"BountyXP"					"40"		// Experience earn.
  		"BountyGoldMin"				"50"		// Gold earned min.
  		"BountyGoldMax"				"50"		// Gold earned max.
 
@@ -18522,7 +18382,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"24"		// Experience earn.
+ 		"BountyXP"					"36"		// Experience earn.
  		"BountyGoldMin"				"77"		// Gold earned min.
  		"BountyGoldMax"				"77"		// Gold earned max.
 
