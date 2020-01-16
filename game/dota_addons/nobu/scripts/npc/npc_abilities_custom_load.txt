@@ -52,7 +52,7 @@
 		}
 	}
 	//  附近的敵人愈多 受到的傷害愈高
-	"debuff_tower"
+	"buff_tower"
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -69,7 +69,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"debuff_tower1"
+						"Function"	"debuff_tower"
 					}
 				}
 			}
@@ -79,41 +79,43 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"12"
-					"MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE"	"-10"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"70"
 				}
 			}
 		}
 	}
 	//  附近的敵人愈多 受到的傷害愈高
-	"buff_tower"
+	"debuff_tower"
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/icon_128x128_145"
 		"Modifiers"
 		{
-			"modifier_buff_tower"
+
+			"modifier_debuff_tower"
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
 				"ThinkInterval"  "1"
-				"OnIntervalThink"
+				//"OnIntervalThink"
+				"OnTakeDamage"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"buff_tower"
+						"Function"	"debuff_tower"
 					}
 				}
 			}
-			"buff_tower"
+			"debuff_tower"
 			{
 				"Passive"	"0"
 				"IsHidden"	"1"
+				"IsDebuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-80"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"40"
 				}
 			}
 		}
@@ -130,13 +132,15 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
+				"IsDebuff"	"1"
 				"ThinkInterval"  "2"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"debuff_tower2"
+						"Function"		"debuff_tower"
+						//"Function"	"debuff_tower2"
 					}
 				}	
 			}

@@ -32,7 +32,7 @@ function modifier_soul:OnTakeDamage(event)
     local damage_type = event.damage_type
     local damage_flags = event.damage_flags
     local ability = self:GetAbility()
-    
+
     if (caster ~= nil) and IsValidEntity(caster) then
       if attacker == self.caster then
         if damage_type == DAMAGE_TYPE_PURE and caster:GetHealth() < 15000 then
@@ -276,54 +276,54 @@ local ok_modifier = {
   ["modifier_for_magic_immune"] = true,
 }
 
-function debuff_tower1( keys )
-  local caster = keys.caster
-  local ability = keys.ability
-  local am = caster:FindAllModifiers()
-  for _,v in pairs(am) do
-    if ok_modifier[v:GetName()] == nil then
-      caster:RemoveModifierByName(v:GetName())
-    end
-  end
-end
+--function debuff_tower1( keys )
+--  local caster = keys.caster
+--  local ability = keys.ability
+--  local am = caster:FindAllModifiers()
+--  for _,v in pairs(am) do
+--    if ok_modifier[v:GetName()] == nil then
+--      caster:RemoveModifierByName(v:GetName())
+--    end
+--  end
+--end
 
-function debuff_tower2( keys )
-  local caster = keys.caster
-  local ability = keys.ability
-  local am = caster:FindAllModifiers()
-  for _,v in pairs(am) do
-    if ok_modifier[v:GetName()] == nil then
-      caster:RemoveModifierByName(v:GetName())
-    end
-  end
-  caster:AddNewModifier(caster,ability,"modifier_soul",{})
-  local handle = caster:FindModifierByName("modifier_soul")
-  if handle then
-    handle.caster = caster
-  end
-end
+--function debuff_tower2( keys )
+--  local caster = keys.caster
+--  local ability = keys.ability
+--  local am = caster:FindAllModifiers()
+--  for _,v in pairs(am) do
+--    if ok_modifier[v:GetName()] == nil then
+--      caster:RemoveModifierByName(v:GetName())
+--    end
+--  end
+--  caster:AddNewModifier(caster,ability,"modifier_soul",{})
+--  local handle = caster:FindModifierByName("modifier_soul")
+--  if handle then
+--    handle.caster = caster
+--  end
+--end
 
-function debuff_tower( keys )
-  local caster = keys.caster
-  local ability = keys.ability
-  local team = caster:GetTeamNumber()
-  local heros = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1100, 
-          DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 
-          0, FIND_ANY_ORDER, false )
-  local count = 0
-  for i,v in pairs(heros) do
-    if not v:IsIllusion() then
-      count = count + 1
-    end
-  end
-  if count > 2 then
-    ability:ApplyDataDrivenModifier(caster,caster,"debuff_tower",{duration = 2})
-    local handle = caster:FindModifierByName("debuff_tower")
-    if handle then
-      handle:SetStackCount(count)
-    end
-  end
-end
+--function debuff_tower( keys )
+--  local caster = keys.caster
+--  local ability = keys.ability
+--  local team = caster:GetTeamNumber()
+--  local heros = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1100, 
+--          DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 
+--          0, FIND_ANY_ORDER, false )
+--  local count = 0
+-- for i,v in pairs(heros) do
+--    if not v:IsIllusion() then
+--      count = count + 1
+--    end
+--  end
+--  if count > 2 then
+--    ability:ApplyDataDrivenModifier(caster,caster,"debuff_tower",{duration = 2})
+--    local handle = caster:FindModifierByName("debuff_tower")
+--    if handle then
+--      handle:SetStackCount(count)
+--    end
+--  end
+--end
 
 local ok_unit = {
   ["B16D_SUMMEND_UNIT"] = true,
@@ -335,26 +335,23 @@ local ok_unit = {
   ["B23D_ghost"] = true,
 }
 
-function buff_tower( keys )
+function debuff_tower( keys )
   local caster = keys.caster
   local ability = keys.ability
   local team = caster:GetTeamNumber()
-  
-  local enemys = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1000, 
+  local enemys = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 1100, 
           DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 
           DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_DEAD, FIND_ANY_ORDER, false )
-
-  local counth = 0
+  local enemyCounter = 0
   for i,v in pairs(enemys) do
     if not ok_unit[v:GetUnitName()] and not v:IsIllusion() and not v:GetOwner() then
-      counth = counth + 1
+      enemyCounter = enemyCounter + 1
     end
   end
-  if counth < 3 then
-    ability:ApplyDataDrivenModifier(caster, caster, "buff_tower", {duration = 2})
+  if enemyCounter > 3 then
+    ability:ApplyDataDrivenModifier(caster, caster, "debuff_tower", {duration = 2})
   else
-    print("remove buff_tower")
-    caster:RemoveModifierByName("buff_tower")
+    caster:RemoveModifierByName("debuff_tower")
   end
 end
 
