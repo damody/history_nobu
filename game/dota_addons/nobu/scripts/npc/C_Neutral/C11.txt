@@ -328,7 +328,8 @@
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
 		"AbilityCastPoint"	"0.35"
-		
+		"AbilityCastRange"	"700"
+		"AbilityCooldown"	"120 100 80"
 		"AbilitySpecial"
 		{
 			"01"
