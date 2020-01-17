@@ -77,7 +77,7 @@ function ShuaGuai( )
 	--30秒出第一波，之後每30秒出一波
 	local speedup = 0.01
 	local ShuaGuai_count = -1
-	local start_time = 30
+	local start_time = 45
 	local no_buff = {
 		["com_general_oda"] = true,
 		["com_general_unified"] = true,
@@ -96,11 +96,11 @@ function ShuaGuai( )
 		_G.Unified_home:AddAbility("buff_tower"):SetLevel(1)
 		end)
 	
-	local armor = 20
+	local armor = 25
 	Timers:CreateTimer(start_time, function()
 		--強化箭塔npc_dota_building
 		local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
-		armor = armor - 0.6
+		--armor = armor - 0.6
 		for k, ent in pairs(allBuildings) do
 		    if ent:IsTower() then
 		    	if no_buff[ent:GetUnitName()] == nil then
@@ -114,35 +114,35 @@ function ShuaGuai( )
    	end)
  	Timers:CreateTimer(start_time, function()
 	  	ShuaGuai_Of_AA(5)
-  		return 60
+  		return 45
 	 end)
 	 Timers:CreateTimer(start_time+3, function()--50
 		ShuaGuai_Of_AB(3)
-		 return 60
+		 return 45
 	end)
 	local B_num = 4
 	local C_num = 2
-	--出兵觸發:火槍兵
- 	Timers:CreateTimer( 183,function()
-  		ShuaGuai_Of_B(B_num, 2)
-	    return 180
-	end)
-	--出兵觸發:騎兵
- 	Timers:CreateTimer( 185, function()
-  		ShuaGuai_Of_C(C_num,2)
-	    return 180
-	end)
+	--出兵觸發
+	 Timers:CreateTimer(180,function()
+		ShuaGuai_Of_B(B_num,2,1)
+		ShuaGuai_Of_B(B_num,2,2)
+		ShuaGuai_Of_C(C_num,2,1)
+		ShuaGuai_Of_C(C_num,2,2)  
 
-	--出兵觸發:火槍兵
-	Timers:CreateTimer( 183+120,function()
-		ShuaGuai_Of_B(B_num,3)
-		return 180
+		ShuaGuai_Of_B(B_num,3,5)
+		ShuaGuai_Of_B(B_num,3,6)
+		ShuaGuai_Of_C(C_num,3,5)
+		ShuaGuai_Of_C(C_num,3,6)
+	    return 180
 	end)
-	--出兵觸發:騎兵
-	Timers:CreateTimer( 185+120, function()
-		ShuaGuai_Of_C(C_num,3)
-		return 180
-	end)
+	Timers:CreateTimer(30,function()
+		PrintTable(_G.team_broken)
+		ShuaGuai_Of_B(B_num,2,3)
+		ShuaGuai_Of_C(C_num,2,3)
+		ShuaGuai_Of_B(B_num,3,4)
+		ShuaGuai_Of_C(C_num,3,4)
+	  return 30
+    end)
 end
 
 
@@ -247,7 +247,6 @@ function ShuaGuai_Of_AB(num)
 						unit_name = "com_archer_unified_" .. randomkey
 					end
 
-					
 					--創建單位
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					unit:AddAbility("set_level_1"):SetLevel(1)
@@ -286,7 +285,7 @@ function ShuaGuai_Of_AB(num)
 end
 
 --【鐵炮兵】
-function ShuaGuai_Of_B(num, team)
+function ShuaGuai_Of_B(num, team, pos)
 	local tem_count = 0
 	B_count = _G.B_count
 	B_count = B_count + 1
@@ -298,32 +297,25 @@ function ShuaGuai_Of_B(num, team)
 		tem_count = tem_count + 1
 		if tem_count > num then return nil
 		else
-			local spos = 1
-			local epos = 6
-			if team == 2 then
-				epos = 3
-			elseif team == 3 then
-				spos = 4
-			end
-			for i=spos,epos do
+			for i=pos,pos do
 				--超過三的時候出兵變為聯合軍
 				local big = false
-				if _G.team_broken[3]["top"] == 2 and team == 2 then
+				if _G.team_broken[3]["top"] == 2 and pos == 3 then
 					big = true
 				end
-				if _G.team_broken[3]["mid"] == 2 and team == 2 then
+				if _G.team_broken[3]["mid"] == 2 and pos == 2 then
 					big = true
 				end
-				if _G.team_broken[3]["down"] == 2 and team == 2 then
+				if _G.team_broken[3]["down"] == 2 and pos == 1 then
 					big = true
 				end
-				if _G.team_broken[2]["top"] == 2 and team == 3 then
+				if _G.team_broken[2]["top"] == 2 and pos == 6 then
 					big = true
 				end
-				if _G.team_broken[2]["mid"] == 2 and team == 3 then
+				if _G.team_broken[2]["mid"] == 2 and pos == 5 then
 					big = true
 				end
-				if _G.team_broken[2]["down"] == 2 and team == 3 then
+				if _G.team_broken[2]["down"] == 2 and pos == 4 then
 					big = true
 				end
 				local unit_name = nil
@@ -336,6 +328,7 @@ function ShuaGuai_Of_B(num, team)
 				--創建單位
 				local n = 1
 				if big then
+					print("big "..pos)
 					n = 2
 				end
 				for x=1,n do
@@ -368,7 +361,7 @@ function ShuaGuai_Of_B(num, team)
 end
 
 --【騎兵】
-function ShuaGuai_Of_C(num, team)
+function ShuaGuai_Of_C(num, team, pos)
 	local tem_count = 0
 	C_count = _G.C_count
 	C_count = C_count + 1
@@ -380,31 +373,24 @@ function ShuaGuai_Of_C(num, team)
 		tem_count = tem_count + 1
 		if tem_count > num then return nil
 		else
-			local spos = 1
-			local epos = 6
-			if team == 2 then
-				epos = 3
-			elseif team == 3 then
-				spos = 4
-			end
-			for i=spos,epos do
+			for i=pos,pos do
 				local big = false
-				if _G.team_broken[3]["top"] == 2 and team == 2 then
+				if _G.team_broken[3]["top"] >= 1 and pos == 3 then
 					big = true
 				end
-				if _G.team_broken[3]["mid"] == 2 and team == 2 then
+				if _G.team_broken[3]["mid"] >= 1 and pos == 2 then
 					big = true
 				end
-				if _G.team_broken[3]["down"] == 2 and team == 2 then
+				if _G.team_broken[3]["down"] >= 1 and pos == 1 then
 					big = true
 				end
-				if _G.team_broken[2]["top"] == 2 and team == 3 then
+				if _G.team_broken[2]["top"] >= 1 and pos == 6 then
 					big = true
 				end
-				if _G.team_broken[2]["mid"] == 2 and team == 3 then
+				if _G.team_broken[2]["mid"] >= 1 and pos == 5 then
 					big = true
 				end
-				if _G.team_broken[2]["down"] == 2 and team == 3 then
+				if _G.team_broken[2]["down"] >= 1 and pos == 4 then
 					big = true
 				end
 				local unit_name = nil
@@ -418,6 +404,7 @@ function ShuaGuai_Of_C(num, team)
 				--創建單位
 				local n = 1
 				if big then
+					print("big "..pos)
 					n = 2
 				end
 				for x=1,n do

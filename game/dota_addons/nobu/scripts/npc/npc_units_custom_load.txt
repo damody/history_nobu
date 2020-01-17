@@ -15875,7 +15875,7 @@
 		"Ability2"	"check_Unified_is_dead"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"15"
+		"ArmorPhysical"	"30"
 		"MagicalResistance"	"50"
 		// Attack
 		// ----------------------------------------------------------------
@@ -15950,7 +15950,7 @@
 		"Ability2"	"check_Oda_is_dead"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"15"
+		"ArmorPhysical"	"30"
 		"MagicalResistance"	"50"
 		// Attack
 		// ----------------------------------------------------------------
@@ -16051,7 +16051,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2400"
+		"StatusHealth"	"2800"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -16134,7 +16134,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2400"
+		"StatusHealth"	"2800"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -16217,7 +16217,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2400"
+		"StatusHealth"	"2800"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -16300,7 +16300,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2400"
+		"StatusHealth"	"2800"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -16385,7 +16385,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2400"
+		"StatusHealth"	"2800"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -16468,7 +16468,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2400"
+		"StatusHealth"	"2800"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -16551,7 +16551,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2400"
+		"StatusHealth"	"2800"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -16636,7 +16636,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2400"
+		"StatusHealth"	"2800"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -16719,7 +16719,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2400"
+		"StatusHealth"	"2800"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -16802,7 +16802,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2400"
+		"StatusHealth"	"2800"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
