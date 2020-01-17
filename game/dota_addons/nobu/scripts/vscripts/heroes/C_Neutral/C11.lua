@@ -243,7 +243,7 @@ function C11T_on_attack_landed( keys )
 	local damage_table = {
 		victim = target,
 		attacker = caster,
-		damage_type = DAMAGE_TYPE_PHYSICAL,
+		damage_type = DAMAGE_TYPE_MAGICAL,
 		damage = damage
 	}
 	
@@ -257,22 +257,33 @@ function C11T_on_attack_landed( keys )
 	end
 	SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,target,damage_table["damage"],nil)
 	ApplyDamage(damage_table)
-	if caster.C11T_count == nil then
-		caster.C11T_count = 0
+	--if caster.C11T_count == nil then
+	--	caster.C11T_count = 0
+	--end
+	--caster.C11T_count = caster.C11T_count + 1
+	--if caster.C11T_count >= 2 then
+	--	caster.C11T_count = 0
+	--	Timers:CreateTimer(0.1, function()
+	--		caster:PerformAttack(target, true, true, true, true, true, false, true)
+	--		local rate = caster:GetAttackSpeed()
+	--		if rate < 1 then
+	--			caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,1)
+	--		else
+	--			caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,rate)
+	--		end
+	--	end)
+	--end
+end
+
+function C11T_stun( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local stun_duration = ability:GetSpecialValueFor("stun_time")
+	if not target:IsMagicImmune() then
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_C11T_stun",{duration = stun_duration})
 	end
-	caster.C11T_count = caster.C11T_count + 1
-	if caster.C11T_count >= 2 then
-		caster.C11T_count = 0
-		Timers:CreateTimer(0.1, function()
-			caster:PerformAttack(target, true, true, true, true, true, false, true)
-			local rate = caster:GetAttackSpeed()
-			if rate < 1 then
-				caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,1)
-			else
-				caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,rate)
-			end
-		end)
-	end
+	if target:IsMagicImmune() then return end
 end
 
 function C11T_20_on_attack_landed( keys )
