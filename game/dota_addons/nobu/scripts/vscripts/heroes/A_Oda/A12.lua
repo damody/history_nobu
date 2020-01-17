@@ -174,6 +174,7 @@ end
 
 function A12D_OnAbilityExecuted( keys )
 	if keys.event_ability:IsToggle() then return end
+	if keys.event_ability:GetName() == "attribute_bonusx" then return end
 	local caster = keys.caster
 	local handle = caster:FindModifierByName("modifier_A12D")
 	if caster.A12D_Time == nil then

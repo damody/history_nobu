@@ -209,7 +209,7 @@ function spell_ability ( filterTable )
     	["item_rations"] = true,
     	["item_the_shell_of_spirituality_kappa"] = true,
     	["item_the_shell_of_last_kappa"] = true,
-    }
+	} 
 	if caster:GetUnitName() == "B07E_UNIT" and items_nosell[ability:GetName()] == true then
 		return false
 	end

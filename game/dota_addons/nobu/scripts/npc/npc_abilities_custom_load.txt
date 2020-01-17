@@ -4067,15 +4067,6 @@
 		}
 		"Modifiers"
 		{
-			"modifier_1300Attack"
-			{
-				"Passive"	"0"
-				"Properties"
-				{
-					//"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-250"
-				    //"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-25" 
-				}
-			}
 			"modifier_1300"
 			{
 				"Passive"	"1"
@@ -4088,26 +4079,9 @@
 						"Function"	"A17T"
 					}
 				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"%night_sight"
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"%attack_range_bonus"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%move_speed_bonus"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus"
-					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%attack_bonus"
-				}
 				"States"
 				{
 					"MODIFIER_STATE_CANNOT_MISS"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A17.lua"
-						"Function"	"A1300_Succes_Attack"
-						"dmg"	"%attack_damage"
-					}
 				}
 				"ThinkInterval"     "0.25"
 	            "OnIntervalThink"

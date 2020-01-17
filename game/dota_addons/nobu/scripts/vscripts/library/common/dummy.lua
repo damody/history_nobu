@@ -68,15 +68,15 @@ function top_broken( keys )
   _G.team_broken[team]["top"] = _G.team_broken[team]["top"] + 1
   if team == 2 then
     if _G.team_broken[team]["top"] == 1 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍上路騎兵停止生產</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍上路騎兵加倍支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     elseif _G.team_broken[team]["top"] == 2 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍上路鐵炮兵停止生產</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍上路鐵炮兵加倍支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     end
   elseif team == 3 then
     if _G.team_broken[team]["top"] == 1 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍上路騎兵停止生產</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍上路騎兵加倍支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     elseif _G.team_broken[team]["top"] == 2 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍上路鐵炮兵停止生產</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍上路鐵炮兵加倍支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     end
   end
 end
@@ -87,15 +87,15 @@ function mid_broken( keys )
   _G.team_broken[team]["mid"] = _G.team_broken[team]["mid"] + 1
   if team == 2 then
     if _G.team_broken[team]["mid"] == 1 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍中路騎兵停止生產</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍中路騎兵加倍支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     elseif _G.team_broken[team]["mid"] == 2 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍中路鐵炮兵停止生產</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍中路鐵炮兵加倍支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     end
   elseif team == 3 then
     if _G.team_broken[team]["mid"] == 1 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍中路騎兵停止生產</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍中路騎兵加倍支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     elseif _G.team_broken[team]["mid"] == 2 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍中路鐵炮兵停止生產</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍中路鐵炮兵加倍支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     end
   end
 end
@@ -106,15 +106,15 @@ function down_broken( keys )
   _G.team_broken[team]["down"] = _G.team_broken[team]["down"] + 1
   if team == 2 then
     if _G.team_broken[team]["down"] == 1 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍下路騎兵停止生產</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍下路騎兵加倍支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     elseif _G.team_broken[team]["down"] == 2 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍下路鐵炮兵停止生產</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍下路鐵炮兵加倍支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     end
   elseif team == 3 then
     if _G.team_broken[team]["down"] == 1 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍下路騎兵停止生產</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍下路騎兵加倍支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     elseif _G.team_broken[team]["down"] == 2 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍下路鐵炮兵停止生產</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍下路鐵炮兵加倍支援</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     end
   end
 end

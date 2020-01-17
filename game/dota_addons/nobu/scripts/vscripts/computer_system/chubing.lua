@@ -97,46 +97,51 @@ function ShuaGuai( )
 		end)
 	
 	local armor = 20
- 	Timers:CreateTimer(start_time, function()--50
- 		ShuaGuai_count = ShuaGuai_count + 1
- 		--強化箭塔npc_dota_building
+	Timers:CreateTimer(start_time, function()
+		--強化箭塔npc_dota_building
 		local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
-		armor = armor - 0.3
+		armor = armor - 0.6
 		for k, ent in pairs(allBuildings) do
 		    if ent:IsTower() then
 		    	if no_buff[ent:GetUnitName()] == nil then
-			    	ent:SetBaseDamageMax(ent:GetBaseDamageMax() + 2)
-			    	ent:SetBaseDamageMin(ent:GetBaseDamageMin() + 2)
+			    	ent:SetBaseDamageMax(ent:GetBaseDamageMax() + 4)
+			    	ent:SetBaseDamageMin(ent:GetBaseDamageMin() + 4)
 			    end
 		    	ent:SetPhysicalArmorBaseValue(armor)
 			end
 		end
-	  	ShuaGuai_Of_AA(3)
-  		return 30
+		return 60
+   	end)
+ 	Timers:CreateTimer(start_time, function()
+	  	ShuaGuai_Of_AA(5)
+  		return 60
 	 end)
 	 Timers:CreateTimer(start_time+3, function()--50
-		ShuaGuai_Of_AB(1)
-		 return 30
+		ShuaGuai_Of_AB(3)
+		 return 60
+	end)
+	local B_num = 4
+	local C_num = 2
+	--出兵觸發:火槍兵
+ 	Timers:CreateTimer( 183,function()
+  		ShuaGuai_Of_B(B_num, 2)
+	    return 180
+	end)
+	--出兵觸發:騎兵
+ 	Timers:CreateTimer( 185, function()
+  		ShuaGuai_Of_C(C_num,2)
+	    return 180
 	end)
 
 	--出兵觸發:火槍兵
- 	Timers:CreateTimer( start_time+94,function()
- 		local B_num = 4 -- + 0.003*ShuaGuai_count
- 	
-  		ShuaGuai_Of_B(B_num)
-	    local time =  180
-
-	    return time
+	Timers:CreateTimer( 183+120,function()
+		ShuaGuai_Of_B(B_num,3)
+		return 180
 	end)
-
 	--出兵觸發:騎兵
- 	Timers:CreateTimer( start_time+95, function()
- 		local C_num = 4 -- + 0.005*ShuaGuai_count
-
-  		ShuaGuai_Of_C(C_num)
-	    local time =  180 -- 0.5*ShuaGuai_count
-
-	    return time
+	Timers:CreateTimer( 185+120, function()
+		ShuaGuai_Of_C(C_num,3)
+		return 180
 	end)
 end
 
@@ -194,7 +199,7 @@ function ShuaGuai_Of_AA(num)
 					unit:SetMustReachEachGoalEntity(false)
 
 					--顏色
-					if team == 2 then
+					if team == 3 then
 						----unit:SetRenderColor(255,100,100)
 					elseif team == 3 then
 						----unit:SetRenderColor(100,255,100)
@@ -264,7 +269,7 @@ function ShuaGuai_Of_AB(num)
 					unit:SetMustReachEachGoalEntity(false)
 
 					--顏色
-					if team == 2 then
+					if team == 3 then
 						----unit:SetRenderColor(255,100,100)
 					elseif team == 3 then
 						----unit:SetRenderColor(100,255,100)
@@ -281,7 +286,7 @@ function ShuaGuai_Of_AB(num)
 end
 
 --【鐵炮兵】
-function ShuaGuai_Of_B(num)
+function ShuaGuai_Of_B(num, team)
 	local tem_count = 0
 	B_count = _G.B_count
 	B_count = B_count + 1
@@ -293,94 +298,67 @@ function ShuaGuai_Of_B(num)
 		tem_count = tem_count + 1
 		if tem_count > num then return nil
 		else
-			for i=1,6 do
-				local go = false
-				if _G.mo == nil then
-					go = true
-				elseif i==2 or i==5 then
-					go = true
+			local spos = 1
+			local epos = 6
+			if team == 2 then
+				epos = 3
+			elseif team == 3 then
+				spos = 4
+			end
+			for i=spos,epos do
+				--超過三的時候出兵變為聯合軍
+				local big = false
+				if _G.team_broken[3]["top"] == 2 and team == 2 then
+					big = true
 				end
-				if go then
-					--超過三的時候出兵變為聯合軍
-					local ok = false
-					if _G.team_broken[2]["top"] < 2 and i == 3 then
-						ok = true
-					end
-					if _G.team_broken[2]["mid"] < 2 and i == 2 then
-						ok = true
-					end
-					if _G.team_broken[2]["down"] < 2 and i == 1 then
-						ok = true
-					end
-					if _G.team_broken[3]["top"] < 2 and i == 4 then
-						ok = true
-					end
-					if _G.team_broken[3]["mid"] < 2 and i == 5 then
-						ok = true
-					end
-					if _G.team_broken[3]["down"] < 2 and i == 6 then
-						ok = true
-					end
-					if ok then
-						local team = nil
-						local unit_name = nil
-						if i > 3 then
-							team = 3
-						else
-							team = 2
-						end
-						if team == 2 then
-							unit_name = "com_gunner_oda_" .. randomkey
-						elseif team == 3 then
-							unit_name = "com_gunner_unified_" .. randomkey
-						end
-						local big = false
-						if _G.team_broken[3]["top"] == 2 and i == 3 then
-							big = true
-						end
-						if _G.team_broken[3]["mid"] == 2 and i == 2 then
-							big = true
-						end
-						if _G.team_broken[3]["down"] == 2 and i == 1 then
-							big = true
-						end
-						if _G.team_broken[2]["top"] == 2 and i == 4 then
-							big = true
-						end
-						if _G.team_broken[2]["mid"] == 2 and i == 5 then
-							big = true
-						end
-						if _G.team_broken[2]["down"] == 2 and i == 6 then
-							big = true
-						end
-						--創建單位
-						local n = 1
-						if big then
-							n = 2
-						end
-						for x=1,n do
-							local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
-							unit:AddAbility("set_level_1"):SetLevel(1)
-							local hp = unit:GetMaxHealth()+300
-							unit:SetBaseMaxHealth(hp+A_count * 5)
-							local dmgmax = unit:GetBaseDamageMax()
-							local dmgmin = unit:GetBaseDamageMin()
-							unit:SetBaseDamageMax(dmgmax+A_count*5)
-							unit:GetBaseDamageMin(dmgmin+A_count*5)
-							local armor = unit:GetPhysicalArmorBaseValue()
-							unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
-							--creep:SetContextNum("isshibing",1,0)
+				if _G.team_broken[3]["mid"] == 2 and team == 2 then
+					big = true
+				end
+				if _G.team_broken[3]["down"] == 2 and team == 2 then
+					big = true
+				end
+				if _G.team_broken[2]["top"] == 2 and team == 3 then
+					big = true
+				end
+				if _G.team_broken[2]["mid"] == 2 and team == 3 then
+					big = true
+				end
+				if _G.team_broken[2]["down"] == 2 and team == 3 then
+					big = true
+				end
+				local unit_name = nil
+				if team == 2 then
+					unit_name = "com_gunner_oda_" .. randomkey
+				elseif team == 3 then
+					unit_name = "com_gunner_unified_" .. randomkey
+				end
+				
+				--創建單位
+				local n = 1
+				if big then
+					n = 2
+				end
+				for x=1,n do
+					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
+					unit:AddAbility("set_level_1"):SetLevel(1)
+					local hp = unit:GetMaxHealth()+300
+					unit:SetBaseMaxHealth(hp+A_count * 5)
+					local dmgmax = unit:GetBaseDamageMax()
+					local dmgmin = unit:GetBaseDamageMin()
+					unit:SetBaseDamageMax(dmgmax+A_count*5)
+					unit:SetBaseDamageMin(dmgmin+A_count*5)
+					local armor = unit:GetPhysicalArmorBaseValue()
+					unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
+					--creep:SetContextNum("isshibing",1,0)
 
-							--單位面向角度
-							unit:SetForwardVector(ShuaGuai_entity_forvec[i])
+					--單位面向角度
+					unit:SetForwardVector(ShuaGuai_entity_forvec[i])
 
-							--禁止單位尋找最短路徑
-							unit:SetMustReachEachGoalEntity(false)
+					--禁止單位尋找最短路徑
+					unit:SetMustReachEachGoalEntity(false)
 
-							--讓單位沿著設置好的路線開始行動
-							unit:SetInitialGoalEntity(ShuaGuai_entity[i])
-						end
-					end
+					--讓單位沿著設置好的路線開始行動
+					unit:SetInitialGoalEntity(ShuaGuai_entity[i])
 				end
 			end
 			return 0.5
@@ -390,7 +368,7 @@ function ShuaGuai_Of_B(num)
 end
 
 --【騎兵】
-function ShuaGuai_Of_C(num)
+function ShuaGuai_Of_C(num, team)
 	local tem_count = 0
 	C_count = _G.C_count
 	C_count = C_count + 1
@@ -402,100 +380,69 @@ function ShuaGuai_Of_C(num)
 		tem_count = tem_count + 1
 		if tem_count > num then return nil
 		else
-			for i=1,6 do
-				local go = false
-				if _G.mo == nil then
-					go = true
-				elseif i==2 or i==5 then
-					go = true
+			local spos = 1
+			local epos = 6
+			if team == 2 then
+				epos = 3
+			elseif team == 3 then
+				spos = 4
+			end
+			for i=spos,epos do
+				local big = false
+				if _G.team_broken[3]["top"] == 2 and team == 2 then
+					big = true
 				end
-				if go then
-					--超過三的時候出兵變為聯合軍
-					local ok = false
+				if _G.team_broken[3]["mid"] == 2 and team == 2 then
+					big = true
+				end
+				if _G.team_broken[3]["down"] == 2 and team == 2 then
+					big = true
+				end
+				if _G.team_broken[2]["top"] == 2 and team == 3 then
+					big = true
+				end
+				if _G.team_broken[2]["mid"] == 2 and team == 3 then
+					big = true
+				end
+				if _G.team_broken[2]["down"] == 2 and team == 3 then
+					big = true
+				end
+				local unit_name = nil
+				if team == 2 then
+					unit_name = "com_cavalry_oda_" .. randomkey
+				elseif team == 3 then
+					unit_name = "com_cavalry_unified_" .. randomkey
+				end
+
+				--【騎兵】
+				--創建單位
+				local n = 1
+				if big then
+					n = 2
+				end
+				for x=1,n do
+					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					
-					if _G.team_broken[2]["top"] == 0 and i == 3 then
-						ok = true
-					end
-					if _G.team_broken[2]["mid"] == 0 and i == 2 then
-						ok = true
-					end
-					if _G.team_broken[2]["down"] == 0 and i == 1 then
-						ok = true
-					end
-					if _G.team_broken[3]["top"] == 0 and i == 4 then
-						ok = true
-					end
-					if _G.team_broken[3]["mid"] == 0 and i == 5 then
-						ok = true
-					end
-					if _G.team_broken[3]["down"] == 0 and i == 6 then
-						ok = true
-					end
-					local big = false
-					if _G.team_broken[3]["top"] == 2 and i == 3 then
-						big = true
-					end
-					if _G.team_broken[3]["mid"] == 2 and i == 2 then
-						big = true
-					end
-					if _G.team_broken[3]["down"] == 2 and i == 1 then
-						big = true
-					end
-					if _G.team_broken[2]["top"] == 2 and i == 4 then
-						big = true
-					end
-					if _G.team_broken[2]["mid"] == 2 and i == 5 then
-						big = true
-					end
-					if _G.team_broken[2]["down"] == 2 and i == 6 then
-						big = true
-					end
-					if ok then
-						local team = nil
-						local unit_name = nil
-						if i > 3 then
-							team = 3
-						else
-							team = 2
-						end
-						if team == 2 then
-							unit_name = "com_cavalry_oda_" .. randomkey
-						elseif team == 3 then
-							unit_name = "com_cavalry_unified_" .. randomkey
-						end
+					local hp = unit:GetMaxHealth()+800
+					unit:SetBaseMaxHealth(hp+A_count * 10)
+					local dmgmax = unit:GetBaseDamageMax()
+					local dmgmin = unit:GetBaseDamageMin()
+					unit:SetBaseDamageMax(dmgmax+A_count*5)
+					unit:SetBaseDamageMin(dmgmin+A_count*5)
+					local armor = unit:GetPhysicalArmorBaseValue()
+					unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
+					unit:FindAbilityByName("for_no_collision"):SetLevel(1)
+					--creep:SetContextNum("isshibing",1,0)
 
-						--【騎兵】
-						--創建單位
-						local n = 1
-						if big then
-							n = 2
-						end
-						for x=1,n do
-							local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
-							
-							local hp = unit:GetMaxHealth()+800
-							unit:SetBaseMaxHealth(hp+A_count * 10)
-							local dmgmax = unit:GetBaseDamageMax()
-							local dmgmin = unit:GetBaseDamageMin()
-							unit:SetBaseDamageMax(dmgmax+A_count*5)
-							unit:SetBaseDamageMin(dmgmin+A_count*5)
-							local armor = unit:GetPhysicalArmorBaseValue()
-							unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
-							--creep:SetContextNum("isshibing",1,0)
+					--單位面向角度
+					unit:SetForwardVector(ShuaGuai_entity_forvec[i])
 
-							--單位面向角度
-							unit:SetForwardVector(ShuaGuai_entity_forvec[i])
+					--禁止單位尋找最短路徑
+					unit:SetMustReachEachGoalEntity(false)
 
-							--禁止單位尋找最短路徑
-							unit:SetMustReachEachGoalEntity(false)
-
-							--讓單位沿著設置好的路線開始行動
-							unit:SetInitialGoalEntity(ShuaGuai_entity[i])
-						end
-					end
+					--讓單位沿著設置好的路線開始行動
+					unit:SetInitialGoalEntity(ShuaGuai_entity[i])
 				end
-				--碰撞面積
-				--unit:SetHullRadius(40)
 			end
 			return 0.5
 		end
@@ -687,7 +634,7 @@ function soldier_Oda_top(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				----unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				----unit:SetRenderColor(100,255,100)
@@ -745,7 +692,7 @@ function soldier_Oda_mid(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				----unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				----unit:SetRenderColor(100,255,100)
@@ -804,7 +751,7 @@ function soldier_Oda_bottom(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				----unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				----unit:SetRenderColor(100,255,100)
@@ -864,7 +811,7 @@ function soldier_Unified_top(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				----unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				----unit:SetRenderColor(100,255,100)
@@ -922,7 +869,7 @@ function soldier_Unified_mid(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				----unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				----unit:SetRenderColor(100,255,100)
@@ -981,7 +928,7 @@ function soldier_Unified_bottom(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				----unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				----unit:SetRenderColor(100,255,100)
@@ -1040,7 +987,7 @@ function archer_Oda_top(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				----unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				----unit:SetRenderColor(100,255,100)
@@ -1097,7 +1044,7 @@ function archer_Oda_mid(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				----unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				----unit:SetRenderColor(100,255,100)
@@ -1156,7 +1103,7 @@ function archer_Oda_bottom(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				----unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				----unit:SetRenderColor(100,255,100)
@@ -1215,7 +1162,7 @@ function archer_Unified_top(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				----unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				----unit:SetRenderColor(100,255,100)
@@ -1272,7 +1219,7 @@ function archer_Unified_mid(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				------unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				------unit:SetRenderColor(100,255,100)
@@ -1331,7 +1278,7 @@ function archer_Unified_bottom(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				----unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				----unit:SetRenderColor(100,255,100)
@@ -1389,7 +1336,7 @@ function gunner_Oda_top(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				--unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				--unit:SetRenderColor(100,255,100)
@@ -1446,7 +1393,7 @@ function gunner_Oda_mid(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				--unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				--unit:SetRenderColor(100,255,100)
@@ -1505,7 +1452,7 @@ function gunner_Oda_bottom(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				--unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				--unit:SetRenderColor(100,255,100)
@@ -1564,7 +1511,7 @@ function gunner_Unified_top(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				--unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				--unit:SetRenderColor(100,255,100)
@@ -1621,7 +1568,7 @@ function gunner_Unified_mid(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				--unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				--unit:SetRenderColor(100,255,100)
@@ -1680,7 +1627,7 @@ function gunner_Unified_bottom(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				--unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				--unit:SetRenderColor(100,255,100)
@@ -1739,7 +1686,7 @@ function cavalry_Oda_top(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				--unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				--unit:SetRenderColor(100,255,100)
@@ -1797,7 +1744,7 @@ function cavalry_Oda_mid(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				--unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				--unit:SetRenderColor(100,255,100)
@@ -1857,7 +1804,7 @@ function cavalry_Oda_bottom(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				--unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				--unit:SetRenderColor(100,255,100)
@@ -1917,7 +1864,7 @@ function cavalry_Unified_top(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				--unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				--unit:SetRenderColor(100,255,100)
@@ -1975,7 +1922,7 @@ function cavalry_Unified_mid(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				--unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				--unit:SetRenderColor(100,255,100)
@@ -2035,7 +1982,7 @@ function cavalry_Unified_bottom(keys)
 			unit:SetMustReachEachGoalEntity(false)
 
 			--顏色
-			if team == 2 then
+			if team == 3 then
 				--unit:SetRenderColor(255,100,100)
 			elseif team == 3 then
 				--unit:SetRenderColor(100,255,100)

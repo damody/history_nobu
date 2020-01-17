@@ -102,6 +102,7 @@ function A19R_OnAbilityExecuted( keys )
 	end
 	-- 搜尋
 	if keys.event_ability:IsToggle() then return end
+	if keys.event_ability:GetName() == "attribute_bonusx" then return end
 	local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
 		caster:GetAbsOrigin(),							-- 搜尋的中心點
 		nil,
@@ -124,6 +125,7 @@ function A19R_20_OnAbilityExecuted( keys )
 	local dmg = ability:GetSpecialValueFor("dmg")
 	-- 搜尋
 	if keys.event_ability:IsToggle() then return end
+	if keys.event_ability:GetName() == "attribute_bonusx" then return end
 	local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
 		caster:GetAbsOrigin(),							-- 搜尋的中心點
 		nil,

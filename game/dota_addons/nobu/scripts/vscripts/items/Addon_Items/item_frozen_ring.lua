@@ -235,6 +235,7 @@ end
 
 function Shock_book2( keys )
 	if keys.event_ability:IsToggle() then return end
+	if keys.event_ability:GetName() == "attribute_bonusx" then return end
 	
 	local caster = keys.caster
 	local ability = keys.ability

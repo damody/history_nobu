@@ -2,6 +2,7 @@
 function Shock( keys )
 	-- 開關型技能不能用
 	if keys.event_ability:IsToggle() then return end
+	if keys.event_ability:GetName() == "attribute_bonusx" then return end
 
 	local caster = keys.caster
 	local ability = keys.ability
@@ -17,8 +18,8 @@ function Shock( keys )
 		if handle then
 			local c = handle:GetStackCount()
 			c = c + 1
-			if c > 3 then
-				c = 3
+			if c > 8 then
+				c = 8
 			end
 			ability:ApplyDataDrivenModifier(caster,caster,"modifier_bizennosafunekanemitsu",nil)
 			handle:SetStackCount(c)

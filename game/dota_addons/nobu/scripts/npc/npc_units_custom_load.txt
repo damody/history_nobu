@@ -6078,85 +6078,6 @@
 		"VisionNighttimeRange"	"600"
 	}
 
-	// 侍大將
-	"com_general"
-	{
-		"BaseClass"	"npc_dota_creature"
-		// Add model
-		"Model"	"models/samurai_harquebus/samurai_harquebus.vmdl"
-		"ModelScale"	"1.46"
-		"Level"	"10"
-		"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
-		"HealthBarOffset"	"180"
-		// Abilities
-		// ----------------------------------------------------------------
-		// Reference: Adt1
-		"Ability1"	"for_magic_immune"
-		// Reference: Amim
-		"Ability2"	"com_bigattack"
-		// Reference: Aoar
-		"Ability3"	"buff_tower"
-		// Reference: A0BN
-		"Ability4"	""
-		// Armor
-		// ----------------------------------------------------------------
-		"ArmorPhysical"	"40"
-		"MagicalResistance"	"100"
-		// Attack
-		// ----------------------------------------------------------------
-		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"470.0"
-		"AttackDamageMax"	"475.0"
-		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"	"0.5"
-		"AttackAnimationPoint"	"0.25"
-		"AttackAcquisitionRange"	"1100"
-		"AttackRange"	"1100"
-		"ProjectileSpeed"	"1800"
-		"ProjectileModel"	"particles/units/heroes/hero_gyrocopter/gyro_base_attack.vpcf"
-		// Bounty
-		// ----------------------------------------------------------------
-		"BountyGoldMin"	"1300.0"
-		"BountyGoldMax"	"1300.0"
-		"BountyXP"	"100"
-		// Gold and Lumber
-		// ----------------------------------------------------------------
-		"GoldCost"	"215"
-		"LumberCost"	"215"
-		// Movement
-		// ----------------------------------------------------------------
-		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
-		"MovementSpeed"	"0"
-		"MovementTurnRate"	"3"
-		// Status
-		// ----------------------------------------------------------------
-		"StatusHealth"	"3000"
-		"StatusHealthRegen"	"150"
-		// Vision
-		// ----------------------------------------------------------------
-		"VisionDaytimeRange"	"1100"
-		"VisionNighttimeRange"	"1100"
-		// Team
-		// ----------------------------------------------------------------
-		"TeamName"	"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_SIEGE"
-		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
-		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability5"	""
-		"Ability6"	""
-		"Ability7"	""
-		"Ability8"	""
-		"Ability9"	""
-		"Ability10"	""
-		"Ability11"	""
-		"Ability12"	""
-		"Ability13"	""
-		"Ability14"	""
-		"Ability15"	""
-		"Ability16"	""
-		"AutoAttacksByDefault"	"1"
-	}
-
 // 侍大將
 	"com_general_oda"
 	{
@@ -6174,18 +6095,18 @@
 		// Reference: Amim
 		"Ability2"	"com_bigattack"
 		// Reference: Aoar
-		"Ability3"	"buff_tower"
+		"Ability3"	""
 		// Reference: A0BN
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"20"
+		"ArmorPhysical"	"30"
 		"MagicalResistance"	"100"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"250.0"
-		"AttackDamageMax"	"250.0"
+		"AttackDamageMin"	"350.0"
+		"AttackDamageMax"	"350.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0.25"
@@ -6253,18 +6174,18 @@
 		// Reference: Amim
 		"Ability2"	"com_bigattack"
 		// Reference: Aoar
-		"Ability3"	"buff_tower"
+		"Ability3"	""
 		// Reference: A0BN
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"20"
+		"ArmorPhysical"	"30"
 		"MagicalResistance"	"100"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"250.0"
-		"AttackDamageMax"	"250.0"
+		"AttackDamageMin"	"350.0"
+		"AttackDamageMax"	"350.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0.25"
@@ -6331,7 +6252,7 @@
 		// ----------------------------------------------------------------
 		"Ability1"	"for_magic_immune"
 		"Ability2"	"tofar_goback"
-		"Ability3"	"magical_800"
+		"Ability3"	""
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
@@ -6407,7 +6328,7 @@
 		// ----------------------------------------------------------------
 		"Ability1"	"for_magic_immune"
 		"Ability2"	"tofar_goback"
-		"Ability3"	"magical_800"
+		"Ability3"	""
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
@@ -6483,7 +6404,7 @@
 		// ----------------------------------------------------------------
 		"Ability1"	"for_magic_immune"
 		"Ability2"	"tofar_goback"
-		"Ability3"	"magical_800"
+		"Ability3"	""
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
@@ -6559,7 +6480,7 @@
 		// ----------------------------------------------------------------
 		"Ability1"	"for_magic_immune"
 		"Ability2"	"tofar_goback"
-		"Ability3"	"magical_800"
+		"Ability3"	""
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
@@ -6635,7 +6556,7 @@
 		// ----------------------------------------------------------------
 		"Ability1"	"for_magic_immune"
 		"Ability2"	"tofar_goback"
-		"Ability3"	"magical_800"
+		"Ability3"	""
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
@@ -6711,7 +6632,7 @@
 		// ----------------------------------------------------------------
 		"Ability1"	"for_magic_immune"
 		"Ability2"	"tofar_goback"
-		"Ability3"	"magical_800"
+		"Ability3"	""
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------

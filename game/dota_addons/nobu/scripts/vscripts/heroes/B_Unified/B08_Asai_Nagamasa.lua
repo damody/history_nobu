@@ -233,6 +233,7 @@ end
 function B08R_Action( keys )
 	-- 開關型技能不能用
 	if keys.event_ability:IsToggle() then return end
+	if keys.event_ability:GetName() == "attribute_bonusx" then return end
 	local caster = keys.caster
 	local target = keys.target
 	local skill  = keys.ability	
