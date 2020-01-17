@@ -70,7 +70,11 @@ end
 function B10T_regen( event )
 	local ability = event.ability	
 	local caster = event.caster
-	caster:Heal(caster:GetMaxHealth()*0.75,ability)
+	local level = ability:GetLevel() - 1
+	local regen = ability:GetLevelSpecialValueFor("regen",level)
+	--caster:Heal(caster:GetMaxHealth()*0.75,ability)
+	caster:Heal((caster:GetMaxHealth() * regen)/4 , ability)
+	print("heal")
 end
 
 

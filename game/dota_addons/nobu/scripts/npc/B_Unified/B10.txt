@@ -424,8 +424,8 @@
 		"AbilityManaCost"	"185 205 225"
 		// Stats
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"	"800"
-		"AbilityCastRangeBuffer"	"800"
+		"AbilityCastRange"	"700"
+		"AbilityCastRangeBuffer"	"700"
 		"precache"
 		{
 			"particle"	"particles/dire_fx/dire_ancient_base001_destruction_l1.vpcf"
@@ -453,7 +453,7 @@
 				    "Center" "CASTER"
 				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 				}
-				"ModifierName"	"modifier_B10T_self"
+					"ModifierName"	"modifier_B10T_self"
 			}
 			"RunScript"
 			{
@@ -468,39 +468,33 @@
 				"sound"	"ability_ghost_ship"
 			}
 		}
-		
 		"Modifiers"
 		{
 			"modifier_B10T_self"
 			{
 				"Passive"			"0"
-				"IsHidden"			"1"
-				"ThinkInterval"  "%retime"
-				"Duration"	"42"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B10.lua"
-						"Function"		"B10T_regen"
-						"Target"		"CASTER"
-					}
-				}
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%movespeed_bonus" 
-				}
-			}
-			"modifier_B10T_aura" 																//零氣
-			{
-				"Passive"			"0"
 				"IsHidden"			"0"
-				"IsDebuff"			"0"
 				"EffectName"		"particles/b10t.vpcf"
 				"EffectAttachType"	"follow_origin"
-				"Duration"	"42"
-				"ThinkInterval"  "0.5"
-				"OnCreated"
+				"ThinkInterval"  	"0.5"
+				"Duration"		"22"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movespeed_bonus"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" 	"%regen"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_B10T_aura" 																//靈氣
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
 				{
 					"ActOnTargets"
 					{
@@ -523,49 +517,6 @@
 						}
 					}
 				}
-				"OnIntervalThink"
-				{
-					"ActOnTargets"
-					{
-						"Target"
-						{
-							"Center"  	"CASTER"
-							"Radius" 	"%radius"
-							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-							"Types" 	"DOTA_UNIT_TARGET_HERO"
-						}
-					
-						"Action"    
-						{
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_B10T"
-								"Target" 		"TARGET"
-								"Duration"		"1"
-							}
-						}
-					}
-					"ActOnTargets"
-					{
-						"Target"
-						{
-							"Center"  	"CASTER"
-							"Radius" 	"%radius"
-							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-							"Types" 	"DOTA_UNIT_TARGET_BASIC"
-						}
-					
-						"Action"    
-						{
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_B10T"
-								"Target" 		"TARGET"
-								"Duration"		"1"
-							}
-						}
-					}																
-				}
 			}
 			"modifier_B10T"
 			{
@@ -576,19 +527,20 @@
 				{					
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
 				}
-			}	
+			}
 		}
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"armor_reduction"	"-9 -12 -15"
+				"armor_reduction"	"-6 -10 -15"
+				//"armor_reduction"	"-9 -12 -15"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"radius"	"800"
+				"radius"	"700"
 			}
 			"03"
 			{
@@ -597,8 +549,8 @@
 			}
 			"04"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"retime"	"25 19 13"
+				"var_type"	"FIELD_FLOAT"
+				"regen"		"1 2 3"
 			}
 		}
 	}	
