@@ -123,7 +123,7 @@ function ShuaGuai( )
 	local B_num = 4
 	local C_num = 2
 	--出兵觸發
-	 Timers:CreateTimer(180,function()
+	Timers:CreateTimer(180,function()
 		ShuaGuai_Of_B(B_num,2,1)
 		ShuaGuai_Of_B(B_num,2,2)
 		ShuaGuai_Of_C(C_num,2,1)
@@ -136,7 +136,6 @@ function ShuaGuai( )
 	    return 180
 	end)
 	Timers:CreateTimer(30,function()
-		PrintTable(_G.team_broken)
 		ShuaGuai_Of_B(B_num,2,3)
 		ShuaGuai_Of_C(C_num,2,3)
 		ShuaGuai_Of_B(B_num,3,4)
@@ -328,7 +327,6 @@ function ShuaGuai_Of_B(num, team, pos)
 				--創建單位
 				local n = 1
 				if big then
-					print("big "..pos)
 					n = 2
 				end
 				for x=1,n do
@@ -404,7 +402,6 @@ function ShuaGuai_Of_C(num, team, pos)
 				--創建單位
 				local n = 1
 				if big then
-					print("big "..pos)
 					n = 2
 				end
 				for x=1,n do
