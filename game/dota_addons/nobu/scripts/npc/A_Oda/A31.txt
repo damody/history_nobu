@@ -26,7 +26,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		"AbilityCastPoint"          				"0.35"
+		"AbilityCastPoint"          				"0.25"
 		"AbilityCooldown"	"22 20 18 16"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------

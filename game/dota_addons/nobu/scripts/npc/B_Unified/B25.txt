@@ -22,7 +22,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"	
 		"AbilityCastRange"				"1000"
-		"AbilityCastPoint"				"0.2"
+		"AbilityCastPoint"				"0.25"
 		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"50 60 70 80"
 		"AbilitySpecial"
@@ -337,7 +337,7 @@
 		"HotKeyOverride"	"E"
 		"MaxLevel"	"4"
 		"RequiredLevel"	"1"
-		"AbilityCastPoint" "0.25" //stun
+		"AbilityCastPoint" "0.35" //stun
 		"AbilityCooldown"	"20"
 		"AbilityManaCost"	"200 240 280 300"
 		"AbilityCastRange"	"1800"
