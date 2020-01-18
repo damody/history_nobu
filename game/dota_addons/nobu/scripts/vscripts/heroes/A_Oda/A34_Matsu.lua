@@ -6,7 +6,6 @@
 ]]
 function rearm_refresh_cooldown( keys )
 	local caster = keys.caster
-
 	local particle = ParticleManager:CreateParticle( "particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/cm_arcana_pup_lvlup_godray.vpcf", PATTACH_POINT, caster )
 	ParticleManager:SetParticleControl( particle, 0, caster:GetAbsOrigin() )
 	ParticleManager:SetParticleControl( particle, 1, caster:GetAbsOrigin() )
@@ -28,10 +27,16 @@ function rearm_refresh_cooldown( keys )
 	local exempt_table = {}
 	
 	-- Reset cooldown for items
+	local ability = keys.ability
+	local CDR = ability:GetLevelSpecialValueFor("cd_recover" , ability:GetLevel() - 1)
 	for i = 0, 5 do
 		local item = caster:GetItemInSlot( i )
 		if item and not exempt_table[ item:GetAbilityName() ] then
-			item:EndCooldown()
+			local CD_remain = item:GetCooldownTimeRemaining()
+			if CD_remain > 0 then
+				item:EndCooldown()
+				item:StartCooldown(CD_remain - CDR)
+			end
 		end
 	end
 end

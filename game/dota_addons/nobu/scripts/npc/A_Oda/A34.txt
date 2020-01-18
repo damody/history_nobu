@@ -424,7 +424,7 @@
 		"LevelsBetweenUpgrades"	"6"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"100 90 80"
+		"AbilityCooldown"	"80"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"100 200 300"
@@ -435,6 +435,7 @@
 			"soundfile"	"sounds/weapons/hero/crystal_maiden/preattack01.vsnd"
 			"particle"	"particles/a34t/a34t.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -451,20 +452,27 @@
 			}
 			"RunScript"
 			{
+				"Target"	"CASTER"
 				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A34_Matsu.lua"
 				"Function"	"rearm_refresh_cooldown"
 			}
 			"ApplyModifier"
 			{
-				"ModifierName"	"modifier_stunned"
+				"ModifierName"	"modifier_life_regen"
+				"Target"		"CASTER"
+				"Duration"		"3"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_frost_bite_root_datadriven"
 				"Target" 		"CASTER"
-				"Duration"		"0.5"
+				"Duration"		"3"
 			}
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_invulnerable"
 				"Target" 		"CASTER"
-				"Duration"		"0.5"
+				"Duration"		"3"
 			}
 			
 		}
@@ -476,6 +484,53 @@
 			{
 				"var_type"	"FIELD_FLOAT"
 				"channel_tooltip"	"0.5 0.5 0.5"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"mana_regen"	"20 30 40"
+			}
+			//回血要*3 因為要跑3秒
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"life_regen_percentage"	"10.0 13.3 16.6"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"cd_recover"	"10 25 40"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_frost_bite_root_datadriven"
+			{
+				"IsPurgable"	"1"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_mana_regen"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%mana_regen"
+				}
+			}
+			"modifier_life_regen"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE"	"%life_regen_percentage"
+				}
 			}
 		}
 	}
