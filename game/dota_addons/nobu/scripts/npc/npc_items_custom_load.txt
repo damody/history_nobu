@@ -9812,7 +9812,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "25"	//跑速
 				}
 			}
 		}
@@ -9902,7 +9902,7 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "25"	//跑速
 				}
 			}
 		}
@@ -9993,7 +9993,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "25"	//跑速
 				}
 			}
 		}
@@ -10082,7 +10082,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "25"	//跑速
 				}
 			}
 			"shield_modifier5"
@@ -12217,7 +12217,7 @@
 		}
 	}
 
-	// 暗部長靴
+	// 破魔.暗部長靴
 	"item_dark_boots_1"
 	{
 		// General
@@ -12233,7 +12233,7 @@
 		
 		"AbilityCooldown"	"85"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
-		"AbilityManaCost"	"500"
+		"AbilityManaCost"	"300"
 		
 		"ID"	"2821"
 		"ItemQuality"	"component"
@@ -12295,13 +12295,13 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "30"	//跑速
 				}
 			}
 		}
 	}
 
-	// 仕手能靴
+	// 破魔.仕手能靴
 	"item_mana_boots_1"
 	{
 		// General
@@ -12317,7 +12317,7 @@
 		
 		"AbilityCooldown"	"85"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
-		"AbilityManaCost"	"500"
+		"AbilityManaCost"	"300"
 		
 		"ID"	"2822"
 		"ItemQuality"	"component"
@@ -12387,13 +12387,13 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "30"	//跑速
 				}
 			}
 		}
 	}
 
-	// 禦魔長踏
+	// 破魔.禦魔長踏
 	"item_magic_defence_boots_1"
 	{
 		// General
@@ -12409,7 +12409,7 @@
 		
 		"AbilityCooldown"	"85"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
-		"AbilityManaCost"	"500"
+		"AbilityManaCost"	"300"
 		
 		"ID"	"2823"
 		"ItemQuality"	"component"
@@ -12480,13 +12480,13 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "30"	//跑速
 				}
 			}
 		}
 	}
 
-	// 琉球浪人木屐
+	// 破魔.琉球浪人木屐
 	"item_ryukyu_ronin_clogs_1"
 	{
 		// General
@@ -12502,7 +12502,7 @@
 		
 		"AbilityCooldown"	"85"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
-		"AbilityManaCost"	"500"
+		"AbilityManaCost"	"300"
 		
 		"ID"	"2824"
 		"ItemQuality"	"component"
@@ -12571,7 +12571,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "30"	//跑速
 				}
 			}
 			"shield_modifier3"
@@ -12924,7 +12924,7 @@
 				{
 					"MODIFIER_PROPERTY_MANA_BONUS" "400"				//魔
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "3"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "25"	//跑速
 				}
 			}
 		}
