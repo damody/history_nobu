@@ -13,6 +13,7 @@
 			"particle"  "particles/b28r/b28r.vpcf" //r
 			"particle"  "particles/b28r/b28r_2.vpcf" //r
 			"particle"  "particles/b28t/b28t.vpcf" //t
+			"particle"  "particles/a05/a05r.vpcf" //t
 			"particle"  "particles/b28t/b28t_2ti_5.vpcf" //t
 			"particle"  "particles/a19/a19_wfire/monkey_king_spring_arcana_fire.vpcf" //w_old
 			"particle"  "particles/a19/a19w_oldchar.vpcf" //w_old
@@ -436,7 +437,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"base_damage"	"350 450 550"
+				"base_damage"	"250 350 450"
 			}
 			"04" // 每次彈跳增加的傷害比例
 			{
@@ -466,7 +467,7 @@
 			"09"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"jump_radius"	"1000"
+				"jump_radius"	"600"
 			}
 		}
 	}
