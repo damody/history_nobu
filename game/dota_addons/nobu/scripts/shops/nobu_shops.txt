@@ -255,7 +255,7 @@
 	"item"      "item_the_great_sword_of_hurricane"		//鐵碎牙．妖刀
 	"item"      "item_the_great_sword_of_spike"			//鬼丸國鋼．銘刀
 	"item"		"item_the_great_silver_armor"			//銀伊予札白糸威胴丸具足
-	"item"      "item_the_great_sword_of_teleport"			//陸奧守吉行．銘刀
+	"item"      "item_the_great_sword_of_teleport"		//陸奧守吉行．銘刀
 	"item"      "item_the_great_sword_of_drain"			//吉光骨食．銘刀
 	"item"      "item_the_great_sword_of_toxic"			//梅鶯毒．妖刀
 }

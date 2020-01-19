@@ -135,7 +135,7 @@ function Nobu:OnGameRulesStateChange( keys )
 	Timers:CreateTimer(0, function()
 		ccpres = ccpres + 1
 		for n=2,3 do
-			local pres = 50
+			local pres = 150
 			for playerID = 0, 9 do
 				local player = PlayerResource:GetPlayer(playerID)
 				if player then
