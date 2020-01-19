@@ -135,12 +135,12 @@ function ShuaGuai( )
 		ShuaGuai_Of_C(C_num,3,6)
 	    return 180
 	end)
-	Timers:CreateTimer(30,function()
+	Timers:CreateTimer(240,function()
 		ShuaGuai_Of_B(B_num,2,3)
 		ShuaGuai_Of_C(C_num,2,3)
 		ShuaGuai_Of_B(B_num,3,4)
 		ShuaGuai_Of_C(C_num,3,4)
-	  return 30
+	  return 180
     end)
 end
 

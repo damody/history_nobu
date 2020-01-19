@@ -246,7 +246,7 @@
 //名刀舖
 "secretshop"
 {
-	"item"      "item_the_great_sword_of_soul"			//菊一文字則．太刀
+	"item"      "item_the_great_sword_of_soul_hyper"			//菊一文字則．太刀
 	"item"      "item_the_great_sword_of_disease"		//池田鬼神丸國重．銘刀
 	"item"      "item_the_great_sword_of_precision"		//長船．太刀
 	"item"      "item_the_great_sword_of_anger"			//鬼撤．妖刀

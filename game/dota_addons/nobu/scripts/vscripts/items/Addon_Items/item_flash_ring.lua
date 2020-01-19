@@ -18,7 +18,15 @@ function item_blink_datadriven_on_spell_start(keys)
 	keys.caster:EmitSound("DOTA_Item.BlinkDagger.Activate")
 	--keys.caster:EmitSound("Hero_QueenOfPain.Pick")	
 	local origin_point = keys.caster:GetAbsOrigin()
-	local target_point = keys.target_points[1]
+	local target_point
+	if keys.target_points then
+		target_point = keys.target_points[1]
+	end
+	if keys.target then
+		target_point = keys.target:GetAbsOrigin()
+		ability:EndCooldown()
+		ability:StartCooldown(80)
+	end
 	local difference_vector = target_point - origin_point
 
 	if difference_vector:Length2D() < 200 then
@@ -43,3 +51,10 @@ function item_blink_datadriven_on_spell_start(keys)
 	end
 end
 
+function flash_ring_OnAbilityPhaseStart( keys )
+	local caster = keys.caster
+	local target = keys.target
+	if target and (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 850 then
+		caster:Interrupt()
+	end
+end
