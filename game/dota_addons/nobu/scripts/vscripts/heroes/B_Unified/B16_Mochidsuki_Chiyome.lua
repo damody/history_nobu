@@ -138,6 +138,12 @@ function B16D_InitMoonMoon( keys )
 	B16_AbilityAdjust(keys)
 end
 
+function B16_OnUpgrade( keys )
+	local B16D = keys.caster:FindAbilityByName("B16D")
+	B16D:SetLevel( keys.ability:GetLevel() + 1 )
+	B16_AbilityAdjust( keys )
+end
+
 function B16_AbilityAdjust( keys )
 	local caster = keys.caster
 	local moonMoon = caster.moonMoon
@@ -195,7 +201,7 @@ function B16_AbilityAdjust( keys )
 		-- Todo: 調整月月能力
 		local caster_level = caster:GetLevel()
 		moonMoon:FindModifierByName("modifier_B16D_MoonMoon"):SetStackCount(caster_level)
-		local hp = caster:GetMaxHealth()
+		local hp = 800 + keys.ability:GetLevel()*200
 		moonMoon:SetBaseMaxHealth(hp)
 	end
 end

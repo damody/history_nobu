@@ -50,7 +50,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B16_Mochidsuki_Chiyome.lua"
-				"Function"		"B16_AbilityAdjust"
+				"Function"		"B16_OnUpgrade"
 			}
 		}
 		"Modifiers"
@@ -254,7 +254,7 @@
 	"B16D"
 	{
 		// Todo: 不知道能不能取消技能下方的等級提示
-		"MaxLevel"	"1"
+		"MaxLevel"	"5"
 		"HotKeyOverride"	"D"
 
 		// General
