@@ -10983,7 +10983,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -11065,7 +11065,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -11147,7 +11147,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -11229,7 +11229,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -11311,7 +11311,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -11393,7 +11393,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -11475,7 +11475,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -11557,7 +11557,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -11638,7 +11638,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -11719,7 +11719,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -11800,7 +11800,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -11881,7 +11881,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -11962,7 +11962,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -12043,7 +12043,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -12124,7 +12124,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
@@ -12205,7 +12205,7 @@
 		"MovementTurnRate"	"0.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"880"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"20"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
