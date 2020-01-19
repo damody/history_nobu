@@ -362,10 +362,10 @@ function A04W_Bonus( event )
 
 	--獲取英雄等級
 	local level = caster:GetLevel()
-
+	local hp = ability:GetSpecialValueFor("hp")
 	local hModifier = target:FindModifierByNameAndCaster("modifier_A04W_Tech", caster)
 	hModifier:SetStackCount(level)
-	target:SetBaseMaxHealth(600+50*level)
+	target:SetBaseMaxHealth(hp)
 	target:SetHealth(target:GetMaxHealth())
 end
 
