@@ -885,7 +885,7 @@
 		"AbilityTextureName"	"item_custom/perceive_wine_hyper"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"85"
+		"AbilityCooldown"	"60"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		// Valve's version of this item uses the ID "1".
 		"ID"	"2621"
