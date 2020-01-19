@@ -18,24 +18,28 @@ function item_blink_datadriven_on_spell_start(keys)
 	keys.caster:EmitSound("DOTA_Item.BlinkDagger.Activate")
 	--keys.caster:EmitSound("Hero_QueenOfPain.Pick")	
 	local origin_point = keys.caster:GetAbsOrigin()
-	local target_point
-	if keys.target_points then
-		target_point = keys.target_points[1]
-	end
-	if keys.target then
-		target_point = keys.target:GetAbsOrigin()
-		ability:EndCooldown()
-		ability:StartCooldown(80)
-	end
+	local target_point = keys.target_points[1]
 	local difference_vector = target_point - origin_point
-
+	if difference_vector:Length2D() > keys.MaxBlinkRange then  --Clamp the target point to the BlinkRangeClamp range in the same direction.
+		target_point = origin_point + (target_point - origin_point):Normalized() * keys.MaxBlinkRange
+    end
+	local units = FindUnitsInRadius( caster:GetTeamNumber(), target_point, nil, 300, 
+		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
+	
+	if #units > 0 then
+		if (units[1]:GetAbsOrigin() - target_point):Length2D() < 300 then
+			ability:EndCooldown()
+			ability:StartCooldown(40)
+			Timers:CreateTimer(0.3, function ()
+				keys.caster:EmitSound("DOTA_Item.BlinkDagger.Activate")
+				ParticleManager:CreateParticle("particles/item/c05/c05.vpcf", PATTACH_ABSORIGIN, caster)
+			end)
+		end
+	end
+	
 	if difference_vector:Length2D() < 200 then
 		ability:EndCooldown()
 	else
-		if difference_vector:Length2D() > keys.MaxBlinkRange then  --Clamp the target point to the BlinkRangeClamp range in the same direction.
-		 	target_point = origin_point + (target_point - origin_point):Normalized() * keys.MaxBlinkRange
-		end
-		
 		keys.caster:SetAbsOrigin(target_point)
 		FindClearSpaceForUnit(keys.caster, target_point, false)
 		

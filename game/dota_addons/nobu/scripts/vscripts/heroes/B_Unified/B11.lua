@@ -104,7 +104,7 @@ function B11R_OnAttackLanded( keys )
 	end
 	if caster.B11R >= 5 then
 		caster.B11R = 0
-		target:AddNewModifier(caster,nil,"modifier_rooted", {duration=0.5} )
+		target:AddNewModifier(caster,nil,"modifier_rooted", {duration=1} )
 		local b11t = caster:FindAbilityByName("B11T")
 		if b11t:GetLevel() > 0 then
 			local rate = caster:GetAttackSpeed()+0.1

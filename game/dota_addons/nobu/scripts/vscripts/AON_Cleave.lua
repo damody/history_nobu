@@ -288,13 +288,7 @@ function AON_Cleave_C14(keys)
 
 		for _, it in pairs(group) do
 			if _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then
-				if it ~= target then
-					AMHC:Damage( caster,it,keys.dmg*0.20,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
-					AMHC:Damage( caster,it,keys.dmg*0.20,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-					AMHC:Damage( caster,it,keys.dmg*0.20,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-				else
-					AMHC:Damage( caster,it,keys.dmg*0.20,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-				end
+				AMHC:Damage( caster,it,keys.dmg*0.60,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 			end
 		end
 	else

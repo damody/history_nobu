@@ -191,7 +191,8 @@ function B28T_old_Jump(keys)
 			ability:ApplyDataDrivenModifier(caster, new_target, "modifier_B28T_arc_lightning_datadriven", {})
 			-- Applies damage to the target
 			local new_damage = base_damage*(1+(jump_max-ability.jump_count[current])*bonus_damage)
-			Timers:CreateTimer(0.3, function ()
+			local lightningBolt = ParticleManager:CreateParticle("particles/a05/a05r.vpcf", PATTACH_POINT_FOLLOW, new_target)
+			Timers:CreateTimer(1, function ()
 				if IsValidEntity(new_target) and IsValidEntity(caster) then
 					ApplyDamage({victim = new_target, attacker = caster, damage = new_damage, damage_type = ability:GetAbilityDamageType()})
 				end

@@ -138,7 +138,7 @@
 			"01"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"B11E_bonusAgi"	"20 30 40 50"
+				"B11E_bonusAgi"	"10 20 30 40"
 			}
 			"02"
 			{

@@ -22,7 +22,7 @@
 		
 		"AbilityManaCost"	"200"
 		
-		"AbilityCastRange"	"500"
+		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0.2"
 		"ID"	"2620"
 		"AbilityDamage"		"700"
@@ -120,7 +120,7 @@
 		
 		"AbilityManaCost"	"200"
 		"AbilityDamage"		"455"
-		"AbilityCastRange"	"500"
+		"AbilityCastRange"	"750"
 		"AbilityCastPoint"	"0.2"
 		"ID"	"2516"
 		"ItemQuality"	"component"
@@ -739,13 +739,13 @@
 		// General
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/flash_ring"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"180"
 		"AbilityManaCost"	"200"
-		"AOERadius"	"850"
+		"AOERadius"	"300"
 		"AbilityCastPoint"	"0.1"
 		// Stats
 		"AbilitySharedCooldown" "share_flash_ring"
@@ -766,15 +766,6 @@
 		"precache"
 		{
 			"soundfile"	"soundevents/game_sounds_hero_pick.vsndevts"
-		}
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_flash_ring.lua"
-				"Function"	"flash_ring_OnAbilityPhaseStart"
-				"Target"	"POINT"
-			}
 		}
 		"OnSpellStart"
 		{
@@ -897,7 +888,7 @@
 		"AbilityTextureName"	"item_custom/perceive_wine_hyper"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"60"
+		"AbilityCooldown"	"75"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		// Valve's version of this item uses the ID "1".
 		"ID"	"2621"
