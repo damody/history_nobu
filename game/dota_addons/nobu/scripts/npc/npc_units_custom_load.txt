@@ -7080,8 +7080,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7131,8 +7131,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7182,8 +7182,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7234,8 +7234,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7286,8 +7286,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7338,8 +7338,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7390,8 +7390,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7442,8 +7442,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7494,8 +7494,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7546,8 +7546,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7597,8 +7597,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7648,8 +7648,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7700,8 +7700,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7752,8 +7752,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7804,8 +7804,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -7856,8 +7856,8 @@
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"58.0"
-		"AttackDamageMax"	"59.0"
+		"AttackDamageMin"	"45.0"
+		"AttackDamageMax"	"49.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.58"
 		"AttackAnimationPoint"	"0.33"
@@ -8742,15 +8742,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -8793,15 +8793,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -8844,15 +8844,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -8895,15 +8895,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -8947,15 +8947,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -8999,15 +8999,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -9051,15 +9051,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -9103,15 +9103,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -9155,15 +9155,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -9206,15 +9206,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -9257,15 +9257,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -9308,15 +9308,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -9360,15 +9360,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -9412,15 +9412,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -9464,15 +9464,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"
@@ -9516,15 +9516,15 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	""
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"49.0"
-		"AttackDamageMax"	"55.0"
+		"AttackDamageMin"	"70.0"
+		"AttackDamageMax"	"75.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.67"
 		"AttackAnimationPoint"	"0.72"

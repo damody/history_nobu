@@ -110,7 +110,7 @@ function ShuaGuai( )
 		    	ent:SetPhysicalArmorBaseValue(armor)
 			end
 		end
-		return 60
+		return 45
    	end)
  	Timers:CreateTimer(start_time, function()
 	  	ShuaGuai_Of_AA(5)
@@ -181,8 +181,8 @@ function ShuaGuai_Of_AA(num)
 					--創建單位
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					unit:AddAbility("set_level_1"):SetLevel(1)
-					local hp = unit:GetMaxHealth()
-					unit:SetBaseMaxHealth(hp+A_count * 1)
+					local hp = unit:GetMaxHealth() + 150
+					unit:SetBaseMaxHealth(hp+A_count * 8)
 					local dmgmax = unit:GetBaseDamageMax()
 					local dmgmin = unit:GetBaseDamageMin()
 					unit:SetBaseDamageMax(dmgmax+A_count*1)
@@ -250,8 +250,8 @@ function ShuaGuai_Of_AB(num)
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					unit:AddAbility("set_level_1"):SetLevel(1)
 					
-					local hp = unit:GetMaxHealth()-100
-					unit:SetBaseMaxHealth(hp+A_count * 1)
+					local hp = unit:GetMaxHealth()
+					unit:SetBaseMaxHealth(hp+A_count * 8)
 					local dmgmax = unit:GetBaseDamageMax()
 					local dmgmin = unit:GetBaseDamageMin()
 					unit:SetBaseDamageMax(dmgmax+A_count*2)
