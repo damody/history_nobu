@@ -23,7 +23,7 @@
 		"AbilityManaCost"	"200"
 		
 		"AbilityCastRange"	"500"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"ID"	"2620"
 		"AbilityDamage"		"700"
 		"ItemQuality"	"component"
@@ -121,7 +121,7 @@
 		"AbilityManaCost"	"200"
 		"AbilityDamage"		"455"
 		"AbilityCastRange"	"500"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"ID"	"2516"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -287,7 +287,7 @@
 		"AbilityCooldown"	"120"
 		
 		"AbilityManaCost"	"600"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilitySharedCooldown" "share_the_overflame_art_of_war"
 		"AbilityDamage"		"1000"
 		"AOERadius"	"650"
@@ -378,7 +378,7 @@
 		"FightRecapLevel"	"1"
 		
 		"AbilityCooldown"	"120"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityDamage"		"800"
 		"AbilityManaCost"	"300"
 		"AbilitySharedCooldown" "share_the_overflame_art_of_war"
@@ -553,7 +553,7 @@
 		"AbilityCooldown"	"20"
 		
 		"AbilityManaCost"	"120"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AOERadius"	"300"
 		"AbilityDamage"		"560"
 		"AbilityCastRange"	"500"
@@ -645,7 +645,7 @@
 		"AbilityCooldown"	"27"
 		
 		"AbilityManaCost"	"225"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		
 		"AOERadius"	"350"
 		"AbilityCastRange"	"600"
@@ -1430,7 +1430,7 @@
 		"AbilityCooldown"	"20"
 		"AbilitySharedCooldown" "share_lightning_scroll"
 		"AbilityManaCost"	"120"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"500"
 		"ID"	"2502"
 		"ItemQuality"	"component"
@@ -1509,7 +1509,7 @@
 		"AbilityCooldown"	"30"
 		
 		"AbilityManaCost"	"120"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"ID"	"2515"
 		"ItemQuality"	"component"
@@ -2955,7 +2955,7 @@
 		"AbilityCooldown"	"55"
 		"AbilityManaCost"	"320"
 		"AbilityCastRange"				"600"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 
 		"AbilitySpecial"
 		{
@@ -3119,7 +3119,7 @@
 		"FightRecapLevel"	"1"
 		
 		"AbilityCooldown"	"25"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityManaCost"	"120"
 		"AbilitySharedCooldown" "share_lightning_scroll"
 		"AbilityCastRange"	"500"
@@ -3213,7 +3213,7 @@
 		"AbilityCooldown"	"50"
 		
 		"AbilityManaCost"	"175"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"650"
 		"ID"	"2571"
 		"ItemQuality"	"component"
@@ -3656,7 +3656,7 @@
 		"AbilityCooldown"	"30"
 		
 		"AbilityManaCost"	"150"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"ID"	"2576"
 		"ItemQuality"	"component"
@@ -4154,7 +4154,7 @@
 		"FightRecapLevel"	"1"
 		
 		"AbilityCooldown"	"110"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityManaCost"	"300"
 		"ID"	"2700"
 		"ItemQuality"	"component"
@@ -4264,7 +4264,7 @@
 		
 		"AbilityCooldown"	"40"
 		"AbilityManaCost"	"300"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"800"
 		"AbilityDamage"		"800"
 		"AOERadius"		"350"
@@ -4747,7 +4747,7 @@
 		"FightRecapLevel"	"1"
 		
 		"AbilityCooldown"	"70"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityManaCost"	"185"
 		"AbilityCastRange"				"300"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
@@ -4820,7 +4820,7 @@
 		"AbilityCooldown"	"80"
 		
 		"AbilityManaCost"	"260"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"1000"
 		"ID"	"2711"
 		"ItemQuality"	"component"
@@ -4888,7 +4888,7 @@
 		"AbilityCooldown"	"36"
 		
 		"AbilityManaCost"	"185"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"1000"
 		"ID"	"2712"
 		"ItemQuality"	"component"
@@ -5166,7 +5166,7 @@
 		"AbilityCooldown"	"65"
 		
 		"AbilityManaCost"	"250"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"ID"	"2714"
 		"ItemQuality"	"component"
@@ -5452,7 +5452,7 @@
 		"AbilityCooldown"	"25"
 		
 		"AbilityManaCost"	"200"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"ID"	"2578"
 		"ItemQuality"	"component"
@@ -5563,7 +5563,7 @@
 		"AbilityCooldown"	"35"
 		"AbilitySharedCooldown" "share_ronin_jitte"
 		"AbilityManaCost"	"250"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"500"
 		"ID"	"2580"
 		"ItemQuality"	"component"
@@ -5650,7 +5650,7 @@
 		"AbilityCooldown"	"60"
 		
 		"AbilityManaCost"	"225"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"800"
 		"ID"	"2582"
 		"ItemQuality"	"component"
@@ -5763,7 +5763,7 @@
 		"FightRecapLevel"	"1"
 		
 		"AbilityCooldown"	"4"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityManaCost"	"0"
 		
 		"AbilityCastRange"	"700"
@@ -5865,7 +5865,7 @@
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"25"
 		"AbilityManaCost"	"150"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"AbilityDamage"		"350"
 		"ID"	"2584"
@@ -6079,7 +6079,7 @@
 		"AbilityCooldown"	"25"
 		
 		"AbilityManaCost"	"190"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"600"
 		"ID"	"2587"
 		"ItemQuality"	"component"
@@ -7816,7 +7816,7 @@
 		"AbilityCooldown"	"36"
 		
 		"AbilityManaCost"	"220"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"ID"	"2520"
 		"ItemQuality"	"component"
@@ -10210,7 +10210,7 @@
 		"FightRecapLevel"	"1"
 		
 		"AbilityCooldown"	"45"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityManaCost"	"160"
 		
 		"AbilityCastRange"	"700"
@@ -11243,7 +11243,7 @@
 		"FightRecapLevel"	"1"
 		"AbilitySharedCooldown" "share_item_flood_book"
 		"AbilityCooldown"	"18"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityManaCost"	"280"
 		"AbilityCastRange"	"700"
 		"AOERadius"		"400"
@@ -11324,7 +11324,7 @@
 		"FightRecapLevel"	"1"
 		
 		"AbilityCooldown"	"40"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityManaCost"	"300"
 		"AbilityCastRange"	"1000"
 		"AOERadius"		"800"
@@ -11416,7 +11416,7 @@
 		"AbilityCooldown"	"30"
 		
 		"AbilityManaCost"	"200"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"500"
 
 		"ID"	"2514"
@@ -11738,7 +11738,7 @@
 		"FightRecapLevel"	"1"
 		
 		"AbilityCooldown"	"4"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"ID"	"2802"
 		"ItemQuality"	"component"
@@ -11842,7 +11842,7 @@
 		"FightRecapLevel"	"1"
 		
 		"AbilityCooldown"	"10"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"600"
 		"AOERadius"		"300"
 		"ID"	"2565"
@@ -11895,7 +11895,7 @@
 		"FightRecapLevel"	"1"
 		
 		"AbilityCooldown"	"2"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"ID"	"2566"
 		"ItemQuality"	"component"
@@ -12109,7 +12109,7 @@
 		"AbilityCooldown"	"55"
 		
 		"AbilityManaCost"	"260"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"ID"	"2719"
 		"ItemQuality"	"component"
@@ -13343,7 +13343,7 @@
 		"FightRecapLevel"	"1"
 		"AbilitySharedCooldown" "share_item_flood_book"
 		"AbilityCooldown"	"30"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.2"
 		"AbilityManaCost"	"280"
 		"AbilityCastRange"	"800"
 		"AOERadius"		"400"
