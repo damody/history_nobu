@@ -36,6 +36,9 @@ function AbilityExecuted(keys)
 	local id  = caster:GetPlayerID()
 	local skill = keys.ability
 	local level = keys.ability:GetLevel()
+	if keys.event_ability:IsToggle() then return end
+	if keys.event_ability:GetName() == "attribute_bonusx" then return end
+
 	if caster:HasModifier("modifier_ancient_doll") == false then
 		skill:ApplyDataDrivenModifier(caster,caster,"modifier_ancient_doll",nil)
 		local hModifier = caster:FindModifierByNameAndCaster("modifier_ancient_doll", hCaster)

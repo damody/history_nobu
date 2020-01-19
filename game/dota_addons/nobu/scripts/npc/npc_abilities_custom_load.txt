@@ -4632,10 +4632,10 @@
 			"modifier_for_move500"
 			{
 				"Passive"	"1"
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "500"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE" "500"	//跑速
 				}
 			}
 		}

@@ -15,8 +15,9 @@ function Nobu:PickHero( keys )
       Timers:CreateTimer(3, function ()
         if caster.donkey and IsValidEntity(caster.donkey) then
           for _,m in ipairs(caster.donkey:FindAllModifiers()) do
-            if m:GetName() ~= "modifier_for_magic_immune" and m:GetName() ~= "modifier_courier_transfer_items" then
-              if not (string.match(m:GetName(), "Passive_") or string.match(m:GetName(), "courier_burst")or m:GetName() == "modifier_invulnerable") then
+            if m:GetName() ~= "modifier_for_magic_immune" and m:GetName() ~= "modifier_courier_transfer_items" and
+             m:GetName() ~= "modifier_for_move500" and m:GetName() ~= "for_no_collision" then
+              if not (string.match(m:GetName(), "Passive_") or string.match(m:GetName(), "courier_burst") or m:GetName() == "modifier_invulnerable") then
                 caster.donkey:RemoveModifierByName(m:GetName())
               end
             end

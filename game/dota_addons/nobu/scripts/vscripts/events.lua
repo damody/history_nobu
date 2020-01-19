@@ -193,6 +193,7 @@ function Nobu:FilterGold( filterTable )
     local reason = filterTable["reason_const"]
     filterTable["reliable"] = 0
     -- Disable all hero kill gold
+    PrintTable(filterTable)
     if reason == DOTA_ModifyGold_HeroKill then
       if gold == 150 or gold == 300 or gold == 450 then
         _G.not_assist = playerID

@@ -23,12 +23,19 @@ function Shock0( keys )
 	local target = keys.target
 	local ability = keys.ability
 	caster:EmitSound("MassTeleportTarget")
-	local particle = ParticleManager:CreateParticle("particles/a04e/a04e_f.vpcf", PATTACH_ABSORIGIN, target)
-	ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin()+Vector(0, 0, 100))
-	local particle2 = ParticleManager:CreateParticle("particles/a04e/a04e_f.vpcf", PATTACH_ABSORIGIN, caster)
-	ParticleManager:SetParticleControl(particle2, 0, caster:GetAbsOrigin()+Vector(0, 0, 100))
+	local count = 0
 	Timers:CreateTimer(1, function()
-				ParticleManager:DestroyParticle(particle,false)
-				ParticleManager:DestroyParticle(particle2,false)
-			end)
+		local particle = ParticleManager:CreateParticle("particles/a04e/a04e_f.vpcf", PATTACH_ABSORIGIN, target)
+		ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin()+Vector(0, 0, 100))
+		local particle2 = ParticleManager:CreateParticle("particles/a04e/a04e_f.vpcf", PATTACH_ABSORIGIN, caster)
+		ParticleManager:SetParticleControl(particle2, 0, caster:GetAbsOrigin()+Vector(0, 0, 100))
+		Timers:CreateTimer(1, function()
+					ParticleManager:DestroyParticle(particle,false)
+					ParticleManager:DestroyParticle(particle2,false)
+				end)
+		count = count + 1
+		if count < 5 then
+			return 1
+		end
+	end)
 end

@@ -55,13 +55,7 @@ function Nobu:OnHeroIngame( keys )
           donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
           donkey:AddAbility("for_magic_immune"):SetLevel(1)
           donkey:AddAbility("for_no_collision"):SetLevel(1)
-          local for_no_collision = donkey:FindAbilityByName("for_no_collision")
-          Timers:CreateTimer(1, function()
-            if IsValidEntity(donkey) and not donkey:HasModifier("modifier_for_no_collision") then
-              for_no_collision:ApplyDataDrivenModifier(donkey,donkey,"modifier_for_no_collision",nil)
-            end
-            return 1
-            end)
+          donkey:AddAbility("for_move500"):SetLevel(1)
         end
       end
     end)

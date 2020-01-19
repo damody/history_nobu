@@ -200,9 +200,6 @@ function spell_ability ( filterTable )
 			end
 		end
 	end
-	if (caster:GetUnitName() == "npc_dota_courier2") and not string.match(ability:GetName(), "courier") then
-		return false
-	end
 	local items_nosell = {
     	["item_contemporary_armor"] = true,
     	["item_contemporary_armor_1"] = true,
