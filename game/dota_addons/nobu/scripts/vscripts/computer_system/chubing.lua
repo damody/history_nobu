@@ -113,15 +113,15 @@ function ShuaGuai( )
 		return 45
    	end)
  	Timers:CreateTimer(start_time, function()
-	  	ShuaGuai_Of_AA(5)
+	  	ShuaGuai_Of_AA(4)
   		return 45
 	 end)
 	 Timers:CreateTimer(start_time+3, function()--50
-		ShuaGuai_Of_AB(3)
+		ShuaGuai_Of_AB(2)
 		 return 45
 	end)
-	local B_num = 4
-	local C_num = 2
+	local B_num = 2
+	local C_num = 1
 	--出兵觸發
 	Timers:CreateTimer(180,function()
 		ShuaGuai_Of_B(B_num,2,1)
@@ -326,19 +326,22 @@ function ShuaGuai_Of_B(num, team, pos)
 				
 				--創建單位
 				local n = 1
+				--強化倍率
+				local intensify = 1
 				if big then
-					n = 2
+					--n = 2
+					intensify = 2
 				end
 				for x=1,n do
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					unit:AddAbility("set_level_1"):SetLevel(1)
-					local hp = unit:GetMaxHealth()+300
+					local hp = (unit:GetMaxHealth()+300) * intensify
 					unit:SetBaseMaxHealth(hp+A_count * 5)
-					local dmgmax = unit:GetBaseDamageMax()
-					local dmgmin = unit:GetBaseDamageMin()
+					local dmgmax = (unit:GetBaseDamageMax()) * intensify
+					local dmgmin = (unit:GetBaseDamageMin()) * intensify
 					unit:SetBaseDamageMax(dmgmax+A_count*5)
 					unit:SetBaseDamageMin(dmgmin+A_count*5)
-					local armor = unit:GetPhysicalArmorBaseValue()
+					local armor = (unit:GetPhysicalArmorBaseValue()) * intensify
 					unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
 					--creep:SetContextNum("isshibing",1,0)
 
@@ -401,19 +404,22 @@ function ShuaGuai_Of_C(num, team, pos)
 				--【騎兵】
 				--創建單位
 				local n = 1
+				--強化倍率
+				local intensify = 1
 				if big then
-					n = 2
+					--n = 2
+					intensify = 2
 				end
 				for x=1,n do
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					
-					local hp = unit:GetMaxHealth()+800
+					local hp = (unit:GetMaxHealth()+800) * intensify
 					unit:SetBaseMaxHealth(hp+A_count * 10)
-					local dmgmax = unit:GetBaseDamageMax()
-					local dmgmin = unit:GetBaseDamageMin()
+					local dmgmax = (unit:GetBaseDamageMax()) * intensify
+					local dmgmin = (unit:GetBaseDamageMin()) * intensify
 					unit:SetBaseDamageMax(dmgmax+A_count*5)
 					unit:SetBaseDamageMin(dmgmin+A_count*5)
-					local armor = unit:GetPhysicalArmorBaseValue()
+					local armor = (unit:GetPhysicalArmorBaseValue()) * intensify
 					unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
 					unit:FindAbilityByName("for_no_collision"):SetLevel(1)
 					--creep:SetContextNum("isshibing",1,0)
