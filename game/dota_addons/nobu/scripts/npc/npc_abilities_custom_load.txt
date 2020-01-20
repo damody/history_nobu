@@ -1255,7 +1255,7 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"ThinkInterval"  "15"
+				"ThinkInterval"  "9"
 				"OnIntervalThink"
 				{
 					"RunScript"

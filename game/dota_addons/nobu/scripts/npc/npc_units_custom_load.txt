@@ -6530,8 +6530,8 @@
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"1070.0"
-		"AttackDamageMax"	"1075.0"
+		"AttackDamageMin"	"375.0"
+		"AttackDamageMax"	"390.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"
@@ -6606,8 +6606,8 @@
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"1070.0"
-		"AttackDamageMax"	"1075.0"
+		"AttackDamageMin"	"375.0"
+		"AttackDamageMax"	"390.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"
@@ -6682,8 +6682,8 @@
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"1070.0"
-		"AttackDamageMax"	"1075.0"
+		"AttackDamageMin"	"375.0"
+		"AttackDamageMax"	"390.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"
@@ -6758,8 +6758,8 @@
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"1070.0"
-		"AttackDamageMax"	"1075.0"
+		"AttackDamageMin"	"375.0"
+		"AttackDamageMax"	"390.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"

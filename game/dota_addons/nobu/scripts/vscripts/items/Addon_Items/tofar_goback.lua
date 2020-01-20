@@ -265,40 +265,48 @@ function tofar_goback(keys)
 			end
 			return 1
 		end
-		end)
+	end)
 end
 
 Timers:CreateTimer( 3, function()
 _G.Unified_pos1 = Entities:FindByName(nil,"chubinluxian_location_of_wl_button"):GetAbsOrigin()
 _G.Unified_pos2 = Entities:FindByName(nil,"chubinluxian_location_of_wl_top"):GetAbsOrigin()
+_G.Unified_pos3 = Entities:FindByName(nil,"chubinluxian_location_of_wl_middle"):GetAbsOrigin()
 _G.Nobu_pos1 = Entities:FindByName(nil,"chubinluxian_location_of_nobu_button"):GetAbsOrigin()
 _G.Nobu_pos2 = Entities:FindByName(nil,"chubinluxian_location_of_nobu_top"):GetAbsOrigin()
+_G.Nobu_pos3 = Entities:FindByName(nil,"chubinluxian_location_of_nobu_middle"):GetAbsOrigin()
 end)
 
 function patrol_Unified(keys)
 	local caster = keys.caster
 	local pos = caster:GetAbsOrigin()
-
-	if caster.isgo then
-		caster.isgo = nil
-		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Unified_pos1 })
-	else
-		caster.isgo = 1
+	if caster.isgo == nil then
+		caster.isgo = 0
+	end
+	if caster.isgo == 1 or caster.isgo == 3 then
+		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Unified_pos3 })
+	elseif caster.isgo == 0 then
+		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Unified_pos1 })	
+	elseif caster.isgo == 2 then
 		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Unified_pos2 })
 	end
+	caster.isgo = (caster.isgo + 1)%4
 end
 
 function patrol_Nobu(keys)
 	local caster = keys.caster
 	local pos = caster:GetAbsOrigin()
-
-	if caster.isgo then
-		caster.isgo = nil
-		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Nobu_pos1 })
-	else
-		caster.isgo = 1
+	if caster.isgo == nil then
+		caster.isgo = 0
+	end
+	if caster.isgo == 1 or caster.isgo == 3 then
+		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Nobu_pos3 })
+	elseif caster.isgo == 0 then
+		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Nobu_pos1 })	
+	elseif caster.isgo == 2 then
 		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Nobu_pos2 })
 	end
+	caster.isgo = (caster.isgo + 1)%4
 end
 
 function attack_building(keys)
