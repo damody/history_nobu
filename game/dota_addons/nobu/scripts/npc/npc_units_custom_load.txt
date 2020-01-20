@@ -5913,7 +5913,7 @@
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"30"
+		"ArmorPhysical"	"23"
 		"MagicalResistance"	"100"
 		// Attack
 		// ----------------------------------------------------------------
@@ -5992,13 +5992,13 @@
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"30"
+		"ArmorPhysical"	"23"
 		"MagicalResistance"	"100"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"350.0"
-		"AttackDamageMax"	"350.0"
+		"AttackDamageMin"	"400.0"
+		"AttackDamageMax"	"400.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.5"
 		"AttackAnimationPoint"	"0.25"
@@ -6069,13 +6069,13 @@
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"40"
+		"ArmorPhysical"	"23"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"570.0"
-		"AttackDamageMax"	"575.0"
+		"AttackDamageMin"	"375.0"
+		"AttackDamageMax"	"390.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"
@@ -6145,13 +6145,13 @@
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"40"
+		"ArmorPhysical"	"23"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"570.0"
-		"AttackDamageMax"	"575.0"
+		"AttackDamageMin"	"375.0"
+		"AttackDamageMax"	"390.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"
@@ -6221,13 +6221,13 @@
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"40"
+		"ArmorPhysical"	"23"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"570.0"
-		"AttackDamageMax"	"575.0"
+		"AttackDamageMin"	"375.0"
+		"AttackDamageMax"	"390.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"
@@ -6297,13 +6297,13 @@
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"40"
+		"ArmorPhysical"	"23"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"570.0"
-		"AttackDamageMax"	"575.0"
+		"AttackDamageMin"	"375.0"
+		"AttackDamageMax"	"390.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.2"
 		"AttackAnimationPoint"	"0.30"
@@ -6373,13 +6373,13 @@
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"40"
+		"ArmorPhysical"	"23"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"570.0"
-		"AttackDamageMax"	"575.0"
+		"AttackDamageMin"	"375.0"
+		"AttackDamageMax"	"390.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.2"
 		"AttackAnimationPoint"	"0.30"
@@ -6449,13 +6449,13 @@
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"40"
+		"ArmorPhysical"	"23"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"570.0"
-		"AttackDamageMax"	"575.0"
+		"AttackDamageMin"	"375.0"
+		"AttackDamageMax"	"390.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.2"
 		"AttackAnimationPoint"	"0.30"
@@ -6525,7 +6525,7 @@
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"40"
+		"ArmorPhysical"	"23"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -6601,7 +6601,7 @@
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"40"
+		"ArmorPhysical"	"23"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -6677,7 +6677,7 @@
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"40"
+		"ArmorPhysical"	"23"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -6753,7 +6753,7 @@
 		"Ability4"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"40"
+		"ArmorPhysical"	"23"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -12497,7 +12497,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_TOWER"
 		"HealthBarOffset"	"180"
 		"Ability1"	""
-		"ArmorPhysical"	"25"
+		"ArmorPhysical"	"17"
 		"MagicalResistance"	"0"
 		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
@@ -12509,7 +12509,7 @@
 		"GoldCost"	"0"
 		"LumberCost"	"0"
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
-		"StatusHealth"	"3500"
+		"StatusHealth"	"3000"
 		"StatusHealthRegen"	"20"
 		"VisionDaytimeRange"	"1100"
 		"VisionNighttimeRange"	"1100"
@@ -12534,7 +12534,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_TOWER"
 		"HealthBarOffset"	"180"
 		"Ability1"	"for_top_broken"
-		"ArmorPhysical"	"25"
+		"ArmorPhysical"	"17"
 		"MagicalResistance"	"0"
 		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
@@ -12546,7 +12546,7 @@
 		"GoldCost"	"0"
 		"LumberCost"	"0"
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
-		"StatusHealth"	"3500"
+		"StatusHealth"	"3000"
 		"StatusHealthRegen"	"20"
 		"VisionDaytimeRange"	"1100"
 		"VisionNighttimeRange"	"1100"
@@ -12571,7 +12571,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_TOWER"
 		"HealthBarOffset"	"180"
 		"Ability1"	"for_mid_broken"
-		"ArmorPhysical"	"25"
+		"ArmorPhysical"	"17"
 		"MagicalResistance"	"0"
 		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
@@ -12583,7 +12583,7 @@
 		"GoldCost"	"0"
 		"LumberCost"	"0"
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
-		"StatusHealth"	"3500"
+		"StatusHealth"	"3000"
 		"StatusHealthRegen"	"20"
 		"VisionDaytimeRange"	"1100"
 		"VisionNighttimeRange"	"1100"
@@ -12607,7 +12607,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_TOWER"
 		"HealthBarOffset"	"180"
 		"Ability1"	"for_mid_broken"
-		"ArmorPhysical"	"25"
+		"ArmorPhysical"	"17"
 		"MagicalResistance"	"0"
 		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
@@ -12619,7 +12619,7 @@
 		"GoldCost"	"0"
 		"LumberCost"	"0"
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
-		"StatusHealth"	"3500"
+		"StatusHealth"	"3000"
 		"StatusHealthRegen"	"20"
 		"VisionDaytimeRange"	"1100"
 		"VisionNighttimeRange"	"1100"
@@ -12644,7 +12644,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_TOWER"
 		"HealthBarOffset"	"180"
 		"Ability1"	"for_down_broken"
-		"ArmorPhysical"	"25"
+		"ArmorPhysical"	"17"
 		"MagicalResistance"	"0"
 		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
@@ -12656,7 +12656,7 @@
 		"GoldCost"	"0"
 		"LumberCost"	"0"
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
-		"StatusHealth"	"3500"
+		"StatusHealth"	"3000"
 		"StatusHealthRegen"	"20"
 		"VisionDaytimeRange"	"1100"
 		"VisionNighttimeRange"	"1100"
@@ -12681,7 +12681,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_TOWER"
 		"HealthBarOffset"	"180"
 		"Ability1"	"for_top_broken"
-		"ArmorPhysical"	"25"
+		"ArmorPhysical"	"17"
 		"MagicalResistance"	"0"
 		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
@@ -12693,7 +12693,7 @@
 		"GoldCost"	"0"
 		"LumberCost"	"0"
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
-		"StatusHealth"	"3500"
+		"StatusHealth"	"3000"
 		"StatusHealthRegen"	"20"
 		"VisionDaytimeRange"	"1100"
 		"VisionNighttimeRange"	"1100"
@@ -12719,7 +12719,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_TOWER"
 		"HealthBarOffset"	"180"
 		"Ability1"	"for_mid_broken"
-		"ArmorPhysical"	"25"
+		"ArmorPhysical"	"17"
 		"MagicalResistance"	"0"
 		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
@@ -12731,7 +12731,7 @@
 		"GoldCost"	"0"
 		"LumberCost"	"0"
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
-		"StatusHealth"	"3500"
+		"StatusHealth"	"3000"
 		"StatusHealthRegen"	"20"
 		"VisionDaytimeRange"	"1100"
 		"VisionNighttimeRange"	"1100"
@@ -12757,7 +12757,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_TOWER"
 		"HealthBarOffset"	"180"
 		"Ability1"	"for_mid_broken"
-		"ArmorPhysical"	"25"
+		"ArmorPhysical"	"17"
 		"MagicalResistance"	"0"
 		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
@@ -12769,7 +12769,7 @@
 		"GoldCost"	"0"
 		"LumberCost"	"0"
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
-		"StatusHealth"	"3500"
+		"StatusHealth"	"3000"
 		"StatusHealthRegen"	"20"
 		"VisionDaytimeRange"	"1100"
 		"VisionNighttimeRange"	"1100"
@@ -12794,7 +12794,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_TOWER"
 		"HealthBarOffset"	"180"
 		"Ability1"	"for_down_broken"
-		"ArmorPhysical"	"25"
+		"ArmorPhysical"	"17"
 		"MagicalResistance"	"0"
 		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
@@ -12806,7 +12806,7 @@
 		"GoldCost"	"0"
 		"LumberCost"	"0"
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
-		"StatusHealth"	"3500"
+		"StatusHealth"	"3000"
 		"StatusHealthRegen"	"20"
 		"VisionDaytimeRange"	"1100"
 		"VisionNighttimeRange"	"1100"
@@ -12852,7 +12852,7 @@
 		"Ability2"	"check_Unified_is_dead"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"30"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"50"
 		// Attack
 		// ----------------------------------------------------------------
@@ -12927,7 +12927,7 @@
 		"Ability2"	"check_Oda_is_dead"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"30"
+		"ArmorPhysical"	"20"
 		"MagicalResistance"	"50"
 		// Attack
 		// ----------------------------------------------------------------
@@ -13028,7 +13028,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2800"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -13111,7 +13111,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2800"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -13194,7 +13194,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2800"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -13277,7 +13277,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2800"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -13362,7 +13362,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2800"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -13445,7 +13445,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2800"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -13528,7 +13528,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2800"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -13613,7 +13613,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2800"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -13696,7 +13696,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2800"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------
@@ -13779,7 +13779,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"2800"
+		"StatusHealth"	"2400"
 		"StatusHealthRegen"	"1"
 		// Vision
 		// ----------------------------------------------------------------

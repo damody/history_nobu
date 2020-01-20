@@ -100,7 +100,10 @@ function ShuaGuai( )
 	Timers:CreateTimer(start_time, function()
 		--強化箭塔npc_dota_building
 		local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
-		--armor = armor - 0.6
+		armor = armor - 1
+		if armor < 15 then
+			armor = 15
+		end
 		for k, ent in pairs(allBuildings) do
 		    if ent:IsTower() then
 		    	if no_buff[ent:GetUnitName()] == nil then

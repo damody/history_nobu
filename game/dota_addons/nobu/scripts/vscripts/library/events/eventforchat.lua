@@ -346,13 +346,13 @@ local function chat_of_test(keys)
 		local dis = tonumber(string.match(s, '%d+'))
 			GameRules: GetGameModeEntity() :SetCameraDistanceOverride(dis)
 		end
-		if string.match(s,"sumarc") then
+		if string.match(s,"sarc") then
 			local randomkey = RandomInt(1,8)
 			unit_name = "com_archer_oda_" .. randomkey
 			local unit = CreateUnitByName(unit_name, caster:GetAbsOrigin() , true, nil, nil, DOTA_TEAM_BADGUYS)
 			unit:AddAbility("set_level_1"):SetLevel(1)	
-			local hp = unit:GetMaxHealth()
-			unit:SetBaseMaxHealth(hp+A_count * 1)
+			local hp = unit:GetMaxHealth() * 100
+			unit:SetBaseMaxHealth(hp+A_count * 8)
 			local dmgmax = unit:GetBaseDamageMax()
 			local dmgmin = unit:GetBaseDamageMin()
 			unit:SetBaseDamageMax(dmgmax+A_count*2 + 120)
@@ -360,7 +360,7 @@ local function chat_of_test(keys)
 			local armor = unit:GetPhysicalArmorBaseValue()
 			unit:SetPhysicalArmorBaseValue(armor+A_count*0.05 + 1)
 		end
-		if string.match(s,"suminf") then
+		if string.match(s,"sinf") then
 			local randomkey = RandomInt(1,8)
 			unit_name = "com_infantry_oda_" .. randomkey
 			local unit = CreateUnitByName(unit_name, caster:GetAbsOrigin() , true, nil, nil, DOTA_TEAM_BADGUYS)
