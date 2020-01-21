@@ -277,18 +277,37 @@ _G.Nobu_pos2 = Entities:FindByName(nil,"chubinluxian_location_of_nobu_top"):GetA
 _G.Nobu_pos3 = Entities:FindByName(nil,"chubinluxian_location_of_nobu_middle"):GetAbsOrigin()
 end)
 
+function reset_pos(keys)
+	local caster = keys.caster
+	caster.pos = caster:GetAbsOrigin()
+end
+
 function patrol_Unified(keys)
 	local caster = keys.caster
 	local pos = caster:GetAbsOrigin()
 	if caster.isgo == nil then
 		caster.isgo = 0
 	end
-	if caster.isgo == 1 or caster.isgo == 3 then
+	if (VectorDistance(_G.Unified_pos1, caster:GetAbsOrigin()) > 1500) and
+		(VectorDistance(_G.Unified_pos2, caster:GetAbsOrigin()) > 1500) and
+		(VectorDistance(_G.Unified_pos3, caster:GetAbsOrigin()) > 1500) then
+		print("toofar")
+		local order = {
+	 		UnitIndex = caster:entindex(), 
+	 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+	 		Position = caster.pos, --Optional.  Only used when targeting the ground
+	 		Queue = 0 --Optional.  Used for queueing up abilities
+	 	}
+		ExecuteOrderFromTable(order)
+	elseif caster.isgo == 1 or caster.isgo == 3 then
 		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Unified_pos3 })
+		caster.isgo = caster.isgo + 1
 	elseif caster.isgo == 0 then
 		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Unified_pos1 })	
+		caster.isgo = caster.isgo + 1
 	elseif caster.isgo == 2 then
 		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Unified_pos2 })
+		caster.isgo = caster.isgo + 1
 	end
 	caster.isgo = (caster.isgo + 1)%4
 end
@@ -299,14 +318,28 @@ function patrol_Nobu(keys)
 	if caster.isgo == nil then
 		caster.isgo = 0
 	end
-	if caster.isgo == 1 or caster.isgo == 3 then
+	if (VectorDistance(_G.Nobu_pos1, caster:GetAbsOrigin()) > 1500) and
+		(VectorDistance(_G.Nobu_pos2, caster:GetAbsOrigin()) > 1500) and
+		(VectorDistance(_G.Nobu_pos3, caster:GetAbsOrigin()) > 1500) then
+		print("toofar")
+		local order = {
+	 		UnitIndex = caster:entindex(), 
+	 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+	 		Position = caster.pos, --Optional.  Only used when targeting the ground
+	 		Queue = 0 --Optional.  Used for queueing up abilities
+	 	}
+		ExecuteOrderFromTable(order)
+	elseif caster.isgo == 1 or caster.isgo == 3 then
 		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Nobu_pos3 })
+		caster.isgo = caster.isgo + 1
 	elseif caster.isgo == 0 then
 		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Nobu_pos1 })	
+		caster.isgo = caster.isgo + 1
 	elseif caster.isgo == 2 then
 		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Nobu_pos2 })
+		caster.isgo = caster.isgo + 1
 	end
-	caster.isgo = (caster.isgo + 1)%4
+	caster.isgo = caster.isgo % 4
 end
 
 function attack_building(keys)
