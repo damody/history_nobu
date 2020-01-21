@@ -333,6 +333,14 @@
 				}
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"life"	"1000 1200 1400 1600"
+			}
+		}
 	}
 
 	// 望月千代女[忍法密傳．獸靈同化]

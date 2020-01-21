@@ -201,7 +201,8 @@ function B16_AbilityAdjust( keys )
 		-- Todo: 調整月月能力
 		local caster_level = caster:GetLevel()
 		moonMoon:FindModifierByName("modifier_B16D_MoonMoon"):SetStackCount(caster_level)
-		local hp = 800 + keys.ability:GetLevel()*200
+		--local hp = 800 + keys.ability:GetLevel()*200
+		local hp = keys.ability:GetSpecialValueFor("life")
 		moonMoon:SetBaseMaxHealth(hp)
 	end
 end
