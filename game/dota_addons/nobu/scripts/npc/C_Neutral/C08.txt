@@ -345,7 +345,7 @@
 		"BaseClass"				"ability_datadriven"
 		"AbilityTextureName"	"custom/C08/c08t"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		// Unit Targeting
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -378,6 +378,14 @@
 		{
 			"modifier_C08T_bleeding"
 			{
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C08.lua"
+						"Function"		"modifier_C08T_OnCreate"
+					}
+				}
 				"Duration"	"%duration"
 				"OnIntervalThink"
 				{
@@ -409,6 +417,26 @@
 						"Function"		"modifier_C08T_OnDestroy"
 					}
 				}
+	
+			}
+			"modifier_atk_bouns"
+			{
+				"Passive"	"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%atk_bonus"
+				}
+			}
+			"modifier_atk_offset"
+			{
+				"Passive"	"1"
+				"IsPurgable"	"0"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%atk_offset"
+				}
 			}
 		}
 		// Special
@@ -424,6 +452,21 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"damage"	"250 360 480"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"attributes_bonus"	"3"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"atk_bonus"	"5"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"atk_offset"	"-5"
 			}
 		}
 		// Stats

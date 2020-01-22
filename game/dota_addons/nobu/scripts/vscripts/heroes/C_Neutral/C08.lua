@@ -9,6 +9,11 @@ LinkLuaModifier( "C08R_hook_back", "scripts/vscripts/heroes/C_Neutral/C08.lua",L
 LinkLuaModifier("modifier_C08D_old", "heroes/modifier_C08D_old.lua", LUA_MODIFIER_MOTION_NONE)
 
 
+local attributes_stack = 0		--紀錄+能力值層數
+local atk_stack = 0				--紀錄+攻擊層數
+local totalDamage = 0			--紀錄吞下後的總傷害
+local bleedingDamage = 0		--紀錄流血傷害
+
 function C08D_OnSpellStart( keys )
 	local caster = keys.caster
 	local ability = keys.ability
@@ -98,10 +103,10 @@ end
 
 
 function C08W_OnSpellStart( keys )
-
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
+	bleedingDamage = ability:GetSpecialValueFor("damage")
 	StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", target )
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_C08W_bleeding",{})
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_C08W_slience",{})
@@ -403,7 +408,11 @@ end
 function C08R_modifier:GetAttributes()
 	return MODIFIER_ATTRIBUTE_MULTIPLE
 end
-
+function C08T_OnCreate(keys)
+	local caster = keys.caster
+	local modifier_atk_bouns = caster:FindModifierByName("modifier_atk_bouns")
+	modifier_atk_bouns:SetStackCount(atk_stack)
+end
 function C08T_OnSpellStart( keys )
 
 	local caster = keys.caster
@@ -441,6 +450,19 @@ function C08T_OnSpellStart( keys )
 			target:RemoveNoDraw()
 		end)
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_C08T_bleeding",{})
+		local modifier_C08W_bleeding = target:FindModifierByName("modifier_C08W_bleeding")
+		if modifier_C08W_bleeding then
+			local remainTime = modifier_C08W_bleeding:GetRemainingTime()
+			caster:ModifyStrength( ability:GetSpecialValueFor("attributes_bonus") )
+			caster:ModifyAgility( ability:GetSpecialValueFor("attributes_bonus") )
+			caster:ModifyIntellect( ability:GetSpecialValueFor("attributes_bonus") )
+			caster:CalculateStatBonus()
+			if remainTime > 4 then
+				totalDamage = totalDamage + bleedingDamage * 4
+			else
+				totalDamage = totalDamage + bleedingDamage * remainTime
+			end
+		end
 	else
 		caster:FindAbilityByName("C08T"):EndCooldown()
 	end
@@ -472,9 +494,21 @@ end
 function modifier_C08T_OnDestroy( keys )
 	local caster = keys.caster
 	local target = keys.target
+	local ability = keys.ability
+	local abilityDamage = ability:GetSpecialValueFor("damage") * 4
+	local modifier_atk_bouns = caster:FindModifierByName("modifier_atk_bouns")
+	totalDamage = totalDamage + abilityDamage
 	target:RemoveNoDraw()
+	AMHC:Damage(caster,target,totalDamage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+	if caster:IsAlive() and (not target:IsAlive()) then
+		atk_stack = atk_stack + 1
+		modifier_atk_bouns:SetStackCount(atk_stack)
+		if atk_stack > 0 then
+			caster:RemoveModifierByName("modifier_atk_offset")
+		end
+	end
+	totalDamage = 0
 end
-
 
 c08d_lock=false
 function modifier_C08D_old_duge_OnTakeDamage( event )
