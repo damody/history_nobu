@@ -6890,7 +6890,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -6941,7 +6941,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -6992,7 +6992,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7044,7 +7044,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7096,7 +7096,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7148,7 +7148,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7200,7 +7200,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7252,7 +7252,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7304,7 +7304,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7356,7 +7356,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7407,7 +7407,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7458,7 +7458,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7510,7 +7510,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7562,7 +7562,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7614,7 +7614,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7666,7 +7666,7 @@
 		"Ability1"	""
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"0"
+		"MagicalResistance"	"30"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
