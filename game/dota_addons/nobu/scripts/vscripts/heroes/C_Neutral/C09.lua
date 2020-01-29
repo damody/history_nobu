@@ -147,7 +147,7 @@ function C09T_OnSpellStart( keys )
 	local ability = keys.ability
 	local radius = ability:GetSpecialValueFor("C09T_radius")
 	local debuffDuration = ability:GetSpecialValueFor("C09T_duration")
-
+	local stunDuration = ability:GetSpecialValueFor("C09T_stun_duration")
 	local eff1 = ParticleManager:CreateParticle("particles/b05t3/b05t3_j0.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(eff1, 0, caster:GetAbsOrigin())
 
@@ -156,7 +156,28 @@ function C09T_OnSpellStart( keys )
 	for _,unit in ipairs(units) do
 		if _G.EXCLUDE_TARGET_NAME[unit:GetUnitName()] == nil then
 			ability:ApplyDataDrivenModifier( caster , unit , "modifier_C09T_debuff" , { duration = debuffDuration } )
-		end
+			if unit:FindModifierByName("modifier_C09W_debuff") then
+				ability:ApplyDataDrivenModifier( caster , unit , "modifier_C09T_debuff2" , { duration = stunDuration })
+			end
+		end 
+	end
+end
+function C09T_Passive( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
+	local radius = ability:GetSpecialValueFor("C09T_radius")
+	local debuffDuration = ability:GetSpecialValueFor("C09T_duration")
+	local stunDuration = ability:GetSpecialValueFor("C09T_stun_duration")
+	local units = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, 
+		ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
+	for _,unit in ipairs(units) do
+		if _G.EXCLUDE_TARGET_NAME[unit:GetUnitName()] == nil then
+			local modifier = unit:FindModifierByName("modifier_C09W_debuff")
+			if modifier then
+				ability:ApplyDataDrivenModifier( caster , unit , "modifier_C09T_debuff3" , { duration = modifier:GetRemainingTime()})
+			end
+		end 
 	end
 end
 

@@ -108,11 +108,9 @@
 						"EffectAttachType"	"follow_hitloc"
 						"Target"			"TARGET"
 					}
-
 				}
 			}
 		}
-
 		"AbilitySpecial"
 		{
 			"01"
@@ -295,7 +293,14 @@
 		"AbilityCooldown"           				"100 90 80"
 		"AbilityManaCost"           				"150"
 		"AbilityCastRange"							"800"
-		
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"scripts/vscripts/heroes/C_Neutral/C09.lua"
+				"Function"			"C09T_OnUpgrade"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -313,6 +318,20 @@
 
 		"Modifiers"
 		{
+			"modifier_C09T_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"	"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C09.lua"
+						"Function"	"C09T_Passive"
+					}
+				}
+			}
 			"modifier_C09T_debuff"
 			{
 				"IsDebuff"			"1"
@@ -323,6 +342,29 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%C09T_armor"
 				}
 			}
+			"modifier_C09T_debuff2"
+			{
+				"precache"
+				{
+					"soundfile"	"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+					"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				}
+				"IsDebuff"			"1"
+				"Duration"			"1"
+				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_C09T_debuff3"
+			{
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%C09T_passive"
+				}
+			}
 		}
 
 		"AbilitySpecial"
@@ -330,7 +372,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"C09T_armor"		"-40 -58 -66"
+				"C09T_armor"		"-30 -38 -46"
 			}
 			"02"
 			{
@@ -341,6 +383,16 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"C09T_radius"		"800"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"C09T_stun_duration"	"1"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"C09T_passive"			"-9 -12 -15"
 			}
 		}
 	}
