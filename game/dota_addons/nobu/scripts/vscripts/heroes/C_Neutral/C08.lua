@@ -11,8 +11,6 @@ LinkLuaModifier("modifier_C08D_old", "heroes/modifier_C08D_old.lua", LUA_MODIFIE
 
 local attributes_stack = 0		--紀錄+能力值層數
 local atk_stack = 0				--紀錄+攻擊層數
-local totalDamage = 0			--紀錄吞下後的總傷害
-local bleedingDamage = 0		--紀錄流血傷害
 
 function C08D_OnSpellStart( keys )
 	local caster = keys.caster
@@ -414,10 +412,11 @@ function C08T_OnCreate(keys)
 	modifier_atk_bouns:SetStackCount(atk_stack)
 end
 function C08T_OnSpellStart( keys )
-
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
+	local damage = ability:GetSpecialValueFor("damage")
+	local modifier_atk_bouns = caster:FindModifierByName("modifier_atk_bouns")
 	local duration = ability:GetSpecialValueFor("duration")
 	if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
 		caster:EmitSound("lion_manadrain")
@@ -449,7 +448,6 @@ function C08T_OnSpellStart( keys )
 			caster:StopSound("lion_manadrain")
 			target:RemoveNoDraw()
 		end)
-		ability:ApplyDataDrivenModifier(caster,target,"modifier_C08T_bleeding",{})
 		local modifier_C08W_bleeding = target:FindModifierByName("modifier_C08W_bleeding")
 		if modifier_C08W_bleeding then
 			local remainTime = modifier_C08W_bleeding:GetRemainingTime()
@@ -457,12 +455,16 @@ function C08T_OnSpellStart( keys )
 			caster:ModifyAgility( ability:GetSpecialValueFor("attributes_bonus") )
 			caster:ModifyIntellect( ability:GetSpecialValueFor("attributes_bonus") )
 			caster:CalculateStatBonus()
-			if remainTime > 4 then
-				totalDamage = totalDamage + bleedingDamage * 4
-			else
-				totalDamage = totalDamage + bleedingDamage * remainTime
+		end
+		AMHC:Damage(caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		if caster:IsAlive() and (not target:IsAlive()) then
+			atk_stack = atk_stack + 1
+			modifier_atk_bouns:SetStackCount(atk_stack)
+			if atk_stack > 0 then
+				caster:RemoveModifierByName("modifier_atk_offset")
 			end
 		end
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_C08T_bleeding",{})
 	else
 		caster:FindAbilityByName("C08T"):EndCooldown()
 	end
@@ -474,8 +476,8 @@ function modifier_C08T_bleeding_OnIntervalThink( keys )
 	local ability = keys.ability
 	local abilityDamage = ability:GetSpecialValueFor("damage")
 	local abilityDamageType = ability:GetAbilityDamageType()
-	caster:Heal(abilityDamage,caster)
-	StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", caster )	
+	caster:Heal(abilityDamage/4,caster)
+	--StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", caster )	
 	if (caster:GetAbsOrigin()-caster.last_pos):Length2D() > 2000 or not caster:IsAlive() then
 		target:RemoveModifierByName("modifier_C08T_bleeding")
 		FindClearSpaceForUnit(target,caster.last_pos,false)
@@ -485,29 +487,15 @@ function modifier_C08T_bleeding_OnIntervalThink( keys )
 		if caster.C08T_IsMagicImmune == false then
 			
 		end
-		AMHC:Damage(caster.donkey,target,abilityDamage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		--AMHC:Damage(caster.donkey,target,abilityDamage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 	end
 	caster.last_pos = caster:GetAbsOrigin()
 end
 
 
 function modifier_C08T_OnDestroy( keys )
-	local caster = keys.caster
 	local target = keys.target
-	local ability = keys.ability
-	local abilityDamage = ability:GetSpecialValueFor("damage") * 4
-	local modifier_atk_bouns = caster:FindModifierByName("modifier_atk_bouns")
-	totalDamage = totalDamage + abilityDamage
 	target:RemoveNoDraw()
-	AMHC:Damage(caster,target,totalDamage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-	if caster:IsAlive() and (not target:IsAlive()) then
-		atk_stack = atk_stack + 1
-		modifier_atk_bouns:SetStackCount(atk_stack)
-		if atk_stack > 0 then
-			caster:RemoveModifierByName("modifier_atk_offset")
-		end
-	end
-	totalDamage = 0
 end
 
 c08d_lock=false
