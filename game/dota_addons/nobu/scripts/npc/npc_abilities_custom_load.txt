@@ -1232,13 +1232,18 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"ThinkInterval"  "15"
+				"ThinkInterval"  "9"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
 						"Function"	"patrol_Unified"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
+						"Function"	"reset_pos"
 					}
 				}
 			}
@@ -1262,6 +1267,11 @@
 					{
 						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
 						"Function"	"patrol_Nobu"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
+						"Function"	"reset_pos"
 					}
 				}
 			}

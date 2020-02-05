@@ -151,6 +151,14 @@
 				"Function"	"C07E_END"
 			}
 		}
+		"OnChannelSucceeded"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C07.lua"
+				"Function"	"C07E_Succeeded"
+			}
+		}
 		"OnChannelInterrupted"
 		{
 			"RemoveModifier"
@@ -210,6 +218,13 @@
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+			"modifier_C07E3"
+			{
+				"Duration"			"1"
+				"IsPurgable"		"0"
+				"IsDebuff"			"1"
+				"IsHidden"			"1"
 			}
 		}
 		"AbilitySpecial"
@@ -373,7 +388,7 @@
 					{
 						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C07.lua"
 						"Function"	"C07_Effect"
-						"C07_dmg"	"%AbilityDamage"
+						"C07_dmg"	"%abilityDamage"
 					}
 				}
 				"ThinkInterval"	"%tick"
@@ -389,6 +404,20 @@
 				"EffectAttachType"	"follow_hitloc"
 				"Duration"	"3"
 				"IsDebuff"	"1"
+			}
+			"modifier_C07T_3"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"	"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C07.lua"
+						"Function"	"C07T_Effect"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -418,8 +447,13 @@
 				"var_type"	"FIELD_FLOAT"
 				"duration"	"15 17 19"
 			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"abilityDamage"	"250 370 500"
+			}
+
 		}
-		"AbilityDamage"	"250 370 500"
 	}
 	// 立花道雪 禦魔之盾
 	"C07D"

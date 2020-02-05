@@ -33,7 +33,16 @@ function C07E( keys )
         end)
 	
 end
-
+function C07E_Succeeded( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
+	local duration = ability:GetSpecialValueFor("duration")
+	if(duration == 4) then
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_C07E3",{})
+		caster.C07E2_target = target
+	end
+end
 
 function C07E_SE( keys )
 	local caster = keys.caster
@@ -207,6 +216,31 @@ end
 --particles/07t/c07t.vpcf
 --particles/rain_fx/rain_storm.vpcf
 --particles/units/heroes/hero_razor/razor_rain_storm.vpcf
+
+function C07T_Effect( keys )
+	local ability = keys.ability
+	local caster = keys.caster	
+	local dummy = keys.target
+	local target = caster.C07E2_target
+	local point = dummy:GetAbsOrigin()
+	local point2
+	local height = 700
+	local dmg = ability:GetSpecialValueFor("abilityDamage")
+	if target ~= nil and target:FindModifierByName("modifier_C07E3") then
+		point2 = target:GetAbsOrigin()
+		StartSoundEvent( "Hero_Leshrac.Lightning_Storm", dummy )
+		StartSoundEvent( "Hero_Leshrac.Lightning_Storm", target )
+		local particle = ParticleManager:CreateParticle("particles/b05e/b05e.vpcf", PATTACH_ABSORIGIN , target)
+		-- Raise 1000 if you increase the camera height above 1000
+		ParticleManager:SetParticleControl(particle, 0, point + Vector(0,0,height))
+		ParticleManager:SetParticleControl(particle, 1, Vector(point2.x,point2.y,point2.z + target:GetBoundingMaxs().z ))
+		ParticleManager:SetParticleControl(particle, 2, Vector(point2.x,point2.y,point2.z + target:GetBoundingMaxs().z ))
+		AMHC:Damage(caster,target,dmg,AMHC:DamageType("DAMAGE_TYPE_PHYSICAL"))
+		target:RemoveModifierByName("modifier_C07E3")
+		caster.C07E2_target = nil
+		target = nil
+	end
+end
 
 function C07_Effect( keys )
 	local caster = keys.caster
