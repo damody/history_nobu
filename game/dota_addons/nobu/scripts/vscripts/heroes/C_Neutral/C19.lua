@@ -163,7 +163,31 @@ function C19E_old( keys )
 		end
 	end)
 end
-
+function C19T_knockback( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local radius = ability:GetSpecialValueFor("radius")
+	local vec = caster:GetAbsOrigin()
+	local point = caster:GetAbsOrigin()
+	local units = FindUnitsInRadius(caster:GetTeamNumber(),
+		caster:GetAbsOrigin(),
+		nil,
+		radius,
+		ability:GetAbilityTargetTeam(),
+		ability:GetAbilityTargetType(),
+		ability:GetAbilityTargetFlags(),
+		FIND_ANY_ORDER,
+		false
+	)
+	for i,unit in ipairs(units) do
+		local diff = unit:GetAbsOrigin() - point
+		diff.z = 0
+		local dir = diff:Normalized()
+		Physics:Unit(unit)
+		unit:SetPhysicsVelocity(Vector(0,0,-9.8))
+		unit:AddPhysicsVelocity(dir*500)
+	end
+end
 function C19T_OnIntervalThink( keys )
 	local caster = keys.caster
 	local ability = keys.ability

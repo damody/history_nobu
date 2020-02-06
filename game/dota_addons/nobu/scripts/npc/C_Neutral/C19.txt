@@ -500,13 +500,21 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"enchantress_enchant"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
-		"OnUpgrade"
+		"AbilityCastRange"							"300"
+		"OnSpellStart"
 		{
-			
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_C19T_knockback"
+				"Target" 		"CASTER"
+				"Duration"		"%C19T_duration"
+			}
 		}
 		"Modifiers"
 		{
@@ -531,7 +539,7 @@
 			{
 				"IsHidden"	"0"
 				"Passive"	"1"
-				"Priority" "MODIFIER_PRIORITY_ULTRA"
+				//"Priority" "MODIFIER_PRIORITY_ULTRA"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"%bonus_evasion"	//閃避
@@ -545,6 +553,23 @@
 					}
 				}
 			}
+			"modifier_C19T_knockback"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"IsPurgable"		"0"
+				"EffectName"		"particles/a11t2/a11t3.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C19.lua"
+						"Function"		"C19T_knockback"
+					}
+				}
+			}
 		}
 		// Special
 		// -------------------------------------------------------------------------------------------------------------
@@ -553,12 +578,22 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"bonus_evasion"	"30 40 50"
+				"bonus_evasion"	"30 35 40"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"bonus_magic_def"	"40 50 60"
+				"bonus_magic_def"	"30 35 40"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"		"300"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"C19T_duration"	"5"
 			}
 		}
 	}

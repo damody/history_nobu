@@ -10,7 +10,10 @@ function EventForSpellTarget( filterTable )
 	local target = EntIndexToHScript(f.entindex_target)
 	local unitname = caster:GetUnitName()
 	local targetname = target:GetUnitName()
-	
+	if target:FindModifierByName("modifier_C19T_knockback") then
+		return false
+	end
+	return true
 end
 
 --已知BUG:沒辦法捕捉非英雄單位order事件
@@ -19,6 +22,9 @@ function EventForAttackTarget( filterTable )
 	local caster = EntIndexToHScript(f.units["0"])
 	local ability = EntIndexToHScript(f.entindex_ability)
 	local target = EntIndexToHScript( f.entindex_target )
+	if target:FindModifierByName("modifier_C19T_knockback") then
+		return false
+	end
 	if not IsValidEntity(caster) or not IsValidEntity(target) then return false end
 	if caster:GetTeamNumber() == target:GetTeamNumber() then
 		return false
@@ -233,6 +239,7 @@ function spell_ability ( filterTable )
 		-- [   VScript             ]:    issuer_player_id_const          	= 0 (number)
 		-- [   VScript             ]: }
 	elseif ordertype == DOTA_UNIT_ORDER_CAST_TARGET then --6
+		return EventForSpellTarget(filterTable)
 		-- [   VScript             ]: {
 		-- [   VScript             ]:    entindex_ability                	= 453 (number)
 		-- [   VScript             ]:    sequence_number_const           	= 34 (number)
