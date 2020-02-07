@@ -381,7 +381,7 @@ function B05T( event )
 	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
    --添加馬甲技能
 	dummy:AddAbility("majia"):SetLevel(1)
-	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=10})
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
 
 	--SE1
 	-- Checks if the target has been set yet
@@ -460,4 +460,22 @@ function B05T( event )
 	-- 								return 0.2
 	-- 							end
 	-- 						end)	
+end
+function B05T_Prepare( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local thinkness = keys.thinkness or 10
+	local point = ability:GetCursorPosition()
+	local teamonly 	= keys.teamonly
+	local ignore_fog 	= keys.ignore_fog
+	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	aura_radius = ability:GetSpecialValueFor("radius")
+	local spell_hint_table = {
+		duration   = 1.5,		-- 持續時間
+		radius     = aura_radius,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	local particle2=ParticleManager:CreateParticle("particles/b05t5_test/b05t_preparer.vpcf",PATTACH_WORLDORIGIN,nil)
+	ParticleManager:SetParticleControl(particle2,0,point)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
 end
