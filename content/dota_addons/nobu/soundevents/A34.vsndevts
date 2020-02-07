@@ -1,0 +1,409 @@
+
+"A34D.vo1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_vo_switch"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"        "sounds/a34/a34_d_01.vsnd"
+							"value0"        "sounds/a34/a34_d_02.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"2.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+        }
+    }
+}
+
+"A34F.vo1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_vo_switch"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"        "sounds/a34/a34_f_01.vsnd"
+							"value0"        "sounds/a34/a34_f_02.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"2.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+        }
+    }
+}
+
+"A34W.vo1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_vo_switch"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"        "sounds/a34/a34_w_01.vsnd"
+							"value0"        "sounds/a34/a34_w_02.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"2.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+        }
+    }
+}
+
+"A34E.vo1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_vo_switch"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"        "sounds/a34/a34_e_01.vsnd"
+							"value0"        "sounds/a34/a34_e_02.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"2.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+        }
+    }
+}
+
+"A34R.vo1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_vo_switch"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"        "sounds/a34/a34_r_01.vsnd"
+							"value0"        "sounds/a34/a34_r_02.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"2.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+        }
+    }
+}
+
+"A34T.vo1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_vo_switch"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"        "sounds/a34/a34_t_01.vsnd"
+							"value0"        "sounds/a34/a34_t_02.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"2.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+        }
+    }
+}
+
+
+"A34D_old.vo1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_vo_switch"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"        "sounds/a34/a34_d_01.vsnd"
+							"value0"        "sounds/a34/a34_d_02.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"2.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+        }
+    }
+}
+
+"A34F_old.vo1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_vo_switch"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"        "sounds/a34/a34_f_01.vsnd"
+							"value0"        "sounds/a34/a34_f_02.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"2.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+        }
+    }
+}
+
+"A34W_old.vo1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_vo_switch"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"        "sounds/a34/a34_w_01.vsnd"
+							"value0"        "sounds/a34/a34_w_02.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"2.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+        }
+    }
+}
+
+"A34E_old.vo1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_vo_switch"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"        "sounds/a34/a34_e_01.vsnd"
+							"value0"        "sounds/a34/a34_e_02.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"2.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+        }
+    }
+}
+
+"A34R_old.vo1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_vo_switch"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"        "sounds/a34/a34_r_01.vsnd"
+							"value0"        "sounds/a34/a34_r_02.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"2.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+        }
+    }
+}
+
+"A34T_old.vo1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_update_vo_switch"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"        "sounds/a34/a34_t_01.vsnd"
+							"value0"        "sounds/a34/a34_t_02.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"2.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+        }
+    }
+}
