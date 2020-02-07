@@ -405,21 +405,21 @@ function B05T( event )
 								
 								Timers:CreateTimer(0.2,function()
 									for i=1,2 do
-									local particle2=ParticleManager:CreateParticle("particles/b05t4_test1/b05t4_test1.vpcf",PATTACH_WORLDORIGIN,dummy)
+									local particle2=ParticleManager:CreateParticle("particles/b05t4_test1/b05t4_test1.vpcf",PATTACH_WORLDORIGIN,nil)
 									ParticleManager:SetParticleControl(particle2,0,point)
 									ParticleManager:SetParticleControl(particle2,1,Vector(50,50,50))
 									ParticleManager:SetParticleControl(particle2,3,point)
 									end
 
 									for i=1,2 do
-									local particle2=ParticleManager:CreateParticle("particles/b05t4_test1/b05t4_test1.vpcf",PATTACH_WORLDORIGIN,dummy)
+									local particle2=ParticleManager:CreateParticle("particles/b05t4_test1/b05t4_test1.vpcf",PATTACH_WORLDORIGIN,nil)
 									ParticleManager:SetParticleControl(particle2,0,point+Vector(0,0,250))
 									ParticleManager:SetParticleControl(particle2,1,Vector(50,50,50))
 									ParticleManager:SetParticleControl(particle2,3,point)
 									end
 
 									for i=1,2 do
-									local particle2=ParticleManager:CreateParticle("particles/b05t4_test1/b05t4_test1.vpcf",PATTACH_WORLDORIGIN,dummy)
+									local particle2=ParticleManager:CreateParticle("particles/b05t4_test1/b05t4_test1.vpcf",PATTACH_WORLDORIGIN,nil)
 									ParticleManager:SetParticleControl(particle2,0,point+Vector(0,0,500))
 									ParticleManager:SetParticleControl(particle2,1,Vector(50,50,50))
 									ParticleManager:SetParticleControl(particle2,3,point)

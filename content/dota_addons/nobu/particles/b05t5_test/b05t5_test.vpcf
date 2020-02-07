@@ -59,7 +59,7 @@
 			m_flParticlesPerOrbit = 64.0
 			m_bEvenDistribution = true
 			m_flInitialSpeedMax = 900.0
-			m_flInitialSpeedMin = 880.0
+			m_flInitialSpeedMin = 900.0
 			m_flInitialRadius = 800.0
 		},
 		{
@@ -219,4 +219,5 @@
 			]
 		},
 	]
+	m_bInfiniteBounds = true
 }
