@@ -337,7 +337,7 @@
 		"HotKeyOverride"	"E"
 		"MaxLevel"	"4"
 		"RequiredLevel"	"1"
-		"AbilityCastPoint" "0.35" //stun
+		"AbilityCastPoint" "0.3" //stun
 		"AbilityCooldown"	"20"
 		"AbilityManaCost"	"200 240 280 300"
 		"AbilityCastRange"	"1800"

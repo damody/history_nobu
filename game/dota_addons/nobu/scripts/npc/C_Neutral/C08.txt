@@ -137,7 +137,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityCastPoint"          				"0.35"
+		"AbilityCastPoint"          				"0.15"
 		"AbilityCooldown"	"7"
 		"AbilityManaCost"	"120 135 150 165"
 		// Stats
@@ -352,7 +352,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityCastPoint"          				"0.35"
+		"AbilityCastPoint"          				"0.3"
 		"AbilityCooldown"	"110 100 90"
 		"AbilityManaCost"	"165 195 225"
 		// Stats

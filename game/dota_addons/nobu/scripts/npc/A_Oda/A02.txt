@@ -166,7 +166,7 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCastPoint"	"0.2"
+		"AbilityCastPoint"	"0.1"
 		"AbilityCooldown"				"15 14 13 12"
 		"AbilityManaCost"				"130 150 170 190"
 		

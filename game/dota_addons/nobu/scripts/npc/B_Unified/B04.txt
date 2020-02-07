@@ -174,7 +174,7 @@
 		"AbilityDamage"					"150 250 350 450"
 
 		"AbilityCastRange"				"700"
-		"AbilityCastPoint" "0.35" //stun
+		"AbilityCastPoint" "0.3" //stun
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AnimationPlaybackRate"			"2"
 

@@ -23,7 +23,7 @@
 		"AbilityCooldown"	"19 16 13 10"
 		"AbilityManaCost"	"120 140 160 180"
 		"AbilityCastRange"				"500"
-		"AbilityCastPoint"	"0.35"	//move
+		"AbilityCastPoint"	"0.25"	//move
 
 		
 		"precache"
@@ -262,7 +262,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"AbilityCastPoint"          				"0.35"
+		"AbilityCastPoint"          "0.25"
 		"AbilityCooldown"	"10 9 8 7"
 		"AOERadius"	"%radius"
 		"AbilityManaCost"	"100 120 140 160"

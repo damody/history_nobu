@@ -22,7 +22,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityCooldown"	"13"
 		"AbilityManaCost"	"80"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.25"
 		"AbilityCastRange"				"600"
 		"precache"
 		{

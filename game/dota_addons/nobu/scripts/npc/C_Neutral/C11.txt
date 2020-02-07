@@ -248,7 +248,7 @@
 		"AbilityDamage"					"150 250 350 450"
 
 		"AbilityCastRange"				"700"
-		"AbilityCastPoint" "0.35" //stun
+		"AbilityCastPoint" 				"0.3" //stun
 
 		"AoERadius"						"450"
 
@@ -327,7 +327,7 @@
 		"MaxLevel"	"3"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.3"
 		"AbilityCastRange"	"700"
 		"AbilityCooldown"	"120 100 80"
 		"AbilitySpecial"

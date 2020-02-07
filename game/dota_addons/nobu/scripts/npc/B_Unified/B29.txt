@@ -33,7 +33,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityCastPoint" "0.35" //stun
+		"AbilityCastPoint" "0.3" //stun
 		"AbilityCooldown"				"14"
 		"AbilityManaCost"				"100 120 140 160"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
@@ -364,7 +364,7 @@
 		"MaxLevel"	"3"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
-		"AbilityCastPoint"	"0.35"
+		"AbilityCastPoint"	"0.3"
 		"AbilityCooldown"	"100"
 		"AbilityManaCost"	"200 225 250"
 		"AbilityCastRange"	"1100"
