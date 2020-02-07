@@ -309,7 +309,7 @@ function patrol_Unified(keys)
 		ExecuteOrderFromTable( { UnitIndex = caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = _G.Unified_pos2 })
 		caster.isgo = caster.isgo + 1
 	end
-	caster.isgo = (caster.isgo + 1)%4
+	caster.isgo = caster.isgo%4
 end
 
 function patrol_Nobu(keys)
