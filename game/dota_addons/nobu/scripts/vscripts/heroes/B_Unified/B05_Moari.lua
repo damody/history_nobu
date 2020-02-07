@@ -475,7 +475,7 @@ function B05T_Prepare( keys )
 		radius     = aura_radius,		-- 半徑
 	}
 	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
-	local particle2=ParticleManager:CreateParticle("particles/b05t5_test/b05t_preparer.vpcf",PATTACH_WORLDORIGIN,nil)
+	local particle2=ParticleManager:CreateParticle("particles/b05t5_test/b05t5_test.vpcf",PATTACH_WORLDORIGIN,nil)
 	ParticleManager:SetParticleControl(particle2,0,point)
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
 end
