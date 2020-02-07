@@ -252,7 +252,26 @@ function B25E_old( keys )
 end
 
 
-
+function B25T_On_Phase_Start( keys )
+	local ability = keys.ability
+	local caster = keys.caster
+	local point = ability:GetCursorPosition()
+	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local radius = ability:GetSpecialValueFor("radius")
+	local duration = ability:GetSpecialValueFor("duration") + 0.5
+	local spell_hint_table = {
+		duration   = duration,		-- 持續時間
+		radius     = radius,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	local particle=ParticleManager:CreateParticle("particles/b25t/b25t_fiendsgrip_ground_prepare.vpcf",PATTACH_WORLDORIGIN,nil)
+	ParticleManager:SetParticleControl(particle,0,point)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=2})
+	Timers:CreateTimer(1, function()
+		ParticleManager:DestroyParticle(particle,false)
+		return nil
+	end)
+end
 function B25T_start( keys )
 	local ability = keys.ability
 	local caster = keys.caster
@@ -277,7 +296,7 @@ function B25T_start( keys )
 	-- B25T_UNIT[id] = dummy
 
 	local dummyp = CreateUnitByName("npc_dummy_unit",target,false,nil,nil,caster:GetTeamNumber())
-	dummyp:AddNewModifier(dummy,nil,"modifier_kill",{duration=20})
+	dummyp:AddNewModifier(dummy,nil,"modifier_kill",{duration=6})
 	dummyp:SetOwner(caster)
 	dummyp:AddAbility("majia"):SetLevel(1)
 	-- -- Get random point
@@ -288,7 +307,7 @@ function B25T_start( keys )
 	tradius = 10
 	local disstep = 80
 	local loopnum = 5
-	local particle=ParticleManager:CreateParticle("particles/b15t/b15t_fiendsgrip_ground.vpcf",PATTACH_WORLDORIGIN,dummyp)
+	local particle=ParticleManager:CreateParticle("particles/b25t/b25t_fineds_ground_test.vpcf",PATTACH_WORLDORIGIN,nil)
 	ParticleManager:SetParticleControl(particle,0,target)
 	table.insert(caster.allparticle, particle)
 	Timers:CreateTimer(0, function()
@@ -299,7 +318,7 @@ function B25T_start( keys )
 			tradius = tradius + disstep
 			for i = 1, loopnum do
 				local point = target + RandomVector(tradius)
-				local particle=ParticleManager:CreateParticle("particles/b25t/b25t_fiends_grip.vpcf",PATTACH_WORLDORIGIN,dummyp)
+				local particle=ParticleManager:CreateParticle("particles/b25t/b25t_fiends_grip.vpcf",PATTACH_WORLDORIGIN,nil)
 				ParticleManager:SetParticleControl(particle,0,point)
 				--ParticleManager:ReleaseParticleIndex(particle)
 				table.insert(caster.allparticle, particle)

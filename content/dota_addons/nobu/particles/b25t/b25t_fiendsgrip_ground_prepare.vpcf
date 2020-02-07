@@ -14,12 +14,6 @@
 			m_bBlendFramesSeq0 = false
 			m_hTexture = resource:"materials/particle/impact/fleks3.vtex"
 			m_nOrientationType = 2
-			m_bDisableOperator = true
-		},
-		{
-			_class = "C_OP_RenderRopes"
-			m_nOrientationType = 3
-			m_hTexture = resource:"materials/particle/base_rope.vtex"
 		},
 	]
 	m_Operators = 
@@ -29,9 +23,8 @@
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flStartScale = 50.0
-			m_flEndScale = 50.0
-			m_bDisableOperator = true
+			m_flStartScale = 0.0
+			m_flEndScale = 12.0
 		},
 		{
 			_class = "C_OP_RampScalarLinearSimple"
@@ -51,7 +44,6 @@
 		},
 		{
 			_class = "C_OP_PositionLock"
-			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_MovementPlaceOnGround"
@@ -77,8 +69,8 @@
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMax = 20.0
-			m_flRadiusMin = 20.0
+			m_flRadiusMax = 100.0
+			m_flRadiusMin = 90.0
 		},
 		{
 			_class = "C_INIT_RandomLifeTime"
@@ -101,13 +93,6 @@
 			m_CollisionGroupName = "DEBRIS"
 			m_flMaxTraceLength = 512.0
 			m_flOffset = 4.0
-			m_bIncludeWater = true
-		},
-		{
-			_class = "C_INIT_PositionPlaceOnGround"
-			m_flOffset = 8.0
-			m_flMaxTraceLength = -512.0
-			m_bIncludeWater = true
 		},
 	]
 	m_Emitters = 
@@ -138,5 +123,4 @@
 			]
 		},
 	]
-	m_bInfiniteBounds = true
 }

@@ -601,7 +601,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1200"
-		"AbilityCastPoint"				"0"
+		"AbilityCastPoint"				"0.5"
 		"AOERadius"	"1000 1100 1200"
 		
 		// Time		
@@ -649,7 +649,19 @@
 		
 		// Data driven
 		//-------------------------------------------------------------------------------------------------------------
-		
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"scripts/vscripts/heroes/B_Unified/B25_Honganji_Kennyo.lua"
+				"Function"			"B25T_On_Phase_Start"
+			}
+			"States"
+            {
+                "MODIFIER_STATE_COMMAND_RESTRICTED"    "MODIFIER_STATE_VALUE_ENABLED"
+                "MODIFIER_STATE_FROZEN"    "MODIFIER_STATE_VALUE_ENABLED"
+            }
+		}
 		"OnSpellStart"
 		{
 			"FireSound"
