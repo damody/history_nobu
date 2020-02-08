@@ -22,7 +22,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityCooldown"	"13"
-		"AbilityManaCost"	"120 140 160 180"
+		"AbilityManaCost"	"100 120 140 160"
 		"AbilityCastRange"	"1000"
 
 		"OnSpellStart"
@@ -109,7 +109,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityCastPoint" "0.25" //stun
 		"AbilityCooldown"	"20 16 13 10"
-		"AbilityManaCost"	"120 140 160 180"
+		"AbilityManaCost"	"100 120 140 160"
 		"OnSpellStart"
 		{
 			"FireSound"
@@ -265,7 +265,7 @@
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityCastPoint"          				"0.25"
 		"AbilityCooldown"	"30"
-		"AbilityManaCost"	"165"
+		"AbilityManaCost"	"0"
 
 		"precache"
 		{
@@ -351,7 +351,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityType"				"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityCooldown"			"140"
-		"AbilityManaCost"			"200"
+		"AbilityManaCost"			"100"
 		"MaxLevel"					"3"
 		"RequiredLevel"				"6"
 		"LevelsBetweenUpgrades"		"6"
