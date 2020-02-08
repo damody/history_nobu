@@ -235,7 +235,37 @@ function C07T_Effect( keys )
 		ParticleManager:SetParticleControl(particle, 0, point + Vector(0,0,height))
 		ParticleManager:SetParticleControl(particle, 1, Vector(point2.x,point2.y,point2.z + target:GetBoundingMaxs().z ))
 		ParticleManager:SetParticleControl(particle, 2, Vector(point2.x,point2.y,point2.z + target:GetBoundingMaxs().z ))
-		AMHC:Damage(caster,target,dmg,AMHC:DamageType("DAMAGE_TYPE_PHYSICAL"))
+		local group2 = FindUnitsInRadius(dummy:GetTeamNumber(),
+                          point2,
+                          nil,
+                          350,
+                          DOTA_UNIT_TARGET_TEAM_ENEMY,
+                          DOTA_UNIT_TARGET_ALL,
+                          DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+                          FIND_ANY_ORDER,
+                          false)
+		for i2,v2 in ipairs(group2) do
+			if v2:IsRealHero() then
+				ParticleManager:CreateParticle("particles/shake1.vpcf", PATTACH_ABSORIGIN, v2)
+			end
+			if IsValidEntity(caster) and caster:IsAlive() then
+				if v2:IsBuilding() then
+					AMHC:Damage( caster,v2,dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				else
+					AMHC:Damage( caster,v2,dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				end
+			else
+				if v2:IsBuilding() then
+					AMHC:Damage( dummyx,v2*0.5,dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				else
+					AMHC:Damage( dummyx,v2,dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				end
+				caster.takedamage = caster.takedamage + dmg
+				if (v2:IsRealHero()) and caster.herodamage then
+					caster.herodamage = caster.herodamage + dmg
+				end
+			end
+		end
 		target:RemoveModifierByName("modifier_C07E3")
 		caster.C07E2_target = nil
 		target = nil
