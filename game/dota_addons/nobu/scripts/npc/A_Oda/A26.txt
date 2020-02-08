@@ -352,13 +352,13 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-
-		"AbilityCooldown"				"6"
-		"AbilityManaCost"				"140"
-		"AbilityDamage"					"400 600 800"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCooldown"				"90 80 70"
+		"AbilityManaCost"				"200 300 400"
+		"AbilityDamage"					"700 900 1300"
 
 		"AbilityCastRange"				"1200"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastPoint"				"0.5"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AnimationPlaybackRate"			"2"
 		"AoERadius"						"400"
@@ -373,12 +373,22 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"projectile_speed"	"2000"
+				"projectile_speed"	"750"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"radius"			"400"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"small_bomb_damage"	"200 300 400"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"small_bomb_speed"	"2000"
 			}
 		}
 
@@ -422,6 +432,29 @@
 			{
 				"EffectName"		"particles/a26/a26t_overhead.vpcf"
 				"EffectAttachType"	"follow_overhead"
+			}
+			"modifier_small_bomb"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A26.lua"
+						"Function"		"A26T_OnAttackLanded"
+						"Target"		"TARGET"
+					}	
+				}
+				"OnProjectileHitUnit"
+				{
+					"RunScript"
+					{	
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A26.lua"
+						"Function"		"A26T_small_bomb_OnHit"
+						"Target"		"TARGET"
+					}
+				}
 			}
 		}
 	}

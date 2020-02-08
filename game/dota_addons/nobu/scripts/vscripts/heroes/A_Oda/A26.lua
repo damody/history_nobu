@@ -216,27 +216,114 @@ function A26D_OnTrigger( keys )
 	end
 	caster:ForceKill(true)
 end
-
-function A26T_OnSpellStart( keys )
+function A26T_OnAttackLanded( keys )
 	local caster = keys.caster
-	local point = keys.target_points[1]
+	local target = keys.target
+	local point = target:GetAbsOrigin()
 	local ability = keys.ability
-	local projectile_speed = ability:GetSpecialValueFor("projectile_speed")
-
-	-- 計算攻擊次數
+	local damage = ability:GetSpecialValueFor("small_bomb_damage")
+	local projectile_speed = ability:GetSpecialValueFor("small_bomb_speed")
+	-- count attack times
 	ability.count = ability.count or 0
 	ability.count = ability.count + 1
 	if ability.count == 2 then
 		ability:ApplyDataDrivenModifier(caster,caster,"modifier_A26T_big_bomb",{})
 	end
-	if ability.count == 3 then
-		ability.count = 0
-		ability.need_stun = true
-		caster:RemoveModifierByName("modifier_A26T_big_bomb")
-	end
-
 	local dummy = CreateUnitByName("hide_unit",point,false,nil,nil,caster:GetTeamNumber())
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
+	local diff = point-caster:GetAbsOrigin()
+	diff.z = 0
+	dummy:SetForwardVector(diff:Normalized())
+	if ability.count == 3 then
+		ability.count = 0
+		caster:RemoveModifierByName("modifier_A26T_big_bomb")
+		local projectile_table = {
+			Target = dummy,
+			Source = caster,
+			Ability = ability,
+			EffectName = "",
+			bDodgeable = true,
+			bProvidesVision = false,
+			iMoveSpeed = projectile_speed,
+			iVisionRadius = 0,
+			iVisionTeamNumber = caster:GetTeamNumber(),
+			iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1
+		}
+		ability.small_bomb = true
+		projectile_table.EffectName = "particles/units/heroes/hero_techies/techies_base_attack.vpcf"
+		if caster.skin == "school" then
+			projectile_table.EffectName = "particles/a26/a26t_bookecon/items/techies/techies_arcana/techies_base_attack_arcana.vpcf"
+		end
+		ProjectileManager:CreateTrackingProjectile(projectile_table)
+	end
+end
+function A26T_small_bomb_OnHit( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local center = target:GetAbsOrigin()
+	local ability = keys.ability
+	local damage = ability:GetSpecialValueFor("small_bomb_damage")
+	local stun_time = ability:GetSpecialValueFor("stun_time")
+	local radius = ability:GetSpecialValueFor("radius")
+
+	-- 搜尋
+	local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
+		center,							-- 搜尋的中心點
+		nil,
+		radius,							-- 搜尋半徑
+		ability:GetAbilityTargetTeam(),	-- 目標隊伍
+		ability:GetAbilityTargetType(),	-- 目標類型
+		ability:GetAbilityTargetFlags(),-- 額外選擇或排除特定目標
+		FIND_ANY_ORDER,					-- 結果的排列方式
+		false)
+
+	-- 處理搜尋結果
+	for _,unit in ipairs(units) do
+		-- 製造傷害
+		ApplyDamage({
+			victim = unit,
+			attacker = caster,
+			ability = ability,
+			damage = damage,
+			damage_type = ability:GetAbilityDamageType(),
+			damage_flags = DOTA_DAMAGE_FLAG_NONE
+		})
+	end
+	ability.small_bomb = false
+	GridNav:DestroyTreesAroundPoint(center, radius, false)
+	local ifx = ParticleManager:CreateParticle("particles/econ/courier/courier_snapjaw/courier_snapjaw_ambient_rocket_explosion.vpcf",PATTACH_ABSORIGIN,target)
+	ParticleManager:SetParticleControl(ifx,3,target:GetAbsOrigin())
+	ParticleManager:ReleaseParticleIndex(ifx)
+	EmitSoundOn("Hero_Techies.RemoteMine.Detonate",target)
+end
+function A26T_OnSpellStart( keys )
+	local caster = keys.caster
+	local point = keys.target_points[1]
+	local ability = keys.ability
+	local radius = ability:GetSpecialValueFor("radius")
+	local projectile_speed = ability:GetSpecialValueFor("projectile_speed")
+
+	-- 計算攻擊次數
+	-- ability.count = ability.count or 0
+	-- ability.count = ability.count + 1
+	-- if ability.count == 2 then
+	-- 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_A26T_big_bomb",{})
+	-- end
+	-- if ability.count == 3 then
+	-- 	ability.count = 0
+	-- 	ability.need_stun = true
+	-- 	caster:RemoveModifierByName("modifier_A26T_big_bomb")
+	-- end
+
+	local dummy = CreateUnitByName("hide_unit",point,false,nil,nil,caster:GetTeamNumber())
+	-- add spell hint
+	local spell_hint_table = {
+		duration   = 10,		-- 持續時間
+		radius     = radius,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	ability.dummy = dummy
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=5})
 	local diff = point-caster:GetAbsOrigin()
 	diff.z = 0
 	dummy:SetForwardVector(diff:Normalized())
@@ -253,11 +340,11 @@ function A26T_OnSpellStart( keys )
 		iVisionTeamNumber = caster:GetTeamNumber(),
 		iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1
 	}
-	if ability.need_stun then
+	-- if ability.need_stun then
 		projectile_table.EffectName = "particles/econ/items/techies/techies_arcana/techies_base_attack_arcana.vpcf"
-	else
-		projectile_table.EffectName = "particles/units/heroes/hero_techies/techies_base_attack.vpcf"
-	end
+	-- else
+	-- 	projectile_table.EffectName = "particles/units/heroes/hero_techies/techies_base_attack.vpcf"
+	-- end
 	if caster.skin == "school" then
 		projectile_table.EffectName = "particles/a26/a26t_bookecon/items/techies/techies_arcana/techies_base_attack_arcana.vpcf"
 	end
@@ -271,7 +358,14 @@ function A26T_OnProjectileHitUnit( keys )
 	local ability = keys.ability
 	local stun_time = ability:GetSpecialValueFor("stun_time")
 	local radius = ability:GetSpecialValueFor("radius")
-
+	
+	-- change to small bomb
+	if ability.small_bomb then
+		A26T_small_bomb_OnHit( keys )
+		return 
+	end
+	-- remove spell hint
+	ability.dummy:RemoveModifierByName("nobu_modifier_spell_hint")
 	-- 搜尋
 	local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
 		center,							-- 搜尋的中心點
@@ -295,24 +389,24 @@ function A26T_OnProjectileHitUnit( keys )
 			damage_flags = DOTA_DAMAGE_FLAG_NONE
 		})
 		
-		if ability.need_stun then
-			ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration=stun_time})
-		end
+		-- if ability.need_stun then
+		ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration=stun_time})
+		-- end
 	end
 
 	GridNav:DestroyTreesAroundPoint(center, radius, false)
 
-	if ability.need_stun then
-		local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_flamebreak_explosion.vpcf",PATTACH_ABSORIGIN,target)
-		ParticleManager:SetParticleControl(ifx,3,target:GetAbsOrigin())
-		ParticleManager:ReleaseParticleIndex(ifx)
-	end
+	-- if ability.need_stun then
+	local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_batrider/batrider_flamebreak_explosion.vpcf",PATTACH_ABSORIGIN,target)
+	ParticleManager:SetParticleControl(ifx,3,target:GetAbsOrigin())
+	ParticleManager:ReleaseParticleIndex(ifx)
+	-- end
 
 	local ifx = ParticleManager:CreateParticle("particles/econ/courier/courier_snapjaw/courier_snapjaw_ambient_rocket_explosion.vpcf",PATTACH_ABSORIGIN,target)
 	ParticleManager:SetParticleControl(ifx,3,target:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(ifx)
 
-	ability.need_stun = false
+	-- ability.need_stun = false
 
 	EmitSoundOn("Hero_Techies.RemoteMine.Detonate",target)
 end
