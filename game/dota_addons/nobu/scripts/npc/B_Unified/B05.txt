@@ -767,6 +767,15 @@
 				"IsDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 			}
+			"modifier_B05T2"
+			{
+				"IsHidden"			"0"
+				"Duration"			"1"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -776,11 +785,11 @@
 				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B05_Moari.lua"
 				"Function"	"B05T_Prepare"
 			}
-			 "States"
-                {
-                    "MODIFIER_STATE_COMMAND_RESTRICTED"    "MODIFIER_STATE_VALUE_ENABLED"
-                    "MODIFIER_STATE_FROZEN"    "MODIFIER_STATE_VALUE_ENABLED"
-                }
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_B05T2"
+				"Target" 		"CASTER"
+			}
 		}
 		"OnSpellStart"
 		{

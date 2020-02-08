@@ -403,6 +403,16 @@
 
 		"OnAbilityPhaseStart"
 		{
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"A26T_old.vo1"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_A26T"
+				"Target" 		"CASTER"
+			}
 		}
 
 		"OnSpellStart"
@@ -428,6 +438,15 @@
 
 		"Modifiers"
 		{
+			"modifier_A26T"
+			{
+				"IsHidden"			"0"
+				"Duration"			"0.5"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"modifier_A26T_big_bomb"
 			{
 				"EffectName"		"particles/a26/a26t_overhead.vpcf"
