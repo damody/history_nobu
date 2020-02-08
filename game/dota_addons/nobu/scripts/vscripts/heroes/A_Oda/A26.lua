@@ -225,7 +225,9 @@ function A26T_OnAttackLanded( keys )
 	local projectile_speed = ability:GetSpecialValueFor("small_bomb_speed")
 	-- count attack times
 	ability.count = ability.count or 0
-	ability.count = ability.count + 1
+	if not target:IsBuilding() then
+		ability.count = ability.count + 1
+	end
 	if ability.count == 2 then
 		ability:ApplyDataDrivenModifier(caster,caster,"modifier_A26T_big_bomb",{})
 	end
