@@ -211,11 +211,49 @@ function B16T( keys )
 	local ability = keys.ability
 	local caster = keys.caster
 	local moonMoon = caster.moonMoon
-
+	local hp_bouns = ability:GetSpecialValueFor("hp_bouns")
+	if moonMoon then
+		moonMoon:SetMaxHealth(moonMoon:GetMaxHealth() + hp_bouns)
+		moonMoon:SetHealth(99999)
+	else
+		ability:EndCooldown()
+	end
 	-- 幫望月與月月裝上修改器
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_B16T",nil)
 	if IsValidEntity(moonMoon) and moonMoon:IsAlive() then
 		ability:ApplyDataDrivenModifier(caster,moonMoon,"modifier_B16T",nil)
+	end
+end
+
+function B16T_Share( keys )
+	local ability = keys.ability
+	local caster = keys.caster
+	local moonMoon = caster.moonMoon
+	local damage = keys.DamageTaken
+	if moonMoon:IsAlive() then
+		caster:SetHealth(caster:GetHealth() + damage*0.8)
+		local damageTable = {
+			victim = moonMoon,
+			attacker = keys.attacker,
+			damage = damage*0.8,
+			damage_type = DAMAGE_TYPE_PURE,
+			damage_flags = nil, --Optional.
+			ability = nil, --Optional.
+		}
+		ApplyDamage(damageTable)
+	end
+end
+
+function B16T_Passive( keys )
+	local ability = keys.ability
+	local caster = keys.caster
+	local moonMoon = caster.moonMoon
+	if CalcDistanceBetweenEntityOBB(caster,moonMoon) <= 100 then
+		ability:ApplyDataDrivenModifier(caster,caster,"modifier_B16T_Damage_Bouns",nil)
+		ability:ApplyDataDrivenModifier(caster,moonMoon,"modifier_B16T_Damage_Bouns",nil)
+	else
+		caster:RemoveModifierByName("modifier_B16T_Damage_Bouns")
+		moonMoon:RemoveModifierByName("modifier_B16T_Damage_Bouns")
 	end
 end
 

@@ -369,18 +369,12 @@
 				"Function"		"B16T"
 			}
 		}
-
+		
 		"Modifiers"
 		{
 			"modifier_B16T"
 			{
 				"Duration" "%duration"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"50"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" 		"90"
-				}
 
 				"OnCreated"
 				{
@@ -389,6 +383,15 @@
 						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B16_Mochidsuki_Chiyome.lua"
 						"Function"		"B16T_M_Created"
 						"Target" 		"TARGET"
+					}
+				}
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B16_Mochidsuki_Chiyome.lua"
+						"Function"		"B16T_Share"
+						"DamageTaken"	"%attack_damage"
 					}
 				}
 
@@ -402,6 +405,26 @@
 					}
 				}
 			}
+			"modifier_B16T_Passive"
+			{
+				"Passive"	"1"
+				"ThinkInterval"	"0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B16_Mochidsuki_Chiyome.lua"
+						"Function"		"B16T_Passive"
+					}
+				}
+			}
+			"modifier_B16T_Damage_Bouns"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%damage_bouns"
+				}
+			}
 		}
 
 		"AbilitySpecial"
@@ -410,6 +433,16 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"duration"			"15 22 29"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_bouns"		"20 25 30"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"hp_bouns"			"400 600 800"
 			}
 		}
 	}
