@@ -506,7 +506,9 @@
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
-		"AbilityCastRange"							"300"
+		"AbilityCastRange"	"300"
+		"AbilityCooldown"	"80 70 60"
+		"AbilityManaCost"	"175"
 		"OnSpellStart"
 		{
 			"ApplyModifier"
