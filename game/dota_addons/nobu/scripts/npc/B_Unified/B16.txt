@@ -385,16 +385,6 @@
 						"Target" 		"TARGET"
 					}
 				}
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B16_Mochidsuki_Chiyome.lua"
-						"Function"		"B16T_Share"
-						"DamageTaken"	"%attack_damage"
-					}
-				}
-
 				"OnDestroy"
 				{
 					"RunScript"
@@ -405,6 +395,21 @@
 					}
 				}
 			}
+			"modifier_B16T2"
+			{
+				"IsHidden" "1"
+				"Duration" "%duration"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B16_Mochidsuki_Chiyome.lua"
+						"Function"		"B16T_Share"
+						"dmg"	"%attack_damage"
+					}
+				}
+			}
+
 			"modifier_B16T_Passive"
 			{
 				"Passive"	"1"
