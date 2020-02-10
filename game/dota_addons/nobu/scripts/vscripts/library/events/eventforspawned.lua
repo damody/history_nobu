@@ -38,14 +38,14 @@ function Nobu:OnHeroIngame( keys )
           hero:AddNewModifier(caster,ability,"modifier_record",{})
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
-          
+          --create courier
           local donkey = CreateUnitByName("npc_dota_courier", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
           donkey.oripos = donkey:GetAbsOrigin()
           hero.donkey = donkey
-          --donkey:SetOwner(hero)
+          donkey:SetOwner(hero)
           donkey:SetHullRadius(1)
-          donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
-          --donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
+          donkey:SetControllableByPlayer(hero:GetPlayerID(), false)
+          donkey:SetBaseMaxHealth(500)
           donkey:FindAbilityByName("courier_go_to_secretshop"):SetLevel(1)
           donkey:FindAbilityByName("courier_return_stash_items"):SetLevel(1)
           donkey:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
