@@ -1,6 +1,6 @@
 --require("equilibrium_constant")
 print ( '[Nobu-lua] ADDON INIT EXECUTED' )
-
+LinkLuaModifier("modifier_charges", LUA_MODIFIER_MOTION_NONE)
 function table.shallow_copy(t)
   local t2 = {}
   for k,v in pairs(t) do
