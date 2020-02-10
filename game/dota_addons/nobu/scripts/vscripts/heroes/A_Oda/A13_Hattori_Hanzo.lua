@@ -362,16 +362,27 @@ function A13E:OnSpellStart()
 	local ability = caster:FindAbilityByName("A13E")
 	local charges = caster:FindModifierByName("modifier_charges")
 	caster:SetForwardVector(dir:Normalized())
+	caster.isTwice = false
 	if charges:GetStackCount() == 1 then
 		caster.pos1 = ability:GetCursorPosition()
-		caster.vDir = self:GetCursorPosition() - caster:GetOrigin()
+		caster.vDirection = self:GetCursorPosition() - caster:GetOrigin()
+		caster.isTurn = false
 		ability:EndCooldown()
 	else
 		caster.pos2 = ability:GetCursorPosition()
-		Timers:CreateTimer(0.5,function()
+		caster.isTwice = true
+		Timers:CreateTimer(0.55,function()
+			ability:StartCooldown(ability:GetCooldown(ability:GetLevel() -1))
 			caster:AddNewModifier(caster, self, "a13e_modifier", {duration = 2})
 			end)
 	end
+	Timers:CreateTimer(0.55,function()
+			if caster.isTwice then
+				return 
+			end
+			ability:StartCooldown(ability:GetCooldown(ability:GetLevel() -1))
+			caster:AddNewModifier(caster, self, "a13e_modifier", {duration = 2})
+		end)
 	--caster:AddNewModifier(caster, self, "a13e_modifier", { duration = 2}) 
 	caster:AddNewModifier(caster, self, "a13e_followthrough", { duration = 0.3 } )
 	caster:EmitSound("hook_throw")
@@ -518,24 +529,27 @@ function a13e_modifier:OnIntervalThink()
 		end
 		angle = 0
 		--local vDirection =  caster:GetForwardVector()
-		local vDirection = caster.vDir
 		self.path[self.interval_Count] = self.hook_pos
 		local length = (20+angle*0.2) * self.interval_Count
-		local next_hook_pos = self.hook_pos + vDirection:Normalized() * length + (self:GetParent():GetOrigin() - self.oripos)
+		local next_hook_pos = self.hook_pos + caster.vDirection:Normalized() * length + (self:GetParent():GetOrigin() - self.oripos)
 		self.oripos = self:GetParent():GetOrigin()
 		length = (next_hook_pos - self.hook_pos):Length()
 		hook_pts = { self.hook_pos }
 		if (length > 100) then
 			local pts = length / 100 + 1
 			for i=1,pts do
-				hook_pts[i] = self.hook_pos + vDirection:Normalized() * 100 * i
+				hook_pts[i] = self.hook_pos + caster.vDirection:Normalized() * 100 * i
 				--print("pts: ".. hook_pts[i].x.." "..hook_pts[i].y.." "..hook_pts[i].z)
 			end
 		end
-		if (self.hook_pos - caster.pos1):Length() < 200 then
-			vDirection = caster.pos2 - caster.pos1
+		
+		if caster.isTwice and (self.hook_pos - caster.pos1):Length() < 100 and not caster.isTurn then
+			caster.vDirection = caster.pos2 - caster.pos1
+			print("turn")
+			print(caster.vDirection)
+			caster.isTurn = true
 		end
-		local next_hook_pos = self.hook_pos + vDirection:Normalized() * length
+		local next_hook_pos = self.hook_pos + caster.vDirection:Normalized() * length
 		self.distance_sum = self.distance_sum + 20 * self.interval_Count
 		local particle = ParticleManager:CreateParticle("particles/a11/_2pudge_meathook_whale2.vpcf",PATTACH_WORLDORIGIN,caster)
 		ParticleManager:SetParticleControl(particle,0, next_hook_pos)
