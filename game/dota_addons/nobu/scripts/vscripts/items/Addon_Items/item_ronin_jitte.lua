@@ -9,5 +9,6 @@ function Shock( keys )
 	AMHC:Damage( caster,target,dmg + caster:GetMaxMana()*0.12,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 	ParticleManager:CreateParticle("particles/generic_gameplay/illusion_killed_halo.vpcf",PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:CreateParticle("particles/generic_gameplay/illusion_killed_halo.vpcf",PATTACH_ABSORIGIN_FOLLOW, target)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_lightning_katana", {duration = 2})
 end
 
