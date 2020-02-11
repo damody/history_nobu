@@ -683,6 +683,9 @@
 		"AbilityTextureName"	"riki_tricks_of_the_trade"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
 		"LevelsBetweenUpgrades"	"6"
@@ -721,12 +724,6 @@
 				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A13_Hattori_Hanzo.lua"
 				"Function"	"A13T"
 				"Target"	"POINT"
-			}
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_invisible"
-				"Duration"	"3"
 			}
 			"RunScript"
 			{
@@ -779,6 +776,43 @@
 					}
 				}
 			}
+			"modifier_A13T_invisible"
+			{
+				"IsHidden"	"0"
+				"OnAttackLanded"
+				{
+					"AttachEffect"
+					{
+						"Target"	"TARGET"
+						"EffectName"	"particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta_start.vpcf"
+						"EffectAttachType"	"start_at_origin"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A13_Hattori_Hanzo.lua"
+						"Function"	"A13T_OnAttackLanded"
+						"Target"	"TARGET"
+					}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT" "0.6"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"-500"
+				}
+			}
+			"modifier_A13T_Blind"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"	"-2800"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"-2000"
+				}
+			}
 		}
 		// Special
 		// -------------------------------------------------------------------------------------------------------------
@@ -827,7 +861,7 @@
 			"09"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"110 120 130"
+				"damage"	"100 200 300"
 			}
 		}
 	}

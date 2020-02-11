@@ -54,7 +54,7 @@ end
 function A13D( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	if caster:FindAbilityByName("A13T"):GetLevel() == 0 then
+	if caster:FindAbilityByName("A13T"):GetLevel() > -1 then
 		return
 	end
 	local casterLoc = caster:GetAbsOrigin()
@@ -655,7 +655,71 @@ function a13e_modifier:GetAttributes()
 	return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
-function A13T( keys )
+function A13T ( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local duration = ability:GetSpecialValueFor("duration")
+	local radius = ability:GetSpecialValueFor("radius")
+	local point = caster:GetCursorPosition()
+	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local spell_hint_table = {
+		duration   = duration,		-- 持續時間
+		radius     = radius,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=duration})
+
+	local particle=ParticleManager:CreateParticle("particles/a13t/a13tsmoketrail.vpcf",PATTACH_WORLDORIGIN,nil)
+	ParticleManager:SetParticleControl(particle,0,point)
+	Timers:CreateTimer(5,function()
+			ParticleManager:DestroyParticle(particle,false)
+		end)
+	local counter = 0
+	Timers:CreateTimer(0,function()
+			counter = counter + 0.1
+			if counter > 5 then
+				return nil
+			end
+			units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
+			for _,unit in ipairs(units) do
+				if unit == caster then
+					ability:ApplyDataDrivenModifier(caster,caster,"modifier_A13T_invisible", {duration = 0.15})
+					ability.units = units
+				elseif not(unit:GetTeamNumber() == caster:GetTeamNumber()) then
+					ability:ApplyDataDrivenModifier(caster,unit,"modifier_A13T_Blind", {duration = 0.1})
+				end
+			end
+			return 0.1
+		end)
+end
+
+function A13T_OnAttackLanded( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
+	local damage = ability:GetSpecialValueFor("damage")
+	for _,unit in ipairs(ability.units) do
+		if not(unit:GetTeamNumber() == caster:GetTeamNumber()) then
+			local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact_dagger.vpcf",PATTACH_POINT,unit)
+			ParticleManager:SetParticleControlForward(ifx,0,target:GetForwardVector())
+			ParticleManager:SetParticleControl(ifx,1,target:GetAbsOrigin())
+			ParticleManager:SetParticleControlForward(ifx,1,target:GetForwardVector())
+			ParticleManager:ReleaseParticleIndex(ifx)
+
+			damageTable = {
+				victim = unit,
+				attacker = caster,
+				ability = ability,
+				damage = damage,
+				damage_type = ability:GetAbilityDamageType(),
+				damage_flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+			}
+			ApplyDamage(damageTable)
+		end
+	end
+end
+
+function A13T_16( keys )
 	-- Variables
 	local caster = keys.caster
 	local ability = keys.ability
