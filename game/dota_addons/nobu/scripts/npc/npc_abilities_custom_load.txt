@@ -76,7 +76,8 @@
 			"debuff_tower"
 			{
 				"Passive"	"0"
-				"IsHidden"	"1"
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"70"
@@ -97,7 +98,7 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"ThinkInterval"  "1"
+				//"ThinkInterval"  "1"
 				//"OnIntervalThink"
 				"OnTakeDamage"
 				{
@@ -111,7 +112,7 @@
 			"debuff_tower"
 			{
 				"Passive"	"0"
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 				"IsDebuff"	"1"
 				"Properties"
 				{

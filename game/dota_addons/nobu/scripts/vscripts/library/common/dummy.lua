@@ -343,12 +343,16 @@ function debuff_tower( keys )
           DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 
           DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_DEAD, FIND_ANY_ORDER, false )
   local enemyCounter = 0
+  local heroCounter = 0
   for i,v in pairs(enemys) do
     if not ok_unit[v:GetUnitName()] and not v:IsIllusion() and not v:GetOwner() then
       enemyCounter = enemyCounter + 1
     end
+    if v:IsHero() then
+      heroCounter = heroCounter + 1
+    end
   end
-  if enemyCounter > 3 then
+  if enemyCounter > 3 and heroCounter > 0 then
     ability:ApplyDataDrivenModifier(caster, caster, "debuff_tower", {duration = 2})
   else
     caster:RemoveModifierByName("debuff_tower")
