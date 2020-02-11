@@ -686,7 +686,7 @@ function A13T ( keys )
 					ability:ApplyDataDrivenModifier(caster,caster,"modifier_A13T_invisible", {duration = 0.15})
 					ability.units = units
 				elseif not(unit:GetTeamNumber() == caster:GetTeamNumber()) then
-					ability:ApplyDataDrivenModifier(caster,unit,"modifier_A13T_Blind", {duration = 0.1})
+					ability:ApplyDataDrivenModifier(caster,unit,"modifier_A13T_Blind", {duration = 0.15})
 				end
 			end
 			return 0.1
