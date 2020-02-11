@@ -152,6 +152,7 @@ function C08R:OnSpellStart()
 	local caster = self:GetCaster()
 	local debuff_duraiton = self:GetSpecialValueFor("flux_duration")
 	local dir = self:GetCursorPosition() - caster:GetOrigin()
+	caster.vDir = caster:GetForwardVector()
 	caster:SetForwardVector(dir:Normalized())
 	caster:EmitSound("hook_throw")
 	caster:AddNewModifier(caster, self, "C08R_modifier", { duration = 2}) 
@@ -280,7 +281,8 @@ function C08R_modifier:OnIntervalThink()
 				angle = angle * 2
 			end
 		end
-		local vDirection =  caster:GetForwardVector()
+		angle = 0
+		local vDirection =  caster.vDir
 		self.path[self.interval_Count] = self.hook_pos
 		local length = (20+angle*0.2) * self.interval_Count
 		local next_hook_pos = self.hook_pos + vDirection:Normalized() * length + (self:GetParent():GetOrigin() - self.oripos)
