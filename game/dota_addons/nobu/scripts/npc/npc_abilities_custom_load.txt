@@ -1300,7 +1300,27 @@
 			}
 		}
 	}
-
+	"cavalry_armor"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Modifiers"
+		{
+			"modifiers_cavalry_armor"
+			{
+				"Passive"	"1"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B01.lua"
+						"Function"	"Cavalry_armor"
+						"dmg" "%attack_damage"
+					}
+				}
+			}
+		}
+	}
 	//鐵炮兵打英雄小兵兩倍痛
 	"gunner_attack"
 	{
@@ -1333,7 +1353,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"atk_building"	"0"
+				"atk_building"	"30"
 			}
 			"03"
 			{
@@ -1426,7 +1446,7 @@
 		}
 	}
 
-	//弓手打建築物兩倍痛
+	//弓手打小兵增傷
 	"archer_attack"
 	{
 		"BaseClass"	"ability_datadriven"
@@ -1458,12 +1478,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"atk_building"	"100"
+				"atk_building"	"0"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"atk_unit"	"0"
+				"atk_unit"	"50"
 			}
 		}
 	}

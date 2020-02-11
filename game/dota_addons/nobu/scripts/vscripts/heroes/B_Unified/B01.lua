@@ -286,6 +286,22 @@ function B01R(keys)
 	--end
 end
 
+function Cavalry_armor( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local damage = keys.dmg
+	if target:IsHero() then 
+	elseif  target:IsBuilding() then		
+		caster:SetHealth(caster:GetHealth() + damage)
+		AMHC:Damage(caster,caster,damage*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+		print("tower")
+	else
+		caster:SetHealth(caster:GetHealth() + damage)
+		AMHC:Damage(caster,caster,damage*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+		print("unit")
+	end
+end
+
 function B01R_old(keys)
 	--【Basic】
 	local caster = keys.caster

@@ -8500,7 +8500,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8551,7 +8551,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8602,7 +8602,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8653,7 +8653,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8705,7 +8705,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8757,7 +8757,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8809,7 +8809,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8861,7 +8861,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8913,7 +8913,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8964,7 +8964,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -9015,7 +9015,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -9066,7 +9066,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -9118,7 +9118,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -9170,7 +9170,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -9222,7 +9222,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -9274,7 +9274,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	""
+		"Ability1"	"archer_attack"
 		"Ability2"	""
 		// Armor
 		"ArmorPhysical"	"0"
@@ -10949,7 +10949,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -11031,7 +11031,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -11113,7 +11113,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -11195,7 +11195,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -11277,7 +11277,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -11359,7 +11359,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -11441,7 +11441,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -11523,7 +11523,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -11604,7 +11604,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -11685,7 +11685,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -11766,7 +11766,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -11847,7 +11847,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -11928,7 +11928,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -12009,7 +12009,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -12090,7 +12090,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
@@ -12171,7 +12171,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"cavalry_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor
