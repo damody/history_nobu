@@ -27,7 +27,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"HotKeyOverride"	"D"
-		"MaxLevel"	"4"
+		"MaxLevel"	"1"
 		"RequiredLevel"	"1"
 		"LevelsBetweenUpgrades"	"2"
 		// Time
