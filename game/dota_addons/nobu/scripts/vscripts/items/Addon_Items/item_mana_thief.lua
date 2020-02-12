@@ -1,7 +1,16 @@
 function OnEquip( keys )
 	local caster = keys.caster
+	local ability = keys.ability
 	if (caster.nobuorb1 == nil) then
 		caster.nobuorb1 = "item_mana_thief"
+	end
+	-- 力量 0 敏捷1 智力2
+	if caster:GetPrimaryAttribute() == 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_add_strength", nil)
+	elseif caster:GetPrimaryAttribute() == 1 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_add_agility", nil)
+	elseif caster:GetPrimaryAttribute() == 2 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_add_intellect", nil)
 	end
 end
 
@@ -9,6 +18,14 @@ function OnUnequip( keys )
 	local caster = keys.caster
 	if (caster.nobuorb1 == "item_mana_thief") then
 		caster.nobuorb1 = nil
+	end
+	-- 力量 0 敏捷1 智力2
+	if caster:GetPrimaryAttribute() == 0 then
+		caster:RemoveModifierByName("modifier_add_strength")
+	elseif caster:GetPrimaryAttribute() == 1 then
+		caster:RemoveModifierByName("modifier_add_agility")
+	elseif caster:GetPrimaryAttribute() == 2 then
+		caster:RemoveModifierByName("modifier_add_intellect")
 	end
 	for itemSlot=0,5 do
 		local item = caster:GetItemInSlot(itemSlot)
