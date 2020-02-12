@@ -287,17 +287,16 @@ function B15T(keys)
 		--Illusions are created to the North, South, East, or West of the hero (obviously, both cannot be created in the same direction).
 		local illusion1_direction = RandomInt(1, 4)
 		
-		local illusion1_origin
-		
-		if illusion1_direction == 1 then  --North
-			illusion1_origin = caster_origin + Vector(0, 100, 0)
-		elseif illusion1_direction == 2 then  --South
-			illusion1_origin = caster_origin + Vector(0, -100, 0)
-		elseif illusion1_direction == 3 then  --East
-			illusion1_origin = caster_origin + Vector(100, 0, 0)
-		else  --West
-			illusion1_origin = caster_origin + Vector(-100, 0, 0)
-		end
+		local illusion1_origin = caster_origin + caster:GetForwardVector()*-100
+		-- if illusion1_direction == 1 then  --North
+		-- 	illusion1_origin = caster_origin + Vector(0, 100, 0)
+		-- elseif illusion1_direction == 2 then  --South
+		-- 	illusion1_origin = caster_origin + Vector(0, -100, 0)
+		-- elseif illusion1_direction == 3 then  --East
+		-- 	illusion1_origin = caster_origin + Vector(100, 0, 0)
+		-- else  --West
+		-- 	illusion1_origin = caster_origin + Vector(-100, 0, 0)
+		-- end
 		if keys.caster:IsAlive() then
 			B15T_create_illusion(keys, illusion1_origin)
 		end
