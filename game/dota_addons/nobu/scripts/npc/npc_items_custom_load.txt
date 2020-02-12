@@ -20,7 +20,7 @@
 		
 		"AbilityCooldown"	"25"
 		
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 		
 		"AbilityCastRange"	"900"
 		"AbilityCastPoint"	"0.2"
@@ -118,7 +118,7 @@
 		
 		"AbilityCooldown"	"25"
 		
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 		"AbilityDamage"		"455"
 		"AbilityCastRange"	"750"
 		"AbilityCastPoint"	"0.2"
@@ -215,7 +215,7 @@
 		
 		"AbilityCooldown"	"120"
 		"AbilityDamage"		"800"
-		"AbilityManaCost"	"500"
+		"AbilityManaCost"	"250"
 
 		"ID"	"2518"
 		"ItemQuality"	"component"
@@ -286,7 +286,7 @@
 		
 		"AbilityCooldown"	"120"
 		
-		"AbilityManaCost"	"600"
+		"AbilityManaCost"	"300"
 		"AbilityCastPoint"	"0.2"
 		"AbilitySharedCooldown" "share_the_overflame_art_of_war"
 		"AbilityDamage"		"1000"
@@ -380,7 +380,7 @@
 		"AbilityCooldown"	"120"
 		"AbilityCastPoint"	"0.2"
 		"AbilityDamage"		"800"
-		"AbilityManaCost"	"300"
+		"AbilityManaCost"	"150"
 		"AbilitySharedCooldown" "share_the_overflame_art_of_war"
 		
 		"AOERadius"	"650"
@@ -469,7 +469,7 @@
 		"AbilityChannelTime" "10"
 		"AbilityDamage"		"1800" //打滿的傷害
 		"AbilityCooldown"	"40"
-		"AbilityManaCost"	"380"
+		"AbilityManaCost"	"190"
 		"AoERadius"			"1200"
 		"AbilityCastRange"	"1200"
 		"AbilityCastPoint"	"0"
@@ -552,7 +552,7 @@
 		
 		"AbilityCooldown"	"20"
 		
-		"AbilityManaCost"	"120"
+		"AbilityManaCost"	"60"
 		"AbilityCastPoint"	"0.2"
 		"AOERadius"	"300"
 		"AbilityDamage"		"560"
@@ -644,7 +644,7 @@
 		
 		"AbilityCooldown"	"27"
 		
-		"AbilityManaCost"	"225"
+		"AbilityManaCost"	"120"
 		"AbilityCastPoint"	"0.2"
 		
 		"AOERadius"	"350"
@@ -744,7 +744,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"90"
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 		"AOERadius"	"300"
 		"AbilityCastPoint"	"0.1"
 		// Stats
@@ -963,7 +963,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"80"
-		"AbilityManaCost"	"150"
+		"AbilityManaCost"	"100"
 		"AbilitySharedCooldown" "mountain_scroll"
 		// Valve's version of this item uses the ID "1".
 		"ID"	"2501"
@@ -1033,7 +1033,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"26"
-		"AbilityManaCost"	"100"
+		"AbilityManaCost"	"50"
 		// Valve's version of this item uses the ID "1".
 		"ID"	"2504"
 		"ItemQuality"	"component"
@@ -1104,7 +1104,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"26"
-		"AbilityManaCost"	"100"
+		"AbilityManaCost"	"50"
 		// Valve's version of this item uses the ID "1".
 		"ID"	"2532"
 		"ItemQuality"	"component"
@@ -1195,7 +1195,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"30"
-		"AbilityManaCost"	"125"
+		"AbilityManaCost"	"60"
 		// Valve's version of this item uses the ID "1".
 		"ID"	"2505"
 		"ItemQuality"	"component"
@@ -1249,7 +1249,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"30"
-		"AbilityManaCost"	"125"
+		"AbilityManaCost"	"60"
 		// Valve's version of this item uses the ID "1".
 		"ID"	"2530"
 		"ItemQuality"	"component"
@@ -1323,7 +1323,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"25"
-		"AbilityManaCost"	"125"
+		"AbilityManaCost"	"60"
 		// Valve's version of this item uses the ID "1".
 		"ID"	"2531"
 		"ItemQuality"	"component"
@@ -1420,7 +1420,7 @@
 		
 		"AbilityCooldown"	"20"
 		"AbilitySharedCooldown" "share_lightning_scroll"
-		"AbilityManaCost"	"120"
+		"AbilityManaCost"	"60"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"500"
 		"ID"	"2502"
@@ -1499,7 +1499,7 @@
 		
 		"AbilityCooldown"	"30"
 		
-		"AbilityManaCost"	"120"
+		"AbilityManaCost"	"60"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"ID"	"2515"
@@ -2875,7 +2875,7 @@
 		"SecretShop" "1"
 		"ItemShopTags"		"damage"
 		"AbilityCooldown"	"100"
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 		"precache"
 		{
 			"particle"	"particles/a07w5/a07w5.vpcf"
@@ -3111,7 +3111,7 @@
 		
 		"AbilityCooldown"	"25"
 		"AbilityCastPoint"	"0.2"
-		"AbilityManaCost"	"120"
+		"AbilityManaCost"	"60"
 		"AbilitySharedCooldown" "share_lightning_scroll"
 		"AbilityCastRange"	"500"
 		"ID"	"2570"
@@ -3203,7 +3203,7 @@
 		
 		"AbilityCooldown"	"50"
 		
-		"AbilityManaCost"	"175"
+		"AbilityManaCost"	"80"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"650"
 		"ID"	"2571"
@@ -3646,7 +3646,7 @@
 		
 		"AbilityCooldown"	"30"
 		
-		"AbilityManaCost"	"150"
+		"AbilityManaCost"	"75"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"ID"	"2576"
@@ -3750,7 +3750,7 @@
 		
 		"AbilityCooldown"	"15"
 		
-		"AbilityManaCost"	"100"
+		"AbilityManaCost"	"50"
 		"ID"	"2577"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -3975,7 +3975,7 @@
 		
 		"AbilityCooldown"	"30"
 		
-		"AbilityManaCost"	"120"
+		"AbilityManaCost"	"60"
 		"AbilityCastRange"	"700"
 		"ID"	"2585"
 		"ItemQuality"	"component"
@@ -4146,7 +4146,7 @@
 		
 		"AbilityCooldown"	"110"
 		"AbilityCastPoint"	"0.2"
-		"AbilityManaCost"	"300"
+		"AbilityManaCost"	"150"
 		"ID"	"2700"
 		"ItemQuality"	"component"
 		"Model"	"models/heroes/abaddon/weapon.vmdl"
@@ -4254,7 +4254,7 @@
 		"FightRecapLevel"	"1"
 		
 		"AbilityCooldown"	"40"
-		"AbilityManaCost"	"300"
+		"AbilityManaCost"	"150"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"800"
 		"AbilityDamage"		"800"
@@ -4400,7 +4400,7 @@
 		
 		"AbilityCooldown"	"100"
 		
-		"AbilityManaCost"	"175"
+		"AbilityManaCost"	"80"
 		"ID"	"2706"
 		"ItemQuality"	"component"
 		"Model"	"models/heroes/abaddon/weapon.vmdl"
@@ -4569,7 +4569,7 @@
 		"AbilityCooldown"	"100"
 		// Cost
 		
-		"AbilityManaCost"	"300"
+		"AbilityManaCost"	"150"
 
 		"ID"	"2709"
 		"ItemQuality"	"component"
@@ -4739,7 +4739,7 @@
 		
 		"AbilityCooldown"	"70"
 		"AbilityCastPoint"	"0.2"
-		"AbilityManaCost"	"185"
+		"AbilityManaCost"	"90"
 		"AbilityCastRange"				"300"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"ID"	"2710"
@@ -4810,7 +4810,7 @@
 		
 		"AbilityCooldown"	"80"
 		
-		"AbilityManaCost"	"260"
+		"AbilityManaCost"	"130"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"1000"
 		"ID"	"2711"
@@ -4878,7 +4878,7 @@
 		"SecretShop"	 "1"
 		"AbilityCooldown"	"36"
 		
-		"AbilityManaCost"	"185"
+		"AbilityManaCost"	"100"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"1000"
 		"ID"	"2712"
@@ -5016,7 +5016,7 @@
 		"SecretShop" "1"
 		"AbilityCooldown"	"60"
 		
-		"AbilityManaCost"	"125"
+		"AbilityManaCost"	"60"
 		"AbilityCastPoint"	"6"
 		
 		"ID"	"2713"
@@ -5156,7 +5156,7 @@
 		"SecretShop" "1"
 		"AbilityCooldown"	"65"
 		
-		"AbilityManaCost"	"250"
+		"AbilityManaCost"	"125"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"ID"	"2714"
@@ -5442,7 +5442,7 @@
 		
 		"AbilityCooldown"	"25"
 		
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"ID"	"2578"
@@ -5578,7 +5578,7 @@
 		
 		"AbilityCooldown"	"35"
 		"AbilitySharedCooldown" "share_ronin_jitte"
-		"AbilityManaCost"	"250"
+		"AbilityManaCost"	"125"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"500"
 		"ID"	"2580"
@@ -5674,7 +5674,7 @@
 		
 		"AbilityCooldown"	"60"
 		
-		"AbilityManaCost"	"225"
+		"AbilityManaCost"	"110"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"800"
 		"ID"	"2582"
@@ -5889,7 +5889,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"25"
-		"AbilityManaCost"	"150"
+		"AbilityManaCost"	"75"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"AbilityDamage"		"350"
@@ -5995,7 +5995,7 @@
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"80"
 		
-		"AbilityManaCost"	"155"
+		"AbilityManaCost"	"80"
 
 		"ID"	"2586"
 		"ItemQuality"	"component"
@@ -6103,7 +6103,7 @@
 		
 		"AbilityCooldown"	"25"
 		
-		"AbilityManaCost"	"190"
+		"AbilityManaCost"	"95"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"600"
 		"ID"	"2587"
@@ -6187,7 +6187,7 @@
 		
 		"AbilityCooldown"	"60"
 		
-		"AbilityManaCost"	"185"
+		"AbilityManaCost"	"100"
 		"AbilityCastPoint"	"0"
 		"AbilityCastRange"	"600"
 		"AOERadius"		"400"
@@ -7752,7 +7752,7 @@
 		
 		"AbilityCooldown"	"15"
 		
-		"AbilityManaCost"	"100"
+		"AbilityManaCost"	"50"
 		"ID"	"2519"
 		"ItemQuality"	"component"
 		"Model"	"models/heroes/abaddon/weapon.vmdl"
@@ -7853,7 +7853,7 @@
 		
 		"AbilityCooldown"	"36"
 		
-		"AbilityManaCost"	"220"
+		"AbilityManaCost"	"110"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"ID"	"2520"
@@ -8052,7 +8052,7 @@
 		
 		"AbilityCooldown"	"30"
 		
-		"AbilityManaCost"	"120"
+		"AbilityManaCost"	"60"
 		
 		"AbilityCastRange"	"1000"
 		"ID"	"2522"
@@ -8345,7 +8345,7 @@
 		
 		"AbilityCooldown"	"40"
 		
-		"AbilityManaCost"	"125"
+		"AbilityManaCost"	"100"
 		
 		"AbilityCastRange"	"900"
 		"ID"	"2526"
@@ -8692,7 +8692,7 @@
 		
 		"AbilityCooldown"	"25"
 		
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 		"AbilityCastRange"	"1200"
 		"ID"	"2623"
 		"ItemQuality"	"component"
@@ -9665,7 +9665,7 @@
 		
 		"AbilityCooldown"	"45"
 		
-		"AbilityManaCost"	"210"
+		"AbilityManaCost"	"110"
 		"ID"	"2806"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -9789,7 +9789,7 @@
 		
 		"AbilityCooldown"	"85"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 		"ID"	"2808"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -9871,7 +9871,7 @@
 		
 		"AbilityCooldown"	"85"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 		"ID"	"2809"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -9961,7 +9961,7 @@
 		
 		"AbilityCooldown"	"85"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 		"ID"	"2810"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -10052,7 +10052,7 @@
 		
 		"AbilityCooldown"	"85"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 		"ID"	"2811"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -10181,7 +10181,7 @@
 		
 		"AbilityCooldown"	"85"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 		"AbilityCastRange"	"700"
 		"ID"	"2813"
 		"ItemQuality"	"component"
@@ -10332,7 +10332,7 @@
 		
 		"AbilityCooldown"	"45"
 		"AbilityCastPoint"	"0.2"
-		"AbilityManaCost"	"160"
+		"AbilityManaCost"	"100"
 		
 		"AbilityCastRange"	"700"
 		"ID"	"2816"
@@ -10460,7 +10460,7 @@
 		
 		"AbilityCooldown"	"40"
 		
-		"AbilityManaCost"	"125"
+		"AbilityManaCost"	"100"
 		
 		"ID"	"2818"
 		"ItemQuality"	"component"
@@ -10648,7 +10648,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"80"
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 		"AbilitySharedCooldown" "mountain_scroll"
 		
 		"ID"	"2533"
@@ -10776,7 +10776,7 @@
 		"AbilitySharedCooldown" "the_art_of_war"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"30"
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 
 		"ID"	"2534"
 		"ItemQuality"	"component"
@@ -10908,7 +10908,7 @@
 		
 		"AbilityCooldown"	"80"
 		
-		"AbilityManaCost"	"250"
+		"AbilityManaCost"	"150"
 		"AbilitySharedCooldown" "mountain_scroll"
 		
 		"ID"	"2535"
@@ -11026,7 +11026,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"		
 		"AbilityCooldown"	"85"		
-		"AbilityManaCost"	"700"
+		"AbilityManaCost"	"350"
 		"AbilitySharedCooldown" "the_art_of_war"
 		
 		"ID"	"2536"
@@ -11365,7 +11365,7 @@
 		"AbilitySharedCooldown" "share_item_flood_book"
 		"AbilityCooldown"	"20"
 		"AbilityCastPoint"	"0.2"
-		"AbilityManaCost"	"280"
+		"AbilityManaCost"	"140"
 		"AbilityCastRange"	"700"
 		"AOERadius"		"400"
 		"ID"	"2512"
@@ -11446,7 +11446,7 @@
 		
 		"AbilityCooldown"	"40"
 		"AbilityCastPoint"	"0.2"
-		"AbilityManaCost"	"300"
+		"AbilityManaCost"	"150"
 		"AbilityCastRange"	"1000"
 		"AOERadius"		"800"
 		
@@ -11536,7 +11536,7 @@
 		
 		"AbilityCooldown"	"30"
 		
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"500"
 
@@ -11778,7 +11778,7 @@
 		
 		"AbilityCooldown"	"15"
 		
-		"AbilityManaCost"	"110"
+		"AbilityManaCost"	"70"
 		"AbilityCastRange"	"375"
 		
 		"ID"	"2801"
@@ -12229,7 +12229,7 @@
 		
 		"AbilityCooldown"	"55"
 		
-		"AbilityManaCost"	"260"
+		"AbilityManaCost"	"130"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"ID"	"2719"
@@ -12403,7 +12403,7 @@
 		
 		"AbilityCooldown"	"85"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
-		"AbilityManaCost"	"300"
+		"AbilityManaCost"	"150"
 		
 		"ID"	"2821"
 		"ItemQuality"	"component"
@@ -12487,7 +12487,7 @@
 		
 		"AbilityCooldown"	"85"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
-		"AbilityManaCost"	"300"
+		"AbilityManaCost"	"150"
 		
 		"ID"	"2822"
 		"ItemQuality"	"component"
@@ -12579,7 +12579,7 @@
 		
 		"AbilityCooldown"	"85"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
-		"AbilityManaCost"	"300"
+		"AbilityManaCost"	"150"
 		
 		"ID"	"2823"
 		"ItemQuality"	"component"
@@ -12672,7 +12672,7 @@
 		
 		"AbilityCooldown"	"85"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
-		"AbilityManaCost"	"300"
+		"AbilityManaCost"	"150"
 		
 		"ID"	"2824"
 		"ItemQuality"	"component"
@@ -12799,7 +12799,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"85"
-		"AbilityManaCost"	"300"
+		"AbilityManaCost"	"150"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		"SecretShop" "1"
 		"ID"	"2827"
@@ -13029,7 +13029,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"45"
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"100"
 		"AOERadius"	"850"
 		// Stats
 		"AbilitySharedCooldown" "share_flash_ring"
@@ -13449,93 +13449,93 @@
 		}
 	}
 
-	// 水計之書．二階
-	"item_flood_book_1"
-	{
-		// General
+	// // 水計之書．二階
+	// "item_flood_book_1"
+	// {
+	// 	// General
 		
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/flood_book"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		"AbilitySharedCooldown" "share_item_flood_book"
-		"AbilityCooldown"	"30"
-		"AbilityCastPoint"	"0.2"
-		"AbilityManaCost"	"280"
-		"AbilityCastRange"	"800"
-		"AOERadius"		"400"
-		"ID"	"3882"
-		"ItemQuality"	"component"
-		"Model"	"models/props_gameplay/tpscroll01.vmdl"
-		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"4000"
-		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_flood_book.lua"
-				"Function"	"Shock2"
-				"Target"	"POINT"
-			}
-		}
+	// 	"BaseClass"	"item_datadriven"
+	// 	"AbilityTextureName"	"item_custom/flood_book"
+	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+	// 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	// 	"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	// 	"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+	// 	"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+	// 	"FightRecapLevel"	"1"
+	// 	"AbilitySharedCooldown" "share_item_flood_book"
+	// 	"AbilityCooldown"	"30"
+	// 	"AbilityCastPoint"	"0.2"
+	// 	"AbilityManaCost"	"280"
+	// 	"AbilityCastRange"	"800"
+	// 	"AOERadius"		"400"
+	// 	"ID"	"3882"
+	// 	"ItemQuality"	"component"
+	// 	"Model"	"models/props_gameplay/tpscroll01.vmdl"
+	// 	"Effect"	"particles/q09_2/q09_2.vpcf"
+	// 	"ItemCost"	"4000"
+	// 	//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+	// 	"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+	// 	"OnSpellStart"
+	// 	{
+	// 		"RunScript"
+	// 		{
+	// 			"ScriptFile"	"items/Addon_Items/item_flood_book.lua"
+	// 			"Function"	"Shock2"
+	// 			"Target"	"POINT"
+	// 		}
+	// 	}
 		
-		"Modifiers"
-		{
-			"modifier_flood_book"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsPurgable"	"1"
-				"IsDebuff"		"1"
+	// 	"Modifiers"
+	// 	{
+	// 		"modifier_flood_book"
+	// 		{
+	// 			"Passive"			"0"
+	// 			"IsHidden"			"0"
+	// 			"IsPurgable"	"1"
+	// 			"IsDebuff"		"1"
 			
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"Passive_flood_book"
-			{
-				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Passive"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "30"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
-					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
-				}
-			}
-		}
-	}
+	// 			"States"
+	// 			{
+	// 				"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+	// 			}
+	// 		}
+	// 		"Passive_flood_book"
+	// 		{
+	// 			"IsHidden"	"1"
+	// 			"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+	// 			"Passive"	"1"
+	// 			"Properties"
+	// 			{
+	// 				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+	// 				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
+	// 				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "30"	//智
+	// 				"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+	// 				"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+	// 				"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+	// 				"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
+	// 				"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
+	// 				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+	// 				"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
+	// 				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+	// 				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
+	// 				"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
+	// 			}
+	// 		}
+	// 	}
+	// }
 
-	"item_recipe_flood_book_1"
-	{
-	    "ID" "3883"
-	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1500"
-		"ItemShopTags" ""
-		"ItemRecipe" "1"
-		"SideShop"		"0"
-		"ItemResult" "item_flood_book_1"  //合成後物品
-		"ItemRequirements"
-		{
-			"01" "item_flood_book"  //合成所需物品
-		}
-	}
+	// "item_recipe_flood_book_1"
+	// {
+	//     "ID" "3883"
+	//     "BaseClass" "item_recipe_arcane_boots"
+	// 	"ItemCost" "1500"
+	// 	"ItemShopTags" ""
+	// 	"ItemRecipe" "1"
+	// 	"SideShop"		"0"
+	// 	"ItemResult" "item_flood_book_1"  //合成後物品
+	// 	"ItemRequirements"
+	// 	{
+	// 		"01" "item_flood_book"  //合成所需物品
+	// 	}
+	// }
 }
