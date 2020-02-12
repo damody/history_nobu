@@ -706,6 +706,8 @@
 		{
 			"particle"	"particles/a11t/a11t.vpcf"
 			"particle"	"particles/units/heroes/hero_tinker/tinker_machine.vpcf"
+			"particle"	"particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta.vpcf"
+			"particle"	"particles/a13t/a13tsmoketrail.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
 		}
