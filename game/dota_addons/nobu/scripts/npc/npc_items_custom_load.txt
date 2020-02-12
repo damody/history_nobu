@@ -7457,7 +7457,20 @@
 			"01" "item_pleated_skirt;item_health_ingot;item_lesser_armor"  //合成所需物品
 		}
 	}
-
+	//平蜘蛛釜製作單
+	"item_recipe_kotennmyohiragumo"
+	{
+	    "ID" "3057"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "1050"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"ItemResult" "item_kotennmyohiragumo"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_regeneration_ingot;item_health_ingot"  //合成所需物品
+		}
+	}
 	//御魔護符製作單
 	"item_recipe_magic_talisman" 
 	{
@@ -10128,7 +10141,89 @@
 		}
 	}
 
-
+	//平蜘蛛釜
+	"item_kotennmyohiragumo"
+	{
+		// General
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/kotennmyohiragumo"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		
+		"AbilityCooldown"	"85"
+		"AbilitySharedCooldown" "share_perceive_wine_hyper"
+		"AbilityManaCost"	"200"
+		"ID"	"2813"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"2500"
+		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+			  	"ScriptFile"	"items/Addon_Items/item_kotennmyohiragumo.lua"
+				"Function"	"Shock"
+				"Time"	"%duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_perceive_wine"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Passive"	"0"
+				"EffectName"	"particles/item/item_perceive_wine.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"IsHidden"	"0"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"2"
+			}
+		}
+		"OnUnequip"
+		{
+		}
+		"Modifiers"
+		{
+			"Passive_item_pleated_skirt"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "300" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "25"	//回血
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "0"	//跑速
+				}
+			}
+		}
+	}
 	// 御魔護符
 	"item_magic_talisman"
 	{
