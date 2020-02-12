@@ -139,7 +139,6 @@ function B01R3(keys)
 		--print("B01R "..dmg)
 		local per_atk = 0
 		local targetArmor = target:GetPhysicalArmorValue(false)
-
 		if target:IsHero() then 
 			per_atk = ability:GetLevelSpecialValueFor("atk_hero",level)
 			local particle = ParticleManager:CreateParticle("particles/b01r/b01r.vpcf", PATTACH_ABSORIGIN, target)
@@ -286,18 +285,31 @@ function B01R(keys)
 	--end
 end
 
-function Cavalry_armor( keys )
+function Unit_armor( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local damage = keys.dmg
 	if target:IsHero() then 
 	elseif  target:IsBuilding() then		
 		caster:SetHealth(caster:GetHealth() + damage)
-		AMHC:Damage(caster,caster,damage*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+		AMHC:Damage(caster,caster,damage*0.5,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 		print("tower")
 	else
 		caster:SetHealth(caster:GetHealth() + damage)
-		AMHC:Damage(caster,caster,damage*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+		AMHC:Damage(caster,caster,damage*0.5,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+		print("unit")
+	end
+end
+function Tower_armor( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local damage = keys.dmg
+	if target:IsHero() then 
+		print("hero")
+	elseif  target:IsBuilding() then
+	else
+		caster:SetHealth(caster:GetHealth() + damage)
+		AMHC:Damage(caster,caster,damage*0.7,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 		print("unit")
 	end
 end
