@@ -10182,7 +10182,7 @@
 		"AbilityCooldown"	"85"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		"AbilityManaCost"	"200"
-		"AbilityCastRange"	"400"
+		"AbilityCastRange"	"700"
 		"ID"	"2813"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
