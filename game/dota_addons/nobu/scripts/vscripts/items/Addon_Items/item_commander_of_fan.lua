@@ -7,7 +7,7 @@ function Shock( keys )
           point,
           nil,
           400,
-          DOTA_UNIT_TARGET_TEAM_ENEMY + DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+          DOTA_UNIT_TARGET_TEAM_ENEMY,
           DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
           DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
           0,
@@ -23,7 +23,7 @@ function Shock( keys )
 		AMHC:Damage(caster,target, 1,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 		if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
 			if (target:IsMagicImmune()) then
-				ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan1",nil)
+				-- ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan1",nil)
 			elseif (target:IsHero()) then
 				ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan2",nil)
 			else
