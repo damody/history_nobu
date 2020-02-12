@@ -1350,7 +1350,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_forest_scroll.lua"
-				"Function"	"Shock2"
+				"Function"	"Shock"
 			}
 		}
 		"Modifiers"
@@ -1401,6 +1401,14 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"2"
 			}
 		}
 	}
@@ -10790,7 +10798,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_forest_scroll.lua"
-				"Function"	"Shock3"
+				"Function"	"Shock"
 			}
 			"ActOnTargets"
 			{
@@ -10888,6 +10896,14 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
 				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"2.5"
 			}
 		}
 	}
@@ -11041,7 +11057,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_forest_scroll.lua"
-				"Function"	"Shock4"
+				"Function"	"Shock"
 			}
 			"ActOnTargets"
 			{
@@ -11180,6 +11196,14 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
 				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"3"
 			}
 		}
 	}
@@ -11659,10 +11683,9 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		
+		"FightRecapLevel"	"1"	
+		"AbilityCastRange"	"400"	
 		"AbilityCooldown"	"20"
-		
 		"AbilityManaCost"	"75"
 		"ID"	"2503"
 		"ItemQuality"	"component"
@@ -11717,6 +11740,14 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
 				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"1.5"
 			}
 		}
 	}

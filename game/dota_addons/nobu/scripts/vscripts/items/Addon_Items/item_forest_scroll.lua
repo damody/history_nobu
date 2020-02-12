@@ -94,6 +94,38 @@ end
 function Shock( keys )
 	local caster = keys.caster
 	local ability = keys.ability
+	local point = caster:GetOrigin()
+	local duration = ability:GetSpecialValueFor("duration")
+	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
+          point,
+          nil,
+          400,
+          DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+          DOTA_UNIT_TARGET_HERO,
+          DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+          0,
+		  false)
+	for _,target in pairs(direUnits) do
+		if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
+			if target:IsHero() then
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_invisible", {duration = duration})
+			end
+		end
+	end
+	for itemSlot = 0,5 do
+		local item = caster:GetItemInSlot(itemSlot)
+		if item ~= nil and ((item:GetName() == "item_forest_scroll") or
+				(item:GetName() == "item_the_art_of_war_forest_chapter") or 
+				(item:GetName() == "item_the_lost_art_of_war_1") or 
+				(item:GetName() == "item_recipe_the_art_of_war"))then
+			item:StartCooldown(ability:GetCooldown(-1))
+		end
+	end
+end
+
+function Shock_old( keys )
+	local caster = keys.caster
+	local ability = keys.ability
 	local monster1 = CreateUnitByName("forest_soldier1",caster:GetAbsOrigin()+caster:GetForwardVector()*100 ,false,caster,caster,caster:GetTeamNumber())
 	monster1:SetControllableByPlayer(caster:GetPlayerOwnerID(),false)
 	monster1:AddNewModifier(monster1,ability,"modifier_phased",{duration=0.1})
