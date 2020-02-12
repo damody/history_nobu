@@ -6190,7 +6190,7 @@
 		"AbilityManaCost"	"100"
 		"AbilityCastPoint"	"0"
 		"AbilityCastRange"	"600"
-		"AOERadius"		"400"
+		"AOERadius"		"300"
 		"ID"	"2588"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
