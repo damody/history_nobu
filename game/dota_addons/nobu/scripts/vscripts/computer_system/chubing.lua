@@ -116,7 +116,7 @@ function ShuaGuai( )
 		return 45
    	end)
  	Timers:CreateTimer(start_time, function()
-	  	ShuaGuai_Of_AA(4)
+	  	ShuaGuai_Of_AA(3)
   		return 45
 	 end)
 	 Timers:CreateTimer(start_time+3, function()--50
