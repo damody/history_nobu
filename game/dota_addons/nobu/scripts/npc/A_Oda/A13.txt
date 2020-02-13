@@ -789,12 +789,6 @@
 						"EffectName"	"particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta_start.vpcf"
 						"EffectAttachType"	"start_at_origin"
 					}
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A13_Hattori_Hanzo.lua"
-						"Function"	"A13T_OnAttackLanded"
-						"Target"	"TARGET"
-					}
 				}
 				"States"
 				{
@@ -802,6 +796,7 @@
 					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_MUTED"    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Properties"
 				{
@@ -812,10 +807,6 @@
 			}
 			"modifier_A13T_Blind"
 			{
-				"States"
-				{
-					"MODIFIER_STATE_EVADE_DISABLED"    "MODIFIER_STATE_VALUE_ENABLED"
-				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BONUS_DAY_VISION"	"-2800"
