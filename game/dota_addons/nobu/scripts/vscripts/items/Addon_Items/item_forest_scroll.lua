@@ -112,7 +112,7 @@ function Shock( keys )
 			end
 		end
 	end
-	for itemSlot = 0,5 do
+	for itemSlot = 0,8 do
 		local item = caster:GetItemInSlot(itemSlot)
 		if item ~= nil and ((item:GetName() == "item_forest_scroll") or
 				(item:GetName() == "item_the_art_of_war_forest_chapter") or 

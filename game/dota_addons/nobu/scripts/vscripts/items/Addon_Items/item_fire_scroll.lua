@@ -23,4 +23,14 @@ function Shock( keys )
 	--【SOUND】
 	caster:StopSound("ITEM_D03.sound")
 	caster:EmitSound("ITEM_D03.sound")
+
+	for itemSlot = 0,8 do
+		local item = caster:GetItemInSlot(itemSlot)
+		if item ~= nil and ((item:GetName() == "item_fire_scroll") or
+				(item:GetName() == "item_the_art_of_war_flame_chapter") or 
+				(item:GetName() == "item_the_lost_art_of_war_1") or 
+				(item:GetName() == "item_recipe_the_art_of_war"))then
+			item:StartCooldown(ability:GetCooldown(-1))
+		end
+	end
 end

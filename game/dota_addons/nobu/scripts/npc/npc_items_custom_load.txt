@@ -964,7 +964,6 @@
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"80"
 		"AbilityManaCost"	"100"
-		"AbilitySharedCooldown" "mountain_scroll"
 		// Valve's version of this item uses the ID "1".
 		"ID"	"2501"
 		"ItemQuality"	"component"
@@ -984,6 +983,11 @@
 		}
 		"OnSpellStart"
 		{
+			"RunScript"
+			{
+			  	"ScriptFile"	"items/Addon_Items/item_mountain_scroll.lua"
+				"Function"	"Shock"
+			}
 			"FireSound"
 			{
 				"Target"	"CASTER"
@@ -1329,7 +1333,6 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q03_2/q03_2.vpcf"
-		"AbilitySharedCooldown" "the_art_of_war"
 		// Item Info
 		
 		"ItemCost"	"3050"
@@ -10657,7 +10660,6 @@
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"80"
 		"AbilityManaCost"	"100"
-		"AbilitySharedCooldown" "mountain_scroll"
 		
 		"ID"	"2533"
 		"ItemQuality"	"component"
@@ -10674,6 +10676,11 @@
 		}
 		"OnSpellStart"
 		{
+			"RunScript"
+			{
+			  	"ScriptFile"	"items/Addon_Items/item_mountain_scroll.lua"
+				"Function"	"Shock"
+			}
 			"FireSound"
 			{
 				"Target"	"CASTER"
@@ -10781,7 +10788,6 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilitySharedCooldown" "the_art_of_war"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"30"
 		"AbilityManaCost"	"100"
@@ -10925,7 +10931,6 @@
 		"AbilityCooldown"	"80"
 		
 		"AbilityManaCost"	"150"
-		"AbilitySharedCooldown" "mountain_scroll"
 		
 		"ID"	"2535"
 		"ItemQuality"	"component"
@@ -10939,6 +10944,11 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_wind_scroll.lua"
+				"Function"	"Shock"
+			}
+			"RunScript"
+			{
+			  	"ScriptFile"	"items/Addon_Items/item_mountain_scroll.lua"
 				"Function"	"Shock"
 			}
 			"ActOnTargets"
@@ -11043,7 +11053,7 @@
 		"FightRecapLevel"	"1"		
 		"AbilityCooldown"	"85"		
 		"AbilityManaCost"	"350"
-		"AbilitySharedCooldown" "the_art_of_war"
+		"AbilitySharedCooldown" "item_the_lost_art_of_war_2"
 		
 		"ID"	"2536"
 		"ItemQuality"	"component"
@@ -11091,6 +11101,11 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_wind_scroll.lua"
+				"Function"	"Shock"
+			}
+			"RunScript"
+			{
+			  	"ScriptFile"	"items/Addon_Items/item_mountain_scroll.lua"
 				"Function"	"Shock"
 			}
 			"ActOnTargets"
