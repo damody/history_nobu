@@ -452,7 +452,6 @@ function C08T_OnSpellStart( keys )
 		end)
 		local modifier_C08W_bleeding = target:FindModifierByName("modifier_C08W_bleeding")
 		if modifier_C08W_bleeding then
-			local remainTime = modifier_C08W_bleeding:GetRemainingTime()
 			caster:ModifyStrength( ability:GetSpecialValueFor("attributes_bonus") )
 			caster:ModifyAgility( ability:GetSpecialValueFor("attributes_bonus") )
 			caster:ModifyIntellect( ability:GetSpecialValueFor("attributes_bonus") )

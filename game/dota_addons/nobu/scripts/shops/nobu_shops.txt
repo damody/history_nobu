@@ -193,6 +193,7 @@
 	"item"      "item_raikiri"			//雷切
 	"item"      "item_the_sword_of_kaminaobi"			//神直毘御劍
 	"item"		"item_kat_steel" //吉鋼鐵
+	"item"		"item_death_of_scepter" // 逝者之笏
 }
 
 
