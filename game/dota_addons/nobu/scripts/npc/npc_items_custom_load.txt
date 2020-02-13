@@ -13494,94 +13494,41 @@
 			"01" "item_the_shell_of_spirituality_kappa;item_hachiman_bell"  //合成所需物品
 		}
 	}
-
-	// // 水計之書．二階
-	// "item_flood_book_1"
-	// {
-	// 	// General
-		
-	// 	"BaseClass"	"item_datadriven"
-	// 	"AbilityTextureName"	"item_custom/flood_book"
-	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-	// 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	// 	"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	// 	"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-	// 	"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-	// 	"FightRecapLevel"	"1"
-	// 	"AbilitySharedCooldown" "share_item_flood_book"
-	// 	"AbilityCooldown"	"30"
-	// 	"AbilityCastPoint"	"0.2"
-	// 	"AbilityManaCost"	"280"
-	// 	"AbilityCastRange"	"800"
-	// 	"AOERadius"		"400"
-	// 	"ID"	"3882"
-	// 	"ItemQuality"	"component"
-	// 	"Model"	"models/props_gameplay/tpscroll01.vmdl"
-	// 	"Effect"	"particles/q09_2/q09_2.vpcf"
-	// 	"ItemCost"	"4000"
-	// 	//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-	// 	"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-	// 	"OnSpellStart"
-	// 	{
-	// 		"RunScript"
-	// 		{
-	// 			"ScriptFile"	"items/Addon_Items/item_flood_book.lua"
-	// 			"Function"	"Shock2"
-	// 			"Target"	"POINT"
-	// 		}
-	// 	}
-		
-	// 	"Modifiers"
-	// 	{
-	// 		"modifier_flood_book"
-	// 		{
-	// 			"Passive"			"0"
-	// 			"IsHidden"			"0"
-	// 			"IsPurgable"	"1"
-	// 			"IsDebuff"		"1"
-			
-	// 			"States"
-	// 			{
-	// 				"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
-	// 			}
-	// 		}
-	// 		"Passive_flood_book"
-	// 		{
-	// 			"IsHidden"	"1"
-	// 			"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-	// 			"Passive"	"1"
-	// 			"Properties"
-	// 			{
-	// 				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-	// 				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
-	// 				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "30"	//智
-	// 				"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
-	// 				"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
-	// 				"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
-	// 				"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
-	// 				"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
-	// 				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
-	// 				"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
-	// 				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
-	// 				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-	// 				"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
-	// 			}
-	// 		}
-	// 	}
-	// }
-
-	// "item_recipe_flood_book_1"
-	// {
-	//     "ID" "3883"
-	//     "BaseClass" "item_recipe_arcane_boots"
-	// 	"ItemCost" "1500"
-	// 	"ItemShopTags" ""
-	// 	"ItemRecipe" "1"
-	// 	"SideShop"		"0"
-	// 	"ItemResult" "item_flood_book_1"  //合成後物品
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01" "item_flood_book"  //合成所需物品
-	// 	}
-	// }
+	// 下忍
+	"item_ninja1"
+	{
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/liubei_hujia"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"	"1"
+		"AbilityCastRange"	"400"
+		"AbilityManaCost"	"0"
+		"ID"	"4000"
+		"ItemCost"	"100"
+		"ItemQuality"	"component"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_ninja.lua"
+				"Function"	"Shock"
+			}
+			"DelayedAction"
+            {
+            	"Delay"     "0.1"
+            	"Action"    
+            	{
+            		"SpendCharge"
+					{}
+            	}
+            }
+		}
+	}
 }

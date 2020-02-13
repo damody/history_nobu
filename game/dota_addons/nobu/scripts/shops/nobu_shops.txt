@@ -15,6 +15,7 @@
 	"item"		"item_earth_wall_book2"		//忍法．土遁之書
 	"item"      "item_insight_gem_s"		//寶石碎片
 	"item"      "item_gold_to_prestige"		//兵力
+	"item"		"item_ninja1"			//下忍
 }
 
 //偷買
@@ -76,7 +77,7 @@
 	"item"      "item_mana_ingot"			//法力鋼
 	"item"      "item_energy_ingot"			//能量鋼
 	"item"      "item_protection_amulet"	//御守
-	"item"		"item_ice_book"				//冰計之書
+	"item"		"item_ice_book"				//冰計之書	
 }
 
 //法書

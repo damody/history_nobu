@@ -941,7 +941,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
-						"Function"	"update_buy_ninja1"
+						"Function"	"update_ninja1"
 					}
 				}
 			}
