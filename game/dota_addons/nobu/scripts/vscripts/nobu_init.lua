@@ -117,11 +117,11 @@ function _G.Nobu:InitGameMode()
   -- --【經驗值設定】
   MaxLevel = 25 --最大等級
   XpTable = {} --升級所需經驗
-  local xp = 120
+  local xp = 90
   XpTable[1]=0
   for i=2,MaxLevel do
     XpTable[i]=xp
-    xp = xp + i*75
+    xp = xp + i*70
   end
   GameRules:GetGameModeEntity():SetCustomHeroMaxLevel(MaxLevel)
   GameRules:GetGameModeEntity():SetCustomXPRequiredToReachNextLevel(XpTable)--類型為table
