@@ -11439,9 +11439,9 @@
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
 			
-				"States"
+				"Properties"
 				{
-					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80"
 				}
 			}
 			"Passive_flood_book"

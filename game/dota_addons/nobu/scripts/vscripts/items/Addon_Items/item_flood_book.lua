@@ -18,22 +18,20 @@ function Shock( keys )
 	for _,target in pairs(direUnits) do
 		-- 不能推秋山的石頭跟建築物
 		if not target:IsBuilding() and _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
-			if not target:IsMagicImmune() then
-				local knockbackProperties =
-				{
-					center_x = point.x,
-					center_y = point.y,
-					center_z = point.z,
-					duration = 0.3,
-					knockback_duration = 0.3,
-					knockback_distance = 200,
-					knockback_height = 0,
-					should_stun = 1
-				}
-				target:AddNewModifier( caster, nil, "modifier_knockback", knockbackProperties )
-				ability:ApplyDataDrivenModifier(caster, target, "modifier_stunned", {duration = 0.8})
-				-- AMHC:Damage(caster,target,50,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-			end
+			local knockbackProperties =
+			{
+				center_x = point.x,
+				center_y = point.y,
+				center_z = point.z,
+				duration = 0.3,
+				knockback_duration = 0.3,
+				knockback_distance = 300,
+				knockback_height = 0,
+				should_stun = 0
+			}
+			target:AddNewModifier( caster, nil, "modifier_knockback", knockbackProperties )
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_flood_book", {duration = 2})
+			-- AMHC:Damage(caster,target,50,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		end
 	end
 end
