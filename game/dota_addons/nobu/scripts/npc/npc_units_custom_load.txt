@@ -5463,10 +5463,10 @@
 		// ----------------------------------------------------------------
 		"BaseClass"	"npc_dota_building"
 		// Add model
-		"Model"	"models/stone.vmdl"
-		"ModelScale"	"2.5"
+		"Model"	"models/props_rock/riveredge_rock004a.vmdl"
+		"ModelScale"	"1.5"
 		"Level"	"1"
-		"BoundsHullName"	"DOTA_HULL_SIZE_BARRACKS"
+		"BoundsHullName"	"DOTA_HULL_SIZE_HUGE"
 		"HealthBarOffset"	"200"
 		// Abilities
 		// ----------------------------------------------------------------
@@ -5486,7 +5486,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"1000"
+		"StatusHealth"	"00"
 		"StatusHealthRegen"	"0"
 		// Vision
 		// ----------------------------------------------------------------

@@ -11,8 +11,6 @@
 	"item"      "item_liquor"				//燒酒
 	"item"      "item_napalm_bomb"			//爆烈彈
 	"item"      "item_shuriken"				//手裏劍
-	"item"		"item_earth_wall_book"		//忍法．土遁之書
-	"item"		"item_earth_wall_book2"		//忍法．土遁之書
 	"item"      "item_insight_gem_s"		//寶石碎片
 	"item"      "item_gold_to_prestige"		//兵力
 	"item"		"item_ninja1"			//下忍
@@ -98,7 +96,7 @@
 	"item"      "item_storm_book"			//狂風之書
 	"item"      "item_spell_book"			//法術書
 	"item"      "item_thunderstorms"			//天變之書
-
+	"item"		"item_earth_wall_book"		//忍法．土遁
 }   
 
 //高階武器
