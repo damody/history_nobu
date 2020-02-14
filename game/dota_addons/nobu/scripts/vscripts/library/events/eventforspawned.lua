@@ -38,6 +38,7 @@ function Nobu:OnHeroIngame( keys )
           hero:AddNewModifier(caster,ability,"modifier_record",{})
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
+          hero:AddItem(CreateItem("item_logging", hero, hero))
           --create courier
           local donkey = CreateUnitByName("npc_dota_courier", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
           donkey.oripos = donkey:GetAbsOrigin()
