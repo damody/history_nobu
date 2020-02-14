@@ -157,6 +157,47 @@ function ShuaGuai_Of_AA(num)
 		if tem_count > num then return nil
 		else
 			for i=1,6 do
+				--騎兵營被拆
+				local small_big = false
+				if _G.team_broken[3]["top"] == 1 and i == 3 then
+					small_big = true
+				end
+				if _G.team_broken[3]["mid"] == 1 and i == 2 then
+					small_big = true
+				end
+				if _G.team_broken[3]["down"] == 1 and i == 1 then
+					small_big = true
+				end
+				if _G.team_broken[2]["top"] == 1 and i == 6 then
+					small_big = true
+				end
+				if _G.team_broken[2]["mid"] == 1 and i == 5 then
+					small_big = true
+				end
+				if _G.team_broken[2]["down"] == 1 and i == 4 then
+					small_big = true
+				end
+				--兵營被拆
+				local big = false
+				if _G.team_broken[3]["top"] == 2 and i == 3 then
+					big = true
+				end
+				if _G.team_broken[3]["mid"] == 2 and i == 2 then
+					big = true
+				end
+				if _G.team_broken[3]["down"] == 2 and i == 1 then
+					big = true
+				end
+				if _G.team_broken[2]["top"] == 2 and i == 6 then
+					big = true
+				end
+				if _G.team_broken[2]["mid"] == 2 and i == 5 then
+					big = true
+				end
+				if _G.team_broken[2]["down"] == 2 and i == 4 then
+					big = true
+				end
+
 				local go = false
 				if _G.mo == nil then
 					go = true
@@ -178,33 +219,41 @@ function ShuaGuai_Of_AA(num)
 						unit_name = "com_infantry_unified_" .. randomkey
 					end
 					--創建單位
-					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
-					unit:AddAbility("set_level_1"):SetLevel(1)
-					local hp = unit:GetMaxHealth() + 150
-					unit:SetBaseMaxHealth(hp+A_count * 8)
-					local dmgmax = unit:GetBaseDamageMax()
-					local dmgmin = unit:GetBaseDamageMin()
-					unit:SetBaseDamageMax(dmgmax+A_count*1)
-					unit:SetBaseDamageMax(dmgmin+A_count*1)
-					local armor = unit:GetPhysicalArmorBaseValue()
-					unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
-					--creep:SetContextNum("isshibing",1,0)
+					--強化倍率
+					local intensify = 1
+					if small_big then intensify = 1.5 end
+					if big then intensify = 2 end
+					if not big then
+						local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
+						unit:AddAbility("set_level_1"):SetLevel(1)
+						local hp = (unit:GetMaxHealth() + 150) * intensify
+						unit:SetBaseMaxHealth(hp+A_count * 8)
+						local dmgmax = unit:GetBaseDamageMax() * intensify
+						local dmgmin = unit:GetBaseDamageMin() * intensify
+						unit:SetBaseDamageMax(dmgmax+A_count*1)
+						unit:SetBaseDamageMax(dmgmin+A_count*1)
+						local armor = unit:GetPhysicalArmorBaseValue() * intensify
+						unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
+						--creep:SetContextNum("isshibing",1,0)
 
-					--單位面向角度
-					unit:SetForwardVector(ShuaGuai_entity_forvec[i])
+						--單位面向角度
+						unit:SetForwardVector(ShuaGuai_entity_forvec[i])
 
-					--禁止單位尋找最短路徑
-					unit:SetMustReachEachGoalEntity(false)
+						--禁止單位尋找最短路徑
+						unit:SetMustReachEachGoalEntity(false)
 
-					--顏色
-					if team == 3 then
-						----unit:SetRenderColor(255,100,100)
-					elseif team == 3 then
-						----unit:SetRenderColor(100,255,100)
+						--顏色
+						if team == 3 then
+							----unit:SetRenderColor(255,100,100)
+						elseif team == 3 then
+							----unit:SetRenderColor(100,255,100)
+						end
+
+						--讓單位沿著設置好的路線開始行動
+						unit:SetInitialGoalEntity(ShuaGuai_entity[i])
+					else
+						ShuaGuai_Of_C(1,team,i)
 					end
-
-					--讓單位沿著設置好的路線開始行動
-					unit:SetInitialGoalEntity(ShuaGuai_entity[i])
 				end
 			end
 			return 0.5
@@ -224,6 +273,47 @@ function ShuaGuai_Of_AB(num)
 		if tem_count > num then return nil
 		else
 			for i=1,6 do
+				--騎兵營被拆
+				local small_big = false
+				if _G.team_broken[3]["top"] == 1 and i == 3 then
+					small_big = true
+				end
+				if _G.team_broken[3]["mid"] == 1 and i == 2 then
+					small_big = true
+				end
+				if _G.team_broken[3]["down"] == 1 and i == 1 then
+					small_big = true
+				end
+				if _G.team_broken[2]["top"] == 1 and i == 6 then
+					small_big = true
+				end
+				if _G.team_broken[2]["mid"] == 1 and i == 5 then
+					small_big = true
+				end
+				if _G.team_broken[2]["down"] == 1 and i == 4 then
+					small_big = true
+				end
+				--兵營被拆
+				local big = false
+				if _G.team_broken[3]["top"] == 2 and i == 3 then
+					big = true
+				end
+				if _G.team_broken[3]["mid"] == 2 and i == 2 then
+					big = true
+				end
+				if _G.team_broken[3]["down"] == 2 and i == 1 then
+					big = true
+				end
+				if _G.team_broken[2]["top"] == 2 and i == 6 then
+					big = true
+				end
+				if _G.team_broken[2]["mid"] == 2 and i == 5 then
+					big = true
+				end
+				if _G.team_broken[2]["down"] == 2 and i == 4 then
+					big = true
+				end
+
 				local go = false
 				if _G.mo == nil then
 					go = true
@@ -246,34 +336,42 @@ function ShuaGuai_Of_AB(num)
 					end
 
 					--創建單位
-					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
-					unit:AddAbility("set_level_1"):SetLevel(1)
-					
-					local hp = unit:GetMaxHealth()
-					unit:SetBaseMaxHealth(hp+A_count * 8)
-					local dmgmax = unit:GetBaseDamageMax()
-					local dmgmin = unit:GetBaseDamageMin()
-					unit:SetBaseDamageMax(dmgmax+A_count*2)
-					unit:SetBaseDamageMax(dmgmin+A_count*2)
-					local armor = unit:GetPhysicalArmorBaseValue()
-					unit:SetPhysicalArmorBaseValue(armor+A_count*0.05)
-					--creep:SetContextNum("isshibing",1,0)
+					--強化倍率
+					local intensify = 1
+					if small_big then intensify = 1.5 end
+					if big then intensify = 2 end
+					if not big then
+						local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
+						unit:AddAbility("set_level_1"):SetLevel(1)
+						
+						local hp = unit:GetMaxHealth() * intensify
+						unit:SetBaseMaxHealth(hp+A_count * 8)
+						local dmgmax = unit:GetBaseDamageMax() * intensify
+						local dmgmin = unit:GetBaseDamageMin() * intensify
+						unit:SetBaseDamageMax(dmgmax+A_count*2)
+						unit:SetBaseDamageMax(dmgmin+A_count*2)
+						local armor = unit:GetPhysicalArmorBaseValue() * intensify
+						unit:SetPhysicalArmorBaseValue(armor+A_count*0.05)
+						--creep:SetContextNum("isshibing",1,0)
 
-					--單位面向角度
-					unit:SetForwardVector(ShuaGuai_entity_forvec[i])
+						--單位面向角度
+						unit:SetForwardVector(ShuaGuai_entity_forvec[i])
 
-					--禁止單位尋找最短路徑
-					unit:SetMustReachEachGoalEntity(false)
+						--禁止單位尋找最短路徑
+						unit:SetMustReachEachGoalEntity(false)
 
-					--顏色
-					if team == 3 then
-						----unit:SetRenderColor(255,100,100)
-					elseif team == 3 then
-						----unit:SetRenderColor(100,255,100)
+						--顏色
+						if team == 3 then
+							----unit:SetRenderColor(255,100,100)
+						elseif team == 3 then
+							----unit:SetRenderColor(100,255,100)
+						end
+
+						--讓單位沿著設置好的路線開始行動
+						unit:SetInitialGoalEntity(ShuaGuai_entity[i])
+					else
+						ShuaGuai_Of_B(1,team,i)
 					end
-
-					--讓單位沿著設置好的路線開始行動
-					unit:SetInitialGoalEntity(ShuaGuai_entity[i])
 				end
 			end
 			return 0.5
@@ -297,6 +395,27 @@ function ShuaGuai_Of_B(num, team, pos)
 		else
 			for i=pos,pos do
 				--超過三的時候出兵變為聯合軍
+				--騎兵營被拆
+				local small_big = false
+				if _G.team_broken[3]["top"] == 1 and pos == 3 then
+					small_big = true
+				end
+				if _G.team_broken[3]["mid"] == 1 and pos == 2 then
+					small_big = true
+				end
+				if _G.team_broken[3]["down"] == 1 and pos == 1 then
+					small_big = true
+				end
+				if _G.team_broken[2]["top"] == 1 and pos == 6 then
+					small_big = true
+				end
+				if _G.team_broken[2]["mid"] == 1 and pos == 5 then
+					small_big = true
+				end
+				if _G.team_broken[2]["down"] == 1 and pos == 4 then
+					small_big = true
+				end
+				--兵營被拆
 				local big = false
 				if _G.team_broken[3]["top"] == 2 and pos == 3 then
 					big = true
@@ -327,10 +446,8 @@ function ShuaGuai_Of_B(num, team, pos)
 				local n = 1
 				--強化倍率
 				local intensify = 1
-				if big then
-					--n = 2
-					intensify = 2
-				end
+				if small_big then intensify = 1.5 end
+				if big then intensify = 2 end
 				for x=1,n do
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					unit:AddAbility("set_level_1"):SetLevel(1)
@@ -374,23 +491,44 @@ function ShuaGuai_Of_C(num, team, pos)
 		if tem_count > num then return nil
 		else
 			for i=pos,pos do
+				--騎兵營被拆
+				local small_big = false
+				if _G.team_broken[3]["top"] == 1 and pos == 3 then
+					small_big = true
+				end
+				if _G.team_broken[3]["mid"] == 1 and pos == 2 then
+					small_big = true
+				end
+				if _G.team_broken[3]["down"] == 1 and pos == 1 then
+					small_big = true
+				end
+				if _G.team_broken[2]["top"] == 1 and pos == 6 then
+					small_big = true
+				end
+				if _G.team_broken[2]["mid"] == 1 and pos == 5 then
+					small_big = true
+				end
+				if _G.team_broken[2]["down"] == 1 and pos == 4 then
+					small_big = true
+				end
+				--兵營被拆
 				local big = false
-				if _G.team_broken[3]["top"] >= 1 and pos == 3 then
+				if _G.team_broken[3]["top"] == 2 and pos == 3 then
 					big = true
 				end
-				if _G.team_broken[3]["mid"] >= 1 and pos == 2 then
+				if _G.team_broken[3]["mid"] == 2 and pos == 2 then
 					big = true
 				end
-				if _G.team_broken[3]["down"] >= 1 and pos == 1 then
+				if _G.team_broken[3]["down"] == 2 and pos == 1 then
 					big = true
 				end
-				if _G.team_broken[2]["top"] >= 1 and pos == 6 then
+				if _G.team_broken[2]["top"] == 2 and pos == 6 then
 					big = true
 				end
-				if _G.team_broken[2]["mid"] >= 1 and pos == 5 then
+				if _G.team_broken[2]["mid"] == 2 and pos == 5 then
 					big = true
 				end
-				if _G.team_broken[2]["down"] >= 1 and pos == 4 then
+				if _G.team_broken[2]["down"] == 2 and pos == 4 then
 					big = true
 				end
 				local unit_name = nil
@@ -405,10 +543,8 @@ function ShuaGuai_Of_C(num, team, pos)
 				local n = 1
 				--強化倍率
 				local intensify = 1
-				if big then
-					--n = 2
-					intensify = 2
-				end
+				if small_big then intensify = 1.5 end
+				if big then intensify = 2 end
 				for x=1,n do
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					
