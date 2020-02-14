@@ -3541,24 +3541,17 @@
 		// General
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_datadriven"
-		"AbilityTextureName"	"custom/icon_128x128_124"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-        "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"
+		"AbilityTextureName"	""
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"	"1"
-		"HotKeyOverride"	"F"
 		"LevelsBetweenUpgrades"	"0"
-		"AbilityCastRange"              "250"
-		"AbilityCooldown"	"0.3"
+		"AbilityCooldown"	"0"
 		"precache"
 		{
 		}
 		"OnSpellStart"
 		{
-			"DestroyTrees"
-			{
-				"Target"        "POINT"
-				"Radius"        "100"
-			}
+
 		}
 		"Modifiers"
 		{
