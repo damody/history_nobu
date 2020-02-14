@@ -13559,7 +13559,6 @@
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"3600"
-		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPEC TATORS"
 		"OnEquip"
 		{
@@ -13628,6 +13627,39 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"damage"	"100"
+			}
+		}
+	}
+	// 砍樹
+	"item_logging"
+	{
+		// General
+		// -------------------------------------------------------------------------------------------------------------
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/icon_128x128_124"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_TREE"
+		"FightRecapLevel"	"1"
+		// Time
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"	"0.3"
+		// Cost
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"	"0"
+		// Casting
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"	"250"
+		"ID"	"5000"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"50"
+		"OnSpellStart"
+		{
+			"DestroyTrees"
+			{
+				"Target"        "POINT"
+				"Radius"        "100"
 			}
 		}
 	}

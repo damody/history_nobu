@@ -3543,7 +3543,6 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/icon_128x128_124"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
         "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_TREE"
 		"MaxLevel"	"1"
 		"HotKeyOverride"	"F"
