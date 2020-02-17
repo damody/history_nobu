@@ -246,6 +246,60 @@ function A31T_Levelup( keys )
 	keys.caster:CalculateStatBonus()
 end
 
+function A31T( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local point = keys.target_points[1]
+	local duration = ability:GetSpecialValueFor("duration")
+	local radius = ability:GetSpecialValueFor("radius")
+	local attakc_time = ability:GetSpecialValueFor("attack_time")
+	local dummy = CreateUnitByName("npc_dummy_unit",point,false,nil,nil,caster:GetTeamNumber())
+	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=6})
+	dummy:SetOwner(caster)
+	dummy:AddAbility("majia"):SetLevel(1)
+	local spell_hint_table = {
+		duration   = duration,		-- 持續時間
+		radius     = radius,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=duration})
+	local particle = ParticleManager:CreateParticle( "particles/a31t/a31t.vpcf", PATTACH_POINT, dummy )
+		-- ParticleManager:SetParticleControl(particle,0,point+Vector(0,0,height*i))
+		-- ParticleManager:SetParticleControl(particle,1,point+Vector(0,0,height*i))
+		-- ParticleManager:SetParticleControl(particle,2,point+Vector(0,0,height*i))
+	ParticleManager:SetParticleControlEnt(particle,0, dummy, PATTACH_POINT_FOLLOW,"attach_hitloc",point, true)
+	ParticleManager:SetParticleControlEnt(particle,1, dummy, PATTACH_POINT_FOLLOW,"attach_hitloc",point, true)
+	ParticleManager:SetParticleControlEnt(particle,2, dummy, PATTACH_POINT_FOLLOW,"attach_hitloc",point, true)
+	caster:RemoveModifierByName("modifier_split_shot_datadriven")
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_A31T",nil)
+	local counter = 0
+	Timers:CreateTimer(0,function()
+		counter = counter + attakc_time
+		if not ability:IsChanneling() then
+			dummy:RemoveModifierByName("modifier_kill")
+			dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=0})
+			ability:ApplyDataDrivenModifier(caster,caster,"modifier_split_shot_datadriven",nil)
+			caster:RemoveModifierByName("modifier_A31T")
+			ParticleManager:DestroyParticle(particle, true)
+			return nil 
+		end
+		if counter > duration then
+			ability:ApplyDataDrivenModifier(caster,caster,"modifier_split_shot_datadriven",nil)
+			caster:RemoveModifierByName("modifier_A31T")
+			ParticleManager:DestroyParticle(particle, true)
+			return nil 
+		end
+		units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
+		for _,unit in ipairs(units) do	
+			if not(unit:GetTeamNumber() == caster:GetTeamNumber()) then
+				--PerformAttack(handle hTarget, bool bUseCastAttackOrb, bool bProcessProcs, bool bSkipCooldown, bool bIgnoreInvis, bool bUseProjectile, bool bFakeAttack, bool bNeverMiss)
+				caster:PerformAttack(unit, true, false, true, false, true, false, false)
+				caster:PerformAttack(unit, true, true, false, false, false, true, false)
+			end
+		end
+		return attakc_time
+	end)
+end
 -- 11.2B
 ---------------------------------------------------------------------------------------------------------------------
 

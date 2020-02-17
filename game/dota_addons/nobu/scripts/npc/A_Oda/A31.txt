@@ -303,17 +303,21 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"medusa_split_shot"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_ALL"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitTargetFlags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
 		"HotKeyOverride"	"T"
 		"MaxLevel"	"3"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
-		"AbilityCooldown"	"100"
+		"AbilityCooldown"	"100 90 80"
+		"AbilityChannelTime"	"5"
+		"AbilityCastRange"	"1200"
+		"AOERadius"	"%radius"
 		// Precache
 		// -------------------------------------------------------------------------------------------------------------
 		"precache"
@@ -331,11 +335,17 @@
 				"EffectAttachType"	"follow_origin"
 				"Target"	"CASTER"
 			}
-			"ApplyModifier"
+			"RunScript"
 			{
-				"ModifierName"	"modifier_A31T"
-				"Target"	"CASTER"
+				"Target"	"POINT"
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A31_Mori_Ranmaru.lua"
+				"Function"	"A31T"
 			}
+			// "ApplyModifier"
+			// {
+			// 	"ModifierName"	"modifier_A31T"
+			// 	"Target"	"CASTER"
+			// }
 			"RunScript"
 			{
 			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
@@ -390,7 +400,8 @@
 				"Duration"	"5"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100" //攻速
+					// "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100" //攻速
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "-33"
 				}
 			}
 		}
@@ -427,6 +438,21 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"projectile_speed"	"1200"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"5"
+			}
+			"08"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"600"
+			}
+			"09"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"attack_time"	"0.3 0.2 0.1"
 			}
 		}
 		"AbilityUnitTargetFlag"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
