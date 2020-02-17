@@ -3,7 +3,7 @@ function Shock( keys )
 	local caster = keys.caster
 	local point = keys.target_points[1] 
 	local ability = keys.ability
-	local particle = ParticleManager:CreateParticle("particles/item/item_flood_book.vpcf", PATTACH_POINT, caster)
+	local particle = ParticleManager:CreateParticle("particles/item/item_flood_book/item_flood_book_water_base.vpcf", PATTACH_POINT, caster)
 	ParticleManager:SetParticleControl(particle,0,point)
 	local SEARCH_RADIUS = 400
 	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),

@@ -11439,6 +11439,10 @@
 		"ItemCost"	"1500"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"precache"
+		{
+			"particle"	"particles/item/item_flood_book/item_flood_book_water_base.vpcf"
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
