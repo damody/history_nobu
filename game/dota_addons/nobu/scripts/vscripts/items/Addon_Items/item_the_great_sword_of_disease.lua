@@ -32,6 +32,51 @@ function Death(keys)
 end
 
 function Shock( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  local center = caster:GetAbsOrigin()
+  local radius = ability:GetSpecialValueFor("radius")
+  local duration = ability:GetSpecialValueFor("duration")
+  local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係
+          center,			-- 搜尋的中心點
+          nil, 				-- 好像是優化用的參數不懂怎麼用
+          radius,		-- 搜尋半徑
+          DOTA_UNIT_TARGET_TEAM_FRIENDLY,		-- 目標隊伍
+          DOTA_UNIT_TARGET_BASIC,		-- 目標類型
+          ability:GetAbilityTargetFlags(),		-- 額外選擇或排除特定目標
+          FIND_ANY_ORDER,	-- 結果的排列方式
+          false) 			-- 好像是優化用的參數不懂怎麼用
+  for _,unit in ipairs(units) do
+    print("find")
+    print(unit:GetName())
+    local am = unit:FindAllModifiers()
+    for _,v in pairs(am) do
+      if IsValidEntity(v:GetCaster()) and v:GetParent().GetTeamNumber ~= nil then
+        if v:GetParent():GetTeamNumber() ~= unit:GetTeamNumber() or v:GetCaster():GetTeamNumber() ~= unit:GetTeamNumber() then
+          unit:RemoveModifierByName(v:GetName())
+        end
+      end
+    end
+    ability:ApplyDataDrivenModifier(caster, unit,"modifier_perceive_wine",{duration=duration})
+    -- Strong Dispel 刪除負面效果
+    unit:Purge( false, true, true, true, true)
+    local sumt = 0
+    Timers:CreateTimer(0.1, function()
+      sumt = sumt + 0.1
+      if sumt < duration then
+        if (not unit:HasModifier("modifier_perceive_wine")) and unit.nomagic == nil then
+          local tt = duration-sumt
+          if IsValidEntity(unit) and IsValidEntity(ability) then
+            ability:ApplyDataDrivenModifier(caster, unit,"modifier_perceive_wine",{duration=tt})
+          end
+        end
+        return 0.1
+      end
+      end)
+  end
+end
+
+function Shock_old( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
