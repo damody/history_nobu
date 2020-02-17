@@ -760,6 +760,9 @@ function Precache( context )
     --制魔
     "particles/item/supressor_armor.vpcf",
     "soundevents/game_sounds_roshan_halloween.vsndevts",
+    --土遁
+    "soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts",
+    
     }
     for i,v in ipairs(sound_Precache_Table) do
       PrecacheResource("soundfile", v, context)
