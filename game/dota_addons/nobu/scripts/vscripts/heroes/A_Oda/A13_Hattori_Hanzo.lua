@@ -355,32 +355,31 @@ end
 
 A13E = class ({})
 
-function A13E:OnSpellStart()
+function A13E:IsVectorTargeting()
+	return true
+end
+
+function A13E:GetVectorTargetRange()
+	return 800
+end
+
+function A13E:GetBehavior()
+	return DOTA_ABILITY_BEHAVIOR_POINT
+end
+
+function A13E:OnVectorCastStart(vStartLocation, vDirection)
 	local caster = self:GetCaster()
 	local debuff_duraiton = self:GetSpecialValueFor("flux_duration")
 	local dir = self:GetCursorPosition() - caster:GetOrigin()
 	local ability = caster:FindAbilityByName("A13E")
 	local charges = caster:FindModifierByName("modifier_charges")
+	caster.isTurn = false
+	caster.vDirection = dir
+	caster.distance = dir:Length()
+	caster.pos1 = self:GetVectorPosition()
+	caster.pos2 = self:GetVector2Position()
 	caster:SetForwardVector(dir:Normalized())
-	caster.isTwice = false
-	if charges:GetStackCount() == 1 then
-		caster.pos1 = ability:GetCursorPosition()
-		caster.vDirection = self:GetCursorPosition() - caster:GetOrigin()
-		caster.isTurn = false
-		ability:EndCooldown()
-	else
-		caster.pos2 = ability:GetCursorPosition()
-		caster.isTwice = true
-		Timers:CreateTimer(0.55,function()
-			ability:StartCooldown(ability:GetCooldown(ability:GetLevel() -1))
-			caster:AddNewModifier(caster, self, "a13e_modifier", {duration = 2})
-			end)
-	end
-	Timers:CreateTimer(0.55,function()
-			if caster.isTwice then
-				return 
-			end
-			ability:StartCooldown(ability:GetCooldown(ability:GetLevel() -1))
+	Timers:CreateTimer(0,function()
 			caster:AddNewModifier(caster, self, "a13e_modifier", {duration = 2})
 		end)
 	--caster:AddNewModifier(caster, self, "a13e_modifier", { duration = 2}) 
@@ -390,6 +389,42 @@ function A13E:OnSpellStart()
                 caster:StopSound("hook_throw")
             end)
 end
+
+-- function A13E:OnSpellStart()
+-- 	local caster = self:GetCaster()
+-- 	local debuff_duraiton = self:GetSpecialValueFor("flux_duration")
+-- 	local dir = self:GetCursorPosition() - caster:GetOrigin()
+-- 	local ability = caster:FindAbilityByName("A13E")
+-- 	local charges = caster:FindModifierByName("modifier_charges")
+-- 	caster:SetForwardVector(dir:Normalized())
+-- 	caster.isTwice = false
+-- 	if charges:GetStackCount() == 1 then
+-- 		caster.pos1 = ability:GetCursorPosition()
+-- 		caster.vDirection = self:GetCursorPosition() - caster:GetOrigin()
+-- 		caster.isTurn = false
+-- 		ability:EndCooldown()
+-- 	else
+-- 		caster.pos2 = ability:GetCursorPosition()
+-- 		caster.isTwice = true
+-- 		Timers:CreateTimer(0.55,function()
+-- 			ability:StartCooldown(ability:GetCooldown(ability:GetLevel() -1))
+-- 			caster:AddNewModifier(caster, self, "a13e_modifier", {duration = 2})
+-- 			end)
+-- 	end
+-- 	Timers:CreateTimer(0.55,function()
+-- 			if caster.isTwice then
+-- 				return 
+-- 			end
+-- 			ability:StartCooldown(ability:GetCooldown(ability:GetLevel() -1))
+-- 			caster:AddNewModifier(caster, self, "a13e_modifier", {duration = 2})
+-- 		end)
+-- 	--caster:AddNewModifier(caster, self, "a13e_modifier", { duration = 2}) 
+-- 	caster:AddNewModifier(caster, self, "a13e_followthrough", { duration = 0.3 } )
+-- 	caster:EmitSound("hook_throw")
+-- 	Timers:CreateTimer(1,function()
+--                 caster:StopSound("hook_throw")
+--             end)
+-- end
 
 function A13E:OnAbilityPhaseStart()
 	self:GetCaster():StartGesture( ACT_DOTA_CAST_ABILITY_1 )
@@ -407,20 +442,6 @@ function A13E:OnOwnerDied()
 end
 
 function A13E:OnUpgrade()
-	local caster = self:GetCaster()
-	local ability = caster:FindAbilityByName("A13E")
-	local level = self:GetLevel()
-	caster:RemoveModifierByName("modifier_charges")
-	caster:AddNewModifier(caster, caster:FindAbilityByName("A13E"), "modifier_charges",
-		{
-			max_count = 2,
-			start_count = 2,
-			replenish_time = ability:GetCooldown(ability:GetLevel() - 1)/2
-		}
-	)
-	if (ability ~= nil and ability:GetLevel()+1 < level) then
-		ability:SetLevel(level+1)
-	end
 end
 
 A13E_old = A13E
@@ -530,7 +551,7 @@ function a13e_modifier:OnIntervalThink()
 		angle = 0
 		--local vDirection =  caster:GetForwardVector()
 		self.path[self.interval_Count] = self.hook_pos
-		local length = (20+angle*0.2) * self.interval_Count
+		local length = 20 * self.interval_Count
 		local next_hook_pos = self.hook_pos + caster.vDirection:Normalized() * length + (self:GetParent():GetOrigin() - self.oripos)
 		self.oripos = self:GetParent():GetOrigin()
 		length = (next_hook_pos - self.hook_pos):Length()
@@ -542,11 +563,9 @@ function a13e_modifier:OnIntervalThink()
 				--print("pts: ".. hook_pts[i].x.." "..hook_pts[i].y.." "..hook_pts[i].z)
 			end
 		end
-		
-		if caster.isTwice and (self.hook_pos - caster.pos1):Length() < 100 and not caster.isTurn then
+		-- 到轉彎點轉彎
+		if (self.hook_pos - caster.pos1):Length() < 100 and not caster.isTurn and caster.pos1 ~= caster.pos2 then
 			caster.vDirection = caster.pos2 - caster.pos1
-			print("turn")
-			print(caster.vDirection)
 			caster.isTurn = true
 		end
 		local next_hook_pos = self.hook_pos + caster.vDirection:Normalized() * length

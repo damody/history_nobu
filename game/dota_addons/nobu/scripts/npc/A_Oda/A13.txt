@@ -430,14 +430,27 @@
 	"A13E"
 	{
 		// General
-		"BaseClass"	"ability_lua"
-		"AbilityTextureName"	"custom/A13E"
-		"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A13_Hattori_Hanzo.lua"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"	"1"
-		"AbilityCastPoint"	"0.1"	//move
+		"BaseClass"     					"ability_lua"
+		"ScriptFile"    					"scripts/vscripts/heroes/A_Oda/A13_Hattori_Hanzo.lua"
+		"SpellImmunityType"  				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"					"1"
+		"AbilityTextureName"				"custom/A13E"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityCastRange"   				"600 800 1000 1200"
+		"AbilityCastPoint"   				"0.25"
+		"AbilityCooldown"    				"14 11 8 5"
+		"AbilityManaCost"    				"100 120 140 160"
+		"AbilityUnitTargetTeam"   			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"   			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"   			"DOTA_UNIT_TARGET_FLAG_NONE"
+		// "BaseClass"	"ability_lua"
+		// "AbilityTextureName"	"custom/A13E"
+		// "ScriptFile"	"scripts/vscripts/heroes/A_Oda/A13_Hattori_Hanzo.lua"
+		// "AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
+		// "AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		// "SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
+		// "FightRecapLevel"	"1"
+		// "AbilityCastPoint"	"0.1"	//move
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"	"14 11 8 5"
@@ -481,7 +494,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"hook_distance"	"400 600 800 1000"
+				"hook_distance"	"600 800 1000 1200"
 			}
 			"04"
 			{
