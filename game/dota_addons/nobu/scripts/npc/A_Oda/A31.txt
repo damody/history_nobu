@@ -322,6 +322,7 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
+			"particle"	"particles/a31t/a31t.vpcf"
 			"particle"	"particles/units/heroes/hero_medusa/medusa_base_attack.vpcf"
 			"particle"	"particles/units/heroes/hero_lina/lina_spell_laguna_blade_startpoint.vpcf"
 			"particle"	"particles/units/heroes/hero_lina/lina_spell_laguna_blade_startpoint.vpcf"
