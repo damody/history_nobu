@@ -293,6 +293,7 @@ function A31T( keys )
 		for _,unit in ipairs(units) do	
 			if not(unit:GetTeamNumber() == caster:GetTeamNumber()) then
 				--PerformAttack(handle hTarget, bool bUseCastAttackOrb, bool bProcessProcs, bool bSkipCooldown, bool bIgnoreInvis, bool bUseProjectile, bool bFakeAttack, bool bNeverMiss)
+				caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,2)
 				caster:PerformAttack(unit, true, false, true, false, true, false, false)
 				caster:PerformAttack(unit, true, true, false, false, false, true, false)
 			end

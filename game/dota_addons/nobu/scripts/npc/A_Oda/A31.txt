@@ -307,7 +307,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-		"AbilityUnitTargetFlags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitTargetFlags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
 		"HotKeyOverride"	"T"
@@ -316,7 +316,7 @@
 		"LevelsBetweenUpgrades"	"6"
 		"AbilityCooldown"	"100 90 80"
 		"AbilityChannelTime"	"5"
-		"AbilityCastRange"	"1200"
+		"AbilityCastRange"	"800"
 		"AOERadius"	"%radius"
 		// Precache
 		// -------------------------------------------------------------------------------------------------------------
@@ -402,7 +402,7 @@
 				"Properties"
 				{
 					// "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100" //攻速
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "-33"
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "-50"
 				}
 			}
 		}
@@ -423,12 +423,12 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"arrow_count"	"2 4 6"
+				"arrow_count"	"2 3 5"
 			}
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"total_arrow_count"	"3 5 7"
+				"total_arrow_count"	"3 4 6"
 			}
 			"05"
 			{
@@ -453,7 +453,7 @@
 			"09"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"attack_time"	"0.3 0.2 0.1"
+				"attack_time"	"0.4 0.3 0.2"
 			}
 		}
 		"AbilityUnitTargetFlag"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
