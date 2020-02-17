@@ -64,31 +64,31 @@ function Shock( keys )
 	local wall_offset = Vector(dx,dy,0) * (aoe_radius)
 	
 	
-	-- 產生兩個石牆單位
+	-- 產生石牆單位
 	local rock_counter = 0
 	local origin = caster:GetAbsOrigin()
 	Timers:CreateTimer(0,function()
 		rock_counter = rock_counter + 1
 		if rock_counter > 8 then return nil end
-			local rock_center = origin+wall_offset * (1 + rock_counter)
-			local wall = CreateUnitByName("EARTH_WALL_hero",rock_center,false,nil,nil,caster:GetTeam())
-			wall:AddNewModifier(caster,nil,"modifier_kill",{duration=duration})
-			wall:RemoveModifierByName("modifier_invulnerable")
-			local units = FindUnitsInRadius(iTeam,	-- 關係
-							 rock_center,-- 搜尋的中心點
-                             nil, 				-- 好像是優化用的參數不懂怎麼用
-                             200,		-- 搜尋半徑
-                             target_team,		-- 目標隊伍
-                             target_type,		-- 目標類型
-                             target_flags,		-- 額外選擇或排除特定目標
-                             FIND_ANY_ORDER,	-- 結果的排列方式
-                             false) 			-- 好像是優化用的參數不懂怎麼用
-
-			-- 處理搜尋結果
-			for _,unit in ipairs(units) do
-				-- 避免卡住
-				unit:AddNewModifier(nil,nil,"modifier_phased",{duration=0.01})
-			end		
+		local rock_center = origin+wall_offset * (1 + rock_counter)
+		local wall = CreateUnitByName("EARTH_WALL_hero",rock_center,false,nil,nil,caster:GetTeam())
+		wall:AddNewModifier(caster,nil,"modifier_kill",{duration=duration})
+		wall:RemoveModifierByName("modifier_invulnerable")
+		local units = FindUnitsInRadius(iTeam,	-- 關係
+						 rock_center,-- 搜尋的中心點
+                            nil, 				-- 好像是優化用的參數不懂怎麼用
+                            200,		-- 搜尋半徑
+                            target_team,		-- 目標隊伍
+                            target_type,		-- 目標類型
+                            target_flags,		-- 額外選擇或排除特定目標
+                            FIND_ANY_ORDER,	-- 結果的排列方式
+							false) 			-- 好像是優化用的參數不懂怎麼用
+		StartSoundEvent("Hero_ElderTitan.EarthSplitter.Cast",caster)
+		-- 處理搜尋結果
+		for _,unit in ipairs(units) do
+			-- 避免卡住
+			unit:AddNewModifier(nil,nil,"modifier_phased",{duration=0.01})
+		end		
 		return 0.15
 	end)
 end
