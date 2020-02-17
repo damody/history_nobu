@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf26:version{26288658-411e-4f14-b698-2e1e5d00dec6} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -14,8 +14,8 @@
 			m_flFinalTextureScaleU = -1.0
 			m_flFinalTextureOffsetU = 1.0
 			m_flTextureVWorldSize = 2500.0
-			m_nMaxTesselation = 6
-			m_nMinTesselation = 6
+			m_nMaxTesselation = 60
+			m_nMinTesselation = 60
 			m_bClosedLoop = true
 		},
 	]
@@ -35,8 +35,11 @@
 		},
 		{
 			_class = "C_OP_OscillateScalarSimple"
-			m_nField = 3
+			m_nField = "3"
 			m_Rate = 10.0
+		},
+		{
+			_class = "C_OP_MovementPlaceOnGround"
 		},
 	]
 	m_Initializers = 
@@ -58,7 +61,7 @@
 		{
 			_class = "C_INIT_RemapCPtoScalar"
 			m_nCPInput = 1
-			m_nFieldOutput = 1
+			m_nFieldOutput = "1"
 			m_nField = 2
 			m_flInputMax = 1000.0
 			m_flOutputMax = 1000.0
@@ -66,7 +69,7 @@
 		{
 			_class = "C_INIT_RemapCPtoVector"
 			m_nCPInput = 2
-			m_nFieldOutput = 6
+			m_nFieldOutput = "6"
 			m_vInputMax = [ 255.0, 255.0, 255.0 ]
 			m_vOutputMax = [ 255.0, 255.0, 255.0 ]
 		},
@@ -75,7 +78,11 @@
 	[
 		{
 			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 64
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 64.0
+			}
 		},
 	]
 	m_flConstantLifespan = 3.0
@@ -109,4 +116,6 @@
 			]
 		},
 	]
+	m_nBehaviorVersion = 10
+	m_nFirstMultipleOverride_BackwardCompat = 1
 }

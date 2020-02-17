@@ -292,6 +292,20 @@
 
 		"Modifiers"
 		{
+			"modifier_B16D_distanceDetector_hero"
+			{
+				"IsHidden"						"1"
+				"Passive"						"1"
+				"Attributes"					"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"        	"scripts/vscripts/heroes/B_Unified/B16_Mochidsuki_Chiyome.lua"
+						"Function"              "B16D_OnCreated"
+					}
+				}
+			}
 			"modifier_B16D_MoonMoon"
 			{
 				"OnCreated"

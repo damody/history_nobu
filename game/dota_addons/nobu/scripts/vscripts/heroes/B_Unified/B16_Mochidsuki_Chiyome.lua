@@ -11,6 +11,19 @@ function B16W_Lock( keys )
 	keys.caster:FindAbilityByName("B16W"):SetActivated(false)
 end
 
+function B16D_OnCreated( keys )
+	local caster = keys.caster
+	local spell_hint_table = {
+		duration   = 9999,		-- 持續時間
+		radius     = 1000,		-- 半徑
+		caster     = caster,	-- 角色
+	}
+	local B16W = caster:FindAbilityByName("B16W")
+	if B16W:GetLevel() >= 3 then
+		caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint_self",spell_hint_table)
+	end
+end
+
 function B16W( keys )
 	local caster = keys.caster
 	local target = keys.target
@@ -191,6 +204,14 @@ function B16_AbilityAdjust( keys )
 			if B16MMD ~= nil and B16W:GetLevel() >= 3 then
 				B16MMD:SetLevel(1)
 				B16MMD.target = caster
+				if not caster:HasModifier("nobu_modifier_spell_hint_self") and B16W:GetLevel() >= 3 then
+					local spell_hint_table = {
+						duration   = 9999,		-- 持續時間
+						radius     = 1000,		-- 半徑
+						caster     = caster,	-- 角色
+					}
+					caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint_self",spell_hint_table)
+				end
 			end
 			-- 設定月月[隱形]
 			if B16MMF ~= nil and B16W:GetLevel() >= 4 then
