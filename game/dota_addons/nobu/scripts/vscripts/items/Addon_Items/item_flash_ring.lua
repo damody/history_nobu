@@ -23,19 +23,6 @@ function item_blink_datadriven_on_spell_start(keys)
 	if difference_vector:Length2D() > keys.MaxBlinkRange then  --Clamp the target point to the BlinkRangeClamp range in the same direction.
 		target_point = origin_point + (target_point - origin_point):Normalized() * keys.MaxBlinkRange
     end
-	local units = FindUnitsInRadius( caster:GetTeamNumber(), target_point, nil, 300, 
-		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false )
-	
-	if #units > 0 then
-		if (units[1]:GetAbsOrigin() - target_point):Length2D() < 300 then
-			ability:EndCooldown()
-			ability:StartCooldown(40)
-			Timers:CreateTimer(0.3, function ()
-				keys.caster:EmitSound("DOTA_Item.BlinkDagger.Activate")
-				ParticleManager:CreateParticle("particles/item/c05/c05.vpcf", PATTACH_ABSORIGIN, caster)
-			end)
-		end
-	end
 	
 	if difference_vector:Length2D() < 200 then
 		ability:EndCooldown()
