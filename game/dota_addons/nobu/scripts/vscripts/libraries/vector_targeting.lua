@@ -8,7 +8,7 @@ ListenToGameEvent("game_rules_state_change", function()
 		CustomGameEventManager:RegisterListener("send_vector_position", Dynamic_Wrap(VectorTarget, "StartVectorCast"))
 		-- CustomNetTables:SetTableValue( "ability_api", "vector_target", {})
 		local mode = GameRules:GetGameModeEntity()
-		mode:SetExecuteOrderFilter(Dynamic_Wrap(VectorTarget, 'OrderFilter'), VectorTarget)
+		-- mode:SetExecuteOrderFilter(Dynamic_Wrap(VectorTarget, 'OrderFilter'), VectorTarget)
 	end
 end, nil)
 

@@ -223,6 +223,34 @@ function spell_ability ( filterTable )
 		caster.abilityName = ability:GetAbilityName() --用來標記技能名稱
 	end
 	if ordertype == DOTA_UNIT_ORDER_CAST_POSITION then --5
+		if not filterTable.units["0"] then return true end
+		local unit = EntIndexToHScript(filterTable.units["0"])
+		if filterTable.entindex_ability > 0 and not unit.isVectorCasting and unit:IsHero() then
+			local ability = EntIndexToHScript(filterTable.entindex_ability)
+			if not ability then return true end
+			local playerID = unit:GetPlayerID()
+			local player = PlayerResource:GetPlayer(playerID)
+			-- check if valid vector cast
+			if unit.inVectorCast == nil and filterTable.order_type == DOTA_UNIT_ORDER_CAST_POSITION and ability.IsVectorTargeting and ability:IsVectorTargeting() then
+				CustomGameEventManager:Send_ServerToPlayer(player, "vector_target_cast_start", {ability = filterTable.entindex_ability, 
+																								startWidth = ability:GetVectorTargetStartRadius(), 
+																								endWidth = ability:GetVectorTargetEndRadius(), 
+																								castLength = ability:GetVectorTargetRange(), })
+				unit.inVectorCast = filterTable.entindex_ability
+				return false
+			elseif unit.inVectorCast ~= nil then -- fire the spell or cancel the order depending on what ability is being cast
+				CustomGameEventManager:Send_ServerToPlayer(player, "vector_target_cast_stop", {cast = unit.inVectorCast == filterTable.entindex_ability})
+				unit.inVectorCast = nil
+				-- filter out 'regular' cast attempt
+				return false
+			end
+		elseif unit.inVectorCast and CANCEL_EVENT[filterTable.order_type] then
+			local playerID = unit:GetPlayerID()
+			local player = PlayerResource:GetPlayer(playerID)
+			CustomGameEventManager:Send_ServerToPlayer(player, "vector_target_cast_stop", {cast = false})
+			unit.inVectorCast = nil
+		end
+		return true
 		-- [   VScript             ]: {
 		-- [   VScript             ]:    entindex_ability                	= 461 (number)
 		-- [   VScript             ]:    sequence_number_const           	= 25 (number)
@@ -459,6 +487,7 @@ function Nobu:eventfororder( filterTable )
 		
 	elseif ordertype == DOTA_UNIT_ORDER_PICKUP_RUNE then --15
 	elseif ordertype == DOTA_UNIT_ORDER_PURCHASE_ITEM then --16
+		print("123")
 		local itemID = filterTable.entindex_ability
 		local itemName = Containers.itemIDs[itemID]
 		if itemName == nil then
