@@ -13668,6 +13668,7 @@
 		"AbilityTextureName"	"item_custom/icon_128x128_124"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_TREE"
+		"AbilityCastAnimation"	"ACT_DOTA_ATTACK"
 		"FightRecapLevel"	"1"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
