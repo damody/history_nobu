@@ -68,7 +68,7 @@ CANCEL_EVENT = {[DOTA_UNIT_ORDER_MOVE_TO_POSITION] = true,
 function VectorTarget:OrderFilter(event)
 	if not event.units["0"] then return true end
 	local unit = EntIndexToHScript(event.units["0"])
-	if event.entindex_ability > 0 and not unit.isVectorCasting then
+	if event.entindex_ability > 0 and not unit.isVectorCasting and unit:IsHero() then
 		local ability = EntIndexToHScript(event.entindex_ability)
 		if not ability then return true end
 		local playerID = unit:GetPlayerID()
