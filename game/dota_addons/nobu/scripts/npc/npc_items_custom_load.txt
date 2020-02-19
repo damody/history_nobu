@@ -7732,7 +7732,7 @@
 	{
 	    "ID" "3071"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "2750"
+		"ItemCost" "2150"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_red_lightning_chapter_hyper"  //合成後物品
