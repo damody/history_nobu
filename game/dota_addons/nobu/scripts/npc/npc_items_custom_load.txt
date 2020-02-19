@@ -7449,7 +7449,7 @@
 	{
 	    "ID" "3050"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1150"
+		"ItemCost" "850"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_fubuki_shoulders"  //合成後物品
@@ -10531,7 +10531,7 @@
 				"Duration"			"20"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "40"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "20"	//攻
 				}
 				"OnAttackLanded"
 				{
@@ -10564,7 +10564,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "15" //魔抗
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "0" //魔抗
 				}
 			}
 		}
@@ -12397,7 +12397,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"2600"
+		"ItemCost"	"2000"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 	}
