@@ -6984,7 +6984,7 @@
 	{
 	    "ID" "3018"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "0"
+		"ItemCost" "200"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_moon_spear"  //合成後物品
@@ -11940,7 +11940,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"600"
+		"ItemCost"	"1000"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"						"1"
