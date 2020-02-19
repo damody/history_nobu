@@ -6074,7 +6074,7 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30" //攻速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
 			}
@@ -7074,7 +7074,7 @@
 	{
 	    "ID" "3024"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1100"
+		"ItemCost" "1500"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_ninja_sword"  //合成後物品

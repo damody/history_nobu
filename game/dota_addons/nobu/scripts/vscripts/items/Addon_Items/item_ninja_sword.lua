@@ -21,8 +21,8 @@ function Shock2( keys )
 			ParticleManager:SetParticleControl( fxIndex, 1, target:GetAbsOrigin() )
 			
 			StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", target )
-			PopupCriticalDamage(target, 350)
-			AMHC:Damage( caster,target,350,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+			-- PopupCriticalDamage(target, 350)
+			-- AMHC:Damage( caster,target,350,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 		end	
 		keys.caster:RemoveModifierByName( "modifier_ninja_sword" )
 		keys.caster:RemoveModifierByName( "modifier_invisible" )
