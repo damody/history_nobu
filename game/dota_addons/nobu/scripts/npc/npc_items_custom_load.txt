@@ -5823,7 +5823,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"4"
+		"AbilityCooldown"	"20"
 		"AbilityCastPoint"	"0.2"
 		"AbilityManaCost"	"0"
 		
@@ -5870,8 +5870,8 @@
 				"IsHidden"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "2"	//智
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "3"	//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"   "0"	//敏
 				}
 			}
 			"modifier_dark_yellow_teeth_and_zimbabwe_ability"
@@ -5895,9 +5895,9 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "1"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "50"	//攻
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "5"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "5"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "30"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
@@ -6804,7 +6804,7 @@
 	{
 	    "ID" "3003"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "800"
+		"ItemCost" "1200"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_ronin_jitte"
@@ -7014,7 +7014,7 @@
 	{
 	    "ID" "3020"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "800"
+		"ItemCost" "1200"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_glass_mitsutomo"  //合成後物品
@@ -7029,7 +7029,7 @@
 	{
 	    "ID" "3021"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1200"
+		"ItemCost" "800"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_dark_yellow_teeth_and_zimbabwe"  //合成後物品
