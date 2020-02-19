@@ -3705,7 +3705,7 @@
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
 				"Passive"	"0"
-				"Duration"			"7"
+				"Duration"			"4"
 				"EffectName"	"particles/units/heroes/hero_sniper/sniper_headshot_slow.vpcf"
 				"EffectAttachType"	"follow_overhead"
 				"Properties"
@@ -6954,7 +6954,7 @@
 	{
 	    "ID" "3016"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "0"
+		"ItemCost" "400"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_logs_big_tachi"  //合成後物品
