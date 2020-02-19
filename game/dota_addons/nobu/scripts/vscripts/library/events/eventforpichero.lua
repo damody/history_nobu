@@ -26,12 +26,12 @@ function Nobu:PickHero( keys )
             caster.donkey:RemoveModifierByName("Passive_insight_gem")
           end
           if IsValidEntity(caster) then
-            for itemSlot=0,5 do
-              local item = caster:GetItemInSlot(itemSlot)
-              if item ~= nil then
-                item:SetPurchaseTime(100000)
-              end
-            end
+            -- for itemSlot=0,5 do
+            --   local item = caster:GetItemInSlot(itemSlot)
+            --   if item ~= nil then
+            --     -- item:SetPurchaseTime(100000)
+            --   end
+            -- end
           end
           return 5
         end
