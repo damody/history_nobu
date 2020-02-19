@@ -3870,7 +3870,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"1900"
+		"ItemCost"	"2100"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequirements"	{}
@@ -7374,7 +7374,7 @@
 	{
 	    "ID" "3044"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1200"
+		"ItemCost" "750"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_foxfire_armor"  //合成後物品
@@ -8234,7 +8234,7 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "20"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "20"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "20"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "65"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "50"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
