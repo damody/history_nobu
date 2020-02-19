@@ -7194,7 +7194,7 @@
 	{
 	    "ID" "3032"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1150"
+		"ItemCost" "1450"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_bizennosafunekanemitsu"  //合成後物品
