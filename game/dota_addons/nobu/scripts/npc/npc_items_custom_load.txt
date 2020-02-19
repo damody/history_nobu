@@ -1639,7 +1639,7 @@
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
-		"ItemCost"	"300"
+		"ItemCost"	"400"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"	"1"
@@ -1733,7 +1733,7 @@
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
-		"ItemCost"	"300"
+		"ItemCost"	"350"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"	"1"
