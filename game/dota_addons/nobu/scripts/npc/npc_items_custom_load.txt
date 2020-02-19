@@ -6924,7 +6924,7 @@
 	{
 	    "ID" "3013"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "0"
+		"ItemCost" "250"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_gorgeous_tachi"  //合成後物品
@@ -7134,7 +7134,7 @@
 	{
 	    "ID" "3028"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1550"
+		"ItemCost" "1900"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_spear_of_spiders"  //合成後物品
