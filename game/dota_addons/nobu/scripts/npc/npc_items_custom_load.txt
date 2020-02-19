@@ -1547,7 +1547,7 @@
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
 				"Passive"	"0"
-				"Duration"			"7"
+				"Duration"			"4"
 				"EffectName"	"particles/units/heroes/hero_sniper/sniper_headshot_slow.vpcf"
 				"EffectAttachType"	"follow_overhead"
 				"Properties"
