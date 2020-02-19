@@ -5485,7 +5485,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"3250"
+		"ItemCost"	"4250"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequirements"	{}
@@ -5558,7 +5558,7 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "40" //攻速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "25" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
 				"OnAttackLanded"
@@ -5575,7 +5575,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"25"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"15"
 				}
 			}
 			"modifier_add_agility"
@@ -5583,7 +5583,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"25"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"15"
 				}
 			}
 			"modifier_add_intellect"
@@ -5591,7 +5591,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"25"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"15"
 				}
 				
 			}
@@ -6819,13 +6819,13 @@
 	{
 	    "ID" "3006"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1250"
+		"ItemCost" "1500"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_mana_thief"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_staff;item_speed_clothes;item_intelligence_ingot"  //合成前物品
+			"01" "item_energy_ingot;item_speed_clothes"  //合成前物品
 		}
 	}
 
@@ -6969,7 +6969,7 @@
 	{
 	    "ID" "3017"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "500"
+		"ItemCost" "1300"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_red_spear"  //合成後物品
