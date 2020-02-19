@@ -7089,7 +7089,7 @@
 	{
 	    "ID" "3025"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "700"
+		"ItemCost" "1100"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_yubashiri"  //合成後物品
@@ -7239,7 +7239,7 @@
 	{
 	    "ID" "3035"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "900"
+		"ItemCost" "1300"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_kokumo"  //合成後物品
@@ -7329,7 +7329,7 @@
 	{
 	    "ID" "3041"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "350"
+		"ItemCost" "450"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_hooate_of_ghost"  //合成後物品
