@@ -5080,7 +5080,7 @@
 		"AbilityCooldown"	"60"
 		
 		"AbilityManaCost"	"60"
-		"AbilityCastPoint"	"6"
+		"AbilityCastPoint"	"4"
 		
 		"ID"	"2713"
 		"ItemQuality"	"component"
@@ -5131,7 +5131,7 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"Duration"			"6"
+				"Duration"			"4"
 				
 				"States"
 				{

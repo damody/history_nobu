@@ -34,7 +34,7 @@ function Shock0( keys )
 					ParticleManager:DestroyParticle(particle2,false)
 				end)
 		count = count + 1
-		if count < 5 then
+		if count < 3 then
 			return 1
 		end
 	end)
