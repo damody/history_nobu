@@ -45,7 +45,7 @@ function Shock( keys )
 		local pointx2
 		local pointy2
 		local maxrock = 6
-		for radius=50,max_radius,50 do
+		for radius=50,max_radius,150 do
 			maxrock = maxrock + 8
 			local maxspike = maxrock
 			Timers:CreateTimer(radius*0.0003, function() 
