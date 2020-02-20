@@ -7299,7 +7299,7 @@
 	{
 	    "ID" "3039"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1050"
+		"ItemCost" "1550"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_dark_armor"  //合成後物品
@@ -12278,7 +12278,7 @@
 	{
 	    "ID" "3075"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "7000"
+		"ItemCost" "4000"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_overflame_art_of_war_hyper"  //合成後物品
