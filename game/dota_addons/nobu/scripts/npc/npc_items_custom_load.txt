@@ -746,7 +746,7 @@
 		"AbilityCooldown"	"90"
 		"AbilityManaCost"	"100"
 		"AOERadius"	"300"
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"	"0"
 		// Stats
 		"AbilitySharedCooldown" "share_flash_ring"
 		// Valve's version of this item uses the ID "1".
@@ -4793,27 +4793,35 @@
 		// General
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/the_great_sword_of_spike"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		
+		"AbilityChannelTime" "1"
 		"AbilityCooldown"	"70"
 		"AbilityCastPoint"	"0.2"
 		"AbilityManaCost"	"90"
 		"AbilityCastRange"				"300"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastAnimation"			"ACT_DOTA_ATTACK1"
 		"ID"	"2710"
 		"ItemQuality"	"component"
 		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"5525"
+		"ItemCost"	"7500"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SecretShop" "1"
 		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_spike.lua"
+				"Function"	"Channeling"
+			}
+		}
+		"OnChannelFinish"
 		{
 			"RunScript"
 			{
@@ -4839,7 +4847,7 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "10"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "10"	//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "20"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "20"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "50"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血

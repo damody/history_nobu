@@ -63,7 +63,7 @@
 		// Status
 		// ----------------------------------------------------------------
 		"StatusHealth"	"550"
-		"StatusHealthRegen"	"5"
+		"StatusHealthRegen"	"0.25"
 		"StatusMana"	"0"
 		"StatusManaRegen"	"0.01"
 		"StatusStartingMana"	"100"
