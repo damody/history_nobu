@@ -45,7 +45,7 @@ function Shock( keys )
 	dummy:AddAbility("majia"):SetLevel(1)
 	dummy:SetOwner(caster)
 	local spell_hint_table = {
-		duration   = 11.4,		-- 持續時間
+		duration   = 6,		-- 持續時間
 		radius     = 500,		-- 半徑
 	}
 	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
@@ -80,14 +80,14 @@ function Shock( keys )
 		for _,it in pairs(direUnits) do
 			if _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then
 				if it:IsMagicImmune() then
-					AMHC:Damage(dummy,it, it:GetMaxHealth()*0.022,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+					AMHC:Damage(dummy,it, it:GetHealth()*0.022,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 				else
-					AMHC:Damage(dummy,it, it:GetMaxHealth()*0.022,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+					AMHC:Damage(dummy,it, it:GetHealth()*0.022,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 				end
 			end
 		end
 
-		if sumtime < 11 then
+		if sumtime < 6 then
 			return 0.2
 		else
 			dummy:ForceKill( true )
