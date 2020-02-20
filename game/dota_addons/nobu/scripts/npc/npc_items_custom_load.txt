@@ -4594,7 +4594,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "15" //跑速%
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "1" //回血%
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "3" //回血%
 				}
 			}
 			"Passive_great_spear_of_dragonfly2"
