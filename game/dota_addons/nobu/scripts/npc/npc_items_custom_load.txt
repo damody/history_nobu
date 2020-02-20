@@ -2885,23 +2885,25 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SecretShop" "1"
 		"ItemShopTags"		"damage"
-		"AbilityCooldown"	"100"
-		"AbilityManaCost"	"100"
+		"AbilityCooldown"	"70"
 		"precache"
 		{
 			"particle"	"particles/a07w5/a07w5.vpcf"
 		}
-		"OnSpellStart"
+		"OnEquip"
 		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_sword_of_invincible"
-			}
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_invincible.lua"
-				"Function"	"Shock"
+				"Function"	"OnEquip"
+			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_invincible.lua"
+				"Function"	"OnUnequip"
 			}
 		}
 		"Modifiers"
@@ -2916,7 +2918,19 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "30"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "30"	//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "30"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "25"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "50"	//攻
+				}
+			}
+			"modifier_sword_of_invincible_passive"
+			{
+				"Passive"	"1"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_invincible.lua"
+						"Function"	"Shock"
+					}
 				}
 			}
 			"modifier_sword_of_invincible"
