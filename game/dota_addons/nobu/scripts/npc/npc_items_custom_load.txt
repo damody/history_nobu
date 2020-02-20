@@ -5256,7 +5256,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "15"		//敏
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "20"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "20"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "75"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
@@ -5295,7 +5295,7 @@
 					{
 					  	"ScriptFile"	"items/Addon_Items/item_flame_armor.lua"
 						"Function"	"Shock"
-						"Damage"		"120"
+						"Damage"		"160"
 						"Target"	"TARGET"
 					}
 				}
@@ -5306,7 +5306,7 @@
 					{
 					  	"ScriptFile"	"items/Addon_Items/item_flame_armor.lua"
 						"Function"	"Shock"
-						"Damage"		"120"
+						"Damage"		"160"
 						"Target"	"TARGET"
 					}
 				}
