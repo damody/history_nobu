@@ -50,12 +50,12 @@ function Shock( keys )
 	
 	ability:ApplyDataDrivenModifier(target, target, "modifier_sword_of_invincible", nil)
 	target:RemoveModifierByName("modifier_sword_of_invincible_passive")
-	target.invincible_counter = 10
+	target.invincible_counter = 70
 	ability:StartCooldown(target.invincible_counter)
 	Timers:CreateTimer(0, function() 
 		target.invincible_counter = target.invincible_counter - 1
 		target:RemoveModifierByName("modifier_sword_of_invincible_passive")
-		if target.Is_invincible_equip then return nil end
+		if not target.Is_invincible_equip then return nil end
 		if target.invincible_counter == -1 then
 			ability:ApplyDataDrivenModifier(target, target, "modifier_sword_of_invincible_passive", nil)
 			return nil
