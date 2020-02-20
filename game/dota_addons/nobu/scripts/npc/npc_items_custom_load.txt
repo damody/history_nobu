@@ -12399,11 +12399,7 @@
 				{
 					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"	"30"
 				}
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Duration"	"2.5"
+				"Duration"	"8"
 				"IsDebuff"	"1"
 				"EffectName"	"particles/econ/items/necrolyte/necronub_base_attack/necrolyte_base_attack_ka_glow.vpcf"
 				"EffectAttachType"	"follow_overhead"
