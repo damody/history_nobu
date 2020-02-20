@@ -52,7 +52,7 @@ function new_C17D( keys )
 	local point2 = nil
 
 	if keys.event_ability:IsToggle() then return end
-	if keys.event_ability:GetName() == "attribute_bonusx" then return end
+	if keys.event_ability:GetName() == "item_logging" then return end
 	--PopupHealing(caster, health)
 	--【Group】
 	local radius = 800
