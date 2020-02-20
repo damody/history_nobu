@@ -7154,7 +7154,7 @@
 	{
 	    "ID" "3027"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1400"
+		"ItemCost" "1700"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_spear_of_ghost"  //合成後物品
