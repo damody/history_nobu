@@ -54,17 +54,17 @@ end
 --凍雲
 
 function OnEquip( keys )
-	local caster = keys.caster
-	if (caster.nobuorb1 == nil) then
-		caster.nobuorb1 = "item_kokumo"
-	end
+	-- local caster = keys.caster
+	-- if (caster.nobuorb1 == nil) then
+	-- 	caster.nobuorb1 = "item_kokumo"
+	-- end
 end
 
 function OnUnequip( keys )
-	local caster = keys.caster
-	if (caster.nobuorb1 == "item_kokumo") then
-		caster.nobuorb1 = nil
-	end
+	-- local caster = keys.caster
+	-- if (caster.nobuorb1 == "item_kokumo") then
+	-- 	caster.nobuorb1 = nil
+	-- end
 end
 
 function item_kokumo( keys )
@@ -73,7 +73,7 @@ function item_kokumo( keys )
 	local target = keys.target
 	--if (caster.nobuorb1 == "item_kokumo" or caster.nobuorb1 == nil) and not target:IsBuilding() and caster.gokokumo == nil then
 	if not target:IsBuilding() then
-		caster.nobuorb1 = "item_kokumo"
+		-- caster.nobuorb1 = "item_kokumo"
 		local ran =  RandomInt(0, 100)
 		if (caster.kokumo == nil) then
 			caster.kokumo = 0

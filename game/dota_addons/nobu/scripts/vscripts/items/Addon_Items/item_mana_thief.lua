@@ -1,9 +1,9 @@
 function OnEquip( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	if (caster.nobuorb1 == nil) then
-		caster.nobuorb1 = "item_mana_thief"
-	end
+	-- if (caster.nobuorb1 == nil) then
+	-- 	caster.nobuorb1 = "item_mana_thief"
+	-- end
 	-- 力量 0 敏捷1 智力2
 	if caster:GetPrimaryAttribute() == 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_add_strength", nil)
@@ -16,9 +16,9 @@ end
 
 function OnUnequip( keys )
 	local caster = keys.caster
-	if (caster.nobuorb1 == "item_mana_thief") then
-		caster.nobuorb1 = nil
-	end
+	-- if (caster.nobuorb1 == "item_mana_thief") then
+	-- 	caster.nobuorb1 = nil
+	-- end
 	-- 力量 0 敏捷1 智力2
 	if caster:GetPrimaryAttribute() == 0 then
 		caster:RemoveModifierByName("modifier_add_strength")
@@ -27,16 +27,16 @@ function OnUnequip( keys )
 	elseif caster:GetPrimaryAttribute() == 2 then
 		caster:RemoveModifierByName("modifier_add_intellect")
 	end
-	for itemSlot=0,5 do
-		local item = caster:GetItemInSlot(itemSlot)
-		if item ~= nil then
-			local itemName = item:GetName()
-			if (string.match(itemName,"item_mana_thief")) then
-				caster.nobuorb1 = "item_mana_thief"
-				break
-			end
-		end
-	end
+	-- for itemSlot=0,5 do
+	-- 	local item = caster:GetItemInSlot(itemSlot)
+	-- 	if item ~= nil then
+	-- 		local itemName = item:GetName()
+	-- 		if (string.match(itemName,"item_mana_thief")) then
+	-- 			caster.nobuorb1 = "item_mana_thief"
+	-- 			break
+	-- 		end
+	-- 	end
+	-- end
 end
 
 function mana_burn_function( keys )
