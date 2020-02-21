@@ -68,15 +68,45 @@ function top_broken( keys )
   _G.team_broken[team]["top"] = _G.team_broken[team]["top"] + 1
   if team == 2 then
     if _G.team_broken[team]["top"] == 1 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍上路小兵強化</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍上路士兵士氣大增</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     elseif _G.team_broken[team]["top"] == 2 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍上路小兵強化，足輕及弓箭手轉變為騎兵及鐵砲兵</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍60秒後於上路集結兵力</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      local counter = 0
+      Timers:CreateTimer(60,function() 
+        if counter == 4 then return 0 end
+        counter = counter + 1 
+        ShuaGuai_Of_AA(3,3,6)
+        ShuaGuai_Of_AB(3,3,6)
+        return 60
+      end)
+      Timers:CreateTimer(75,function() 
+        if counter == 4 then return 0 end
+        counter = counter + 1 
+        ShuaGuai_Of_B(3,3,6)
+        ShuaGuai_Of_C(3,3,6)
+        return 60
+      end)
     end
   elseif team == 3 then
     if _G.team_broken[team]["top"] == 1 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍上路小兵強化</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍上路士兵士氣大增</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     elseif _G.team_broken[team]["top"] == 2 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍上路小兵強化，足輕及弓箭手轉變為騎兵及鐵砲兵</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍60秒後於上路集結兵力</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      local counter = 0
+      Timers:CreateTimer(60,function() 
+        if counter == 4 then return 0 end
+        counter = counter + 1 
+        ShuaGuai_Of_AA(3,2,3)
+        ShuaGuai_Of_AB(3,2,3)
+        return 60
+      end)
+      Timers:CreateTimer(75,function() 
+        if counter == 4 then return 0 end
+        counter = counter + 1 
+        ShuaGuai_Of_B(3,2,3)
+        ShuaGuai_Of_C(3,2,3)
+        return 60
+      end)
     end
   end
 end
@@ -87,15 +117,45 @@ function mid_broken( keys )
   _G.team_broken[team]["mid"] = _G.team_broken[team]["mid"] + 1
   if team == 2 then
     if _G.team_broken[team]["mid"] == 1 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍中路小兵強化</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍中路士兵士氣大增</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     elseif _G.team_broken[team]["mid"] == 2 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍中路鐵小兵強化，足輕及弓箭手轉變為騎兵及鐵砲兵</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍60秒後於中路集結兵力</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      local counter = 0
+      Timers:CreateTimer(60,function() 
+        if counter == 4 then return nil end
+        counter = counter + 1 
+        ShuaGuai_Of_AA(3,3,5)
+        ShuaGuai_Of_AB(3,3,5)
+        return 60
+      end)
+      Timers:CreateTimer(75,function() 
+        if counter == 4 then return nil end
+        counter = counter + 1 
+        ShuaGuai_Of_B(3,3,5)
+        ShuaGuai_Of_C(3,3,5)
+        return 60
+      end)
     end
   elseif team == 3 then
     if _G.team_broken[team]["mid"] == 1 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍中路小兵強化</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍中路士兵士氣大增</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     elseif _G.team_broken[team]["mid"] == 2 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍中路小兵強化，足輕及弓箭手轉變為騎兵及鐵砲兵</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍60秒後於中路集結兵力</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      local counter = 0
+      Timers:CreateTimer(60,function() 
+        if counter == 4 then return nil end
+        counter = counter + 1 
+        ShuaGuai_Of_AA(3,2,2)
+        ShuaGuai_Of_AB(3,2,2)
+        return 60
+      end)
+      Timers:CreateTimer(75,function() 
+        if counter == 4 then return nil end
+        counter = counter + 1 
+        ShuaGuai_Of_B(3,2,2)
+        ShuaGuai_Of_C(3,2,2)
+        return 60
+      end)
     end
   end
 end
@@ -106,15 +166,45 @@ function down_broken( keys )
   _G.team_broken[team]["down"] = _G.team_broken[team]["down"] + 1
   if team == 2 then
     if _G.team_broken[team]["down"] == 1 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍下路小兵強化</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍下路士兵士氣大增</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     elseif _G.team_broken[team]["down"] == 2 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍下路小兵強化，足輕及弓箭手轉變為騎兵及鐵砲兵</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">聯合軍60秒後於下路集結兵力</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      local counter = 0
+      Timers:CreateTimer(60,function() 
+        if counter == 4 then return nil end
+        counter = counter + 1 
+        ShuaGuai_Of_AA(3,3,4)
+        ShuaGuai_Of_AB(3,3,4)
+        return 60
+      end)
+      Timers:CreateTimer(75,function() 
+        if counter == 4 then return nil end
+        counter = counter + 1 
+        ShuaGuai_Of_B(3,3,4)
+        ShuaGuai_Of_C(3,3,4)
+        return 60
+      end)
     end
   elseif team == 3 then
     if _G.team_broken[team]["down"] == 1 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍下路小兵強化</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍下路士兵士氣大增</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     elseif _G.team_broken[team]["down"] == 2 then
-      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍下路小兵強化，足輕及弓箭手轉變為騎兵及鐵砲兵</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      GameRules: SendCustomMessage("<font color=\"#33cc33\">織田軍60秒後於下路集結兵力</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+      local counter = 0
+      Timers:CreateTimer(60,function() 
+        if counter == 4 then return nil end
+        counter = counter + 1 
+        ShuaGuai_Of_AA(3,2,1)
+        ShuaGuai_Of_AB(3,2,1)
+        return 60
+      end)
+      Timers:CreateTimer(75,function() 
+        if counter == 4 then return nil end
+        counter = counter + 1 
+        ShuaGuai_Of_B(3,2,1)
+        ShuaGuai_Of_C(3,2,1)
+        return 60
+      end)
     end
   end
 end

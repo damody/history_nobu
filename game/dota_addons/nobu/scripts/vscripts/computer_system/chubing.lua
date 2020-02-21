@@ -47,6 +47,16 @@ _G.team_broken[3]["top"] = 0
 _G.team_broken[3]["mid"] = 0
 _G.team_broken[3]["down"] = 0
 
+_G.big_team = {}
+_G.big_team[2] = {}
+_G.big_team[2]["top"] = 0
+_G.big_team[2]["mid"] = 0
+_G.big_team[2]["down"] = 0
+_G.big_team[3] = {}
+_G.big_team[3]["top"] = 0
+_G.big_team[3]["mid"] = 0
+_G.big_team[3]["down"] = 0
+
 end
 --紀錄出兵起始點、路徑 (必須要用計時器，初始化時物體還沒建造)
 Timers:CreateTimer( 2, function()
@@ -114,41 +124,50 @@ function ShuaGuai( )
 			end
 		end
 		return 45
-   	end)
+	end)
+	-- 出足輕   
  	Timers:CreateTimer(start_time, function()
-	  	ShuaGuai_Of_AA(3)
+		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,2,1)
+		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,2,2)
+		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,2,3)
+		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,3,4)
+		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,3,5)
+		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,3,6)
+		_G.A_count = _G.A_count + 1
   		return 45
 	 end)
+	 -- 出弓箭手
 	 Timers:CreateTimer(start_time+3, function()--50
-		ShuaGuai_Of_AB(2)
+		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,2,1)
+		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,2,2) 
+		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,2,3)
+		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,3,4)
+		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,3,5)
+		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,3,6)
 		 return 45
 	end)
-	local B_num = 2
-	local C_num = 1
-	--出兵觸發
+	-- 出鐵炮跟騎兵
 	Timers:CreateTimer(180,function()
-		ShuaGuai_Of_B(B_num,2,1)
-		ShuaGuai_Of_B(B_num,2,2)
-		ShuaGuai_Of_C(C_num,2,1)
-		ShuaGuai_Of_C(C_num,2,2)  
-		ShuaGuai_Of_B(B_num,2,3)
-		ShuaGuai_Of_B(B_num,3,4)
-		ShuaGuai_Of_C(C_num,2,3)
-		ShuaGuai_Of_C(C_num,3,4)
-		ShuaGuai_Of_B(B_num,3,5)
-		ShuaGuai_Of_B(B_num,3,6)
-		ShuaGuai_Of_C(C_num,3,5)
-		ShuaGuai_Of_C(C_num,3,6)
+		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,2,1)
+		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,2,2)
+		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,2,1)
+		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,2,2)  
+		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,2,3)
+		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,3,4)
+		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,2,3)
+		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,4)
+		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,3,5)
+		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,3,6)
+		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,5)
+		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,6)
 	    return 180
 	end)
 end
 
 
 --【足輕】
-function ShuaGuai_Of_AA(num)
-	_G.A_count = _G.A_count + 1
+function ShuaGuai_Of_AA(num, team, pos)
 	local A_count = _G.A_count
-	print("A_count "..A_count)
 	local tem_count = 0
 	--總共六個出發點 6
 	local randomkey = RandomInt(1,8)
@@ -156,7 +175,7 @@ function ShuaGuai_Of_AA(num)
 		tem_count = tem_count + 1
 		if tem_count > num then return nil
 		else
-			for i=1,6 do
+			for i=pos,pos do
 				--騎兵營被拆
 				local small_big = false
 				if _G.team_broken[3]["top"] == 1 and i == 3 then
@@ -179,6 +198,7 @@ function ShuaGuai_Of_AA(num)
 				end
 				--兵營被拆
 				local big = false
+				local big_team = false
 				if _G.team_broken[3]["top"] == 2 and i == 3 then
 					big = true
 				end
@@ -206,7 +226,6 @@ function ShuaGuai_Of_AA(num)
 				end
 				if go then
 					--超過三的時候出兵變為聯合軍
-					local team = nil
 					local unit_name = nil
 					if i > 3 then
 						team = 3
@@ -222,38 +241,30 @@ function ShuaGuai_Of_AA(num)
 					--強化倍率
 					local intensify = 1
 					if small_big then intensify = 1.5 end
-					if big then intensify = 2 end
-					if not big then
-						local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
-						unit:AddAbility("set_level_1"):SetLevel(1)
-						local hp = (unit:GetMaxHealth() + 150) * intensify
-						unit:SetBaseMaxHealth(hp+A_count * 8)
-						local dmgmax = unit:GetBaseDamageMax() * intensify
-						local dmgmin = unit:GetBaseDamageMin() * intensify
-						unit:SetBaseDamageMax(dmgmax+A_count*1)
-						unit:SetBaseDamageMax(dmgmin+A_count*1)
-						local armor = unit:GetPhysicalArmorBaseValue() * intensify
-						unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
-						--creep:SetContextNum("isshibing",1,0)
-
-						--單位面向角度
-						unit:SetForwardVector(ShuaGuai_entity_forvec[i])
-
-						--禁止單位尋找最短路徑
-						unit:SetMustReachEachGoalEntity(false)
-
-						--顏色
-						if team == 3 then
-							----unit:SetRenderColor(255,100,100)
-						elseif team == 3 then
-							----unit:SetRenderColor(100,255,100)
-						end
-
-						--讓單位沿著設置好的路線開始行動
-						unit:SetInitialGoalEntity(ShuaGuai_entity[i])
-					else
-						ShuaGuai_Of_C(1,team,i)
+					if big then intensify = 1.5 end
+					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
+					unit:AddAbility("set_level_1"):SetLevel(1)
+					local hp = (unit:GetMaxHealth() + 150) * intensify
+					unit:SetBaseMaxHealth(hp+A_count * 8)
+					local dmgmax = unit:GetBaseDamageMax() * intensify
+					local dmgmin = unit:GetBaseDamageMin() * intensify
+					unit:SetBaseDamageMax(dmgmax+A_count*1)
+					unit:SetBaseDamageMax(dmgmin+A_count*1)
+					local armor = unit:GetPhysicalArmorBaseValue() * intensify
+					unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
+					--creep:SetContextNum("isshibing",1,0)
+					--單位面向角度
+					unit:SetForwardVector(ShuaGuai_entity_forvec[i])
+					--禁止單位尋找最短路徑
+					unit:SetMustReachEachGoalEntity(false)
+					--顏色
+					if team == 3 then
+						----unit:SetRenderColor(255,100,100)
+					elseif team == 3 then
+						----unit:SetRenderColor(100,255,100)
 					end
+					--讓單位沿著設置好的路線開始行動
+					unit:SetInitialGoalEntity(ShuaGuai_entity[i])
 				end
 			end
 			return 0.5
@@ -262,7 +273,7 @@ function ShuaGuai_Of_AA(num)
 	Timers:CreateTimer(ltt)
 end
 --【弓箭手】
-function ShuaGuai_Of_AB(num)
+function ShuaGuai_Of_AB(num, team, pos)
 	local A_count = _G.A_count
 	local tem_count = 0
 	
@@ -272,7 +283,7 @@ function ShuaGuai_Of_AB(num)
 		tem_count = tem_count + 1
 		if tem_count > num then return nil
 		else
-			for i=1,6 do
+			for i=pos,pos do
 				--騎兵營被拆
 				local small_big = false
 				if _G.team_broken[3]["top"] == 1 and i == 3 then
@@ -322,7 +333,6 @@ function ShuaGuai_Of_AB(num)
 				end
 				if go then
 					--超過三的時候出兵變為聯合軍
-					local team = nil
 					local unit_name = nil
 					if i > 3 then
 						team = 3
@@ -339,39 +349,31 @@ function ShuaGuai_Of_AB(num)
 					--強化倍率
 					local intensify = 1
 					if small_big then intensify = 1.5 end
-					if big then intensify = 2 end
-					if not big then
-						local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
-						unit:AddAbility("set_level_1"):SetLevel(1)
-						
-						local hp = unit:GetMaxHealth() * intensify
-						unit:SetBaseMaxHealth(hp+A_count * 8)
-						local dmgmax = unit:GetBaseDamageMax() * intensify
-						local dmgmin = unit:GetBaseDamageMin() * intensify
-						unit:SetBaseDamageMax(dmgmax+A_count*2)
-						unit:SetBaseDamageMax(dmgmin+A_count*2)
-						local armor = unit:GetPhysicalArmorBaseValue() * intensify
-						unit:SetPhysicalArmorBaseValue(armor+A_count*0.05)
-						--creep:SetContextNum("isshibing",1,0)
-
-						--單位面向角度
-						unit:SetForwardVector(ShuaGuai_entity_forvec[i])
-
-						--禁止單位尋找最短路徑
-						unit:SetMustReachEachGoalEntity(false)
-
-						--顏色
-						if team == 3 then
-							----unit:SetRenderColor(255,100,100)
-						elseif team == 3 then
-							----unit:SetRenderColor(100,255,100)
-						end
-
-						--讓單位沿著設置好的路線開始行動
-						unit:SetInitialGoalEntity(ShuaGuai_entity[i])
-					else
-						ShuaGuai_Of_B(1,team,i)
+					if big then intensify = 1.5 end
+					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
+					unit:AddAbility("set_level_1"):SetLevel(1)
+					
+					local hp = unit:GetMaxHealth() * intensify
+					unit:SetBaseMaxHealth(hp+A_count * 8)
+					local dmgmax = unit:GetBaseDamageMax() * intensify
+					local dmgmin = unit:GetBaseDamageMin() * intensify
+					unit:SetBaseDamageMax(dmgmax+A_count*2)
+					unit:SetBaseDamageMax(dmgmin+A_count*2)
+					local armor = unit:GetPhysicalArmorBaseValue() * intensify
+					unit:SetPhysicalArmorBaseValue(armor+A_count*0.05)
+					--creep:SetContextNum("isshibing",1,0)
+					--單位面向角度
+					unit:SetForwardVector(ShuaGuai_entity_forvec[i])
+					--禁止單位尋找最短路徑
+					unit:SetMustReachEachGoalEntity(false)
+					--顏色
+					if team == 3 then
+					----unit:SetRenderColor(255,100,100)
+					elseif team == 3 then
+						----unit:SetRenderColor(100,255,100)
 					end
+					--讓單位沿著設置好的路線開始行動
+					unit:SetInitialGoalEntity(ShuaGuai_entity[i])
 				end
 			end
 			return 0.5
@@ -447,7 +449,7 @@ function ShuaGuai_Of_B(num, team, pos)
 				--強化倍率
 				local intensify = 1
 				if small_big then intensify = 1.5 end
-				if big then intensify = 2 end
+				if big then intensify = 1.5 end
 				for x=1,n do
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					unit:AddAbility("set_level_1"):SetLevel(1)
@@ -544,7 +546,7 @@ function ShuaGuai_Of_C(num, team, pos)
 				--強化倍率
 				local intensify = 1
 				if small_big then intensify = 1.5 end
-				if big then intensify = 2 end
+				if big then intensify = 1.5 end
 				for x=1,n do
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					
