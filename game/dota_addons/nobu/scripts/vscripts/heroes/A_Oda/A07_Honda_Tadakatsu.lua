@@ -35,8 +35,8 @@ function modifier_A07W:OnTakeDamage(event)
 	    if (self.caster ~= nil) and IsValidEntity(self.caster) then
 	    	if victim:GetTeam() ~= attacker:GetTeam() and attacker == self.caster then
 	    		if (damage_type ~= DAMAGE_TYPE_PHYSICAL) then
-					self.caster:SetHealth(self.hp + event.original_damage)
-					self.hp = self.hp + event.original_damage
+					self.caster:SetHealth(self.hp + event.original_damage * 0.3)
+					self.hp = self.hp + event.original_damage * 0.3
 				else
 					self.caster:SetHealth(self.hp)
 				end
