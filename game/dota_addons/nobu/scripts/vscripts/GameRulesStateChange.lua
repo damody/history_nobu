@@ -172,7 +172,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		end
 		return 60
 	end)
-	Timers:CreateTimer(10, function()
+	Timers:CreateTimer(600, function()
 		for playerID = 0, 9 do
 			local player = PlayerResource:GetPlayer(playerID)
 			if player then
@@ -183,7 +183,7 @@ function Nobu:OnGameRulesStateChange( keys )
 				end
 			end
 		end
-		return 10
+		return 600
 	end)
 	
 
