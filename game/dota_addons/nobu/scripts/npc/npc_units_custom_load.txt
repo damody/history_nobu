@@ -3237,7 +3237,7 @@
  		// General
  		//----------------------------------------------------------------
  		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
- 		"Model"						"models/items/courier/mei_nei_rabbit/mei_nei_rabbit_flying.vmdl" //"models/props_gameplay/donkey.vmdl"	// Model.
+ 		"Model"						"models/props_gameplay/donkey." //"models/props_gameplay/donkey.vmdl"	// Model.
  		"SoundSet"					""					// Name of sound set.
  		"Level"						"0"
  		"IsAncient"					"1"

@@ -106,7 +106,7 @@ function ShuaGuai( )
 		_G.Unified_home:AddAbility("buff_tower"):SetLevel(1)
 		end)
 	
-	local armor = 25
+	local armor = 15
 	Timers:CreateTimer(start_time, function()
 		--強化箭塔npc_dota_building
 		local allBuildings = Entities:FindAllByClassname('npc_dota_tower')

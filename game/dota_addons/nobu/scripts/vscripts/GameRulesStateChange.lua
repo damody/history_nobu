@@ -67,6 +67,12 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- self:OnAllPlayersLoaded()
 		for i=0,20 do
 			PlayerResource:SetGold(i,2000,false)--玩家ID需要減一
+			-- 跳錢
+			Timers:CreateTimer(45, function()
+				local gold = PlayerResource:GetGold(i)
+				PlayerResource:SetGold(i,gold + 3,false)
+				return 2
+			end)
 		end
 	elseif(newState == DOTA_GAMERULES_STATE_STRATEGY_TIME) then
 
