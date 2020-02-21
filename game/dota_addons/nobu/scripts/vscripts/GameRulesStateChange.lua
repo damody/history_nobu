@@ -108,7 +108,7 @@ function Nobu:OnGameRulesStateChange( keys )
     --出兵觸發
     if _G.nobu_chubing_b then
       ShuaGuai()
-    end
+	end
     -- 增加單挑殺人得分
     Timers:CreateTimer(10, function()
     	if _G.mo then
@@ -171,7 +171,21 @@ function Nobu:OnGameRulesStateChange( keys )
 			end
 		end
 		return 60
-		end)
+	end)
+	Timers:CreateTimer(10, function()
+		for playerID = 0, 9 do
+			local player = PlayerResource:GetPlayer(playerID)
+			if player then
+				local hero = player:GetAssignedHero()
+				if hero then
+					local hero_id = _G.heromap[hero:GetName()]
+					GameRules: SendCustomMessage("<font color=\"#33cc33\">"..(_G.hero_name_zh[hero_id]).."</font> <font color=\"#33cc33\">"..(hero:GetLevel()).."等</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+				end
+			end
+		end
+		return 10
+	end)
+	
 
     Timers:CreateTimer(120, function()
     	_G.can_bomb = true
