@@ -172,18 +172,19 @@ function Nobu:OnGameRulesStateChange( keys )
 		end
 		return 60
 	end)
-	Timers:CreateTimer(600, function()
+	Timers:CreateTimer(300, function()
 		for playerID = 0, 9 do
 			local player = PlayerResource:GetPlayer(playerID)
 			if player then
 				local hero = player:GetAssignedHero()
 				if hero then
 					local hero_id = _G.heromap[hero:GetName()]
-					GameRules: SendCustomMessage("<font color=\"#33cc33\">"..(_G.hero_name_zh[hero_id]).."</font> <font color=\"#33cc33\">"..(hero:GetLevel()).."等</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+					GameRules: SendCustomMessage("<font color=\"#33cc33\">"..(_G.hero_name_zh[hero_id]).."</font> <font color=\"#33cc33\">"..
+						(hero:GetLevel()).."等</font> "..PlayerResource:GetTotalGoldSpent(playerID)+PlayerResource:GetGold(playerID), DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 				end
 			end
 		end
-		return 600
+		return 300
 	end)
 	
 
