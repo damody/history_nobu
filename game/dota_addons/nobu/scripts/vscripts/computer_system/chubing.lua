@@ -57,6 +57,9 @@ _G.big_team[3]["top"] = 0
 _G.big_team[3]["mid"] = 0
 _G.big_team[3]["down"] = 0
 
+_G.minions = 45
+_G.bigminions = 180
+
 end
 --紀錄出兵起始點、路徑 (必須要用計時器，初始化時物體還沒建造)
 Timers:CreateTimer( 2, function()
@@ -134,7 +137,7 @@ function ShuaGuai( )
 		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,3,5)
 		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,3,6)
 		_G.A_count = _G.A_count + 1
-  		return 45
+  		return _G.minions
 	 end)
 	 -- 出弓箭手
 	 Timers:CreateTimer(start_time+3, function()--50
@@ -144,7 +147,7 @@ function ShuaGuai( )
 		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,3,4)
 		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,3,5)
 		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,3,6)
-		 return 45
+		 return _G.minions
 	end)
 	-- 出鐵炮跟騎兵
 	Timers:CreateTimer(180,function()
@@ -160,7 +163,7 @@ function ShuaGuai( )
 		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,3,6)
 		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,5)
 		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,6)
-	    return 180
+	    return _G.minions
 	end)
 end
 

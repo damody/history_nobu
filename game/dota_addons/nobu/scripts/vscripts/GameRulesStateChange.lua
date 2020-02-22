@@ -89,10 +89,10 @@ function Nobu:OnGameRulesStateChange( keys )
       for_test_equiment()
     end
     
-    GameRules:SendCustomMessage("歡迎來到 AON信長的野望 21版", DOTA_TEAM_GOODGUYS, 0)
-    GameRules:SendCustomMessage("5分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS, 0)
-	GameRules:SendCustomMessage("目前作者: Victor", DOTA_TEAM_GOODGUYS, 0)
-	GameRules:SendCustomMessage("Sonic Rain Interactive Entertainment Co., Ltd.", DOTA_TEAM_GOODGUYS, 0)
+    GameRules:SendCustomMessage("歡迎來到 AON信長的野望 21版", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+    GameRules:SendCustomMessage("5分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+	GameRules:SendCustomMessage("目前作者: Victor", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+	GameRules:SendCustomMessage("Sonic Rain Interactive Entertainment Co., Ltd.", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	elseif(newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then --遊戲開始 --7
 	if _G.nobu_server_b then
       Nobu:OpenRoom()
