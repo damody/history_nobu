@@ -79,10 +79,10 @@ function Shock( keys )
 				AMHC:Damage(caster, it, 250, AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				if IsValidEntity(it) and not it:HasModifier("great_sword_of_spike") then
 					Physics:Unit(it)
-					keys.ability:ApplyDataDrivenModifier(caster,it,"modifier_stunned",{duration = 2.6})
-					keys.ability:ApplyDataDrivenModifier(caster,it,"great_sword_of_spike",{duration = 2.7})
-					keys.ability:ApplyDataDrivenModifier(caster,it,"modifier_invulnerable",{duration = 1})
-					it:SetPhysicsVelocity(Vector(0,0,1500))
+					keys.ability:ApplyDataDrivenModifier(caster,it,"modifier_stunned",{duration = 1.6})
+					-- keys.ability:ApplyDataDrivenModifier(caster,it,"great_sword_of_spike",{duration = 2.7})
+					-- keys.ability:ApplyDataDrivenModifier(caster,it,"modifier_invulnerable",{duration = 1})
+					it:SetPhysicsVelocity(Vector(0,0,800))
 				end
 			end
 		end
@@ -90,7 +90,7 @@ function Shock( keys )
 			for _,it in pairs(direUnits) do
 				if not(it:IsBuilding()) then
 					if IsValidEntity(it) then
-						it:SetPhysicsVelocity(Vector(0,0,-1500))
+						it:SetPhysicsVelocity(Vector(0,0,-800))
 					end
 				end
 			end

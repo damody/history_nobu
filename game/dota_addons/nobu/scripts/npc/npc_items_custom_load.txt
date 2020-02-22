@@ -4441,7 +4441,7 @@
 		
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/muramasa_katana"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -4455,6 +4455,8 @@
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SecretShop" "1"
+		"AbilityCooldown" "70"
+		"AbilityManaCost" "120"
 		"OnEquip"
 		{
 			"RunScript"
@@ -4469,6 +4471,14 @@
 			{
 				"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
 				"Function"	"OnUnequip"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
+				"Function"	"Shock"
 			}
 		}
 		"Modifiers"
@@ -4487,8 +4497,7 @@
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
-				"Duration"	"10"
-			
+				"Duration"	"10"			
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "10" //攻速
@@ -4536,7 +4545,20 @@
 						"dmg"	"%attack_damage"
 						"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
 						"Function"	"StealLife"
-						"StealPercent"	"45"
+						"StealPercent"	"50"
+					}
+				}
+			}
+			"modifier_steal_life"
+			{
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"dmg"	"%attack_damage"
+						"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
+						"Function"	"StealLife2"
+						"StealPercent"	"100"
 					}
 				}
 			}
@@ -4787,7 +4809,7 @@
 		}
 	}
 
-	// 鬼丸國鋼．銘刀
+	// 鬼丸國綱．銘刀
 	"item_the_great_sword_of_spike"
 	{
 		// General
@@ -5166,6 +5188,28 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "65" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
+			}
+			"Passive_insight_gem"
+			{
+				"Passive"          "1"  
+	            "IsHidden"      "1"
+	            "ThinkInterval"     "0.25"
+	            "OnIntervalThink"
+	            {
+	                "ApplyModifier"
+	                {
+	                    "Target"
+	                    {
+	                        "Center"    "CASTER"
+	                        "Radius"    "900"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+	                    "ModifierName"      "modifier_truesight"
+	                    "Duration"      "0.50"
+	                }
+	            }
 			}
 			"shield_modifier1"
 			{
@@ -6404,7 +6448,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-7"	//防禦
+					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"	"15"
 				}
 			}
 			"modifier_spear_of_saddle2"
@@ -6415,7 +6459,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-7"	//防禦
+					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"	"15"
 				}
 			}
 			"Passive_spear_of_saddle"
@@ -6492,7 +6536,6 @@
 		}
 		"Modifiers"
 		{
-			
 			"modifier_spear_of_saddle"
 			{
 				"Passive"			"0"
@@ -6501,7 +6544,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-12"	//防禦
+					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"	"15"
 				}
 			}
 			"modifier_spear_of_saddle2"
@@ -6512,7 +6555,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-12"	//防禦
+					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"	"15"
 				}
 			}
 			"Passive_spear_of_saddle_1"
@@ -6597,7 +6640,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"	//防禦
+					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"	"15"
 				}
 			}
 			"modifier_spear_of_saddle2"
@@ -6608,7 +6651,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-15"	//防禦
+					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"	"15"
 				}
 			}
 			"Passive_spear_of_saddle_2"
@@ -8101,7 +8144,7 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "5"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "5"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "50"	//攻
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20"	//魔抗
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "0"	//魔抗
 				}
 			}
 		}

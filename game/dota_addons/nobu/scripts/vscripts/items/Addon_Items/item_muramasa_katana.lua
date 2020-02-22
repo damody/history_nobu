@@ -24,6 +24,12 @@ function KillCount( keys )
 	end
 end
 
+function Shock( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_steal_life", {duration = 5})
+end
+
 function StealLife(keys)
 	--【Basic】
 	local caster = keys.caster

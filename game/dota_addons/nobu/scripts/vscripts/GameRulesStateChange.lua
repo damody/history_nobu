@@ -81,7 +81,7 @@ function Nobu:OnGameRulesStateChange( keys )
 			local id       = playerID
 			local p        = PlayerResource:GetPlayer(id)
 			if p ~= nil then
-			  p:MakeRandomHeroSelection()
+				p:MakeRandomHeroSelection()
 			end
 		end
 	elseif(newState == DOTA_GAMERULES_STATE_PRE_GAME) then --當英雄選擇結束 --6
