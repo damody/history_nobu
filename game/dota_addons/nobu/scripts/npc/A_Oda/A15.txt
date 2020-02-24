@@ -370,7 +370,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"jump_radius"			"700"
+				"jump_radius"			"450"
 			}
 		}
 
