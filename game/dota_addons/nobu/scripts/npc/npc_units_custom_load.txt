@@ -3243,7 +3243,6 @@
  		"IsAncient"					"1"
  		"ModelScale"				"1"
  		"UnitLabel"					"courier"
-
  		// Abilities
  		//----------------------------------------------------------------
  		"AbilityLayout"				"6"		// changes when we change to flying -> "5"
@@ -3272,8 +3271,8 @@
 	
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyGoldMin"				"500"		// Gold earned min.
- 		"BountyGoldMax"				"500"		// Gold earned max.
+ 		"BountyGoldMin"				"150"		// Gold earned min.
+ 		"BountyGoldMax"				"150"		// Gold earned max.
 
  			// Status
  		//----------------------------------------------------------------
@@ -6890,7 +6889,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -6941,7 +6940,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -6992,7 +6991,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7044,7 +7043,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7096,7 +7095,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7148,7 +7147,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7200,7 +7199,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7252,7 +7251,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7304,7 +7303,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7356,7 +7355,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7407,7 +7406,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7458,7 +7457,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7510,7 +7509,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7562,7 +7561,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7614,7 +7613,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
@@ -7666,7 +7665,7 @@
 		"Ability1"	"unit_armor"
 		"Ability2"	""
 		"ArmorPhysical"	"2"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"45.0"
