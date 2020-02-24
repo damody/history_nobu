@@ -449,3 +449,11 @@ function debuff_tower( keys )
   end
 end
 
+function CP_recover( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  local attacker = keys.attacker
+  local recover = ability:GetSpecialValueFor("recover")
+  local heal = recover * (1 + attacker:GetHealth()/attacker:GetMaxHealth())
+  attacker:SetHealth(attacker:GetHealth() + heal)
+end

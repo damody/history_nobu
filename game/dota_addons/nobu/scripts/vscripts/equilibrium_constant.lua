@@ -153,6 +153,9 @@ function equilibrium_constant:x_OnNPCSpawned(keys)
     if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("tofar_goback") then
         hSpawnedUnit:FindAbilityByName("tofar_goback"):SetLevel(1)
     end
+    if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("cp_recover") then
+        hSpawnedUnit:FindAbilityByName("cp_recover"):SetLevel(1)
+    end
     if IsValidEntity(hSpawnedUnit)
         and hSpawnedUnit.GetAgility and hSpawnedUnit.GetIntellect and hSpawnedUnit.GetStrength
         and not hSpawnedUnit:HasModifier("equilibrium_constant")
