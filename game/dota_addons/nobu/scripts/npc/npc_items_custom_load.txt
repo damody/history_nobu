@@ -4490,7 +4490,7 @@
 	
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "1" //攻擊
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "15" //攻擊
 				}
 			}
 			"modifier_muramasa_atk_speed"

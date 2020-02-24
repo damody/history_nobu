@@ -112,6 +112,7 @@ function B25E( keys )
 	-- Variables
 	local caster = keys.caster
 	local ability = keys.ability
+	local cooldown = ability:GetCooldown(-1)
 	local particleName = "particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
 	-- local modifierDudName = "modifier_heat_seeking_missile_dud"
 	local radius = ability:GetLevelSpecialValueFor( "radius", ability:GetLevel() - 1 )
@@ -129,9 +130,13 @@ function B25E( keys )
 	
 	-- Seek out target
 	local count = 0
+	local hero_count = 0
 	for k, v in pairs( units ) do
 		if count < max_targets then
 			if (caster:CanEntityBeSeenByMyTeam(v)) and not v:HasModifier("modifier_invisible") then
+				if v:IsHero() then
+					hero_count = hero_count + 1
+				end
 				local projTable = {
 					Target = v,
 					Source = caster,
@@ -149,6 +154,8 @@ function B25E( keys )
 			break
 		end
 	end
+	ability:EndCooldown()
+	ability:StartCooldown(cooldown - hero_count)
 end
 
 function B25E_old_break( keys )

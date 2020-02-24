@@ -6,7 +6,9 @@ function OnEquip( keys )
 	if (caster.nobuorb1 == nil) then
 		caster.nobuorb1 = "muramasa_katana"
 	end
-	caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(caster.kill_count)
+	if caster:Getkills() > 0 then
+		caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(caster:GetKills())
+	end
 end
 
 function OnUnequip( keys )	
@@ -20,7 +22,9 @@ end
 function KillCount( keys )
 	local caster = keys.caster
 	if caster:IsAlive() then
-		caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(caster.kill_count)
+		if caster:Getkills() > 0 then
+			caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(caster:GetKills())
+		end
 	end
 end
 
