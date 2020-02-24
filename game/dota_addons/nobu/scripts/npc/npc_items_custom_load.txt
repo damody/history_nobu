@@ -189,7 +189,7 @@
 			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"targets"	"6"
+				"targets"	"7"
 			}
 			"06"
 			{
@@ -1484,7 +1484,7 @@
 			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"targets"	"3"
+				"targets"	"6"
 			}
 			"06"
 			{
