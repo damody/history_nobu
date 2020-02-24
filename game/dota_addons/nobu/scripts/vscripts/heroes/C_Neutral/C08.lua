@@ -418,7 +418,6 @@ function C08T_OnSpellStart( keys )
 	local target = keys.target
 	local ability = keys.ability
 	local damage = ability:GetSpecialValueFor("damage")
-	local modifier_atk_bouns = caster:FindModifierByName("modifier_atk_bouns")
 	local duration = ability:GetSpecialValueFor("duration")
 	if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
 		caster:EmitSound("lion_manadrain")
@@ -452,18 +451,17 @@ function C08T_OnSpellStart( keys )
 		end)
 		local modifier_C08W_bleeding = target:FindModifierByName("modifier_C08W_bleeding")
 		if modifier_C08W_bleeding then
-			caster:ModifyStrength( ability:GetSpecialValueFor("attributes_bonus") )
-			caster:ModifyAgility( ability:GetSpecialValueFor("attributes_bonus") )
-			caster:ModifyIntellect( ability:GetSpecialValueFor("attributes_bonus") )
-			caster:CalculateStatBonus()
+			attributes_stack = attributes_stack + 1
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_attribute_bouns", {})
+			local modifier_attribute_bouns = caster:FindModifierByName("modifier_attribute_bouns")
+			modifier_attribute_bouns:SetStackCount(attributes_stack)
 		end
 		AMHC:Damage(caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		if caster:IsAlive() and (not target:IsAlive()) then
 			atk_stack = atk_stack + 1
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_atk_bouns", {})
+			local modifier_atk_bouns = caster:FindModifierByName("modifier_atk_bouns")
 			modifier_atk_bouns:SetStackCount(atk_stack)
-			if atk_stack > 0 then
-				caster:RemoveModifierByName("modifier_atk_offset")
-			end
 		end
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_C08T_bleeding",{})
 	else

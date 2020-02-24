@@ -421,21 +421,22 @@
 			}
 			"modifier_atk_bouns"
 			{
-				"Passive"	"1"
+				"Passive"	"0"
 				"IsPurgable"	"0"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%atk_bonus"
 				}
 			}
-			"modifier_atk_offset"
+			"modifier_attribute_bouns"
 			{
-				"Passive"	"1"
+				"Passive"	"0"
 				"IsPurgable"	"0"
-				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%atk_offset"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%attributes_bonus"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%attributes_bonus"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%attributes_bonus"  //智
 				}
 			}
 		}
