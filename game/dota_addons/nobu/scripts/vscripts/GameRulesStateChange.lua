@@ -67,12 +67,6 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- self:OnAllPlayersLoaded()
 		for i=0,20 do
 			PlayerResource:SetGold(i,2000,false)--玩家ID需要減一
-			-- 跳錢
-			Timers:CreateTimer(45, function()
-				local gold = PlayerResource:GetGold(i)
-				PlayerResource:SetGold(i,gold + 3,false)
-				return 2
-			end)
 		end
 	elseif(newState == DOTA_GAMERULES_STATE_STRATEGY_TIME) then
 
@@ -107,7 +101,15 @@ function Nobu:OnGameRulesStateChange( keys )
 	  end
     --出兵觸發
     if _G.nobu_chubing_b then
-      ShuaGuai()
+	  ShuaGuai()
+	  for i=0,20 do
+		-- 跳錢
+		Timers:CreateTimer(45, function()
+			local gold = PlayerResource:GetGold(i)
+			PlayerResource:SetGold(i,gold + 3,false)
+			return 2
+		end)
+	  end
 	end
     -- 增加單挑殺人得分
     Timers:CreateTimer(10, function()
