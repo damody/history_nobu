@@ -42,11 +42,11 @@
 
 		"OnAbilityPhaseStart"
 		{
-			"FireSound"
-			{
-				"Target"	"CASTER"
-				"EffectName"	"A26W.vo1"
-			}
+			//"FireSound"
+			//{
+			//	"Target"	"CASTER"
+			//	"EffectName"	"A26W.vo1"
+			//}
 			"RunScript"
 			{
 			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"

@@ -89,10 +89,10 @@ function Nobu:OnGameRulesStateChange( keys )
       for_test_equiment()
     end
     
-    GameRules:SendCustomMessage("歡迎來到 AON信長的野望 21版", DOTA_TEAM_GOODGUYS, 0)
-    GameRules:SendCustomMessage("5分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS, 0)
-	GameRules:SendCustomMessage("目前作者: Victor", DOTA_TEAM_GOODGUYS, 0)
-	GameRules:SendCustomMessage("Sonic Rain Interactive Entertainment Co., Ltd.", DOTA_TEAM_GOODGUYS, 0)
+    GameRules:SendCustomMessage("歡迎來到 AON信長的野望 21版", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+    GameRules:SendCustomMessage("5分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+	GameRules:SendCustomMessage("目前作者: Victor", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+	GameRules:SendCustomMessage("Sonic Rain Interactive Entertainment Co., Ltd.", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	elseif(newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then --遊戲開始 --7
 	if _G.nobu_server_b then
       Nobu:OpenRoom()
@@ -172,18 +172,19 @@ function Nobu:OnGameRulesStateChange( keys )
 		end
 		return 60
 	end)
-	Timers:CreateTimer(600, function()
+	Timers:CreateTimer(300, function()
 		for playerID = 0, 9 do
 			local player = PlayerResource:GetPlayer(playerID)
 			if player then
 				local hero = player:GetAssignedHero()
 				if hero then
 					local hero_id = _G.heromap[hero:GetName()]
-					GameRules: SendCustomMessage("<font color=\"#33cc33\">"..(_G.hero_name_zh[hero_id]).."</font> <font color=\"#33cc33\">"..(hero:GetLevel()).."等</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+					GameRules: SendCustomMessage("<font color=\"#33cc33\">"..(_G.hero_name_zh[hero_id]).."</font> <font color=\"#33cc33\">"..
+						(hero:GetLevel()).."等</font> "..PlayerResource:GetTotalGoldSpent(playerID)+PlayerResource:GetGold(playerID), DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 				end
 			end
 		end
-		return 600
+		return 300
 	end)
 	
 
