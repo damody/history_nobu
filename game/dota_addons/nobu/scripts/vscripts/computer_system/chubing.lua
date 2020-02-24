@@ -57,8 +57,8 @@ _G.big_team[3]["top"] = 0
 _G.big_team[3]["mid"] = 0
 _G.big_team[3]["down"] = 0
 
-_G.minions = 45
-_G.bigminions = 180
+_G.minions = 40
+_G.bigminions = 120
 
 end
 --紀錄出兵起始點、路徑 (必須要用計時器，初始化時物體還沒建造)
