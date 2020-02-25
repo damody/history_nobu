@@ -89,7 +89,11 @@ function LightningJump(keys)
 		-- Applies damage to the current target
 	
 	end)
-	ApplyDamage({victim = target, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
+	if target:HasModifier("modifier_thundergods_wrath_datadriven") then
+		ApplyDamage({victim = target, attacker = caster, damage = ability:GetAbilityDamage()*1.4, damage_type = ability:GetAbilityDamageType()})
+	else
+		ApplyDamage({victim = target, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
+	end
 end
 
 --[[Author: YOLOSPAGHETTI
@@ -175,6 +179,9 @@ function SearchArea(keys)
 		-- Applies the ministun and the damage to the target
 		target:AddNewModifier(caster, ability, "modifier_stunned", {Duration = 0.1})
 		ApplyDamage({victim = target, attacker = caster, damage = ability:GetAbilityDamage()+caster:GetIntellect()*2, damage_type = ability:GetAbilityDamageType()})
+		if target:HasModifier("modifier_thundergods_wrath_datadriven") then
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_stunned", {duration = 1.5})
+		end
 		-- Renders the particle on the target
 		local particle = ParticleManager:CreateParticle(keys.particle, PATTACH_WORLDORIGIN, target)
 		-- Raise 1000 value if you increase the camera height above 1000

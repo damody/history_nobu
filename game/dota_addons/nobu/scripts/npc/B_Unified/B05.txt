@@ -23,10 +23,10 @@
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityCastPoint"          				"0.25"
+		"AbilityCastPoint"          				"0.2"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"8 7 6 5"
+		"AbilityCooldown"	"5 5 4 4"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"120 140 160 180"
@@ -137,7 +137,7 @@
 		"AbilityCastPoint"          				"0.3"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"11 10 9 8"
+		"AbilityCooldown"	"8 8 8 8"
 		"AbilityCastRange"	"1200"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
