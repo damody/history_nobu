@@ -193,11 +193,8 @@ function A15R_bounceAttack(keys)
 		end
 		ApplyDamage( damageTable )
 		if caster:HasModifier("modifier_A15T") then
-			if not target:IsBuilding() then
-				local lifeSteal = caster:FindAbilityByName("A15T"):GetSpecialValueFor("A15T_lifeSteal")
-				A15_LifeSteal( caster, target, new_damage, lifeSteal )
-				ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW, caster)
-			end
+			local lifeSteal = caster:FindAbilityByName("A15T"):GetSpecialValueFor("A15T_lifeSteal")
+			A15_LifeSteal( caster, target, new_damage, lifeSteal )
 		end
 	end
 
@@ -267,19 +264,19 @@ function A15T_OnAttackLanded( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	if target.isvoid == nil then
-		if not target:IsBuilding() then
-			local lifeSteal = ability:GetSpecialValueFor("A15T_lifeSteal")
-			local damage = keys.Damage
-			A15_LifeSteal( caster, target, damage, lifeSteal )
-		    ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW, caster)
-		end
+	if target.isvoid == nil then	
+		local lifeSteal = ability:GetSpecialValueFor("A15T_lifeSteal")
+		local damage = keys.Damage
+		A15_LifeSteal( caster, target, damage, lifeSteal )  
 	end
 end
 
 function A15_LifeSteal( caster, target, damage, lifeSteal )
-	local damageAfterReduction = CalcDamageAfterReduction( target, damage )
-	caster:Heal( damageAfterReduction * lifeSteal/100 , caster )
+	if not target:IsBuilding() and not target:IsMagicImmune() then
+		local damageAfterReduction = CalcDamageAfterReduction( target, damage )
+		caster:Heal( damageAfterReduction * lifeSteal/100 , caster )
+		ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW, caster)	
+	end
 end
 
 function CalcDamageAfterReduction( target, damage )
