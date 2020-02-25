@@ -2936,10 +2936,14 @@
 			"modifier_sword_of_invincible"
 			{
 				"IsHidden"	"0"
-				"States"
+				"OnTakeDamage"
 				{
-					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_invincible.lua"
+						"Function"	"NoDamage"
+						"DamageTaken" "%attack_damage"
+					}
 				}
 				"EffectAttachType"	"follow_origin"
 				"Duration"  "2"

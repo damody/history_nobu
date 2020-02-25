@@ -17,7 +17,6 @@ end
 function OnUnequip( keys )
 	local caster = keys.caster
 	caster.Is_invincible_equip = false
-	print(caster.Is_invincible_equip)
 	caster:RemoveModifierByName("modifier_sword_of_invincible_passive")
 end
 
@@ -26,16 +25,16 @@ function Shock( keys )
 	local ability = keys.ability
 	local shield_size = 30 -- could be adjusted to model scale
 	if not target.invincible_counter then target.invincible_counter = 0 end
-	if target:GetHealth() > target:GetMaxHealth()*0.3 then
+	if target:GetHealth() > target:GetMaxHealth()*0.6 then
 		return 
 	end
 	-- -- Strong Dispel 刪除負面效果
-	local RemovePositiveBuffs = false
-	local RemoveDebuffs = true
-	local BuffsCreatedThisFrameOnly = false
-	local RemoveStuns = true
-	local RemoveExceptions = false
-	target:Purge( RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
+	-- local RemovePositiveBuffs = false
+	-- local RemoveDebuffs = true
+	-- local BuffsCreatedThisFrameOnly = false
+	-- local RemoveStuns = true
+	-- local RemoveExceptions = false
+	-- target:Purge( RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
 
 	-- Particle. Need to wait one frame for the older particle to be destroyed
 	
@@ -67,4 +66,9 @@ function Shock( keys )
 		end)
 end
 
-
+function NoDamage( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local dmg = keys.DamageTaken
+	caster:SetHealth(caster:GetHealth() + dmg)
+end
