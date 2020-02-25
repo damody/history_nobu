@@ -815,8 +815,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "1000"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"-500"
-					
 				}
 			}
 			"modifier_A13T_Blind"

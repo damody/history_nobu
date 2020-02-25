@@ -724,7 +724,7 @@ function A13T ( keys )
 						damage_type = ability:GetAbilityDamageType(),
 						damage_flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 					}
-					caster:PerformAttack(unit, true, true, false, true, false, false, true)
+					caster:PerformAttack(unit, true, true, true, true, true, false, true)
 					ApplyDamage(damageTable)
 					ability:ApplyDataDrivenModifier(caster,unit,"modifier_A13T_Blind", {duration = 0.5})
 				end
