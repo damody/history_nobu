@@ -15,21 +15,17 @@ function Shock( keys )
 			return
 		end
 		caster.great_sword_of_tiger_count = caster.great_sword_of_tiger_count + 1
-		if (caster.great_sword_of_tiger_count >= 3) and not ability.IsTrigger then
+		if (caster.great_sword_of_tiger_count >= 4) and not ability.IsTrigger then
 			caster.great_sword_of_tiger_count = 0
 			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
 			if (not(target:IsBuilding())) then
-				if (caster.great_sword_of_tiger == nil) and not ability.IsTrigger then					
+				if (caster.great_sword_of_tiger == nil) then					
 					if IsValidEntity(target) then
 						ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = 0.4})
 					end
 					if not target:IsMagicImmune() then
 						AMHC:Damage(caster,target,200,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 					end
-					ability.IsTrigger = true
-					Timers:CreateTimer(0.6,function()
-						ability.IsTrigger = false
-					end)
 				end
 			end
 			
