@@ -435,7 +435,7 @@
 		"SpellImmunityType"  				"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"					"1"
 		"AbilityTextureName"				"custom/A13E"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
 		"AbilityCastRange"   				"600 800 1000 1200"
 		"AbilityCastPoint"   				"0.25"
 		"AbilityCooldown"    				"14 11 8 5"
