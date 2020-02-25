@@ -383,12 +383,12 @@ function B05T( event )
 		if it:IsHero() then
 			ParticleManager:CreateParticle("particles/shake2.vpcf", PATTACH_ABSORIGIN, it)
 			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_stunned", {duration = duration})
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_stunned", {duration = duration})
 		elseif it:IsBuilding() then
 			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage()*0.3, damage_type = ability:GetAbilityDamageType()})
 		else
 			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_stunned", {duration = duration})
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_stunned", {duration = duration})
 		end
 		--ability:ApplyDataDrivenModifier(caster, it,"modifier_B05T",nil)
 	end
