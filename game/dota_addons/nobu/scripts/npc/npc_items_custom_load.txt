@@ -5077,11 +5077,25 @@
 					}
 				}
 			}
-			"modifier_the_great_sword_of_toxic"
+			"modifier_the_great_sword_of_toxic_range"
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-60" 	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-25" 	//跑速
+				}
+				
+				"IsPurgable"	"1"
+				"IsDebuff"		"1"
+				"Passive"	"0"
+				"IsHidden"	"1"
+				"Duration"			"2"
+				"EffectAttachType"	"follow_origin"
+			}
+			"modifier_the_great_sword_of_toxic_melee"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-35" 	//跑速
 				}
 				
 				"IsPurgable"	"1"

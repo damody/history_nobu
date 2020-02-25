@@ -49,9 +49,13 @@ function Shock2( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-
+	print(caster:GetBaseAttackRange())
 	if not target:IsBuilding() then
-		ability:ApplyDataDrivenModifier(target,target,"modifier_the_great_sword_of_toxic",nil)
+		if caster:GetBaseAttackRange() < 200 then
+			ability:ApplyDataDrivenModifier(target,target,"modifier_the_great_sword_of_toxic_melee",nil)
+		else
+			ability:ApplyDataDrivenModifier(target,target,"modifier_the_great_sword_of_toxic_range",nil)
+		end
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_the_great_sword_of_toxic2",nil)
 		AMHC:Damage( caster,target,85,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 	end
