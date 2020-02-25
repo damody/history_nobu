@@ -408,11 +408,29 @@ end
 function C08R_modifier:GetAttributes()
 	return MODIFIER_ATTRIBUTE_MULTIPLE
 end
+
+function C08T_OnRespawn(keys)
+	local ability = keys.ability
+	local caster = keys.caster
+	if attributes_stack > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_attribute_bouns", {})
+		local modifier_attribute_bouns = caster:FindModifierByName("modifier_attribute_bouns")
+		modifier_attribute_bouns:SetStackCount(attributes_stack)
+	end
+	if atk_stack > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_atk_bouns", {})
+		local modifier_atk_bouns = caster:FindModifierByName("modifier_atk_bouns")
+		modifier_atk_bouns:SetStackCount(atk_stack)
+	end
+end
+
+
 function C08T_OnCreate(keys)
 	local caster = keys.caster
 	local modifier_atk_bouns = caster:FindModifierByName("modifier_atk_bouns")
 	modifier_atk_bouns:SetStackCount(atk_stack)
 end
+
 function C08T_OnSpellStart( keys )
 	local caster = keys.caster
 	local target = keys.target

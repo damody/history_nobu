@@ -4481,16 +4481,24 @@
 				"Function"	"Shock"
 			}
 		}
+		"OnOwnerSpawned"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
+				"Function"	"OnRespawn"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_muramasa_atk"
 			{
-				"Passive"			"1"
+				"Passive"			"0"
 				"IsHidden"			"0"
 	
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "15" //攻擊
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "1" //攻擊
 				}
 			}
 			"modifier_muramasa_atk_speed"
@@ -4509,13 +4517,12 @@
 				"IsHidden"	"1"
 				"IsDebuff"	"0"
 
-				"ThinkInterval"	"0.5"
-				"OnIntervalThink"
+				"OnKill"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
-						"Function"	"KillCount"
+						"Function"	"OnKill"
 					}
 				}
 			}
@@ -4529,7 +4536,7 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "30"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
@@ -4559,6 +4566,20 @@
 						"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
 						"Function"	"StealLife2"
 						"StealPercent"	"100"
+					}
+				}
+			}
+			"modifier_lose_stack"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"IsDebuff"	"0"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
+						"Function"	"OnDeath"
 					}
 				}
 			}

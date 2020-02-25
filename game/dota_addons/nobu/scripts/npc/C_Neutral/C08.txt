@@ -374,6 +374,14 @@
 				"title"	"particles/title/c08t.vpcf"
 			}
 		}
+		"OnOwnerSpawned"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C08.lua"
+				"Function"		"C08T_OnRespawn"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_C08T_bleeding"

@@ -14065,7 +14065,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor
@@ -14137,7 +14137,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor
@@ -14209,7 +14209,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor
@@ -14281,7 +14281,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor
@@ -14353,7 +14353,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor
@@ -14425,7 +14425,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor
@@ -14497,7 +14497,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor
@@ -14569,7 +14569,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor
@@ -14641,7 +14641,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor
@@ -14713,7 +14713,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor
@@ -14853,7 +14853,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor
@@ -14923,7 +14923,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor
@@ -15133,7 +15133,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor
@@ -15203,7 +15203,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor
@@ -15273,7 +15273,7 @@
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"tofar_goback"			// Ability 2
- 		"Ability3"					""			// Ability 3
+ 		"Ability3"					"cp_recover"			// Ability 3
  		"Ability4"					""			// Ability 4
 
  		// Armor

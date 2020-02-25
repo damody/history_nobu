@@ -1,31 +1,46 @@
 
 function OnEquip( keys )	
-	local caster = keys.caster
 	local ability = keys.ability
-	ability.attackCount = 0
-	if (caster.nobuorb1 == nil) then
-		caster.nobuorb1 = "muramasa_katana"
-	end
-	if caster:Getkills() > 0 then
-		caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(caster:GetKills())
-	end
+	ability.stack = 0
 end
 
 function OnUnequip( keys )	
 	local caster = keys.caster
-	if (caster.nobuorb1 == "muramasa_katana") then
-		caster.nobuorb1 = nil
-	end
 	caster:RemoveModifierByName("modifier_muramasa_atk")
 end
 
-function KillCount( keys )
+function OnKill( keys )
 	local caster = keys.caster
-	if caster:IsAlive() then
-		if caster:Getkills() > 0 then
-			caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(caster:GetKills())
-		end
+	local ability = keys.ability
+	local target = keys.unit
+	if target:IsHero() then
+		ability.stack = ability.stack + 15
+	else
+		ability.stack = ability.stack + 1
 	end
+	if ability.stack > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_muramasa_atk", {})
+		caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(ability.stack)
+	end
+end
+
+function OnDeath( keys )
+	local ability = keys.ability
+	local caster = keys.caster
+	ability.stack = ability.stack / 3
+	print(ability.stack)
+	caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(ability.stack)
+	if ability.stack == 0 then
+		caster:RemoveModifierByName("modifier_muramasa_atk")
+	end
+end
+
+function OnRespawn( keys )
+	print("respawn")
+	local ability = keys.ability
+	local caster = keys.caster
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_muramasa_atk", {})
+	caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(ability.stack)
 end
 
 function Shock( keys )
@@ -51,7 +66,6 @@ function StealLife(keys)
 		local dmg = keys.dmg
 		--if (caster.nobuorb1 == "muramasa_katana" or caster.nobuorb1 == "illusion" or caster.nobuorb1 == nil) and not target:IsBuilding() then
 		if not target:IsBuilding() then
-			caster.nobuorb1 = "muramasa_katana"
 			local damageReduction = 0
 			local targetArmor = target:GetPhysicalArmorValue(true)
 			if targetArmor > 0 then
@@ -67,7 +81,7 @@ function StealLife(keys)
 			if damageReduction > 1 then
 				damageReduction = 1
 			end
-			caster:Heal(dmg*ability.attackCount*0.05*(1-damageReduction), ability)
+			caster:Heal(dmg*ability.attackCount*0.03*(1-damageReduction), ability)
 		    ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW, caster)
 		end
 	end
