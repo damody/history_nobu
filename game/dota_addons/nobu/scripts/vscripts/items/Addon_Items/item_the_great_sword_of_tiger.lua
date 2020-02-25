@@ -5,6 +5,9 @@ function Shock( keys )
 		local target = keys.target
 		local ability = keys.ability
 		local ran =  RandomInt(0, 100)
+		if ability.IsTrigger == nil then
+			ability.IsTrigger = false
+		end
 		if (caster.great_sword_of_tiger_count == nil) then
 			caster.great_sword_of_tiger_count = 0
 		end
@@ -12,18 +15,21 @@ function Shock( keys )
 			return
 		end
 		caster.great_sword_of_tiger_count = caster.great_sword_of_tiger_count + 1
-		if (caster.great_sword_of_tiger_count >= 3) then
+		if (caster.great_sword_of_tiger_count >= 3) and not ability.IsTrigger then
 			caster.great_sword_of_tiger_count = 0
 			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
-
 			if (not(target:IsBuilding())) then
-				if (caster.great_sword_of_tiger == nil) then					
+				if (caster.great_sword_of_tiger == nil) and not ability.IsTrigger then					
 					if IsValidEntity(target) then
 						ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = 0.4})
 					end
 					if not target:IsMagicImmune() then
 						AMHC:Damage(caster,target,200,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 					end
+					ability.IsTrigger = true
+					Timers:CreateTimer(0.6,function()
+						ability.IsTrigger = false
+					end)
 				end
 			end
 			
@@ -31,11 +37,11 @@ function Shock( keys )
 			local rate = caster:GetAttackSpeed()
 			--print(tostring(rate))
 			--播放動畫
-		    --caster:StartGesture( ACT_SLAM_TRIPMINE_ATTACH )
+			--caster:StartGesture( ACT_SLAM_TRIPMINE_ATTACH )
 			if rate < 1 then
-			    caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,1)
+				caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,1)
 			else
-			    caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,rate)
+				caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,rate)
 			end
 		end
 	end
