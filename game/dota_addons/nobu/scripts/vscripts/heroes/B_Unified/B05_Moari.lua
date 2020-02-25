@@ -356,13 +356,14 @@ function B05T( event )
 	local caster		= event.caster
 	local ability	= event.ability
 	local point = ability:GetCursorPosition()
+	local radius = ability:GetSpecialValueFor("radius")
 	AddFOWViewer(caster:GetTeamNumber(), point, 1500.0, 3.0, false)
 	
 
 	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
 	                              point,
 	                              nil,
-	                              600,
+	                              radius,
 	                              DOTA_UNIT_TARGET_TEAM_ENEMY,
 	                              DOTA_UNIT_TARGET_ALL,
 	                              DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
@@ -373,6 +374,11 @@ function B05T( event )
 	for _,it in pairs(direUnits) do
 		if it:IsHero() then
 			ParticleManager:CreateParticle("particles/shake2.vpcf", PATTACH_ABSORIGIN, it)
+			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
+		elseif it:IsBuilding() then
+			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage()*0.3, damage_type = ability:GetAbilityDamageType()})
+		else
+			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
 		end
 		--ability:ApplyDataDrivenModifier(caster, it,"modifier_B05T",nil)
 	end
@@ -469,7 +475,7 @@ function B05T_Prepare( keys )
 	local teamonly 	= keys.teamonly
 	local ignore_fog 	= keys.ignore_fog
 	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
-	aura_radius = ability:GetSpecialValueFor("radius")
+	local aura_radius = ability:GetSpecialValueFor("radius")
 	local spell_hint_table = {
 		duration   = 1.5,		-- 持續時間
 		radius     = aura_radius,		-- 半徑
