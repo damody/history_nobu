@@ -763,15 +763,6 @@
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"
-	            "ThinkInterval"  "1"
-	            "OnIntervalThink"
-	            {
-	            	"RunScript"
-					{
-						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
-						"Function"	"robbers_checkfly"
-					}
-	            }
 	            "OnDeath"
 				{
 					"RunScript"

@@ -189,7 +189,8 @@ function robbers_skill( keys )
         if player then
           local hero = player:GetAssignedHero()
           if hero:GetTeamNumber() == keys.attacker:GetTeamNumber() then
-          	AMHC:GivePlayerGold_UnReliable(playerID, 600)
+			  AMHC:GivePlayerGold_UnReliable(playerID, 300)
+			  hero:AddExperience(200, 0, false, false)
           end
       	end
 	end
