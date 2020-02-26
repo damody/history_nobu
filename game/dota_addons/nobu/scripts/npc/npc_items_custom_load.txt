@@ -4425,7 +4425,6 @@
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"OnAttackLanded"
 				{
 					"RunScript"
@@ -4648,7 +4647,6 @@
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"OnAttackLanded"
 				{
 					"RunScript"
