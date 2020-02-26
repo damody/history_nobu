@@ -429,6 +429,7 @@
 		"precache"
 		{
 			"particle"	"particles/dire_fx/dire_ancient_base001_destruction_l1.vpcf"
+			"particle" 	"particles/b10t.vpcf"
 		}
 		"OnSpellStart"
 		{

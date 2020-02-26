@@ -880,6 +880,10 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"precache"
+		{
+			"particle" 	"particles/warrior_soul/warrior_soul.vpcf"
+		}
 		"Modifiers"
 		{
 			"modifier_search_unit"
@@ -907,8 +911,8 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "20" //防禦
 				}
 				"IsBuff"	"1"
-				"EffectName"	"particles/b05r2/b05r2.vpcf"
-				"EffectAttachType"	"follow_overhead"
+				"EffectName"		"particles/warrior_soul/warrior_soul.vpcf"
+				"EffectAttachType"	"follow_origin"
 			}
 		}
 	}
