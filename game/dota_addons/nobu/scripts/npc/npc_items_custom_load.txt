@@ -6485,18 +6485,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"	"15"
-				}
-			}
-			"modifier_spear_of_saddle2"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsPurgable"	"1"
-				"IsDebuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"	"15"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-1"
 				}
 			}
 			"Passive_spear_of_saddle"
@@ -6527,6 +6516,14 @@
 						"Function"	"Shock"
 					}
 				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type" "FIELD_INTEGER"
+				"ARMOR_REDUCE_PERCENTAGE" "30"
 			}
 		}
 	}
@@ -6581,18 +6578,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"	"15"
-				}
-			}
-			"modifier_spear_of_saddle2"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsPurgable"	"1"
-				"IsDebuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"	"15"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-1"
 				}
 			}
 			"Passive_spear_of_saddle_1"
@@ -6623,6 +6609,14 @@
 						"Function"	"Shock"
 					}
 				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type" "FIELD_INTEGER"
+				"ARMOR_REDUCE_PERCENTAGE" "35"
 			}
 		}
 	}
@@ -6677,18 +6671,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"	"15"
-				}
-			}
-			"modifier_spear_of_saddle2"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsPurgable"	"1"
-				"IsDebuff"		"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE"	"15"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-1"
 				}
 			}
 			"Passive_spear_of_saddle_2"
@@ -6719,6 +6702,14 @@
 						"Function"	"Shock"
 					}
 				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type" "FIELD_INTEGER"
+				"ARMOR_REDUCE_PERCENTAGE" "40"
 			}
 		}
 	}
