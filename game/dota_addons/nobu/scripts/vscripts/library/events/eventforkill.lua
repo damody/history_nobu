@@ -1,7 +1,8 @@
 
 die_time = {1, 2, 4, 7, 11, 15, 22, 29, 37, 46, 47, 49, 52, 56, 61, 67, 74, 80, 87, 95, 104, 114, 120}
 die_tim2 = {1, 2, 4, 7, 11, 16, 22, 25, 28, 32, 36, 46, 48, 50, 52, 54, 56, 66, 70, 74, 78, 82, 86, 90, 100}
-
+local warrior_soul_respawn_count = 1
+local robbers_king_respawn_count = 1
 function Nobu:OnUnitKill( keys )
 --每当单位死亡，检查其是否符合条件，如果符合就刷新任务
   ------------------------------------------------------------------
@@ -37,7 +38,6 @@ function Nobu:OnUnitKill( keys )
     -- [   VScript              ]:    damagebits                      	= 0 (number)
     -- [   VScript              ]:    splitscreenplayer               	= -1 (number)
     -- [   VScript              ]: }
-	
     local AttackerUnit = EntIndexToHScript( keys.entindex_attacker )
     local killedUnit = EntIndexToHScript( keys.entindex_killed )
     if killedUnit:IsBuilding() and not string.match(killedUnit:GetUnitName(),"_hero")  then
@@ -275,18 +275,21 @@ function Nobu:OnUnitKill( keys )
       local unitname = name
       local pos = killedUnit:GetAbsOrigin()
       local team = killedUnit:GetTeamNumber()
-      Timers:CreateTimer(300, function()
+      Timers:CreateTimer(600, function()
         if (killedUnit.origin_pos) then
           pos = killedUnit.origin_pos
           local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
           unit.origin_pos = pos
-          local CP_Monster = _G.CP_Monster
+          local CP_Monster = warrior_soul_respawn_count
+          warrior_soul_respawn_count = warrior_soul_respawn_count + 1
+          print(CP_Monster)
+          print(warrior_soul_respawn_count)
           local hp = unit:GetMaxHealth()
-          unit:SetBaseMaxHealth(hp+CP_Monster * 50)
+          unit:SetBaseMaxHealth(hp+CP_Monster * 5000)
           local dmgmax = unit:GetBaseDamageMax()
           local dmgmin = unit:GetBaseDamageMin()
-          unit:SetBaseDamageMax(dmgmax+CP_Monster*12)
-          unit:SetBaseDamageMax(dmgmin+CP_Monster*12)
+          unit:SetBaseDamageMax(dmgmax+CP_Monster*60)
+          unit:SetBaseDamageMax(dmgmin+CP_Monster*60)
         end
         end)
     elseif string.match(name, "neutral_160") then
@@ -321,18 +324,19 @@ function Nobu:OnUnitKill( keys )
       if killedUnit.origin_pos == nil then
         killedUnit.origin_pos = pos
       end
-      Timers:CreateTimer(5, function()
+      Timers:CreateTimer(180, function()
         GameRules: SendCustomMessage("<font color='#ffff00'>強盜之王出現了</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
         if (killedUnit.origin_pos) then
           local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
           unit.origin_pos = pos
-          local CP_Monster = _G.CP_Monster
+          local CP_Monster = robbers_king_respawn_count
+          robbers_king_respawn_count = robbers_king_respawn_count + 1
           local hp = unit:GetMaxHealth()
-          unit:SetBaseMaxHealth(hp+CP_Monster * 50)
+          unit:SetBaseMaxHealth(hp+CP_Monster * 1000)
           local dmgmax = unit:GetBaseDamageMax()
           local dmgmin = unit:GetBaseDamageMin()
-          unit:SetBaseDamageMax(dmgmax+CP_Monster*12)
-          unit:SetBaseDamageMax(dmgmin+CP_Monster*12)
+          unit:SetBaseDamageMax(dmgmax+CP_Monster*30)
+          unit:SetBaseDamageMax(dmgmin+CP_Monster*30)
         else
           print("king_of_robbers")
         end

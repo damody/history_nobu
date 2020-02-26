@@ -800,8 +800,8 @@
 				"IsBuff" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "25"
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "30"
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "20"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "25"
 				}
 			}
 			"modifier_robbers_king_armor_buff"
@@ -837,40 +837,21 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityCooldown"	"1"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
-
-		
 		"Modifiers"
 		{
-			"modifier_invulnerable_souls"
-			{
-				"Passive"          "1"
-	            "IsHidden"      "0"
-	            "Duration"		"1"
-				"States"
-				{
-					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_warrior_souls_debuff"
-			{
-				"Passive"          "0"
-	            "IsHidden"      "0"
-	            "Properties"
-				{
-					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "50"
-				}
-			}
 			"Passive_warrior_souls_skill"
 			{
-				"Passive"          "1"  
+				"Passive"       "1" 
 	            "IsHidden"      "0"
-
-	            "Aura"          	"modifier_warrior_souls_debuff"
-	            "Aura_Radius"   	"600"
-	            "Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	            "Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	            "Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_NONE"
-	            
+				"ThinkInterval"  "1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
+						"Function"	"warrior_souls_debuff_OnIntervalThink"
+					}
+				}
 	            "OnDeath"
 				{
 					"RunScript"
@@ -879,28 +860,55 @@
 						"Function"	"warrior_souls_OnDeath"
 					}
 				}
+			}
+			"modifier_warrior_souls_debuff"
+			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE" "-50"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-1"
 				}
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
-						"Function"	"warrior_souls_OnAttackLanded"
-						"dmg"	"%attack_damage"
-					}
-				}
-				"ThinkInterval"  "1"
+			}
+		}
+	}
+	"warrior_souls_buff_skill"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/liubei_hujia"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"Modifiers"
+		{
+			"modifier_search_unit"
+			{
+				"Passive" "1"
+				"ThinkInterval"  "5"
 				"OnIntervalThink"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
-						"Function"	"donkey_back"
+						"Function"	"warrior_soul_buff_OnIntervalThink"
 					}
 				}
+			}
+			"modifeir_warrior_souls_buff"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "30" 	//攻擊百分比
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "30"  //技能傷害百分比
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20" //攻速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20" //跑速
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "40" //抗魔
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "20" //防禦
+				}
+				"IsBuff"	"1"
+				"EffectName"	"particles/b05r2/b05r2.vpcf"
+				"EffectAttachType"	"follow_overhead"
 			}
 		}
 	}

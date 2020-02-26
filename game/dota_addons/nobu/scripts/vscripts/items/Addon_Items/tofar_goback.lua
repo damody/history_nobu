@@ -1,5 +1,7 @@
 LinkLuaModifier("modifier_ninja2", "heroes/modifier_ninja2.lua", LUA_MODIFIER_MOTION_NONE)
 local kill_robber_count = 0
+local kill_warrior_soul_count = 0
+local dummy
 function choose_20( keys )
 	local caster = keys.caster
 	local ability = keys.ability
@@ -143,22 +145,74 @@ function play_1v1( keys )
 	caster.score = caster.score + 1
 end
 
+function warrior_souls_debuff_OnIntervalThink( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	if kill_warrior_soul_count == 0 then
+		caster:ForceKill(true)
+		kill_warrior_soul_count = kill_warrior_soul_count + 1
+	end
+	local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
+		nil,  700 , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+	for _,it in pairs(group) do
+		AMHC:Damage(caster,it, 100,AMHC:DamageType( "DAMAGE_TYPE_PURE" ))
+		if it.warrior_souls_deuff_count == nil then
+			it.warrior_souls_deuff_count = 1
+		end
+		local modifier = it:FindModifierByName("modifier_warrior_souls_debuff")
+		if(it:IsAlive()) then
+			if modifier == nil then 
+				ability:ApplyDataDrivenModifier(caster, it, "modifier_warrior_souls_debuff", {duration = 3})
+				it:FindModifierByName("modifier_warrior_souls_debuff"):SetStackCount(1)
+			else
+				local stack = modifier:GetStackCount()
+				ability:ApplyDataDrivenModifier(caster, it, "modifier_warrior_souls_debuff", {duration = 3})
+				modifier:SetStackCount(stack + 1)
+			end
+		end
+	end
+end
+
 function warrior_souls_OnDeath( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	if (keys.attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
+	local attacker = keys.attacker
+	if kill_warrior_soul_count == 0 then
+		return 
+	end
+	if (attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
 		GameRules: SendCustomMessage("<font color='#ffff00'>織田軍擊殺了武士亡靈並得到黃金</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		GameRules: SendCustomMessage("<font color='#ffff00'>織田軍的士兵不再懼怕死亡，全軍士氣大增</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	else
 		GameRules: SendCustomMessage("<font color='#ffff00'>聯合軍擊殺了武士亡靈並得到黃金</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
+		GameRules: SendCustomMessage("<font color='#ffff00'>聯合軍的士兵不再懼怕死亡，全軍士氣大增</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	end
 	for playerID=0,9 do
 		local player = PlayerResource:GetPlayer(playerID)
-        if player then
-          local hero = player:GetAssignedHero()
-          if hero:GetTeamNumber() == keys.attacker:GetTeamNumber() then
-          	AMHC:GivePlayerGold_UnReliable(playerID, 1000)
-          end
-      	end
+		if player then
+			local hero = player:GetAssignedHero()
+			if hero == nil then
+				return
+			end
+			if hero:GetTeamNumber() == keys.attacker:GetTeamNumber() then
+				AMHC:GivePlayerGold_UnReliable(playerID, 1000)
+			end
+		end
+	end
+	local dummy = CreateUnitByName("hide_unit", attacker:GetAbsOrigin() , true, nil, attacker, attacker:GetTeamNumber()) 
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=180})
+	dummy:AddAbility("warrior_souls_buff_skill"):SetLevel(1)
+end
+
+function warrior_soul_buff_OnIntervalThink( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
+		nil,  9999 , DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+	for _,it in pairs(group) do
+		ability:ApplyDataDrivenModifier(caster, it, "modifeir_warrior_souls_buff", {duration = 7})
 	end
 end
 
@@ -188,6 +242,9 @@ function robbers_skill( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local random_skill = RandomInt(0, 3)
+	if kill_robber_count == 0 then
+		return 
+	end
 	if kill_robber_count == 1 then
 		random_skill = 0
 		kill_robber_count = kill_robber_count + 1
@@ -205,7 +262,7 @@ function robbers_skill( keys )
 			if player then
 				local hero = player:GetAssignedHero()
 				if hero:GetTeamNumber() == keys.attacker:GetTeamNumber() then
-					AMHC:GivePlayerGold_UnReliable(playerID, 300)
+					AMHC:GivePlayerGold_UnReliable(playerID, 450)
 					hero:AddExperience(200, 0, false, false)
 				end
 			end

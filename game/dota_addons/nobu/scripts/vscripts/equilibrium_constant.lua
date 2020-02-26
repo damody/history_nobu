@@ -159,6 +159,9 @@ function equilibrium_constant:x_OnNPCSpawned(keys)
     if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("robbers_skill") then
         hSpawnedUnit:FindAbilityByName("robbers_skill"):SetLevel(1)
     end
+    if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("warrior_souls_skill") then
+        hSpawnedUnit:FindAbilityByName("warrior_souls_skill"):SetLevel(1)
+    end
     if IsValidEntity(hSpawnedUnit)
         and hSpawnedUnit.GetAgility and hSpawnedUnit.GetIntellect and hSpawnedUnit.GetStrength
         and not hSpawnedUnit:HasModifier("equilibrium_constant")

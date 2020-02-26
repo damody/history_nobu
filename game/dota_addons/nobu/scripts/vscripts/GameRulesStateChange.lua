@@ -112,10 +112,26 @@ function Nobu:OnGameRulesStateChange( keys )
 	  end
 	end
 	-- 出強王時間
-	Timers:CreateTimer(5, function()
+	Timers:CreateTimer(180, function()
 		GameRules: SendCustomMessage("<font color='#ffff00'>強盜之王出現了</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 		unitname = "npc_dota_the_king_of_robbers"
 		local pos = Vector(3333,3270,384)
+		local team = 4
+		local CP_Monster = 0
+		local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
+		unit.origin_pos = pos
+		local hp = unit:GetMaxHealth()
+		unit:SetBaseMaxHealth(hp+CP_Monster * 50)
+		local dmgmax = unit:GetBaseDamageMax()
+		local dmgmin = unit:GetBaseDamageMin()
+		unit:SetBaseDamageMax(dmgmax+CP_Monster*12)
+		unit:SetBaseDamageMax(dmgmin+CP_Monster*12)
+	end)
+	--出詛咒亡靈武士時間
+	Timers:CreateTimer(600, function()
+		GameRules: SendCustomMessage("<font color='#ffff00'>受詛咒的武士亡靈出現了</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		unitname = "npc_dota_cursed_warrior_souls"
+		local pos = Vector(-3671.04,-3891.62,384)
 		local team = 4
 		local CP_Monster = 0
 		local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
