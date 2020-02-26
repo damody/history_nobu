@@ -111,6 +111,22 @@ function Nobu:OnGameRulesStateChange( keys )
 		end)
 	  end
 	end
+	-- 出強王時間
+	Timers:CreateTimer(5, function()
+		GameRules: SendCustomMessage("<font color='#ffff00'>強盜之王出現了</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		unitname = "npc_dota_the_king_of_robbers"
+		local pos = Vector(3333,3270,384)
+		local team = 4
+		local CP_Monster = 0
+		local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
+		unit.origin_pos = pos
+		local hp = unit:GetMaxHealth()
+		unit:SetBaseMaxHealth(hp+CP_Monster * 50)
+		local dmgmax = unit:GetBaseDamageMax()
+		local dmgmin = unit:GetBaseDamageMin()
+		unit:SetBaseDamageMax(dmgmax+CP_Monster*12)
+		unit:SetBaseDamageMax(dmgmin+CP_Monster*12)
+	end)
     -- 增加單挑殺人得分
     Timers:CreateTimer(10, function()
     	if _G.mo then

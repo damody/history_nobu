@@ -247,7 +247,6 @@ function Nobu:OnUnitKill( keys )
       --   GameRules: SendCustomMessage("   ",DOTA_TEAM_GOODGUYS,0)
       -- end
       --Tutorial: AddQuest("quest_1",1,"破塔成功","ssssssssss")
-
     if string.match(name, "neutral_130") then
       print("neutral_130")
       local unitname = name
@@ -305,13 +304,37 @@ function Nobu:OnUnitKill( keys )
           unit.origin_pos = pos
           local CP_Monster = _G.CP_Monster
           local hp = unit:GetMaxHealth()
+          unit:SetBaseMaxHealth(hp+CP_Monster * 100)
+          local dmgmax = unit:GetBaseDamageMax()
+          local dmgmin = unit:GetBaseDamageMin()
+          unit:SetBaseDamageMax(dmgmax+CP_Monster*50)
+          unit:SetBaseDamageMax(dmgmin+CP_Monster*50)
+        else
+          print("neutral_160 fail")
+        end
+      end)
+    elseif string.match(name, "king_of_robbers") then
+      print("king_of_robbers")
+      local unitname = name
+      local pos = Vector(3333,3270,384)
+      local team = killedUnit:GetTeamNumber()
+      if killedUnit.origin_pos == nil then
+        killedUnit.origin_pos = pos
+      end
+      Timers:CreateTimer(5, function()
+        GameRules: SendCustomMessage("<font color='#ffff00'>強盜之王出現了</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+        if (killedUnit.origin_pos) then
+          local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
+          unit.origin_pos = pos
+          local CP_Monster = _G.CP_Monster
+          local hp = unit:GetMaxHealth()
           unit:SetBaseMaxHealth(hp+CP_Monster * 50)
           local dmgmax = unit:GetBaseDamageMax()
           local dmgmin = unit:GetBaseDamageMin()
           unit:SetBaseDamageMax(dmgmax+CP_Monster*12)
           unit:SetBaseDamageMax(dmgmin+CP_Monster*12)
         else
-          print("neutral_160 fail")
+          print("king_of_robbers")
         end
       end)
     end

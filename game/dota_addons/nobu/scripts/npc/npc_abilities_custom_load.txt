@@ -763,6 +763,14 @@
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
+						"Function"	"kill_robber"
+					}
+				}
 	            "OnDeath"
 				{
 					"RunScript"
@@ -785,6 +793,33 @@
 						"CleaveRadius"	"500"
 						"CleaveEffect"	"particles/a07r/a07r.vpcf"
 					}
+				}
+			}
+			"modifier_robbers_king_attack_buff"
+			{
+				"IsBuff" "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "25"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "30"
+				}
+			}
+			"modifier_robbers_king_armor_buff"
+			{
+				"IsBuff" "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "10"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "25"
+				}
+			}
+			"modifier_robbers_king_regen_buff"
+			{
+				"IsBuff" "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "3"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "10"
 				}
 			}
 		}

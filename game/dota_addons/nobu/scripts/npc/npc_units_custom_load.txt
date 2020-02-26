@@ -15064,7 +15064,7 @@
  		"Ability1"					"for_cp_position"			// Ability 1
  		"Ability2"					"for_magic_immune"			// Ability 2
  		"Ability3"					"robbers_skill"			// Ability 3
- 		"Ability4"					""			// Ability 4
+ 		"Ability4"					"tofar_goback"			// Ability 4
 
  		// Armor
  		//----------------------------------------------------------------
@@ -15073,8 +15073,8 @@
  		// Attack
  		//----------------------------------------------------------------
  		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
- 		"AttackDamageMin"			"396"		// Damage range min.
- 		"AttackDamageMax"			"415"		// Damage range max.	
+ 		"AttackDamageMin"			"200"		// Damage range min.
+ 		"AttackDamageMax"			"250"		// Damage range max.	
  		"AttackRate"				"0.5"		// Speed of attack.
  		"AttackAnimationPoint"		"0.3"		// Normalized time in animation cycle to attack.
  		"AttackAcquisitionRange"	"300"		// Range within a target can be acquired.
@@ -15089,9 +15089,9 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"1200"		// Experience earn.
- 		"BountyGoldMin"				"600"		// Gold earned min.
- 		"BountyGoldMax"				"600"		// Gold earned max.
+ 		"BountyXP"					"150"		// Experience earn.
+ 		"BountyGoldMin"				"150"		// Gold earned min.
+ 		"BountyGoldMax"				"150"		// Gold earned max.
 
  		// Movement
  		//----------------------------------------------------------------
@@ -15100,7 +15100,7 @@
 
  		// Status
  		//----------------------------------------------------------------
- 		"StatusHealth"				"10600"		// Base health.
+ 		"StatusHealth"				"3500"		// Base health.
  		"StatusHealthRegen"			"100"		// Health regeneration rate.
  		"StatusMana"				"5000"			// Base mana.
  		"StatusManaRegen"			"5000"			// Mana regeneration rate.		 

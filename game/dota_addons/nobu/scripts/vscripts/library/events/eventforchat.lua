@@ -398,6 +398,12 @@ local function chat_of_test(keys)
 		if s=="re" then
 			caster:SetTimeUntilRespawn(0)
 		end
+		if s == "robber" then
+			local unitname = "npc_dota_the_king_of_robbers"
+			local pos = caster:GetAbsOrigin()
+			local team = 4
+			local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
+		end
 		if string.match(s,"gold") then
 			PlayerResource:SetGold(keys.playerid,99999,false)
 		end

@@ -1,5 +1,5 @@
 LinkLuaModifier("modifier_ninja2", "heroes/modifier_ninja2.lua", LUA_MODIFIER_MOTION_NONE)
-
+local kill_robber_count = 0
 function choose_20( keys )
 	local caster = keys.caster
 	local ability = keys.ability
@@ -175,24 +175,89 @@ function robbers_checkfly( keys )
 	
 end
 
+function kill_robber( keys )
+	local caster = keys.caster
+	if kill_robber_count == 0 then
+		print("first die")
+		caster:ForceKill(true)
+		kill_robber_count = kill_robber_count + 1
+	end
+end
 
 function robbers_skill( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	if (keys.attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
-		GameRules: SendCustomMessage("<font color='#ffff00'>織田軍得到了強盜王的黃金</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-	else
-		GameRules: SendCustomMessage("<font color='#ffff00'>聯合軍得到了強盜王的黃金</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
+	local random_skill = RandomInt(0, 3)
+	if kill_robber_count == 1 then
+		random_skill = 0
+		kill_robber_count = kill_robber_count + 1
 	end
-	for playerID=0,9 do
-		local player = PlayerResource:GetPlayer(playerID)
-        if player then
-          local hero = player:GetAssignedHero()
-          if hero:GetTeamNumber() == keys.attacker:GetTeamNumber() then
-			  AMHC:GivePlayerGold_UnReliable(playerID, 300)
-			  hero:AddExperience(200, 0, false, false)
-          end
-      	end
+
+	--隨機buff
+	if random_skill == 0 then
+		if (keys.attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
+			GameRules: SendCustomMessage("<font color='#ffff00'>織田軍得到了強盜王的黃金</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		else
+			GameRules: SendCustomMessage("<font color='#ffff00'>聯合軍得到了強盜王的黃金</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
+		end
+		for playerID=0,9 do
+			local player = PlayerResource:GetPlayer(playerID)
+			if player then
+				local hero = player:GetAssignedHero()
+				if hero:GetTeamNumber() == keys.attacker:GetTeamNumber() then
+					AMHC:GivePlayerGold_UnReliable(playerID, 300)
+					hero:AddExperience(200, 0, false, false)
+				end
+			end
+		end
+	elseif random_skill == 1 then
+		if (keys.attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
+			GameRules: SendCustomMessage("<font color='#ffff00'>織田軍得到了強盜王的武器</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		else
+			GameRules: SendCustomMessage("<font color='#ffff00'>聯合軍得到了強盜王的武器</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
+		end
+		for playerID=0,9 do
+			local player = PlayerResource:GetPlayer(playerID)
+			if player then
+				local hero = player:GetAssignedHero()
+				if hero:GetTeamNumber() == keys.attacker:GetTeamNumber() then
+					caster:RemoveModifierByName("modifier_robbers_king_attack_buff")
+					ability:ApplyDataDrivenModifier(caster, hero, "modifier_robbers_king_attack_buff",{duration = 120})
+				end
+			end
+		end
+	elseif random_skill == 2 then
+		if (keys.attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
+			GameRules: SendCustomMessage("<font color='#ffff00'>織田軍得到了強盜王的裝甲</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		else
+			GameRules: SendCustomMessage("<font color='#ffff00'>聯合軍得到了強盜王的裝甲</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
+		end
+		for playerID=0,9 do
+			local player = PlayerResource:GetPlayer(playerID)
+			if player then
+				local hero = player:GetAssignedHero()
+				if hero:GetTeamNumber() == keys.attacker:GetTeamNumber() then
+					caster:RemoveModifierByName("modifier_robbers_king_armor_buff")
+					ability:ApplyDataDrivenModifier(caster, hero, "modifier_robbers_king_armor_buff",{duration = 120})
+				end
+			end
+		end
+	elseif random_skill == 3 then
+		if (keys.attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
+			GameRules: SendCustomMessage("<font color='#ffff00'>織田軍得到了強盜王的療傷藥</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		else
+			GameRules: SendCustomMessage("<font color='#ffff00'>聯合軍得到了強盜王的療傷藥</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
+		end
+		for playerID=0,9 do
+			local player = PlayerResource:GetPlayer(playerID)
+			if player then
+				local hero = player:GetAssignedHero()
+				if hero:GetTeamNumber() == keys.attacker:GetTeamNumber() then
+					caster:RemoveModifierByName("modifier_robbers_king_regen_buff")
+					ability:ApplyDataDrivenModifier(caster, hero, "modifier_robbers_king_regen_buff",{duration = 120})
+				end
+			end
+		end
 	end
 end
 

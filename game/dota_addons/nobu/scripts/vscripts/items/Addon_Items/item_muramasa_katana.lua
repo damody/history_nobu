@@ -36,7 +36,6 @@ function OnDeath( keys )
 end
 
 function OnRespawn( keys )
-	print("respawn")
 	local ability = keys.ability
 	local caster = keys.caster
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_muramasa_atk", {})
