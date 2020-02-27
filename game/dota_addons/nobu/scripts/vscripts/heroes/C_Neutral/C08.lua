@@ -474,14 +474,9 @@ function C08T_OnSpellStart( keys )
 			local modifier_attribute_bouns = caster:FindModifierByName("modifier_attribute_bouns")
 			modifier_attribute_bouns:SetStackCount(attributes_stack)
 		end
-		AMHC:Damage(caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-		if caster:IsAlive() and (not target:IsAlive()) then
-			atk_stack = atk_stack + 1
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_atk_bouns", {})
-			local modifier_atk_bouns = caster:FindModifierByName("modifier_atk_bouns")
-			modifier_atk_bouns:SetStackCount(atk_stack)
-		end
+		-- AMHC:Damage(caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_C08T_bleeding",{})
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_in_belly",{})
 	else
 		caster:FindAbilityByName("C08T"):EndCooldown()
 	end
@@ -493,10 +488,11 @@ function modifier_C08T_bleeding_OnIntervalThink( keys )
 	local ability = keys.ability
 	local abilityDamage = ability:GetSpecialValueFor("damage")
 	local abilityDamageType = ability:GetAbilityDamageType()
-	caster:Heal(abilityDamage/4,caster)
+	caster:Heal(abilityDamage,caster)
 	--StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", caster )	
 	if (caster:GetAbsOrigin()-caster.last_pos):Length2D() > 2000 or not caster:IsAlive() then
 		target:RemoveModifierByName("modifier_C08T_bleeding")
+		target:RemoveModifierByName("modifier_in_belly")
 		FindClearSpaceForUnit(target,caster.last_pos,false)
 		target:AddNewModifier(caster,nil,"modifier_phased",{duration=0.1})
 	else
@@ -504,7 +500,9 @@ function modifier_C08T_bleeding_OnIntervalThink( keys )
 		if caster.C08T_IsMagicImmune == false then
 			
 		end
-		--AMHC:Damage(caster.donkey,target,abilityDamage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		target:RemoveModifierByName("modifier_in_belly")
+		AMHC:Damage(caster.donkey,target,abilityDamage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_in_belly",{})
 	end
 	caster.last_pos = caster:GetAbsOrigin()
 end
@@ -512,7 +510,16 @@ end
 
 function modifier_C08T_OnDestroy( keys )
 	local target = keys.target
+	local caster = keys.caster
+	local ability = keys.ability
+	target:RemoveModifierByName("modifier_in_belly")
 	target:RemoveNoDraw()
+	if caster:IsAlive() and (not target:IsAlive()) then
+		atk_stack = atk_stack + 1
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_atk_bouns", {})
+		local modifier_atk_bouns = caster:FindModifierByName("modifier_atk_bouns")
+		modifier_atk_bouns:SetStackCount(atk_stack)
+	end
 end
 
 c08d_lock=false
