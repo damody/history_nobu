@@ -1,9 +1,6 @@
 function OnEquip( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	-- if (caster.nobuorb1 == nil) then
-	-- 	caster.nobuorb1 = "item_mana_thief"
-	-- end
 	-- 力量 0 敏捷1 智力2
 	if caster:GetPrimaryAttribute() == 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_add_strength", nil)
@@ -16,9 +13,6 @@ end
 
 function OnUnequip( keys )
 	local caster = keys.caster
-	-- if (caster.nobuorb1 == "item_mana_thief") then
-	-- 	caster.nobuorb1 = nil
-	-- end
 	-- 力量 0 敏捷1 智力2
 	if caster:GetPrimaryAttribute() == 0 then
 		caster:RemoveModifierByName("modifier_add_strength")
@@ -27,16 +21,6 @@ function OnUnequip( keys )
 	elseif caster:GetPrimaryAttribute() == 2 then
 		caster:RemoveModifierByName("modifier_add_intellect")
 	end
-	-- for itemSlot=0,5 do
-	-- 	local item = caster:GetItemInSlot(itemSlot)
-	-- 	if item ~= nil then
-	-- 		local itemName = item:GetName()
-	-- 		if (string.match(itemName,"item_mana_thief")) then
-	-- 			caster.nobuorb1 = "item_mana_thief"
-	-- 			break
-	-- 		end
-	-- 	end
-	-- end
 end
 
 function mana_burn_function( keys )
@@ -193,9 +177,7 @@ function Shock( keys )
 	local number_particle_name = "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_msg.vpcf"
 	local burn_particle_name = "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf"
 	local damageType = keys.ability:GetAbilityDamageType()
-	if (keys.target.mana_thief == nil) and (caster.nobuorb1 == "item_mana_thief" or caster.nobuorb1 == nil) then
-		caster.nobuorb1 = "item_mana_thief"
-		keys.target.mana_thief = 1
+	if not target:IsBuilding() then
 		-- Calculation
 		local mana_to_burn = math.min( current_mana,  burn_amount)
 		local life_time = 2.0
@@ -209,9 +191,6 @@ function Shock( keys )
 			damage = mana_to_burn,
 			damage_type = damageType
 		}
-		Timers:CreateTimer(0.1, function() 
-							keys.target.mana_thief = nil
-				end)
 		ApplyDamage( damageTable )
 		
 		-- Show VFX

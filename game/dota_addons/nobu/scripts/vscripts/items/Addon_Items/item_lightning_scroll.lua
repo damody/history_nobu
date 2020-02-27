@@ -170,16 +170,10 @@ end
 
 function OnEquip( keys )
 	local caster = keys.caster
-	if (caster.nobuorb1 == nil) then
-		caster.nobuorb1 = "item_raikiri"
-	end
 end
 
 function OnUnequip( keys )
 	local caster = keys.caster
-	if (caster.nobuorb1 == "item_raikiri") then
-		caster.nobuorb1 = nil
-	end
 end
 
 function item_raikiri( keys )
@@ -206,9 +200,7 @@ function item_raikiri( keys )
 	--local point2 = ability:GetCursorPosition()
 	local level = ability:GetLevel() - 1
 	local vec = (point2-point):Normalized() --caster:GetForwardVector():Normalized()
-	--if (caster.nobuorb1 == "item_raikiri" or caster.nobuorb1 == nil) and not target:IsBuilding() and caster.goraikiri == nil then
 	if not target:IsBuilding() then
-		caster.nobuorb1 = "item_raikiri"
 		local ran =  RandomInt(0, 100)
 		if (caster.raikiri == nil) then
 			caster.raikiri = 0

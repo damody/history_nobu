@@ -1,25 +1,9 @@
 function OnEquip( keys )
 	local caster = keys.caster
-	if (caster.nobuorb1 == nil) then
-		caster.nobuorb1 = "item_the_spear_of_ghost"
-	end
 end
 
 function OnUnequip( keys )
 	local caster = keys.caster
-	if (caster.nobuorb1 == "item_the_spear_of_ghost") then
-		caster.nobuorb1 = nil
-	end
-	for itemSlot=0,5 do
-		local item = caster:GetItemInSlot(itemSlot)
-		if item ~= nil then
-			local itemName = item:GetName()
-			if (string.match(itemName,"scream_of_spiders")) then
-				caster.nobuorb1 = "item_the_spear_of_ghost"
-				break
-			end
-		end
-	end
 end
 
 function Shock( keys )
@@ -27,9 +11,7 @@ function Shock( keys )
 	local target = keys.target
 	local skill = keys.ability
 
-	--if (caster.nobuorb1 == "item_the_spear_of_ghost" or caster.nobuorb1 == nil) and not target:IsBuilding() and target:GetUnitName() ~= "npc_dota_cursed_warrior_souls" then
 	if not target:IsBuilding() then
-		caster.nobuorb1 = "item_the_spear_of_ghost"
 		local ran =  RandomInt(0, 100)
 		if (caster.spear_of_ghost == nil) then
 			caster.spear_of_ghost = 0
@@ -64,9 +46,7 @@ function Shock2( keys )
 	local skill = keys.ability
 	local target = keys.target
 	
-	--if (caster.nobuorb1 == "item_the_spear_of_ghost" or caster.nobuorb1 == nil) and not keys.target:IsBuilding() then
 	if not target:IsBuilding() then
-		caster.nobuorb1 = "item_the_spear_of_ghost"
 		if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
 			local hp = target:GetMaxHealth()
 			AMHC:Damage(caster,target,hp*0.01*keys.dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
