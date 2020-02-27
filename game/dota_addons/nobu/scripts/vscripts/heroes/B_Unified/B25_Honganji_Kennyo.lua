@@ -378,6 +378,23 @@ function B25T_start( keys )
 					damage = damagePerSec * interval,
 					damage_type = damageType
 				}
+				if not v:HasModifier("modifier_fiends_grip_caster_datadriven") then
+					ability:ApplyDataDrivenModifier(caster, v, "modifier_fiends_grip_caster_datadriven", {duration = 0.2})
+					v:FindModifierByName("modifier_fiends_grip_caster_datadriven"):SetStackCount(1)
+				else
+					local stack = v:FindModifierByName("modifier_fiends_grip_caster_datadriven"):GetStackCount()
+					ability:ApplyDataDrivenModifier(caster, v, "modifier_fiends_grip_caster_datadriven", {duration = 0.2})
+					v:FindModifierByName("modifier_fiends_grip_caster_datadriven"):SetStackCount(stack + 1)
+				end
+				if v:FindModifierByName("modifier_fiends_grip_caster_datadriven"):GetStackCount() > 15 then
+					Physics:Unit(v)
+					local diff = target - v:GetAbsOrigin()
+					diff.z = 0
+					local dir = diff:Normalized()
+					v:SetVelocity(Vector(0,0,-9.8))
+					v:AddPhysicsVelocity(dir*900)
+					v:RemoveModifierByName("modifier_fiends_grip_caster_datadriven")
+				end
 				ApplyDamage( damageTable )
 			end
 		end

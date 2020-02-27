@@ -707,10 +707,6 @@
 			"modifier_fiends_grip_caster_datadriven"
 			{
 				"IsHidden"	"1"
-				"States"
-				{
-					"MODIFIER_STATE_LOW_ATTACK_PRIORITY"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
 			}
 		}
 	}
