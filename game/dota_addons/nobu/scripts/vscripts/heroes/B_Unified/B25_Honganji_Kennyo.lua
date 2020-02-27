@@ -390,10 +390,13 @@ function B25T_start( keys )
 					Physics:Unit(v)
 					local diff = target - v:GetAbsOrigin()
 					diff.z = 0
-					local dir = diff:Normalized()
-					v:SetVelocity(Vector(0,0,-9.8))
-					v:AddPhysicsVelocity(dir*30)
-					v:RemoveModifierByName("modifier_fiends_grip_caster_datadriven")
+					if diff:Length() > 50 then
+						local dir = diff:Normalized()
+						print(dir)
+						v:SetVelocity(Vector(0,0,-9.8))
+						v:AddPhysicsVelocity(dir*30)
+						v:RemoveModifierByName("modifier_fiends_grip_caster_datadriven")
+					end
 				end
 				ApplyDamage( damageTable )
 			end
