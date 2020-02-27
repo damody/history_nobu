@@ -28,10 +28,11 @@ function OnDeath( keys )
 	local ability = keys.ability
 	local caster = keys.caster
 	ability.stack = ability.stack / 3
-	print(ability.stack)
-	caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(ability.stack)
-	if ability.stack == 0 then
-		caster:RemoveModifierByName("modifier_muramasa_atk")
+	if caster:HasModifier("modifier_muramasa_atk") then
+		caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(ability.stack)
+		if ability.stack == 0 then
+			caster:RemoveModifierByName("modifier_muramasa_atk")
+		end
 	end
 end
 

@@ -844,6 +844,14 @@
 				"Passive"       "1" 
 	            "IsHidden"      "0"
 				"ThinkInterval"  "1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
+						"Function"	"kill_warrior_souls_when_start"
+					}
+				}
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -890,6 +898,14 @@
 			{
 				"Passive" "1"
 				"ThinkInterval"  "5"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
+						"Function"	"warrior_soul_buff_OnIntervalThink"
+					}
+				}
 				"OnIntervalThink"
 				{
 					"RunScript"

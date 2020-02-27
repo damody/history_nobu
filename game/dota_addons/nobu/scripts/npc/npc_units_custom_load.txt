@@ -14992,10 +14992,10 @@
  		// Abilities
  		//----------------------------------------------------------------
  		"Ability1"					"for_cp_position"			// Ability 1
- 		"Ability2"					""			// Ability 2
- 		"Ability3"					""			// Ability 3
- 		"Ability4"					"warrior_souls_skill"			// Ability 4
-		"Ability5"					"tofar_goback"
+ 		"Ability2"					"warrior_souls_skill"			// Ability 2
+ 		"Ability3"					"tofar_goback"			// Ability 3
+ 		"Ability4"					""			// Ability 4
+		"Ability5"					""
  		// Armor
  		//----------------------------------------------------------------
  		"ArmorPhysical"				"40"			// Physical protection.

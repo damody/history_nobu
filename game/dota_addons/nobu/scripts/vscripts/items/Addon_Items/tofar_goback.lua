@@ -145,13 +145,18 @@ function play_1v1( keys )
 	caster.score = caster.score + 1
 end
 
-function warrior_souls_debuff_OnIntervalThink( keys )
+function kill_warrior_souls_when_start( keys )
 	local caster = keys.caster
-	local ability = keys.ability
 	if kill_warrior_soul_count == 0 then
+		print("kill warrior")
 		caster:ForceKill(true)
 		kill_warrior_soul_count = kill_warrior_soul_count + 1
 	end
+end
+
+function warrior_souls_debuff_OnIntervalThink( keys )
+	local caster = keys.caster
+	local ability = keys.ability
 	local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
 		nil,  700 , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
 		DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
@@ -212,7 +217,9 @@ function warrior_soul_buff_OnIntervalThink( keys )
 		nil,  9999 , DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
 		DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 	for _,it in pairs(group) do
-		ability:ApplyDataDrivenModifier(caster, it, "modifeir_warrior_souls_buff", {duration = 7})
+		if it ~= caster then 
+			ability:ApplyDataDrivenModifier(caster, it, "modifeir_warrior_souls_buff", {duration = 7})
+		end
 	end
 end
 
@@ -232,7 +239,6 @@ end
 function kill_robber( keys )
 	local caster = keys.caster
 	if kill_robber_count == 0 then
-		print("first die")
 		caster:ForceKill(true)
 		kill_robber_count = kill_robber_count + 1
 	end

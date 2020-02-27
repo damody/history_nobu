@@ -271,27 +271,31 @@ function Nobu:OnUnitKill( keys )
           print("neutral_130 fail")
         end
         end)
-    elseif string.match(name, "npc_dota_cursed_warrior_souls") then
+    elseif string.match(name, "cursed_warrior_souls") then
+      print("cursed_warrior_souls")
       local unitname = name
-      local pos = killedUnit:GetAbsOrigin()
+      local pos = Vector(-3671.04,-3891.62,384)
       local team = killedUnit:GetTeamNumber()
+      if killedUnit.origin_pos == nil then
+        killedUnit.origin_pos = pos
+      end
       Timers:CreateTimer(600, function()
+        GameRules: SendCustomMessage("<font color='#ffff00'>受詛咒的武士亡靈出現了</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
         if (killedUnit.origin_pos) then
-          pos = killedUnit.origin_pos
           local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
           unit.origin_pos = pos
           local CP_Monster = warrior_soul_respawn_count
           warrior_soul_respawn_count = warrior_soul_respawn_count + 1
-          print(CP_Monster)
-          print(warrior_soul_respawn_count)
           local hp = unit:GetMaxHealth()
           unit:SetBaseMaxHealth(hp+CP_Monster * 5000)
           local dmgmax = unit:GetBaseDamageMax()
           local dmgmin = unit:GetBaseDamageMin()
-          unit:SetBaseDamageMax(dmgmax+CP_Monster*60)
-          unit:SetBaseDamageMax(dmgmin+CP_Monster*60)
+          unit:SetBaseDamageMax(dmgmax+CP_Monster*75)
+          unit:SetBaseDamageMax(dmgmin+CP_Monster*75)
+        else
+          print("cursed_warrior_souls")
         end
-        end)
+      end)
     elseif string.match(name, "neutral_160") then
       print("neutral_160")
       local unitname = name
