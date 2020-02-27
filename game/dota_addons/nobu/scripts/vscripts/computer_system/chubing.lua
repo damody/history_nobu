@@ -460,8 +460,8 @@ function ShuaGuai_Of_B(num, team, pos)
 					unit:SetBaseMaxHealth(hp+A_count * 5)
 					local dmgmax = (unit:GetBaseDamageMax()) * intensify
 					local dmgmin = (unit:GetBaseDamageMin()) * intensify
-					unit:SetBaseDamageMax(dmgmax+A_count*5)
-					unit:SetBaseDamageMin(dmgmin+A_count*5)
+					unit:SetBaseDamageMax(dmgmax+A_count*3)
+					unit:SetBaseDamageMin(dmgmin+A_count*3)
 					local armor = (unit:GetPhysicalArmorBaseValue()) * intensify
 					unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
 					--creep:SetContextNum("isshibing",1,0)
@@ -557,8 +557,8 @@ function ShuaGuai_Of_C(num, team, pos)
 					unit:SetBaseMaxHealth(hp+A_count * 10)
 					local dmgmax = (unit:GetBaseDamageMax()) * intensify
 					local dmgmin = (unit:GetBaseDamageMin()) * intensify
-					unit:SetBaseDamageMax(dmgmax+A_count*5)
-					unit:SetBaseDamageMin(dmgmin+A_count*5)
+					unit:SetBaseDamageMax(dmgmax+A_count*3)
+					unit:SetBaseDamageMin(dmgmin+A_count*3)
 					local armor = (unit:GetPhysicalArmorBaseValue()) * intensify
 					unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
 					unit:FindAbilityByName("for_no_collision"):SetLevel(1)
