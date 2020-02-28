@@ -20,7 +20,10 @@ function OnKill( keys )
 	end
 	if ability.stack > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_muramasa_atk", {})
-		caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(ability.stack)
+		local matk = caster:FindModifierByName("modifier_muramasa_atk")
+		if matk then
+			matk:SetStackCount(ability.stack)
+		end
 	end
 end
 
