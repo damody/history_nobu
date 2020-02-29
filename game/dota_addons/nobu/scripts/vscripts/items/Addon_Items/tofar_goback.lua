@@ -238,6 +238,8 @@ end
 
 function kill_robber( keys )
 	local caster = keys.caster
+	local ability = keys.ability
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_truesight",{})
 	if kill_robber_count == 0 then
 		caster:ForceKill(true)
 		kill_robber_count = kill_robber_count + 1

@@ -794,6 +794,23 @@
 						"CleaveEffect"	"particles/a07r/a07r.vpcf"
 					}
 				}
+				"ThinkInterval"     "0.25"
+	            "OnIntervalThink"
+	            {
+	                "ApplyModifier"
+	                {
+	                    "Target"
+	                    {
+	                        "Center"    "CASTER"
+	                        "Radius"    "750"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+	                    "ModifierName"      "modifier_truesight"
+	                    "Duration"      "0.50"
+	                }
+	            }
 			}
 			"modifier_robbers_king_attack_buff"
 			{
@@ -868,6 +885,27 @@
 						"Function"	"warrior_souls_OnDeath"
 					}
 				}
+			}
+			"modifier_show_invisible"
+			{
+				"Passive"	"1"
+				"ThinkInterval"     "0.25"
+	            "OnIntervalThink"
+	            {
+	                "ApplyModifier"
+	                {
+	                    "Target"
+	                    {
+	                        "Center"    "CASTER"
+	                        "Radius"    "750"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+	                    "ModifierName"      "modifier_truesight"
+	                    "Duration"      "0.50"
+	                }
+	            }
 			}
 			"modifier_warrior_souls_debuff"
 			{
