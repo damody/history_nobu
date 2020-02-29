@@ -243,8 +243,8 @@ function ShuaGuai_Of_AA(num, team, pos)
 					--創建單位
 					--強化倍率
 					local intensify = 1
-					if small_big then intensify = 1.5 end
-					if big then intensify = 1.5 end
+					if small_big then intensify = 1.3 end
+					if big then intensify = 1.3 end
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					unit:AddAbility("set_level_1"):SetLevel(1)
 					local hp = (unit:GetMaxHealth() + 150) * intensify
@@ -351,8 +351,8 @@ function ShuaGuai_Of_AB(num, team, pos)
 					--創建單位
 					--強化倍率
 					local intensify = 1
-					if small_big then intensify = 1.5 end
-					if big then intensify = 1.5 end
+					if small_big then intensify = 1.3 end
+					if big then intensify = 1.3 end
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					unit:AddAbility("set_level_1"):SetLevel(1)
 					
@@ -451,8 +451,8 @@ function ShuaGuai_Of_B(num, team, pos)
 				local n = 1
 				--強化倍率
 				local intensify = 1
-				if small_big then intensify = 1.5 end
-				if big then intensify = 1.5 end
+				if small_big then intensify = 1.3 end
+				if big then intensify = 1.3 end
 				for x=1,n do
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					unit:AddAbility("set_level_1"):SetLevel(1)
@@ -548,8 +548,8 @@ function ShuaGuai_Of_C(num, team, pos)
 				local n = 1
 				--強化倍率
 				local intensify = 1
-				if small_big then intensify = 1.5 end
-				if big then intensify = 1.5 end
+				if small_big then intensify = 1.3 end
+				if big then intensify = 1.3 end
 				for x=1,n do
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					

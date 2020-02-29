@@ -82,8 +82,8 @@ function top_broken( keys )
       Timers:CreateTimer(75,function() 
         if counter == 4 then return 0 end
         counter = counter + 1 
-        ShuaGuai_Of_B(3,3,6)
-        ShuaGuai_Of_C(3,3,6)
+        ShuaGuai_Of_B(1,3,6)
+        ShuaGuai_Of_C(2,3,6)
         return 60
       end)
     end
@@ -103,8 +103,8 @@ function top_broken( keys )
       Timers:CreateTimer(75,function() 
         if counter == 4 then return 0 end
         counter = counter + 1 
-        ShuaGuai_Of_B(3,2,3)
-        ShuaGuai_Of_C(3,2,3)
+        ShuaGuai_Of_B(1,2,3)
+        ShuaGuai_Of_C(2,2,3)
         return 60
       end)
     end
@@ -131,8 +131,8 @@ function mid_broken( keys )
       Timers:CreateTimer(75,function() 
         if counter == 4 then return nil end
         counter = counter + 1 
-        ShuaGuai_Of_B(3,3,5)
-        ShuaGuai_Of_C(3,3,5)
+        ShuaGuai_Of_B(1,3,5)
+        ShuaGuai_Of_C(2,3,5)
         return 60
       end)
     end
@@ -152,8 +152,8 @@ function mid_broken( keys )
       Timers:CreateTimer(75,function() 
         if counter == 4 then return nil end
         counter = counter + 1 
-        ShuaGuai_Of_B(3,2,2)
-        ShuaGuai_Of_C(3,2,2)
+        ShuaGuai_Of_B(1,2,2)
+        ShuaGuai_Of_C(2,2,2)
         return 60
       end)
     end
@@ -180,8 +180,8 @@ function down_broken( keys )
       Timers:CreateTimer(75,function() 
         if counter == 4 then return nil end
         counter = counter + 1 
-        ShuaGuai_Of_B(3,3,4)
-        ShuaGuai_Of_C(3,3,4)
+        ShuaGuai_Of_B(1,3,4)
+        ShuaGuai_Of_C(2,3,4)
         return 60
       end)
     end
@@ -201,8 +201,8 @@ function down_broken( keys )
       Timers:CreateTimer(75,function() 
         if counter == 4 then return nil end
         counter = counter + 1 
-        ShuaGuai_Of_B(3,2,1)
-        ShuaGuai_Of_C(3,2,1)
+        ShuaGuai_Of_B(1,2,1)
+        ShuaGuai_Of_C(2,2,1)
         return 60
       end)
     end
