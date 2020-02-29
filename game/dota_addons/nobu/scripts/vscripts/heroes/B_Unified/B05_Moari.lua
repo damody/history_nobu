@@ -383,13 +383,11 @@ function B05T( event )
 		if it:IsHero() then
 			ParticleManager:CreateParticle("particles/shake2.vpcf", PATTACH_ABSORIGIN, it)
 			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
-			print("stunned")
 			ability:ApplyDataDrivenModifier(caster, it, "modifier_stunned", {duration = duration})
 		elseif it:IsBuilding() then
 			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage()*0.3, damage_type = ability:GetAbilityDamageType()})
 		else
 			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
-			print("stunned2")
 			ability:ApplyDataDrivenModifier(caster, it, "modifier_stunned", {duration = duration})
 		end
 		--ability:ApplyDataDrivenModifier(caster, it,"modifier_B05T",nil)
@@ -408,15 +406,9 @@ function B05T( event )
 	--effect:傷害+暈眩
 	for _,it in pairs(direUnits) do
 		if it:IsHero() then
-			ParticleManager:CreateParticle("particles/shake2.vpcf", PATTACH_ABSORIGIN, it)
-			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage()*0.5, damage_type = ability:GetAbilityDamageType()})
-			print("stunned")
 			ability:ApplyDataDrivenModifier(caster, it, "modifier_stunned", {duration = duration + 1})
 		elseif it:IsBuilding() then
-			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage()*0.3*0.5, damage_type = ability:GetAbilityDamageType()})
 		else
-			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage()*0.5, damage_type = ability:GetAbilityDamageType()})
-			print("stunned2")
 			ability:ApplyDataDrivenModifier(caster, it, "modifier_stunned", {duration = duration + 1})
 		end
 		--ability:ApplyDataDrivenModifier(caster, it,"modifier_B05T",nil)

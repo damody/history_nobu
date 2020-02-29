@@ -358,7 +358,7 @@
             	"IsHidden"	"1"
           		"Properties"
            		{
-                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "200"
+                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "%passiv_criticalstrike"
            		}
        		}
 			"modifier_B11T_Crit3"
@@ -367,7 +367,7 @@
             	"IsHidden"	"1"
           		"Properties"
            		{
-                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "300"
+                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "%active_criticalstrike"
            		}
        		}
        	}
@@ -379,6 +379,16 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"B11T_duration"		"13 20 27"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"passiv_criticalstrike"		"150 175 200"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"active_criticalstrike"		"200 250 300"
 			}
 		}
 	}
