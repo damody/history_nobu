@@ -1,4 +1,5 @@
-
+LinkLuaModifier( "modifier_charges", "scripts/vscripts/heroes/modifier_charges.lua",LUA_MODIFIER_MOTION_NONE )
+local B01E_units = {nil,nil,nil,nil,nil,nil,nil,nil}
 function B01W( keys )
 	--【Basic】
 	local caster = keys.caster
@@ -38,50 +39,88 @@ function B01W_end( keys )
 end
 
 function B01E(keys)
-	--【Basic】
 	local caster = keys.caster
-	local target = keys.target
 	local ability = keys.ability
-	--local player = caster:GetPlayerID()
-	local point = caster:GetAbsOrigin()
-	--local point2 = target:GetAbsOrigin() 
-	--local point2 = ability:GetCursorPosition()
-	local level = ability:GetLevel() - 1
-	local vec = caster:GetForwardVector():Normalized()	
-	local point2 = point + vec * 300
-
-	--【MOVE】
-	--target:SetAbsOrigin(point2)
-	--target:AddNewModifier(nil,nil,"modifier_phased",{duration=0.01})
-	--【Special】
-	if caster.B01E ~= nil then
-		for i,v in ipairs(caster.B01E) do
-			if v ~= nil and not v:IsNull() then
-				if v:IsAlive() then
-					local tem_point = v:GetAbsOrigin()
-					--【Particle】
-					local particle = ParticleManager:CreateParticle("particles/b01e2/b01e2.vpcf",PATTACH_POINT,caster)
-					ParticleManager:SetParticleControl(particle,0, tem_point)
-					--【KV】			
-					print("KILL")
-					v:ForceKill(true)
-					v:Destroy()
-				end
-			end
-		end
+	local count = ability:GetSpecialValueFor("count")
+	local cooldown = ability:GetSpecialValueFor("cooldown")
+	if caster:HasModifier("modifier_charges") then
+		caster:RemoveModifierByName("modifier_charges")
 	end
-	caster.B01E = nil
-	caster.B01E = {} 				
+	caster:AddNewModifier(caster, caster:FindAbilityByName("B01E"), "modifier_charges",
+        {
+            max_count = count,
+            start_count = count,
+            replenish_time = cooldown
+        }
+    )
+	-- --【Basic】
+	-- local caster = keys.caster
+	-- local target = keys.target
+	-- local ability = keys.ability
+	-- --local player = caster:GetPlayerID()
+	-- local point = caster:GetAbsOrigin()
+	-- --local point2 = target:GetAbsOrigin() 
+	-- --local point2 = ability:GetCursorPosition()
+	-- local level = ability:GetLevel() - 1
+	-- local vec = caster:GetForwardVector():Normalized()	
+	-- local point2 = point + vec * 300
+
+	-- --【MOVE】
+	-- --target:SetAbsOrigin(point2)
+	-- --target:AddNewModifier(nil,nil,"modifier_phased",{duration=0.01})
+	-- --【Special】
+	-- if caster.B01E ~= nil then
+	-- 	for i,v in ipairs(caster.B01E) do
+	-- 		if v ~= nil and not v:IsNull() then
+	-- 			if v:IsAlive() then
+	-- 				local tem_point = v:GetAbsOrigin()
+	-- 				--【Particle】
+	-- 				local particle = ParticleManager:CreateParticle("particles/b01e2/b01e2.vpcf",PATTACH_POINT,caster)
+	-- 				ParticleManager:SetParticleControl(particle,0, tem_point)
+	-- 				--【KV】
+	-- 				v:ForceKill(true)
+	-- 				v:Destroy()
+	-- 			end
+	-- 		end
+	-- 	end
+	-- end
+	-- caster.B01E = nil
+	-- caster.B01E = {} 				
 end
 
 function B01E_CHECK(keys)
 	--【Basic】
 	local caster = keys.caster
-	local target = keys.target
-	table.insert(caster.B01E, target)
+	local ability = keys.ability
+	local point = ability:GetCursorPosition()
+	local count = ability:GetSpecialValueFor("count")
+	target = CreateUnitByName("B01W_UNIT", point, true, caster, caster, caster:GetTeamNumber())
+	target:SetOwner(caster)
+    target.owner = caster
+    target:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
+	target:AddNewModifier(target,ability,"modifier_phased",{duration=0.1})
+	target:AddNewModifier(target,ability,"modifier_rooted",{})
+	local tmp = 1
+	for i = 1,count do
+		if B01E_units[i] == nil or not B01E_units[i]:IsAlive() then
+			tmp = i
+			break
+		end
+		if B01E_units[i]:GetCreationTime() < B01E_units[tmp]:GetCreationTime() then
+			tmp = i
+		end
+	end
+	if B01E_units[tmp] ~= nil then
+		local particle = ParticleManager:CreateParticle("particles/b01e2/b01e2.vpcf",PATTACH_POINT,caster)
+		local tem_point = B01E_units[tmp]:GetAbsOrigin()
+		ParticleManager:SetParticleControl(particle,0, tem_point)
+		B01E_units[tmp]:ForceKill(true)
+		B01E_units[tmp]:Destroy()
+	end
+	B01E_units[tmp] = target	
+	-- table.insert(caster.B01E, target)
 	target:SetBaseDamageMin(70+caster:GetLevel()*10)
 	target:SetBaseDamageMax(70+caster:GetLevel()*10)
-
 	local tem_point = target:GetAbsOrigin()
 	--【Particle】
 	local particle = ParticleManager:CreateParticle("particles/b01e2/b01e2.vpcf",PATTACH_POINT,target)

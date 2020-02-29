@@ -43,6 +43,7 @@ function Shock( keys )
 	-- ParticleManager:SetParticleControl(lightningBolt,1,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
 	--【DMG】
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = AbilityDamageType})
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_muted", {duration = 1})
 	target.has_D09 = true
 	-- target:EmitSound("Hero_ShadowShaman.EtherShock.Target")
 
@@ -68,7 +69,7 @@ function Shock( keys )
 			
 				--【DMG】
 				ApplyDamage({ victim = unit, attacker = caster, damage = damage, damage_type = AbilityDamageType})
-
+				ability:ApplyDataDrivenModifier(caster, unit, "modifier_muted", {duration = 1})
 				-- Increment counter
 				targets_shocked = targets_shocked + 1
 			end

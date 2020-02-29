@@ -4491,7 +4491,7 @@
 		"TeamName"	"DOTA_TEAM_NEUTRALS"
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability2"	""
+		"Ability2"	"for_no_collision"
 		"Ability3"	""
 		"Ability4"	""
 		"Ability5"	""

@@ -64,6 +64,15 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 				}
 			}
+			"modifier_muted"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MUTED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 		// Special
 		
@@ -159,6 +168,15 @@
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+				}
+			}
+			"modifier_muted"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MUTED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}

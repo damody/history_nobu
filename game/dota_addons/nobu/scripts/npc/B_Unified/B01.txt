@@ -311,19 +311,28 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/cps_d01_2 (Copy)"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
 		"FightRecapLevel"	"2"
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityCastPoint"          				"0.25"
+		"AbilityCastPoint"          				"0.15"
+		"AbilityCastRange"		"500 500 500 500"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"13 16 19 22"
+		"AbilityCooldown"	"0"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"100"
+		"AbilityManaCost"	"35"
 		"precache"
 		{
 			"particle"	"particles/b01e2/b01e2.vpcf"
+		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B01.lua"
+				"Function"	"B01E"
+			}
 		}
 		"OnSpellStart"
 		{
@@ -336,29 +345,30 @@
 			"RunScript"
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B01.lua"
-				"Function"	"B01E"
+				"Function"	"B01E_CHECK"
 			}
-			"SpawnUnit"
-			{
-				"UnitName"	"B01W_UNIT"
-				"UnitCount"	"%count"
-				"Duration"	"10000"
-				"GrantsGold"	"5"
-				"OnSpawn"
-				{
-					"ApplyModifier"
-					{
-						"ModifierName"	"modifier_phased"
-						"Target"	"TARGET"
-						"Duration"	"0.03"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B01.lua"
-						"Function"	"B01E_CHECK"
-					}
-				}
-			}
+			// "SpawnUnit"
+			// {
+			// 	"UnitName"	"B01W_UNIT"
+			// 	"UnitCount"	"1"
+			// 	"Duration"	"10000"
+			// 	"GrantsGold"	"5"
+			// 	"OnSpawn"
+			// 	{
+			// 		"ApplyModifier"
+			// 		{
+			// 			"ModifierName"	"modifier_phased"
+			// 			"Target"	"TARGET"
+			// 			"Duration"	"0.03"
+			// 		}
+			// 		"RunScript"
+			// 		{
+			// 			"Target" "POINT"
+			// 			"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B01.lua"
+			// 			"Function"	"B01E_CHECK"
+			// 		}
+			// 	}
+			// }
 		}
 		"Modifiers"
 		{
@@ -377,6 +387,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"count"	"2 4 6 8"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"cooldown" "4"
 			}
 		}
 	}
