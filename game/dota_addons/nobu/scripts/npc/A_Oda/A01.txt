@@ -525,8 +525,9 @@
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%regen2" //回血%
+					// "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
+					// "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%regen2" //回血%
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%regen2"
 					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"		"550"
 				}
 			}
@@ -551,7 +552,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"regen2"	"10 12 14"
+				"regen2"	"100 150 200"
 			}
 		}
 	}
