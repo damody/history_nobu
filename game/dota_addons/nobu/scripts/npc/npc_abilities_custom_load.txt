@@ -4271,7 +4271,7 @@
 		// 如果你想让某个技能玩家不能用技能点来学习，就给那个技能加上这个属性
 		// DOTA_ABILITY_BEHAVIOR_PASSIVE ， 被动技能
 		// DOTA_ABILITY_BEHAVIOR_POINT ，点目标技能
-		// DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES ，被定身（拥有modifier_rooted）后无法使用这个技能，例如女王敌法的Blink
+		// DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES ，被定身（拥有nobu_modifier_rooted）后无法使用这个技能，例如女王敌法的Blink
 		// DOTA_ABILITY_BEHAVIOR_RUNE_TARGET ，以神符为目标，小小的投掷
 		// DOTA_ABILITY_BEHAVIOR_TOGGLE ，使用一次后激活，再使用一次后取消的技能，例如巫医的恢复术，IO的过载
 		// DOTA_ABILITY_BEHAVIOR_UNIT_TARGET ，单位目标技能

@@ -9,7 +9,7 @@ function C24W_OnSpellStart( keys )
 	ParticleManager:SetParticleControl(ifx,1,target:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(ifx)
 	AMHC:Damage(caster,target, dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-	ability:ApplyDataDrivenModifier( caster, target, "modifier_rooted", {duration=0.5} )
+	ability:ApplyDataDrivenModifier( caster, target, "nobu_modifier_rooted", {duration=0.5} )
 end
 
 function C24E_OnSpellStart( keys )

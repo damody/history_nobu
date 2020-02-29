@@ -606,7 +606,7 @@ function C16T_old( keys )
 	    stone:SetControllableByPlayer(caster:GetPlayerID(), true)
 	    stone:AddNewModifier(caster,nil,"modifier_phased",{duration=0.1})
 	    stone:AddNewModifier(caster,nil,"modifier_magic_immune", nil )
-	    stone:AddNewModifier(caster,nil,"modifier_rooted", nil )
+	    stone:AddNewModifier(caster,nil,"nobu_modifier_rooted", nil )
 	    ability:ApplyDataDrivenModifier( caster, stone, "modifier_C16T_attackDamage", nil )
 
 	    Timers:CreateTimer( duration, function ()

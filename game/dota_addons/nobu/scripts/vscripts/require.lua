@@ -71,3 +71,4 @@ loadModule ( 'GameRulesStateChange' ) --6/24增加
 -- nobu
 loadModule ( 'nobu_modifiers/nobu_modifier_spell_hint' ) -- 可以顯示施法範圍
 loadModule ( 'nobu_modifiers/nobu_modifier_spell_hint_self' ) -- 可以只顯示自己施法範圍
+loadModule ( 'nobu_modifiers/nobu_modifier_rooted' ) -- 自定義定身

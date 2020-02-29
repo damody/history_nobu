@@ -523,7 +523,7 @@ local function chat_of_test(keys)
 		if s == "r1" then
 			local  u = CreateUnitByName("npc_dota_hero_magnataur",caster:GetAbsOrigin()+Vector(1000,100,0),true,nil,nil,DOTA_TEAM_BADGUYS)    --創建一個斧王
 			u:SetControllableByPlayer(keys.playerid,true)
-			u:AddNewModifier(keys.caster,nil,"modifier_rooted",nil)
+			u:AddNewModifier(keys.caster,nil,"nobu_modifier_rooted",nil)
 			for i=1,30 do
 			u:HeroLevelUp(true)
 			end 

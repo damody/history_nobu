@@ -106,7 +106,7 @@ function B17W_triggered( keys )
 	--delay 0.5
 	Timers:CreateTimer(0.5, function ()
 		if caster:HasModifier("modifier_B17W_notActivate") then
-			ability:ApplyDataDrivenModifier(caster,caster,"modifier_rooted",nil)
+			ability:ApplyDataDrivenModifier(caster,caster,"nobu_modifier_rooted",nil)
 			caster:RemoveModifierByName("modifier_B17W_notActivate")
 
 			-- 搜尋

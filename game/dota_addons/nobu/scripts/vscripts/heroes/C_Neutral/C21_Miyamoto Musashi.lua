@@ -543,7 +543,7 @@ function C21T_old_start( keys )
 			-- unit:Hibernate(true) -- 這有點奇怪，理論上應該要設定回True可是這麼做之後物理就再也不會生效了，即使改回false也一樣
 			unit:SetGroundBehavior(PHYSICS_GROUND_ABOVE) -- 不理會地面
 
-    		-- caster:RemoveModifierByName("modifier_rooted")
+    		-- caster:RemoveModifierByName("nobu_modifier_rooted")
     		caster:RemoveModifierByName("modifier_C21T_old_on_move")
 
     		local ifx = ParticleManager:CreateParticle("particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_egset.vpcf",PATTACH_WORLDORIGIN,caster)
@@ -579,7 +579,7 @@ function C21T_old_start( keys )
 			-- unit:Hibernate(true) -- 這有點奇怪，理論上應該要設定回True可是這麼做之後物理就再也不會生效了，即使改回false也一樣
 			unit:SetGroundBehavior(PHYSICS_GROUND_ABOVE) -- 不理會地面
 
-			-- caster:RemoveModifierByName("modifier_rooted")
+			-- caster:RemoveModifierByName("nobu_modifier_rooted")
 			caster:RemoveModifierByName("modifier_C21T_old_on_move")
 
 			local ifx = ParticleManager:CreateParticle("particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_egset.vpcf",PATTACH_WORLDORIGIN,caster)

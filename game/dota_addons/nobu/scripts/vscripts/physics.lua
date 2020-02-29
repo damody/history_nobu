@@ -702,8 +702,8 @@ function Physics:Unit(unit)
   
   function unit:PreventDI (prevent)
     unit.bPreventDI = prevent
-    if not prevent and unit:HasModifier("modifier_rooted") then
-      unit:RemoveModifierByName("modifier_rooted")
+    if not prevent and unit:HasModifier("nobu_modifier_rooted") then
+      unit:RemoveModifierByName("nobu_modifier_rooted")
     end
   end
   function unit:IsPreventDI ()
@@ -894,8 +894,8 @@ function Physics:Unit(unit)
       unit.PhysicsLastTime = curTime
       unit.PhysicsLastPosition = position
       
-      if unit.bPreventDI and not unit:HasModifier("modifier_rooted") then
-        unit:AddNewModifier(unit, nil, "modifier_rooted", {})
+      if unit.bPreventDI and not unit:HasModifier("nobu_modifier_rooted") then
+        unit:AddNewModifier(unit, nil, "nobu_modifier_rooted", {})
       end
       
       if unit.bSlide and unit.nSkipSlide <= 0 then
@@ -942,8 +942,8 @@ function Physics:Unit(unit)
       if unit.vAcceleration.x == 0 and unit.vAcceleration.y == 0 and newVelLength < unit.fVelocityClamp then
         --print('clamp')
         newVelocity = Vector(0,0,newVelocity.z)
-        if unit:HasModifier("modifier_rooted") then
-          unit:RemoveModifierByName("modifier_rooted")
+        if unit:HasModifier("nobu_modifier_rooted") then
+          unit:RemoveModifierByName("nobu_modifier_rooted")
         end
         if unit.bHibernate then
           unit:DoHibernate()

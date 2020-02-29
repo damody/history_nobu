@@ -134,8 +134,8 @@ function modifier_C08W_bleeding_OnIntervalThink( keys )
 			AMHC:Damage( caster.donkey,target,abilityDamage,ability:GetAbilityDamageType() )
 		end
 		--ExecuteOrderFromTable({UnitIndex = target:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_STOP, Queue = false}) 
-		target:Stop()
-		ability:ApplyDataDrivenModifier(caster,target,"modifier_rooted",{duration = ability:GetSpecialValueFor("stun_time")})
+		--target:Stop()
+		ability:ApplyDataDrivenModifier(caster,target,"nobu_modifier_rooted",{duration = ability:GetSpecialValueFor("stun_time")})
 	end
 	AddFOWViewer(caster:GetTeamNumber(),target:GetAbsOrigin(),600,3.0,false)
 	

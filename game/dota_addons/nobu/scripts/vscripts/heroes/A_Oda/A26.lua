@@ -486,7 +486,7 @@ function A26E_old_OnSpellStart( keys )
 		if _G.EXCLUDE_TARGET_NAME[unit:GetUnitName()] == nil then
 			damage_table.victim = unit
 			ApplyDamage(damage_table)
-			ability:ApplyDataDrivenModifier(caster,unit,"modifier_rooted",{duration=knockback_duration})
+			ability:ApplyDataDrivenModifier(caster,unit,"nobu_modifier_rooted",{duration=knockback_duration})
 			Physics:Unit(unit)
 			local diff = unit:GetAbsOrigin()-center
 			diff.z = 0

@@ -734,6 +734,10 @@ function Precache( context )
     --童子切
     "particles/item/great_sword_of_disarmament_2.vpcf",
     "particles/item/great_sword_of_disarmament.vpcf",
+    --定身
+    "particles/units/heroes/hero_viper/viper_poison_debuff.vpcf",
+    --制魔
+    "particles/item/supressor_armor.vpcf",
     
     --注意要加,
     }
@@ -759,7 +763,6 @@ function Precache( context )
     "soundevents/a17.vsndevts",
     "soundevents/game_sounds_heroes/game_sounds_slark.vsndevts",
     --制魔
-    "particles/item/supressor_armor.vpcf",
     "soundevents/game_sounds_roshan_halloween.vsndevts",
     --土遁
     "soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts",
