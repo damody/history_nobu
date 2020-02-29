@@ -57,7 +57,7 @@ function Shock( keys )
 		end
 		count = count + 1
 		sumtime = sumtime + 0.2
-		for i=1,3 do
+		for i=1,1 do
 			local pp = point + RandomVector(RandomInt(1, 400))
 
 			local particle = ParticleManager:CreateParticle("particles/b05e/b05e.vpcf", PATTACH_ABSORIGIN, dummy)
@@ -80,9 +80,9 @@ function Shock( keys )
 		for _,it in pairs(direUnits) do
 			if _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then
 				if it:IsMagicImmune() then
-					AMHC:Damage(dummy,it, it:GetHealth()*0.022,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+					AMHC:Damage(dummy,it, it:GetHealth()*0.018,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 				else
-					AMHC:Damage(dummy,it, it:GetHealth()*0.022,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+					AMHC:Damage(dummy,it, it:GetHealth()*0.018,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 				end
 			end
 		end
