@@ -24,6 +24,7 @@ function Shock( keys )
 	local target = keys.caster
 	local ability = keys.ability
 	local shield_size = 30 -- could be adjusted to model scale
+	local cooldown = ability:GetCooldown(-1)
 	if not target.invincible_counter then target.invincible_counter = 0 end
 	if target:GetHealth() > target:GetMaxHealth()*0.6 then
 		return 
@@ -49,7 +50,7 @@ function Shock( keys )
 	
 	ability:ApplyDataDrivenModifier(target, target, "modifier_sword_of_invincible", nil)
 	target:RemoveModifierByName("modifier_sword_of_invincible_passive")
-	target.invincible_counter = 70
+	target.invincible_counter = cooldown
 	ability:StartCooldown(target.invincible_counter)
 	Timers:CreateTimer(0, function() 
 		target.invincible_counter = target.invincible_counter - 1
