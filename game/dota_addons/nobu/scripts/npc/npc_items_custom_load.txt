@@ -310,7 +310,7 @@
 		"AbilitySharedCooldown" "share_the_overflame_art_of_war"
 		"AbilityDamage"		"1000"
 		"AOERadius"	"650"
-		"AbilityCastRange"	"300"
+		"AbilityCastRange"	"800"
 		"ID"	"2624"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -412,7 +412,7 @@
 		"AbilitySharedCooldown" "share_the_overflame_art_of_war"
 		
 		"AOERadius"	"650"
-		"AbilityCastRange"	"500"
+		"AbilityCastRange"	"800"
 		"ID"	"2517"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
