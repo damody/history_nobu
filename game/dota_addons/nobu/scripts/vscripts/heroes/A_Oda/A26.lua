@@ -192,14 +192,25 @@ function A26D_OnTrigger( keys )
 	-- 處理搜尋結果
 	local attacker = ability:GetCaster()
 	for _,unit in ipairs(units) do
-		ApplyDamage({
-			victim = unit,
-			attacker = caster,
-			ability = ability,
-			damage = ability:GetAbilityDamage(),
-			damage_type = ability:GetAbilityDamageType(),
-			damage_flags = DOTA_DAMAGE_FLAG_NONE
-		})
+		if unit:IsHero() then
+			ApplyDamage({
+				victim = unit,
+				attacker = caster,
+				ability = ability,
+				damage = ability:GetAbilityDamage(),
+				damage_type = ability:GetAbilityDamageType(),
+				damage_flags = DOTA_DAMAGE_FLAG_NONE
+			})
+		else
+			ApplyDamage({
+				victim = unit,
+				attacker = caster,
+				ability = ability,
+				damage = ability:GetAbilityDamage()*0.3,
+				damage_type = ability:GetAbilityDamageType(),
+				damage_flags = DOTA_DAMAGE_FLAG_NONE
+			})
+		end
 	end
 
 	local center = caster:GetAbsOrigin()
