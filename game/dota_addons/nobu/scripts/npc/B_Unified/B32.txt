@@ -1024,16 +1024,6 @@
 					}
 				}
 				"ThinkInterval"	"0.5"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/AON_Cleave.lua"
-						"Function"	"AON_Cleave_B32x"
-						"dmg"	"%attack_damage"
-						"Target"	"TARGET"
-					}
-				}
 				"OnCreated"
 				{
 					"AttachEffect"
