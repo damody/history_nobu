@@ -475,8 +475,8 @@ function C08T_OnSpellStart( keys )
 			modifier_attribute_bouns:SetStackCount(attributes_stack)
 		end
 		-- AMHC:Damage(caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-		ability:ApplyDataDrivenModifier(caster,target,"modifier_C08T_bleeding",{})
-		ability:ApplyDataDrivenModifier(caster,target,"modifier_in_belly",{})
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_C08T_bleeding",{duration=4})
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_in_belly",{duration=1.1})
 	else
 		caster:FindAbilityByName("C08T"):EndCooldown()
 	end
@@ -502,7 +502,7 @@ function modifier_C08T_bleeding_OnIntervalThink( keys )
 		end
 		target:RemoveModifierByName("modifier_in_belly")
 		AMHC:Damage(caster.donkey,target,abilityDamage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-		ability:ApplyDataDrivenModifier(caster,target,"modifier_in_belly",{})
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_in_belly",{duration=1.1})
 	end
 	caster.last_pos = caster:GetAbsOrigin()
 end
