@@ -2922,7 +2922,7 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SecretShop" "1"
 		"ItemShopTags"		"damage"
-		"AbilityCooldown"	"70"
+		"AbilityCooldown"	"120"
 		"precache"
 		{
 			"particle"	"particles/a07w5/a07w5.vpcf"
