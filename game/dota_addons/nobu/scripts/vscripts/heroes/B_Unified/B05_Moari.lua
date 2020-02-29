@@ -367,7 +367,7 @@ function B05T( event )
 	local duration = ability:GetSpecialValueFor("duration")
 	AddFOWViewer(caster:GetTeamNumber(), point, 1500.0, 3.0, false)
 	
-
+	--外圍
 	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
 	                              point,
 	                              nil,
@@ -394,8 +394,34 @@ function B05T( event )
 		end
 		--ability:ApplyDataDrivenModifier(caster, it,"modifier_B05T",nil)
 	end
+	--中心
+	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
+	                              point,
+	                              nil,
+	                              radius*0.4,
+	                              DOTA_UNIT_TARGET_TEAM_ENEMY,
+	                              DOTA_UNIT_TARGET_ALL,
+	                              DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
+	                              FIND_ANY_ORDER,
+	                              false)
 
-	
+	--effect:傷害+暈眩
+	for _,it in pairs(direUnits) do
+		if it:IsHero() then
+			ParticleManager:CreateParticle("particles/shake2.vpcf", PATTACH_ABSORIGIN, it)
+			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage()*0.5, damage_type = ability:GetAbilityDamageType()})
+			print("stunned")
+			ability:ApplyDataDrivenModifier(caster, it, "modifier_stunned", {duration = duration + 1})
+		elseif it:IsBuilding() then
+			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage()*0.3*0.5, damage_type = ability:GetAbilityDamageType()})
+		else
+			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage()*0.5, damage_type = ability:GetAbilityDamageType()})
+			print("stunned2")
+			ability:ApplyDataDrivenModifier(caster, it, "modifier_stunned", {duration = duration + 1})
+		end
+		--ability:ApplyDataDrivenModifier(caster, it,"modifier_B05T",nil)
+	end
+
 	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
    --添加馬甲技能
 	dummy:AddAbility("majia"):SetLevel(1)
@@ -496,4 +522,13 @@ function B05T_Prepare( keys )
 	local particle2=ParticleManager:CreateParticle("particles/b05t5_test/b05t5_test.vpcf",PATTACH_WORLDORIGIN,nil)
 	ParticleManager:SetParticleControl(particle2,0,point)
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
+
+	local dummy2 = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local aura_radius = ability:GetSpecialValueFor("radius")
+	local spell_hint_table = {
+		duration   = 1.5,		-- 持續時間
+		radius     = aura_radius*0.4,		-- 半徑
+	}
+	dummy2:AddNewModifier(dummy2,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy2:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
 end
