@@ -550,7 +550,7 @@ else
   GameRules:GetGameModeEntity():ClearExecuteOrderFilter()
   GameRules:GetGameModeEntity():ClearModifyGoldFilter()
   GameRules:GetGameModeEntity():ClearDamageFilter()
-  GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
+  GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(false)
   --GameRules:GetGameModeEntity():ClearAbilityTuningValueFilter()
 
   --重新註冊

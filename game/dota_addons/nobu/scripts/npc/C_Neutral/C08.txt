@@ -425,6 +425,12 @@
 						"Function"		"modifier_C08T_OnDestroy"
 					}
 				}
+				"States"
+				{
+					"MODIFIER_STATE_BLIND" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+				}
 	
 			}
 			"modifier_in_belly"
