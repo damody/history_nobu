@@ -6,11 +6,15 @@ function OnEquip( keys )
 	local ability = keys.ability
 	caster.Is_invincible_equip = true
 	caster:RemoveModifierByName("modifier_sword_of_invincible_passive")
-	Timers:CreateTimer(ability:GetCooldownTimeRemaining(), function() 
+	print(ability:GetCooldownTimeRemaining())
+	Timers:CreateTimer(0, function() 
 		if not caster.Is_invincible_equip then
 			return nil
 		end
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_sword_of_invincible_passive", nil)
+		if ability:IsCooldownReady() then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_sword_of_invincible_passive", nil)
+		end
+		return 0.5
 		end)
 end
 
@@ -50,18 +54,7 @@ function Shock( keys )
 	
 	ability:ApplyDataDrivenModifier(target, target, "modifier_sword_of_invincible", nil)
 	target:RemoveModifierByName("modifier_sword_of_invincible_passive")
-	target.invincible_counter = cooldown
-	ability:StartCooldown(target.invincible_counter)
-	Timers:CreateTimer(0, function() 
-		target.invincible_counter = target.invincible_counter - 1
-		target:RemoveModifierByName("modifier_sword_of_invincible_passive")
-		if not target.Is_invincible_equip then return nil end
-		if target.invincible_counter == -1 then
-			ability:ApplyDataDrivenModifier(target, target, "modifier_sword_of_invincible_passive", nil)
-			return nil
-		end
-		return 1
-		end)
+	ability:StartCooldown(cooldown)
 	Timers:CreateTimer(2, function() 
 		ParticleManager:DestroyParticle(target.ShieldParticle, false)
 		end)

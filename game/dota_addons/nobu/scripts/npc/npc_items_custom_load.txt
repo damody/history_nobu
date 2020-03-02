@@ -2961,6 +2961,8 @@
 			"modifier_sword_of_invincible_passive"
 			{
 				"Passive"	"1"
+				"IsPurgable"	"0"
+				"IsBuff"	"1"
 				"OnTakeDamage"
 				{
 					"RunScript"
