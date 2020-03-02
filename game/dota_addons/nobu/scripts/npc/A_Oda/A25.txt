@@ -438,8 +438,8 @@
 				"Duration"	"%buff_duration"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 			
-				"EffectName" "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
-				"EffectAttachType"	"follow_origin"
+				// "EffectName" "particles/units/heroes/hero_ogre_magi/ogre_magi_bloodlust_buff.vpcf"
+				// "EffectAttachType"	"follow_origin"
 			
 				"Properties"
 				{

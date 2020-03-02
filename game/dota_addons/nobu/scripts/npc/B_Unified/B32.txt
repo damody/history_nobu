@@ -106,8 +106,8 @@
 				"Duration"	"5"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 			
-				"EffectName" "particles/b32/b32d20buff.vpcf"
-				"EffectAttachType"	"follow_overhead"
+				// "EffectName" "particles/b32/b32d20buff.vpcf"
+				// "EffectAttachType"	"follow_overhead"
 			
 				"Properties"
 				{
