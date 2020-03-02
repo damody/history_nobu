@@ -678,7 +678,7 @@
 		"BaseClass"	"npc_dota_creature"
 		// Add model
 		"Model"	"models/arquebusier/arquebusier.vmdl"
-		"ModelScale"	"1.1"
+		"ModelScale"	"1.0"
 		"Level"	"1"
 		"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
 		"HealthBarOffset"	"180"
@@ -4047,7 +4047,7 @@
 		"BaseClass"	"npc_dota_creature"
 		// Add model
 		"Model"	"models/creeps/lane_creeps/creep_bad_melee/creep_bad_melee.vmdl"
-		"ModelScale"	"1.1"
+		"ModelScale"	"1.0"
 		"Level"	"2"
 		"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
 		"HealthBarOffset"	"180"
@@ -4113,7 +4113,7 @@
 		"BaseClass"	"npc_dota_creature"
 		// Add model
 		"Model"	"models/creeps/lane_creeps/creep_bad_ranged/lane_dire_ranged.vmdl"
-		"ModelScale"	"1.1"
+		"ModelScale"	"1.0"
 		"Level"	"2"
 		"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
 		"HealthBarOffset"	"180"
@@ -4441,7 +4441,7 @@
 		"BaseClass"	"npc_dota_creature"
 		// Add model
 		"Model"	"models/arquebusier/arquebusier.vmdl"
-		"ModelScale"	"1.1"
+		"ModelScale"	"1.0"
 		"Level"	"1"
 		"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
 		"HealthBarOffset"	"180"

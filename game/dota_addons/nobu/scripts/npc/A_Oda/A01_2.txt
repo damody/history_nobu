@@ -4,7 +4,7 @@
 	// 德川家康
 	"A01"
 	{
-		"ModelScale"	"1.1"
+		"ModelScale"	"1.0"
 		//"Model"	"models/a01/a01.vmdl"
 		//"DisableWearables"	"1"
 		//"Level"	"1"

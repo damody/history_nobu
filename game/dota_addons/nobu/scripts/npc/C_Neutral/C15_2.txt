@@ -15,7 +15,7 @@
 		"SoundSet"	"Hero_Mirana"
 		"PickSound"	"mirana_mir_spawn_01"
 		"BanSound"	"mirana_mir_anger_01"
-		"ModelScale"	"1.1"
+		"ModelScale"	"1.0"
 		//"Model"	"models/c15/c15.vmdl"
 		//"DisableWearables"	"1"
 		"HeroGlowColor"	"220 194 248"
