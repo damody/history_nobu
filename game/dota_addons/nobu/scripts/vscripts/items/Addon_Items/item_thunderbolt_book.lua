@@ -15,7 +15,7 @@ function Shock( keys )
 	-- 開關型技能不能用
 	if keys.event_ability:IsToggle() then return end
 	if keys.event_ability:GetName() == "item_logging" then return end
-
+	if keys.event_ability:GetName() == "item_tpscroll" then return end
 	local caster = keys.caster
 	local ability = keys.ability
 	if (caster:GetMana() >= 75) then
