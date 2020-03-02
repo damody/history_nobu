@@ -101,7 +101,7 @@ function B01E_CHECK(keys)
 	target = CreateUnitByName("B01W_UNIT", point, true, caster, caster, caster:GetTeamNumber())
 	target:SetOwner(caster)
     target.owner = caster
-    target:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
+    -- target:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
 	target:AddNewModifier(target,ability,"modifier_phased",{duration=0.1})
 	target:AddNewModifier(target,ability,"modifier_rooted",{})
 	local tmp = 1
