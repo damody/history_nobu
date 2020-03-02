@@ -77,7 +77,7 @@ function A01E_hit(keys)
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_A01E_3",nil)
 	end
 	local dmg = ability:GetLevelSpecialValueFor("dmg",level)
-	AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+	AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 end
 
 function A01E_MOVE(keys)
