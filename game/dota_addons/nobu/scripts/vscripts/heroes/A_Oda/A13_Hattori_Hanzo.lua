@@ -538,7 +538,6 @@ function a13e_modifier:OnIntervalThink()
 	if IsServer() then
 		local caster = self:GetParent()
 		self.interval_Count = self.interval_Count + 1
-
 		local angle = math.abs(caster:GetAnglesAsVector().y - self.oriangle)
 		--print("angle: "..(angle))
 		if (angle > 45) then
@@ -648,7 +647,9 @@ function a13e_modifier:OnIntervalThink()
 					end
 				end
 				-- 拉到或距離到上限了
+				print("max")
 				if (self.distance_sum > self.hook_distance or hashook == true) then
+					print(self.distance_sum)
 					self:StartIntervalThink( -1 )
 					return
 				end
