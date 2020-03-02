@@ -3141,7 +3141,7 @@
 		"SideShop"	"1"
 		"ItemShopTags"		"damage"
 		"ItemRequirements"	{}
-		"AbilityCooldown"	"60"
+		"AbilityCooldown"	"80"
 		"precache"
 		{
 			"particle"	"particles/a07w5/a07w5.vpcf"
@@ -9329,7 +9329,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"60"
+		"AbilityCooldown"	"80"
 		"ID"	"2596"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
