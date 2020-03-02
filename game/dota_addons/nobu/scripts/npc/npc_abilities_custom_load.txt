@@ -747,7 +747,12 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityCooldown"	"1"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
-		
+		"precache"
+		{
+			"particle"	"particles/robbers_king/robbers_king_buff_attack.vpcf"
+			"particle"	"particles/robbers_king/robbers_king_buff_armor.vpcf"
+			"particle"	"particles/robbers_king/robbers_king_buff_regon.vpcf"
+		}
 		"Modifiers"
 		{
 			"modifier_fly"
@@ -820,6 +825,8 @@
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "20"
 					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "25"
 				}
+				"EffectName"	"particles/robbers_king/robbers_king_buff_attack.vpcf"
+				"EffectAttachType"	"follow_origin"
 			}
 			"modifier_robbers_king_armor_buff"
 			{
@@ -829,6 +836,8 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "10"
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "25"
 				}
+				"EffectName"	"particles/robbers_king/robbers_king_buff_armor.vpcf"
+				"EffectAttachType"	"follow_origin"
 			}
 			"modifier_robbers_king_regen_buff"
 			{
@@ -838,6 +847,8 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "3"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "10"
 				}
+				"EffectName"	"particles/robbers_king/robbers_king_buff_regen.vpcf"
+				"EffectAttachType"	"follow_origin"
 			}
 		}
 	}
