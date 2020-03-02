@@ -212,6 +212,13 @@ function B09T_OnSpellStart( keys )
 	local level = ability:GetLevel() - 1
 	local duration = ability:GetSpecialValueFor("duration")
 	local regen = ability:GetLevelSpecialValueFor("heal",level)
+	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local spell_hint_table = {
+		duration   = 1.5,		-- 持續時間
+		radius     = 700,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1.5})
 	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
           point,
           nil,
@@ -221,6 +228,19 @@ function B09T_OnSpellStart( keys )
           DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
           0,
           false)
+	for _,target in pairs(direUnits) do
+		if not target:IsBuilding() then
+			target:SetHealth(target:GetHealth() + regen)
+			target:SetMana(target:GetMaxMana())
+		end
+	end
+end
+
+function B09T_END( keys )
+	local caster = keys.caster
+	local point = keys.target_points[1] 
+	local ability = keys.ability
+	local duration = ability:GetSpecialValueFor("duration")
 	local dummy = CreateUnitByName( "npc_dummy_unit", point, false, nil, nil, caster:GetTeamNumber())
 	dummy:AddNewModifier( dummy, nil, "modifier_kill", {duration=1} )
 	dummy:SetOwner( caster)
@@ -230,18 +250,6 @@ function B09T_OnSpellStart( keys )
 	Timers:CreateTimer(1, function ()
 		ParticleManager:DestroyParticle(flame, false)
 	end)	
-	for _,target in pairs(direUnits) do
-		if not target:IsBuilding() then
-			target:SetHealth(target:GetHealth() + regen)
-			target:SetMana(target:GetMaxMana())
-		end
-	end
-end
-function B09T_END( keys )
-	local caster = keys.caster
-	local point = keys.target_points[1] 
-	local ability = keys.ability
-	local duration = ability:GetSpecialValueFor("duration")
 	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
           point,
           nil,

@@ -187,7 +187,15 @@ function C07T( keys )
 	for _,v in ipairs(group) do
 		v:AddNewModifier(nil,nil,"modifier_phased",{duration=0.1})
 	end
-
+	-- spell hint
+	local dummy2 = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local spell_hint_table = {
+		duration   = life_time,		-- 持續時間
+		radius     = radius,		-- 半徑
+	}
+	dummy2:AddNewModifier(dummy2,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy2:AddNewModifier(nil,nil,"modifier_kill",{duration=life_time})
+	
 	local point2 = 4000
 	--print("@@@@")
 	--print(life_time)

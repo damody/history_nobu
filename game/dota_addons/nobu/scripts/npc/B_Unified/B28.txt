@@ -389,7 +389,16 @@
 		"AbilityCooldown"           				"130 125 120"
 		"AbilityManaCost"           				"400 600 800"
 		"AOERadius"                                 "%B28T_radius"
-		
+
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"						"scripts/vscripts/heroes/B_Unified/B28.lua"
+				"Function"							"B28T_OnAbilityPhaseStart"
+			}
+		}
+
 		"OnSpellStart"
 		{
 			"RunScript"

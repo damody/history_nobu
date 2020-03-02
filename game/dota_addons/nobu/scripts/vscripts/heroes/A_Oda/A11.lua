@@ -106,7 +106,6 @@ function A11R( keys )
 end
 
 function A11T_OnSpellStart( keys )
-	print("spell")
 	local caster = keys.caster
 	local ability = keys.ability
 	local radius = ability:GetSpecialValueFor("A11T_radius")

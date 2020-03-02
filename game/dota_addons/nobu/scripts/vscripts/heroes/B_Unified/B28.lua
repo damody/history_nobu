@@ -73,6 +73,20 @@ function B28R_OnIntervalThink( keys )
 	end
 end
 
+function B28T_OnAbilityPhaseStart( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local point = caster:GetCursorPosition()
+	local radius = ability:GetSpecialValueFor("B28T_radius")
+	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local spell_hint_table = {
+		duration   = 0.5,		-- 持續時間
+		radius     = radius,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=0.5})
+end
+
 function B28T( keys )
 	local caster = keys.caster
 	local ability = keys.ability
