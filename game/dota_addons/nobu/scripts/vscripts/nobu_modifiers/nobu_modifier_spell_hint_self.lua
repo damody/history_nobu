@@ -44,19 +44,28 @@ function nobu_modifier_spell_hint_self:OnCreated( keys )
 		if team_enemy == caster:GetTeamNumber() then
 			team_self, team_enemy = team_enemy, team_self
 		end
-		local player = PlayerResource:GetPlayer( caster:GetPlayerID() )
-		local ifx_self = ParticleManager:CreateParticleForPlayer(particle_name,PATTACH_ABSORIGIN_FOLLOW,caster,player)
+		if not show then
+			local player = PlayerResource:GetPlayer( caster:GetPlayerID() )
+			local ifx_self = ParticleManager:CreateParticleForPlayer(particle_name,PATTACH_ABSORIGIN_FOLLOW,caster,player)
 
-		ParticleManager:SetParticleControl(ifx_self,0,caster:GetAbsOrigin())
-		ParticleManager:SetParticleControl(ifx_self,1,Vector(radius, thinkness, duration))
-		ParticleManager:SetParticleControl(ifx_self,2,color_self)
-		ParticleManager:SetParticleControlEnt(ifx_self, 3, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-		self.ifx_self = ifx_self
+			ParticleManager:SetParticleControl(ifx_self,0,caster:GetAbsOrigin())
+			ParticleManager:SetParticleControl(ifx_self,1,Vector(radius, thinkness, duration))
+			ParticleManager:SetParticleControl(ifx_self,2,color_self)
+			ParticleManager:SetParticleControlEnt(ifx_self, 3, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+			self.ifx_self = ifx_self
+		end
 		if show then
+			local ifx_self_team = ParticleManager:CreateParticleForTeam(particle_name,PATTACH_ABSORIGIN_FOLLOW,caster,team_self)
+			ParticleManager:SetParticleControl(ifx_self_team,0,caster:GetAbsOrigin())
+			ParticleManager:SetParticleControl(ifx_self_team,1,Vector(radius, thinkness, duration))
+			ParticleManager:SetParticleControl(ifx_self_team,2,color_self_team)
+			ParticleManager:SetParticleControlEnt(ifx_self_team, 3, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+			self.ifx_self_team = ifx_self_team
 			local ifx_enemy = ParticleManager:CreateParticleForTeam(particle_name,PATTACH_ABSORIGIN_FOLLOW,caster,team_enemy)
 			ParticleManager:SetParticleControl(ifx_enemy,0,caster:GetAbsOrigin())
 			ParticleManager:SetParticleControl(ifx_enemy,1,Vector(radius, thinkness, duration))
-			ParticleManager:SetParticleControl(ifx_enemy,2,color_self)
+			ParticleManager:SetParticleControl(ifx_enemy,2,color_enemy)
+			ParticleManager:SetParticleControlEnt(ifx_enemy, 3, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 			self.ifx_enemy = ifx_enemy
 		end
 	end
@@ -70,6 +79,10 @@ function nobu_modifier_spell_hint_self:OnIntervalThink()
 	if self.ifx_enemy then
 		local caster = self:GetParent()
 		ParticleManager:SetParticleControl(self.ifx_enemy,0,caster:GetAbsOrigin())
+	end
+	if self.ifx_self_team then
+		local caster = self:GetParent()
+		ParticleManager:SetParticleControl(self.ifx_self_team,0,caster:GetAbsOrigin())
 	end
 end
 

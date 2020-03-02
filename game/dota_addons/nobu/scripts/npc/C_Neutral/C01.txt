@@ -320,6 +320,14 @@
 			"soundfile"	"soundevents/c01t.vsndevts"
 			"particle"	"particles/generic_gameplay/generic_stunned.vpcf"
 		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C01_Mitsuhide_Akechi.lua"
+				"Function"	"C01T_OnAbilityPhaseStart"
+			}
+		}
 		"OnSpellStart"
 		{
 			"FireSound"

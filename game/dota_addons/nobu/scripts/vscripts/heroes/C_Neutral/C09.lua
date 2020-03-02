@@ -142,6 +142,20 @@ function C09R_debuff_OnDestroy( keys )
 	end
 end
 
+function C09T_OnAbilityPhaseStart( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local point = caster:GetAbsOrigin()
+	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local aura_radius = ability:GetSpecialValueFor("C09T_radius")
+	local spell_hint_table = {
+		duration   = 0.5,		-- 持續時間
+		radius     = aura_radius,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=0.5})
+end
+
 function C09T_OnSpellStart( keys )
 	local caster = keys.caster
 	local ability = keys.ability

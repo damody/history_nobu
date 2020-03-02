@@ -101,6 +101,19 @@ function B29R_OnSpellStart( keys )
 	end)
 end
 
+function B29T_OnAbilityPhaseStart( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local point = caster:GetCursorPosition()
+	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local aura_radius = ability:GetSpecialValueFor("B29T_Radius")
+	local spell_hint_table = {
+		duration   = 0.5,		-- 持續時間
+		radius     = aura_radius*0.5,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=0.5})
+end
 
 function B29T( keys )
 	local caster = keys.caster
@@ -108,12 +121,23 @@ function B29T( keys )
 	local level = keys.ability:GetLevel()
 	local skillcount = 0
 	local ability = keys.ability
+	local skill_duration = ability:GetSpecialValueFor("B29T_Skill_Duration")
 	local skillmax = ability:GetSpecialValueFor("B29T_Amount")
 	local sk_radius = ability:GetSpecialValueFor("B29T_Radius")
 	local duration = ability:GetSpecialValueFor("B29T_Duration")
 	sk_radius = sk_radius
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 100, 6.0, false)
 	AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 100, 6.0, false)
+	--spell hint
+	local dummy2 = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local aura_radius = ability:GetSpecialValueFor("B29T_Radius")
+	print(skill_duration)
+	local spell_hint_table = {
+		duration   = skill_duration + 0.5,		-- 持續時間
+		radius     = aura_radius * 0.5,		-- 半徑
+	}
+	dummy2:AddNewModifier(dummy2,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy2:AddNewModifier(nil,nil,"modifier_kill",{duration=skill_duration + 0.5})
 	--轉半徑
 	local dummy = CreateUnitByName("npc_dummy_unit",point,false,nil,nil,caster:GetTeamNumber())
 	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=10})
@@ -129,6 +153,7 @@ function B29T( keys )
 			skillcount = skillcount + 1
 			return 0.1
 		else
+			dummy2:ForceKill(true)
 			return nil
 		end
 	end)

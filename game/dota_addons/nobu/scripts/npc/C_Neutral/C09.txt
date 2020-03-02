@@ -283,13 +283,13 @@
 	"C09T"
 	{
 		"BaseClass"                 				"ability_datadriven"
-		"AbilityBehavior"           				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"           				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetType"     				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"     				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"    				"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityType"  								"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityTextureName"                        "custom/C09/C09T"
-
+		"AbilityCastPoint"							"0.25"
 		"AbilityCooldown"           				"100 90 80"
 		"AbilityManaCost"           				"150"
 		"AbilityCastRange"							"800"
@@ -301,6 +301,14 @@
 				"Function"			"C09T_OnUpgrade"
 			}
 		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"scripts/vscripts/heroes/C_Neutral/C09.lua"
+				"Function"			"C09T_OnAbilityPhaseStart"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -310,9 +318,9 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				"Function"	"showTitle"
-				"title"	"particles/title/c09t.vpcf"
+				// "ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// "Function"	"showTitle"
+				// "title"	"particles/title/c09t.vpcf"
 			}
 		}
 

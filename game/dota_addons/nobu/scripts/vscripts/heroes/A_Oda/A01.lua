@@ -193,6 +193,19 @@ function A01R_OnAttackLanded( keys )
 	end
 end
 
+function A01T( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local radius = ability:GetSpecialValueFor("radius")
+	local duration = ability:GetSpecialValueFor("duration")
+	local spell_hint_table = {
+		duration   = duration,		-- 持續時間
+		radius     = radius+0.5,		-- 半徑
+		show 	   = true,
+		caster     = caster
+	}
+	caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint_self",spell_hint_table)
+end
 
 function A01R_old_OnAttackLanded( keys )
 	local caster = keys.caster

@@ -195,6 +195,19 @@ function C01R_OnIntervalThink( keys )
     end
 end
 
+function C01T_OnAbilityPhaseStart( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local point = caster:GetCursorPosition()
+	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local aura_radius = ability:GetSpecialValueFor("C01T_Radius")
+	local spell_hint_table = {
+		duration   = 0.5,		-- 持續時間
+		radius     = (aura_radius + 100) * 0.5,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=0.5})
+end
 
 function C01T_Mitsuhide_Akechi_Effect( keys, point )
 	local dmg = 84
@@ -253,11 +266,20 @@ function C01T_Mitsuhide_Akechi( keys )
 	local level = keys.ability:GetLevel()
 	local skillcount = 0
 	local skillmax = keys.ability:GetLevelSpecialValueFor("C01T_Amount",level-1)
+	local duration = keys.ability:GetSpecialValueFor("C01T_Skill_Duration")
 	--大絕直徑
 	local sk_radius = keys.ability:GetLevelSpecialValueFor("C01T_Radius",level-1)
 	sk_radius = sk_radius + 100
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 100, 6.0, false)
 	AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 100, 6.0, false)
+	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local aura_radius = keys.ability:GetSpecialValueFor("C01T_Radius")
+	local spell_hint_table = {
+		duration   = duration + 0.5,		-- 持續時間
+		radius     = (aura_radius + 100) * 0.5,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=duration})
 	--轉半徑
 	sk_radius = sk_radius*0.5
 	Timers:CreateTimer(0.1, function()
@@ -274,6 +296,7 @@ function C01T_Mitsuhide_Akechi( keys )
 			skillcount = skillcount + 1
 			return 0.1
 		else
+			dummy:ForceKill(true)
 			return nil
 		end
 	end)

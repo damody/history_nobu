@@ -376,6 +376,14 @@
 			"soundfile"	"soundevents/C01T.vsndevts"
 			"particle"	"particles/generic_gameplay/generic_stunned.vpcf"
 		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/b29.lua"
+				"Function"	"B29T_OnAbilityPhaseStart"
+			}
+		}
 		"OnSpellStart"
 		{
 			"FireSound"

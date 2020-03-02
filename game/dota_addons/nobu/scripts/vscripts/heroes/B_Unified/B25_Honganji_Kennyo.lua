@@ -301,7 +301,13 @@ function B25T_start( keys )
 	-- Create for VFX particles on ground
 	-- local dummy = CreateUnitByName( "B25T_dummy", target, false, caster, caster, caster:GetTeamNumber() )
 	-- B25T_UNIT[id] = dummy
-
+	local dummy2 = CreateUnitByName("hide_unit", target , true, nil, caster, caster:GetTeamNumber()) 
+	local spell_hint_table = {
+		duration   = duration,		-- 持續時間
+		radius     = radius,		-- 半徑
+	}
+	dummy2:AddNewModifier(dummy2,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy2:AddNewModifier(nil,nil,"modifier_kill",{duration=duration})
 	local dummyp = CreateUnitByName("npc_dummy_unit",target,false,nil,nil,caster:GetTeamNumber())
 	dummyp:AddNewModifier(dummy,nil,"modifier_kill",{duration=6})
 	dummyp:SetOwner(caster)
@@ -407,6 +413,7 @@ function B25T_start( keys )
 			for k,v in pairs(caster.allparticle) do
 				ParticleManager:DestroyParticle(v, false)
 			end
+			dummy2:ForceKill(true)
 			return nil
 		else
 			return interval

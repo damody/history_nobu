@@ -419,6 +419,11 @@
 				"Target"	"CASTER"
 				"EffectName"	"A01T_old.vo1"
 			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A01.lua"
+				"Function"	"A01T"
+			}
 			"ApplyModifier"
 			{
 				"Target"
@@ -428,6 +433,7 @@
 				}
 				"ModifierName"	"modifier_A01T_aura2"
 			}
+
 			"RunScript"
 			{
 				"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
@@ -493,7 +499,7 @@
 				"EffectName"		"particles/a01/a01t.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"ThinkInterval"  "0.5"
-            	"Duration"	"7"
+            	"Duration"	"%duration"
 				"OnIntervalThink"
 				{
 					"ActOnTargets"
@@ -553,6 +559,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"regen2"	"100 150 200"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"7"
 			}
 		}
 	}
