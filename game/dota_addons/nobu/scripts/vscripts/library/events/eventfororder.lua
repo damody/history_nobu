@@ -1,6 +1,23 @@
 require('libraries/containers')
 --idea test
 
+--vector target cancel event
+CANCEL_EVENT = {[DOTA_UNIT_ORDER_MOVE_TO_POSITION] = true,
+				[DOTA_UNIT_ORDER_MOVE_TO_TARGET] = true,
+				[DOTA_UNIT_ORDER_ATTACK_MOVE] = true,
+				[DOTA_UNIT_ORDER_ATTACK_TARGET] = true,
+				[DOTA_UNIT_ORDER_CAST_TARGET] = true,
+				[DOTA_UNIT_ORDER_CAST_TARGET_TREE] = true,
+				[DOTA_UNIT_ORDER_CAST_NO_TARGET] = true,
+				[DOTA_UNIT_ORDER_HOLD_POSITION] = true,
+				[DOTA_UNIT_ORDER_DROP_ITEM] = true,
+				[DOTA_UNIT_ORDER_GIVE_ITEM] = true,
+				[DOTA_UNIT_ORDER_PICKUP_ITEM] = true,
+				[DOTA_UNIT_ORDER_PICKUP_RUNE] = true,
+				[DOTA_UNIT_ORDER_STOP] = true,
+				[DOTA_UNIT_ORDER_MOVE_TO_DIRECTION] = true,
+				[DOTA_UNIT_ORDER_PATROL] = true,
+				}
 
 --已知BUG:沒辦法捕捉非英雄單位order事件
 function EventForSpellTarget( filterTable )
@@ -244,11 +261,6 @@ function spell_ability ( filterTable )
 				-- filter out 'regular' cast attempt
 				return false
 			end
-		elseif unit.inVectorCast and CANCEL_EVENT[filterTable.order_type] then
-			local playerID = unit:GetPlayerID()
-			local player = PlayerResource:GetPlayer(playerID)
-			CustomGameEventManager:Send_ServerToPlayer(player, "vector_target_cast_stop", {cast = false})
-			unit.inVectorCast = nil
 		end
 		return true
 		-- [   VScript             ]: {
@@ -314,6 +326,16 @@ end
 function Nobu:eventfororder( filterTable )
 	--DeepPrintTable(filterTable)
 	--print("ordertype = "..tostring(ordertype))
+	--cancel vector target
+	if filterTable.units and filterTable.units["0"] then
+		local caster = EntIndexToHScript(filterTable.units["0"])
+		if caster.inVectorCast and CANCEL_EVENT[filterTable.order_type] then
+			local playerID = caster:GetPlayerID()
+			local player = PlayerResource:GetPlayer(playerID)
+			CustomGameEventManager:Send_ServerToPlayer(player, "vector_target_cast_stop", {cast = false})
+			caster.inVectorCast = nil
+		end
+	end
 	--瑞龍院日秀 偽情報
 	if filterTable.units and filterTable.units["0"] then
 		local unit = EntIndexToHScript(filterTable.units["0"])
