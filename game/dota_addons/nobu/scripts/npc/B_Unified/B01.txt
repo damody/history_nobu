@@ -347,28 +347,6 @@
 				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B01.lua"
 				"Function"	"B01E_CHECK"
 			}
-			// "SpawnUnit"
-			// {
-			// 	"UnitName"	"B01W_UNIT"
-			// 	"UnitCount"	"1"
-			// 	"Duration"	"10000"
-			// 	"GrantsGold"	"5"
-			// 	"OnSpawn"
-			// 	{
-			// 		"ApplyModifier"
-			// 		{
-			// 			"ModifierName"	"modifier_phased"
-			// 			"Target"	"TARGET"
-			// 			"Duration"	"0.03"
-			// 		}
-			// 		"RunScript"
-			// 		{
-			// 			"Target" "POINT"
-			// 			"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B01.lua"
-			// 			"Function"	"B01E_CHECK"
-			// 		}
-			// 	}
-			// }
 		}
 		"Modifiers"
 		{

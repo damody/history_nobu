@@ -88,6 +88,10 @@ function B01E(keys)
 	-- caster.B01E = {} 				
 end
 
+function B01E_CreationTime_Compare(i,tmp)
+	return B01E_units[i]:GetCreationTime() < B01E_units[tmp]:GetCreationTime()
+end
+
 function B01E_CHECK(keys)
 	--【Basic】
 	local caster = keys.caster
@@ -101,22 +105,30 @@ function B01E_CHECK(keys)
 	target:AddNewModifier(target,ability,"modifier_phased",{duration=0.1})
 	target:AddNewModifier(target,ability,"modifier_rooted",{})
 	local tmp = 1
+	local f, vrf
 	for i = 1,count do
-		if B01E_units[i] == nil or not B01E_units[i]:IsAlive() then
+		if B01E_units[i] == nil then
 			tmp = i
 			break
 		end
-		if B01E_units[i]:GetCreationTime() < B01E_units[tmp]:GetCreationTime() then
+		f, vrf = pcall(B01E_CreationTime_Compare, i, tmp)
+		if f then
+			if B01E_CreationTime_Compare(i,tmp) then
+				tmp = i
+			end	
+		else
 			tmp = i
+			break
 		end
 	end
-	if B01E_units[tmp] ~= nil then
+	if B01E_units[tmp] ~= nil and f then
 		local particle = ParticleManager:CreateParticle("particles/b01e2/b01e2.vpcf",PATTACH_POINT,caster)
 		local tem_point = B01E_units[tmp]:GetAbsOrigin()
 		ParticleManager:SetParticleControl(particle,0, tem_point)
 		B01E_units[tmp]:ForceKill(true)
 		B01E_units[tmp]:Destroy()
 	end
+	print(tmp)
 	B01E_units[tmp] = target	
 	-- table.insert(caster.B01E, target)
 	target:SetBaseDamageMin(70+caster:GetLevel()*10)
