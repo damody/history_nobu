@@ -436,7 +436,7 @@
 		"FightRecapLevel"					"1"
 		"AbilityTextureName"				"custom/A13E"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
-		"AbilityCastRange"   				"600 800 1000 1200"
+		"AbilityCastRange"   				"1200 1200 1400 1400"
 		"AbilityCastPoint"   				"0.25"
 		"AbilityCooldown"    				"14 11 8 5"
 		"AbilityManaCost"    				"100 120 140 160"
@@ -496,7 +496,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"hook_distance"	"600 800 1000 1200"
+				"hook_distance"	"1200 1200 1400 1400"
 			}
 			"04"
 			{
