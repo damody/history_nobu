@@ -32,7 +32,9 @@ function nobu_modifier_spell_hint_self:OnCreated( keys )
 		local teamonly 		= keys.teamonly
 		local ignore_fog 	= keys.ignore_fog
 		local color_self 	= keys.color_self or Vector(1,0.3,0.3)  -- green
-		
+		local color_self_team =  keys.color_self_tem or Vector(0,255,0)
+		local color_enemy = keys.color_enmey or Vector(255,0,0)
+		local show 			= keys.show or false
 		local particle_name = nil
 		particle_name = "particles/spell_hint/spell_hint_circle_self.vpcf"
 
@@ -50,6 +52,13 @@ function nobu_modifier_spell_hint_self:OnCreated( keys )
 		ParticleManager:SetParticleControl(ifx_self,2,color_self)
 		ParticleManager:SetParticleControlEnt(ifx_self, 3, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 		self.ifx_self = ifx_self
+		if show then
+			local ifx_enemy = ParticleManager:CreateParticleForTeam(particle_name,PATTACH_ABSORIGIN_FOLLOW,caster,team_enemy)
+			ParticleManager:SetParticleControl(ifx_enemy,0,caster:GetAbsOrigin())
+			ParticleManager:SetParticleControl(ifx_enemy,1,Vector(radius, thinkness, duration))
+			ParticleManager:SetParticleControl(ifx_enemy,2,color_self)
+			self.ifx_enemy = ifx_enemy
+		end
 	end
 end
 
@@ -57,6 +66,10 @@ function nobu_modifier_spell_hint_self:OnIntervalThink()
 	if self.ifx_self then
 		local caster = self:GetParent()
 		ParticleManager:SetParticleControl(self.ifx_self,0,caster:GetAbsOrigin())
+	end
+	if self.ifx_enemy then
+		local caster = self:GetParent()
+		ParticleManager:SetParticleControl(self.ifx_enemy,0,caster:GetAbsOrigin())
 	end
 end
 

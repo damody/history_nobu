@@ -401,6 +401,11 @@
 				"Target"	"CASTER"
 				"EffectName"	"C17T.vo1"
 			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C17.lua"
+				"Function"	"C17T_OnAbilityPhaseStart"
+			}
 		}
 		"OnSpellStart"
 		{

@@ -555,6 +555,14 @@
 			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_snow.vpcf"
 			"particle"	"particles/generic_gameplay/generic_slowed_cold.vpcf"
 		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A04_Takenaka_Juji.lua"
+				"Function"	"A04T_OnAbilityPhaseStart"
+			}
+		}
 		"OnSpellStart"
 		{
 			"FireSound"

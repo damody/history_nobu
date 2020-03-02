@@ -215,6 +215,19 @@ function C17W(keys)
 	end)			
 end
 
+function C17T_OnAbilityPhaseStart(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local point = caster:GetCursorPosition()
+	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local aura_radius = ability:GetSpecialValueFor("aoe")
+	local spell_hint_table = {
+		duration   = 1,		-- 持續時間
+		radius     = aura_radius,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
+end
 
 function C17T(keys)
 	--【Basic】
@@ -239,7 +252,7 @@ function C17T(keys)
 	-- ParticleManager:SetParticleControl(particle,0, point2+Vector(0,0,40))
 	--【Group】	
  	local group = FindUnitsInRadius(caster:GetTeamNumber(), point2, nil, aoeradius,ability:GetAbilityTargetTeam(),
- 	 ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_CLOSEST, false)
+ 	ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_CLOSEST, false)
 	for i,v in ipairs(group) do
 		if (not v:IsBuilding()) then
 			local dmg2 = v:GetMaxHealth()*hpx/100

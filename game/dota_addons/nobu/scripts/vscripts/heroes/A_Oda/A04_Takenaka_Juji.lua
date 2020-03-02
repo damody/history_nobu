@@ -378,6 +378,20 @@ function A04D_ATTACK_UNIT( event )
 	end
 end
 
+function A04T_OnAbilityPhaseStart( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local point = caster:GetCursorPosition()
+	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local aura_radius = ability:GetSpecialValueFor("radius")
+	local spell_hint_table = {
+		duration   = 0.5,		-- 持續時間
+		radius     = aura_radius,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=0.5})
+end
+
 function A04T( keys )
 	local ability = keys.ability
 	local caster = keys.caster
@@ -395,10 +409,19 @@ function A04T( keys )
 	local refModifierName = "modifier_freezing_field_ref_point_datadriven"
 	local particleName = "particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_explosion.vpcf"
 	local soundEventName = "hero_Crystal.freezingField.explosion"
-
+	local point = caster:GetCursorPosition()
+	local dummy2 = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local aura_radius = ability:GetSpecialValueFor("radius")
+	local spell_hint_table = {
+		duration   = 10,		-- 持續時間
+		radius     = aura_radius,		-- 半徑
+	}
+	dummy2:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy2:AddNewModifier(nil,nil,"modifier_kill",{duration=10})
 	ability:ApplyDataDrivenModifier( dummy, dummy, "modifier_freezing_field_caster_datadriven",{duration=8} )
 	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=10})
 	caster.dummy = dummy
+	caster.dummy2 = dummy2
 	Timers:CreateTimer(function()
 		if  ( caster:IsChanneling() ) then
 			local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
@@ -446,6 +469,7 @@ function A04T( keys )
 			return 0.7
 		else
 			caster.dummy:ForceKill(true)
+			caster.dummy2:ForceKill(true)
 			return nil
 		end
 	end)

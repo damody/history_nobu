@@ -295,9 +295,14 @@
 		"AbilityCooldown"           				"100"
 		"AbilityManaCost"           				"300"
 		"AbilityCastRange"							"1000"
-		
+
 		"OnSpellStart"
 		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A11.lua"
+				"Function"		"A11T_OnSpellStart"
+			}
 			"ApplyModifier"
 			{
 				"ModifierName"	"modifier_A11T"

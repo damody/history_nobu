@@ -36,7 +36,6 @@
 		{
 			_class = "C_OP_OscillateScalarSimple"
 			m_nField = "3"
-			m_Rate = 10.0
 		},
 		{
 			_class = "C_OP_MovementPlaceOnGround"

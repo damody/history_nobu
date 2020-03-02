@@ -105,6 +105,21 @@ function A11R( keys )
 	end
 end
 
+function A11T_OnSpellStart( keys )
+	print("spell")
+	local caster = keys.caster
+	local ability = keys.ability
+	local radius = ability:GetSpecialValueFor("A11T_radius")
+	local duration = ability:GetSpecialValueFor("A11T_duration")
+	local spell_hint_table = {
+		duration   = duration,		-- 持續時間
+		radius     = radius,		-- 半徑
+		show 	   = true,
+		caster     = caster
+	}
+	caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint_self",spell_hint_table)
+end
+
 function A11T( keys )
 	local caster = keys.caster
 	local ability = keys.ability
