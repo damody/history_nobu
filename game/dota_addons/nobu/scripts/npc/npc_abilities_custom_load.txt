@@ -2854,6 +2854,38 @@
 			}
 		}
 	}
+	// 加速
+	"speed_up"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/icon_128x128_47"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"Modifiers"
+		{
+			"modifier_speed_up"
+			{
+				"IsBuff"	"1"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"		"600"
+				}
+				"OnTakeDamage"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"	"modifier_speed_up"
+						"Target"	"CASTER"
+					}
+				}
+			}
+		}
+	}
+
 	// 召集戰法
 	"war_magic_gohome"
 	{

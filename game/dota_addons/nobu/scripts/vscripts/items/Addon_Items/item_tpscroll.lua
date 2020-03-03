@@ -38,10 +38,20 @@ function Shock( keys )
 					target:RemoveModifierByName("modifier_wantgohome")
 					target:RemoveModifierByName("modifier_gohomelua")
 				end)
+				caster:AddAbility("speed_up"):SetLevel(1)
+				Timers:CreateTimer(8, function()
+					caster:RemoveAbility("speed_up")
+					caster:RemoveModifierByName("modifier_speed_up")
+				end)
 			end
 		else
 			count = count + 0.5
 			return 0.5
 		end
 	end)
+end
+
+function OnTakeDamage(keys)
+	local caster = keys.caster
+	caster:RemoveModifierByName("modifier_speed_up")
 end

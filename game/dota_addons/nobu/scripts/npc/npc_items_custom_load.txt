@@ -13983,6 +13983,22 @@
 				"ScriptFile"	"items/Addon_Items/item_tpscroll.lua"
 				"Function"		"Shock"
 			}
-		}		
+		}
+		"Modifiers"
+		{
+			"modifier_speed_up"
+			{
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"100"
+				}
+				"OntakeDamage"
+				{
+					"ScriptFile"	"items/Addon_Items/item_tpscroll.lua"
+					"Function"		"OnTakeDamage"
+				}
+			}
+		}
 	}
 }
