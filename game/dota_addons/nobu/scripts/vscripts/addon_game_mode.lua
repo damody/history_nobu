@@ -550,7 +550,6 @@ else
   GameRules:GetGameModeEntity():ClearExecuteOrderFilter()
   GameRules:GetGameModeEntity():ClearModifyGoldFilter()
   GameRules:GetGameModeEntity():ClearDamageFilter()
-  GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(false)
   --GameRules:GetGameModeEntity():ClearAbilityTuningValueFilter()
 
   --重新註冊
@@ -578,6 +577,7 @@ function Activate()
     end
     Nobu:InitGameMode()
     Nobu:Init_Event_and_Filter_GameMode() --管理事件、Filter
+    GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
   -- end
 end
 

@@ -39,7 +39,7 @@ function Nobu:OnHeroIngame( keys )
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
           hero:AddItem(CreateItem("item_logging", hero, hero))
-          -- 叫馬
+          --[[叫馬
           local donkey = CreateUnitByName("npc_dota_courier", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
           donkey.oripos = donkey:GetAbsOrigin()
           hero.donkey = donkey
@@ -57,6 +57,7 @@ function Nobu:OnHeroIngame( keys )
           donkey:AddAbility("for_magic_immune"):SetLevel(1)
           donkey:AddAbility("for_no_collision"):SetLevel(1)
           donkey:AddAbility("for_move500"):SetLevel(1)
+          ]]
         end
       end
     end)
