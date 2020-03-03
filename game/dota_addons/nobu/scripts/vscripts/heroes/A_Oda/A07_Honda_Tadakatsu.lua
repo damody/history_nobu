@@ -149,7 +149,7 @@ end
 
 -- Destroys the particle when the modifier is destroyed. Also plays the sound
 function A07W_EndShieldParticle( event )
-	local target = event.target
+	local target = event.caster
 	if target.ShieldParticle ~= nil then
 		ParticleManager:DestroyParticle(target.ShieldParticle,false)
 		target.ShieldParticle = nil

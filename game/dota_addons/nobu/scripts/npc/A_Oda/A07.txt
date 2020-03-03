@@ -131,6 +131,12 @@
 			}
 			"RunScript"
 			{
+				"Target"	"CASTER"
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A07_Honda_Tadakatsu.lua"
+				"Function"	"A07W_EndShieldParticle"
+			}
+			"RunScript"
+			{
 				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A07_Honda_Tadakatsu.lua"
 				"Function"	"A07W_SE"
 				"Target"	"CASTER"
