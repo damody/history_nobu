@@ -1537,40 +1537,27 @@
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/icon_128x128_64"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"Modifiers"
 		{
 			"modifier_archer_attack"
 			{
 				"Passive"	"1"
+				"IsHidden"	"1"
 				"OnAttackLanded"
 				{
 					"RunScript"
 					{
-						"dmg"	"%attack_damage"
-						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B01.lua"
-						"Function"	"B01R4"
+						"damage"	"%attack_damage"
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Tower_attack"
 					}
 				}
 			}
 		}
 		"AbilitySpecial"
 		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"atk_hero"	"50"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"atk_building"	"0"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"atk_unit"	"0"
-			}
+
 		}
 	}
 

@@ -6957,7 +6957,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7008,7 +7008,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7059,7 +7059,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7111,7 +7111,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7163,7 +7163,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7215,7 +7215,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7267,7 +7267,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7319,7 +7319,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7371,7 +7371,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7423,7 +7423,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7474,7 +7474,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7525,7 +7525,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7577,7 +7577,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7629,7 +7629,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7681,7 +7681,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -7733,7 +7733,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"130"
 		"Ability1"	"unit_armor"
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		"ArmorPhysical"	"2"
 		"MagicalResistance"	"0"
 		// Attack
@@ -8268,7 +8268,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		// Reference: A0GW
 		"Ability2"	"unit_armor"
 		// Armor
@@ -8344,7 +8344,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		// Reference: A0GW
 		"Ability2"	"unit_armor"
 		// Armor
@@ -8420,7 +8420,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		// Reference: A0GW
 		"Ability2"	"unit_armor"
 		// Armor
@@ -8496,7 +8496,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		// Reference: A0GW
 		"Ability2"	"unit_armor"
 		// Armor
@@ -8569,7 +8569,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8620,7 +8620,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8671,7 +8671,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8722,7 +8722,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8774,7 +8774,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8826,7 +8826,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8878,7 +8878,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8930,7 +8930,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -8982,7 +8982,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -9033,7 +9033,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -9084,7 +9084,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -9135,7 +9135,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -9187,7 +9187,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -9239,7 +9239,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -9291,7 +9291,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -9343,7 +9343,7 @@
 		"BoundsHullName"	"DOTA_HULL_SIZE_REGULAR"
 		"HealthBarOffset"	"100"
 		// Abilities
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
@@ -9397,7 +9397,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	"archer_attack"
+		"Ability1"	"tower_attack"
 		// Reference: A0GW
 		"Ability2"	"unit_armor"
 		// Armor
@@ -9546,7 +9546,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -9629,7 +9629,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -9711,7 +9711,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -9793,7 +9793,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -9875,7 +9875,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -9957,7 +9957,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -10039,7 +10039,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -10121,7 +10121,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -10203,7 +10203,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -10285,7 +10285,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -10367,7 +10367,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -10449,7 +10449,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -10531,7 +10531,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -10613,7 +10613,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -10695,7 +10695,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -10777,7 +10777,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -10859,7 +10859,7 @@
 		// Reference: A0GD
 		"Ability2"	"unit_armor"
 		// Reference: A0GW
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"2"
@@ -10939,7 +10939,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -11020,7 +11020,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -11102,7 +11102,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -11184,7 +11184,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -11266,7 +11266,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -11348,7 +11348,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -11430,7 +11430,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -11512,7 +11512,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -11594,7 +11594,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -11675,7 +11675,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -11756,7 +11756,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -11837,7 +11837,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -11918,7 +11918,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -11999,7 +11999,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -12080,7 +12080,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -12161,7 +12161,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -12242,7 +12242,7 @@
 		// Reference: A0GD
 		"Ability1"	"unit_armor"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"4"
@@ -12323,7 +12323,7 @@
 		// Reference: A0GD
 		"Ability1"	""
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"tower_attack"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"20"
@@ -13193,7 +13193,7 @@
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13276,7 +13276,7 @@
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13359,7 +13359,7 @@
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13444,7 +13444,7 @@
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13527,7 +13527,7 @@
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13610,7 +13610,7 @@
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13695,7 +13695,7 @@
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13778,7 +13778,7 @@
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -13861,7 +13861,7 @@
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
-		"Ability3"	""
+		"Ability3"	"tower_attack"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""

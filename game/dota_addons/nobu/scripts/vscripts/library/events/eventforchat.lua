@@ -363,7 +363,7 @@ local function chat_of_test(keys)
 			local unit = CreateUnitByName(unit_name, caster:GetAbsOrigin() , true, nil, nil, DOTA_TEAM_BADGUYS)
 			unit:SetControllableByPlayer(keys.playerid,true)
 			unit:AddAbility("set_level_1"):SetLevel(1)	
-			local hp = unit:GetMaxHealth() * 100
+			local hp = unit:GetMaxHealth()
 			unit:SetBaseMaxHealth(hp+A_count * 8)
 			local dmgmax = unit:GetBaseDamageMax()
 			local dmgmin = unit:GetBaseDamageMin()

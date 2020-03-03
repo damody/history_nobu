@@ -461,12 +461,14 @@ end
 function Unit_armor( keys )
   local caster = keys.caster
   local target = keys.attacker
-  local ability = keys.ability
   local damage = keys.dmg
+  if caster.health_after_hit == nil then
+    caster.health_after_hit = caster:GetHealth()
+  end
   if target:IsHero() then
   elseif target:IsBuilding() then
-    if damage < caster:GetHealth() then
-      caster:SetHealth(caster:GetHealth() + damage*0.75)
+    if damage*0.25 < caster.health_after_hit then
+      caster:SetHealth(caster.health_after_hit - damage + damage * 0.75)
     end
   else
   end
@@ -476,11 +478,19 @@ function Tower_armor( keys )
   local caster = keys.caster
 	local target = keys.attacker
   local damage = keys.dmg
+  if caster.health_after_hit == nil then
+    caster.health_after_hit = caster:GetHealth()
+  end
   if target:IsHero() then
   elseif target:IsBuilding() then
   else
-    if damage < caster:GetHealth() then
-      caster:SetHealth(caster:GetHealth() + damage*0.75)
+    if damage*0.25 < caster.health_after_hit then
+      caster:SetHealth(caster.health_after_hit - damage + damage * 0.75)
     end
   end
+end
+
+function Tower_attack( keys )
+  local target = keys.target
+  target.health_after_hit = target:GetHealth()
 end
