@@ -361,6 +361,7 @@ local function chat_of_test(keys)
 			local randomkey = RandomInt(1,8)
 			unit_name = "com_archer_oda_" .. randomkey
 			local unit = CreateUnitByName(unit_name, caster:GetAbsOrigin() , true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit:SetControllableByPlayer(keys.playerid,true)
 			unit:AddAbility("set_level_1"):SetLevel(1)	
 			local hp = unit:GetMaxHealth() * 100
 			unit:SetBaseMaxHealth(hp+A_count * 8)
@@ -375,6 +376,7 @@ local function chat_of_test(keys)
 			local randomkey = RandomInt(1,8)
 			unit_name = "com_infantry_oda_" .. randomkey
 			local unit = CreateUnitByName(unit_name, caster:GetAbsOrigin() , true, nil, nil, DOTA_TEAM_BADGUYS)
+			unit:SetControllableByPlayer(keys.playerid,true)
 			unit:AddAbility("set_level_1"):SetLevel(1)	
 			local hp = unit:GetMaxHealth()-100
 			unit:SetBaseMaxHealth(hp+A_count * 1 + 150)

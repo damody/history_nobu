@@ -8200,7 +8200,7 @@
 		// Reference: A0GD
 		"Ability1"	"archer_attack"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"14"
@@ -8276,7 +8276,7 @@
 		// Reference: A0GD
 		"Ability1"	"archer_attack"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"14"
@@ -8352,7 +8352,7 @@
 		// Reference: A0GD
 		"Ability1"	"archer_attack"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"14"
@@ -8428,7 +8428,7 @@
 		// Reference: A0GD
 		"Ability1"	"archer_attack"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
@@ -8500,7 +8500,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -8551,7 +8551,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -8602,7 +8602,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -8653,7 +8653,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -8705,7 +8705,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -8757,7 +8757,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -8809,7 +8809,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -8861,7 +8861,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -8913,7 +8913,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -8964,7 +8964,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -9015,7 +9015,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -9066,7 +9066,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -9118,7 +9118,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -9170,7 +9170,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -9222,7 +9222,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -9274,7 +9274,7 @@
 		"HealthBarOffset"	"100"
 		// Abilities
 		"Ability1"	"archer_attack"
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		"ArmorPhysical"	"0"
 		"MagicalResistance"	"0"
@@ -9329,7 +9329,7 @@
 		// Reference: A0GD
 		"Ability1"	"archer_attack"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
@@ -9474,7 +9474,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -9557,7 +9557,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -9639,7 +9639,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -9721,7 +9721,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -9803,7 +9803,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -9885,7 +9885,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -9967,7 +9967,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -10049,7 +10049,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -10131,7 +10131,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -10213,7 +10213,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -10295,7 +10295,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -10377,7 +10377,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -10459,7 +10459,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -10541,7 +10541,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -10623,7 +10623,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -10705,7 +10705,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -10787,7 +10787,7 @@
 		// Reference: A0NH
 		"Ability1"	"gunner_attack"
 		// Reference: A0GD
-		"Ability2"	""
+		"Ability2"	"unit_armor"
 		// Reference: A0GW
 		"Ability3"	""
 		// Armor
@@ -10867,7 +10867,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: A0GD
-		"Ability1"	""
+		"Ability1"	"unit_armor"
 		// Reference: A0GW
 		"Ability2"	""
 		// Armor

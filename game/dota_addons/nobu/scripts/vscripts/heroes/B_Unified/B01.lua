@@ -351,19 +351,6 @@ function Unit_armor( keys )
 		print("unit")
 	end
 end
-function Tower_armor( keys )
-	local caster = keys.caster
-	local target = keys.target
-	local damage = keys.dmg
-	if target:IsHero() then 
-		print("hero")
-	elseif  target:IsBuilding() then
-	else
-		caster:SetHealth(caster:GetHealth() + damage)
-		AMHC:Damage(caster,caster,damage*0.7,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
-		print("unit")
-	end
-end
 
 function B01R_old(keys)
 	--【Basic】
