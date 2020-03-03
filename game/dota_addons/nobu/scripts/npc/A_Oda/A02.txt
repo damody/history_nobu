@@ -165,7 +165,7 @@
 		"AbilityTextureName"			"dota2/skywrath_mage_concussive_shot"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityCastPoint"	"0.1"
 		"AbilityCooldown"				"15 14 13 12"
 		"AbilityManaCost"				"130 150 170 190"
