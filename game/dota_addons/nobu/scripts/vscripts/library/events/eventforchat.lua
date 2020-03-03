@@ -406,6 +406,12 @@ local function chat_of_test(keys)
 			local team = 4
 			local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
 		end
+		if string.match(s,"search") then
+			local allCouriers = Entities:FindAllByClassname('npc_dota_courier')
+			for k, ent in pairs(allCouriers) do
+				print(ent:GetName())
+			end
+		end
 		if string.match(s,"gold") then
 			PlayerResource:SetGold(keys.playerid,99999,false)
 		end

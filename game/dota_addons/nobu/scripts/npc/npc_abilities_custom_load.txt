@@ -1509,6 +1509,29 @@
 			}
 		}
 	}
+
+	//馬跑速
+	"courier_speed"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/icon_128x128_64"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Modifiers"
+		{
+			"modifier_courier_speed"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"IsPurgable"	"0"
+				"AllowIllusionDuplicate"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"		"550"
+				}
+			}
+		}
+	}
+
 	//箭塔打英雄額外50% 物傷
 	"tower_attack"
 	{
