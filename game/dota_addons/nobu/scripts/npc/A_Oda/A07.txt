@@ -370,23 +370,23 @@
 						"Function"	"A07R_old"
 					}
 				}
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/AON_Cleave.lua"
-						"Function"	"AON_Cleave_A07E"
-						"dmg"	"%attack_damage"
-						"Target"	"TARGET"
-					}
-					"CleaveAttack"
-					{
-						"CleavePercent"	"0"
-						"CleaveRadius"	"%radius"
-						"CleaveEffect"	"particles/a07r/a07r.vpcf"
-					}
-				}
-				"Properties"	{}
+				// "OnAttackLanded"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/AON_Cleave.lua"
+				// 		"Function"	"AON_Cleave_A07E"
+				// 		"dmg"	"%attack_damage"
+				// 		"Target"	"TARGET"
+				// 	}
+				// 	"CleaveAttack"
+				// 	{
+				// 		"CleavePercent"	"0"
+				// 		"CleaveRadius"	"%radius"
+				// 		"CleaveEffect"	"particles/a07r/a07r.vpcf"
+				// 	}
+				// }
+				// "Properties"	{}
 			}
 		}
 		// Special
@@ -789,6 +789,19 @@
 				"AttackAnimationPoint"	"0.2"
 				"OnAttackLanded"
 				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/AON_Cleave.lua"
+						"Function"	"AON_Cleave_A07E"
+						"dmg"	"%attack_damage"
+						"Target"	"TARGET"
+					}
+					"CleaveAttack"
+					{
+						"CleavePercent"	"0"
+						"CleaveRadius"	"%radius"
+						"CleaveEffect"	"particles/a07r/a07r.vpcf"
+					}
 					"FireEffect"
 					{
 						"EffectName"	"particles/a07e/a07e_t.vpcf"
@@ -822,10 +835,14 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_movement_speed"
 					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"	"3"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"90"
+					// "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"90"
 					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"0.8"
 					"MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS" "alternate"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%str"
+				}
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Duration"	"%duration"
 				"IsBuff"	"1"
@@ -859,12 +876,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"duration"	"20 25 30"
+				"duration"	"8 12 16"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"bonus_movement_speed"	"65"
+				"bonus_movement_speed"	"0"
 			}
 			"03"
 			{
@@ -875,6 +892,16 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"str"	"15 25 35"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"365"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"CleavePercent"	"100"
 			}
 		}
 		// Stats
@@ -1554,7 +1581,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"crit_persent"	"140 160 180 200"
+				"CleavePercent"	"140 160 180 200"
 			}
 		}
 	}
