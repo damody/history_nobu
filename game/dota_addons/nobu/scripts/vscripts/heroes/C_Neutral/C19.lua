@@ -38,7 +38,7 @@ function Teleport( event )
 	local caster = event.caster
 	local ability = event.ability
 	--local point = event.target_points[1]
-	local point = event.target:GetAbsOrigin()
+	local point = ability:GetCursorPosition()
 	
     FindClearSpaceForUnit(caster, point, true)
     caster:Stop() 
@@ -47,7 +47,15 @@ end
 
 function CreateTeleportParticles( event )
 	local caster = event.caster
-	local point = event.target:GetAbsOrigin()
+	local ability = event.ability
+	local point = ability:GetCursorPosition()
+	local teammate = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING, 0, 0, false )
+	caster.teammateCount = #teammate
+	if #teammate < 1 then
+		caster:RemoveModifierByName("modifier_teleportation")
+		caster:Stop()
+		return
+	end
 	local particleName = "particles/units/heroes/hero_furion/furion_teleport_end.vpcf"
 	caster.teleportParticle = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
 	ParticleManager:SetParticleControl(caster.teleportParticle, 1, point)	
