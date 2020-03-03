@@ -35,7 +35,9 @@ function A08R_OnAttackLanded( keys )
 
 	local buff = math.floor((100-caster:GetHealthPercent())*0.1)
 	local dmg = dmg1+dmg2*buff
-	AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+	if not target:IsBuilding() then
+		AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+	end
 end
 
 
