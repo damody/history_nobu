@@ -345,30 +345,43 @@ function Nobu:OnUnitKill( keys )
           print("king_of_robbers")
         end
       end)
+    elseif string.match(name, "courier") then
+      if killedUnit:GetTeamNumber() == 2 then
+        killedUnit:RespawnUnit()  
+        killedUnit:SetOrigin(Vector(6912,-7168,128))
+      else
+        killedUnit:RespawnUnit()
+        killedUnit:SetOrigin(Vector(-7168,6656,128))
+      end
+      local for_no_collision = killedUnit:FindAbilityByName("for_no_collision")
+      if for_no_collision then
+        for_no_collision:ApplyDataDrivenModifier(killedUnit,killedUnit,"modifier_for_no_collision",nil)
+      end
+    -- end
     end
 
-    if killedUnit:GetUnitName() == "npc_dota_courier2" or killedUnit:GetUnitName() == "npc_dota_courier" then
-      local sump = 0
-      for playerID = 0, 9 do
-        local id = playerID
-          local p = PlayerResource:GetPlayer(id)
-          if p ~= nil then
-          sump = sump + 1
-        end
-      end
-      if sump > 1 then
-        killedUnit:RespawnUnit()
-        Timers:CreateTimer(0.1, function()
-          killedUnit:FindAbilityByName("for_magic_immune"):
-          ApplyDataDrivenModifier(killedUnit,killedUnit,"modifier_for_magic_immune",nil)
-          local for_no_collision = killedUnit:FindAbilityByName("for_no_collision")
-          if for_no_collision then
-            for_no_collision:ApplyDataDrivenModifier(killedUnit,killedUnit,"modifier_for_no_collision",nil)
-          end
-        end)
-        killedUnit:SetOrigin(killedUnit.oripos)
-      end
-    end
+    -- if killedUnit:GetUnitName() == "npc_dota_courier2" or killedUnit:GetUnitName() == "npc_dota_courier" then
+    --   local sump = 0
+    --   for playerID = 0, 9 do
+    --     local id = playerID
+    --       local p = PlayerResource:GetPlayer(id)
+    --       if p ~= nil then
+    --       sump = sump + 1
+    --     end
+    --   end
+    --   if sump > 1 then
+    --     killedUnit:RespawnUnit()
+    --     Timers:CreateTimer(0.1, function()
+    --       killedUnit:FindAbilityByName("for_magic_immune"):
+    --       ApplyDataDrivenModifier(killedUnit,killedUnit,"modifier_for_magic_immune",nil)
+    --       local for_no_collision = killedUnit:FindAbilityByName("for_no_collision")
+    --       if for_no_collision then
+    --         for_no_collision:ApplyDataDrivenModifier(killedUnit,killedUnit,"modifier_for_no_collision",nil)
+    --       end
+    --     end)
+    --     killedUnit:SetOrigin(killedUnit.oripos)
+    --   end
+    -- end
   --print("dead")
   -- 統計威望
   prestige = _G.prestige
