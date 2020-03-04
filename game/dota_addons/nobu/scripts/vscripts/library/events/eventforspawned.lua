@@ -39,6 +39,10 @@ function Nobu:OnHeroIngame( keys )
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
           hero:AddItem(CreateItem("item_logging", hero, hero))
+          local allCouriers = Entities:FindAllByClassname('npc_dota_courier')
+			    for k, ent in pairs(allCouriers) do
+				    ent:ForceKill(true)
+			    end
           --[[叫馬
           local donkey = CreateUnitByName("npc_dota_courier", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
           donkey.oripos = donkey:GetAbsOrigin()
