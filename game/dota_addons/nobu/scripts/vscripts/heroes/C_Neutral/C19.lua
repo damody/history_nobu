@@ -50,8 +50,14 @@ function CreateTeleportParticles( event )
 	local ability = event.ability
 	local point = ability:GetCursorPosition()
 	local teammate = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING, 0, 0, false )
-	caster.teammateCount = #teammate
-	if #teammate < 1 then
+	caster.IsTeammate = false
+	for _,unit in ipairs(teammate) do
+		if unit:GetName() ~= "npc_dota_courier" then
+			caster.IsTeammate = true
+			break
+		end
+    end 
+	if not caster.IsTeammate then
 		caster:RemoveModifierByName("modifier_teleportation")
 		caster:Stop()
 		return
