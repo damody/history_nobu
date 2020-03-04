@@ -287,6 +287,15 @@
 					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "50" //減前搖
 				}
 			}
+			"Passive_the_over_lightning_art_of_war_Unique"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "50" //減前搖
+				}
+			}
 		}
 	}
 
