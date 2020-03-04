@@ -187,7 +187,6 @@ function SplitShotLaunch( keys )
 	local caster_location = caster:GetAbsOrigin()
 	local ability = keys.ability
 	local ability_level = ability:GetLevel() - 1
-
 	-- Targeting variables
 	local target_type = ability:GetAbilityTargetType()
 	local target_team = ability:GetAbilityTargetTeam()
@@ -236,8 +235,7 @@ function SplitShotDamage( keys )
 	damage_table.attacker = caster
 	damage_table.victim = target
 	damage_table.damage_type = ability:GetAbilityDamageType()
-	damage_table.damage = caster:GetAttackDamage()
-
+	damage_table.damage = caster:GetAverageTrueAttackDamage(target)
 	ApplyDamage(damage_table)
 end
 
