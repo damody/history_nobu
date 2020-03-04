@@ -102,14 +102,6 @@ function Nobu:OnGameRulesStateChange( keys )
     --出兵觸發
     if _G.nobu_chubing_b then
 	  ShuaGuai()
-	  for i=0,20 do
-		-- 跳錢
-		Timers:CreateTimer(45, function()
-			local gold = PlayerResource:GetGold(i)
-			PlayerResource:SetGold(i,gold + 3,false)
-			return 2
-		end)
-	  end
 	end
 	-- 出強王時間
 	Timers:CreateTimer(180, function()
