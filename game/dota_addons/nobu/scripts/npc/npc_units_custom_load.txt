@@ -13912,8 +13912,8 @@
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"150.0"
-		"BountyGoldMax"	"150.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"0"
 		// Gold and Lumber
 		// ----------------------------------------------------------------

@@ -192,8 +192,14 @@ function Nobu:FilterGold( filterTable )
     local playerID = filterTable["player_id_const"]
     local reason = filterTable["reason_const"]
     filterTable["reliable"] = 0
+    if reason == DOTA_ModifyGold_Building then      
+      if gold ~= 150 and gold ~= 750 and gold ~= 50 then return false end
+      if gold == 750 then filterTable["gold"] = 300 end
+      return true
+    end
     -- Disable all hero kill gold
     if reason == DOTA_ModifyGold_HeroKill then
+      PrintTable(filterTable)
       if gold == 150 or gold == 300 or gold == 450 then
         _G.not_assist = playerID
         return true
@@ -240,12 +246,12 @@ function Nobu:Init_Event_and_Filter_GameMode()
   --【Filter】
   GameRules:GetGameModeEntity():SetExecuteOrderFilter( Nobu.eventfororder, self )
   GameRules:GetGameModeEntity():SetDamageFilter( Nobu.DamageFilterEvent, self )
-  GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(Nobu, "ModifyGoldFilter"), Nobu)
+  -- GameRules:GetGameModeEntity():SetModifyGoldFilter(Dynamic_Wrap(Nobu, "ModifyGoldFilter"), Nobu)
   GameRules:GetGameModeEntity():SetAbilityTuningValueFilter(Dynamic_Wrap(Nobu, "AbilityTuningValueFilter"), Nobu)
   GameRules:GetGameModeEntity():SetItemAddedToInventoryFilter(Dynamic_Wrap(Nobu, "SetItemAddedToInventoryFilter"), Nobu)  --用来控制物品被放入物品栏时的行为
   GameRules:GetGameModeEntity():SetModifyExperienceFilter(Dynamic_Wrap(Nobu, "SetModifyExperienceFilter"), Nobu)  --經驗值
   GameRules:GetGameModeEntity():SetTrackingProjectileFilter(Dynamic_Wrap(Nobu, "SetTrackingProjectileFilter"), Nobu)  --投射物
-  GameRules:GetGameModeEntity():SetModifyGoldFilter( Dynamic_Wrap( Nobu, "FilterGold" ), self )
+  GameRules:GetGameModeEntity():SetModifyGoldFilter( Dynamic_Wrap( Nobu, "FilterGold" ), Nobu ) --金錢事件 不知道為什麼會跳兩次
   
   --【Evnet】
   Nobu.Event ={
