@@ -183,9 +183,9 @@ function B15D_SplitShotDamage( keys )
 	damage_table.victim = target
 	damage_table.damage_type = ability:GetAbilityDamageType()
 	if caster:IsIllusion() then
-		damage_table.damage = caster:GetAttackDamage() * 0.3
+		damage_table.damage = caster:GetAverageTrueAttackDamage(target) * 0.3
 	else
-		damage_table.damage = caster:GetAttackDamage()
+		damage_table.damage = caster:GetAverageTrueAttackDamage(target)
 	end
 	ApplyDamage(damage_table)
 
