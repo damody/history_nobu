@@ -1,5 +1,5 @@
 LinkLuaModifier( "modifier_charges", "scripts/vscripts/heroes/modifier_charges.lua",LUA_MODIFIER_MOTION_NONE )
-local B01E_units = {nil,nil,nil,nil,nil,nil,nil,nil}
+local B01E_units = {nil,nil,nil,nil,nil}
 function B01W( keys )
 	--【Basic】
 	local caster = keys.caster
@@ -42,14 +42,18 @@ function B01E(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local count = ability:GetSpecialValueFor("count")
+	if caster.count == nil then
+		caster.count = 2
+	end
 	local cooldown = ability:GetSpecialValueFor("cooldown")
 	if caster:HasModifier("modifier_charges") then
+		caster.count = caster:FindModifierByName("modifier_charges"):GetStackCount()
 		caster:RemoveModifierByName("modifier_charges")
 	end
 	caster:AddNewModifier(caster, caster:FindAbilityByName("B01E"), "modifier_charges",
         {
             max_count = count,
-            start_count = count,
+            start_count = caster.count,
             replenish_time = cooldown
         }
     )
@@ -128,7 +132,6 @@ function B01E_CHECK(keys)
 		B01E_units[tmp]:ForceKill(true)
 		B01E_units[tmp]:Destroy()
 	end
-	print(tmp)
 	B01E_units[tmp] = target	
 	-- table.insert(caster.B01E, target)
 	target:SetBaseDamageMin(70+caster:GetLevel()*10)
