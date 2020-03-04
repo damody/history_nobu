@@ -11392,6 +11392,15 @@
 					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE" "20" //減CD
 				}
 			}
+			"Passive_art_of_war_Unique"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE" "20" //減CD
+				}
+			}
 		}
 		"AbilitySpecial"
 		{
