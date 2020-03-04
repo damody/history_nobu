@@ -22,6 +22,10 @@ function Shock0( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
+	if target:IsCourier() then
+		caster:Stop()
+		return 
+	end
 	caster:EmitSound("MassTeleportTarget")
 	local count = 0
 	Timers:CreateTimer(1, function()
