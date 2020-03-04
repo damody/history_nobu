@@ -32,7 +32,15 @@ function Shock( keys )
 			ParticleManager:DestroyParticle(ifx_cloud,false)
 		end
 		end)
-	
+	--spell hint
+	local dummy = CreateUnitByName("hide_unit", target_point , true, nil, caster, caster:GetTeamNumber()) 
+	local spell_hint_table = {
+		duration   = ability:GetChannelTime(),		-- 持續時間
+		radius     = aoe_radius,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=ability:GetChannelTime()})
+	--channel timer
 	Timers:CreateTimer(0, function()
 		AddFOWViewer(DOTA_TEAM_GOODGUYS,caster:GetAbsOrigin(), 300, 1, false)
 		AddFOWViewer(DOTA_TEAM_BADGUYS,caster:GetAbsOrigin(), 300, 1, false)
@@ -77,6 +85,7 @@ function Shock( keys )
 		else
 			ParticleManager:DestroyParticle(ifx_cloud,false)
 			ifx_cloud = nil
+			dummy:ForceKill(true)
 			return nil
 		end
 	end)
