@@ -1544,13 +1544,28 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Tower_attack"
+					}
+				}
 				"OnAttackLanded"
 				{
 					"RunScript"
 					{
-						"damage"	"%attack_damage"
 						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Tower_attack"
+						"Function"	"Tower_attack_landed"
+					}
+				}
+				"OnAttackFail"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Tower_attack_landed"
 					}
 				}
 			}

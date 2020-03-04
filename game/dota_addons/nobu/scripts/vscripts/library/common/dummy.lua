@@ -459,38 +459,46 @@ function CP_recover( keys )
 end
 
 function Unit_armor( keys )
-  local caster = keys.caster
-  local target = keys.attacker
-  local damage = keys.dmg
-  if caster.health_after_hit == nil then
-    caster.health_after_hit = caster:GetHealth()
-  end
-  if target:IsHero() then
-  elseif target:IsBuilding() then
-    if damage*0.25 < caster.health_after_hit then
-      caster:SetHealth(caster.health_after_hit - damage + damage * 0.75)
-    end
-  else
-  end
+
 end
 
 function Tower_armor( keys )
-  local caster = keys.caster
-	local target = keys.attacker
-  local damage = keys.dmg
-  if caster.health_after_hit == nil then
-    caster.health_after_hit = caster:GetHealth()
-  end
-  if target:IsHero() then
-  elseif target:IsBuilding() then
-  else
-    if damage*0.25 < caster.health_after_hit then
-      caster:SetHealth(caster.health_after_hit - damage + damage * 0.75)
-    end
-  end
+
 end
 
 function Tower_attack( keys )
+  local caster = keys.caster
   local target = keys.target
-  target.health_after_hit = target:GetHealth()
+  if caster.max_damage_tmp == nil then
+    caster.max_damage_tmp = caster:GetBaseDamageMax()
+  end
+  if caster.min_damage_tmp == nil then
+    caster.min_damage_tmp = caster:GetBaseDamageMin()
+  end
+  if caster.max_damage_tmp < caster:GetBaseDamageMax() then
+    caster.max_damage_tmp = caster:GetBaseDamageMax()
+  end
+  if caster.min_damage_tmp < caster:GetBaseDamageMax() then
+    caster.min_damage_tmp = caster:GetBaseDamageMin()
+  end
+  if caster.max_damage_tmp > caster:GetBaseDamageMax() then
+    caster:SetBaseDamageMax(caster.max_damage_tmp)
+  end
+  if caster.min_damage_tmp > caster:GetBaseDamageMax() then
+    caster:SetBaseDamageMin(caster.min_damage_tmp)
+  end
+  if target:IsHero() then
+  elseif target:IsBuilding() and not caster:IsBuilding() then
+    caster:SetBaseDamageMax(caster.max_damage_tmp * 0.25)
+    caster:SetBaseDamageMin(caster.min_damage_tmp * 0.25)
+  elseif caster:IsBuilding() then
+    caster:SetBaseDamageMax(caster.max_damage_tmp * 0.25)
+    caster:SetBaseDamageMin(caster.min_damage_tmp * 0.25)
+  end
+end
+
+function Tower_attack_landed( keys )
+  local caster = keys.caster
+  caster:SetBaseDamageMax(caster.max_damage_tmp)
+  caster:SetBaseDamageMin(caster.min_damage_tmp)
 end
