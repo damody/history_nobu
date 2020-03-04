@@ -516,7 +516,7 @@
 		"AbilityDamage"		"1800" //打滿的傷害
 		"AbilityCooldown"	"40"
 		"AbilityManaCost"	"190"
-		"AoERadius"			"800"
+		"AoERadius"			"600"
 		"AbilityCastRange"	"800"
 		"AbilityCastPoint"	"0"
 		"ID"	"2825"
@@ -572,7 +572,7 @@
 			"03"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"aoe_radius"	"800"
+				"aoe_radius"	"600"
 			}
 			"04"
 			{
