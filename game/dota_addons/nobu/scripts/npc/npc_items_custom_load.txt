@@ -516,8 +516,8 @@
 		"AbilityDamage"		"1800" //打滿的傷害
 		"AbilityCooldown"	"40"
 		"AbilityManaCost"	"190"
-		"AoERadius"			"1200"
-		"AbilityCastRange"	"1200"
+		"AoERadius"			"800"
+		"AbilityCastRange"	"800"
 		"AbilityCastPoint"	"0"
 		"ID"	"2825"
 		"ItemQuality"	"component"
@@ -572,12 +572,12 @@
 			"03"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"aoe_radius"	"1200"
+				"aoe_radius"	"800"
 			}
 			"04"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"aoe_damage"	"180"
+				"aoe_damage"	"108"
 			}
 		}
 	}

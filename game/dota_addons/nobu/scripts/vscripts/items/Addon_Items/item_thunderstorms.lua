@@ -6,7 +6,7 @@ function Shock( keys )
 	local target_point = keys.target_points[1]
 	local ability = keys.ability
 	
-	local aoe_damage = ability:GetLevelSpecialValueFor("aoe_damage",0) + caster:GetLevel()*10
+	local aoe_damage = ability:GetLevelSpecialValueFor("aoe_damage",0) + caster:GetLevel()*14
 	local aoe_radius = ability:GetLevelSpecialValueFor("aoe_radius",0)
 	local aoe_delay  = ability:GetLevelSpecialValueFor("aoe_delay" ,0)
 	local duration   = ability:GetLevelSpecialValueFor("duration"  ,0)
@@ -20,7 +20,7 @@ function Shock( keys )
 	local damage_type = ability:GetAbilityDamageType()
 
 	
-	AddFOWViewer(caster:GetTeamNumber(),target_point,aoe_radius+100,3,false)
+	AddFOWViewer(caster:GetTeamNumber(),target_point,aoe_radius,3,false)
 	AddFOWViewer(DOTA_TEAM_GOODGUYS,caster:GetAbsOrigin(), 300, 1, false)
 	AddFOWViewer(DOTA_TEAM_BADGUYS,caster:GetAbsOrigin(), 300, 1, false)
 
