@@ -501,7 +501,7 @@ function modifier_C08T_bleeding_OnIntervalThink( keys )
 			
 		end
 		target:RemoveModifierByName("modifier_in_belly")
-		AMHC:Damage(caster.donkey,target,abilityDamage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		AMHC:Damage(caster,target,abilityDamage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_in_belly",{duration=1.5})
 	end
 	caster.last_pos = caster:GetAbsOrigin()
