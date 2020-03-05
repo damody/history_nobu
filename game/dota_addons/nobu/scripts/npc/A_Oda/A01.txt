@@ -190,7 +190,7 @@
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"meepo_earthbind"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -200,6 +200,7 @@
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
 		"AbilityCastRange"	"700"
 		"AbilityManaCost"	"120 140 160 180"
+		"AOERadius"	"%radius"
 		"precache"
 		{
 			"particle"	"particles/A01E4/A01E4.vpcf"
@@ -218,15 +219,6 @@
 				"Function"	"A01E"
 			}
 		}
-		"OnProjectileHitUnit"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A01.lua"
-				"Function"	"A01E_hit"
-				"Target"	"TARGET"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_A01E"
@@ -235,45 +227,8 @@
 				{
 					"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"Duration"	"%time"
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
-			}
-			"modifier_A01E_2"
-			{
-				"IsDebuff"		"1"
-				"Duration"	"%time"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A01.lua"
-						"Function"	"A01E_MOVE"
-					}
-				}
-				"ThinkInterval"	"0.1"
-				"IsHidden"	"1"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A01.lua"
-						"Function"	"A01E_MOVE"
-					}
-				}
-			}
-			"modifier_A01E_3"
-			{
-				"Duration"	"0.05"
-				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
-				"EffectAttachType"	"follow_overhead"
-				"OverrideAnimation"	"ACT_DOTA_DISABLED"
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"IsBuff"	"0"
-				"IsDebuff"	"1"
 			}
 		}
 		"AbilitySpecial"
@@ -281,22 +236,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"cast"	"0.25"
+				"duration"	"0.9 1.1 1.3 1.5"
 			}
 			"02"
 			{
-				"var_type"	"FIELD_FLOAT"
-				"cast_D"	"580"
-			}
-			"03"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"time"	"0.9 1.2 1.5 1.8"
-			}
-			"04"
-			{
-				"var_type"	"FIELD_FLOAT"
-				"dmg"	"11 18 25 32"
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"300 350 400 450"
 			}
 		}
 	}
