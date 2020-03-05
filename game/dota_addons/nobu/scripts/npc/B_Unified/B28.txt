@@ -446,12 +446,12 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"base_damage"	"250 350 450"
+				"base_damage"	"250 325 400"
 			}
 			"04" // 每次彈跳增加的傷害比例
 			{
 				"var_type" "FIELD_FLOAT"
-				"bonus_damage" "0.2"
+				"bonus_damage" "0.5"
 			}
 			"05"
 			{
