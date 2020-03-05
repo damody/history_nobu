@@ -7,7 +7,7 @@
 		// ----------------------------------------------------------------
 		// Add model
 		"Model"	"models/new/c19/c19_model.vmdl"
-		"ModelScale"	"1.35"
+		"ModelScale"	"1.3"
 		//"Level"	"5"
 		"VoiceFile" "soundevents/voscripts/game_sounds_vo_templar_assassin.vsndevts"
 		"GameSoundsFile" "soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"

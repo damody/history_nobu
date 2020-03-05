@@ -7,7 +7,7 @@
 		// ----------------------------------------------------------------
 		// Add model
 		"Model"	"models/a07/a07.vmdl"
-		"ModelScale"	"1.6"
+		"ModelScale"	"1.2"
 		//"Level"	"5"
 		"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
 		"HealthBarOffset"	"180"

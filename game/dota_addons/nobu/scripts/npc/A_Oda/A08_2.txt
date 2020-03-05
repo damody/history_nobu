@@ -7,7 +7,7 @@
 		"SoundSet"	"Hero_Axe"
 		"VoiceFile" "soundevents/voscripts/game_sounds_vo_axe.vsndevts"
 		"GameSoundsFile" "soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
-		"ModelScale"	"2"
+		"ModelScale"	"1.8"
 		"Model"	"models/a08/a08.vmdl"
 		"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
 		"HealthBarOffset"	"180"

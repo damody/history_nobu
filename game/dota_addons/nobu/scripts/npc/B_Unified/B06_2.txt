@@ -9,7 +9,7 @@
 	"B06"
 	{
 		"Model"	"models/b06/b06_model.vmdl"
-		"ModelScale"	"1.5"
+		"ModelScale"	"1.3"
 		
 		"SoundSet"	"Hero_Axe"
 		"VoiceFile" "soundevents/voscripts/game_sounds_vo_axe.vsndevts"

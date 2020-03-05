@@ -3,7 +3,7 @@
 	// 佐佐成政
 	"A17"
 	{
-		"ModelScale"	"1.5"
+		"ModelScale"	"1.2"
 		"Model"	"models/a17/a17.vmdl"
 		"DisableWearables"	"1"
 		"Portrait"	"vgui/hud/heroportraits/portrait_sniper"
