@@ -706,7 +706,7 @@ function A13T ( keys )
 			for _,unit in ipairs(units) do
 				local distance = (caster:GetAbsOrigin() - point):Length()
 				if distance < radius then
-					ability:ApplyDataDrivenModifier(caster,caster,"modifier_A13T_invisible",nil)
+					ability:ApplyDataDrivenModifier(caster,caster,"modifier_A13T_invisible",{duration = 0.5})
 				else
 					caster:RemoveModifierByName("modifier_A13T_invisible")
 				end				
