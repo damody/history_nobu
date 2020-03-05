@@ -4,6 +4,53 @@
 	Date: 7.1.2015.
 	Refresh cooldown
 ]]
+--紀錄技能
+abilities = {"A34W","A34E","A34R"}
+
+function A34W_OnUpgrade(keys)
+	local ability = keys.ability
+	print(ability:GetCooldownTime())
+end
+
+function A34E_OnUpgrade(keys)
+end
+
+function A34R_OnUpgrade(keys)
+end
+
+function A34T_OnCreated( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local duration = ability:GetSpecialValueFor("duration")
+	local cd_recover = ability:GetSpecialValueFor("cd_recover")
+	local particle = ParticleManager:CreateParticle( "particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/cm_arcana_pup_lvlup_godray.vpcf", PATTACH_POINT, caster )
+	ParticleManager:SetParticleControl( particle, 0, caster:GetAbsOrigin() )
+	ParticleManager:SetParticleControl( particle, 1, caster:GetAbsOrigin() )
+	ParticleManager:SetParticleControl( particle, 2, caster:GetAbsOrigin() )
+	ParticleManager:SetParticleControl( particle, 3, caster:GetAbsOrigin() )
+	caster.cd_recover = cd_recover * 0.01
+end
+
+function A34T_OnDestroy( keys )
+	local caster = keys.caster
+	caster.cd_recover = 0
+end
+
+function A34T_OnIntervalThink( keys )
+	local caster = keys.caster
+	for i = 1,3 do
+		if caster:FindAbilityByName(abilities[i]) then
+			local ability = caster:FindAbilityByName(abilities[i])
+			local cooldown = ability:GetCooldown(-1)
+			local current_cooldown = ability:GetCooldownTime()
+			if current_cooldown > cooldown * (1 - caster.cd_recover) then
+				ability:EndCooldown()
+				ability:StartCooldown(cooldown * (1 - caster.cd_recover))
+			end
+		end
+	end
+end
+
 function rearm_refresh_cooldown( keys )
 	local caster = keys.caster
 	local particle = ParticleManager:CreateParticle( "particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/cm_arcana_pup_lvlup_godray.vpcf", PATTACH_POINT, caster )

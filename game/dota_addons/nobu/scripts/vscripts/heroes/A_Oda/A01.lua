@@ -17,6 +17,35 @@ function A01D_OnTakeDamage( keys )
 end
 
 function A01E(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local point = ability:GetCursorPosition()
+	local duration = ability:GetSpecialValueFor("duration")
+	local radius = ability:GetSpecialValueFor("radius")
+	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
+										point,
+										nil,
+										radius,
+										DOTA_UNIT_TARGET_TEAM_ENEMY,
+										DOTA_UNIT_TARGET_ALL,
+										DOTA_DAMAGE_FLAG_NONE ,
+										FIND_ANY_ORDER,
+										false)
+	for _,it in pairs(direUnits) do
+		for i = 0,3 do
+			local particle2 = ParticleManager:CreateParticle("particles/b02r3/b02r3.vpcf",PATTACH_POINT,it)
+			ParticleManager:SetParticleControl(particle2,0, it:GetAbsOrigin()+Vector(0,0,i*40))
+			ParticleManager:SetParticleControl(particle2,1, Vector(1,1,1))	
+			ParticleManager:SetParticleControl(particle2,3, it:GetAbsOrigin())	
+			Timers:CreateTimer(duration,function ()
+				ParticleManager:DestroyParticle(particle2,true)
+			end	)
+		end
+		ability:ApplyDataDrivenModifier(caster,it,"modifier_A01E",{duration = duration})--綑綁 
+	end
+end
+
+function A01E_old(keys)
 	--【Basic】
 	local caster = keys.caster
 	local target = keys.target
