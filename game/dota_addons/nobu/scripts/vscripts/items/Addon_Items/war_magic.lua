@@ -835,6 +835,31 @@ function SendHTTPRequest(path, method, values, callback)
 	end)
 end
 
+function check_general_live(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local units = FindUnitsInRadius(caster:GetTeamNumber(), 
+	caster:GetAbsOrigin(), 
+	nil, 
+	500, 
+	DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
+	DOTA_UNIT_TARGET_BASIC, 
+	DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
+	FIND_ANY_ORDER, 
+	false )
+	local isAlive = false
+	for _,unit in ipairs(units) do
+		local name = unit:GetName()
+		if string.match(name, "com_general") then
+			isAlive = true
+			break
+		end
+	end
+	if isAlive then
+		ability:ApplyDataDrivenModifier(caster,caster,"modifier_invulnerable",{duration = 0.7})
+	end
+end
+
 function check_Oda_is_dead(keys)
 	local caster = keys.caster
 	_G.Oda_home = caster

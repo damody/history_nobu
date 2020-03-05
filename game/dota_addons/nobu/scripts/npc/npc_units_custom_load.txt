@@ -12916,7 +12916,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: Adt1
-		"Ability1"	""
+		"Ability1"	"check_general_live"
 		// Reference: A00W
 		"Ability2"	"check_Unified_is_dead"
 		// Armor
@@ -12991,7 +12991,7 @@
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: Adt1
-		"Ability1"	""
+		"Ability1"	"check_Oda_general_live"
 		// Reference: A00W
 		"Ability2"	"check_Oda_is_dead"
 		// Armor
