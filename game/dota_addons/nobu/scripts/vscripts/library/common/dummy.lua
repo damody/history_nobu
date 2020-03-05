@@ -499,6 +499,12 @@ end
 
 function Tower_attack_landed( keys )
   local caster = keys.caster
+  if caster.max_damage_tmp == nil then
+    caster.max_damage_tmp = caster:GetBaseDamageMax()
+  end
+  if caster.min_damage_tmp == nil then
+    caster.min_damage_tmp = caster:GetBaseDamageMin()
+  end
   caster:SetBaseDamageMax(caster.max_damage_tmp)
   caster:SetBaseDamageMin(caster.min_damage_tmp)
 end
