@@ -1,3 +1,7 @@
+LinkLuaModifier( "modifier_A08T2", "scripts/vscripts/heroes/A_Oda/A08.lua",LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_A08T", "scripts/vscripts/heroes/A_Oda/A08.lua",LUA_MODIFIER_MOTION_NONE )
+
+local incoming_damage_percentage = 0
 
 function A08E_OnSpellStart( event )
 	-- Variables
@@ -41,7 +45,82 @@ function A08R_OnAttackLanded( keys )
 end
 
 
-function A08T_OnTakeDamage( keys )
+modifier_A08T2 = class({})
+
+function modifier_A08T2:DeclareFunctions()
+    local funcs = {
+		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+    }
+    return funcs
+end
+
+function modifier_A08T2:GetModifierIncomingDamage_Percentage( keys )
+	local a = keys.attacker:GetAbsOrigin() - self.caster:GetAbsOrigin() 
+	a = a:Normalized()
+	b = self.caster:GetForwardVector()
+	local angle = math.acos(dot(a,b) / (a:Length() * b:Length()))
+	if math.deg(angle) < 90 then
+		return self.incoming_damage_percentage
+	end
+	return 0
+end
+
+function dot(a,b)
+	return (a[1] * b[1] + a[2] * b[2] + a[3] * b[3])
+end
+
+modifier_A08T = class({})
+
+function modifier_A08T:DeclareFunctions()
+    local funcs = {
+		MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+    }
+    return funcs
+end
+
+function modifier_A08T:GetModifierIncomingDamage_Percentage( keys )
+	local a = keys.attacker:GetAbsOrigin() - self.caster:GetAbsOrigin() 
+	a = a:Normalized()
+	b = self.caster:GetForwardVector()
+	local angle = math.acos(dot(a,b) / (a:Length() * b:Length()))
+	if math.deg(angle) < 90 then
+		return self.incoming_damage_percentage
+	end
+	return 0
+end
+
+function A08T_OnUpgrade( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	incoming_damage_percentage = ability:GetSpecialValueFor("incoming_damage_percentage")
+	caster:AddNewModifier(caster, ability, "modifier_A08T", nil)
+	caster:FindModifierByName("modifier_A08T").caster = caster
+	caster:FindModifierByName("modifier_A08T").incoming_damage_percentage = incoming_damage_percentage
+end
+
+function A08T_OnOwnerSpawned( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	caster:AddNewModifier(caster, ability, "modifier_A08T", nil)
+	caster:FindModifierByName("modifier_A08T").caster = caster
+	caster:FindModifierByName("modifier_A08T").incoming_damage_percentage = incoming_damage_percentage
+end
+
+function A08T( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local attacker = keys.attacker
+	local duration = ability:GetSpecialValueFor("duration")
+	incoming_damage_percentage = ability:GetSpecialValueFor("incoming_damage_percentage") 
+	if caster:HasModifier("modifier_A08T2") then
+		caster:RemoveModifierByName("modifier_A08T2")
+	end
+	caster:AddNewModifier(caster, ability, "modifier_A08T2", {duration = duration})
+	caster:FindModifierByName("modifier_A08T2").caster = caster
+	caster:FindModifierByName("modifier_A08T2").incoming_damage_percentage = incoming_damage_percentage
+end
+
+function A08T_OnTakeDamage_old( keys )
 	--[[
 	O在這邊放計時器是因為節省particle的使用
 	O魔免的時候，不能在KV裡面傷害單位

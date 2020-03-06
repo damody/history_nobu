@@ -198,9 +198,15 @@
 		"AbilityManaCost"	"150"
 		"precache"
 		{
-			"particle"	"particles/A08t/A08t.vpcf"
-			"particle"	"particles/A08w2/A08w3.vpcf"
-			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%add_defend"
+			"particle"	"particles/a08t/a08t.vpcf"
+		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A08.lua"
+				"Function"		"A08T_OnUpgrade"
+			}
 		}
 		"OnSpellStart"
 		{
@@ -209,66 +215,39 @@
 				"Target"	"CASTER"
 				"EffectName"	"A08T_old.vo1"
 			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A08.lua"
+				"Function"		"A08T"
+			}
 			"ApplyModifier"
 			{
-				"Target"
+	            "Target"
 				{
 				    "Center" "CASTER"
 				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 				}
-				"ModifierName"	"modifier_A08T"
+	            "ModifierName"      "modifier_A08T_effect"
+	            "Duration"      "%duration"
 			}
-			"Heal"
+		}
+		"OnOwnerSpawned"
+		{
+			"RunScript"
 			{
-				"Target"        "CASTER"
-				"HealAmount"	"%Bonus_Health"
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A08.lua"
+				"Function"		"A08T_OnOwnerSpawned"
 			}
 		}
 		"Modifiers"
 		{
-			"modifier_A08T"
+			"modifier_A08T_effect"
 			{
+				"IsHidden"	"1"
 				"EffectName" "particles/units/heroes/hero_clinkz/clinkz_strafe.vpcf"
 				"Properties"
-				{					
-					
+				{						
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"100"
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"0"
-				}
-				"Passive"	"0"
-				"Duration"	"%During"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/AON_Cleave.lua"
-						"Function"	"AON_Cleave_A08"
-						"dmg"	"%attack_damage"
-						"Target"	"TARGET"
-					}
-					"CleaveAttack"
-					{
-						"CleavePercent"	"0"
-						"CleaveRadius"	"%radius"
-						"CleaveEffect"	"particles/a07r/a07r.vpcf"
-					}
-				}
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A08.lua"
-						"Function"	"A08T_OnTakeDamage"
-						"dmg"	"%attack_damage"
-					}
-				}
-			}
-			"modifier_A08T2"
-			{
-				"Passive"	"1"
-				"Properties"
-				{					
-					"MODIFIER_PROPERTY_HEALTH_BONUS"	"%Bonus_Health"
 				}
 			}
 		}
@@ -276,23 +255,13 @@
 		{
 			"01"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"add_defend"	"4 6 8"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"Bonus_Health"	"600 1000 1500"
-			}
-			"03"
-			{
 				"var_type"	"FIELD_FLOAT"
-				"During"	"15 18 21"
+				"duration"	"15 18 21"
 			}
 			"04"
 			{
-				"var_type"	"FIELD_FLOAT"
-				"radius"	"400"
+				"var_type"	"FIELD_INTEGER"
+				"incoming_damage_percentage" "-15 -25 -35"
 			}
 		}
 	}
