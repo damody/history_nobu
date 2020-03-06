@@ -12,6 +12,8 @@
 -- function A12W_modifier:IsDebuff()
 -- 	return true
 -- end
+local A12R_damage
+local A12R_level
 
 function A12W( keys )
 	local caster = keys.caster
@@ -100,6 +102,12 @@ function A12E_OnAttackLanded2( keys )
 	end
 end
 
+function A12R_OnUpgrade( keys )
+	local ability = keys.ability
+	A12R_damage = ability:GetSpecialValueFor("Special_damage")
+	A12R_level = ability:GetLevel()
+end
+
 function A12R( keys )
 	local caster		= keys.caster
 	local ability	= keys.ability
@@ -126,7 +134,35 @@ function A12R( keys )
 			AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		end
 	end
+	caster.A12D_B = false --最後一定要加	
+end
 
+function A12R_HIDE( keys )
+	local caster		= keys.caster
+	local ability	= keys.ability
+	local point = ability:GetCursorPosition()
+	caster.abilityName = "A12R"
+	local particle=ParticleManager:CreateParticle("particles/a12r2/a12r2.vpcf",PATTACH_POINT,caster)
+	local Special_damage = A12R_damage
+	ParticleManager:SetParticleControl(particle,0,point)
+	ParticleManager:SetParticleControl(particle,1,Vector(1000,1000,0))
+
+	ParticleManager:SetParticleControl(ParticleManager:CreateParticle("particles/a12r/a12r.vpcf",PATTACH_POINT,caster),0,point)
+	Timers:CreateTimer( 0.4, function()
+		ParticleManager:DestroyParticle(particle,true)
+	end )
+
+	if caster.A12D_B == true then
+		ParticleManager:CreateParticle("particles/a12w2/a12w2.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	    local group = {}
+	    local radius = 500
+	    local damage = 0
+	    group = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false)
+		for _,v in ipairs(group) do
+			damage = v:GetMaxHealth()*Special_damage/100
+			AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		end
+	end
 	caster.A12D_B = false --最後一定要加	
 end
 
@@ -162,8 +198,12 @@ function A12T_OnToggleOn( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local A12F_ability = keys.caster:FindAbilityByName("A12F")
+	local A12R_ability = keys.caster:FindAbilityByName("A12R")
+	local A12R_HIDE_level = ability:GetLevel()
 	local point = caster:GetAbsOrigin()
 	local radius = ability:GetSpecialValueFor("radius")
+	caster:RemoveAbility("A12R")
+	caster:AddAbility("A12R_HIDE"):SetLevel(A12R_HIDE_level)
 	A12F_ability:SetLevel(keys.ability:GetLevel())
 	A12F_ability:SetActivated(true)
 	--spell hint
@@ -176,8 +216,13 @@ function A12T_OnToggleOn( keys )
 	Timers:CreateTimer(0, function()
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
 		AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
+		local cooldown = 1/caster:GetAttacksPerSecond()
+		if A12F_ability:GetCooldownTime() > cooldown then
+			A12F_ability:EndCooldown()
+			A12F_ability:StartCooldown(cooldown)
+		end
 		if not isToggle then return nil end
-		return 0.2
+		return 0.1
 	end)
 end
 
@@ -189,6 +234,8 @@ function A12T_OnToggleOff( keys )
 	if caster.dummy ~= nil then
 		caster.dummy:ForceKill(true)
 	end
+	caster:RemoveAbility("A12R_HIDE")
+	caster:AddAbility("A12R"):SetLevel(A12R_level)
 end
 
 function A12T_old( keys )
