@@ -328,7 +328,7 @@ function Nobu:OnUnitKill( keys )
       if killedUnit.origin_pos == nil then
         killedUnit.origin_pos = pos
       end
-      Timers:CreateTimer(180, function()
+      Timers:CreateTimer(300, function()
         GameRules: SendCustomMessage("<font color='#ffff00'>強盜之王出現了</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
         if (killedUnit.origin_pos) then
           local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)

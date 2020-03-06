@@ -755,15 +755,6 @@
 		}
 		"Modifiers"
 		{
-			"modifier_fly"
-			{
-				"Passive"       "0"
-	            "IsHidden"      "0"
-	            "States"
-	            {
-	            	"MODIFIER_STATE_FLYING"		"MODIFIER_STATE_VALUE_ENABLED"
-	            }
-			}
 			"Passive_robbers_skill"
 			{
 				"Passive"          "1"  

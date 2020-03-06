@@ -130,7 +130,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		unit:SetBaseDamageMax(dmgmin+CP_Monster*12)
 	end)
 	--出詛咒亡靈武士時間
-	Timers:CreateTimer(600, function()
+	Timers:CreateTimer(1200, function()
 		GameRules: SendCustomMessage("<font color='#ffff00'>受詛咒的武士亡靈出現了</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 		unitname = "npc_dota_cursed_warrior_souls"
 		local pos = Vector(-3671.04,-3891.62,384)

@@ -287,7 +287,7 @@ function robbers_skill( keys )
 				local hero = player:GetAssignedHero()
 				if hero:GetTeamNumber() == keys.attacker:GetTeamNumber() then
 					caster:RemoveModifierByName("modifier_robbers_king_attack_buff")
-					ability:ApplyDataDrivenModifier(caster, hero, "modifier_robbers_king_attack_buff",{duration = 120})
+					ability:ApplyDataDrivenModifier(caster, hero, "modifier_robbers_king_attack_buff",{duration = 180})
 				end
 			end
 		end
@@ -303,7 +303,7 @@ function robbers_skill( keys )
 				local hero = player:GetAssignedHero()
 				if hero:GetTeamNumber() == keys.attacker:GetTeamNumber() then
 					caster:RemoveModifierByName("modifier_robbers_king_armor_buff")
-					ability:ApplyDataDrivenModifier(caster, hero, "modifier_robbers_king_armor_buff",{duration = 120})
+					ability:ApplyDataDrivenModifier(caster, hero, "modifier_robbers_king_armor_buff",{duration = 180})
 				end
 			end
 		end
@@ -319,7 +319,7 @@ function robbers_skill( keys )
 				local hero = player:GetAssignedHero()
 				if hero:GetTeamNumber() == keys.attacker:GetTeamNumber() then
 					caster:RemoveModifierByName("modifier_robbers_king_regen_buff")
-					ability:ApplyDataDrivenModifier(caster, hero, "modifier_robbers_king_regen_buff",{duration = 120})
+					ability:ApplyDataDrivenModifier(caster, hero, "modifier_robbers_king_regen_buff",{duration = 180})
 				end
 			end
 		end
