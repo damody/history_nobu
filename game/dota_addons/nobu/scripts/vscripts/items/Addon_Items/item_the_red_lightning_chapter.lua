@@ -36,8 +36,9 @@ function Shock( keys )
 
 	--【Particle】
 	local particle = ParticleManager:CreateParticle(particleName,PATTACH_POINT,caster)
+	ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(particle,0, point + vec * 100)
-	ParticleManager:SetParticleControl(particle,1, point2)
+	ParticleManager:SetParticleControl(particle,1, point2 + Vector(0,0,100))
 
 	-- ParticleManager:SetParticleControl(lightningBolt,0,Vector(point.x,point.y,caster:GetAbsOrigin().z + caster:GetBoundingMaxs().z ))	
 	-- ParticleManager:SetParticleControl(lightningBolt,1,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))

@@ -32,12 +32,13 @@ function Shock( keys )
 	--caster:SetForwardVector(vec)
 
 	-- Make sure the main target is damaged
+	-- ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	local lightningBolt = ParticleManager:CreateParticle(particleName, PATTACH_WORLDORIGIN, caster)
-
 	--【Particle】
 	local particle = ParticleManager:CreateParticle("particles/item/d09/d09.vpcf",PATTACH_POINT,caster)
+	ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(particle,0, point + vec * 100)
-	ParticleManager:SetParticleControl(particle,1, point2)
+	ParticleManager:SetParticleControl(particle,1, point2 + Vector(0,0,100))
 	--【DMG】
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = AbilityDamageType})
 	target.has_D09 = true
