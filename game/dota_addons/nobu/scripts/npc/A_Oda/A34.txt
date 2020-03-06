@@ -43,20 +43,18 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
 			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 		}
-		"OnUpgrade"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A34_Matsu.lua"
-				"Function"	"A34W_OnUpgrade"
-			}
-		}
 		"OnSpellStart"
 		{
+			
 			"FireSound"
 			{
 				"Target"	"CASTER"
 				"EffectName"	"A34W.vo1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A34_Matsu.lua"
+				"Function"	"CD_reduce"
 			}
 			"TrackingProjectile"
 			{
@@ -154,16 +152,13 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
 			"particle"	"particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_ice.vpcf"
 		}
-		"OnUpgrade"
+		"OnSpellStart"
 		{
 			"RunScript"
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A34_Matsu.lua"
-				"Function"	"A34E_OnUpgrade"
+				"Function"	"CD_reduce"
 			}
-		}
-		"OnSpellStart"
-		{
 			"FireSound"
 			{
 				"Target"	"CASTER"
@@ -307,16 +302,13 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
 			"particle"	"particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_ice.vpcf"
 		}
-		"OnUpgrade"
+		"OnSpellStart"
 		{
 			"RunScript"
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A34_Matsu.lua"
-				"Function"	"A34R_OnUpgrade"
+				"Function"	"CD_reduce"
 			}
-		}
-		"OnSpellStart"
-		{
 			"FireSound"
 			{
 				"Target"	"CASTER"
@@ -448,7 +440,7 @@
 		"LevelsBetweenUpgrades"	"6"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"100"
+		"AbilityCooldown"	"100 90 80"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"100 200 300"
@@ -480,12 +472,6 @@
 				"Target"		"CASTER"
 				"Duration"		"%duration"
 			}
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_A34T2"
-				"Target" 		"CASTER"
-				"Duration"		"%duration"
-			}
 			
 		}
 		// Special
@@ -500,18 +486,19 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"mana_regen"	"20 30 40"
+				"cd_recover"	"40 50 60"
 			}
 			"03"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"cd_recover"	"40 50 60"
+				"var_type"	"FIELD_FLOAT"
+				"cd_reduce"	"2"
 			}
 		}
 		"Modifiers"
 		{
 			"modifier_A34T"
 			{
+				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 				"OnCreated"
 				{
 					"RunScript"
@@ -528,7 +515,7 @@
 						"Function"	"A34T_OnDestroy"
 					}
 				}
-				"ThinkInterval"  "0.2"
+				"ThinkInterval"  "0.1"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -538,18 +525,10 @@
 					}
 				}
 			}
-			"modifier_A34T2"
-			{
-				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
-			}
-			"modifier_mana_regen"
+			"modifier_A34T_Passive"
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"%mana_regen"
-				}
 			}
 		}
 	}

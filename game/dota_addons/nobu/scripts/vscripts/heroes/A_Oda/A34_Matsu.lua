@@ -7,15 +7,32 @@
 --紀錄技能
 abilities = {"A34W","A34E","A34R"}
 
-function A34W_OnUpgrade(keys)
+function CD_reduce(keys)
+	local caster = keys.caster
 	local ability = keys.ability
-	print(ability:GetCooldownTime())
+	if caster:HasModifier("modifier_A34T_Passive") then
+		local a34t = caster:FindAbilityByName("A34T")
+		local cd_reduce = a34t:GetSpecialValueFor("cd_reduce")
+		local a34w = caster:FindAbilityByName("A34W")
+		local a34e = caster:FindAbilityByName("A34E")
+		local a34r = caster:FindAbilityByName("A34R")
+		if a34w ~= nil and ability ~= a34w then
+			quick_cooldown(a34w, cd_reduce)
+		end
+		if a34e ~= nil and ability ~= a34e then
+			quick_cooldown(a34e, cd_reduce)
+		end
+		if a34r ~= nil and ability ~= a34r then
+			quick_cooldown(a34r, cd_reduce)
+		end
+	end
 end
 
-function A34E_OnUpgrade(keys)
-end
-
-function A34R_OnUpgrade(keys)
+function quick_cooldown(ability, cd_reduce)
+	local cooldown = ability:GetCooldown(-1)
+	local current_cooldown = ability:GetCooldownTime()
+	ability:EndCooldown()
+	ability:StartCooldown(current_cooldown - cd_reduce)
 end
 
 function A34T_OnCreated( keys )
