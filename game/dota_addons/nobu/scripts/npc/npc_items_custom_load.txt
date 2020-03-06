@@ -10378,7 +10378,6 @@
 		"FightRecapLevel"	"1"
 		
 		"AbilityCooldown"	"85"
-		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		"AbilityManaCost"	"100"
 		"AbilityCastRange"	"700"
 		"ID"	"2813"
