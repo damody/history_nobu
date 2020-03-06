@@ -40,7 +40,14 @@ function Nobu:OnHeroIngame( keys )
           hero:AddItem(CreateItem("item_S01", hero, hero))
           hero:AddItem(CreateItem("item_logging", hero, hero))
           --把砍術移動到neutral item slot
-          hero:SwapItems(1, 16)
+          for i = 0, 6 do
+            local item = caster:GetItemInSlot( i )
+            if item then
+              if item:GetName() == "item_logging" then
+                hero:SwapItems(i, 16)
+              end
+            end
+          end
           local allCouriers = Entities:FindAllByClassname('npc_dota_courier')
 			    for k, ent in pairs(allCouriers) do
 				    ent:ForceKill(true)
