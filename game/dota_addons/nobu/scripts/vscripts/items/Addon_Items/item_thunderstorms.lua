@@ -18,7 +18,9 @@ function Shock( keys )
 	local target_type = ability:GetAbilityTargetType()
 	local target_flags = ability:GetAbilityTargetFlags()
 	local damage_type = ability:GetAbilityDamageType()
-
+	if caster:HasModifier("modifier_tower_aura_bonus") then
+		aoe_damage = aoe_damage * 1.30
+	end
 	
 	AddFOWViewer(caster:GetTeamNumber(),target_point,aoe_radius,3,false)
 	AddFOWViewer(DOTA_TEAM_GOODGUYS,caster:GetAbsOrigin(), 300, 1, false)
