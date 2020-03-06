@@ -441,6 +441,10 @@ function Nobu:eventfororder( filterTable )
 		-- [   VScript              ]:    issuer_player_id_const          	= 0 (number)
 		-- [   VScript              ]: }
 	elseif ordertype == DOTA_UNIT_ORDER_DROP_ITEM then --12
+		local item = EntIndexToHScript(filterTable.entindex_ability)
+		if item:GetName() == "item_logging" then
+			return false
+		end
 		if filterTable.units and filterTable.units["0"] then
 			local unit = EntIndexToHScript(filterTable.units["0"])
 			if IsValidEntity(unit) then
@@ -469,6 +473,10 @@ function Nobu:eventfororder( filterTable )
 		-- [   VScript              ]:    issuer_player_id_const          	= 0 (number)
 		-- [   VScript              ]: }
 	elseif ordertype == DOTA_UNIT_ORDER_GIVE_ITEM then --13
+		local item = EntIndexToHScript(filterTable.entindex_ability)
+		if item:GetName() == "item_logging" then
+			return false
+		end
 		if filterTable.units and filterTable.units["0"] then
 			local unit = EntIndexToHScript(filterTable.units["0"])
 			if IsValidEntity(unit) then
@@ -573,6 +581,10 @@ function Nobu:eventfororder( filterTable )
 		
 	elseif ordertype == DOTA_UNIT_ORDER_DISASSEMBLE_ITEM then --18
 	elseif ordertype == DOTA_UNIT_ORDER_MOVE_ITEM	 then --19
+		local item = EntIndexToHScript(filterTable.entindex_ability)
+		if item:GetName() == "item_logging" then
+			return false
+		end
 		if filterTable.units and filterTable.units["0"] then
 			local unit = EntIndexToHScript(filterTable.units["0"])
 			if IsValidEntity(unit)  then
