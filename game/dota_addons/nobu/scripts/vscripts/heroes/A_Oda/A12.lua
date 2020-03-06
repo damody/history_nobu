@@ -130,17 +130,68 @@ function A12R( keys )
 	caster.A12D_B = false --最後一定要加	
 end
 
-function OnToggleOn( keys )
+function A12F( keys )
 	local caster = keys.caster
-	caster.nobuorb1 = nil
+	local target = keys.target
+	local ability = keys.ability
+	local stack = 1
+	--reduce magic resistance
+	if target:IsAlive() then
+		if target:HasModifier("modifier_A12F") then
+			stack = target:FindModifierByName("modifier_A12F"):GetStackCount() + 1
+			target:RemoveModifierByName("modifier_A12F")
+		end
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_A12F",{duration = 3})
+		target:FindModifierByName("modifier_A12F"):SetStackCount(stack)
+	end
 end
 
-function OnToggleOff( keys )
-	local caster = keys.caster
+function A12T_lock( keys )
+	print("lock")
+	keys.ability:SetActivated(false)
 end
 
+function A12T_unlock( keys )
+	print("unlock")
+	keys.ability:SetActivated(true)
+end
 
-function A12T( keys )
+local isToggle = false
+function A12T_OnToggleOn( keys )
+	isToggle = true
+	local caster = keys.caster
+	local ability = keys.ability
+	local A12F_ability = keys.caster:FindAbilityByName("A12F")
+	local point = caster:GetAbsOrigin()
+	local radius = ability:GetSpecialValueFor("radius")
+	A12F_ability:SetLevel(keys.ability:GetLevel())
+	A12F_ability:SetActivated(true)
+	--spell hint
+	caster.dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local spell_hint_table = {
+		radius     = radius,		-- 半徑
+	}
+	caster.dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	caster.dummy:AddNewModifier(nil,nil,"modifier_kill",{})
+	Timers:CreateTimer(0, function()
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
+		AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
+		if not isToggle then return nil end
+		return 0.2
+	end)
+end
+
+function A12T_OnToggleOff( keys )
+	isToggle = false
+	local caster = keys.caster
+	local A12F_ability = keys.caster:FindAbilityByName("A12F")
+	A12F_ability:SetActivated(false)
+	if caster.dummy ~= nil then
+		caster.dummy:ForceKill(true)
+	end
+end
+
+function A12T_old( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
@@ -161,7 +212,9 @@ function A12T( keys )
 	caster.A12T = false
 end
 
-function A12T_Start( keys )
+
+
+function A12T_old_Start( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability

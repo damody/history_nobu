@@ -15,7 +15,7 @@ function Nobu:OnHeroIngame( keys )
     caster.version = "16"
     caster:AddNewModifier(caster,ability,"modifier_record",{})
     caster:FindModifierByName("modifier_record").caster = caster
-    caster:FindAbilityByName("attribute_bonusx"):SetLevel(1)
+    -- caster:FindAbilityByName("attribute_bonusx"):SetLevel(1)
     
 	-- 拿掉天賦樹的技能
     for i = 0, caster:GetAbilityCount() - 1 do

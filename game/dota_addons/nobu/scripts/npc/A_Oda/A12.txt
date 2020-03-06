@@ -362,73 +362,67 @@
 		}
 	}
 
-	//大谷吉繼 玄滅箭
-	"A12T"
+	//玄滅箭
+	"A12F"
 	{
-		"BaseClass"	"ability_datadriven"
+		"BaseClass"				"ability_datadriven"
 		"AbilityTextureName"	"storm_spirit_overload"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityCastPoint"	"0.1"
-		"AbilityCooldown"	"120 110 100"
-		"AbilityManaCost"	"100 120 140 160"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityCastPoint"		"0.2"
+		"AbilityCooldown"	"1"
+		"AbilityCastAnimation"	"ACT_DOTA_ATTACK"
+		"AbilityManaCost"	"250"
+		"MaxLevel" 				"3"
 		"precache"
 		{
-			"particle"	"particles/a12t2/a12t2.vpcf"
+			"particle"	"particles/a12f/a12f.vpcf"
 		}
 		"OnSpellStart"
 		{
-			"FireSound"
+			"LinearProjectile"
 			{
-				"Target"	"CASTER"
-				"EffectName"	"A08T_old.vo1"
+				"Target"	"POINT"
+				"EffectName"	"particles/a12f/a12f.vpcf"
+				"MoveSpeed"	"2500"
+				"StartRadius"	"200"
+				"StartPosition"	"attach_attack1"
+				"EndRadius"	"200"
+				"FixedDistance"	"%radius"
+				"TargetTeams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"TargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"HasFrontalCone"	"1"
+				"ProvidesVision"	"0"
 			}
-			"ApplyModifier"
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"Damage"
 			{
-				"Target"
-				{
-				    "Center" "CASTER"
-				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-				}
-				"ModifierName"	"modifier_A12T2"
+				"Target"	"TARGET"
+				"Type"	"DAMAGE_TYPE_MAGICAL"
+				"Damage"	"%damage"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A12.lua"
+				"Function"		"A12F"
 			}
 		}
 		"Modifiers"
 		{
-			"modifier_A12T"
+			"modifier_A12F"
 			{
-				"Passive"	"1"
+				"IsDebuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "%mana"				//魔
-				}
-			}
-			"modifier_A12T2"
-			{
-				"Passive"	"0"
-				"Duration"	"16"
-				"Orb"
-				{
-					"Priority"	"DOTA_ORB_PRIORITY_ABILITY"
-					"ProjectileName"	"particles/a12t2/a12t2.vpcf"
-				}
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A12.lua"
-						"Function"	"A12T"
-					}
-				}
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A12.lua"
-						"Function"	"A12T_Start"
-					}
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-10"
 				}
 			}
 		}
@@ -437,12 +431,117 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"Special_Damage"	"14"
+				"radius"	"1350 1850 2350"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"mana"	"600 900 1300"
+				"damage"	"300 400 500"
+			}
+		}
+	}
+
+	//大谷吉繼 玄滅箭。預備
+	"A12T"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"storm_spirit_overload"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCooldown"	"5"
+		"AbilityManaCost"	"50"
+		"precache"
+		{
+			"particle"	"particles/a12t/a12t_aura.vpcf"
+		}
+		"OnToggleOn"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A12.lua"
+				"Function"		"A12T_OnToggleOn"
+			}
+			"ApplyModifier"
+			{
+				"Target"
+				{
+				    "Center" "CASTER"
+				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+				}
+				"ModifierName"	"modifier_A12T"
+			}
+			"ApplyModifier"
+			{
+				"Target"
+				{
+				    "Center" "CASTER"
+				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+				}
+				"ModifierName"	"modifier_A12T_locker"
+			}
+		}
+		"OnToggleOff"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A12.lua"
+				"Function"		"A12T_OnToggleOff"
+			}
+			"RemoveModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_A12T"
+			}
+		}
+		"Modifiers"
+		{
+			// 暫時鎖住此技能
+			"modifier_A12T_locker"
+			{
+				"Duration" "%lock"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A12.lua"
+						"Function"		"A12T_lock"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A12.lua"
+						"Function"		"A12T_unlock"
+					}
+				}
+			}
+			"modifier_A12T"
+			{
+				"EffectName" "particles/a12t/a12t_aura.vpcf"
+				"EffectAttachType" "follow_origin"
+				"IsBuff"	"1"
+				"IsPurgable"	"0"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"lock"	"5"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"1500 2000 2500"
 			}
 		}
 	}	
