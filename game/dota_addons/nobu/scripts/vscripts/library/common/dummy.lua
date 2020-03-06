@@ -1,3 +1,5 @@
+LinkLuaModifier( "modifier_unit_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_tower_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_soul", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 modifier_soul = class({})
 
@@ -458,9 +460,50 @@ function CP_recover( keys )
   attacker:SetHealth(attacker:GetHealth() + heal)
 end
 
+--modifier_unit_armor
+--------------------------------------------
+modifier_unit_armor = class{}
+function modifier_unit_armor:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+  }
+  return funcs
+end
+
+function modifier_unit_armor:GetModifierIncomingDamage_Percentage( keys )
+  if keys.attacker:IsBuilding() then 
+    return -75
+  end
+	return 0
+end
+--------------------------------------------
+
+
 function Unit_armor( keys )
 
 end
+
+--modifier_tower_armor
+--------------------------------------------
+modifier_tower_armor = class{}
+function modifier_tower_armor:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+  }
+  return funcs
+end
+
+function modifier_tower_armor:GetModifierIncomingDamage_Percentage( keys )
+  
+  if keys.attacker:IsHero() then 
+    return 0
+  elseif keys.attacker:IsBuilding() then
+    return 0
+  else
+    return -75
+  end
+end
+--------------------------------------------
 
 function Tower_armor( keys )
 

@@ -1,3 +1,5 @@
+LinkLuaModifier( "modifier_unit_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_tower_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 --print ('[Nobu-lua] chubing lua script Starting..' )
 --if _G.nobu_chubing_b then --"Nobu" then
 print("[Nobu-lua] _G.nobu_chubing_b")
@@ -100,6 +102,7 @@ function ShuaGuai( )
 		for k, ent in pairs(allBuildings) do
 			ent:AddAbility("buff_tower"):SetLevel(1)
 			ent:SetPhysicalArmorBaseValue(5)
+			ent:AddNewModifier(ent, ent:FindAbilityByName("tower_armor"), "modifier_tower_armor", nil)
 		end
 		local allBuildings2 = Entities:FindAllByName('npc_dota_building')
 		for k, ent in pairs(allBuildings2) do
@@ -247,6 +250,7 @@ function ShuaGuai_Of_AA(num, team, pos)
 					if big then intensify = 1.3 end
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					unit:AddAbility("set_level_1"):SetLevel(1)
+					unit:AddNewModifier(unit, unit:FindAbilityByName("unit_armor"), "modifier_unit_armor", nil)
 					local hp = (unit:GetMaxHealth() + 150) * intensify
 					unit:SetBaseMaxHealth(hp+A_count * 8)
 					local dmgmax = unit:GetBaseDamageMax() * intensify
@@ -355,7 +359,7 @@ function ShuaGuai_Of_AB(num, team, pos)
 					if big then intensify = 1.3 end
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					unit:AddAbility("set_level_1"):SetLevel(1)
-					
+					unit:AddNewModifier(unit, unit:FindAbilityByName("unit_armor"), "modifier_unit_armor", nil)
 					local hp = unit:GetMaxHealth() * intensify
 					unit:SetBaseMaxHealth(hp+A_count * 8)
 					local dmgmax = unit:GetBaseDamageMax() * intensify
@@ -456,6 +460,7 @@ function ShuaGuai_Of_B(num, team, pos)
 				for x=1,n do
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					unit:AddAbility("set_level_1"):SetLevel(1)
+					unit:AddNewModifier(unit, unit:FindAbilityByName("unit_armor"), "modifier_unit_armor", nil)
 					local hp = (unit:GetMaxHealth()+120) * intensify
 					unit:SetBaseMaxHealth(hp+A_count * 5)
 					local dmgmax = (unit:GetBaseDamageMax()) * intensify

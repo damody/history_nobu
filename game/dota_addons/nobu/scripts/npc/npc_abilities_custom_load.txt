@@ -1410,20 +1410,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"Modifiers"
 		{
-			"modifiers_cavalry_armor"
-			{
-				"IsHidden"	"0"
-				"Passive"	"1"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Unit_armor"
-						"dmg"	"%attack_damage"
-					}
-				}
-			}
+			//modifier 在dummy.lua裡 由chubing.lua加上去
 		}
 	}
 	//鐵炮兵打英雄小兵兩倍痛
@@ -1583,19 +1570,7 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"Modifiers"
 		{
-			"modifeir_tower_armor"
-			{
-				"Passive"	"1"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"dmg"	"%attack_damage"
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Tower_armor"
-					}
-				}
-			}
+			//modifier 在dummy.lua裡 由chubing.lua加上去
 		}
 	}
 
