@@ -13,7 +13,7 @@
 -- 	return true
 -- end
 local A12R_damage
-local A12R_level
+local A12R_level = 0
 
 function A12W( keys )
 	local caster = keys.caster
