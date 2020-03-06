@@ -412,6 +412,16 @@ local function chat_of_test(keys)
 				print(ent:GetName())
 			end
 		end
+		if string.match(s,"slot") then
+			for i = 0, 30 do
+				local item = caster:GetItemInSlot( i )
+				if item then
+					print(i)
+					print(item:GetName())
+				end
+			end
+			caster:SwapItems(1, 16)
+		end
 		if string.match(s,"gold") then
 			PlayerResource:SetGold(keys.playerid,99999,false)
 		end
