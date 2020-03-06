@@ -402,7 +402,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A12.lua"
-				"Function"	"A12R"
+				"Function"	"A12R_HIDE"
 			}
 			"FireSound"	{}
 			"ActOnTargets"
@@ -421,12 +421,6 @@
 						"Target"	"TARGET"
 						"ModifierName"	"modifier_A12R"
 						"Duration"	"%duration"
-					}
-					"Damage"
-					{
-						"Target"	"TARGET"
-						"Type"	"DAMAGE_TYPE_MAGICAL"
-						"Damage"	"%damage"
 					}
 				}
 			}

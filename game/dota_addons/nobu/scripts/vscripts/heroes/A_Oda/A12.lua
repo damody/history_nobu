@@ -104,7 +104,7 @@ end
 
 function A12R_OnUpgrade( keys )
 	local ability = keys.ability
-	A12R_damage = ability:GetSpecialValueFor("Special_damage")
+	A12R_damage = ability:GetSpecialValueFor("damage")
 	A12R_level = ability:GetLevel()
 end
 
@@ -143,7 +143,7 @@ function A12R_HIDE( keys )
 	local point = ability:GetCursorPosition()
 	caster.abilityName = "A12R"
 	local particle=ParticleManager:CreateParticle("particles/a12r2/a12r2.vpcf",PATTACH_POINT,caster)
-	local Special_damage = A12R_damage
+	local Special_damage = ability:GetLevelSpecialValueFor("Special_damage",ability:GetLevel() - 1)
 	ParticleManager:SetParticleControl(particle,0,point)
 	ParticleManager:SetParticleControl(particle,1,Vector(1000,1000,0))
 
@@ -151,7 +151,11 @@ function A12R_HIDE( keys )
 	Timers:CreateTimer( 0.4, function()
 		ParticleManager:DestroyParticle(particle,true)
 	end )
-
+	local group = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, 500, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false)
+	for _,v in ipairs(group) do
+		damage = A12R_damage
+		AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+	end
 	if caster.A12D_B == true then
 		ParticleManager:CreateParticle("particles/a12w2/a12w2.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	    local group = {}
