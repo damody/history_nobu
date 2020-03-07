@@ -88,6 +88,8 @@ end
 
 function nobu_modifier_spell_hint_self:OnDestroy()
 	if self.ifx_self then ParticleManager:DestroyParticle(self.ifx_self, true) end
+	if self.ifx_enemy then ParticleManager:DestroyParticle(self.ifx_enemy, true) end
+	if self.ifx_self_team then ParticleManager:DestroyParticle(self.ifx_self_team, true) end
 end
 
 LinkLuaModifier("nobu_modifier_spell_hint_self","nobu_modifiers/nobu_modifier_spell_hint_self.lua",LUA_MODIFIER_MOTION_NONE)

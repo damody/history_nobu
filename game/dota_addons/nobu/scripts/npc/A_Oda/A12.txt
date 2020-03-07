@@ -487,7 +487,7 @@
 		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityCastPoint"		"0.2"
-		"AbilityCooldown"	"1"
+		"AbilityCooldown"	"1.8"
 		"AbilityCastAnimation"	"ACT_DOTA_ATTACK"
 		"AbilityManaCost"	"100 150 200"
 		"MaxLevel" 				"3"
@@ -511,6 +511,11 @@
 				"TargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"HasFrontalCone"	"1"
 				"ProvidesVision"	"0"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A12.lua"
+				"Function"		"A12F_Start"
 			}
 		}
 		"OnProjectileHitUnit"
