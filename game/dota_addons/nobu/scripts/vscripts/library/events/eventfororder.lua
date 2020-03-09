@@ -27,7 +27,7 @@ function EventForSpellTarget( filterTable )
 	local target = EntIndexToHScript(f.entindex_target)
 	local unitname = caster:GetUnitName()
 	local targetname = target:GetUnitName()
-	if target:FindModifierByName("modifier_C19T_knockback") then
+	if caster.name ~= "C19" and target:FindModifierByName("modifier_C19T_knockback") then
 		return false
 	end
 	return true
