@@ -76,7 +76,6 @@
 	"item"      "item_energy_ingot"			//能量鋼
 	"item"      "item_protection_amulet"	//御守
 	"item"		"item_ice_book"				//冰計之書	
-	"item"		"item_logging"				//伐木
 }
 
 //法書
