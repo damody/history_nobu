@@ -44,6 +44,7 @@ function equilibrium_constant:DeclareFunctions()
         MODIFIER_PROPERTY_MOVESPEED_MIN,
         MODIFIER_PROPERTY_MOVESPEED_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     }
     return funcs
 end
@@ -121,6 +122,14 @@ function equilibrium_constant:GetModifierConstantHealthRegen( params )
     end
 end
 
+function equilibrium_constant:GetModifierMagicalResistanceBonus()
+    PrintTable(self)
+    if self.magical_resistance then
+        return self.magical_resistance
+    end
+    return 0
+end
+
 function equilibrium_constant:IsHidden()
     return true
 end
@@ -169,6 +178,9 @@ function equilibrium_constant:x_OnNPCSpawned(keys)
         if hSpawnedUnit.AddNewModifier ~= nil then
             hSpawnedUnit:AddNewModifier(hSpawnedUnit,nil,"equilibrium_constant",{})
         end
+    end
+    if IsValidEntity(hSpawnedUnit) and hSpawnedUnit:IsHero() then
+        self.owner = hSpawnedUnit
     end
 end
 

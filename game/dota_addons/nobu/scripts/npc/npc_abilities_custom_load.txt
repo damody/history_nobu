@@ -5322,6 +5322,26 @@
 			}
 		}
 	}
-
+	//給抗魔
+	"magical_resistance"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Modifiers"
+		{
+			"modifier_magical_resistance"
+			{
+				"Passive"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Magical_resistance"
+					}
+				}
+			}
+		}
+	}
 }
 	
