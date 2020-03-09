@@ -2614,8 +2614,8 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"	"1"
 		"ItemShopTags"		"damage"
-
-		"AoERadius" "%aure_radius"
+		"AbilityCastRange"	"%aura_radius"
+		"AoERadius" "%aura_radius"
 		"OnEquip"
 		{
 			"RemoveModifier"
@@ -2634,6 +2634,14 @@
 		                "ModifierName" "modifier_flame_armor_aura"
 		            }
             	}
+            }
+		}
+		"OnUnequip"
+		{
+			"RemoveModifier"
+            {
+                "Target" "CASTER"
+                "ModifierName" "modifier_flame_armor_aura"
             }
 		}
 		"precache"
@@ -2656,48 +2664,22 @@
 			"modifier_flame_armor_aura"
 			{
 				"Passive"			"1"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-			
-				"Aura"        "modifier_flame_armor_debuff"
-        		"Aura_Radius" "%aure_radius"
-        		"Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_ENEMY"
-        		"Aura_Types"  "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        		"Aura_ApplyToCaster" "0"   // Not Apply to Self, default is 1
-
+				"ThinkInterval"	"1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+			 		{
+			 		  	"ScriptFile"	"items/Addon_Items/item_flame_armor.lua"
+			 			"Function"	"Burn"
+			 			"Damage"		"40"
+			 		}
+				}
         		"EffectName" "particles/item/item_flame_armor/flame_aura.vpcf"
         		"EffectAttachType" "follow_origin"
 			}
 			"modifier_flame_armor_debuff"
 			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-
-				"EffectAttachType"	"follow_hitloc"
-
-				"ThinkInterval"	"1.0"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-					  	"ScriptFile"	"items/Addon_Items/item_flame_armor.lua"
-						"Function"	"Shock"
-						"Damage"		"40"
-						"Target"	"TARGET"
-					}
-				}
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-					  	"ScriptFile"	"items/Addon_Items/item_flame_armor.lua"
-						"Function"	"Shock"
-						"Damage"		"40"
-						"Target"	"TARGET"
-					}
-				}
+				"IsDebuff"	"1"
 			}
 		}
 		"AbilitySpecial"
@@ -2705,7 +2687,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"aure_radius"			"350"
+				"aura_radius"			"350"
 			}
 		}
 	}
@@ -9438,6 +9420,14 @@
             	}
             }
 		}
+		"OnUnequip"
+		{
+			"RemoveModifier"
+            {
+                "Target" "CASTER"
+                "ModifierName" "modifier_flame_armor_aura"
+            }
+		}
 		"precache"
 		{
 			"particle"  "particles/econ/items/axe/axe_cinder/axe_cinder_battle_hunger_flames_b.vpcf"
@@ -9445,56 +9435,25 @@
 		}
 		"Modifiers"
 		{
-			"Passive_flame_armor"
-			{
-				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Passive"	"1"
-			}
 			"modifier_flame_armor_aura"
 			{
 				"Passive"			"1"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-			
-				"Aura"        "modifier_flame_armor_debuff"
-        		"Aura_Radius" "%aura_radius"
-        		"Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_ENEMY"
-        		"Aura_Types"  "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-        		"Aura_ApplyToCaster" "0"   // Not Apply to Self, default is 1
-
-        		"EffectName" "particles/item/item_foxfire_armor/foxfire_aura.vpcf"
-        		"EffectAttachType" "follow_origin"
-			}
-			"modifier_flame_armor_debuff"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-
-				"EffectAttachType"	"follow_hitloc"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-					  	"ScriptFile"	"items/Addon_Items/item_flame_armor.lua"
-						"Function"	"Shock"
-						"Damage"		"40"
-						"Target"	"TARGET"
-					}
-				}
 				"ThinkInterval"	"1.0"
 				"OnIntervalThink"
 				{
 					"RunScript"
-					{
-					  	"ScriptFile"	"items/Addon_Items/item_flame_armor.lua"
-						"Function"	"Shock"
-						"Damage"		"80"
-						"Target"	"TARGET"
-					}
+			 		{
+			 		  	"ScriptFile"	"items/Addon_Items/item_flame_armor.lua"
+			 			"Function"	"Burn"
+			 			"Damage"		"80"
+			 		}
 				}
+        		"EffectName" "particles/item/item_flame_armor/flame_aura.vpcf"
+        		"EffectAttachType" "follow_origin"
+			}
+			"modifier_flame_armor_debuff"
+			{
+				"IsDebuff"	"1"
 			}
 			"Passive_lightning_katana"
 			{

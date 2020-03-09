@@ -1,15 +1,22 @@
 
-function Shock( keys )
+function Burn( keys )
 	local caster = keys.caster
-	if caster~=nil and IsValidEntity(caster) and not caster:IsIllusion() and not caster:HasModifier("modifier_invisible") then
-		if keys.target:CanEntityBeSeenByMyTeam(caster) then
-			AMHC:Damage(caster,keys.target, keys.Damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-			local flame = ParticleManager:CreateParticle("particles/econ/items/axe/axe_cinder/axe_cinder_battle_hunger_flames_b.vpcf", PATTACH_ABSORIGIN, keys.target)
+	local ability = keys.ability
+	local aura_radius = ability:GetSpecialValueFor("aura_radius")
+	local point = caster:GetAbsOrigin()
+	local group = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, aura_radius,DOTA_UNIT_TARGET_TEAM_ENEMY,
+					DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+	for i,v in ipairs(group) do
+		if v:CanEntityBeSeenByMyTeam(caster) and not caster:IsIllusion() and not caster:HasModifier("modifier_invisible") then
+			AMHC:Damage(caster,v, keys.Damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+			ability:ApplyDataDrivenModifier(caster, v, "modifier_flame_armor_debuff", {duration = 0.95})
+			local flame = ParticleManager:CreateParticle("particles/econ/items/axe/axe_cinder/axe_cinder_battle_hunger_flames_b.vpcf", PATTACH_ABSORIGIN, v)
 			Timers:CreateTimer(0.9, function ()
 				ParticleManager:DestroyParticle(flame, false)
 			end)
 		end
 	end
 end
+
 
 
