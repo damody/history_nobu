@@ -241,7 +241,7 @@ function C17T(keys)
 	local point2 = ability:GetCursorPosition()
 	local level = ability:GetLevel() - 1
 	--【SE】
-	local particle3 = ParticleManager:CreateParticle("particles/c17t3/c17t3.vpcf",PATTACH_POINT,caster)
+	local particle3 = ParticleManager:CreateParticle("particles/c17t3/c17t3.vpcf",PATTACH_WORLDORIGIN,caster)
 	ParticleManager:SetParticleControl(particle3,0, point2+Vector(0,0,40))
 	ParticleManager:SetParticleControl(particle3,3, point2+Vector(0,0,40))
 	local aoeradius = ability:GetLevelSpecialValueFor("aoe",level)
@@ -252,6 +252,8 @@ function C17T(keys)
 	-- local particle = ParticleManager:CreateParticle("particles/c17t2/c17t2.vpcf",PATTACH_POINT,caster)
 	-- ParticleManager:SetParticleControl(particle,0, point2+Vector(0,0,40))
 	--【Group】	
+	AddFOWViewer(DOTA_TEAM_GOODGUYS, point, 10.0, 1.5, false)
+	AddFOWViewer(DOTA_TEAM_BADGUYS, point, 10.0, 1.5, false)
  	local group = FindUnitsInRadius(caster:GetTeamNumber(), point2, nil, aoeradius,ability:GetAbilityTargetTeam(),
  	ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_CLOSEST, false)
 	for i,v in ipairs(group) do
