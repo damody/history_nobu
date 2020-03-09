@@ -324,6 +324,7 @@ end
 function showTitle( keys )
   local caster = keys.caster
   local pos = caster:GetAbsOrigin()
+  keys.title = ""
   if keys.target_points then
     pos = keys.target_points[1]
   end
