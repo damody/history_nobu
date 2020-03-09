@@ -19,7 +19,7 @@
 		"Ability4"	"B14D"
 		"Ability5"	"B14T"
 		"Ability6"	"B14_precache"
-		"Ability7"	"attribute_bonusx"
+		"Ability7"	"magical_resistance"
 		"Ability8"	""
 		"Ability9"	""
 		"Ability10"	""
@@ -33,7 +33,7 @@
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"		"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 
 		// Attack
 		// ----------------------------------------------------------------

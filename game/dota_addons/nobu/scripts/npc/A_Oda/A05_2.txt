@@ -20,7 +20,7 @@
 		// Reference: A00O
 		"Ability4"	"A05D"
 		// Reference: A00P
-		"Ability5"	"attribute_bonusx"
+		"Ability5"	"magical_resistance"
 		// Reference: A00Q
 		"Ability6"	"A05T"
 		// Reference: A0NZ
@@ -28,7 +28,7 @@
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"

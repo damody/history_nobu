@@ -17,7 +17,7 @@
 		"Ability1"	"A14W"
 		"Ability2"	"A14E"
 		"Ability3"	"A14R"
-		"Ability4"	"attribute_bonusx"
+		"Ability4"	"magical_resistance"
 		"Ability5"	"A14_precache"
 		"Ability6"	"A14T"
 		"Ability7"	""
@@ -35,7 +35,7 @@
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 
 		// Attack
 		// ----------------------------------------------------------------

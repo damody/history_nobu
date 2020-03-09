@@ -18,13 +18,13 @@
 		"Ability2"	"B02E"
 		"Ability3"	"B02R"
 		"Ability4"	"B02D"
-		"Ability5"	"attribute_bonusx"
+		"Ability5"	"magical_resistance"
 		"Ability6"	"B02T"
 		"Ability7"	"B02_precache"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"

@@ -15,13 +15,13 @@
 		"Ability2"	"C12E"
 		"Ability3"	"C12R"
 		"Ability4"	"C12D"
-		"Ability5"	"attribute_bonusx"
+		"Ability5"	"magical_resistance"
 		"Ability6"	"C12T"
 		"Ability7"	"C12_precache"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"		"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 
 		// Attack
 		// ----------------------------------------------------------------

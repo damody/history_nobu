@@ -22,14 +22,14 @@
 		"Ability1"	"B06W"
 		"Ability2"	"B06E"
 		"Ability3"	"B06R"
-		"Ability4"	"attribute_bonusx"
+		"Ability4"	"magical_resistance"
 		"Ability5"	"B06_precache"
 		"Ability6"	"B06T"
 		"Ability7"	""
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"

@@ -17,7 +17,7 @@
 		"Ability1"	"B12W"
 		"Ability2"	"B12E"
 		"Ability3"	"B12R"
-		"Ability4"	"attribute_bonusx"
+		"Ability4"	"magical_resistance"
 		"Ability5"	"B12T"
 		"Ability6"	""
 		"Ability7"	"B12_precache"
@@ -25,7 +25,7 @@
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"

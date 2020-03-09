@@ -12,7 +12,7 @@
 		"Ability1"	"C09W"
 		"Ability2"	"C09E"
 		"Ability3"	"C09R"
-		"Ability4"	"attribute_bonusx"
+		"Ability4"	"magical_resistance"
 		"Ability5"	"C09_precache"
 		"Ability6"	"C09T"
 		"Ability7"	""
@@ -29,7 +29,7 @@
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"		"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 
 		// Attack
 		// ----------------------------------------------------------------

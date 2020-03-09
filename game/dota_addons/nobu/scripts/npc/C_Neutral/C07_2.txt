@@ -30,14 +30,14 @@
 		"Ability1"	"C07W"
 		"Ability2"	"C07E"
 		"Ability3"	"C07R"
-		"Ability4"	"attribute_bonusx"
+		"Ability4"	"magical_resistance"
 		"Ability5"	"C07D"
 		"Ability6"	"C07T"
 		"Ability7"	"C07_precache"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"

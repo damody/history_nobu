@@ -16,13 +16,13 @@
 		"Ability2"	"A27E"
 		"Ability3"	"A27R"
 		"Ability4"	"A27D"
-		"Ability5"	"attribute_bonusx"
+		"Ability5"	"magical_resistance"
 		"Ability6"	"A27T"
 		"Ability7"	"A27_precache"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"

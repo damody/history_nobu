@@ -15,7 +15,7 @@
 		"Ability1"	"A15W"
 		"Ability2"	"A15E"
 		"Ability3"	"A15R"
-		"Ability4"	"attribute_bonusx"
+		"Ability4"	"magical_resistance"
 		"Ability5"	"A15D"
 		"Ability6"	"A15T"
 		"Ability7"	"A15_precache"
@@ -32,7 +32,7 @@
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"		"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 
 		// Attack
 		// ----------------------------------------------------------------

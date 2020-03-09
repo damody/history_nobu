@@ -15,7 +15,7 @@
 		"Ability1"	"C01W"
 		"Ability2"	"C01E"
 		"Ability3"	"C01R"
-		"Ability4"	"attribute_bonusx"
+		"Ability4"	"magical_resistance"
 		"Ability5"	"C01_precache"
 		"Ability6"	"C01T"
 		"Ability7"	""
@@ -31,7 +31,7 @@
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"

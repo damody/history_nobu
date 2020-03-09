@@ -44,7 +44,6 @@ function equilibrium_constant:DeclareFunctions()
         MODIFIER_PROPERTY_MOVESPEED_MIN,
         MODIFIER_PROPERTY_MOVESPEED_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
-        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     }
     return funcs
 end
@@ -113,21 +112,13 @@ end
 function equilibrium_constant:GetModifierConstantHealthRegen( params )
     if IsServer() then
         local owner = self:GetParent()
-        if owner:IsHero() then
+        if owner:IsAlive() then
             local str = owner:GetStrength()
             local HealthRegenBonus = HP_REGEN_PER_STR_DIFF * str
             return HealthRegenBonus
         end
         return 0
     end
-end
-
-function equilibrium_constant:GetModifierMagicalResistanceBonus()
-    PrintTable(self)
-    if self.magical_resistance then
-        return self.magical_resistance
-    end
-    return 0
 end
 
 function equilibrium_constant:IsHidden()

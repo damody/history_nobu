@@ -28,13 +28,13 @@
 		"Ability2"	"C04E"
 		"Ability3"	"C04R"
 		"Ability4"	""
-		"Ability5"	"attribute_bonusx"
+		"Ability5"	"magical_resistance"
 		"Ability6"	"C04T"
 		"Ability7"	"C04_precache"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"

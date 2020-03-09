@@ -1,7 +1,6 @@
 LinkLuaModifier( "modifier_unit_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_tower_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_soul", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_magical_resistance", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 modifier_soul = class({})
 
 --------------------------------------------------------------------------------
@@ -553,31 +552,11 @@ function Tower_attack_landed( keys )
   caster:SetBaseDamageMax(caster.max_damage_tmp)
   caster:SetBaseDamageMin(caster.min_damage_tmp)
 end
----------------------------------------
-modifier_magical_resistance = class({})
-function modifier_magical_resistance:DeclareFunctions()
-  local funcs = {
-    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-  }
-  return funcs
-end
 
-function modifier_magical_resistance:GetModifierMagicalResistanceBonus()
-  return 30
-end
-
-function modifier_magical_resistance:GetAttributes()
-	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
-function Magical_resistance( keys )
+function magical_resistance( keys )
   local caster = keys.caster
-  if caster:IsHero() then
-    caster:AddNewModifier(caster,caster,"modifier_magical_resistance",{})
-    local modifier = caster:FindModifierByName("modifier_magical_resistance")
-    PrintTable(modifier)
-    if modifier then
-      modifier.magical_resistance = 30
-    end
+  if caster.magical_resistance == nil then
+    caster.magical_resistance = 30
   end
+  caster:SetBaseMagicalResistanceValue(caster.magical_resistance)
 end

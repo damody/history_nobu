@@ -16,7 +16,7 @@
 		"Ability2"	"B23E"
 		"Ability3"	"B23R"
 		"Ability4"	"B23D"
-		"Ability5"	"attribute_bonusx"
+		"Ability5"	"magical_resistance"
 		"Ability6"	"B23T"
 		"Ability7"	"B23_precache"
 		"Ability8"	""
@@ -32,7 +32,7 @@
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"		"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 
 		// Attack
 		// ----------------------------------------------------------------

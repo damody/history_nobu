@@ -17,7 +17,7 @@
 		"Ability1"	"A07W"
 		"Ability2"	"A07E"
 		"Ability3"	"A07R"
-		"Ability4"	"attribute_bonusx"
+		"Ability4"	"magical_resistance"
 		"Ability5"	"A07D"
 		"Ability6"	"A07T"
 
@@ -25,7 +25,7 @@
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"

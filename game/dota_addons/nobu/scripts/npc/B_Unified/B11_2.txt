@@ -13,7 +13,7 @@
 		"Ability1"	"B11W"
 		"Ability2"	"B11E"
 		"Ability3"	"B11R"
-		"Ability4"	"attribute_bonusx"
+		"Ability4"	"magical_resistance"
 		"Ability5"	"B11F"
 		"Ability6"	"B11T"
 		"Ability7"	"B11D"
@@ -31,7 +31,7 @@
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 
 		// Attack
 		// ----------------------------------------------------------------

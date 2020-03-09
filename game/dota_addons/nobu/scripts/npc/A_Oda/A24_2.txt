@@ -13,7 +13,7 @@
 		"Ability2"	"A24E"
 		"Ability3"	"A24R"
 		"Ability4"	"A24D"
-		"Ability5"	"attribute_bonusx"
+		"Ability5"	"magical_resistance"
 		"Ability6"	"A24T"
 		"Ability7"	""
 		"Ability8"	""
@@ -29,7 +29,7 @@
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"		"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 
 		// Attack
 		// ----------------------------------------------------------------

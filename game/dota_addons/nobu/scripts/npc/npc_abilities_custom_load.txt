@@ -3701,6 +3701,34 @@
 		}
 		"AbilityDamage"	"200 350 500 700"
 	}
+	"magical_resistance"
+	{
+		// General
+		// -------------------------------------------------------------------------------------------------------------
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	""
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"	"1"
+		"LevelsBetweenUpgrades"	"0"
+		"AbilityCooldown"	"0"
+		"Modifiers"
+		{
+			"modifier_magical_resistance"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"	"0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"		"magical_resistance"
+					}
+				}
+			}
+		}
+	}
 	// 屬性附加 黃十字 砍樹
 	"attribute_bonusx"
 	{
@@ -3712,16 +3740,21 @@
 		"MaxLevel"	"1"
 		"LevelsBetweenUpgrades"	"0"
 		"AbilityCooldown"	"0"
-		"precache"
-		{
-		}
-		"OnSpellStart"
-		{
-
-		}
 		"Modifiers"
 		{
-			
+			"modifier_magical_resistance"
+			{
+				"Passive"	"1"
+				"ThinkInterval"	"0.5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"		"magical_resistance"
+					}
+				}
+			}
 		}
 	}
 	//林卷小兵 法術書
@@ -5317,27 +5350,6 @@
 					{
 						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
 						"Function"	"killdummy"
-					}
-				}
-			}
-		}
-	}
-	//給抗魔
-	"magical_resistance"
-	{
-		"BaseClass"	"ability_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Modifiers"
-		{
-			"modifier_magical_resistance"
-			{
-				"Passive"	"1"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Magical_resistance"
 					}
 				}
 			}

@@ -2815,7 +2815,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "25"	//敏
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "17"	//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "70"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
@@ -2862,6 +2862,22 @@
 			"particle"	"particles/item/d01/d01.vpcf"
 			"particle"	"particles/item/d02_4/d02_4_f.vpcf"
 		}
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnEquip"
+			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnUnequip"
+			}
+		}
 		"Modifiers"
 		{
 			"Passive_item_true_katana"
@@ -2870,7 +2886,7 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "10"	//魔法減傷
+					// "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "10"	//魔法減傷
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "20" 	//攻擊百分比
 				}
 			}
@@ -2889,6 +2905,14 @@
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100" //攻速
 				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magical_resistance"	"20"
 			}
 		}
 	}
@@ -9710,8 +9734,21 @@
 				"EffectName"	"RevealMap"
 			}
 		}
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnEquip"
+			}
+		}
 		"OnUnequip"
 		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnUnequip"
+			}
 			"RemoveModifier"
             {
                 "Target" "CASTER"
@@ -9739,7 +9776,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20"	//魔抗
+					// "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20"	//魔抗
 				}
 			}
 			"Passive_insight_gem"
@@ -9804,6 +9841,14 @@
 			    }
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magical_resistance"	"20"
+			}
+		}
 	}
 
 	// 制魔腹卷
@@ -9830,6 +9875,28 @@
 		"ItemCost"	"3200"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnEquip"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_devil_supressor_armor.lua"
+				"Function"	"OnEquip"
+			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnUnequip"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -9862,8 +9929,16 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "5"	//防禦
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20" //魔抗
+					// "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20" //魔抗
 				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magical_resistance"	"15"
 			}
 		}
 	}
@@ -10126,6 +10201,22 @@
 		"ItemCost"	"2800"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnEquip"
+			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnUnequip"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -10137,38 +10228,6 @@
 		}
 		"Modifiers"
 		{
-			"modifier_perceive_wine"
-			{
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Passive"	"0"
-				"EffectName"	"particles/item/item_perceive_wine.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"IsHidden"	"0"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"duration"	"5"
-			}
-		}
-		
-		"Modifiers"
-		{
-			"Passive_item_magic_defence_boots"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "10" //魔抗
-				}
-			}
 			"Passive_item_pleated_skirt"
 			{
 				"IsHidden"	"1"
@@ -10190,6 +10249,30 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
 				}
+			}
+			"modifier_perceive_wine"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Passive"	"0"
+				"EffectName"	"particles/item/item_perceive_wine.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"IsHidden"	"0"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"5"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magical_resistance"	"10"
 			}
 		}
 	}
@@ -12784,6 +12867,22 @@
 		"ItemCost"	"4400"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnEquip"
+			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnUnequip"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -12795,38 +12894,6 @@
 		}
 		"Modifiers"
 		{
-			"modifier_perceive_wine"
-			{
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Passive"	"0"
-				"EffectName"	"particles/item/item_perceive_wine.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"IsHidden"	"0"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"duration"	"10"
-			}
-		}
-		
-		"Modifiers"
-		{
-			"Passive_item_magic_defence_boots"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "10" //魔抗
-				}
-			}
 			"Passive_item_pleated_skirt"
 			{
 				"IsHidden"	"1"
@@ -12848,6 +12915,30 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "20"	//跑速
 				}
+			}
+			"modifier_perceive_wine"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Passive"	"0"
+				"EffectName"	"particles/item/item_perceive_wine.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"IsHidden"	"0"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"10"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magical_resistance"	"10"
 			}
 		}
 	}

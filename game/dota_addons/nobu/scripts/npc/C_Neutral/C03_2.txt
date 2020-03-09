@@ -19,13 +19,13 @@
 		"Ability2"	"C03E"
 		"Ability3"	"C03R"
 		"Ability4"	"C03D"
-		"Ability5"	"attribute_bonusx"
+		"Ability5"	"magical_resistance"
 		"Ability6"	"C03T"
 		"Ability7"	"C03_precache"
 		//Armor
 		// --------------------------------------------------------------
 		"ArmorPhysical"	"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 		//Attack
 		// --------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"

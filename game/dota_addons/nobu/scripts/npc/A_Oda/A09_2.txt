@@ -16,7 +16,7 @@
 		"Ability3"	"A09R"
 		"Ability4"	"A09T"
 		"Ability5"	"A09_precache"
-		"Ability6"	"attribute_bonusx"
+		"Ability6"	"magical_resistance"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""
@@ -31,7 +31,7 @@
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"		"0"
-		"MagicalResistance"	"30"
+		"MagicalResistance"	"0"
 
 		// Attack
 		// ----------------------------------------------------------------
