@@ -52,6 +52,8 @@ end
 function MVP_OnTakeDamage( event )
 	-- Variables
 	if IsServer() then
+		print(DOTA_TEAM_BADGUYS) -- 3
+		print(DOTA_TEAM_GOODGUYS) -- 2
 		local damage = event.DamageTaken
 		local ability = event.ability
 		if ability then
@@ -67,7 +69,7 @@ function MVP_OnTakeDamage( event )
 						if not hero:IsAlive() then
 							hero:SetTimeUntilRespawn(0)
 						end
-						if getMVP_value(hero)>mvp_value then
+						if getMVP_value(hero)>mvp_value and hero:GetTeamNumber() ~= caster:GetTeamNumber() then
 							mvp_value = getMVP_value(hero)
 							mvp = hero
 							

@@ -152,7 +152,7 @@ function OnOdaGiveUp()
 			if not hero:IsAlive() then
 				hero:SetTimeUntilRespawn(0)
 			end
-			if getMVP_value(hero)>mvp_value then
+			if getMVP_value(hero)>mvp_value and hero:GetTeamNumber() == 3 then
 				mvp_value = getMVP_value(hero)
 				mvp = hero
 			end
@@ -189,7 +189,7 @@ function OnUnifiedGiveUp()
 			if not hero:IsAlive() then
 				hero:SetTimeUntilRespawn(0)
 			end
-			if getMVP_value(hero)>mvp_value then
+			if getMVP_value(hero)>mvp_value and hero:GetTeamNumber() == 2 then
 				mvp_value = getMVP_value(hero)
 				mvp = hero
 				
