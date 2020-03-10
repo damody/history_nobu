@@ -232,10 +232,11 @@ function A12T_OnToggleOn( keys )
 		local A12R_HIDE_level = ability:GetLevel()
 		local point = caster:GetAbsOrigin()
 		local radius = ability:GetSpecialValueFor("radius")
-		
+		local cooldown = caster:FindAbilityByName("A12R"):GetCooldownTime()
 		caster:RemoveAbility("A12R")
 		if A12R_level > 0 then
 			caster:AddAbility("A12R_HIDE"):SetLevel(A12R_HIDE_level)
+			caster:FindAbilityByName("A12R_HIDE"):StartCooldown(cooldown)
 		else
 			caster:AddAbility("A12R_HIDE"):SetLevel(0)
 		end
@@ -263,8 +264,10 @@ function A12T_OnToggleOff( keys )
 		local A12F_ability = keys.caster:FindAbilityByName("A12F")
 		A12F_ability:SetActivated(false)
 		caster:RemoveModifierByName("nobu_modifier_spell_hint_self")
+		local cooldown = caster:FindAbilityByName("A12R_HIDE"):GetCooldownTime()
 		caster:RemoveAbility("A12R_HIDE")
 		caster:AddAbility("A12R"):SetLevel(A12R_level)
+		caster:FindAbilityByName("A12R"):StartCooldown(cooldown)
 	end
 end
 
