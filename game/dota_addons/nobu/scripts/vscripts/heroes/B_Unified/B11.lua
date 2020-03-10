@@ -107,7 +107,7 @@ function B11R_OnAttackLanded( keys )
 		target:AddNewModifier(caster,nil,"nobu_modifier_rooted", {duration=1} )
 		local b11t = caster:FindAbilityByName("B11T")
 		if b11t:GetLevel() > 0 then
-			local rate = caster:GetAttackSpeed()+0.1
+			local rate = 1/caster:GetAttacksPerSecond()
 			if caster:HasModifier("modifier_B11T_Enable") then
 				b11t:ApplyDataDrivenModifier(caster,caster,"modifier_B11T_Crit3",{duration = rate})
 			else
@@ -207,7 +207,7 @@ function B11T_OnAttackStart( keys )
 	caster.B11T_count = caster.B11T_count + 1
 	if 25 >= rnd or caster.B11T_count > 6 then
 		caster.B11T_count = 0
-		local rate = caster:GetAttackSpeed()+0.1
+		local rate = 1/caster:GetAttacksPerSecond()
 		if caster:HasModifier("modifier_B11T_Enable") then
 			ability:ApplyDataDrivenModifier(caster,caster,"modifier_B11T_Crit3",{duration = rate})
 		else
@@ -434,7 +434,7 @@ function modifier_B11T_old_OnAttackStart( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		})
-		local rate = caster:GetAttackSpeed()
+		local rate = 1/caster:GetAttacksPerSecond()
 		if rate < 1 then
 		    caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,1)
 		else
