@@ -116,8 +116,8 @@
 		},
 		{
 			_class = "C_INIT_PositionOffset"
-			m_OffsetMax = [ 12.0, 5.0, 0.0 ]
-			m_OffsetMin = [ -12.0, -5.0, 0.0 ]
+			m_OffsetMax = [ 12.0, 5.0, 300.0 ]
+			m_OffsetMin = [ -12.0, -5.0, 300.0 ]
 			m_bLocalCoords = true
 		},
 	]
