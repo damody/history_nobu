@@ -170,6 +170,9 @@ function spell_ability ( filterTable )
 					if item ~= nil and (item:GetName() == itemx) then
 						print("item:StartCooldown", item:GetCooldown(-1))
 						item:StartCooldown(item:GetCooldown(-1))
+						if item:GetName() ~= "item_protection_amulet" then
+							target:AddNewModifier(target, nil, "nobu_modifier_magical_shield", {duration = 5})
+						end
 					end
 				end
 				caster:SpendMana(ability:GetManaCost(-1),ability)

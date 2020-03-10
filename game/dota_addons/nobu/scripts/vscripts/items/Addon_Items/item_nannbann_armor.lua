@@ -40,7 +40,7 @@ function modifier_nannbann_armor:OnTakeDamage(event)
 
 		    if victim:GetTeam() ~= attacker:GetTeam() and attacker == self.caster then
 		        if damage_flags ~= DOTA_DAMAGE_FLAG_REFLECTION then
-		            if (damage_type ~= DAMAGE_TYPE_PHYSICAL) then
+					if (damage_type ~= DAMAGE_TYPE_PHYSICAL) then
 		            	Timers:CreateTimer(0.01, function() 
 		            		if IsValidEntity(self.caster) then
 			            		self.caster:Purge( false, true, true, true, true)
@@ -72,7 +72,8 @@ function modifier_nannbann_armor:OnTakeDamage(event)
 			            	self.caster:SetHealth(self.hp)
 			            	self.caster:SetMana(self.mp)
 			            	-- Strong Dispel 刪除負面效果
-			            	self.caster:Purge( false, true, true, true, true)
+							self.caster:Purge( false, true, true, true, true)
+							print("use")
 							local count = 0
 							AmpDamageParticle = ParticleManager:CreateParticle("particles/a07w4/a07w4_c.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
 							Timers:CreateTimer(1.0, function() 
@@ -82,10 +83,10 @@ function modifier_nannbann_armor:OnTakeDamage(event)
 								local item = self.caster:GetItemInSlot(itemSlot)
 								if item ~= nil and item:GetName() == "item_nannbann_armor" then
 									hasitem = true
-									item:StartCooldown(60)
+									item:StartCooldown(80)
 								end
 							end
-							Timers:CreateTimer(60, function() 
+							Timers:CreateTimer(80, function() 
 								if IsValidEntity(self.caster) then
 									self.caster.nannbann_armor = true
 								end
