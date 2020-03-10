@@ -2788,22 +2788,6 @@
 			"particle"	"particles/item/d01/d01.vpcf"
 			"particle"	"particles/item/d02_4/d02_4_f.vpcf"
 		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
-				"Function"	"OnEquip"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
-				"Function"	"OnUnequip"
-			}
-		}
 		"Modifiers"
 		{
 			"Passive_item_true_katana"
@@ -2812,8 +2796,15 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					// "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "10"	//魔法減傷
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "20" 	//攻擊百分比
+				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_true_katana.lua"
+						"Function"	"chance_cannot_miss"
+					}
 				}
 			}
 			"Passive_the_great_sword_of_precision"
@@ -2832,13 +2823,17 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100" //攻速
 				}
 			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
+			"modifier_chance_cannot_miss"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"magical_resistance"	"20"
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+          		"Properties"
+           		{
+                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "101"
+           		}
 			}
 		}
 	}
@@ -13011,6 +13006,11 @@
 		"ItemRequirements"	{}
 		"OnEquip"
 		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnEquip"
+			}
 			"RemoveModifier"
             {
                 "Target" "CASTER"
@@ -13029,6 +13029,14 @@
             	}
             }
 		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnUnequip"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -13045,6 +13053,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"duration"	"10"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magical_resistance"	"20"
 			}
 		}
 
@@ -13069,7 +13082,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "30"	//防禦
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100" //攻速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"   "30" //跑速
 				}
 			}
