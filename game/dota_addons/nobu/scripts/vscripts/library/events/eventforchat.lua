@@ -406,6 +406,12 @@ local function chat_of_test(keys)
 			local team = 4
 			local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
 		end
+		if s == "soul" then
+			local unitname = "npc_dota_cursed_warrior_souls"
+			local pos = caster:GetAbsOrigin() + Vector(0,100,0)
+			local team = 4
+			local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
+		end
 		if string.match(s,"search") then
 			local allCouriers = Entities:FindAllByClassname('npc_dota_courier')
 			for k, ent in pairs(allCouriers) do
