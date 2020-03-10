@@ -42,7 +42,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
 		
-		"AbilityDamage"					"50 80 110 140"
+		"AbilityDamage"					"30 50 70 90"
 
 		"AbilitySpecial"
 		{
@@ -54,17 +54,17 @@
 			"02"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"debuff_attack_speed"			"-15 -20 -25 -30"
+				"debuff_attack_speed"			"-9 -13 -17 -21"
 			}
 			"03"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"debuff_movement_speed"		"-15 -20 -25 -30"
+				"debuff_movement_speed"		"-9 -13 -17 -21"
 			}
 			"04"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"mana_cost"		"8 12 16 20"
+				"mana_cost"		"10"
 			}
 		}
 
