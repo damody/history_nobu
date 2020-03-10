@@ -280,6 +280,10 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AOERadius"	"900"
+		"precache"
+		{
+			"particle"	"particles/b29/b29r.vpcf"
+		}
 		"OnSpellStart"
 		{
 			"FireSound"
@@ -307,7 +311,8 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-
+				"EffectName"	"particles/b29/b29r.vpcf"
+				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%bonus_atk_percent"
