@@ -5379,8 +5379,22 @@
 			{
 				"IsPurgable"	"0"
 				"IsHidden"	"1"
-				"EffectName"	"particles/rich_man/richman.vpcf"
-				"EffectAttachType"	"attach_hitloc"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"rich_man_OnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"rich_man_OnDestroy"
+					}
+				}
 			}
 		}
 	}

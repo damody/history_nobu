@@ -568,3 +568,15 @@ function hoarding_money( keys )
     ability:ApplyDataDrivenModifier(caster,caster,"modifier_richman",{duration = 3.5})
   end
 end
+
+function rich_man_OnCreated( keys )
+  local caster = keys.caster
+  local pos = caster:GetAbsOrigin()
+  local particle_name = "particles/rich_man/richman.vpcf"
+  caster.rich_man_effect = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, caster)
+  ParticleManager:SetParticleControl(caster.rich_man_effect , 0, pos + Vector(0,0,200))
+end
+
+function rich_man_OnDestroy( keys )
+  ParticleManager:DestroyParticle(caster.rich_man_effect,true)
+end

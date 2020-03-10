@@ -13,24 +13,31 @@
 		},
 		{
 			m_ChildRef = resource:"particles/rich_man/richman_g.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/rich_man/richman_d.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/rich_man/richman_c.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/rich_man/richman_b.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/rich_man/richman_j.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/rich_man/richman_i.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/rich_man/richman_e.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/rich_man/richman_a.vpcf"
@@ -43,33 +50,18 @@
 			m_drivers = 
 			[
 				{
-					m_iControlPoint = 0
 					m_iAttachType = "PATTACH_CUSTOMORIGIN"
 					m_entityName = "self"
+					m_vecOffset = [ null, null, null ]
+					m_angOffset = [ null, null, null ]
 				},
 				{
 					m_iControlPoint = 1
 					m_iAttachType = "PATTACH_POINT_FOLLOW"
 					m_entityName = "self_with_wearables"
 					m_attachmentName = "attach_head"
-				},
-				{
-					m_iControlPoint = 2
-					m_iAttachType = "PATTACH_POINT_FOLLOW"
-					m_entityName = "self_with_wearables"
-					m_attachmentName = "attach_eye_l"
-				},
-				{
-					m_iControlPoint = 3
-					m_iAttachType = "PATTACH_POINT_FOLLOW"
-					m_entityName = "self_with_wearables"
-					m_attachmentName = "attach_eye_r"
-				},
-				{
-					m_iControlPoint = 4
-					m_iAttachType = "PATTACH_POINT_FOLLOW"
-					m_entityName = "self_with_wearables"
-					m_attachmentName = "attach_hitlock"
+					m_vecOffset = [ null, null, null ]
+					m_angOffset = [ null, null, null ]
 				},
 			]
 			m_previewState = 
@@ -78,6 +70,5 @@
 			}
 		},
 	]
-	m_PreEmissionOperators = [  ]
 	m_nBehaviorVersion = 10
 }
