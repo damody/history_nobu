@@ -195,10 +195,11 @@ function A12F_Start( keys )
 	ability:EndCooldown()
 	ability:StartCooldown(cooldown)
 end
+
 function A12T_lock( keys )
 	local caster = keys.caster
 	local A12R_ability = caster:FindAbilityByName("A12R")
-	if A12R_ability == nil then
+	if A12R_ability ~= nil then
 		keys.ability:SetActivated(true)
 	else
 		keys.ability:SetActivated(false)
@@ -210,56 +211,69 @@ function A12T_unlock( keys )
 end
 
 local isToggle = false
+
 function A12T_OnToggleOn( keys )
-	isToggle = true
-	local caster = keys.caster
-	local ability = keys.ability
-	local A12F_ability = caster:FindAbilityByName("A12F")
-	local A12R_ability = caster:FindAbilityByName("A12R")
-	if A12R_ability == nil then
-		ability:EndCooldown()
-		return
+	if not isToggle then
+		isToggle = true
+		local caster = keys.caster
+		local ability = keys.ability
+		local A12F_ability = caster:FindAbilityByName("A12F")
+		local A12R_ability = caster:FindAbilityByName("A12R")
+		if A12R_ability == nil then
+			ability:EndCooldown()
+			return
+		end
+		local A12R_level = A12R_ability:GetLevel()
+		local modifier_A12T = caster:FindModifierByName("modifier_A12T")
+		if modifier_A12T then
+			A12T_OnToggleOff(keys)
+			caster:RemoveModifierByName("modifier_A12T")
+		end
+		local A12R_HIDE_level = ability:GetLevel()
+		local point = caster:GetAbsOrigin()
+		local radius = ability:GetSpecialValueFor("radius")
+		
+		caster:RemoveAbility("A12R")
+		if A12R_level > 0 then
+			caster:AddAbility("A12R_HIDE"):SetLevel(A12R_HIDE_level)
+		else
+			caster:AddAbility("A12R_HIDE"):SetLevel(0)
+		end
+		A12F_ability:SetLevel(keys.ability:GetLevel())
+		A12F_ability:SetActivated(true)
+		--spell hint
+		local spell_hint_table = {
+			radius     = radius,		-- 半徑
+			show = true,
+		}
+		caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint_self",spell_hint_table)
+		Timers:CreateTimer(0, function()
+			AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
+			AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
+			if not isToggle then return nil end
+			return 0.25
+		end)
 	end
-	local A12R_level = A12R_ability:GetLevel()
-	local modifier_A12T = caster:FindModifierByName("modifier_A12T")
-	if modifier_A12T then
-		A12T_OnToggleOff(keys)
-		caster:RemoveModifierByName("modifier_A12T")
-	end
-	local A12R_HIDE_level = ability:GetLevel()
-	local point = caster:GetAbsOrigin()
-	local radius = ability:GetSpecialValueFor("radius")
-	
-	caster:RemoveAbility("A12R")
-	if A12R_level > 0 then
-		caster:AddAbility("A12R_HIDE"):SetLevel(A12R_HIDE_level)
-	else
-		caster:AddAbility("A12R_HIDE"):SetLevel(0)
-	end
-	A12F_ability:SetLevel(keys.ability:GetLevel())
-	A12F_ability:SetActivated(true)
-	--spell hint
-	local spell_hint_table = {
-		radius     = radius,		-- 半徑
-		show = true,
-	}
-	caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint_self",spell_hint_table)
-	Timers:CreateTimer(0, function()
-		AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
-		AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
-		if not isToggle then return nil end
-		return 0.25
-	end)
 end
 
 function A12T_OnToggleOff( keys )
-	isToggle = false
-	local caster = keys.caster
-	local A12F_ability = keys.caster:FindAbilityByName("A12F")
-	A12F_ability:SetActivated(false)
-	caster:RemoveModifierByName("nobu_modifier_spell_hint_self")
-	caster:RemoveAbility("A12R_HIDE")
-	caster:AddAbility("A12R"):SetLevel(A12R_level)
+	if isToggle then
+		isToggle = false
+		local caster = keys.caster
+		local A12F_ability = keys.caster:FindAbilityByName("A12F")
+		A12F_ability:SetActivated(false)
+		caster:RemoveModifierByName("nobu_modifier_spell_hint_self")
+		caster:RemoveAbility("A12R_HIDE")
+		caster:AddAbility("A12R"):SetLevel(A12R_level)
+	end
+end
+
+function A12T_OnOwnerSpawned( keys )
+	 if isToggle then
+		local caster = keys.caster
+		A12T_OnToggleOff(keys)
+		caster:RemoveModifierByName("modifier_A12T")
+ 	end
 end
 
 function A12T_old( keys )
