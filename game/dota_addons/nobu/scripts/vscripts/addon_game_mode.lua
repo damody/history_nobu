@@ -738,7 +738,9 @@ function Precache( context )
     "particles/units/heroes/hero_viper/viper_poison_debuff.vpcf",
     --制魔
     "particles/item/supressor_armor.vpcf",
-    
+    --倭寇海民
+    "particles/creeps/lane_creeps/creep_radiant_hulk_swipe_left.vpcf",
+    "particles/creeps/lane_creeps/creep_radiant_hulk_swipe_right.vpcf",
     --注意要加,
     }
     for i,v in ipairs(particle_Precache_Table) do
