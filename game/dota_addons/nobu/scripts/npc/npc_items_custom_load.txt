@@ -8119,20 +8119,10 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"Duration"			"20"
+				"Duration"			"11"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "40"	//攻
-				}
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"dmg"	"%attack_damage"
-						"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
-						"Function"	"StealLife2"
-						"StealPercent"	"30"
-					}
 				}
 			}
 			"Passive_blade_of_blood_devourer"
@@ -8147,6 +8137,16 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "5"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "50"	//攻
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "0"	//魔抗
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"dmg"	"%attack_damage"
+						"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
+						"Function"	"StealLife2"
+						"StealPercent"	"15"
+					}
 				}
 			}
 		}
