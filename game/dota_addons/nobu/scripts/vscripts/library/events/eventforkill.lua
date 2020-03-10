@@ -144,6 +144,16 @@ function Nobu:OnUnitKill( keys )
           local nobu_id2 = _G.heromap[killedUnit:GetName()]
           GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."中止了".._G.hero_name_zh[nobu_id2].."的連殺，得到"..(killedUnit.sk_kill*50).."獎勵</font>",0,0)
         end
+        --屯錢獎勵
+        print(killedUnit:GetGold())
+        if killedUnit:GetGold() > 3000 then
+          local level = math.floor((killedUnit:GetGold()-3000)/1000)
+          print(level)
+          AMHC:GivePlayerGold_UnReliable(AttackerUnit:GetPlayerOwnerID(), (2 + level)*50)
+          local nobu_id = _G.heromap[AttackerUnit:GetName()]
+          local nobu_id2 = _G.heromap[killedUnit:GetName()]
+          GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."獲得了".._G.hero_name_zh[nobu_id2].."的賞金，得到".. ((2 + level)*50) .."獎勵</font>",0,0)          
+        end
         Timers:CreateTimer(15, function()
           if AttackerUnit.sk_kill == sk_kill then
             AttackerUnit.sk_kill = nil

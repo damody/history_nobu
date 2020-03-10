@@ -560,3 +560,11 @@ function magical_resistance( keys )
   end
   caster:SetBaseMagicalResistanceValue(caster.magical_resistance)
 end
+
+function hoarding_money( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  if caster:GetGold() >= 3000 then
+    ability:ApplyDataDrivenModifier(caster,caster,"modifier_richman",{duration = 3.5})
+  end
+end

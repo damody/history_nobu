@@ -5355,5 +5355,33 @@
 			}
 		}
 	}
+	"hoarding_gold"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_hoarding_gold"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"	"3"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"hoarding_money"
+					}
+				}
+			}
+			"modifier_richman"
+			{
+				"IsPurgable"	"0"
+				"IsHidden"	"1"
+				"EffectName"	"particles/rich_man/richman.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+			}
+		}
+	}
 }
-	
