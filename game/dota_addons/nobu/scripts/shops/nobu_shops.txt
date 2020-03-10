@@ -5,7 +5,6 @@
 "consumables"
 {
 	"item"      "item_perceive_wine"		//般若湯
-	"item"      "item_perceive_wine_hyper"	//抗魔
 	"item"      "item_rations"				//軍糧丸
 	"item"      "item_sake"					//清酒
 	"item"      "item_liquor"				//燒酒
@@ -27,7 +26,6 @@
 	"item"      "item_health_ingot"			//生命鋼
 	"item"      "item_mana_ingot"			//法力鋼
 	"item"      "item_perceive_wine"		//般若湯
-	"item"      "item_perceive_wine_hyper"	//抗魔
 	"item"      "item_rations"				//軍糧丸
 	"item"      "item_sake"					//清酒
 	"item"      "item_liquor"				//燒酒
@@ -218,7 +216,6 @@
 	"item"      "item_brave_ring"			//武尊環
 	"item"      "item_samurai's_badge"		//侍的徽章
 	"item"      "item_perceive_wine"		//般若湯
-	"item"      "item_perceive_wine_hyper"	//抗魔
 	"item"      "item_rations"				//軍糧丸
 	"item"      "item_sake"					//清酒
 	"item"      "item_liquor"				//燒酒
