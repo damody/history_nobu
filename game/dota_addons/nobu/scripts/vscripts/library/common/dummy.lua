@@ -578,5 +578,5 @@ function rich_man_OnCreated( keys )
 end
 
 function rich_man_OnDestroy( keys )
-  ParticleManager:DestroyParticle(caster.rich_man_effect,true)
+  ParticleManager:DestroyParticle(keys.caster.rich_man_effect,true)
 end
