@@ -7096,7 +7096,7 @@
 	//長捲製作單
 	"item_recipe_nagamaki" 
 	{
-	    "ID" "3000"
+	    "ID" "3015"
 	    "BaseClass" "item_recipe_arcane_boots"
 		"ItemCost" "1250"
 		"ItemShopTags" ""
