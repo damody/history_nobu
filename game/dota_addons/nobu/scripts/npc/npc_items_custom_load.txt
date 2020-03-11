@@ -3449,6 +3449,75 @@
 		
 	}
 
+	//長捲
+	"item_nagamaki"
+	{
+		// General
+		"BaseClass"	"item_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"	"item_custom/variety_tachi"
+		"FightRecapLevel"	"1"
+		"ID"	"2575"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
+		// Item Info
+		
+		"ItemCost"	"2600"
+		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"	"1"
+		"ItemShopTags"		"damage"
+		"ItemRequirements"	{}
+		"AbilityManaCost"	"75"
+		"AbilityCooldown"	"40"
+		"precache"
+		{
+			"particle"	"particles/item/d01/d01.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_nagamaki.lua"
+				"Function"	"Shock"
+			}
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_nagamaki"
+				"Duration"      "10"
+			}
+		}
+		"Modifiers"
+		{
+			"Passive_strength_ingot"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"	//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "30"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "10"	//回血
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+				}
+			}
+			"modifier_nagamaki"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100" //攻速
+				}
+			}
+		}
+	}
+
 	// 洞察寶石
 	"item_insight_gem"
 	{
@@ -7021,6 +7090,21 @@
 		"ItemRequirements"
 		{
 			"01" "item_tachi;item_power_ingot;item_brave_ring"  //合成所需物品
+		}
+	}
+
+	//長捲製作單
+	"item_recipe_nagamaki" 
+	{
+	    "ID" "3000"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "1250"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"ItemResult" "item_nagamaki"
+		"ItemRequirements"
+		{
+			"01" "item_spear;item_regeneration_ingot"
 		}
 	}
 

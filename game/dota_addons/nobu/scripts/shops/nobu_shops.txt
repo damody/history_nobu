@@ -104,7 +104,7 @@
 	"item"      "item_cross_spear"			//十字槍
 	"item"      "item_gorgeous_tachi"			//陣太刀
 	"item"      "item_big_tachi"			//野太刀
-	"item"      "item_variety_tachi"			//長捲
+	"item"      "item_nagamaki"			//長捲
 	"item"      "item_logs_big_tachi"			//戒杖刀
 	"item"      "item_red_spear"			//皆朱槍
 	"item"      "item_mana_thief"			//禦神法輪
