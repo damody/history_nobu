@@ -14,6 +14,9 @@
 -- end
 local A12R_damage
 local A12R_level = 0
+local A12E_level
+local A12E_duration
+local A12W_level
 
 function A12W( keys )
 	local caster = keys.caster
@@ -44,6 +47,42 @@ function A12W( keys )
 	end
 
 	caster.A12D_B = false --最後一定要加
+end
+
+function A12W_HIDE( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local point = caster:GetCursorPosition()
+	caster.abilityName = "A12W_HIDE"
+	local group = {}
+	local radius = 500
+	local particle2=ParticleManager:CreateParticle("particles/a12w/a12w_hide_test.vpcf",PATTACH_WORLDORIGIN,nil)
+	ParticleManager:SetParticleControl(particle2,0,point)
+    group = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false)
+    
+	for _,unit in ipairs(group) do
+		ParticleManager:CreateParticle("particles/a12w/a12w.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+		Physics:Unit(unit)
+		local diff = unit:GetAbsOrigin()-point
+		diff.z = 0
+		local dir = diff:Normalized()
+		unit:SetVelocity(Vector(0,0,-9.8))
+		unit:AddPhysicsVelocity(dir*400*-1)
+	end
+	if caster.A12D_B == true then
+		ParticleManager:CreateParticle("particles/a12w2/a12w2.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+		for _,v in ipairs(group) do
+			v:AddNewModifier( caster, ability, "modifier_stunned" , { duration = (A12W_level - 1)*0.25 + 0.5 } )
+		end
+	else
+		ParticleManager:CreateParticle("particles/a12w/a12w.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	end
+
+	caster.A12D_B = false --最後一定要加
+end
+
+function A12E_OnUpgrade( keys )
+	A12E_ability = keys.ability
 end
 
 function A12E( keys )
@@ -99,6 +138,48 @@ function A12E_OnAttackLanded2( keys )
 			ParticleManager:CreateParticle("particles/a12w2/a12w2.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 			ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW, caster)
 		end
+	end
+end
+
+function A12E_HIDE( keys )
+	local caster = keys.attacker
+	local ability = keys.ability
+	local point = caster:GetAbsOrigin()
+	local range = ability:GetSpecialValueFor("range")
+	local duration = A12E_duration
+	local count = 0
+	local particle = ParticleManager:CreateParticle("particles/a12e/a12e_hide.vpcf", PATTACH_ABSORIGIN, caster )
+	ParticleManager:SetParticleControl(particle,0,caster:GetAbsOrigin()+Vector(0,0,100))
+	Timers:CreateTimer(0, function()
+		count = count + 0.1
+		if count >= duration or not caster:HasModifier("modifier_A12T") then
+			ParticleManager:DestroyParticle(particle,true)
+			return nil 
+		end
+		local units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, range,DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+				DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+		for _,unit in pairs(units) do
+			ability:ApplyDataDrivenModifier(caster,unit,"modifier_A12E_HIDE",{duration = 0.2})
+		end
+		return 0.1
+	end)
+	if caster.A12D_B == true then
+		local units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, range, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+				DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		for _,unit in pairs(units) do
+			ability:ApplyDataDrivenModifier(caster,unit,"modifier_A12E_HIDE_2_lv"..A12E_level, {duration = duration})
+		end
+	end
+
+	--print("@@" .. tostring(caster.A12D_B) .. "   +   " ..  tostring(caster.A12D_Time))
+	caster.A12D_B = false --最後一定要加	
+end
+
+function A12E_HIDE_OnTakeDamage( keys )
+	local unit = keys.unit
+	local attacker = keys.attacker
+	if not attacker:IsBuilding() and not attacker:HasModifier("modifier_A12E_HIDE") then
+		unit:SetHealth(unit:GetHealth() + keys.damage)
 	end
 end
 
@@ -170,11 +251,23 @@ function A12R_HIDE( keys )
 	caster.A12D_B = false --最後一定要加	
 end
 
+function A12F_finish( keys )
+	local caster = keys.caster
+	caster.A12D_B = false
+end
+
 function A12F( keys )
+	PrintTable(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
+	local damage = ability:GetSpecialValueFor("damage")
 	local stack = 1
+	if caster.A12D_B == true then
+		AMHC:Damage( caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL"))
+	else
+		AMHC:Damage( caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL"))
+	end
 	--reduce magic resistance
 	if target:IsAlive() then
 		if target:HasModifier("modifier_A12F") then
@@ -218,36 +311,55 @@ function A12T_OnToggleOn( keys )
 		local caster = keys.caster
 		local ability = keys.ability
 		local A12F_ability = caster:FindAbilityByName("A12F")
+		local A12W_ability = caster:FindAbilityByName("A12W")
+		local A12E_ability = caster:FindAbilityByName("A12E")
 		local A12R_ability = caster:FindAbilityByName("A12R")
 		if A12R_ability == nil then
 			ability:EndCooldown()
 			return
 		end
-		local A12R_level = A12R_ability:GetLevel()
 		local modifier_A12T = caster:FindModifierByName("modifier_A12T")
 		if modifier_A12T then
 			A12T_OnToggleOff(keys)
 			caster:RemoveModifierByName("modifier_A12T")
 		end
-		local A12R_HIDE_level = ability:GetLevel()
 		local point = caster:GetAbsOrigin()
 		local radius = ability:GetSpecialValueFor("radius")
+		--add A12R_HIDE
+		A12R_level = A12R_ability:GetLevel()
 		local cooldown = caster:FindAbilityByName("A12R"):GetCooldownTime()
 		caster:RemoveAbility("A12R")
 		if A12R_level > 0 then
-			caster:AddAbility("A12R_HIDE"):SetLevel(A12R_HIDE_level)
+			caster:AddAbility("A12R_HIDE"):SetLevel(ability:GetLevel())
 			caster:FindAbilityByName("A12R_HIDE"):StartCooldown(cooldown)
 		else
 			caster:AddAbility("A12R_HIDE"):SetLevel(0)
 		end
-		A12F_ability:SetLevel(keys.ability:GetLevel())
-		A12F_ability:SetActivated(true)
+		--add A12E_HIDE
+		A12E_level = A12E_ability:GetLevel()
+		A12E_duration = A12E_ability:GetSpecialValueFor("duration")
+		caster:RemoveAbility("A12E")
+		if A12E_level > 0 then
+			caster:AddAbility("A12E_HIDE"):SetLevel(ability:GetLevel())
+		else
+			caster:AddAbility("A12E_HIDE"):SetLevel(0)
+		end
+		--add A12W_HIDE
+		A12W_level = A12W_ability:GetLevel()
+		caster:RemoveAbility("A12W")
+		if A12W_level > 0 then
+			caster:AddAbility("A12W_HIDE"):SetLevel(ability:GetLevel())
+		else
+			caster:AddAbility("A12W_HIDE"):SetLevel(0)
+		end
 		--spell hint
 		local spell_hint_table = {
 			radius     = radius,		-- 半徑
 			show = true,
 		}
 		caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint_self",spell_hint_table)
+		A12F_ability:SetLevel(ability:GetLevel())
+		A12F_ability:SetActivated(true)
 		Timers:CreateTimer(0, function()
 			AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
 			AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
@@ -264,10 +376,17 @@ function A12T_OnToggleOff( keys )
 		local A12F_ability = keys.caster:FindAbilityByName("A12F")
 		A12F_ability:SetActivated(false)
 		caster:RemoveModifierByName("nobu_modifier_spell_hint_self")
+		--remove A12R
 		local cooldown = caster:FindAbilityByName("A12R_HIDE"):GetCooldownTime()
 		caster:RemoveAbility("A12R_HIDE")
 		caster:AddAbility("A12R"):SetLevel(A12R_level)
 		caster:FindAbilityByName("A12R"):StartCooldown(cooldown)
+		--remove A12E
+		caster:RemoveAbility("A12E_HIDE")
+		caster:AddAbility("A12E"):SetLevel(A12E_level)
+		--remove A12W
+		caster:RemoveAbility("A12W_HIDE")
+		caster:AddAbility("A12W"):SetLevel(A12W_level)
 	end
 end
 
@@ -323,21 +442,16 @@ function A12D_OnAbilityExecuted( keys )
 		caster.A12D_Time = 0
 	end
 	if handle then
-		if handle:GetStackCount() < 4 then
+		if handle:GetStackCount() <= 4 then
 			handle:SetStackCount(handle:GetStackCount() + 1)
 		end
-		if handle:GetStackCount() >= 4 then
-			caster:FindAbilityByName("A12D"):SetActivated(true)
-		end
-		caster.A12D_Time = handle:GetStackCount()
-
-		local name = keys.event_ability:GetName()
-		if name == "A12D" then
-			caster:FindAbilityByName("A12D"):SetActivated(false)
+		if handle:GetStackCount() > 4 then
+			caster:FindAbilityByName("A12D")
 			caster.A12D_B = true
 			caster.A12D_Time = 0
 			handle:SetStackCount(0)
 		end
+		caster.A12D_Time = handle:GetStackCount()
 	end
 end
 
@@ -345,4 +459,3 @@ function A12D( keys )
 	local caster = keys.caster
 	caster.abilityName = "A12D"
 end
-
