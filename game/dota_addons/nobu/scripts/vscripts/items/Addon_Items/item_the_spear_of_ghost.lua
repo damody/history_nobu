@@ -23,7 +23,10 @@ function Shock( keys )
 			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
 
 			local dmg = keys.target:GetHealth() * keys.dmg * 0.01
-			AMHC:Damage(caster,keys.target, dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+			if dmg < 120 then
+				dmg = 120
+			end
+			AMHC:Damage(caster,keys.target, dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 			AMHC:CreateNumberEffect(keys.target,dmg,1,AMHC.MSG_DAMAGE,'blue')
 			--動作
 			local rate = caster:GetAttackSpeed()
