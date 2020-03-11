@@ -338,10 +338,10 @@
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityCooldown"	"5"
+		"AbilityCooldown"	"5 4 3"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
-		"AbilityManaCost"	"100 175 250"
+		"AbilityManaCost"	"100 150 200"
 		"AbilityCastRange"	"1000 1150 1300"
 		"precache"
 		{
@@ -457,12 +457,12 @@
 			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"attack_bonus"	"200 230 260"
+				"attack_bonus"	"130 160 190"
 			}
 			"06"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"attack_speed_bonus"	"-125"
+				"attack_speed_bonus"	"-75"
 			}
 			"07"
 			{
@@ -472,7 +472,7 @@
 			"08"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"lock"	"5"
+				"lock"	"5 4 3"
 			}
 		}
 	}
