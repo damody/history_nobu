@@ -356,6 +356,8 @@ function Nobu:OnUnitKill( keys )
         end
       end)
     elseif string.match(name, "courier") then
+      killedUnit:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
+      killedUnit:FindAbilityByName("courier_burst"):SetLevel(1)
       if killedUnit:GetTeamNumber() == 2 then
         killedUnit:RespawnUnit()  
         killedUnit:SetOrigin(Vector(6912,-7168,128))
