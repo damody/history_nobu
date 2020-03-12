@@ -9,6 +9,9 @@ function Channeling( keys )
 	local count = 0
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_slow",{})
 	Timers:CreateTimer(0, function()
+		if not caster:IsAlive() then
+			return nil
+		end
 		if count >= 1 then
 			Shock(keys)
 		end
