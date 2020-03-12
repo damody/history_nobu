@@ -415,7 +415,21 @@ local function chat_of_test(keys)
 		if string.match(s,"search") then
 			local allCouriers = Entities:FindAllByClassname('npc_dota_courier')
 			for k, ent in pairs(allCouriers) do
-				print(ent:GetName())
+				PrintTable(ent)
+				print(ent:GetOwnerEntity())
+				print(ent:IsControllableByAnyPlayer())
+				print(ent:HasFlyingVision())
+				for i,m in pairs(ent:FindAllModifiers()) do
+					print(m:GetName())
+				end
+			end
+		end
+		if string.match(s, "cleanbuff") then
+			local allCreature = Entities:FindAllInSphere(caster:GetOrigin(),99999)
+			for k, ent in pairs(allCreature) do
+				if ent:GetName() == "npc_dota_creature" then
+					ent:ForceKill(true)
+				end
 			end
 		end
 		if string.match(s,"slot") then
