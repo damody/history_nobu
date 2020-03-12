@@ -49,9 +49,12 @@ function Nobu:OnHeroIngame( keys )
             end
           end
           local allCouriers = Entities:FindAllByClassname('npc_dota_courier')
-			    for k, ent in pairs(allCouriers) do
-				    ent:ForceKill(true)
-			    end
+          for k, ent in pairs(allCouriers) do
+            if ent:GetOwner():GetAssignedHero() == hero then
+              ent:ForceKill(true)
+              ent:GetOwner():GetAssignedHero().courier = 1
+            end
+          end
           --[[叫馬
           local donkey = CreateUnitByName("npc_dota_courier", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
           donkey.oripos = donkey:GetAbsOrigin()

@@ -112,7 +112,29 @@ function Nobu:OnGameRulesStateChange( keys )
 		end)
 	  end
 	end
-
+	--檢查有沒有馬
+	Timers:CreateTimer(60, function()
+		for playerID = 0, 9 do
+			local id       = playerID
+			local p        = PlayerResource:GetPlayer(id)
+			if p ~= nil then
+				local hero	   = p:GetAssignedHero()
+				if hero.courier == nil then
+					local donkey = CreateUnitByName("npc_dota_courier", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
+					donkey:SetOwner(hero)
+					donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
+					donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
+					donkey:FindAbilityByName("courier_go_to_secretshop"):SetLevel(1)
+					donkey:FindAbilityByName("courier_return_stash_items"):SetLevel(1)
+					donkey:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
+					donkey:FindAbilityByName("courier_transfer_items"):SetLevel(1)
+					donkey:FindAbilityByName("courier_burst"):SetLevel(1)
+					donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
+					donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
+				end
+			end
+		end
+	end)
 	-- 出強王時間
 	Timers:CreateTimer(180, function()
 		GameRules: SendCustomMessage("<font color='#ffff00'>強盜之王出現了</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
