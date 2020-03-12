@@ -1,7 +1,9 @@
 function Shock(keys)
     local caster = keys.caster
+    local ability = keys.ability
+    local point = ability:GetCursorPosition()
     if caster.olderNinja == nil then caster.olderNinja = 1 end
-    local donkey = CreateUnitByName("ninja_unit1", caster:GetAbsOrigin() + Vector(50, 100, 0), true, caster, caster, caster:GetTeamNumber())
+    local donkey = CreateUnitByName("ninja_unit1", point, true, caster, caster, caster:GetTeamNumber())
     donkey:SetOwner(caster)
     donkey.owner = caster
     donkey:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)

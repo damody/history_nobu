@@ -2334,7 +2334,7 @@
 		"Ability2"	"for_magic_immune"
 		"Ability3"	"for_no_collision"
 		"Ability4"	"update_buy_ninja1"
-		"Ability5"	""
+		"Ability5"	"flash"
 		"Ability6"	""
 		"Ability7"	""
 		"Ability8"	""
