@@ -11472,7 +11472,7 @@
 		"ItemCost"	"1600"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"						"1"
+		"SideShop"		"1"
 		
 		"Modifiers"
 		{
@@ -11941,6 +11941,7 @@
 		"ItemCost"	"750"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"	"1"
 		"OnSpellStart"
 		{
 			"RunScript"
