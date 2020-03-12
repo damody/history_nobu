@@ -345,6 +345,29 @@ function LevelUpAbility( event )
 	end
 end
 
+function A04W_OnSpawn( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local point = ability:GetAbsOrigin()
+	local target = keys.target
+	for i = 0 , 1 do
+		local unit = CreateUnitByName("A04W_SUMMEND_UNIT", point, true, caster, caster, caster:GetTeamNumber())
+		unit:AddNewModifier(unit,nil,"modifier_kill",{duration=26})
+		unit:SetOwner(caster)
+		unit.name = "A04W_SUMMEND_UNIT"
+		unit.owner = caster
+		unit:SetMaximumGoldBounty(35)
+		unit:SetMaximumGoldBounty(35)
+		unit:AddNewModifier(unit,ability,"modifier_phased",{duration=0.1})
+		ability:ApplyDataDrivenModifier(unit,unit,"modifier_A04W_summend",{})
+		ability:ApplyDataDrivenModifier(unit,unit,"modifier_A04W_Tech",{})
+		Timers:CreateTimer(0.3 ,function()
+			unit:MoveToTargetToAttack(target)
+		end)
+		
+	end
+end
+
 function A04W_ATTACK_BUILDING( event )
 	--如果攻擊單位是建築物 就結凍
 	local unit = event.target
@@ -355,15 +378,16 @@ function A04W_ATTACK_BUILDING( event )
 end
 
 function A04W_Bonus( event )
+	PrintTable(event)
 	--隨著英雄等級提升
-	local caster = event.caster
+	local caster = event.caster.owner
 	local target = event.target
 	local ability = event.ability
 
 	--獲取英雄等級
 	local level = caster:GetLevel()
 	local hp = ability:GetSpecialValueFor("hp")
-	local hModifier = target:FindModifierByNameAndCaster("modifier_A04W_Tech", caster)
+	local hModifier = target:FindModifierByName("modifier_A04W_Tech")
 	hModifier:SetStackCount(level)
 	target:SetBaseMaxHealth(hp)
 	target:SetHealth(target:GetMaxHealth())
