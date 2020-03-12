@@ -6,7 +6,12 @@ function Channeling( keys )
 	local caster = keys.caster
 	ability.IsFinish = false
 	ability.channel_timer = 0
+	local count = 0
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_slow",{})
 	Timers:CreateTimer(0, function()
+		if count >= 1 then
+			Shock(keys)
+		end
 		if ability.IsFinish then
 			return nil 
 		end
@@ -21,6 +26,7 @@ function Channeling( keys )
 		dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
 		dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=0.09})
 		ability.channel_timer = ability.channel_timer + 0.05
+		count = count + 0.05
 		return 0.05
 	end)
 end
