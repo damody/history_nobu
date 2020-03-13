@@ -17,7 +17,11 @@ function Shock( keys )
 			caster.spear_of_ghost = 0
 		end
 		caster.spear_of_ghost = caster.spear_of_ghost + 1
-		if caster.spear_of_ghost >= 3 then
+		local trigger = 4
+		if caster:GetBaseAttackRange() < 200 then
+			trigger = 3
+		end
+		if caster.spear_of_ghost >= trigger then
 
 			caster.spear_of_ghost = 0
 			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )

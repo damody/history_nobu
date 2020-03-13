@@ -495,8 +495,7 @@ function modifier_tower_armor:DeclareFunctions()
 end
 
 function modifier_tower_armor:GetModifierIncomingDamage_Percentage( keys )
-  print(keys.attacker.name)
-  if keys.attacker.name then
+  if keys.attacker.name ~= nil then
     return 0
   end
   if keys.attacker:IsHero() then 
