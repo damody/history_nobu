@@ -124,7 +124,7 @@ function B11R_OnAttackLanded( keys )
 			illusion[i] = CreateUnitByName(unit_name, origin, true, caster, nil, caster:GetTeamNumber())
 			illusion[i]:SetOwner(caster)
 			illusion[i]:SetControllableByPlayer(player, true)
-			
+			illusion[i].illusion_damage = 0.6
 			-- Level Up the unit to the casters level
 			local casterLevel = caster:GetLevel()
 			for j=1,casterLevel-1 do

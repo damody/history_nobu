@@ -10,7 +10,6 @@ function Shock( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local skill = keys.ability
-	print(skill:GetName())
 	if not target:IsBuilding() then
 		local ran =  RandomInt(0, 100)
 		if (caster.spear_of_ghost == nil) then
@@ -29,12 +28,12 @@ function Shock( keys )
 			local dmg = keys.target:GetMaxHealth() * keys.dmg * 0.01
 			if not target:IsHero() then
 				if skill:GetName() == "item_the_scream_of_spiders"then 
-					if dmg > 240 then
-						dmg = 240
+					if dmg > 350 then
+						dmg = 350
 					end
 				else
-					if dmg > 160 then
-						dmg = 160
+					if dmg > 220 then
+						dmg = 220
 					end
 				end
 			end

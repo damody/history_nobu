@@ -206,7 +206,7 @@ function B15T_create_illusion(keys, illusion_origin, illusion_incoming_damage, i
 	local illusion = CreateUnitByName(keys.caster:GetUnitName(), illusion_origin, true, keys.caster, nil, caster_team)  --handle_UnitOwner needs to be nil, or else it will crash the game.
 	illusion:SetPlayerID(player_id)
 	illusion:SetControllableByPlayer(player_id, true)
-
+	illusion.illusion_damage = 0.3
 	--Level up the illusion to the caster's level.
 	local caster_level = keys.caster:GetLevel()
 	for i = 1, caster_level - 1 do
