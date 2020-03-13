@@ -383,8 +383,8 @@
 				"EffectAttachType"	"follow_origin"
 			}
 			"modifier_A11T_slow1"
-						{
-				"IsHidden"			"0"
+			{
+				"IsHidden"			"1"
 				"IsDebuff"			"1"
 				"IsPurgable"		"0"
 				"EffectName"		"particles/a11t2/a11t2.vpcf"
@@ -395,8 +395,8 @@
 				}
 			}
 			"modifier_A11T_slow2"
-						{
-				"IsHidden"			"0"
+			{
+				"IsHidden"			"1"
 				"IsDebuff"			"1"
 				"IsPurgable"		"0"
 				"EffectName"		"particles/a11t2/a11t2.vpcf"
@@ -407,8 +407,8 @@
 				}
 			}
 			"modifier_A11T_slow3"
-						{
-				"IsHidden"			"0"
+			{
+				"IsHidden"			"1"
 				"IsDebuff"			"1"
 				"IsPurgable"		"0"
 				"EffectName"		"particles/a11t2/a11t2.vpcf"
