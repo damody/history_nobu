@@ -4926,7 +4926,7 @@
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "20" 	//回魔
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "40" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
@@ -4946,6 +4946,15 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"Duration"	"1"
+			}
+			"modifier_protect"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "-50"
+				}
+				"IsBuff"	"1"
+				"Duration"	"1.5"
 			}
 		}
 	}
