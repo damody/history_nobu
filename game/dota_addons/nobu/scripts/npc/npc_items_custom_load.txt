@@ -13553,6 +13553,7 @@
 		"AbilityManaCost"	"70"
 		"AbilityCooldown"	"35"
 		"AbilityCastPoint"	"0.2"
+		"AbilityCastRange"	"650"
 		"OnEquip"
 		{
 		}
