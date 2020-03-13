@@ -56,7 +56,7 @@ function Start( keys )
 	local caster = keys.caster
 	--local target = keys.target
 	local ability = keys.ability
-	caster:AddNewModifier(caster,ability,"modifier_fubuki_shoulders",{duration=7})
+	caster:AddNewModifier(caster,ability,"modifier_fubuki_shoulders",{duration=15})
 	caster:FindModifierByName("modifier_fubuki_shoulders").caster = caster
 	caster:FindModifierByName("modifier_fubuki_shoulders").hp = caster:GetHealth()
 	local particle = ParticleManager:CreateParticle("particles/a04r3/a04r3.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
