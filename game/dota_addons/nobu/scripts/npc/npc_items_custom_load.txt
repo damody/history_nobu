@@ -9999,6 +9999,28 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "5"	//防禦
 				}
 			}
+			"modifier_slow_attack_speed"
+			{
+				"IsHidden"	"0"
+				"Passive"	"0"
+				"IsDebuff"	"1"
+				"Duration"	"2"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-30" //攻速
+				}
+			}
+			"modifier_slow_move_speed"
+			{
+				"IsHidden"	"0"
+				"Passive"	"0"
+				"IsDebuff"	"1"
+				"Duration"	"2"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-30"
+				}
+			}
 		}
 	}
 
