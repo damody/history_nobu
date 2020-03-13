@@ -365,9 +365,14 @@
 				"IsPurgable"		"0"
 				"EffectName"		"particles/a11t2/a11t2.vpcf"
 				"EffectAttachType"	"follow_origin"
-				"Properties"
+				"ThinkInterval"  	"0.1"
+				"OnIntervalThink"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%A11T_moveSpeed" 
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A11.lua"
+						"Function"		"A11T_Debuff"
+					}
 				}
 			}
 			"modifier_A11T_effect1"
@@ -376,6 +381,42 @@
 				"IsPurgable"		"0"
 				"EffectName"		"particles/a11t2/a11t4a.vpcf"
 				"EffectAttachType"	"follow_origin"
+			}
+			"modifier_A11T_slow1"
+						{
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsPurgable"		"0"
+				"EffectName"		"particles/a11t2/a11t2.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-10" 
+				}
+			}
+			"modifier_A11T_slow2"
+						{
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsPurgable"		"0"
+				"EffectName"		"particles/a11t2/a11t2.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-20" 
+				}
+			}
+			"modifier_A11T_slow3"
+						{
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsPurgable"		"0"
+				"EffectName"		"particles/a11t2/a11t2.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30" 
+				}
 			}
 		}
 
