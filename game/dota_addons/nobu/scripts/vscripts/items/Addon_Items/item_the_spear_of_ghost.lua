@@ -17,16 +17,17 @@ function Shock( keys )
 			caster.spear_of_ghost = 0
 		end
 		caster.spear_of_ghost = caster.spear_of_ghost + 1
-		if caster.spear_of_ghost >= 3 then
+		local trigger = 4
+		if caster:GetBaseAttackRange() < 200 then
+			trigger = 3
+		end
+		if caster.spear_of_ghost >= trigger then
 
 			caster.spear_of_ghost = 0
 			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
 
-			local dmg = keys.target:GetHealth() * keys.dmg * 0.01
-			if dmg < 120 then
-				dmg = 120
-			end
-			AMHC:Damage(caster,keys.target, dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+			local dmg = keys.target:GetMaxHealth() * keys.dmg * 0.01
+			AMHC:Damage(caster,keys.target, dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 			AMHC:CreateNumberEffect(keys.target,dmg,1,AMHC.MSG_DAMAGE,'blue')
 			--動作
 			local rate = caster:GetAttackSpeed()

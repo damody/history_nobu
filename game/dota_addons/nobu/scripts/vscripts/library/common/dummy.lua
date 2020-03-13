@@ -495,7 +495,9 @@ function modifier_tower_armor:DeclareFunctions()
 end
 
 function modifier_tower_armor:GetModifierIncomingDamage_Percentage( keys )
-  
+  if keys.attacker.name ~= nil then
+    return 0
+  end
   if keys.attacker:IsHero() then 
     return 0
   elseif keys.attacker:IsBuilding() then
@@ -558,7 +560,11 @@ function magical_resistance( keys )
   if caster.magical_resistance == nil then
     caster.magical_resistance = 30
   end
-  caster:SetBaseMagicalResistanceValue(caster.magical_resistance)
+  if caster.magical_resistance > 70 then
+    caster:SetBaseMagicalResistanceValue(70)
+  else
+    caster:SetBaseMagicalResistanceValue(caster.magical_resistance)
+  end
 end
 
 function hoarding_money( keys )

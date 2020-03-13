@@ -8,6 +8,7 @@ function Channeling( keys )
 	ability.channel_timer = 0
 	local count = 0
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_slow",{})
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_protect",{})
 	Timers:CreateTimer(0, function()
 		if not caster:IsAlive() then
 			return nil

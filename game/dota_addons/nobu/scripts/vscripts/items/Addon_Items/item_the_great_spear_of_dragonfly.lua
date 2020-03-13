@@ -12,7 +12,11 @@ function Shock( keys )
 			return
 		end
 		caster.great_spear_of_dragonfly_count = caster.great_spear_of_dragonfly_count + 1
-		if (caster.great_spear_of_dragonfly_count >= 3) then
+		local trigger = 4
+		if caster:GetBaseAttackRange() < 200 then
+			trigger = 3
+		end
+		if (caster.great_spear_of_dragonfly_count >= trigger) then
 			caster.great_spear_of_dragonfly_count = 0
 			if (caster.great_spear_of_dragonfly == nil) then
 				caster.great_spear_of_dragonfly = 1

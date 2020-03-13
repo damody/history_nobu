@@ -69,7 +69,11 @@ function item_kokumo( keys )
 			caster.kokumo = 0
 		end
 		caster.kokumo = caster.kokumo + 1
-		if caster.kokumo >= 5 then
+		local trigger = 5
+		if caster:GetBaseAttackRange() < 200 then
+			trigger = 4
+		end
+		if caster.kokumo >= trigger then
 			caster.kokumo = 0
 		local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
 							target:GetAbsOrigin(),

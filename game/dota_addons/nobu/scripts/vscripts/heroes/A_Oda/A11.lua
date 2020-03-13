@@ -150,6 +150,20 @@ function A11T( keys )
 	end
 end
 
+function A11T_Debuff( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
+	local distance = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length()
+	if distance <= 333 then
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_A11T_slow3",{duration = 0.15})
+	elseif distance <= 666 then
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_A11T_slow2",{duration = 0.15})
+	else
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_A11T_slow1",{duration = 0.15})
+	end
+end
+
 function A11T_old( keys )
 	local caster = keys.caster
 	local ability = keys.ability

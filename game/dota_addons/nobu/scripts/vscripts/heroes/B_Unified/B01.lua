@@ -104,7 +104,8 @@ function B01E_CHECK(keys)
 	local count = ability:GetSpecialValueFor("count")
 	target = CreateUnitByName("B01W_UNIT", point, true, caster, caster, caster:GetTeamNumber())
 	target:SetOwner(caster)
-    target.owner = caster
+	target.owner = caster
+	target.name = "B01W_UNIT"
     -- target:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
 	target:AddNewModifier(target,ability,"modifier_phased",{duration=0.1})
 	target:AddNewModifier(target,ability,"modifier_rooted",{})

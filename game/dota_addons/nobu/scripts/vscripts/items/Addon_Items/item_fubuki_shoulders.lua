@@ -40,6 +40,9 @@ function modifier_fubuki_shoulders:OnTakeDamage(event)
 				local healmax = dmg*0.30
 				local mana = healmax / 2.5
 
+				ability:ApplyDataDrivenModifier(self.caster, victim, "modifier_slow_move_speed", {})
+				ability:ApplyDataDrivenModifier(self.caster, victim, "modifier_slow_attack_speed", {})
+				victim:FindModifierByName("modifier_slow_attack_speed"):SetStackCount(self.caster:GetLevel())
 				if (self.caster:GetMana() >= mana and self.caster:GetHealth() > healmax) then
 					self.caster:SpendMana(mana,ability)
 					self.caster:SetHealth(self.caster:GetHealth() + healmax)
@@ -53,7 +56,7 @@ function Start( keys )
 	local caster = keys.caster
 	--local target = keys.target
 	local ability = keys.ability
-	caster:AddNewModifier(caster,ability,"modifier_fubuki_shoulders",{duration=7})
+	caster:AddNewModifier(caster,ability,"modifier_fubuki_shoulders",{duration=15})
 	caster:FindModifierByName("modifier_fubuki_shoulders").caster = caster
 	caster:FindModifierByName("modifier_fubuki_shoulders").hp = caster:GetHealth()
 	local particle = ParticleManager:CreateParticle("particles/a04r3/a04r3.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)

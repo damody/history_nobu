@@ -207,7 +207,11 @@ function item_raikiri( keys )
 			caster.raikiri = 0
 		end
 		caster.raikiri = caster.raikiri + 1
-		if caster.raikiri >= 3 then
+		local trigger = 4
+		if caster:GetBaseAttackRange() < 200 then
+			trigger = 3
+		end
+		if caster.raikiri >= trigger then
 			caster.raikiri = 0
 			--【KV】
 			--caster:SetForwardVector(vec)
