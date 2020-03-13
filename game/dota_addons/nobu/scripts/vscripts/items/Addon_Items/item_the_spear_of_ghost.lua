@@ -10,7 +10,7 @@ function Shock( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local skill = keys.ability
-
+	print(skill:GetName())
 	if not target:IsBuilding() then
 		local ran =  RandomInt(0, 100)
 		if (caster.spear_of_ghost == nil) then
@@ -27,6 +27,17 @@ function Shock( keys )
 			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
 
 			local dmg = keys.target:GetMaxHealth() * keys.dmg * 0.01
+			if not target:IsHero() then
+				if skill:GetName() == "item_the_scream_of_spiders"then 
+					if dmg > 240 then
+						dmg = 240
+					end
+				else
+					if dmg > 160 then
+						dmg = 160
+					end
+				end
+			end
 			AMHC:Damage(caster,keys.target, dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 			AMHC:CreateNumberEffect(keys.target,dmg,1,AMHC.MSG_DAMAGE,'blue')
 			--動作
