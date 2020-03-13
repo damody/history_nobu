@@ -7619,7 +7619,7 @@
 		"ItemResult" "item_fubuki_shoulders"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_staff;item_staff;item_stable_shield"  //合成所需物品
+			"01" "item_staff;item_staff;item_stable_shield;item_frozen_ring"  //合成所需物品
 		}
 	}
 
