@@ -26,7 +26,7 @@ function B23D_OnSpellStart( keys )
 	    ghost:SetBaseMaxHealth( 700 + 50 * caster:GetLevel() )
 	    ghost:SetHealth( ghost:GetMaxHealth() )
 	    ghost:AddNewModifier(caster,nil,"modifier_phased",{duration=0.1})
-
+		ghost.name = "B23D_ghost"
 	    table.insert(caster.B23D_ghostTable, ghost)
 
 	    keys.ability:ApplyDataDrivenModifier( caster, caster, "modifier_B23D_damageReduction", nil )

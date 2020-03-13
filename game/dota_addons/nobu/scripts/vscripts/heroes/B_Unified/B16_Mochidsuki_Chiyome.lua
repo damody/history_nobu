@@ -130,6 +130,8 @@ function B16D_SpawnMoonMoon( keys )
 
 	-- 記住主人
 	caster.moonMoon.master = caster
+	-- 記住自己
+	caster.moonMoon.name = "B16D_SUMMEND_UNIT"
 end
 
 function B16D_InitMoonMoon( keys )
