@@ -35,7 +35,7 @@ function modifier_fubuki_shoulders:OnTakeDamage(event)
 	    local ability = self:GetAbility()
 	    if (self.caster ~= nil) and IsValidEntity(self.caster) then
 
-		    if victim:GetTeam() ~= attacker:GetTeam() and attacker == self.caster and self.hp ~= nil then
+		    if victim:GetTeam() ~= attacker:GetTeam() and attacker == self.caster and self.hp ~= nil and damage_type == DAMAGE_TYPE_PHYSICAL then
 		        local dmg = event.damage
 				local healmax = dmg*0.30
 				local mana = healmax / 2.5

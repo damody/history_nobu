@@ -10007,7 +10007,7 @@
 				"Duration"	"2"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-30" //攻速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-5" //攻速
 				}
 			}
 			"modifier_slow_move_speed"
