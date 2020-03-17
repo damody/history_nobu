@@ -341,15 +341,6 @@
 		}
 		"Modifiers"
 		{
-			"Passive_the_overflame_art_of_war_spell_amplify"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "35" //增加技能傷害
-				}
-			}
 			"Passive_the_overflame_art_of_war"
 			{
 				"IsHidden"	"1"
@@ -447,15 +438,6 @@
 		}
 		"Modifiers"
 		{
-			"Passive_the_overflame_art_of_war_spell_amplify"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "20" //增加技能傷害
-				}
-			}
 			"Passive_the_overflame_art_of_war"
 			{
 				"IsHidden"	"1"
