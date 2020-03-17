@@ -887,6 +887,10 @@
 						"Function"	"warrior_souls_OnDeath"
 					}
 				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"300"
+				}
 			}
 			"modifier_show_invisible"
 			{
