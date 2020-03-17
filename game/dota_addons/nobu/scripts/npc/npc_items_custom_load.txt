@@ -13839,7 +13839,7 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/death_of_scepter"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -13851,15 +13851,14 @@
 		"AbilityCooldown"	"80"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"200"
+		"AbilityManaCost"	"0"
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"	"128"
 		"ID"	"1812"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"3600"
+		"ItemCost"	"2800"
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPEC TATORS"
 		"OnEquip"
 		{
@@ -13867,6 +13866,14 @@
 			{
 				"ScriptFile"	"items/Addon_Items/item_death_of_scepter.lua"
 				"Function"	"OnEquip"
+			}
+		}
+		"OnOwnerSpawned"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_death_of_scepter.lua"
+				"Function"	"OnOwnerSpawned"
 			}
 		}
 		"OnSpellStart"
@@ -13887,25 +13894,25 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "9"	//力
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "9"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "9"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
-					"MODIFIER_PROPERTY_MANA_BONUS" "300"				//魔
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "300" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "100" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
 				}
 			}
-			"modifier_attribute_bouns"
+			"modifier_stack"
 			{
 				"Passive"	"1"
-				"IsPurgable"	"0"
+				"IsHidden"	"1"
 				"OnHeroKilled"
 				{
 					"RunScript"
@@ -13914,11 +13921,37 @@
 						"Function"	"OnHeroKilled"
 					}
 				}
+			}
+			"modifier_lose_stack"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_death_of_scepter.lua"
+						"Function"	"OnDeath"
+					}
+				}
+			}
+			"modifier_spell_amplify_stack"
+			{
+				"Passive"	"1"
+				"IsPurgable"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "1"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "1"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "1"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"1"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"	"0.5"
+				}
+			}
+			"modifier_spell_amplify"
+			{
+				"IsBuff"	"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"20"
 				}
 			}
 		}
@@ -13927,7 +13960,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"100"
+				"duration"	"5"
 			}
 		}
 	}

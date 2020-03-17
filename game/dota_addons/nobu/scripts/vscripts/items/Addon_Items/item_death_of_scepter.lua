@@ -2,6 +2,13 @@
 
 function Shock( keys )
 	local caster = keys.caster
+	local ability = keys.ability
+	local duration = ability:GetSpecialValueFor("duration")
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spell_amplify",{duration = duration})
+end
+
+function Shock_old( keys )
+	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
 	local damage = ability:GetSpecialValueFor("damage")
@@ -18,18 +25,44 @@ end
 function OnEquip( keys )
 	local ability = keys.ability
 	local caster = keys.caster
-	if caster.kill_hero_count == nil then caster.kill_hero_count = 0 end
-	ability.start_count = caster.kill_hero_count
-	ability.modifier_attribute_bouns = caster:FindModifierByName("modifier_attribute_bouns")
-	ability.modifier_attribute_bouns:SetStackCount(1)
+	if caster.item_death_of_scepter_count == nil then caster.item_death_of_scepter_count = 8 end
+	if caster.item_death_of_scepter_count ~= 0 then
+		caster:FindModifierByName("modifier_spell_amplify_stack"):SetStackCount(caster.item_death_of_scepter_count)
+	end
+end
+
+function OnOwnerSpawned( keys )
+	local ability = keys.ability
+	local caster = keys.caster
+	print(caster.item_death_of_scepter_count)
+	if caster.item_death_of_scepter_count > 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_spell_amplify_stack", {})
+		caster:FindModifierByName("modifier_spell_amplify_stack"):SetStackCount(caster.item_death_of_scepter_count)
+	else
+		caster:RemoveModifierByName("modifier_spell_amplify_stack")
+	end
+end
+
+function OnDeath( keys )
+	local ability = keys.ability
+	local caster = keys.caster
+	caster.item_death_of_scepter_count = caster.item_death_of_scepter_count - 3
+	if caster.item_death_of_scepter_count < 0 then
+		caster.item_death_of_scepter_count = 0
+	end
+	if caster.item_death_of_scepter_count == 0 then
+		caster:RemoveAbility("modifier_spell_amplify_stack")
+	end
 end
 
 function OnHeroKilled( keys )
+	print("kill")
 	local ability = keys.ability
 	local caster = keys.caster
-	local count = caster.kill_hero_count - ability.start_count + 2
-	if count > 21 then
-		count = 21
+	caster.item_death_of_scepter_count = caster.item_death_of_scepter_count + 1
+	if caster.item_death_of_scepter_count > 21 then
+		caster.item_death_of_scepter_count = 21
 	end
-	ability.modifier_attribute_bouns:SetStackCount(count)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spell_amplify_stack", {})
+	caster:FindModifierByName("modifier_spell_amplify_stack"):SetStackCount(caster.item_death_of_scepter_count)
 end
