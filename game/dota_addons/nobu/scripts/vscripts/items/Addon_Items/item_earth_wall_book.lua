@@ -89,7 +89,7 @@ function Shock( keys )
 			-- 避免卡住
 			unit:AddNewModifier(nil,nil,"modifier_phased",{duration=0.01})
 		end		
-		return 0.15
+		return 0.1
 	end)
 end
 
