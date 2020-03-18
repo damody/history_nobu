@@ -3370,6 +3370,10 @@
 				"Passive"          "1"  
 	            "IsHidden"      "1"
 	            "ThinkInterval"     "0.25"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"250"
+				}
 	            "OnIntervalThink"
 	            {
 	                "ApplyModifier"
@@ -3560,6 +3564,10 @@
 				"Passive"          "1"  
 	            "IsHidden"      "1"
 	            "ThinkInterval"     "0.25"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"200"
+				}
 	            "OnIntervalThink"
 	            {
 	                "ApplyModifier"
@@ -9762,6 +9770,10 @@
 				"Passive"          "1"  
 	            "IsHidden"      "1"
 	            "ThinkInterval"     "0.25"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"250"
+				}
 	            "OnIntervalThink"
 	            {
 	                "ApplyModifier"
@@ -9824,7 +9836,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"magical_resistance"	"20"
+				"magical_resistance"	"15"
 			}
 		}
 	}
