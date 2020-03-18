@@ -13094,7 +13094,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"10000"
+		"ItemCost"	"9000"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequirements"	{}
@@ -13175,7 +13175,7 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "30"	//防禦
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "15"	//防禦
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE"   "30" //跑速
 				}
