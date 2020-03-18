@@ -170,7 +170,7 @@ function Shock( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local current_mana = target:GetMana()
-	local burn_amount = 20 + caster:GetLevel()*5
+	local burn_amount = 30 + caster:GetLevel()*2
 	if burn_amount > 120 then
 		burn_amount = 120
 	end
