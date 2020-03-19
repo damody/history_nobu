@@ -111,6 +111,7 @@ function A08T( keys )
 	local ability = keys.ability
 	local attacker = keys.attacker
 	local duration = ability:GetSpecialValueFor("duration")
+	local hp_bonus = ability:GetSpecialValueFor("hp_bonus")
 	incoming_damage_percentage = ability:GetSpecialValueFor("incoming_damage_percentage") 
 	if caster:HasModifier("modifier_A08T2") then
 		caster:RemoveModifierByName("modifier_A08T2")
@@ -118,6 +119,7 @@ function A08T( keys )
 	caster:AddNewModifier(caster, ability, "modifier_A08T2", {duration = duration})
 	caster:FindModifierByName("modifier_A08T2").caster = caster
 	caster:FindModifierByName("modifier_A08T2").incoming_damage_percentage = incoming_damage_percentage
+	caster:Heal(hp_bonus,caster)
 end
 
 function A08T_OnTakeDamage_old( keys )

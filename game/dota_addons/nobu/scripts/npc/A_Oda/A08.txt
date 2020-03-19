@@ -246,7 +246,8 @@
 				"IsHidden"	"1"
 				"EffectName" "particles/units/heroes/hero_clinkz/clinkz_strafe.vpcf"
 				"Properties"
-				{						
+				{				
+					"MODIFIER_PROPERTY_HEALTH_BONUS"	"%hp_bonus"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"100"
 				}
 			}
@@ -258,10 +259,15 @@
 				"var_type"	"FIELD_FLOAT"
 				"duration"	"15 18 21"
 			}
-			"04"
+			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
 				"incoming_damage_percentage" "-15 -25 -35"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"hp_bonus"	"300 500 700"
 			}
 		}
 	}
