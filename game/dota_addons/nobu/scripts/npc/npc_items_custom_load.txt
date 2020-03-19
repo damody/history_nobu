@@ -6864,6 +6864,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-15"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-15"
 				}
 			}
 			"Passive_spear_of_spiders"
@@ -8378,6 +8379,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-15"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-15"
 				}
 			}
 			"Passive_scream_of_spiders"
