@@ -6374,8 +6374,9 @@
 		"AbilityCooldown"	"60"
 		
 		"AbilityManaCost"	"100"
-		"AbilityCastPoint"	"0"
-		"AbilityCastRange"	"600"
+		"AbilityCastPoint"	"0.35"
+		"AbilityCastAnimation"	"0.3"
+		"AbilityCastRange"	"1200"
 		"AOERadius"		"300"
 		"ID"	"2588"
 		"ItemQuality"	"component"
