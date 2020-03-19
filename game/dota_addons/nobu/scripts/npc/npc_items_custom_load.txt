@@ -819,6 +819,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_BONUS" "200"				//魔
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "10"	//跑速
 				}
 			}
 		}
