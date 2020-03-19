@@ -10165,8 +10165,9 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "12.5" 	//回魔
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "8.5" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
+					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "15" //減前搖
 				}
 			}
 			"Passive_item_pleated_skirt"
@@ -12830,8 +12831,9 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "12.5" 	//回魔
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "8.5" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
+					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "15" //減前搖
 				}
 			}
 			"Passive_item_pleated_skirt"
