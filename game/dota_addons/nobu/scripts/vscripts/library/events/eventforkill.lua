@@ -333,7 +333,7 @@ function Nobu:OnUnitKill( keys )
     elseif string.match(name, "king_of_robbers") then
       print("king_of_robbers")
       local unitname = name
-      local pos = Vector(3333,3270,384)
+      local pos = Vector(3487.55,3666,378)
       local team = killedUnit:GetTeamNumber()
       if killedUnit.origin_pos == nil then
         killedUnit.origin_pos = pos

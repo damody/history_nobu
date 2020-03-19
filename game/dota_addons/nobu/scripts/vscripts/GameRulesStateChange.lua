@@ -139,7 +139,7 @@ function Nobu:OnGameRulesStateChange( keys )
 	Timers:CreateTimer(180, function()
 		GameRules: SendCustomMessage("<font color='#ffff00'>強盜之王出現了</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 		unitname = "npc_dota_the_king_of_robbers"
-		local pos = Vector(3333,3270,384)
+		local pos = Vector(3487.55,3666,378)
 		local team = 4
 		local CP_Monster = 0
 		local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
