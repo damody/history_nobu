@@ -450,7 +450,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"A11T_intellectBonus"	"80 90 100"
+				"A11T_intellectBonus"	"40 50 60"
 			}
 		}
 	}
