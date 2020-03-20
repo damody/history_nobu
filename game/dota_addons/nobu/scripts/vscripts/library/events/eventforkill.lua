@@ -265,7 +265,7 @@ function Nobu:OnUnitKill( keys )
       if killedUnit.origin_pos == nil then
         killedUnit.origin_pos = pos
       end
-      Timers:CreateTimer(90, function()
+      Timers:CreateTimer(60, function()
         if (killedUnit.origin_pos) then
           pos = killedUnit.origin_pos
           local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
@@ -314,7 +314,7 @@ function Nobu:OnUnitKill( keys )
       if killedUnit.origin_pos == nil then
         killedUnit.origin_pos = pos
       end
-      Timers:CreateTimer(90, function()
+      Timers:CreateTimer(60, function()
         if (killedUnit.origin_pos) then
           pos = killedUnit.origin_pos
           local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
