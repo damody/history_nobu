@@ -3456,7 +3456,7 @@
 		"SideShop"	"1"
 		"ItemShopTags"		"damage"
 		"ItemRequirements"	{}
-		"AbilityManaCost"	"75"
+		"AbilityManaCost"	"0"
 		"AbilityCooldown"	"40"
 		"precache"
 		{
@@ -3468,12 +3468,6 @@
 			{
 				"ScriptFile"	"items/Addon_Items/item_nagamaki.lua"
 				"Function"	"Shock"
-			}
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_nagamaki"
-				"Duration"      "10"
 			}
 		}
 		"Modifiers"
@@ -8048,7 +8042,7 @@
 		
 		"AbilityManaCost"	"110"
 		"AbilityCastPoint"	"0.2"
-		"AbilityCastRange"	"700"
+		"AbilityCastRange"	"1200"
 		"ID"	"2520"
 		"ItemQuality"	"component"
 		"Model"	"models/heroes/abaddon/weapon.vmdl"
@@ -8069,7 +8063,7 @@
 			{
 				"Target"	"TARGET"
 				"EffectName"	"particles/a34w/a34w.vpcf"
-				"MoveSpeed"	"3000"
+				"MoveSpeed"	"1500"
 			}
 			"RunScript"
 			{
