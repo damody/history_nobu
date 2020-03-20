@@ -113,10 +113,12 @@ function Nobu:OnGameRulesStateChange( keys )
 	  end
 	end
 	--清除所有CP怪
-	local allCPs = Entities:FindAllByClassname('npc_dota_creep_lane')
-	for k, ent in pairs(allCPs) do
-		ent:ForceKill(true)
-	end
+	Timers:CreateTimer(10, function()
+		local allCPs = Entities:FindAllByClassname('npc_dota_creep_lane')
+		for k, ent in pairs(allCPs) do
+			ent:ForceKill(true)
+		end
+	end)
 	--檢查有沒有馬
 	Timers:CreateTimer(60, function()
 		for playerID = 0, 9 do

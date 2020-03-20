@@ -257,7 +257,7 @@ function Nobu:OnUnitKill( keys )
       --   GameRules: SendCustomMessage("   ",DOTA_TEAM_GOODGUYS,0)
       -- end
       --Tutorial: AddQuest("quest_1",1,"破塔成功","ssssssssss")
-    if string.match(name, "neutral_130") then
+    if string.match(name, "neutral_130")then
       print("neutral_130")
       local unitname = name
       local pos = killedUnit:GetAbsOrigin()
@@ -265,11 +265,16 @@ function Nobu:OnUnitKill( keys )
       if killedUnit.origin_pos == nil then
         killedUnit.origin_pos = pos
       end
-      Timers:CreateTimer(60, function()
+      local spawn_time = 50
+      if killedUnit.first then
+        spawn_time = 120
+      end
+      Timers:CreateTimer(spawn_time, function()
         if (killedUnit.origin_pos) then
           pos = killedUnit.origin_pos
           local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
           unit.origin_pos = pos
+          unit.first = 1
           local CP_Monster = _G.CP_Monster
           local hp = unit:GetMaxHealth()
           unit:SetBaseMaxHealth(hp+CP_Monster * 50)
@@ -314,11 +319,16 @@ function Nobu:OnUnitKill( keys )
       if killedUnit.origin_pos == nil then
         killedUnit.origin_pos = pos
       end
-      Timers:CreateTimer(60, function()
+      local spawn_time = 50
+      if killedUnit.first then
+        spawn_time = 120
+      end
+      Timers:CreateTimer(spawn_time, function()
         if (killedUnit.origin_pos) then
           pos = killedUnit.origin_pos
           local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
           unit.origin_pos = pos
+          unit.first = 1
           local CP_Monster = _G.CP_Monster
           local hp = unit:GetMaxHealth()
           unit:SetBaseMaxHealth(hp+CP_Monster * 100)
