@@ -5364,7 +5364,10 @@
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"						"1"
-
+		"precache"
+		{
+			"particle"	"particles/great_sword_of_drain/great_sword_of_drain_ring.vpcf"
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -5423,6 +5426,46 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
 			}
+			"modifier_great_sword_of_drain_aura" //靈氣
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"  "0.2"
+				"OnIntervalThink"
+				{
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"  	"CASTER"
+							"Radius" 	"500"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+						}
+					
+						"Action"    
+						{
+							"ApplyModifier"
+							{
+								"ModifierName"	"modifier_great_sword_of_drain"
+								"Target" 		"TARGET"
+								"Duration"		"1"
+							}
+						}
+					}
+				}
+			}
+			"modifier_great_sword_of_drain"
+			{
+				"Passive"	"0"
+				"EffectName"		"particles/great_sword_of_drain/great_sword_of_drain_ring.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{					
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor_reduction"
+				}
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -5430,6 +5473,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"aura_radius"	"500"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"armor_reduction"	"-6"
 			}
 		}
 	}
