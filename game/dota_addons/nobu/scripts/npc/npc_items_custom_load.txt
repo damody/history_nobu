@@ -5161,6 +5161,17 @@
 				"Duration"			"5"
 				"EffectAttachType"	"follow_origin"
 			}
+			"modifier_the_great_sword_of_toxic3"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_MUTED"    "MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"IsPurgable"	"1"
+				"IsDebuff"		"1"
+				"Passive"	"0"
+				"Duration"			"3"
+			}
 		}
 	}
 

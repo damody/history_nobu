@@ -7,6 +7,7 @@ function Shock( keys )
 	AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 	local mod = "particles/b33/b33r_old_poison.vpcf"
 	local part = ParticleManager:CreateParticle(mod, PATTACH_ABSORIGIN, target)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_the_great_sword_of_toxic3", {})
 	Timers:CreateTimer( 0,function ()
 		if int <= 4 then
 			int = int + 1
