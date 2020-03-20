@@ -541,7 +541,8 @@ function Nobu:eventfororder( filterTable )
 	    	local items_nosell = {
 		    	["item_reward6300"] = true,
 		    	["item_c06e"] = true,
-		    	["item_the_soul_of_power"] = true
+				["item_the_soul_of_power"] = true,
+				["item_logging"] = true
 		    }
 	    	if items_nosell[itemName] == true then
 	    		return false
