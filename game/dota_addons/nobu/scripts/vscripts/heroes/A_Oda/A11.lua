@@ -99,9 +99,11 @@ function A11R( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		}
-		if not unit:IsMagicImmune() then
-			ApplyDamage(damageTable)
-		end
+		Timers:CreateTimer(0.1, function ()
+			if not unit:IsMagicImmune() then
+				ApplyDamage(damageTable)
+			end
+		end)
 	end
 end
 
