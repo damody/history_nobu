@@ -586,3 +586,19 @@ end
 function rich_man_OnDestroy( keys )
   ParticleManager:DestroyParticle(keys.caster.rich_man_effect,true)
 end
+
+function passive_b01w_unit( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  local teammate = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+  local find = 0
+  for i,v in pairs(teammate) do
+     if v.name and v.name == "B01" then
+      find = 1
+      break
+     end
+  end
+  if find ~= 1 then
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_b01w_unit_weak", {duration = 0.15})
+  end
+end
