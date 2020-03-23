@@ -178,7 +178,10 @@ end
 function A12E_HIDE_OnTakeDamage( keys )
 	local unit = keys.unit
 	local attacker = keys.attacker
-	if not attacker:IsBuilding() and not attacker:HasModifier("modifier_A12E_HIDE") then
+	local ability = keys.ability
+	local range = ability:GetSpecialValueFor("range")
+	local distance = (attacker:GetAbsOrigin() - unit:GetAbsOrigin()):Length()
+	if not attacker:IsBuilding() and distance > range then
 		unit:SetHealth(unit:GetHealth() + keys.damage)
 	end
 end
