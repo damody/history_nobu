@@ -87,6 +87,7 @@ end
 function A11R( keys )
 	local caster = keys.caster
 	local ability = keys.ability
+	local event_ability = keys.event_ability
 	local unit = keys.unit
 	local A11R_damage = caster:GetIntellect() * 1.5
 	if not unit:HasModifier("modifier_A11R_locker") then
@@ -99,7 +100,7 @@ function A11R( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		}
-		Timers:CreateTimer(0.1, function ()
+		Timers:CreateTimer(event_ability:GetCastPoint()+0.05, function ()
 			if not unit:IsMagicImmune() then
 				ApplyDamage(damageTable)
 			end
