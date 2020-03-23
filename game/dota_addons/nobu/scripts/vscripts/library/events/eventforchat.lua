@@ -323,6 +323,17 @@ local function chat_of_test(keys)
 		GameRules:SendCustomMessage("設定小波出兵間隔"..sm, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 		GameRules:SendCustomMessage("設定大波出兵間隔"..bm, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	end
+	if string.match(s,"-cp") then
+		print("-cp")
+		local rs = string.match(s, '(%d+)')
+		if rs == nil then
+			rs = 120
+		end
+		rs = tonumber(rs)
+		_G.CP_respawn_time = rs
+		print(_G.CP_respawn_time)
+		GameRules:SendCustomMessage("設定CP重生時間"..rs, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+	end
 	if sump <= 2 then
 		if string.match(s,"uion") then
 		local GameMode = GameRules:GetGameModeEntity()

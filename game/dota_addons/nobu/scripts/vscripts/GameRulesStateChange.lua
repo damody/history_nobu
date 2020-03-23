@@ -112,13 +112,6 @@ function Nobu:OnGameRulesStateChange( keys )
 		end)
 	  end
 	end
-	--清除所有CP怪
-	Timers:CreateTimer(10, function()
-		local allCPs = Entities:FindAllByClassname('npc_dota_creep_lane')
-		for k, ent in pairs(allCPs) do
-			ent:ForceKill(true)
-		end
-	end)
 	--檢查有沒有馬
 	Timers:CreateTimer(60, function()
 		for playerID = 0, 9 do
@@ -173,6 +166,13 @@ function Nobu:OnGameRulesStateChange( keys )
 		local dmgmin = unit:GetBaseDamageMin()
 		unit:SetBaseDamageMax(dmgmax+CP_Monster*12)
 		unit:SetBaseDamageMax(dmgmin+CP_Monster*12)
+	end)
+	--清除所有CP怪
+	Timers:CreateTimer(0, function()
+		local allCPs = Entities:FindAllByClassname('npc_dota_creep_lane')
+		for k, ent in pairs(allCPs) do
+			ent:ForceKill(true)
+		end
 	end)
     -- 增加單挑殺人得分
     Timers:CreateTimer(10, function()
