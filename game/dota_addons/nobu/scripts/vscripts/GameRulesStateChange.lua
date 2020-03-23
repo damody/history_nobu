@@ -212,8 +212,8 @@ function Nobu:OnGameRulesStateChange( keys )
 				if player then
 					local hero = player:GetAssignedHero()
 					if hero and hero:GetTeamNumber()==n then
-						pres = (hero.kill_hero_count or 0)*5 + pres
-						pres = (hero.building_count or 0)*5 + pres
+						pres = pres
+						pres = pres
 					end
 				end
 			end
