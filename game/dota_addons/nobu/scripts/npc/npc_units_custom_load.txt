@@ -4538,8 +4538,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"5"
-		"BountyGoldMax"	"5"
+		"BountyGoldMin"	"50"
+		"BountyGoldMax"	"50"
 		"BountyXP"	"5"
 		// Movement
 		// ----------------------------------------------------------------

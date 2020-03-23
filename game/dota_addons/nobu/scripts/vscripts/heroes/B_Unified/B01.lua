@@ -103,6 +103,7 @@ function B01E_CHECK(keys)
 	local point = ability:GetCursorPosition()
 	local count = ability:GetSpecialValueFor("count")
 	target = CreateUnitByName("B01W_UNIT", point, true, caster, caster, caster:GetTeamNumber())
+	target:AddNewModifier(unit,nil,"modifier_kill",{duration=90})
 	target:SetOwner(caster)
 	target.owner = caster
 	target.name = "B01W_UNIT"
@@ -135,8 +136,8 @@ function B01E_CHECK(keys)
 	end
 	B01E_units[tmp] = target	
 	-- table.insert(caster.B01E, target)
-	target:SetBaseDamageMin(70+caster:GetLevel()*10)
-	target:SetBaseDamageMax(70+caster:GetLevel()*10)
+	target:SetBaseDamageMin(50+caster:GetLevel()*5)
+	target:SetBaseDamageMax(50+caster:GetLevel()*5)
 	local tem_point = target:GetAbsOrigin()
 	--【Particle】
 	local particle = ParticleManager:CreateParticle("particles/b01e2/b01e2.vpcf",PATTACH_POINT,target)
