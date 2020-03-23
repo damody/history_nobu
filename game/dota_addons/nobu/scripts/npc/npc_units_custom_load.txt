@@ -6971,8 +6971,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7022,8 +7022,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7073,8 +7073,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7125,8 +7125,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7177,8 +7177,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7229,8 +7229,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7281,8 +7281,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7333,8 +7333,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7385,8 +7385,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7437,8 +7437,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7488,8 +7488,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7539,8 +7539,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7591,8 +7591,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7643,8 +7643,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7695,8 +7695,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -7747,8 +7747,8 @@
 		"AttackRange"	"138"
 		"ProjectileSpeed"	"10000"
 		// Bounty
-		"BountyGoldMin"	"33.0"
-		"BountyGoldMax"	"35.0"
+		"BountyGoldMin"	"25.0"
+		"BountyGoldMax"	"25.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -8585,8 +8585,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -8636,8 +8636,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -8687,8 +8687,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -8738,8 +8738,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -8790,8 +8790,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -8842,8 +8842,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -8894,8 +8894,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -8946,8 +8946,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -8998,8 +8998,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -9049,8 +9049,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -9100,8 +9100,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -9151,8 +9151,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -9203,8 +9203,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -9255,8 +9255,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -9307,8 +9307,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -9359,8 +9359,8 @@
 		"AttackRange"	"500"
 		"ProjectileSpeed"	"1800"
 		// Bounty
-		"BountyGoldMin"	"45.0"
-		"BountyGoldMax"	"47.0"
+		"BountyGoldMin"	"35.0"
+		"BountyGoldMax"	"35.0"
 		"BountyXP"	"30"
 		// Movement
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
@@ -9564,8 +9564,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -9647,8 +9647,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -9730,8 +9730,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -9813,8 +9813,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -9896,8 +9896,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -9979,8 +9979,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -10062,8 +10062,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -10145,8 +10145,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -10228,8 +10228,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -10311,8 +10311,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -10394,8 +10394,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -10477,8 +10477,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -10560,8 +10560,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -10643,8 +10643,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -10726,8 +10726,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -10809,8 +10809,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -10892,8 +10892,8 @@
 		"ProjectileSpeed"	"3000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -11054,8 +11054,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -11136,8 +11136,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -11218,8 +11218,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -11300,8 +11300,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -11382,8 +11382,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -11464,8 +11464,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -11546,8 +11546,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -11628,8 +11628,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -11709,8 +11709,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -11790,8 +11790,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -11871,8 +11871,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -11952,8 +11952,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -12033,8 +12033,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -12114,8 +12114,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
@@ -12185,8 +12185,8 @@
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"60.0"
-		"AttackDamageMax"	"68.0"
+		"AttackDamageMin"	"50.0"
+		"AttackDamageMax"	"50.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1"
 		"AttackAnimationPoint"	"0.56"
@@ -12276,8 +12276,8 @@
 		"ProjectileSpeed"	"10000"
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"61.0"
-		"BountyGoldMax"	"63.0"
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
 		"BountyXP"	"60"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
