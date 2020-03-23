@@ -709,6 +709,20 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔
 				}
 			}
+			"modifier_item_great_dragon"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_great_dragon.lua"
+						"Function"	"OnAttackLanded"
+						"dmg"	"%attack_damage"
+					}
+				}
+			}
 		}
 		"OnSpellStart"
 		{
