@@ -8860,6 +8860,11 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"OnSpellStart"
 		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_the_dark_armor.lua"
+				"Function"	"Shock"
+			}
 			"ApplyModifier"
 			{
 				"Target"	"CASTER"
@@ -8888,7 +8893,6 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsBuff"			"1"		
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"		
 			
 				"EffectName"		"particles/econ/items/puck/puck_alliance_set/puck_dreamcoil_magic_aproset.vpcf"
 				"EffectAttachType"	"follow_origin"
@@ -8913,10 +8917,36 @@
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "5" 	//回魔
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "5"	//防禦
+				}
+			}
+			"modifier_dark_armor_aura2"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsBuff"			"1"
+
+				"Aura"	"modifier_dark_armor2"
+				"Aura_Radius"	"700"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"  	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_ApplyToCaster"	"1"
+			}
+			"modifier_dark_armor2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsBuff"			"1"			
+			
+				// "EffectName"		"particles/econ/items/puck/puck_alliance_set/puck_dreamcoil_magic_aproset.vpcf"
+				// "EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "5"	//回魔
 				}
 			}
 		}
