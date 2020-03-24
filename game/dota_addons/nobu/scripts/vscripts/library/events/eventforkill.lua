@@ -3,7 +3,7 @@ die_time = {1, 2, 4, 7, 11, 15, 22, 29, 37, 46, 47, 49, 52, 56, 61, 67, 74, 80, 
 die_tim2 = {1, 2, 4, 7, 11, 16, 22, 25, 28, 32, 36, 46, 48, 50, 52, 54, 56, 66, 70, 74, 78, 82, 86, 90, 100}
 local warrior_soul_respawn_count = 1
 local robbers_king_respawn_count = 1
-_G.CP_spawn_time = 5
+_G.CP_spawn_time = 60
 _G.CP_respawn_time = 120
 function Nobu:OnUnitKill( keys )
 --每当单位死亡，检查其是否符合条件，如果符合就刷新任务
