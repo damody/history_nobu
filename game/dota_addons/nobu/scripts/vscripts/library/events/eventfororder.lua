@@ -567,7 +567,7 @@ function Nobu:eventfororder( filterTable )
 			local unit = EntIndexToHScript(filterTable.units["0"])
 			local itemcost = item:GetCost()
 			if GameRules:GetGameTime() - item:GetPurchaseTime() > 10 then
-				AMHC:GivePlayerGold_UnReliable(unit:GetPlayerOwnerID(), 0.2*itemcost)
+				AMHC:GivePlayerGold_UnReliable(unit:GetPlayerOwnerID(), 0.35*itemcost)
 			end
 
 			if IsValidEntity(unit) then
