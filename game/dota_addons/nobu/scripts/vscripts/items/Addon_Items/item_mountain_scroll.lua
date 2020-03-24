@@ -11,4 +11,19 @@ function Shock( keys )
 			item:StartCooldown(ability:GetCooldown(-1))
 		end
 	end
+	if not caster:HasModifier("modifier_item_mountain_scroll_resistance") then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_item_mountain_scroll", {})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_art_of_war_mountain_chapter", {})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_item_mountain_scroll_resistance", {})
+	end
+end
+
+function Shock2( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
+	if not target:HasModifier("modifier_item_mountain_scroll_resistance") then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_art_of_war_mountain_chapter", {})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_item_mountain_scroll_resistance", {})
+	end
 end

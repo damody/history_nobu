@@ -962,16 +962,6 @@
 				"Target"	"CASTER"
 				"EffectName"	"ITEM_D02_SOUND"
 			}
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_item_mountain_scroll"
-			}
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_item_mountain_scroll_2"
-			}
 		}
 		"Modifiers"
 		{
@@ -985,13 +975,19 @@
 				"Duration"	"5"
 				"EffectName"	"particles/item/d01/d01.vpcf"
 				"EffectAttachType"	"follow_overhead"
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 			}
 			"modifier_item_mountain_scroll_2"
 			{
 				"EffectAttachType"	"attach_origin"
 				"EffectName"	"particles/item/d02_4/d02_4_f.vpcf"
 				"Duration"	"4"
+			}
+			"modifier_item_mountain_scroll_resistance"
+			{
+				"Duration"	"15"
+				"IsDebuff"	"1"
+				"IsPurgable"	"0"
 			}
 		}
 	}
@@ -11095,10 +11091,11 @@
 				}
 				"Action"
 				{
-					"ApplyModifier"
+					"RunScript"
 					{
 						"Target"	"TARGET"
-						"ModifierName"	"modifier_art_of_war_mountain_chapter"
+						"ScriptFile"	"items/Addon_Items/item_mountain_scroll.lua"
+						"Function"	"Shock2"
 					}
 				}
 			}
@@ -11168,6 +11165,12 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
 				}
+			}
+			"modifier_item_mountain_scroll_resistance"
+			{
+				"Duration"	"15"
+				"IsDebuff"	"1"
+				"IsPurgable"	"0"
 			}
 		}
 	}
@@ -11325,7 +11328,7 @@
 		"FightRecapLevel"	"1"
 		
 		"AbilityCooldown"	"80"
-		
+		"AbilityCastRange"	"1000"
 		"AbilityManaCost"	"150"
 		
 		"ID"	"2535"
@@ -11359,10 +11362,11 @@
 				}
 				"Action"
 				{
-					"ApplyModifier"
+					"RunScript"
 					{
 						"Target"	"TARGET"
-						"ModifierName"	"modifier_art_of_war_mountain_chapter"
+						"ScriptFile"	"items/Addon_Items/item_mountain_scroll.lua"
+						"Function"	"Shock2"
 					}
 				}
 			}
@@ -11432,6 +11436,12 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
 				}
 			}
+			"modifier_item_mountain_scroll_resistance"
+			{
+				"Duration"	"15"
+				"IsDebuff"	"1"
+				"IsPurgable"	"0"
+			}
 		}
 	}
 
@@ -11450,7 +11460,7 @@
 		"AbilityCooldown"	"85"		
 		"AbilityManaCost"	"350"
 		"AbilitySharedCooldown" "item_the_lost_art_of_war_2"
-		
+		"AbilityCastRange"	"1000"
 		"ID"	"2536"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -11473,7 +11483,7 @@
 					"Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 					"Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 					"Center"	"CASTER"
-					"Radius"	"100"
+					"Radius"	"1000"
 				}
 				"Action"
 				{
@@ -11482,10 +11492,11 @@
 						"Target"	"TARGET"
 						"ModifierName"	"modifier_fire_attack"
 					}
-					"ApplyModifier"
+					"RunScript"
 					{
 						"Target"	"TARGET"
-						"ModifierName"	"modifier_art_of_war_mountain_chapter"
+						"ScriptFile"	"items/Addon_Items/item_mountain_scroll.lua"
+						"Function"	"Shock2"
 					}
 				}
 			}
@@ -11616,6 +11627,12 @@
 				{
 					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE" "20" //減CD
 				}
+			}
+			"modifier_item_mountain_scroll_resistance"
+			{
+				"Duration"	"15"
+				"IsDebuff"	"1"
+				"IsPurgable"	"0"
 			}
 		}
 		"AbilitySpecial"
