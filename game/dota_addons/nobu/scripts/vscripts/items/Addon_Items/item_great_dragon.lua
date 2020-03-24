@@ -10,9 +10,11 @@ function OnAttackLanded( keys )
 	local target = keys.target
 	local ability = keys.ability
 	local dmg = keys.dmg
-	if not target:IsHero() and not target:IsBuilding() then
+	if not target:IsBuilding() then
 		if caster:GetBaseAttackRange() < 200 then
-			AMHC:Damage( caster,target,60,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ))
+			if not target:IsHero() then
+				AMHC:Damage( caster,target,60,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ))
+			end
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, 0, 0, false )
 			for i,v in pairs(enemies) do
 				local distance = (caster:GetAbsOrigin() - v:GetAbsOrigin()):Length()
