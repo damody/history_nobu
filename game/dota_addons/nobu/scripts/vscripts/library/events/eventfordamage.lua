@@ -30,6 +30,15 @@ function Nobu:DamageFilterEvent( filterTable )
 	if filterTable.damagetype_const == DAMAGE_TYPE_MAGICAL and target:IsMagicImmune() then
 		return false
 	end
+	if filterTable.damagetype_const == DAMAGE_TYPE_MAGICAL and not target:IsMagicImmune() and not target:IsBuilding() then
+		if caster.spell_leech then
+			if target:IsHero() then
+				caster:Heal(filterTable.damage * caster.spell_leech * 0.01, caster)
+			else
+				caster:Heal(filterTable.damage * caster.spell_leech * 0.01 * 0.1, caster)
+			end
+		end
+	end
 	if target.isvoid == 1 and caster.attackvoid == nil and filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
 		return false
 	end

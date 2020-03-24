@@ -14046,6 +14046,14 @@
 				"Function"	"OnEquip"
 			}
 		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_death_of_scepter.lua"
+				"Function"	"OnUnequip"
+			}
+		}
 		"OnOwnerSpawned"
 		{
 			"RunScript"

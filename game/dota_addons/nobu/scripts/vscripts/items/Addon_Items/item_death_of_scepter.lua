@@ -5,6 +5,10 @@ function Shock( keys )
 	local ability = keys.ability
 	local duration = ability:GetSpecialValueFor("duration")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_spell_amplify",{duration = duration})
+	caster.spell_leech = caster.spell_leech + 30
+	Timers:CreateTimer(duration,function()
+		caster.spell_leech = caster.spell_leech - 30
+	end)
 end
 
 function Shock_old( keys )
@@ -25,10 +29,20 @@ end
 function OnEquip( keys )
 	local ability = keys.ability
 	local caster = keys.caster
+	if caster.spell_leech == nil then
+		caster.spell_leech = 0
+	end
+	caster.spell_leech = caster.spell_leech + 10
 	if caster.item_death_of_scepter_count == nil then caster.item_death_of_scepter_count = 8 end
 	if caster.item_death_of_scepter_count ~= 0 then
 		caster:FindModifierByName("modifier_spell_amplify_stack"):SetStackCount(caster.item_death_of_scepter_count)
 	end
+end
+
+function OnUnequip( keys )
+	local caster = keys.caster
+	caster.spell_leech = caster.spell_leech - 10
+
 end
 
 function OnOwnerSpawned( keys )
