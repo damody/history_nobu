@@ -721,10 +721,10 @@
 						"Function"	"OnAttackLanded"
 						"dmg"	"%attack_damage"
 					}
-					"CleaveAttack"
-					{
-						"CleaveEffect"	"particles/item_great_dragon/great_dragon_on_attack.vpcf"
-					}
+					// "CleaveAttack"
+					// {
+					// 	"CleaveEffect"	"particles/item_great_dragon/great_dragon_on_attack.vpcf"
+					// }
 				}
 			}
 		}

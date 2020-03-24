@@ -12,6 +12,7 @@ function OnAttackLanded( keys )
 	local dmg = keys.dmg
 	if not target:IsBuilding() then
 		if caster:GetBaseAttackRange() < 200 then
+			ParticleManager:CreateParticle("particles/item_great_dragon/great_dragon_on_attack.vpcf", PATTACH_ABSORIGIN, caster)
 			if not target:IsHero() then
 				AMHC:Damage( caster,target,60,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ))
 			end
