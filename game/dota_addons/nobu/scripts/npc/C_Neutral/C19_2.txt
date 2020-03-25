@@ -35,7 +35,7 @@
 		"AttackRate"	"1.80"
 		"AttackAnimationPoint"	"0.55"
 		"AttackAcquisitionRange"	"700"
-		"AttackRange"	"625"
+		"AttackRange"	"700"
 		// Add projectile
 		"ProjectileModel"	"particles/c19_projectile/c19_projectile.vpcf"
 		"ProjectileSpeed"	"1800"
