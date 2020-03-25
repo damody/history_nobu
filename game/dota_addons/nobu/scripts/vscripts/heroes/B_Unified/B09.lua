@@ -68,7 +68,7 @@ function modifier_B09E_OnIntervalThink( keys )
 	local ability = keys.ability
 	local target = keys.target
 	local point = target:GetAbsOrigin()
-	local damage = ability:GetSpecialValueFor("damage")/100*caster:GetMaxMana()+55
+	local damage = 5/100*caster:GetMaxMana()+ability:GetSpecialValueFor("damage")
 	local ifx = ParticleManager:CreateParticle( "particles/b09e/b09e3.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl( ifx, 0, point + Vector(0,0,50))
 	ParticleManager:SetParticleControl( ifx, 3, point + Vector(0,0,50))
