@@ -807,6 +807,10 @@
 	                    "Duration"      "0.50"
 	                }
 	            }
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"250"
+				}
 			}
 			"modifier_robbers_king_attack_buff"
 			{
