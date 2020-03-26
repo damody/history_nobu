@@ -324,10 +324,6 @@
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"Aura_ApplyToCaster" "0"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_HEALTH_BONUS" 	"%A11T_hpBonus"
-				}
 			}
 			"modifier_A11T"
 			{

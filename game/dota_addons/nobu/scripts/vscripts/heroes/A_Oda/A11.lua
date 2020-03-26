@@ -128,7 +128,7 @@ function A11T( keys )
 	local radius = ability:GetSpecialValueFor("A11T_radius")
 	local A11T_damage = caster:GetIntellect()
 	local maxTarget = ability:GetSpecialValueFor("A11T_maxTarget")
-	caster:Heal( A11T_damage * 1.5, caster)
+	caster:Heal( A11T_damage * 0.75, caster)
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetOrigin(), nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
 	for i,unit in ipairs(units) do
 		damageTable = {
