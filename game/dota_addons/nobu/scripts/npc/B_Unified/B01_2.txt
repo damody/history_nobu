@@ -34,7 +34,7 @@
 		"AttackAcquisitionRange"	"700"
 		"AttackRange"	"700"
 		// Add projectile
-		"ProjectileModel"	"particles/units/heroes/hero_gyrocopter/gyro_base_attack.vpcf"
+		"ProjectileModel"	"particles/b01_projectile/b01_projectile.vpcf"
 		"ProjectileSpeed"	"3000"
 		// Attributes
 		// ----------------------------------------------------------------
