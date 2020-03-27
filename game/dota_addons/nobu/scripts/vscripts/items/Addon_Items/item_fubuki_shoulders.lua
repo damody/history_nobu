@@ -29,25 +29,17 @@ function modifier_fubuki_shoulders:OnTakeDamage(event)
 	if IsServer() then
 	    local attacker = event.unit
 	    local victim = event.attacker
-	    local return_damage = event.original_damage
 	    local damage_type = event.damage_type
 	    local damage_flags = event.damage_flags
 	    local ability = self:GetAbility()
 	    if (self.caster ~= nil) and IsValidEntity(self.caster) then
 
 		    if victim:GetTeam() ~= attacker:GetTeam() and attacker == self.caster and self.hp ~= nil and damage_type == DAMAGE_TYPE_PHYSICAL then
-		        local dmg = event.damage
-				local healmax = dmg*0.30
-				local mana = healmax / 2.5
 				if victim:IsBuilding() or victim:IsMagicImmune() then
 				else
 					ability:ApplyDataDrivenModifier(self.caster, victim, "modifier_slow_move_speed", {})
 					ability:ApplyDataDrivenModifier(self.caster, victim, "modifier_slow_attack_speed", {})
 					victim:FindModifierByName("modifier_slow_attack_speed"):SetStackCount(self.caster:GetLevel())
-				end
-				if (self.caster:GetMana() >= mana and self.caster:GetHealth() > healmax) then
-					self.caster:SpendMana(mana,ability)
-					self.caster:SetHealth(self.caster:GetHealth() + healmax)
 				end
 		    end
 		end
