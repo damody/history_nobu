@@ -652,30 +652,7 @@ function afk_gogo(keys)
 			hero.deathtime = hero.deathtime - 1
 		end
 		if state == 3 then -- 2 = connected
-			if hero.donkey ~= nil then
-				hero.donkey:SetAbsOrigin(Vector(99999,99999,0))
-   				if hero.stop == nil then
-   					hero.stop = 1
-   					hero:ForceKill(true)
-   					Timers:CreateTimer(0.1, function()
-   						hero.death = nil
-   						hero:SetTimeUntilRespawn(3600)
-   						end)
-   				end
-   			end
-   		elseif state == 2 then
-   			if hero.stop ~= nil then
-   				if hero.deathtime > 0 then
-	   				hero:SetTimeUntilRespawn(hero.deathtime)
-	   			else
-	   				hero:SetTimeUntilRespawn(0)
-	   			end
-	   			hero.stop = nil
-	   			hero.donkey:SetAbsOrigin(hero.donkey.oripos)
-   			end
-   			if hero.donkey and hero.donkey.GetAbsOrigin and hero.donkey:GetAbsOrigin().x > 90000 then
-   				FindClearSpaceForUnit(hero.donkey,hero.donkey.oripos,true)
-   			end
+			hero:MoveToPosition(hero.spawn_location)
 		end
 	end
 end

@@ -12972,7 +12972,7 @@
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability3"	"play_mvp"
-		"Ability4"	""
+		"Ability4"	"afk_gogo"
 		"Ability5"	""
 		"Ability6"	""
 		"Ability7"	""
