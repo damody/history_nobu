@@ -70,7 +70,7 @@
 		// ----------------------------------------------------------------
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"	"350"
-		"MovementTurnRate"	"2"
+		"MovementTurnRate"	"360"
 
 		// Gold and Lumber
 		// ----------------------------------------------------------------
