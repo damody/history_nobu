@@ -793,6 +793,11 @@
 				"ThinkInterval"     "0.25"
 	            "OnIntervalThink"
 	            {
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
+						"Function"	"big_cp_purge"
+					}
 	                "ApplyModifier"
 	                {
 	                    "Target"
@@ -810,6 +815,20 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"250"
+				}
+			}
+			"modifier_purge_modifier"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"     "0.1"
+				"OnIntervalThink"
+	            {
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
+						"Function"	"big_cp_purge"
+					}
 				}
 			}
 			"modifier_robbers_king_attack_buff"
@@ -894,6 +913,20 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"300"
+				}
+			}
+			"modifier_purge_modifiers"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"     "0.1"
+	            "OnIntervalThink"
+	            {
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
+						"Function"	"big_cp_purge"
+					}
 				}
 			}
 			"modifier_show_invisible"

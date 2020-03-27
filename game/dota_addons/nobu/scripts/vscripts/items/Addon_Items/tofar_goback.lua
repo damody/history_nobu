@@ -702,3 +702,14 @@ function donkey_back(keys)
 		end
 	end
 end
+
+function big_cp_purge(keys)
+	local target = keys.target
+	local modifiers = target:FindAllModifiers()
+	for i,m in ipairs(modifiers) do
+		if m:IsDebuff() then
+			print(m:GetName())
+			target:RemoveModifierByName(m:GetName())
+		end
+	end
+end
