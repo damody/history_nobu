@@ -6587,7 +6587,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-1"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
 				}
 			}
 			"Passive_spear_of_saddle"
@@ -6625,7 +6625,7 @@
 			"01"
 			{
 				"var_type" "FIELD_INTEGER"
-				"ARMOR_REDUCE_PERCENTAGE" "30"
+				"armor_reduction" "-7"
 			}
 		}
 	}
@@ -6680,7 +6680,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-1"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
 				}
 			}
 			"Passive_spear_of_saddle_1"
@@ -6718,7 +6718,7 @@
 			"01"
 			{
 				"var_type" "FIELD_INTEGER"
-				"ARMOR_REDUCE_PERCENTAGE" "35"
+				"armor_reduction" "-12"
 			}
 		}
 	}
@@ -6773,7 +6773,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-1"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
 				}
 			}
 			"Passive_spear_of_saddle_2"
@@ -6811,7 +6811,7 @@
 			"01"
 			{
 				"var_type" "FIELD_INTEGER"
-				"ARMOR_REDUCE_PERCENTAGE" "40"
+				"armor_reduction" "-15"
 			}
 		}
 	}

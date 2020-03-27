@@ -25,24 +25,11 @@ end
 
 function Shock( keys )
 	local caster = keys.caster
-	local skill = keys.ability
+	local ability = keys.ability
 	local target = keys.target
-	local armor_reduce_percentage = skill:GetSpecialValueFor("ARMOR_REDUCE_PERCENTAGE")
-	local armor = target:GetPhysicalArmorValue(false)
-	print(armor)
-	if target:HasModifier("modifier_spear_of_saddle") then
-		armor = armor/(1 - armor_reduce_percentage * 0.01)
-	end
+	local armor_reduction = ability:GetSpecialValueFor("armor_reduction")
 	if not target:IsBuilding() then
-		skill:ApplyDataDrivenModifier(caster, keys.target,"modifier_spear_of_saddle",{ duration = 1 })
-		local modifier = target:FindModifierByName("modifier_spear_of_saddle")
-		if modifier ~= nil then
-			if armor > 0 then 
-				modifier:SetStackCount(armor*armor_reduce_percentage*0.01)
-			else
-				target:RemoveModifierByName("modifier_spear_of_saddle")
-			end
-		end
+		ability:ApplyDataDrivenModifier(caster, keys.target,"modifier_spear_of_saddle",{ duration = 1.5 })
 	end
 end
 
