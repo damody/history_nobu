@@ -39,7 +39,7 @@ function Nobu:OnHeroIngame( keys )
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
           hero:AddItem(CreateItem("item_logging", hero, hero))
-          --把砍術移動到neutral item slot
+          --把砍樹移動到neutral item slot
           for i = 0, 6 do
             local item = caster:GetItemInSlot( i )
             if item then
