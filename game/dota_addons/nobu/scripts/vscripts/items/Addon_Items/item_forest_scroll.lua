@@ -96,6 +96,11 @@ function Shock( keys )
 	local ability = keys.ability
 	local point = caster:GetOrigin()
 	local duration = ability:GetSpecialValueFor("duration")
+	--particles
+	particle = ParticleManager:CreateParticle("particles/d04/d04.vpcf",PATTACH_POINT,caster)
+	ParticleManager:SetParticleControl(particle,0, point+Vector(0,0,100))
+	ParticleManager:SetParticleControl(particle,3, point)
+
 	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
           point,
           nil,
