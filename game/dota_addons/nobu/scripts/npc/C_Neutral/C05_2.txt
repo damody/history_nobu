@@ -62,7 +62,7 @@
 		"AttackDamageMax"	"142"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.80"
-		// "AttackAnimationPoint"	"0.75"
+		"AttackAnimationPoint"	"0.3"
 		"AttackAcquisitionRange"	"500"	// Range within a target can be acquired.
 		"AttackRange"	"128"
 		// "AttackRangeBuffer"	"250"	// Extra range the target can move without canceling the attack

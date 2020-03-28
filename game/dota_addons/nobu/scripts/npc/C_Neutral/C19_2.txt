@@ -33,7 +33,7 @@
 		"AttackDamageMax"	"112.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.80"
-		"AttackAnimationPoint"	"0.55"
+		"AttackAnimationPoint"	"0.2"
 		"AttackAcquisitionRange"	"700"
 		"AttackRange"	"700"
 		// Add projectile
