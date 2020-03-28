@@ -406,6 +406,12 @@ function Nobu:eventfororder( filterTable )
 			local caster = EntIndexToHScript(filterTable.units["0"])
 			local pos = caster:GetAbsOrigin()
 			local target = Vector(filterTable.position_x, filterTable.position_y, 0)
+			local group = FindUnitsInRadius(caster:GetTeamNumber(), target,
+				nil,  900 , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+				DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+			if #group > 0 then
+				target = group[1]:GetAbsOrigin()
+			end
 			local forward = target - pos
 			forward.z = 0
 			caster:SetForwardVector(forward)
