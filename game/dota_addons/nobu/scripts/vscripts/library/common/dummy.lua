@@ -258,6 +258,7 @@ end
 _G.EXCLUDE_TARGET_NAME = {
   --npc_dota_cursed_warrior_souls = true,
   npc_dota_the_king_of_robbers  = true,
+  npc_dota_cursed_warrior_souls = true,
   com_general = true,
   com_general2 = true,
   com_general3 = true,
