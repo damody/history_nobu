@@ -244,6 +244,14 @@ function spell_ability ( filterTable )
 	end
 	if ordertype == DOTA_UNIT_ORDER_CAST_POSITION then --5
 		if not filterTable.units["0"] then return true end
+		if filterTable.units and filterTable.units["0"] then
+			local caster = EntIndexToHScript(filterTable.units["0"])
+			local pos = caster:GetAbsOrigin()
+			local target = Vector(filterTable.position_x, filterTable.position_y, 0)
+			local forward = target - pos
+			forward.z = 0
+			caster:SetForwardVector(forward)
+		end
 		local unit = EntIndexToHScript(filterTable.units["0"])
 		if filterTable.entindex_ability > 0 and not unit.isVectorCasting and unit:IsHero() then
 			local ability = EntIndexToHScript(filterTable.entindex_ability)
@@ -282,6 +290,15 @@ function spell_ability ( filterTable )
 		-- [   VScript             ]:    issuer_player_id_const          	= 0 (number)
 		-- [   VScript             ]: }
 	elseif ordertype == DOTA_UNIT_ORDER_CAST_TARGET then --6
+		if filterTable.units and filterTable.units["0"] then
+			local caster = EntIndexToHScript(filterTable.units["0"])
+			local target = EntIndexToHScript(filterTable.entindex_target)
+			local pos = caster:GetAbsOrigin()
+			local target = target:GetAbsOrigin()
+			local forward = target - pos
+			forward.z = 0
+			caster:SetForwardVector(forward)
+		end
 		return EventForSpellTarget(filterTable)
 		-- [   VScript             ]: {
 		-- [   VScript             ]:    entindex_ability                	= 453 (number)
@@ -352,7 +369,14 @@ function Nobu:eventfororder( filterTable )
 
 	local ordertype = filterTable.order_type
 	if ordertype == DOTA_UNIT_ORDER_MOVE_TO_POSITION then --1
-
+		if filterTable.units and filterTable.units["0"] then
+			local caster = EntIndexToHScript(filterTable.units["0"])
+			local pos = caster:GetAbsOrigin()
+			local target = Vector(filterTable.position_x, filterTable.position_y, 0)
+			local forward = target - pos
+			forward.z = 0
+			caster:SetForwardVector(forward)
+		end
 	elseif ordertype == DOTA_UNIT_ORDER_MOVE_TO_TARGET then --2
 		-- [   VScript       ]: {
 		-- [   VScript       ]:    entindex_ability                	= 0 (number)
@@ -370,6 +394,14 @@ function Nobu:eventfororder( filterTable )
 		-- [   VScript       ]:    issuer_player_id_const          	= 0 (number)
 		-- [   VScript       ]: }
 	elseif ordertype == DOTA_UNIT_ORDER_ATTACK_MOVE then --3
+		if filterTable.units and filterTable.units["0"] then
+			local caster = EntIndexToHScript(filterTable.units["0"])
+			local pos = caster:GetAbsOrigin()
+			local target = Vector(filterTable.position_x, filterTable.position_y, 0)
+			local forward = target - pos
+			forward.z = 0
+			caster:SetForwardVector(forward)
+		end
 		-- [   VScript       ]: ordertype = 3
 		-- [   VScript       ]: {
 		-- [   VScript       ]:    entindex_ability                	= 0 (number)
@@ -387,6 +419,15 @@ function Nobu:eventfororder( filterTable )
 		-- [   VScript       ]:    issuer_player_id_const          	= 0 (number)
 		-- [   VScript       ]: }
 	elseif ordertype == DOTA_UNIT_ORDER_ATTACK_TARGET then --4
+		if filterTable.units and filterTable.units["0"] then
+			local caster = EntIndexToHScript(filterTable.units["0"])
+			local target = EntIndexToHScript(filterTable.entindex_target)
+			local pos = caster:GetAbsOrigin()
+			local target = target:GetAbsOrigin()
+			local forward = target - pos
+			forward.z = 0
+			caster:SetForwardVector(forward)
+		end
 		return EventForAttackTarget(filterTable)
 		-- [   VScript       ]: ordertype = 4
 		-- [   VScript       ]: {
