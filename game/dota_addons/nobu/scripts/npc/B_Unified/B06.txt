@@ -415,7 +415,7 @@
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"80"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"75"
 				}
 				"EffectName"	"particles/b06r/b06r.vpcf"
 				"EffectAttachType"	"attach_origin"
@@ -441,7 +441,7 @@
 					}
 				}
 				"IsHidden"	"0"
-				"Duration"	"3"
+				"Duration"	"%Float_Timer"
 				"IsBuff"	"0"
 				"TextureName"	"cps_d06_7"
 				"StatusEffectName"	"particles/units/heroes/hero_slardar/slardar_amp_damage.vpcf"
@@ -453,7 +453,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"Float_Timer"	"20 14 9 4"
+				"Float_Timer"	"23 17 12 7"
 			}
 			"02"
 			{

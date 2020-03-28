@@ -1,55 +1,4 @@
 
-LinkLuaModifier( "modifier_item_blade_mail_rework_damage_return", "scripts/vscripts/heroes/B_Unified/B06_Sanada_Yukimura.lua",LUA_MODIFIER_MOTION_NONE )
-modifier_item_blade_mail_rework_damage_return = class({})
-
---------------------------------------------------------------------------------
-
-function modifier_item_blade_mail_rework_damage_return:DeclareFunctions()
-    local funcs = {
-        MODIFIER_EVENT_ON_TAKEDAMAGE
-    }
-
-    return funcs
-end
-
-function modifier_item_blade_mail_rework_damage_return:OnCreated( event )
-	self:StartIntervalThink(0.2)
-end
-
-function modifier_item_blade_mail_rework_damage_return:OnIntervalThink()
-	if (self.caster ~= nil) and IsValidEntity(self.caster) then
-		self.hp = self.caster:GetHealth()
-	end
-end
---------------------------------------------------------------------------------
-
-function modifier_item_blade_mail_rework_damage_return:OnTakeDamage(event)
-    local attacker = event.unit
-    local victim = event.attacker
-    local return_damage = event.original_damage
-    local damage_type = event.damage_type
-    local damage_flags = event.damage_flags
-    local ability = self:GetAbility()
-
-    if victim:GetTeam() ~= attacker:GetTeam() then
-        if damage_flags ~= DOTA_DAMAGE_FLAG_REFLECTION then
-            if damage_type == DAMAGE_TYPE_MAGICAL and self.caster.B06R_Buff == true then
-            	if victim:GetTeam() ~= attacker:GetTeam() and attacker == self.caster then
-	            	self.caster.B06R_Buff = false
-	            	self.caster:SetHealth(self.hp)
-	            	self.caster:FindAbilityByName("B06R"):ApplyDataDrivenModifier(self.caster, self.caster, "modifier_B06R", {duration = 3.0})
-	            	AmpDamageParticle = ParticleManager:CreateParticle("particles/a07w4/a07w4_c.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
-					
-					local count = 0
-					local part = ParticleManager:CreateParticle("particles/b06r3/b06r4.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.caster)
-					Timers:CreateTimer(3, function() 
-						ParticleManager:DestroyParticle(part, true)
-					end)
-				end
-            end 
-        end 
-    end 
-end 
 
 --哇塞 lua也太方便了吧 X.y後面就可以設定一個變數
 --還可以是table
@@ -143,30 +92,15 @@ end
 function B06R_Learn_Ability( keys )
 	local ability = keys.ability
 	local caster = keys.caster
-	if caster.b06r == nil then
-		keys.caster.B06R_Buff = true
-		ability:ApplyDataDrivenModifier( caster, caster, "modifier_item_blade_mail_rework_damage_return", {duration = 10000} )
-		caster:FindModifierByName("modifier_item_blade_mail_rework_damage_return").caster = caster
-		caster.b06r = 1
-		Timers:CreateTimer(1, function ()
-			if (not caster:HasModifier("modifier_item_blade_mail_rework_damage_return")) and caster:IsAlive() then
-				ability:ApplyDataDrivenModifier( caster, caster, "modifier_item_blade_mail_rework_damage_return", {duration = 10000} )
-				caster:FindModifierByName("modifier_item_blade_mail_rework_damage_return").caster = caster
-				caster.b06r = 1
-				keys.caster.B06R_Buff = true
-			end
-			return 1
-		end)
+	if caster.B06R_Buff == nil then
+		caster.B06R_Buff = true
 	end
 end
 
 
 function B06R_TimeUP( keys )
 	local level  = keys.ability:GetLevel()--獲取技能等級
-	local Float_Timer = keys.ability:GetLevelSpecialValueFor("Float_Timer",level-1)
-	Timers:CreateTimer(Float_Timer, function() 
-		keys.caster.B06R_Buff = true
-		end)
+	keys.caster.B06R_Buff = true
 end
 
 function B06T_SE( keys )
