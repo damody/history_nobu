@@ -6,6 +6,7 @@ heromap = _G.heromap
 
 function Nobu:OnHeroIngame( keys )
   local hero = EntIndexToHScript( keys.entindex )
+  hero.spawn_location = hero:GetAbsOrigin()
   if hero ~= nil and IsValidEntity(hero) and hero:IsHero() then
     local caster = hero
     if caster:HasModifier("modifier_record") then
