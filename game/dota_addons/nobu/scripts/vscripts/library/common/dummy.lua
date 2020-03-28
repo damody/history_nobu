@@ -255,6 +255,10 @@ function killdummy( keys )
 	end
 end
 
+_G.EXCLUDE_TARGET_NAME2 = {
+  com_general_oda = true,
+  com_general_unified = true,
+}
 _G.EXCLUDE_TARGET_NAME = {
   --npc_dota_cursed_warrior_souls = true,
   npc_dota_the_king_of_robbers  = true,

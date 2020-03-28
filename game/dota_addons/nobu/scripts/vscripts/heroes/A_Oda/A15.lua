@@ -191,6 +191,9 @@ function A15R_bounceAttack(keys)
 		if target:IsBuilding() then
 			damageTable.damage = damageTable.damage * 0.3
 		end
+		if _G.EXCLUDE_TARGET_NAME2[target:GetUnitName()] then
+			damage_table.damage = damage_table.damage * 0.5
+		end
 		ApplyDamage( damageTable )
 		if caster:HasModifier("modifier_A15T") then
 			local lifeSteal = caster:FindAbilityByName("A15T"):GetSpecialValueFor("A15T_lifeSteal")
