@@ -112,7 +112,6 @@ function B25E( keys )
 	-- Variables
 	local caster = keys.caster
 	local ability = keys.ability
-	local cooldown = ability:GetCooldown(-1)
 	local particleName = "particles/units/heroes/hero_necrolyte/necrolyte_pulse_enemy.vpcf"
 	-- local modifierDudName = "modifier_heat_seeking_missile_dud"
 	local radius = ability:GetLevelSpecialValueFor( "radius", ability:GetLevel() - 1 )
@@ -154,6 +153,7 @@ function B25E( keys )
 			break
 		end
 	end
+	local cooldown = ability:GetCooldownTime()
 	ability:EndCooldown()
 	ability:StartCooldown(cooldown - hero_count)
 end
