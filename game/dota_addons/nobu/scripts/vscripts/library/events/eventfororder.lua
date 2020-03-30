@@ -258,7 +258,9 @@ function spell_ability ( filterTable )
 			local target = Vector(filterTable.position_x, filterTable.position_y, 0)
 			local forward = target - pos
 			forward.z = 0
-			caster:SetForwardVector(forward)
+			if forward:Length2D() > 1 then
+				caster:SetForwardVector(forward)
+			end
 		end
 		local unit = EntIndexToHScript(filterTable.units["0"])
 		if filterTable.entindex_ability > 0 and not unit.isVectorCasting and unit:IsHero() then
@@ -305,7 +307,9 @@ function spell_ability ( filterTable )
 			local target = target:GetAbsOrigin()
 			local forward = target - pos
 			forward.z = 0
-			caster:SetForwardVector(forward)
+			if forward:Length2D() > 1 then
+				caster:SetForwardVector(forward)
+			end
 		end
 		return EventForSpellTarget(filterTable)
 		-- [   VScript             ]: {
@@ -383,7 +387,9 @@ function Nobu:eventfororder( filterTable )
 			local target = Vector(filterTable.position_x, filterTable.position_y, 0)
 			local forward = target - pos
 			forward.z = 0
-			caster:SetForwardVector(forward)
+			if forward:Length2D() > 1 then
+				caster:SetForwardVector(forward)
+			end
 		end
 	elseif ordertype == DOTA_UNIT_ORDER_MOVE_TO_TARGET then --2
 		-- [   VScript       ]: {
@@ -406,9 +412,17 @@ function Nobu:eventfororder( filterTable )
 			local caster = EntIndexToHScript(filterTable.units["0"])
 			local pos = caster:GetAbsOrigin()
 			local target = Vector(filterTable.position_x, filterTable.position_y, 0)
+			local group = FindUnitsInRadius(caster:GetTeamNumber(), target,
+				nil,  900 , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+				DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+			if #group > 0 then
+				target = group[1]:GetAbsOrigin()
+			end
 			local forward = target - pos
 			forward.z = 0
-			caster:SetForwardVector(forward)
+			if forward:Length2D() > 1 then
+				caster:SetForwardVector(forward)
+			end
 		end
 		-- [   VScript       ]: ordertype = 3
 		-- [   VScript       ]: {
@@ -434,7 +448,9 @@ function Nobu:eventfororder( filterTable )
 			local target = target:GetAbsOrigin()
 			local forward = target - pos
 			forward.z = 0
-			caster:SetForwardVector(forward)
+			if forward:Length2D() > 1 then
+				caster:SetForwardVector(forward)
+			end
 		end
 		return EventForAttackTarget(filterTable)
 		-- [   VScript       ]: ordertype = 4
