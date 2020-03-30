@@ -107,7 +107,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- 跳錢
 		Timers:CreateTimer(45, function()
 			local gold = PlayerResource:GetGold(i)
-			PlayerResource:SetGold(i,gold + 3,false)
+			PlayerResource:SetGold(i,gold + 5,false)
 			return 2
 		end)
 	  end
