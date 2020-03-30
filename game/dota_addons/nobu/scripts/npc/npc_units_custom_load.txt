@@ -6148,7 +6148,7 @@
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"
-		"AttackAcquisitionRange"	"1100"
+		"AttackAcquisitionRange"	"1500"
 		"AttackRange"	"1100"
 		"ProjectileSpeed"	"1800"
 		// Bounty
@@ -6224,7 +6224,7 @@
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"
-		"AttackAcquisitionRange"	"1100"
+		"AttackAcquisitionRange"	"1500"
 		"AttackRange"	"1100"
 		"ProjectileSpeed"	"1800"
 		// Bounty
@@ -6300,7 +6300,7 @@
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"
-		"AttackAcquisitionRange"	"1100"
+		"AttackAcquisitionRange"	"1500"
 		"AttackRange"	"1100"
 		"ProjectileSpeed"	"1800"
 		// Bounty
@@ -6376,7 +6376,7 @@
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.2"
 		"AttackAnimationPoint"	"0.30"
-		"AttackAcquisitionRange"	"1100"
+		"AttackAcquisitionRange"	"1500"
 		"AttackRange"	"1100"
 		"ProjectileSpeed"	"1800"
 		// Bounty
@@ -6452,7 +6452,7 @@
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.2"
 		"AttackAnimationPoint"	"0.30"
-		"AttackAcquisitionRange"	"1100"
+		"AttackAcquisitionRange"	"1500"
 		"AttackRange"	"1100"
 		"ProjectileSpeed"	"1800"
 		// Bounty
@@ -6528,7 +6528,7 @@
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.2"
 		"AttackAnimationPoint"	"0.30"
-		"AttackAcquisitionRange"	"1100"
+		"AttackAcquisitionRange"	"1500"
 		"AttackRange"	"1100"
 		"ProjectileSpeed"	"1800"
 		// Bounty
@@ -6604,7 +6604,7 @@
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"
-		"AttackAcquisitionRange"	"1100"
+		"AttackAcquisitionRange"	"1500"
 		"AttackRange"	"1100"
 		"ProjectileSpeed"	"1800"
 		// Bounty
@@ -6680,7 +6680,7 @@
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"
-		"AttackAcquisitionRange"	"1100"
+		"AttackAcquisitionRange"	"1500"
 		"AttackRange"	"1100"
 		"ProjectileSpeed"	"1800"
 		// Bounty
@@ -6756,7 +6756,7 @@
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"
-		"AttackAcquisitionRange"	"1100"
+		"AttackAcquisitionRange"	"1500"
 		"AttackRange"	"1100"
 		"ProjectileSpeed"	"1800"
 		// Bounty
@@ -6832,7 +6832,7 @@
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"
-		"AttackAcquisitionRange"	"1100"
+		"AttackAcquisitionRange"	"1500"
 		"AttackRange"	"1100"
 		"ProjectileSpeed"	"1800"
 		// Bounty
