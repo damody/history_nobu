@@ -863,7 +863,6 @@ end
 function check_Oda_is_dead(keys)
 	local caster = keys.caster
 	_G.Oda_home = caster
-	print("check_Oda_is_dead")
 	Timers:CreateTimer(1, function()
 		if IsValidEntity(caster) and not caster:IsAlive() then
 			_G.CountUsedAbility_Table["winteam"] = DOTA_TEAM_BADGUYS
@@ -918,7 +917,6 @@ end
 function check_Unified_is_dead(keys)
 	local caster = keys.caster
 	_G.Unified_home = caster
-	print("check_Unified_is_dead")
 	Timers:CreateTimer(1, function()
 		if IsValidEntity(caster) and not caster:IsAlive() then
 			_G.CountUsedAbility_Table["winteam"] = DOTA_TEAM_GOODGUYS

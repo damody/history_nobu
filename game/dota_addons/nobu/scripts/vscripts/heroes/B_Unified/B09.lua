@@ -13,7 +13,6 @@ function modifier_B09W_OnCreated( keys )
 	--AMHC:Damage( caster,target,ability:GetAbilityDamage(),AMHC:DamageType("DAMAGE_TYPE_MAGICAL") )
 	local count = 0
 	Timers:CreateTimer(0, function()
-		print(count - math.floor(count/10)*10)
 		if target:HasModifier("modifier_B09W_counter") then
 			if math.mod(count, 10) == 0 then
 				AMHC:Damage( caster,target,ability:GetAbilityDamage()*B09W_counter,AMHC:DamageType("DAMAGE_TYPE_PURE") )
@@ -38,13 +37,16 @@ end
 function modifier_B09W_OnAbilityExecuted( keys )
 	local target =keys.unit
 	local ability=keys.ability
+	local event_ability = keys.event_ability
+	if event_ability:IsToggle() then
+		return nil
+	end
 	local b09W_max_count=keys.ability:GetSpecialValueFor("max_count")
 	local buff=target:FindModifierByName("modifier_B09W")
 	local buff_count=target:FindModifierByName("modifier_B09W_counter")
 	if target.max_count<b09W_max_count then
 		target.max_count=target.max_count+1
 		buff_count:SetStackCount(target.max_count)
-		print(buff:GetRemainingTime())
 		buff:SetDuration(buff:GetRemainingTime()+1,true)
 	end
 

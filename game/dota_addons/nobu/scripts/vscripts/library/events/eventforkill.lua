@@ -260,7 +260,6 @@ function Nobu:OnUnitKill( keys )
       -- end
       --Tutorial: AddQuest("quest_1",1,"破塔成功","ssssssssss")
     if string.match(name, "neutral_130")then
-      print("neutral_130")
       local unitname = name
       local pos = killedUnit:GetAbsOrigin()
       local team = killedUnit:GetTeamNumber()
@@ -289,7 +288,6 @@ function Nobu:OnUnitKill( keys )
         end
         end)
     elseif string.match(name, "cursed_warrior_souls") then
-      print("cursed_warrior_souls")
       local unitname = name
       local pos = Vector(-3671.04,-3891.62,384)
       local team = killedUnit:GetTeamNumber()
@@ -314,7 +312,6 @@ function Nobu:OnUnitKill( keys )
         end
       end)
     elseif string.match(name, "neutral_160") then
-      print("neutral_160")
       local unitname = name
       local pos = killedUnit:GetAbsOrigin()
       local team = killedUnit:GetTeamNumber()
@@ -343,7 +340,6 @@ function Nobu:OnUnitKill( keys )
         end
       end)
     elseif string.match(name, "king_of_robbers") then
-      print("king_of_robbers")
       local unitname = name
       local pos = Vector(3487.55,3666,378)
       local team = killedUnit:GetTeamNumber()

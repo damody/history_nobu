@@ -148,7 +148,6 @@ end
 function kill_warrior_souls_when_start( keys )
 	local caster = keys.caster
 	if kill_warrior_soul_count == 0 then
-		print("kill warrior")
 		caster:ForceKill(true)
 		kill_warrior_soul_count = kill_warrior_soul_count + 1
 	end

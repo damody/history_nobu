@@ -107,11 +107,18 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- 跳錢
 		Timers:CreateTimer(45, function()
 			local gold = PlayerResource:GetGold(i)
-			PlayerResource:SetGold(i,gold + 3,false)
+			PlayerResource:SetGold(i,gold + 5,false)
 			return 2
 		end)
 	  end
 	end
+	--守護家園
+	Timers:CreateTimer(600, function()
+		local oda_def_home = CreateUnitByName("hide_unit", Vector(7445.46,-7517.94,128) , true, nil, nil, DOTA_TEAM_GOODGUYS) 
+		oda_def_home:AddAbility("speed_up"):SetLevel(1)
+		local unified_def_home = CreateUnitByName("hide_unit", Vector(-7390.63,7203.02,128) , true, nil, nil, DOTA_TEAM_BADGUYS) 
+		unified_def_home:AddAbility("speed_up"):SetLevel(1)
+	end)
 	--檢查有沒有馬
 	Timers:CreateTimer(60, function()
 		for playerID = 0, 9 do

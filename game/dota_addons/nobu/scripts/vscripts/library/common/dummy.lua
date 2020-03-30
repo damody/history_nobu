@@ -607,3 +607,12 @@ function passive_b01w_unit( keys )
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_b01w_unit_weak", {duration = 0.15})
   end
 end
+
+function def_home( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  local teammate = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), nil, 1300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+  for i,v in pairs(teammate) do
+    ability:ApplyDataDrivenModifier(caster,v,"modifier_speed_up",{})
+  end
+end

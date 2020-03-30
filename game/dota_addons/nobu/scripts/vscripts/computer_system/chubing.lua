@@ -59,8 +59,8 @@ _G.big_team[3]["top"] = 0
 _G.big_team[3]["mid"] = 0
 _G.big_team[3]["down"] = 0
 
-_G.minions = 30
-_G.bigminions = 150
+_G.minions = 45
+_G.bigminions = 180
 
 end
 --紀錄出兵起始點、路徑 (必須要用計時器，初始化時物體還沒建造)
@@ -166,7 +166,7 @@ function ShuaGuai( )
 		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,3,6)
 		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,5)
 		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,6)
-	    return _G.minions
+	    return _G.bigminions
 	end)
 end
 
