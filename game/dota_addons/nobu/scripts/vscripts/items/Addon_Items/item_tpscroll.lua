@@ -32,16 +32,14 @@ function Shock( keys )
 				else
 					GameRules: SendCustomMessage("<font color=\"#cc3333\">聯合軍發動召集戰法</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
 				end
-				target:SetTimeUntilRespawn(0)
+				-- target:SetTimeUntilRespawn(0)
+				print(target:GetUnitName())
+				print(target.spawn_location)
+				target:SetAbsOrigin(target.spawn_location)
 				target:AddNewModifier(target,ability,"modifier_phased",{duration=0.1})
 				Timers:CreateTimer(1, function()
 					target:RemoveModifierByName("modifier_wantgohome")
 					target:RemoveModifierByName("modifier_gohomelua")
-				end)
-				caster:AddAbility("speed_up"):SetLevel(1)
-				Timers:CreateTimer(8, function()
-					caster:RemoveAbility("speed_up")
-					caster:RemoveModifierByName("modifier_speed_up")
 				end)
 			end
 		else
