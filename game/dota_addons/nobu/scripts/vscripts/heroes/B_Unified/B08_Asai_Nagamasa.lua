@@ -52,6 +52,7 @@ function B08D_old( keys )
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, opoint, 1000, 3.0, false)
 	AddFOWViewer(DOTA_TEAM_BADGUYS, opoint, 1000, 3.0, false)
 	ability:ApplyDataDrivenModifier(caster, caster,"modifier_invulnerable", {duration = 2.2})
+	ability:ApplyDataDrivenModifier(caster, caster,"modifier_stunned", {duration = 2.0})
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = 2.2})
 	for i=1,maxrock do
 		a	=	(	(720.0/maxrock)	*	i	)* bj_DEGTORAD
