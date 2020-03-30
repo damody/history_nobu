@@ -425,15 +425,9 @@ local function chat_of_test(keys)
 			local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
 		end
 		if string.match(s,"search") then
-			local allCouriers = Entities:FindAllByClassname('npc_dota_courier')
+			local allCouriers = Entities:FindAllByClassname('npc_dota_creature')
 			for k, ent in pairs(allCouriers) do
-				PrintTable(ent)
-				print(ent:GetOwnerEntity())
-				print(ent:IsControllableByAnyPlayer())
-				print(ent:HasFlyingVision())
-				for i,m in pairs(ent:FindAllModifiers()) do
-					print(m:GetName())
-				end
+				print(ent:GetUnitName())
 			end
 		end
 		if string.match(s, "cleanbuff") then
