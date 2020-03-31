@@ -47,7 +47,7 @@ function _G.Nobu:InitGameMode()
     GameRules:SetPreGameTime( 0 )--設置遊戲準備時間
   end
   -- GameRules:SetPostGameTime( 9001 )
-  GameRules:SetTreeRegrowTime( 10000.0 )--设置砍倒的树木重生时间
+  GameRules:SetTreeRegrowTime( 300 )--设置砍倒的树木重生时间
   GameRules:SetUseCustomHeroXPValues ( true )-- 是否使用自定義的英雄經驗
   
   GameRules:SetStartingGold(0)
