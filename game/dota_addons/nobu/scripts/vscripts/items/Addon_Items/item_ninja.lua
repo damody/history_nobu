@@ -8,7 +8,7 @@ function Shock(keys)
     donkey.owner = caster
     donkey:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
 	donkey:AddNewModifier(donkey,ability,"modifier_phased",{duration=0.1})
-    donkey:AddNewModifier(donkey,nil,"modifier_kill",{duration=180})
+    donkey:AddNewModifier(donkey,nil,"modifier_kill",{duration=240})
     -- 紀錄忍者替換
     if (caster.ninja1 == nil) and (caster.ninja2 == nil) then
         caster.ninja1 = donkey
