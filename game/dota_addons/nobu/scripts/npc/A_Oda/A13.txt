@@ -437,7 +437,7 @@
 		"AbilityTextureName"				"custom/A13E"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_MOVEMENT"
 		"AbilityCastRange"   				"1000 1000 1000 1000"
-		"AbilityCastPoint"   				"0.1"
+		"AbilityCastPoint"   				"0.01"
 		"AbilityCooldown"    				"14 11 8 5"
 		"AbilityManaCost"    				"100 120 140 160"
 		"AbilityUnitTargetTeam"   			"DOTA_UNIT_TARGET_TEAM_ENEMY"
