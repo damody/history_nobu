@@ -28,7 +28,7 @@ ShuaGuai_bo=0
 ShuaGuai_Of_Archer_num=2 --弓箭手
 ShuaGuai_Of_Walker_num=3 --足輕
 ShuaGuai_Of_Cavalry_num=1 --騎兵
-ShuaGuai_Of_Gunner_num=2 --火槍兵
+ShuaGuai_Of_Gunner_num=2 --鐵炮兵
 
 _G.A_count = -1
 _G.B_count = -1
@@ -59,8 +59,8 @@ _G.big_team[3]["top"] = 0
 _G.big_team[3]["mid"] = 0
 _G.big_team[3]["down"] = 0
 
-_G.minions = 45
-_G.bigminions = 180
+_G.minions = 30
+_G.bigminions = 150
 
 end
 --紀錄出兵起始點、路徑 (必須要用計時器，初始化時物體還沒建造)
