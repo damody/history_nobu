@@ -105,6 +105,11 @@
 				"Function"		"B04W_Start"
 				"Target"		"POINT"
 			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_B04W2"
+				"Target" 		"CASTER"
+			}
 		}
 
 		"OnProjectileHitUnit"
@@ -151,6 +156,15 @@
 						"Function"		"B04W_OnTrigger"
 						"Target"		"TARGET"
 					}
+				}
+			}
+			"modifier_B04W2"
+			{
+				"IsHidden"			"1"
+				"Duration"			"0.2"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
