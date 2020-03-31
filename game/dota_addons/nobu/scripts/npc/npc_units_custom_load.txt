@@ -14105,11 +14105,11 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"20"		// Experience earn.
+ 		"BountyXP"					"30"		// Experience earn.
  		//"BountyGoldMin"				"20"		// Gold earned min.
  		//"BountyGoldMax"				"20"		// Gold earned max.
-		"BountyGoldMin"				"30"		// Gold earned min.
- 		"BountyGoldMax"				"30"		// Gold earned max.
+		"BountyGoldMin"				"40"		// Gold earned min.
+ 		"BountyGoldMax"				"40"		// Gold earned max.
 
  		// Movement
  		//----------------------------------------------------------------
@@ -14177,11 +14177,11 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"20"		// Experience earn.
+ 		"BountyXP"					"30"		// Experience earn.
  		//"BountyGoldMin"				"20"		// Gold earned min.
  		//"BountyGoldMax"				"20"		// Gold earned max.
-		"BountyGoldMin"				"30"		// Gold earned min.
- 		"BountyGoldMax"				"30"		// Gold earned max.
+		"BountyGoldMin"				"40"		// Gold earned min.
+ 		"BountyGoldMax"				"40"		// Gold earned max.
 
  		// Movement
  		//----------------------------------------------------------------
@@ -14249,11 +14249,11 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"20"		// Experience earn.
+ 		"BountyXP"					"30"		// Experience earn.
  		//"BountyGoldMin"				"20"		// Gold earned min.
  		//"BountyGoldMax"				"20"		// Gold earned max.
-		"BountyGoldMin"				"30"		// Gold earned min.
- 		"BountyGoldMax"				"30"		// Gold earned max.
+		"BountyGoldMin"				"40"		// Gold earned min.
+ 		"BountyGoldMax"				"40"		// Gold earned max.
 
  		// Movement
  		//----------------------------------------------------------------
@@ -14321,11 +14321,11 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"36"		// Experience earn.
+ 		"BountyXP"					"46"		// Experience earn.
  		//"BountyGoldMin"				"40"		// Gold earned min.
  		//"BountyGoldMax"				"40"		// Gold earned max.
-		"BountyGoldMin"				"54"		// Gold earned min.
- 		"BountyGoldMax"				"54"		// Gold earned max.
+		"BountyGoldMin"				"64"		// Gold earned min.
+ 		"BountyGoldMax"				"64"		// Gold earned max.
 
  		// Movement
  		//----------------------------------------------------------------
@@ -14393,11 +14393,11 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"50"		// Experience earn.
+ 		"BountyXP"					"60"		// Experience earn.
  		//"BountyGoldMin"				"60"		// Gold earned min.
  		//"BountyGoldMax"				"60"		// Gold earned max.
-		"BountyGoldMin"				"75"		// Gold earned min.
- 		"BountyGoldMax"				"75"		// Gold earned max.
+		"BountyGoldMin"				"85"		// Gold earned min.
+ 		"BountyGoldMax"				"85"		// Gold earned max.
 
  		// Movement
  		//----------------------------------------------------------------
@@ -14465,11 +14465,11 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"37"		// Experience earn.
+ 		"BountyXP"					"47"		// Experience earn.
  		//"BountyGoldMin"				"40"		// Gold earned min.
  		//"BountyGoldMax"				"40"		// Gold earned max.
-		"BountyGoldMin"				"56"		// Gold earned min.
- 		"BountyGoldMax"				"56"		// Gold earned max.
+		"BountyGoldMin"				"66"		// Gold earned min.
+ 		"BountyGoldMax"				"66"		// Gold earned max.
 
  		// Movement
  		//----------------------------------------------------------------
@@ -14537,11 +14537,11 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"25"		// Experience earn.
+ 		"BountyXP"					"35"		// Experience earn.
  		//"BountyGoldMin"				"40"		// Gold earned min.
  		//"BountyGoldMax"				"40"		// Gold earned max.
-		"BountyGoldMin"				"38"		// Gold earned min.
- 		"BountyGoldMax"				"38"		// Gold earned max.
+		"BountyGoldMin"				"48"		// Gold earned min.
+ 		"BountyGoldMax"				"48"		// Gold earned max.
 
  		// Movement
  		//----------------------------------------------------------------
@@ -14609,11 +14609,11 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"40"		// Experience earn.
+ 		"BountyXP"					"50"		// Experience earn.
  		//"BountyGoldMin"				"60"		// Gold earned min.
  		//"BountyGoldMax"				"60"		// Gold earned max.
-		"BountyGoldMin"				"60"		// Gold earned min.
- 		"BountyGoldMax"				"60"		// Gold earned max.
+		"BountyGoldMin"				"70"		// Gold earned min.
+ 		"BountyGoldMax"				"70"		// Gold earned max.
 
  		// Movement
  		//----------------------------------------------------------------
@@ -14681,11 +14681,11 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"24"		// Experience earn.
+ 		"BountyXP"					"34"		// Experience earn.
  		//"BountyGoldMin"				"35"		// Gold earned min.
  		//"BountyGoldMax"				"35"		// Gold earned max.
-		"BountyGoldMin"				"36"		// Gold earned min.
- 		"BountyGoldMax"				"36"		// Gold earned max.
+		"BountyGoldMin"				"46"		// Gold earned min.
+ 		"BountyGoldMax"				"46"		// Gold earned max.
 
  		// Movement
  		//----------------------------------------------------------------
@@ -14753,11 +14753,11 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"36"		// Experience earn.
+ 		"BountyXP"					"46"		// Experience earn.
  		//"BountyGoldMin"				"30"		// Gold earned min.
  		//"BountyGoldMax"				"30"		// Gold earned max.
-		"BountyGoldMin"				"54"		// Gold earned min.
- 		"BountyGoldMax"				"54"		// Gold earned max.
+		"BountyGoldMin"				"64"		// Gold earned min.
+ 		"BountyGoldMax"				"64"		// Gold earned max.
 
  		// Movement
  		//----------------------------------------------------------------
@@ -14825,9 +14825,9 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"40"		// Experience earn.
- 		"BountyGoldMin"				"60"		// Gold earned min.
- 		"BountyGoldMax"				"60"		// Gold earned max.
+ 		"BountyXP"					"50"		// Experience earn.
+ 		"BountyGoldMin"				"70"		// Gold earned min.
+ 		"BountyGoldMax"				"70"		// Gold earned max.
 
  		// Movement
  		//----------------------------------------------------------------
@@ -14895,9 +14895,9 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"40"		// Experience earn.
- 		"BountyGoldMin"				"60"		// Gold earned min.
- 		"BountyGoldMax"				"60"		// Gold earned max.
+ 		"BountyXP"					"50"		// Experience earn.
+ 		"BountyGoldMin"				"70"		// Gold earned min.
+ 		"BountyGoldMax"				"70"		// Gold earned max.
 
  		// Movement
  		//----------------------------------------------------------------
@@ -14965,7 +14965,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"40"		// Experience earn.
+ 		"BountyXP"					"60"		// Experience earn.
  		"BountyGoldMin"				"110"		// Gold earned min.
  		"BountyGoldMax"				"110"		// Gold earned max.
 
@@ -15035,7 +15035,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"40"		// Experience earn.
+ 		"BountyXP"					"50"		// Experience earn.
  		"BountyGoldMin"				"120"		// Gold earned min.
  		"BountyGoldMax"				"120"		// Gold earned max.
 
