@@ -1,5 +1,3 @@
-LinkLuaModifier( "modifier_charges", "scripts/vscripts/heroes/modifier_charges.lua",LUA_MODIFIER_MOTION_NONE )
-
 LinkLuaModifier( "a13e_modifier", "scripts/vscripts/heroes/A_Oda/A13_Hattori_Hanzo.lua",LUA_MODIFIER_MOTION_NONE )
 
 LinkLuaModifier( "a13e_followthrough", "scripts/vscripts/heroes/A_Oda/A13_Hattori_Hanzo.lua",LUA_MODIFIER_MOTION_NONE )
@@ -360,7 +358,12 @@ function A13E:IsVectorTargeting()
 end
 
 function A13E:GetVectorTargetRange()
-	return 800
+	
+	
+	local caster = self:GetCaster()
+	local point = Vector(caster.position_x,caster.position_y,caster.position_z)
+	local length = (caster:GetAbsOrigin() - point):Length()
+	return 1200 - length
 end
 
 function A13E:GetBehavior()
@@ -380,7 +383,7 @@ function A13E:OnVectorCastStart(vStartLocation, vDirection)
 	caster.pos2 = self:GetVector2Position()
 	caster:SetForwardVector(dir:Normalized())
 	Timers:CreateTimer(0,function()
-			caster:AddNewModifier(caster, self, "a13e_modifier", {duration = 2})
+			caster:AddNewModifier(caster, self, "a13e_modifier", {duration = 1.2})
 		end)
 	--caster:AddNewModifier(caster, self, "a13e_modifier", { duration = 2}) 
 	caster:AddNewModifier(caster, self, "a13e_followthrough", { duration = 0.3 } )
@@ -389,42 +392,6 @@ function A13E:OnVectorCastStart(vStartLocation, vDirection)
                 caster:StopSound("hook_throw")
             end)
 end
-
--- function A13E:OnSpellStart()
--- 	local caster = self:GetCaster()
--- 	local debuff_duraiton = self:GetSpecialValueFor("flux_duration")
--- 	local dir = self:GetCursorPosition() - caster:GetOrigin()
--- 	local ability = caster:FindAbilityByName("A13E")
--- 	local charges = caster:FindModifierByName("modifier_charges")
--- 	caster:SetForwardVector(dir:Normalized())
--- 	caster.isTwice = false
--- 	if charges:GetStackCount() == 1 then
--- 		caster.pos1 = ability:GetCursorPosition()
--- 		caster.vDirection = self:GetCursorPosition() - caster:GetOrigin()
--- 		caster.isTurn = false
--- 		ability:EndCooldown()
--- 	else
--- 		caster.pos2 = ability:GetCursorPosition()
--- 		caster.isTwice = true
--- 		Timers:CreateTimer(0.55,function()
--- 			ability:StartCooldown(ability:GetCooldown(ability:GetLevel() -1))
--- 			caster:AddNewModifier(caster, self, "a13e_modifier", {duration = 2})
--- 			end)
--- 	end
--- 	Timers:CreateTimer(0.55,function()
--- 			if caster.isTwice then
--- 				return 
--- 			end
--- 			ability:StartCooldown(ability:GetCooldown(ability:GetLevel() -1))
--- 			caster:AddNewModifier(caster, self, "a13e_modifier", {duration = 2})
--- 		end)
--- 	--caster:AddNewModifier(caster, self, "a13e_modifier", { duration = 2}) 
--- 	caster:AddNewModifier(caster, self, "a13e_followthrough", { duration = 0.3 } )
--- 	caster:EmitSound("hook_throw")
--- 	Timers:CreateTimer(1,function()
---                 caster:StopSound("hook_throw")
---             end)
--- end
 
 function A13E:OnAbilityPhaseStart()
 	self:GetCaster():StartGesture( ACT_DOTA_CAST_ABILITY_1 )
@@ -505,7 +472,7 @@ function a13e_hook_back:IsDebuff()
 end
 
 function a13e_hook_back:OnCreated( event )
-	self:StartIntervalThink(0.07) 
+	self:StartIntervalThink(0.008) 
 end
 
 
@@ -529,7 +496,7 @@ function a13e_modifier:OnCreated( event )
 			self.oriangle = self:GetParent():GetAnglesAsVector().y
 			self.hook_pos = self:GetParent():GetOrigin()
 			self.oripos = self:GetParent():GetOrigin()
-			self:StartIntervalThink(0.05)
+			self:StartIntervalThink(0.003)
 		end
 	end
 end
@@ -538,40 +505,20 @@ function a13e_modifier:OnIntervalThink()
 	if IsServer() then
 		local caster = self:GetParent()
 		self.interval_Count = self.interval_Count + 1
-		local angle = math.abs(caster:GetAnglesAsVector().y - self.oriangle)
-		--print("angle: "..(angle))
-		if (angle > 45) then
-			if (angle > 80) then
-				angle = angle * 4
-			else
-				angle = angle * 2
-			end
-		end
-		angle = 0
-		--local vDirection =  caster:GetForwardVector()
 		self.path[self.interval_Count] = self.hook_pos
-		local length = 20 * self.interval_Count
-		local next_hook_pos = self.hook_pos + caster.vDirection:Normalized() * length + (self:GetParent():GetOrigin() - self.oripos)
+		local length = 10 
 		self.oripos = self:GetParent():GetOrigin()
-		length = (next_hook_pos - self.hook_pos):Length()
 		hook_pts = { self.hook_pos }
-		if (length > 100) then
-			local pts = length / 100 + 1
-			for i=1,pts do
-				hook_pts[i] = self.hook_pos + caster.vDirection:Normalized() * 100 * i
-				--print("pts: ".. hook_pts[i].x.." "..hook_pts[i].y.." "..hook_pts[i].z)
-			end
-		end
 		-- 到轉彎點轉彎
-		if (self.hook_pos - caster.pos1):Length() < 100 and not caster.isTurn and caster.pos1 ~= caster.pos2 then
+		if (self.hook_pos - caster.pos1):Length() < 10 and not caster.isTurn and caster.pos1 ~= caster.pos2 then
 			caster.vDirection = caster.pos2 - caster.pos1
 			caster.isTurn = true
 		end
 		local next_hook_pos = self.hook_pos + caster.vDirection:Normalized() * length
-		self.distance_sum = self.distance_sum + 20 * self.interval_Count
+		self.distance_sum = self.distance_sum + length
 		local particle = ParticleManager:CreateParticle("particles/a11/_2pudge_meathook_whale2.vpcf",PATTACH_WORLDORIGIN,caster)
 		ParticleManager:SetParticleControl(particle,0, next_hook_pos)
-		ParticleManager:SetParticleControl(particle,1,Vector(1.11 - self.interval_Count*0.1,0,0))
+		ParticleManager:SetParticleControl(particle,1,Vector(1 - self.interval_Count*0.0075,0,0))
 		ParticleManager:SetParticleControl(particle,4,Vector(1,0,0))
 		ParticleManager:SetParticleControl(particle,5,Vector(1,0,0))
 		ParticleManager:SetParticleControl(particle,3,self.hook_pos)
@@ -647,9 +594,7 @@ function a13e_modifier:OnIntervalThink()
 					end
 				end
 				-- 拉到或距離到上限了
-				print("max")
-				if (self.distance_sum > self.hook_distance or hashook == true) then
-					print(self.distance_sum)
+				if (self.distance_sum == self.hook_distance or hashook == true) then
 					self:StartIntervalThink( -1 )
 					return
 				end

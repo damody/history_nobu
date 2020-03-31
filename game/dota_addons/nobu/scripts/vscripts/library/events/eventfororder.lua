@@ -265,6 +265,9 @@ function spell_ability ( filterTable )
 		local unit = EntIndexToHScript(filterTable.units["0"])
 		if filterTable.entindex_ability > 0 and not unit.isVectorCasting and unit:IsHero() then
 			local ability = EntIndexToHScript(filterTable.entindex_ability)
+			caster.position_x = filterTable.position_x
+			caster.position_y = filterTable.position_y
+			caster.position_z = filterTable.position_z
 			if not ability then return true end
 			local playerID = unit:GetPlayerID()
 			local player = PlayerResource:GetPlayer(playerID)

@@ -490,7 +490,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"hook_width"	"75"
+				"hook_width"	"150"
 			}
 			"03"
 			{
