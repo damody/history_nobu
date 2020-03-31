@@ -141,7 +141,7 @@ function C01E_Mitsuhide_Akechi( keys )
     end)
 
 	--timer : 第二次火焰 時間+0.7
-    Timers:CreateTimer(time + 0.7 , function()
+    Timers:CreateTimer(time + 0.4 , function()
 
     	if skillcount >= 3 then
         	return nil -- 每秒再次调用
@@ -162,7 +162,7 @@ function C01E_Mitsuhide_Akechi( keys )
         		--效果
         		C01E_Mitsuhide_Akechi_Effect(keys, skillcount, caster,level,point)
 
-        		return 0.7
+        		return 0.4
         	else
         		return nil
     		end
