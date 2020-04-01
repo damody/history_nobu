@@ -407,7 +407,7 @@ function B25T_start( keys )
 				ApplyDamage( damageTable )
 			end
 		end
-		
+
 		-- Check if maximum instances reached
 		if caster:IsChanneling() == false then
 			for k,v in pairs(caster.allparticle) do
@@ -419,5 +419,10 @@ function B25T_start( keys )
 			return interval
 		end
 		end)
-
+	Timers:CreateTimer(6,function()
+		for k,v in pairs(caster.allparticle) do
+			ParticleManager:DestroyParticle(v, false)
+		end
+		dummy2:ForceKill(true)
+	end)
 end
