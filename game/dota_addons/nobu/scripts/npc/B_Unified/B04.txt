@@ -99,16 +99,16 @@
 
 		"OnSpellStart"
 		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_B04W2"
+				"Target" 		"CASTER"
+			}
 			"RunScript"
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B04.lua"
 				"Function"		"B04W_Start"
 				"Target"		"POINT"
-			}
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_B04W2"
-				"Target" 		"CASTER"
 			}
 		}
 

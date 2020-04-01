@@ -63,8 +63,8 @@
 		"StatusStartingMana"	"100"
 		// Vision
 		// ----------------------------------------------------------------
-		"VisionDaytimeRange"	"1800"
-		"VisionNighttimeRange"	"800"
+		"VisionDaytimeRange"	"1600"
+		"VisionNighttimeRange"	"1000"
 		// Team
 		// ----------------------------------------------------------------
 		"TeamName"	"DOTA_TEAM_NEUTRALS"

@@ -103,8 +103,8 @@
 
 		// Vision
 		// ----------------------------------------------------------------
-		"VisionDaytimeRange"	"1800"
-		"VisionNighttimeRange"	"800"
+		"VisionDaytimeRange"	"1600"
+		"VisionNighttimeRange"	"1000"
 
 		// Combat
 		// ----------------------------------------------------------------

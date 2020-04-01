@@ -1930,8 +1930,8 @@
 		"HPGain"                "36"
 		"DamageGain"            "3"
 
-		"VisionDaytimeRange"	"1800"
-		"VisionNighttimeRange"	"800"
+		"VisionDaytimeRange"	"1600"
+		"VisionNighttimeRange"	"1000"
 
 		"CombatClassAttack"		"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"		"DOTA_COMBAT_CLASS_DEFEND_WEAK"
@@ -1988,8 +1988,8 @@
 		"StatusHealth"	"900"
 		"StatusHealthRegen"	"0"
 
-		"VisionDaytimeRange"	"1800"
-		"VisionNighttimeRange"	"800"
+		"VisionDaytimeRange"	"1600"
+		"VisionNighttimeRange"	"1000"
 
 		"TeamName"	"DOTA_TEAM_NEUTRALS"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
@@ -15479,8 +15479,8 @@
 		"StatusStartingMana"	"100"
 		// Vision
 		// ----------------------------------------------------------------
-		"VisionDaytimeRange"	"1800"
-		"VisionNighttimeRange"	"800"
+		"VisionDaytimeRange"	"1600"
+		"VisionNighttimeRange"	"1000"
 		// Team
 		// ----------------------------------------------------------------
 		"TeamName"	"DOTA_TEAM_NEUTRALS"
