@@ -33,6 +33,7 @@ ShuaGuai_Of_Gunner_num=2 --鐵炮兵
 _G.A_count = -1
 _G.B_count = -1
 _G.C_count = -1
+_G.armor_bonus = 0
 
 _G.call_team = {}
 _G.call_team[2] = 0
@@ -97,6 +98,10 @@ function ShuaGuai( )
 		["com_general_oda"] = true,
 		["com_general_unified"] = true,
 	}
+	Timers:CreateTimer(300, function()
+		_G.armor_bonus = _G.armor_bonus + 1
+		return 300
+	end)
 	Timers:CreateTimer(10, function()
 		local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
 		for k, ent in pairs(allBuildings) do
@@ -258,7 +263,7 @@ function ShuaGuai_Of_AA(num, team, pos)
 					unit:SetBaseDamageMax(dmgmax+A_count*1)
 					unit:SetBaseDamageMax(dmgmin+A_count*1)
 					local armor = unit:GetPhysicalArmorBaseValue() * intensify
-					unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
+					unit:SetPhysicalArmorBaseValue(armor+_G.armor_bonus)
 					--creep:SetContextNum("isshibing",1,0)
 					--單位面向角度
 					unit:SetForwardVector(ShuaGuai_entity_forvec[i])
@@ -367,7 +372,7 @@ function ShuaGuai_Of_AB(num, team, pos)
 					unit:SetBaseDamageMax(dmgmax+A_count*2)
 					unit:SetBaseDamageMax(dmgmin+A_count*2)
 					local armor = unit:GetPhysicalArmorBaseValue() * intensify
-					unit:SetPhysicalArmorBaseValue(armor+A_count*0.05)
+					unit:SetPhysicalArmorBaseValue(armor+ _G.armor_bonus)
 					--creep:SetContextNum("isshibing",1,0)
 					--單位面向角度
 					unit:SetForwardVector(ShuaGuai_entity_forvec[i])
@@ -468,7 +473,7 @@ function ShuaGuai_Of_B(num, team, pos)
 					unit:SetBaseDamageMax(dmgmax+A_count*3)
 					unit:SetBaseDamageMin(dmgmin+A_count*3)
 					local armor = (unit:GetPhysicalArmorBaseValue()) * intensify
-					unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
+					unit:SetPhysicalArmorBaseValue(armor+_G.armor_bonus)
 					--creep:SetContextNum("isshibing",1,0)
 
 					--單位面向角度
@@ -565,7 +570,7 @@ function ShuaGuai_Of_C(num, team, pos)
 					unit:SetBaseDamageMax(dmgmax+A_count*3)
 					unit:SetBaseDamageMin(dmgmin+A_count*3)
 					local armor = (unit:GetPhysicalArmorBaseValue()) * intensify
-					unit:SetPhysicalArmorBaseValue(armor+A_count*0.1)
+					unit:SetPhysicalArmorBaseValue(armor+_G.armor_bonus)
 					unit:FindAbilityByName("for_no_collision"):SetLevel(1)
 					--creep:SetContextNum("isshibing",1,0)
 
