@@ -27,7 +27,7 @@ ShuaGuai_bo=0
 --紀錄出兵的兵量
 ShuaGuai_Of_Archer_num=2 --弓箭手
 ShuaGuai_Of_Walker_num=3 --足輕
-ShuaGuai_Of_Cavalry_num=2 --騎兵
+ShuaGuai_Of_Cavalry_num=1 --騎兵
 ShuaGuai_Of_Gunner_num=2 --鐵炮兵
 
 _G.A_count = -1
@@ -101,6 +101,13 @@ function ShuaGuai( )
 	Timers:CreateTimer(300, function()
 		_G.armor_bonus = _G.armor_bonus + 1
 		return 300
+	end)
+	Timers:CreateTimer(900, function()
+		ShuaGuai_Of_Archer_num=ShuaGuai_Of_Archer_num+1 --弓箭手
+		ShuaGuai_Of_Walker_num=ShuaGuai_Of_Walker_num+1 --足輕
+		ShuaGuai_Of_Cavalry_num=ShuaGuai_Of_Cavalry_num+1 --騎兵
+		ShuaGuai_Of_Gunner_num=ShuaGuai_Of_Gunner_num+1 --鐵炮兵
+		return 900
 	end)
 	Timers:CreateTimer(10, function()
 		local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
