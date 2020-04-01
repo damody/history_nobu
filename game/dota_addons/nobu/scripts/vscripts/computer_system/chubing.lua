@@ -102,12 +102,10 @@ function ShuaGuai( )
 		_G.armor_bonus = _G.armor_bonus + 1
 		return 300
 	end)
-	Timers:CreateTimer(900, function()
-		ShuaGuai_Of_Archer_num=ShuaGuai_Of_Archer_num+1 --弓箭手
-		ShuaGuai_Of_Walker_num=ShuaGuai_Of_Walker_num+1 --足輕
-		ShuaGuai_Of_Cavalry_num=ShuaGuai_Of_Cavalry_num+1 --騎兵
-		ShuaGuai_Of_Gunner_num=ShuaGuai_Of_Gunner_num+1 --鐵炮兵
-		return 900
+	Timers:CreateTimer(1200, function()
+		ShuaGuai_Of_Cavalry_num = ShuaGuai_Of_Cavalry_num + 1
+		ShuaGuai_Of_Gunner_num = ShuaGuai_Of_Gunner_num + 1
+		return 1200
 	end)
 	Timers:CreateTimer(10, function()
 		local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
@@ -468,7 +466,7 @@ function ShuaGuai_Of_B(num, team, pos)
 				--強化倍率
 				local intensify = 1
 				if small_big then intensify = 1.3 end
-				if big then intensify = 1.3 end
+				if big then intensify = 2 end
 				for x=1,n do
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					unit:AddAbility("set_level_1"):SetLevel(1)
@@ -566,12 +564,11 @@ function ShuaGuai_Of_C(num, team, pos)
 				--強化倍率
 				local intensify = 1
 				if small_big then intensify = 1.3 end
-				if big then intensify = 1.3 end
+				if big then intensify = 2 end
 				for x=1,n do
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
-					
 					local hp = (unit:GetMaxHealth()) * intensify
-					unit:SetBaseMaxHealth(hp+A_count * 10)
+					unit:SetBaseMaxHealth(hp+A_count * 100)
 					local dmgmax = (unit:GetBaseDamageMax()) * intensify
 					local dmgmin = (unit:GetBaseDamageMin()) * intensify
 					unit:SetBaseDamageMax(dmgmax+A_count*3)
