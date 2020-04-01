@@ -568,7 +568,7 @@ function ShuaGuai_Of_C(num, team, pos)
 				for x=1,n do
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
 					local hp = (unit:GetMaxHealth()) * intensify
-					unit:SetBaseMaxHealth(hp+A_count * 100)
+					unit:SetBaseMaxHealth(hp+A_count * 10)
 					local dmgmax = (unit:GetBaseDamageMax()) * intensify
 					local dmgmin = (unit:GetBaseDamageMin()) * intensify
 					unit:SetBaseDamageMax(dmgmax+A_count*3)
