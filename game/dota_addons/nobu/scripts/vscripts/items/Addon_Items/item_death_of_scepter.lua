@@ -73,7 +73,7 @@ function OnHeroKilled( keys )
 	print("kill")
 	local ability = keys.ability
 	local caster = keys.caster
-	caster.item_death_of_scepter_count = caster.item_death_of_scepter_count + 1
+	caster.item_death_of_scepter_count = caster.item_death_of_scepter_count + 2
 	if caster.item_death_of_scepter_count > 21 then
 		caster.item_death_of_scepter_count = 21
 	end
