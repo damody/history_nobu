@@ -480,9 +480,6 @@ function modifier_unit_armor:GetModifierIncomingDamage_Percentage( keys )
   if keys.attacker:IsBuilding() then 
     return -75
   end
-  if keys.attacker:GetUnitName() == "com_general2" or keys.attacker:GetUnitName() == "com_general2_unified" then
-    return -25
-  end
 	return 0
 end
 --------------------------------------------
