@@ -8791,7 +8791,7 @@
 			"RemoveModifier"
             {
                 "Target" "CASTER"
-                "ModifierName" "modifier_ninja_cloth"
+                "ModifierName" "modifier_ninja_cloth2"
             }
             "DelayedAction"
             {
@@ -8801,14 +8801,14 @@
             		"ApplyModifier"
 		            {
 		                "Target" "CASTER"
-		                "ModifierName" "modifier_ninja_cloth"
+		                "ModifierName" "modifier_ninja_cloth2"
 		            }
             	}
             }
 		}
 		"Modifiers"
 		{
-			"modifier_ninja_cloth"
+			"modifier_ninja_cloth2"
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
@@ -8986,26 +8986,6 @@
 		"ItemCost"	"4250"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"OnEquip"
-		{
-			"RemoveModifier"
-            {
-                "Target" "CASTER"
-                "ModifierName" "modifier_ninja_cloth"
-            }
-            "DelayedAction"
-            {
-            	"Delay"     "0.1"
-            	"Action"    
-            	{
-            		"ApplyModifier"
-		            {
-		                "Target" "CASTER"
-		                "ModifierName" "modifier_ninja_cloth"
-		            }
-            	}
-            }
-		}
 		"OnSpellStart"
 		{
 			"ApplyModifier"
@@ -9714,7 +9694,7 @@
 			"RemoveModifier"
             {
                 "Target" "CASTER"
-                "ModifierName" "modifier_ninja_cloth"
+                "ModifierName" "modifier_ninja_cloth2"
             }
             "DelayedAction"
             {
@@ -9724,14 +9704,14 @@
             		"ApplyModifier"
 		            {
 		                "Target" "CASTER"
-		                "ModifierName" "modifier_ninja_cloth"
+		                "ModifierName" "modifier_ninja_cloth2"
 		            }
             	}
             }
 		}
 		"Modifiers"
 		{
-			"modifier_ninja_cloth"
+			"modifier_ninja_cloth2"
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
@@ -13300,23 +13280,6 @@
 				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
 				"Function"	"OnEquip"
 			}
-			"RemoveModifier"
-            {
-                "Target" "CASTER"
-                "ModifierName" "modifier_ninja_cloth"
-            }
-            "DelayedAction"
-            {
-            	"Delay"     "0.2"
-            	"Action"    
-            	{
-            		"ApplyModifier"
-		            {
-		                "Target" "CASTER"
-		                "ModifierName" "modifier_ninja_cloth"
-		            }
-            	}
-            }
 		}
 		"OnUnequip"
 		{
