@@ -34,13 +34,14 @@ function modifier_zimbabwe:OnTakeDamage(event)
 		local ability = self:GetAbility()
 		local caster = self.caster
 	    if (caster ~= nil) and IsValidEntity(caster) then
-		    if victim:GetTeam() ~= attacker:GetTeam() and attacker == self.caster and not event.attacker:IsBuilding() then
+			if victim:GetTeam() ~= attacker:GetTeam() and attacker == self.caster and not event.attacker:IsBuilding() then
+				caster:Heal(event.damage*0.3, caster)
 		        if damage_flags ~= DOTA_DAMAGE_FLAG_REFLECTION then
 	            	if (IsValidEntity(caster) and caster:IsAlive()) then
 		            	local damageTable = {
 							victim = victim, 
 							attacker = caster,
-							damage = event.original_damage,
+							damage = event.original_damage*0.1,
 							damage_type = damage_type,
 							damage_flags = DOTA_DAMAGE_FLAG_REFLECTION
 						}
@@ -78,7 +79,7 @@ function Shock( keys )
 	local hModifier = caster:FindModifierByName("modifier_zimbabwe")
 	hModifier.caster = caster
 	local shield_size = 1000
-	zimbabwe = ParticleManager:CreateParticle("particles/item/zimbabwe.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	local zimbabwe = ParticleManager:CreateParticle("particles/item/zimbabwe.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(zimbabwe, 1, Vector(shield_size,0,shield_size))
 	ParticleManager:SetParticleControl(zimbabwe, 2, Vector(shield_size,0,shield_size))
 	ParticleManager:SetParticleControl(zimbabwe, 4, Vector(shield_size,0,shield_size))
