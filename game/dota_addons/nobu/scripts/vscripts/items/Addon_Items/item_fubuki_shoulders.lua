@@ -63,6 +63,19 @@ function Start( keys )
 	Timers:CreateTimer(15, function ()
 		ParticleManager:DestroyParticle(particle, true)
 		end)
+	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
+		caster:GetAbsOrigin(),
+		nil,
+		800,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		DOTA_UNIT_TARGET_FLAG_NONE,
+		0,
+		false)
+	AddFOWViewer(caster:GetTeamNumber(), caster:GetAbsOrigin(), 800, 4, false)		
+	for _,target in pairs(direUnits) do
+		ability:ApplyDataDrivenModifier( caster, target, "modifier_slow_move_speed2", {duration = 4} )
+	end
 end
 
 function Start2( keys )

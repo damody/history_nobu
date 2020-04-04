@@ -3,7 +3,19 @@ function Shock( keys )
 	local caster = keys.caster
 	local point = keys.target_points[1] 
 	local ability = keys.ability
+	
+	local start = caster:GetAbsOrigin()
+	local vec = point - start
+	vec = vec:Normalized()
+
+	Timers:CreateTimer(0.2, function()
+		GridNav:DestroyTreesAroundPoint(start, 250, false)
+		GridNav:DestroyTreesAroundPoint(start + vec*250, 250, false)
+		GridNav:DestroyTreesAroundPoint(start + vec*400, 250, false)
+		GridNav:DestroyTreesAroundPoint(start + vec*550, 250, false)
+	end)
 end
+
 
 function OnAttackLanded( keys )
 	local caster = keys.caster

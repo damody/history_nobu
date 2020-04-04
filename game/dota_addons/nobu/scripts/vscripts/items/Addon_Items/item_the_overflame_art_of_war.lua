@@ -99,11 +99,12 @@ function Shock( keys )
 	                              SEARCH_RADIUS,
 	                              DOTA_UNIT_TARGET_TEAM_ENEMY,
 	                              DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING,
-	                              DOTA_UNIT_TARGET_FLAG_NONE,
+	                              DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 	                              FIND_ANY_ORDER,
 	                              false)
 		for _,it in pairs(direUnits) do
 			if (not(it:IsBuilding())) and IsValidEntity(it) then
+				ability:ApplyDataDrivenModifier(caster, it,"modifier_stunned", {duration = 0.1})
 				if caster:IsAlive() then
 					AMHC:Damage(caster,it,ability:GetLevelSpecialValueFor("damage", 0 ),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				else

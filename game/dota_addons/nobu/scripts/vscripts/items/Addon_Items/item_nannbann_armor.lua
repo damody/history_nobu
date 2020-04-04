@@ -83,10 +83,10 @@ function modifier_nannbann_armor:OnTakeDamage(event)
 								local item = self.caster:GetItemInSlot(itemSlot)
 								if item ~= nil and item:GetName() == "item_nannbann_armor" then
 									hasitem = true
-									item:StartCooldown(80)
+									item:StartCooldown(60)
 								end
 							end
-							Timers:CreateTimer(80, function() 
+							Timers:CreateTimer(60, function() 
 								if IsValidEntity(self.caster) then
 									self.caster.nannbann_armor = true
 								end

@@ -212,7 +212,7 @@
 			"TrackingProjectile"
 			{
 				"Target"	"TARGET"
-				"EffectName"	"particles/items2_fx/necronomicon_archer_manaburn.vpcf"
+				"EffectName"	"particles/b33/b33r_old_orb.vpcf"
 				"Dodgeable"	"1"
 				"ProvidesVision"	"1"
 				"MoveSpeed"	"1200"

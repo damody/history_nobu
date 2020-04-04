@@ -741,7 +741,16 @@ function Precache( context )
     --倭寇海民
     "particles/creeps/lane_creeps/creep_radiant_hulk_swipe_left.vpcf",
     "particles/creeps/lane_creeps/creep_radiant_hulk_swipe_right.vpcf",
+    --梅鶯毒
+    "particles/b33/b33r_old_orb.vpcf",
+    --御魂
+    "particles/item/item_soul_addertop.vpcf",
+    "particles/item/soul_adder2old.vpcf",
+    --闇牙黃泉津
+    "particles/item/zimbabwe.vpcf",
     --注意要加,
+    
+    
     }
     for i,v in ipairs(particle_Precache_Table) do
       PrecacheResource("particle", v, context)

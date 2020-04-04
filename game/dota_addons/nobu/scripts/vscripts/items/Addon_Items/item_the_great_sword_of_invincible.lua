@@ -30,6 +30,7 @@ function Shock( keys )
 	local shield_size = 30 -- could be adjusted to model scale
 	local cooldown = ability:GetCooldown(-1)
 	if not target.invincible_counter then target.invincible_counter = 0 end
+	if not keys.attacker:IsHero() then return end
 	if target:GetHealth() > target:GetMaxHealth()*0.6 then
 		return 
 	end

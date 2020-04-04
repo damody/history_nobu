@@ -13,7 +13,7 @@ function brave_ring:DeclareFunctions()
 end
 
 function brave_ring:GetModifierPreAttack_CriticalStrike()
-	return 200
+	return 185
 end
 
 function brave_ring:CheckState()

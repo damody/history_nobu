@@ -17,3 +17,14 @@ function Shock2( keys )
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = 2.5})
 	end
 end
+
+function Shock3( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	if target:IsMagicImmune() then
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = 1.5})
+	else
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = 1.5})
+	end
+end

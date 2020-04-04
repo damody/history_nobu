@@ -1,4 +1,20 @@
 
+function OnEquip( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
+	if caster:GetBaseAttackRange() < 200 then
+		ability:ApplyDataDrivenModifier( caster, caster, "modifier_dragonfly", {} )
+	end
+end
+
+function OnUnequip( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
+	caster:RemoveModifierByName("modifier_dragonfly")
+end
+
 function Shock( keys )
 	local caster = keys.caster
 	if not caster:IsIllusion() then

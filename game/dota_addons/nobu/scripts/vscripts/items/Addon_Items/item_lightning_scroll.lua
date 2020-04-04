@@ -255,7 +255,7 @@ function item_raikiri( keys )
 							if unit:IsHero() then
 								AMHC:Damage(caster,unit,200,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 							else
-								AMHC:Damage(caster,unit,400,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+								AMHC:Damage(caster,unit,350,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 							end
 						end
 

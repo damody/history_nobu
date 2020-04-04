@@ -13,7 +13,7 @@ function big_tachi:DeclareFunctions()
 end
 
 function big_tachi:GetModifierPreAttack_CriticalStrike()
-	return 200
+	return 185
 end
 
 function big_tachi:CheckState()

@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf26:version{26288658-411e-4f14-b698-2e1e5d00dec6} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -16,11 +16,15 @@
 		},
 		{
 			_class = "C_OP_RenderDeferredLight"
-			m_ColorScale = [ 21, 111, 222 ]
 			m_flStartFalloff = 0.1
 			m_flAlphaScale = 8.0
 			m_flRadiusScale = 2.0
 			m_hTexture = resource:"materials/particle/particle_ring_wave.vtex"
+			m_vecColorScale = 
+			{
+				m_nType = "PVEC_TYPE_LITERAL_COLOR"
+				m_LiteralColor = [ 21, 111, 222 ]
+			}
 		},
 	]
 	m_Operators = 
@@ -34,7 +38,7 @@
 		{
 			_class = "C_OP_LerpEndCapScalar"
 			m_flLerpTime = 0.125
-			m_nFieldOutput = 7
+			m_nFieldOutput = "7"
 			m_flOutput = 0.0
 		},
 		{
@@ -43,8 +47,8 @@
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flStartScale = 2.0
-			m_flEndScale = 2.0
+			m_flStartScale = 1.5
+			m_flEndScale = 1.5
 		},
 	]
 	m_Initializers = 
@@ -57,7 +61,11 @@
 	[
 		{
 			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 1
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
 		},
 	]
 	m_controlPointConfigurations = 
@@ -75,4 +83,5 @@
 			]
 		},
 	]
+	m_nBehaviorVersion = 5
 }

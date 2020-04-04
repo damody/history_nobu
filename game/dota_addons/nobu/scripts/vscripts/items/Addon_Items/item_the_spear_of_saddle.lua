@@ -28,8 +28,8 @@ function Shock( keys )
 	local ability = keys.ability
 	local target = keys.target
 	local armor_reduction = ability:GetSpecialValueFor("armor_reduction")
-	if not target:IsBuilding() then
+	--if not target:IsBuilding() then
 		ability:ApplyDataDrivenModifier(caster, keys.target,"modifier_spear_of_saddle",{ duration = 1.5 })
-	end
+	--end
 end
 
