@@ -22,13 +22,6 @@ function Shock( keys )
 	for _,target in pairs(direUnits) do
 		AMHC:Damage(caster,target, 1,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 		if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
-			if (target:IsMagicImmune()) then
-				-- ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan1",nil)
-			elseif (target:IsHero()) then
-				ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan2",nil)
-			else
-				ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan3",nil)
-			end
 			if not (target:IsMagicImmune()) then
 				local am = target:FindAllModifiers()
 				for _,v in pairs(am) do
@@ -40,13 +33,21 @@ function Shock( keys )
 						if len == 4 and string.sub(abname, 4, 4) == "T" then
 							big_skill = true
 						end
-						if big_skill==false and (v:GetParent():GetTeamNumber() == target:GetTeamNumber()
-							or v:GetCaster():GetTeamNumber() == target:GetTeamNumber()) then
+						if big_skill==false and (v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber()) then
 							target:RemoveModifierByName(v:GetName())
+							print(v:GetName(), v:GetCaster():GetTeamNumber(), caster:GetTeamNumber())
 						end
 					end
 				end
 			end
+			if (target:IsMagicImmune()) then
+				-- ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan1",nil)
+			elseif (target:IsHero()) then
+				ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan2",{})
+			else
+				ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan3",{})
+			end
+			
 		end
 	end
 end

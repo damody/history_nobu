@@ -2978,6 +2978,14 @@
 						"DamageTaken" "%attack_damage"
 					}
 				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_invincible.lua"
+						"Function"	"OnDestroy"
+					}
+				}
 				"EffectAttachType"	"follow_origin"
 				"Duration"  "2"
 			}
@@ -6623,8 +6631,7 @@
 		"AbilityCooldown"	"60"
 		
 		"AbilityManaCost"	"100"
-		"AbilityCastPoint"	"0.35"
-		"AbilityCastAnimation"	"0.3"
+		"AbilityCastPoint"	"0.1"
 		"AbilityCastRange"	"1200"
 		"AOERadius"		"300"
 		"ID"	"2588"

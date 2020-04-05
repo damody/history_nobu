@@ -20,9 +20,9 @@ function Shock( keys )
 			if len == 4 and string.sub(abname, 4, 4) == "T" then
 				big_skill = true
 			end
-			if big_skill==false and (v:GetParent():GetTeamNumber() == target:GetTeamNumber()
-				or v:GetCaster():GetTeamNumber() == target:GetTeamNumber()) then
+			if big_skill==false and (v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber()) then
 				target:RemoveModifierByName(v:GetName())
+				print(v:GetName(), v:GetCaster():GetTeamNumber(), caster:GetTeamNumber())
 			end
 		end
 	end

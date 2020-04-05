@@ -56,9 +56,13 @@ function Shock( keys )
 	ability:ApplyDataDrivenModifier(target, target, "modifier_sword_of_invincible", nil)
 	target:RemoveModifierByName("modifier_sword_of_invincible_passive")
 	ability:StartCooldown(cooldown)
-	Timers:CreateTimer(2, function() 
-		ParticleManager:DestroyParticle(target.ShieldParticle, false)
-		end)
+	
+end
+
+function OnDestroy( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	ParticleManager:DestroyParticle(caster.ShieldParticle, false)
 end
 
 function NoDamage( keys )
