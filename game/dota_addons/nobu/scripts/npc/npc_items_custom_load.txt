@@ -5301,6 +5301,11 @@
 						"Target"	"TARGET"
 						"ModifierName"	"modifier_the_great_sword_of_toxic4"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_toxic.lua"
+						"Function"	"Shock"
+					}
 				}
 			}
 		}
