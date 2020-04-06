@@ -43,7 +43,7 @@ function Nobu:OnHeroIngame( keys )
           hero:AddItem(CreateItem("item_S01", hero, hero))
           hero:AddItem(CreateItem("item_logging", hero, hero))
           --把砍樹移動到neutral item slot
-          for i = 0, 6 do
+          for i = 0, 15 do
             local item = caster:GetItemInSlot( i )
             if item then
               if item:GetName() == "item_logging" then
