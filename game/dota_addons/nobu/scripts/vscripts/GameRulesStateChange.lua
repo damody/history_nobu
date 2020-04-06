@@ -178,7 +178,17 @@ function Nobu:OnGameRulesStateChange( keys )
 	Timers:CreateTimer(0, function()
 		local allCPs = Entities:FindAllByClassname('npc_dota_creep_lane')
 		for k, ent in pairs(allCPs) do
-			ent:ForceKill(true)
+			ent:AddAbility("when_cp_first_spawn"):SetLevel(1)
+			ent:AddNoDraw()
+		end
+	end)
+	--60秒後出野怪
+	Timers:CreateTimer(60, function()
+		local allCPs = Entities:FindAllByClassname('npc_dota_creep_lane')
+		for k, ent in pairs(allCPs) do
+			ent:RemoveAbility("when_cp_first_spawn")
+			ent:RemoveModifierByName("modifier_stuck")
+			ent:RemoveNoDraw()
 		end
 	end)
     -- 增加單挑殺人得分

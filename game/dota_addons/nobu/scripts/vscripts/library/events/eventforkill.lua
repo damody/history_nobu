@@ -265,7 +265,7 @@ function Nobu:OnUnitKill( keys )
       if killedUnit.origin_pos == nil then
         killedUnit.origin_pos = pos
       end
-      local spawn_time = _G.CP_spawn_time
+      local spawn_time = _G.CP_respawn_time
       if killedUnit.first then
         spawn_time = _G.CP_respawn_time
       end
@@ -317,7 +317,7 @@ function Nobu:OnUnitKill( keys )
       if killedUnit.origin_pos == nil then
         killedUnit.origin_pos = pos
       end
-      local spawn_time = _G.CP_spawn_time
+      local spawn_time = _G.CP_respawn_time
       if killedUnit.first then
         spawn_time = _G.CP_respawn_time
       end
