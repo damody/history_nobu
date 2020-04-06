@@ -107,6 +107,9 @@ function ShuaGuai( )
 		ShuaGuai_Of_Gunner_num = ShuaGuai_Of_Gunner_num + 1
 		return 1200
 	end)
+	Timers:CreateTimer(1800, function()
+		_G.bigminions = 70
+	end)
 	Timers:CreateTimer(10, function()
 		local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
 		for k, ent in pairs(allBuildings) do
