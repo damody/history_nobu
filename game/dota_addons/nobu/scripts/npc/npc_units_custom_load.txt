@@ -5963,7 +5963,7 @@
 // 侍大將
 	"com_general_oda"
 	{
-		"BaseClass"	"npc_dota_creature"
+		"BaseClass"	"npc_dota_tower"
 		// Add model
 		"Model"	"models/samurai_harquebus/samurai_harquebus.vmdl"
 		"ModelScale"	"1.46"
@@ -6042,7 +6042,7 @@
 // 侍大將
 	"com_general_unified"
 	{
-		"BaseClass"	"npc_dota_creature"
+		"BaseClass"	"npc_dota_tower"
 		// Add model
 		"Model"	"models/samurai_harquebus/samurai_harquebus.vmdl"
 		"ModelScale"	"1.46"
