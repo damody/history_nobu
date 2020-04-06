@@ -12,16 +12,16 @@
 	"item"      "item_shuriken"				//手裏劍
 	"item"      "item_insight_gem_s"		//寶石碎片
 	"item"      "item_gold_to_prestige"		//兵力
-	"item"		"item_ninja1"			//下忍
+	"item"		"item_ninja1"				//下忍
 }
 
 //偷買
 "pregame"
 {
-	"item"      "item_pleated_skirt"			//褶裙
-	"item"		"item_the_club_of_nebula"			//星杵
-	"item"      "item_lightning_scroll"			//雷之卷
-	"item"      "item_regeneration_ingot"			//再生鋼
+	"item"      "item_pleated_skirt"		//褶裙
+	"item"		"item_the_club_of_nebula"	//星杵
+	"item"      "item_lightning_scroll"		//雷之卷
+	"item"      "item_regeneration_ingot"	//再生鋼
 	"item"      "item_spirit_ingot"			//回魔鋼
 	"item"      "item_health_ingot"			//生命鋼
 	"item"      "item_mana_ingot"			//法力鋼
@@ -31,11 +31,12 @@
 	"item"      "item_liquor"				//燒酒
 	"item"      "item_napalm_bomb"			//爆烈彈
 	"item"      "item_shuriken"				//手裏劍
-	"item"      "item_insight_gem_s"			//寶石碎片
-	"item"      "item_magic_ring"	//法術戒指
-	"item"      "item_katana"			//打刀
-	"item"      "item_tachi"			//太刀
-	"item"      "item_speed_clothes"			//疾風衣
+	"item"      "item_insight_gem_s"		//寶石碎片
+	"item"      "item_magic_ring"			//法術戒指
+	"item"      "item_katana"				//打刀
+	"item"      "item_tachi"				//太刀
+	"item"      "item_speed_clothes"		//疾風衣
+	"item"		"item_ninja1"				//下忍
 }
 
 
@@ -48,26 +49,26 @@
 	"item"      "item_staff"			//杵杖
 	"item"      "item_cursed_katana"	//妖刀
 	"item"      "item_spear"			//長槍
-	"item"      "item_pleated_skirt"			//褶裙
-	"item"      "item_speed_clothes"			//疾風衣
-	"item"      "item_body_wrap"			//胴丸
-	"item"      "item_lesser_armor"			//短甲
-	"item"      "item_flame_armor"			//鱗片甲
-	"item"      "item_lesser_shield"			//足輕盾
-	"item"      "item_stable_shield"			//番頭盾
-	"item"      "item_blowgun"				//吹箭
+	"item"      "item_pleated_skirt"	//褶裙
+	"item"      "item_speed_clothes"	//疾風衣
+	"item"      "item_body_wrap"		//胴丸
+	"item"      "item_lesser_armor"		//短甲
+	"item"      "item_flame_armor"		//鱗片甲
+	"item"      "item_lesser_shield"	//足輕盾
+	"item"      "item_stable_shield"	//番頭盾
+	"item"      "item_blowgun"			//吹箭
 }
 
 //基礎物品
 "weapons_armor"
 {
-	"item"      "item_magic_ring"	//法術戒指
-	"item"      "item_flash_ring"	//閃光輪
-	"item"      "item_strength_ingot"			//蠻力鋼
-	"item"      "item_agility_ingot"			//迅捷鋼
-	"item"      "item_intelligence_ingot"			//技巧鋼
+	"item"      "item_magic_ring"			//法術戒指
+	"item"      "item_flash_ring"			//閃光輪
+	"item"      "item_strength_ingot"		//蠻力鋼
+	"item"      "item_agility_ingot"		//迅捷鋼
+	"item"      "item_intelligence_ingot"	//技巧鋼
 	"item"      "item_power_ingot"			//強化鋼
-	"item"      "item_regeneration_ingot"			//再生鋼
+	"item"      "item_regeneration_ingot"	//再生鋼
 	"item"      "item_spirit_ingot"			//回魔鋼
 	"item"      "item_health_ingot"			//生命鋼
 	"item"      "item_mana_ingot"			//法力鋼
@@ -81,39 +82,39 @@
 //法書
 "misc"
 {
-	"item"		"item_the_club_of_nebula"			//星杵
-	"item"      "item_lightning_scroll"			//雷之卷
+	"item"		"item_the_club_of_nebula"	//星杵
+	"item"      "item_lightning_scroll"		//雷之卷
 	"item"      "item_frozen_ring"			//凍牙輪
 	"item"      "item_wind_scroll"			//風之卷
-	"item"      "item_forest_scroll"			//林之卷
+	"item"      "item_forest_scroll"		//林之卷
 	"item"      "item_fire_scroll"			//火之卷
-	"item"      "item_mountain_scroll"			//山之卷
-	"item"      "item_thunderbolt_book"			//怒雷之書
-	"item"      "item_rockfall_book"			//落石之書
+	"item"      "item_mountain_scroll"		//山之卷
+	"item"      "item_thunderbolt_book"		//怒雷之書
+	"item"      "item_rockfall_book"		//落石之書
 	"item"      "item_flood_book"			//水計之書
 	"item"      "item_ignite_book"			//火計之書
 	"item"      "item_storm_book"			//狂風之書
 	"item"      "item_spell_book"			//法術書
-	"item"      "item_thunderstorms"			//天變之書
+	"item"      "item_thunderstorms"		//天變之書
 	"item"		"item_earth_wall_book"		//忍法．土遁
 }   
 
 //高階武器
 "basics"
 {
-	"item"      "item_lightning_katana"			//舞雷刀
+	"item"      "item_lightning_katana"		//舞雷刀
 	"item"      "item_soul_adder"			//御魂
 	"item"      "item_cross_spear"			//十字槍
-	"item"      "item_gorgeous_tachi"			//陣太刀
+	"item"      "item_gorgeous_tachi"		//陣太刀
 	"item"      "item_big_tachi"			//野太刀
-	"item"      "item_nagamaki"			//長捲
-	"item"      "item_logs_big_tachi"			//戒杖刀
+	"item"      "item_nagamaki"				//長捲
+	"item"      "item_logs_big_tachi"		//戒杖刀
 	"item"      "item_red_spear"			//皆朱槍
 	"item"      "item_mana_thief"			//禦神法輪
 	"item"      "item_moon_spear"			//斬月槍
 	"item"      "item_ronin_jitte"			//浪人十手
 	"item"      "item_sakabatou"			//逆刃刀
-	"item"      "item_glass_mitsutomo"			//琉璃光姬
+	"item"      "item_glass_mitsutomo"		//琉璃光姬
 	"item"      "item_the_dark_yellow_teeth_and_zimbabwe"			//闇牙黃泉津
 }
 
