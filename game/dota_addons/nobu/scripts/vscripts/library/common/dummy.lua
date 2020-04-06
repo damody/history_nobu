@@ -616,3 +616,24 @@ function def_home( keys )
     ability:ApplyDataDrivenModifier(caster,v,"modifier_speed_up",{})
   end
 end
+
+function hero_attack_tower( keys )
+  local caster = keys.caster
+  local target = keys.target
+  if caster.attack_tower == nil then
+    caster.attack_tower = 1
+  end
+  -- 力量 0 敏捷1 智力2
+  if caster:GetPrimaryAttribute() == 2 then
+    local intellect = caster:GetIntellect()
+    if target:IsBuilding() then
+      if caster.attack_tower == 1 then
+        AMHC:Damage(caster,target,intellect,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ))
+        caster.attack_tower = 0
+        Timers:CreateTimer(5,function()
+          caster.attack_tower = 1 
+        end)
+      end
+    end
+	end
+end
