@@ -5558,4 +5558,26 @@
 			}
 		}
 	}
+	// 智英打塔
+	"hero_attack_tower"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_hero_attack_tower"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"hero_attack_tower"
+					}
+				}
+			}
+		}
+	}
 }

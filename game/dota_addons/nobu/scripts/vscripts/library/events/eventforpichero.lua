@@ -53,6 +53,7 @@ function Nobu:PickHero( keys )
         caster:FindAbilityByName("magical_resistance"):SetLevel(1)
         -- rich_man 
         caster:AddAbility("hoarding_gold"):SetLevel(1)
+        caster:AddAbility("hero_attack_tower"):SetLevel(1)
         -- 要自動學習的技能
         local askill = _G.heromap_autoskill[nobu_id]["16"]
         for si=1,#askill do
