@@ -389,6 +389,9 @@ function A04W_Bonus( event )
 	local hp = ability:GetSpecialValueFor("hp")
 	local hModifier = target:FindModifierByName("modifier_A04W_Tech")
 	hModifier:SetStackCount(level)
+	if caster.great_sword_of_disease then
+		hp = hp *1.5
+	end
 	target:SetBaseMaxHealth(hp)
 	target:SetHealth(target:GetMaxHealth())
 end

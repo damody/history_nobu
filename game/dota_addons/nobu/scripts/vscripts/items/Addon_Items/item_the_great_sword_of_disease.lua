@@ -1,6 +1,7 @@
 --池田鬼神丸國重．銘刀
 function OnEquip(keys)
     local caster = keys.caster
+    local ability = keys.ability
     caster.great_sword_of_disease = 1
     Timers:CreateTimer(0, function ()
             local group = FindUnitsInRadius(caster:GetTeamNumber(),
@@ -13,10 +14,14 @@ function OnEquip(keys)
                               FIND_ANY_ORDER,
                               false)
             for _,it in pairs(group) do
-                keys.ability:ApplyDataDrivenModifier(it, it,"modifier_great_sword_of_disease", {duration=3})
+                keys.ability:ApplyDataDrivenModifier(it, it,"modifier_great_sword_of_disease", {duration=0.75})
+            end
+            if #group > 0 then
+              ability:ApplyDataDrivenModifier(caster,caster,"modifier_with_minion", {duration=0.75})
+              caster:FindModifierByName("modifier_with_minion"):SetStackCount(#group)
             end
             if caster.great_sword_of_disease == 1 then
-                return 1
+                return 0.5
             else
                 return nil
             end
