@@ -3312,12 +3312,16 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsPurgable"	"1"
-				"IsDebuff"		"1"
+				"IsBuff"		"1"
 				"Duration"			"8"
 				"EffectName"	"particles/item/soul_adder2old.vpcf"
-				"Properties"
+				"OnTakeDamage"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-15"	//魔抗
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+						"Function"	"Heal_target"
+					}
 				}
 			}
 			"modifier_soul_adderx"

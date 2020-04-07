@@ -85,3 +85,10 @@ function sound( keys )
         dummy:EmitSound(keys.sound)
     end
 end
+
+function Heal_target(keys)
+    local caster = keys.caster
+    local attacker = keys.attacker
+    attacker:Heal(30, attacker)
+    attacker:SetMana((attacker:GetMana() + 5))
+end
