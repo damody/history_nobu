@@ -17,3 +17,36 @@ function OnUnequip( keys )
 		caster:RemoveModifierByName("modifier_ninja_cloth")
 	end
 end
+
+function Reckoning( keys )
+	local caster = keys.caster
+	local target = keys.attacker
+	if not target:IsHero() then return nil end
+	local ability = keys.ability
+	caster:RemoveModifierByName("modifier_reckoning")
+	local info = 
+	{
+		Target = target,
+		Source = caster,
+		Ability = ability,	
+		EffectName = "particles/a12t2/a12t2.vpcf",
+		iMoveSpeed = 2600,
+		vSourceLoc= caster:GetAbsOrigin(),                -- Optional (HOW)
+		bDrawsOnMinimap = false,                          -- Optional
+		bDodgeable = true,                                -- Optional
+		bIsAttack = false,                                -- Optional
+		bVisibleToEnemies = true,                         -- Optional
+		bReplaceExisting = false,                         -- Optional
+		flExpireTime = GameRules:GetGameTime() + 10,      -- Optional but recommended
+		bProvidesVision = true,                           -- Optional
+		iVisionRadius = 225                              -- Optional
+	}
+	projectile = ProjectileManager:CreateTrackingProjectile(info)
+		local modifiers = caster:FindAllModifiers()
+		for i,m in ipairs(modifiers) do
+			if m:IsDebuff() then
+				print(m:GetName())
+				caster:RemoveModifierByName(m:GetName())
+			end
+		end
+end

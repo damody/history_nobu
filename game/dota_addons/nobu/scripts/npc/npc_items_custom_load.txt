@@ -9169,13 +9169,13 @@
 		// General
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/ninja_cloth"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		
+		"AbilityCooldown"	"60"
 		"ID"	"2528"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -9203,6 +9203,23 @@
             	}
             }
 		}
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_reckoning"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"TARGET"
+				"ModifierName"	"modifier_stunned"
+				"Duration"	"1"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_ninja_cloth2"
@@ -9211,7 +9228,7 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"25"	//閃避
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"20"	//閃避
 				}
 			}
 			"Passive_ninja_cloth"
@@ -9233,6 +9250,19 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "25" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
+				}
+			}
+			"modifier_reckoning"
+			{
+				"Duration"	"3"
+				"IsBuff"	"1"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_ninja_cloth.lua"
+						"Function"	"Reckoning"
+					}
 				}
 			}
 		}
