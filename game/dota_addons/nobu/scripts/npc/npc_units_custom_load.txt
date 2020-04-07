@@ -12959,7 +12959,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"5000"
+		"StatusHealth"	"10000"
 		"StatusHealthRegen"	"20"
 		// Vision
 		// ----------------------------------------------------------------
@@ -13034,7 +13034,7 @@
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"5000"
+		"StatusHealth"	"10000"
 		"StatusHealthRegen"	"20"
 		// Vision
 		// ----------------------------------------------------------------
