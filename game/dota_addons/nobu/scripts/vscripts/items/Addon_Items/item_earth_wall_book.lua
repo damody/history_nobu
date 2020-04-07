@@ -57,20 +57,26 @@ function Shock( keys )
 
 	end
 
-	local wall_angle = VectorToAngles(center-caster:GetAbsOrigin()).y
+	local wall_angle = VectorToAngles(center-caster:GetAbsOrigin()).y + 90
+	print(wall_angle)
 	-- local wall_angle = VectorToAngles(caster:GetForwardVector())
 	local dx = math.cos(wall_angle*(3.14/180))
 	local dy = math.sin(wall_angle*(3.14/180))
 	local wall_offset = Vector(dx,dy,0) * (aoe_radius)
-	
+	print(wall_offset)
 	
 	-- 產生石牆單位
 	local rock_counter = 0
-	local origin = caster:GetAbsOrigin()
+	local origin = center
 	Timers:CreateTimer(0,function()
 		rock_counter = rock_counter + 1
-		if rock_counter > 8 then return nil end
-		local rock_center = origin+wall_offset * (1 + rock_counter)
+		if rock_counter > 3 then return nil end
+		local rock_center = origin
+		if rock_counter == 2 then
+			rock_center = origin + wall_offset * -1
+		elseif rock_counter == 3 then
+			rock_center = origin + wall_offset * 1
+		end
 		local wall = CreateUnitByName("EARTH_WALL_hero",rock_center,false,nil,nil,caster:GetTeam())
 		wall:AddNewModifier(caster,nil,"modifier_kill",{duration=duration})
 		wall:RemoveModifierByName("modifier_invulnerable")
@@ -89,7 +95,7 @@ function Shock( keys )
 			-- 避免卡住
 			unit:AddNewModifier(nil,nil,"modifier_phased",{duration=0.01})
 		end		
-		return 0.1
+		return 0.01
 	end)
 end
 
