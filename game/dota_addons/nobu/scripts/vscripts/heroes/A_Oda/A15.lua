@@ -176,7 +176,7 @@ function A15R_bounceAttack(keys)
 	end
 
 	-- Deal damage
-	--if ability.first_target[current] ~= target then
+	if ability.jump_count[current] < jump_max then
 		local base_damage = ability.damage[current]
 		local new_damage = base_damage * math.pow( 1 + bonus_damage, jump_max-ability.jump_count[current] )
 		if new_damage < 0.3*base_damage then
@@ -199,7 +199,7 @@ function A15R_bounceAttack(keys)
 			local lifeSteal = caster:FindAbilityByName("A15T"):GetSpecialValueFor("A15T_lifeSteal")
 			A15_LifeSteal( caster, target, new_damage, lifeSteal )
 		end
-	--end
+	end
 
 	-- Decrements our jump count for this instance
 	ability.jump_count[current] = ability.jump_count[current] - 1
