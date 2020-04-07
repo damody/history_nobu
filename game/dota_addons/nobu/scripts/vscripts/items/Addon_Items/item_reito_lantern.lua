@@ -126,3 +126,7 @@ function reito_lantern(keys)
     ParticleManager:SetParticleControl(lightningBolt,1,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))   
 end
 
+function OnIntervalThink( keys )
+	local caster = keys.caster
+	AddFOWViewer(caster:GetTeamNumber(), caster:GetAbsOrigin(), 800, 0.25, false)		
+end

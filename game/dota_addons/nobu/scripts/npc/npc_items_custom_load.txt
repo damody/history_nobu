@@ -9384,7 +9384,6 @@
 				"Passive"			"1"
 				"IsHidden"			"1"
 				"IsBuff"			"1"
-
 				"Aura"	"modifier_item_reito_lantern"
 				"Aura_Radius"	"600"
 				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
@@ -9412,6 +9411,14 @@
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Passive"	"1"
+				"OnTakeDamage"
+				{
+					"ApplyModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_regen"
+					}
+				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
@@ -9428,45 +9435,31 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "4"	//防禦
 				}
 			}
-			"shield_modifier7"
+			"modifier_regen"
 			{
 			    "Passive" "1"
 			    "IsHidden" "1"
-			    "Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-			    "OnAttacked"
-			    {
-			        "Random"
-			        {
-			            "Chance" "17"
-			            "OnSuccess"
-			            {
-			                "ApplyModifier"
-			                {
-			                    "Target" "CASTER"
-			                    "ModifierName" "block_modifier7"
-			                }
-			            }
-			            "OnFailure"
-			            {
-			                "RemoveModifier"
-			                {
-			                    "Target" "CASTER"
-			                    "ModifierName" "block_modifier7"
-			                }
-			            }
-			        }
-			    }
+			   	"Duration" "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "30"	//回血
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "5" 	//回魔
+				}
 			}
-			"block_modifier7"
+			"modifier_light"
 			{
+				"Passive"	"1"
 			    "IsBuff" "1"
 			    "IsHidden" "1"
-			    "Duration"	"1"
-			    "Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-			    "Properties"
-			    {
-			        "MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK" "20000"
-			    }
+			    "ThinkInterval"	"0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_reito_lantern.lua"
+						"Function"	"OnIntervalThink"
+					}
+				}
 			}
 		}
 	}
