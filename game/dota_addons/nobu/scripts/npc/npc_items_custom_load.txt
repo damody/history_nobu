@@ -6836,6 +6836,17 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
 				}
 			}
+						"modifier_spear_of_saddle2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsPurgable"	"1"
+				"IsDebuff"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-1"
+				}
+			}
 			"Passive_spear_of_saddle"
 			{
 				"IsHidden"	"1"
@@ -6872,6 +6883,11 @@
 			{
 				"var_type" "FIELD_INTEGER"
 				"armor_reduction" "-6"
+			}
+			"02"
+			{
+				"var_type" "FIELD_INTEGER"
+				"armor_reduction_percentage" "30"
 			}
 		}
 	}
@@ -6961,6 +6977,17 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
 				}
 			}
+			"modifier_spear_of_saddle2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsPurgable"	"1"
+				"IsDebuff"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-1"
+				}
+			}
 			"Passive_spear_of_saddle_1"
 			{
 				"IsHidden"	"1"
@@ -6996,7 +7023,12 @@
 			"01"
 			{
 				"var_type" "FIELD_INTEGER"
-				"armor_reduction" "-10"
+				"armor_reduction" "-8"
+			}
+			"02"
+			{
+				"var_type" "FIELD_INTEGER"
+				"armor_reduction_percentage" "40"
 			}
 		}
 	}
@@ -7086,6 +7118,17 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
 				}
 			}
+						"modifier_spear_of_saddle2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsPurgable"	"1"
+				"IsDebuff"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"-1"
+				}
+			}
 			"Passive_spear_of_saddle_2"
 			{
 				"IsHidden"	"1"
@@ -7121,7 +7164,12 @@
 			"01"
 			{
 				"var_type" "FIELD_INTEGER"
-				"armor_reduction" "-14"
+				"armor_reduction" "-10"
+			}
+			"02"
+			{
+				"var_type" "FIELD_INTEGER"
+				"armor_reduction_percentage" "50"
 			}
 		}
 	}
