@@ -18,12 +18,24 @@ function OnUnequip( keys )
 	end
 end
 
+function OnCreated( keys )
+	local caster = keys.caster
+	caster.shield_effect = ParticleManager:CreateParticle("particles/item/supressor_armor.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	ParticleManager:SetParticleControl(caster.shield_effect, 1,caster:GetAbsOrigin()+Vector(0, 0, 0))
+end
+
+function OnDestroy( keys )
+	local caster = keys.caster
+	ParticleManager:DestroyParticle(caster.shield_effect, false)
+end
+
 function Reckoning( keys )
 	local caster = keys.caster
 	local target = keys.attacker
 	if not target:IsHero() then return nil end
 	local ability = keys.ability
 	caster:RemoveModifierByName("modifier_reckoning")
+	ParticleManager:DestroyParticle(caster.shield_effect, false)
 	local info = 
 	{
 		Target = target,

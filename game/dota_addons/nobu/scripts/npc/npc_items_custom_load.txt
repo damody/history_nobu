@@ -9256,6 +9256,22 @@
 			{
 				"Duration"	"3"
 				"IsBuff"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_ninja_cloth.lua"
+						"Function"	"OnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_ninja_cloth.lua"
+						"Function"	"OnDestroy"
+					}
+				}
 				"OnTakeDamage"
 				{
 					"RunScript"
