@@ -12214,6 +12214,13 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80"
 				}
 			}
+			"modifier_flood_walk"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_FLYING"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"Passive_flood_book"
 			{
 				"IsHidden"	"1"
