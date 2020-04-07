@@ -5607,4 +5607,26 @@
 			}
 		}
 	}
+	//幫有御魂的人補血
+	"heal_soul_adder"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_on_death"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"OnUnitDied"
+					}
+				}
+			}
+		}
+	}
 }

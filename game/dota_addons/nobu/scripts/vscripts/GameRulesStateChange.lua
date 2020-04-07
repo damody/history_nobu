@@ -174,6 +174,16 @@ function Nobu:OnGameRulesStateChange( keys )
 		unit:SetBaseDamageMax(dmgmax+CP_Monster*12)
 		unit:SetBaseDamageMax(dmgmin+CP_Monster*12)
 	end)
+	Timers:CreateTimer(0, function()
+		local allUnits = Entities:FindAllByClassname('npc_dota_creep_lane')
+		for k,ent in pairs(allUnits) do			
+			if ent ~= nil and not ent:HasAbility("heal_soul_adder") then
+				print(ent:GetUnitName())
+				ent:AddAbility("heal_soul_adder"):SetLevel(1)
+			end
+		end
+		return 1
+	end)
 	--清除所有CP怪
 	Timers:CreateTimer(0, function()
 		local allCPs = Entities:FindAllByClassname('npc_dota_creep_lane')

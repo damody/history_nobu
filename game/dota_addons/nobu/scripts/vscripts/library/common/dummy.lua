@@ -637,3 +637,13 @@ function hero_attack_tower( keys )
     end
 	end
 end
+
+function OnUnitDied( keys )
+  local caster = keys.caster
+  local group = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+  for i,v in pairs(group) do
+    if v:HasModifier("Passive_soul_adder") then
+      v:Heal(20,v)
+    end
+  end
+end
