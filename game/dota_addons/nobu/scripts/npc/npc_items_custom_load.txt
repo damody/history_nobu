@@ -765,10 +765,11 @@
 						"Function"	"OnAttackLanded"
 						"dmg"	"%attack_damage"
 					}
-					// "CleaveAttack"
-					// {
-					// 	"CleaveEffect"	"particles/item_great_dragon/great_dragon_on_attack.vpcf"
-					// }
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_great_dragon.lua"
+						"Function"	"Extra_damage"
+					}
 				}
 			}
 		}
@@ -819,6 +820,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"damage"	"350"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"extra_damage"	"60"
 			}
 		}
 	}
@@ -6367,6 +6373,19 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
 			}
+			"Unique_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_great_dragon.lua"
+						"Function"	"Extra_damage"
+					}
+				}
+			}
 		}
 		"precache"
 		{
@@ -6419,6 +6438,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"damage"	"300"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"extra_damage"	"30"
 			}
 		}
 	}
