@@ -8683,10 +8683,16 @@
 
 		"OnSpellStart"
 		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_bizennosafunekanemitsu.lua"
+				"Function"	"Slow_enemy"
+			}
 			"Heal"
 			{
 				"Target"        "TARGET"
 				"HealAmount"	"650"
+
 			}
 			"FireSound"
 			{
@@ -8705,10 +8711,8 @@
 				//"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"   "2"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"    "2"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"  "2"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "3"	//攻
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "20"	//回血
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"10"	//20%基礎攻擊
 				}
 				"OnDestroy"
 				{
@@ -8737,17 +8741,29 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "10"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "10"		//敏
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "30"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "10"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "40"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "25"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "10"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20" //攻速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
+				}
+			}
+			"modifier_slow_move_speed"
+			{
+				"IsHidden"	"0"
+				"Passive"	"0"
+				"IsDebuff"	"1"
+				"Duration"	"4"
+				"EffectName"	"particles/generic_gameplay/generic_slowed_cold.vpcf"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-15"
 				}
 			}
 		}
