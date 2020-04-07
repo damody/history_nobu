@@ -133,6 +133,13 @@ function Nobu:OnUnitKill( keys )
               item:StartCooldown(cooldown - 20)
             end
           end
+          if item ~= nil and item:GetName() == "item_the_great_sword_of_anger" then
+            if not item:IsCooldownReady() then
+              local cooldown = item:GetCooldownTime()
+              item:EndCooldown()
+              item:StartCooldown(cooldown - 35)
+            end
+          end
         end
         AttackerUnit.kill_hero_count = AttackerUnit.kill_hero_count + 1
         --拿金驗
