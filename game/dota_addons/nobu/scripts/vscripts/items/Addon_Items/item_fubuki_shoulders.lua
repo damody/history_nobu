@@ -1,6 +1,7 @@
 --吹雪護肩
 
 LinkLuaModifier( "modifier_fubuki_shoulders", "items/Addon_Items/item_fubuki_shoulders.lua",LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_fubuki_shoulders2", "items/Addon_Items/item_fubuki_shoulders.lua",LUA_MODIFIER_MOTION_NONE )
 modifier_fubuki_shoulders = class({})
 
 --------------------------------------------------------------------------------
@@ -39,11 +40,45 @@ function modifier_fubuki_shoulders:OnTakeDamage(event)
 				else
 					ability:ApplyDataDrivenModifier(self.caster, victim, "modifier_slow_move_speed", {})
 					ability:ApplyDataDrivenModifier(self.caster, victim, "modifier_slow_attack_speed", {})
-					victim:FindModifierByName("modifier_slow_attack_speed"):SetStackCount(self.caster:GetLevel())
 				end
 		    end
 		end
 	end
+end
+
+modifier_fubuki_shoulders2 = class({})
+
+--------------------------------------------------------------------------------
+
+function modifier_fubuki_shoulders2:DeclareFunctions()
+    local funcs = {
+        MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+    }
+    return funcs
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_fubuki_shoulders2:GetModifierIncomingDamage_Percentage(event)
+	local current_mana = self.caster:GetMana()
+	local max_mana = self.caster:GetMaxMana()
+	if current_mana/max_mana > 0.5 then
+		self.caster:SetMana(current_mana - event.damage*0.15)
+		return -15
+	else
+		return 0
+	end
+end
+
+function OnEquip(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	caster:AddNewModifier(caster,ability,"modifier_fubuki_shoulders2",{})
+	caster:FindModifierByName("modifier_fubuki_shoulders2").caster = caster
+end
+
+function OnUnequip(keys)
+	keys.caster:RemoveModifierByName("modifier_fubuki_shoulders2")
 end
 
 function Start( keys )

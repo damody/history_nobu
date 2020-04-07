@@ -10393,6 +10393,22 @@
 		"ItemCost"	"3850"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_fubuki_shoulders.lua"
+				"Function"	"OnEquip"
+			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_fubuki_shoulders.lua"
+				"Function"	"OnUnequip"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -10435,10 +10451,10 @@
 				"IsHidden"	"0"
 				"Passive"	"0"
 				"IsDebuff"	"1"
-				"Duration"	"2"
+				"Duration"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-5" //攻速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-30" //攻速
 				}
 			}
 			"modifier_slow_move_speed"
@@ -10446,11 +10462,11 @@
 				"IsHidden"	"0"
 				"Passive"	"0"
 				"IsDebuff"	"1"
-				"Duration"	"2"
+				"Duration"	"1"
 				"EffectName"	"particles/generic_gameplay/generic_slowed_cold.vpcf"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-30"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-15"
 				}
 			}
 			"modifier_slow_move_speed2"
@@ -10458,6 +10474,7 @@
 				"IsHidden"	"0"
 				"Passive"	"0"
 				"IsDebuff"	"1"
+				"Duration"	"1"
 				"EffectName"	"particles/generic_gameplay/generic_slowed_cold.vpcf"
 				"Properties"
 				{
