@@ -199,7 +199,6 @@
 // 升級類裝備
 "artifacts"
 {
-	"item"      "item_samurai_cloth_x"			//武士服．改
 	"item"      "item_ronin_jitte_2"			//浪人十手+2
 	"item"      "item_dark_boots_1"			//暗部長靴
 	"item"      "item_mana_boots_1"			//仕手能靴

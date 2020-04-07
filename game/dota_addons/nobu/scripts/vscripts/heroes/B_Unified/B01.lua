@@ -110,6 +110,9 @@ function B01E_CHECK(keys)
     -- target:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
 	target:AddNewModifier(target,ability,"modifier_phased",{duration=0.1})
 	target:AddNewModifier(target,ability,"modifier_rooted",{})
+	if caster.great_sword_of_disease then
+		target:SetBaseMaxHealth(target:GetBaseMaxHealth()*1.5)
+	end
 	local tmp = 1
 	local f, vrf
 	for i = 1,count do

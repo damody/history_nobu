@@ -1,3 +1,28 @@
+LinkLuaModifier( "modifier_ronin_jitte", "items/Addon_Items/item_ronin_jitte.lua",LUA_MODIFIER_MOTION_NONE )
+
+modifier_ronin_jitte = class({})
+
+--------------------------------------------------------------------------------
+
+function modifier_ronin_jitte:DeclareFunctions()
+    local funcs = {
+        MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+    }
+    return funcs
+end
+
+--------------------------------------------------------------------------------
+
+function modifier_ronin_jitte:GetModifierIncomingDamage_Percentage(event)
+	local caster = self.caster
+	local attacker = event.attacker
+	if (caster:GetAbsOrigin() - attacker:GetAbsOrigin()):Length() < 200 then
+		return -10
+	else
+		return 0
+	end
+end
+
 --浪人十手
 
 function Shock( keys )
@@ -27,4 +52,18 @@ function OntakeDamage( keys )
 	if modifier:GetStackCount() == 0 then
 		caster:RemoveModifierByName("modifier_melee_block")
 	end
+end
+
+function OnEquip(keys)
+	print("123")
+	local caster = keys.caster
+	local ability = keys.ability
+	caster:AddNewModifier(caster, ability, "modifier_ronin_jitte", {})
+	caster:FindModifierByName("modifier_ronin_jitte").caster = caster
+end
+
+function OnUnequip(keys)
+	print("312")
+	local caster = keys.caster
+	caster:RemoveModifierByName("modifier_ronin_jitte")
 end

@@ -124,6 +124,23 @@ function Nobu:OnUnitKill( keys )
         GameRules:SendCustomMessage("<font color='#ff8888'>".._G.hero_name_zh[nobu_id].."擊破了"..AttackerUnit.kill_count.."的敵軍</font>",0,0)
       end
       if killedUnit:IsHero() and not killedUnit:IsIllusion() then
+        for i = 0 , 8 do
+          local item = AttackerUnit:GetItemInSlot( i )
+          if item ~= nil and item:GetName() == "item_the_red_lightning_chapter_hyper" then
+            if not item:IsCooldownReady() then
+              local cooldown = item:GetCooldownTime()
+              item:EndCooldown()
+              item:StartCooldown(cooldown - 20)
+            end
+          end
+          if item ~= nil and item:GetName() == "item_the_great_sword_of_anger" then
+            if not item:IsCooldownReady() then
+              local cooldown = item:GetCooldownTime()
+              item:EndCooldown()
+              item:StartCooldown(cooldown - 35)
+            end
+          end
+        end
         AttackerUnit.kill_hero_count = AttackerUnit.kill_hero_count + 1
         --拿金驗
         AttackerUnit:AddExperience(killedUnit:GetLevel()*10, 0, false, false)

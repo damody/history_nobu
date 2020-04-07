@@ -25,9 +25,6 @@ function OnAttackLanded( keys )
 	if not target:IsBuilding() then
 		if caster:GetBaseAttackRange() < 200 then
 			ParticleManager:CreateParticle("particles/item_great_dragon/great_dragon_on_attack.vpcf", PATTACH_ABSORIGIN, caster)
-			if not target:IsHero() then
-				AMHC:Damage( caster,target,60,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ))
-			end
 			local enemies = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, 0, 0, false )
 			for i,v in pairs(enemies) do
 				local distance = (caster:GetAbsOrigin() - v:GetAbsOrigin()):Length()
@@ -42,8 +39,20 @@ function OnAttackLanded( keys )
 					AMHC:Damage( caster,v,dmg*0.35,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ))
 				end	
 			end
+		end
+	end
+end
+
+function Extra_damage( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local dmg = ability:GetSpecialValueFor("extra_damage")
+	if not target:IsBuilding() and not target:IsHero() then
+		if caster:IsRangedAttacker() then
+			AMHC:Damage(caster, target, dmg/3, AMHC:DamageType("DAMAGE_TYPE_PHYSICAL"))
 		else
-			AMHC:Damage( caster,target,20,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ))
+			AMHC:Damage(caster, target, dmg, AMHC:DamageType("DAMAGE_TYPE_PHYSICAL"))
 		end
 	end
 end

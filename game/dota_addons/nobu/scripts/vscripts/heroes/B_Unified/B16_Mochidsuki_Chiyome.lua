@@ -229,6 +229,9 @@ function B16_AbilityAdjust( keys )
 		--local hp = 800 + keys.ability:GetLevel()*200
 		local B16D = keys.caster:FindAbilityByName("B16D")
 		local hp = B16D:GetSpecialValueFor("life")
+		if caster.great_sword_of_disease then
+			hp = hp *1.5
+		end
 		moonMoon:SetBaseMaxHealth(hp)
 	end
 end
