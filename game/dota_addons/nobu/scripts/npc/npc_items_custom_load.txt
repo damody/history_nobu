@@ -14285,7 +14285,7 @@
 	// 水計製作單
 	"item_recipe_flood_book" 
 	{
-	    "ID" "2830"
+	    "ID" "2831"
 	    "BaseClass" "item_recipe_arcane_boots"
 		"ItemCost" "1000"
 		"ItemShopTags" ""
