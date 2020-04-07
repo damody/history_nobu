@@ -5323,6 +5323,11 @@
 						"Target"	"TARGET"
 						"ModifierName"	"modifier_the_great_sword_of_toxic4"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_toxic.lua"
+						"Function"	"Shock"
+					}
 				}
 			}
 		}
@@ -12222,6 +12227,13 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80"
+				}
+			}
+			"modifier_flood_walk"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_FLYING"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			"Passive_flood_book"

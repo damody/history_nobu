@@ -25,9 +25,49 @@ function Shock( keys )
 			target:SetVelocity(Vector(0,0,-9.8))
 			target:AddPhysicsVelocity(dir*500)
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_flood_book", {duration = 2})
-			-- AMHC:Damage(caster,target,50,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		end
 	end
+	local count = 0
+	Timers:CreateTimer(1, function()
+		local particle = ParticleManager:CreateParticle("particles/item/item_flood_book/item_flood_book_water_base.vpcf", PATTACH_POINT, caster)
+		ParticleManager:SetParticleControl(particle,0,point)
+		local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
+			point,
+			nil,
+			SEARCH_RADIUS,
+			DOTA_UNIT_TARGET_TEAM_ENEMY,
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+			0,
+			false)
+		for _,target in pairs(direUnits) do
+			-- 不能推秋山的石頭跟建築物
+			if not target:IsBuilding() then
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_flood_book", {duration = 1})
+			end
+		end
+		local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
+			point,
+			nil,
+			SEARCH_RADIUS,
+			DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+			0,
+			false)
+		for _,target in pairs(direUnits) do
+			-- 不能推秋山的石頭跟建築物
+			if not target:IsBuilding() then
+				ability:ApplyDataDrivenModifier(caster, target, "modifier_flood_walk", {duration = 1})
+			end
+		end
+		
+		count = count + 1
+		if count < 4 then
+			return 1
+		end
+	end)
+	
 end
 
 
