@@ -4170,17 +4170,17 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "28"	//攻
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "5"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "15"	//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "5"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "7"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "10"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15" //攻速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 				}
 			}
 		}
@@ -7641,13 +7641,13 @@
 	{
 	    "ID" "3023"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1000"
+		"ItemCost" "150"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_izuminokami_kanesada"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_katana;item_regeneration_ingot"  //合成所需物品
+			"01" "item_gorgeous_tachi;item_regeneration_ingot"  //合成所需物品
 		}
 	}
 
