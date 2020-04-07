@@ -1,3 +1,8 @@
+function OnHeroKilled(keys)
+	local caster = keys.caster
+	caster:Heal(caster:GetMaxHealth()*0.1,caster)
+	caster:SetMana(caster:GetMana() + caster:GetMaxMana()*0.1)
+end
 
 function OnEquip( keys )	
 	local ability = keys.ability

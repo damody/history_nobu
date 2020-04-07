@@ -8592,7 +8592,7 @@
 		
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/the_blade_of_blood_devourer"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -8611,35 +8611,8 @@
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_blade_of_blood_devourer"
-				"Target" 		"CASTER"
-				"Duration"		"20"
-			}
-			"RunScript"
-			{
-			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
-				"Function"	"sound"
-				"sound"	"requiem_of_souls"
-			}
-		}
-		
 		"Modifiers"
 		{
-			"modifier_blade_of_blood_devourer"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"Duration"			"11"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "40"	//攻
-				}
-			}
 			"Passive_blade_of_blood_devourer"
 			{
 				"IsHidden"	"1"
@@ -8662,6 +8635,28 @@
 						"Function"	"StealLife2"
 						"StealPercent"	"15"
 					}
+					"ApplyModifier"
+					{
+						"Target"	"CASTER"
+						"ModifierName"	"modifier_move_speed_bonus"
+					}
+				}
+				"OnHeroKilled"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
+						"Function"	"OnHeroKilled"
+					}
+				}
+			}
+			"modifier_move_speed_bonus"
+			{
+				"IsBuff"	"1"
+				"Duration"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"15"
 				}
 			}
 		}
@@ -11251,7 +11246,7 @@
 		
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/ghost_mask"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -11269,36 +11264,9 @@
 		"ItemCost"	"2050"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_ghost_mask"
-				"Target" 		"CASTER"
-				"Duration"		"20"
-			}
-			"RunScript"
-			{
-			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
-				"Function"	"sound"
-				"sound"	"requiem_of_souls"
-			}
-		}
 		
 		"Modifiers"
 		{
-			"modifier_ghost_mask"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"Duration"			"20"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "20"	//攻
-				}
-				
-			}
 			
 			"Passive_lightning_katana"
 			{
@@ -11330,6 +11298,14 @@
 						"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
 						"Function"	"StealLife2"
 						"StealPercent"	"7"
+					}
+				}
+				"OnHeroKilled"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
+						"Function"	"OnHeroKilled"
 					}
 				}
 			}
