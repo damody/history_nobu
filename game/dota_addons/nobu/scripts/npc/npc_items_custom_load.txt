@@ -6090,6 +6090,22 @@
 		{
 			"particle"	"particles/item_ronin_jitte_shield.vpcf"
 		}
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_ronin_jitte.lua"
+				"Function"	"OnEquip"
+			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_ronin_jitte.lua"
+				"Function"	"OnUnequip"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
