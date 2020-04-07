@@ -178,7 +178,6 @@ function Nobu:OnGameRulesStateChange( keys )
 		local allUnits = Entities:FindAllByClassname('npc_dota_creep_lane')
 		for k,ent in pairs(allUnits) do			
 			if ent ~= nil and not ent:HasAbility("heal_soul_adder") then
-				print(ent:GetUnitName())
 				ent:AddAbility("heal_soul_adder"):SetLevel(1)
 			end
 		end

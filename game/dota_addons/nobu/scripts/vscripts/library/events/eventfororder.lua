@@ -178,7 +178,16 @@ function spell_ability ( filterTable )
 					if item ~= nil and (item:GetName() == itemx) then
 						print("item:StartCooldown", item:GetCooldown(-1))
 						item:StartCooldown(item:GetCooldown(-1))
-						if item:GetName() ~= "item_protection_amulet" then
+						if item:GetName() == "item_nannbann_armor" then
+							target:AddAbility("nannbann_armor_purge"):SetLevel(1)
+							local shield = ParticleManager:CreateParticle("particles/item/supressor_armor.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        					ParticleManager:SetParticleControl(shield, 1, target:GetAbsOrigin()+Vector(0, 0, 0))
+							Timers:CreateTimer(2.5,function()
+								target:RemoveModifierByName("modifier_purge_modifiers")
+								target:RemoveAbility("nannbann_armor_purge")
+								ParticleManager:DestroyParticle(shield, false)
+							end)
+						elseif item:GetName() ~= "item_protection_amulet" then
 							target:AddNewModifier(target, nil, "nobu_modifier_magical_shield", {duration = 5})
 						end
 					end
