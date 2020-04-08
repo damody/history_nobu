@@ -619,6 +619,9 @@ local function chat_of_test(keys)
 		local team = upper:sub(1,1)
 		local nobu_id = upper:sub(2,4)
 		local dota_hero_name = _G.nobu2dota[nobu_id]
+		if _G.hcount == nil then
+			_G.hcount = 1
+		end
 		if dota_hero_name ~= nil then
 			if team == "0" then
 				-- 織田軍
@@ -627,6 +630,8 @@ local function chat_of_test(keys)
 				for i=1,caster:GetLevel() do
 					u:HeroLevelUp(true)
 				end
+				u:SetPlayerID(_G.hcount)
+				_G.hcount = _G.hcount + 1
 				for itemSlot=0,5 do
 					local item = caster:GetItemInSlot(itemSlot)
 					if item ~= nil then
@@ -642,7 +647,8 @@ local function chat_of_test(keys)
 				for i=1,caster:GetLevel() do
 					u:HeroLevelUp(true)
 				end
-
+				u:SetPlayerID(_G.hcount)
+				_G.hcount = _G.hcount + 1
 				for itemSlot=0,5 do
 					local item = caster:GetItemInSlot(itemSlot)
 					if item ~= nil then

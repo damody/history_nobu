@@ -142,7 +142,7 @@ function Nobu:OnUnitKill( keys )
           end
         end
         AttackerUnit.kill_hero_count = AttackerUnit.kill_hero_count + 1
-        --拿金驗
+        --拿經驗
         AttackerUnit:AddExperience(killedUnit:GetLevel()*10, 0, false, false)
         --連殺獎勵
         local sk_kill = 1
@@ -256,15 +256,15 @@ function Nobu:OnUnitKill( keys )
           for _,v in ipairs(group) do
             if v:IsHero() then
               if killedUnit:GetLevel() > v:GetLevel()+3 then
-                v:AddExperience(xp*4, DOTA_ModifyGold_HeroKill, false, false)
+                v:AddExperience(xp*4, DOTA_ModifyXP_HeroKill, false, false)
               elseif killedUnit:GetLevel() == v:GetLevel()+3 then
-                v:AddExperience(xp*3, DOTA_ModifyGold_HeroKill, false, false)
+                v:AddExperience(xp*3, DOTA_ModifyXP_HeroKill, false, false)
               elseif killedUnit:GetLevel() == v:GetLevel()+2 then
-                v:AddExperience(xp*2, DOTA_ModifyGold_HeroKill, false, false)
+                v:AddExperience(xp*2, DOTA_ModifyXP_HeroKill, false, false)
               elseif killedUnit:GetLevel() == v:GetLevel()+1 then
-                v:AddExperience(xp*1, DOTA_ModifyGold_HeroKill, false, false)
+                v:AddExperience(xp*1, DOTA_ModifyXP_HeroKill, false, false)
               elseif killedUnit:GetLevel() == v:GetLevel() then
-                v:AddExperience(xp*0.5, DOTA_ModifyGold_HeroKill, false, false)
+                v:AddExperience(xp*0.5, DOTA_ModifyXP_HeroKill, false, false)
               end
             end
           end
