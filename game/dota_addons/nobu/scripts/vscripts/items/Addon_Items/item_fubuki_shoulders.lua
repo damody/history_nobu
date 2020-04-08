@@ -85,6 +85,7 @@ function Start( keys )
 	local caster = keys.caster
 	--local target = keys.target
 	local ability = keys.ability
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_A04R_Boom",nil)
 	caster:AddNewModifier(caster,ability,"modifier_fubuki_shoulders",{duration=15})
 	caster:FindModifierByName("modifier_fubuki_shoulders").caster = caster
 	caster:FindModifierByName("modifier_fubuki_shoulders").hp = caster:GetHealth()
