@@ -74,6 +74,10 @@ function OnTakeDamage( keys )
         caster.shield_stack = 0
     else
         caster:FindModifierByName("modifier_shield"):SetStackCount(caster.shield_stack)
-        caster:Heal(damage,caster)
+        if damage >= caster:GetHealth() and caster:IsIllusion() then
+            print("kill iluustion")
+        else
+            caster:Heal(damage,caster)
+        end
     end
 end
