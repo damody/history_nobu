@@ -8626,6 +8626,15 @@
 					}
 				}
 			}
+			"modifier_mana_transfer"
+			{
+				"IsHidden"	"1"
+				"IsBuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS" "-1"				//魔
+				}
+			}
 			"modifier_shield"
 			{
 				"IsBuff"	"1"
