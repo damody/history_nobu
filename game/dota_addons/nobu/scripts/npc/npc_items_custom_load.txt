@@ -8510,6 +8510,30 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
 			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 		}
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
+				"Function"	"OnEquip"
+			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
+				"Function"	"OnUnequip"
+			}
+		}
+		"OnHeroLevelUp"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
+				"Function"	"OnEquip"
+			}
+		}
 		"OnSpellStart"
 		{
 			"TrackingProjectile"
@@ -8566,10 +8590,6 @@
 					}
 				}
 			}
-		}
-		
-		"Modifiers"
-		{
 			"Passive_lightning_katana"
 			{
 				"IsHidden"	"1"
@@ -8589,6 +8609,34 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
+				}
+			}
+			"modifier_take_mana_to_shield"
+			{
+				"Passive"	"1"
+				"IsBuff"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"	"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
+						"Function"	"Take_mana_to_shield"
+					}
+				}
+			}
+			"modifier_shield"
+			{
+				"IsBuff"	"1"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
+						"Function"	"OnTakeDamage"
+						"dmg"	"%attack_damage"
+					}
 				}
 			}
 		}
