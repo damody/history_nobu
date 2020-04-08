@@ -4310,7 +4310,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		
+		"AbilityCastRange"	"800"
 		"AbilityCooldown"	"110"
 		"AbilityCastPoint"	"0.2"
 		"AbilityManaCost"	"150"
@@ -4438,7 +4438,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"radius"	"600"
+				"radius"	"800"
 			}
 		}
 	}

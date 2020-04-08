@@ -10,18 +10,18 @@ function OnEquip(keys)
                               800,
                               DOTA_UNIT_TARGET_TEAM_FRIENDLY,
                               DOTA_UNIT_TARGET_BASIC,
-                              DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+                              DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
                               FIND_ANY_ORDER,
                               false)
             for _,it in pairs(group) do
-                keys.ability:ApplyDataDrivenModifier(it, it,"modifier_great_sword_of_disease", {duration=0.75})
+                keys.ability:ApplyDataDrivenModifier(it, it,"modifier_great_sword_of_disease", {duration=0.5})
             end
             if #group > 0 then
-              ability:ApplyDataDrivenModifier(caster,caster,"modifier_with_minion", {duration=0.75})
+              ability:ApplyDataDrivenModifier(caster,caster,"modifier_with_minion", {duration=0.5})
               caster:FindModifierByName("modifier_with_minion"):SetStackCount(#group)
             end
             if caster.great_sword_of_disease == 1 then
-                return 0.5
+                return 0.1
             else
                 return nil
             end
