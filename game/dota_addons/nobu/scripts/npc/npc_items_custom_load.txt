@@ -13849,6 +13849,48 @@
 			        "MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK" "20000"
 			    }
 			}
+			"modifier_the_great_silver_armor_aura"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"EffectName"		"particles/item_the_great_silver_armor/item_the_great_silver_armor.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"ThinkInterval"  "0.5"
+				"OnIntervalThink"
+				{
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"  	"CASTER"
+							"Radius" 	"450"
+							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+						}
+					
+						"Action"    
+						{
+							"ApplyModifier"
+							{
+								"ModifierName"	"modifier_blind"
+								"Target" 		"TARGET"
+								"Duration"		"1"
+							}
+						}
+					}
+				}
+			}
+			"modifier_blind"
+			{
+				"IsDebuff"	"1"
+				"EffectName"		"particles/item_the_great_silver_armor/item_the_great_silver_armor_b.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE" "20"
+				}
+			}
 		}
 	}
 
