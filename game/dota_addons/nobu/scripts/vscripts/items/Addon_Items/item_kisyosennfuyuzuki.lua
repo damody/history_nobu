@@ -27,6 +27,9 @@ end
 function Take_mana_to_shield( keys )
     local caster = keys.caster
     local ability = keys.ability
+    if caster:FindModifierByName("modifier_shield") == nil then
+        ability:ApplyDataDrivenModifier(caster, caster, "modifier_shield", {})
+    end
     if caster:GetMana() > caster:GetMaxMana()*0.4 then
         caster.shield_stack = caster:FindModifierByName("modifier_shield"):GetStackCount()
         if caster:GetMana() >= caster:GetMaxMana()*0.4 then
