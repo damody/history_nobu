@@ -15,27 +15,6 @@ function OnEquip( keys )
     caster:FindModifierByName("modifier_shield"):SetStackCount(caster.shield_stack)
     ability.shield_broken = false
     
-    Timers:CreateTimer(0,function()
-        caster.shield_stack = caster:FindModifierByName("modifier_shield"):GetStackCount()
-        if caster:GetMana() >= caster:GetMaxMana()*0.4 - 1 then
-            if ability.shield_broken then
-                caster:FindModifierByName("modifier_shield"):SetStackCount(caster.shield_stack)
-                caster.kisyosennfuyuzuki_shield = ParticleManager:CreateParticle("particles/item_kisyosennfuyuzuki/item_kisyosennfuyuzuki.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-                ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 1, Vector(shield_size,0,shield_size))
-                ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 2, Vector(shield_size,0,shield_size))
-                ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 4, Vector(shield_size,0,shield_size))
-                ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 5, Vector(shield_size,0,0))
-                ParticleManager:SetParticleControlEnt(caster.kisyosennfuyuzuki_shield, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-                ability.shield_broken = false
-            end
-            caster.shield_stack = caster.shield_stack + caster:GetManaRegen()
-            if caster.shield_stack > caster:GetMaxMana() * 0.6 then
-                caster.shield_stack = caster:GetMaxMana() * 0.6
-            end
-            caster:FindModifierByName("modifier_shield"):SetStackCount(caster.shield_stack)
-        end
-        return 1
-    end)
 end
 
 function OnUnequip( keys )
@@ -49,7 +28,25 @@ function Take_mana_to_shield( keys )
     local caster = keys.caster
     local ability = keys.ability
     if caster:GetMana() > caster:GetMaxMana()*0.4 then
-        caster:SetMana(caster:GetMaxMana() * 0.4)
+        caster.shield_stack = caster:FindModifierByName("modifier_shield"):GetStackCount()
+        if caster:GetMana() >= caster:GetMaxMana()*0.4 then
+            if ability.shield_broken then
+                caster:FindModifierByName("modifier_shield"):SetStackCount(caster.shield_stack)
+                caster.kisyosennfuyuzuki_shield = ParticleManager:CreateParticle("particles/item_kisyosennfuyuzuki/item_kisyosennfuyuzuki.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+                ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 1, Vector(shield_size,0,shield_size))
+                ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 2, Vector(shield_size,0,shield_size))
+                ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 4, Vector(shield_size,0,shield_size))
+                ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 5, Vector(shield_size,0,0))
+                ParticleManager:SetParticleControlEnt(caster.kisyosennfuyuzuki_shield, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+                ability.shield_broken = false
+            end
+            caster.shield_stack = caster.shield_stack + caster:GetMana() - caster:GetMaxMana()*0.4
+            if caster.shield_stack > caster:GetMaxMana() * 0.6 then
+                caster.shield_stack = caster:GetMaxMana() * 0.6
+            end
+            caster:FindModifierByName("modifier_shield"):SetStackCount(caster.shield_stack)
+            caster:SetMana(caster:GetMaxMana() * 0.4)
+        end
     end
 end
 
