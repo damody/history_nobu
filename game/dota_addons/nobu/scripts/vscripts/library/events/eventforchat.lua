@@ -425,9 +425,10 @@ local function chat_of_test(keys)
 			local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
 		end
 		if string.match(s,"search") then
-			local allCouriers = Entities:FindAllByClassname('npc_dota_creature')
-			for k, ent in pairs(allCouriers) do
-				print(ent:GetUnitName())
+			local units = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_BUILDING, 0, 0, false )
+			for _,v in pairs(units) do
+				print(v:GetUnitName())
+				print(v:GetName())
 			end
 		end
 		if string.match(s, "cleanbuff") then
