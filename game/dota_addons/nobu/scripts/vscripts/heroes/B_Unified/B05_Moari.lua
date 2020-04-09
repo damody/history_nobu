@@ -177,7 +177,6 @@ function SearchArea(keys)
 	-- Checks if the target has been set yet
 	if target ~= nil then
 		-- Applies the ministun and the damage to the target
-		target:AddNewModifier(caster, ability, "modifier_stunned", {Duration = 0.1})
 		ApplyDamage({victim = target, attacker = caster, damage = ability:GetAbilityDamage()+caster:GetIntellect()*2, damage_type = ability:GetAbilityDamageType()})
 		if target:HasModifier("modifier_thundergods_wrath_datadriven") then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_stunned", {duration = 1.5})
