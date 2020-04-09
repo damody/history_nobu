@@ -245,6 +245,50 @@ function Nobu:FilterGold( filterTable )
     return true
 end
 
+courier_modifier_ban ={
+  "name_const: modifier_courier_morph_effect",
+  "modifier_courier_flying",
+  "modifier_courier_passive_bonus"
+}
+function Nobu:ClearModifierGainedFilter( filterTable )
+  if filterTable.entindex_caster_const == nil then
+    return true
+  end
+  if filterTable.entindex_parent_const == nil then
+    return true
+  end
+  local caster = EntIndexToHScript( filterTable.entindex_caster_const )
+  local target = EntIndexToHScript( filterTable.entindex_parent_const )
+  local modifier_name = filterTable.name_const
+  local duration = filterTable.duration
+  --強王
+  if target:GetUnitName() == "npc_dota_the_king_of_robbers" then
+    if caster ~= target then
+      filterTable.duration = filterTable.duration * 0.5
+      return true
+    end
+  end
+  --亡靈
+  if target:GetUnitName() == "npc_dota_cursed_warrior_souls" then
+    if caster ~= target then
+      return false
+    end
+  end
+  --南蠻啟動
+  if target:HasModifier("modifier_nannbann_purge") then
+    if caster:GetTeamNumber() ~= target:GetTeamNumber() then
+      return false
+    end
+  end
+  --ban 掉馬飛行 及 增加血量
+  for _,v in pairs(courier_modifier_ban) do
+    if modifier_name == v then
+      return false
+    end
+  end
+  return true
+end
+
 function Nobu:Init_Event_and_Filter_GameMode()
   local self =  _G.Nobu
 
@@ -258,7 +302,8 @@ function Nobu:Init_Event_and_Filter_GameMode()
   GameRules:GetGameModeEntity():SetModifyExperienceFilter(Dynamic_Wrap(Nobu, "SetModifyExperienceFilter"), Nobu)  --經驗值
   GameRules:GetGameModeEntity():SetTrackingProjectileFilter(Dynamic_Wrap(Nobu, "SetTrackingProjectileFilter"), Nobu)  --投射物
   GameRules:GetGameModeEntity():SetModifyGoldFilter( Dynamic_Wrap( Nobu, "FilterGold" ), Nobu ) --金錢事件 不知道為什麼會跳兩次
-  
+  GameRules:GetGameModeEntity():SetModifierGainedFilter( Dynamic_Wrap( Nobu, "ClearModifierGainedFilter" ), Nobu ) --modifier事件 不知道為什麼會跳兩次
+
   --【Evnet】
   Nobu.Event ={
   ListenToGameEvent('dota_player_gained_level', Nobu.LevelUP, self),
