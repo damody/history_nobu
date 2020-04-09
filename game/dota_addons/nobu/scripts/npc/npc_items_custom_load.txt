@@ -9933,6 +9933,26 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "4"	//防禦
 				}
 			}
+			"modifier_nannbann_purge"
+			{
+				"IsBuff"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_nannbann_armor.lua"
+						"Function"	"OnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_nannbann_armor.lua"
+						"Function"	"OnDestroy"
+					}
+				}
+			}
 		}
 	}
 
