@@ -30,6 +30,7 @@ function B04W_Start( keys )
 	caster:RemoveGesture(ACT_DOTA_FLAIL)
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_B04W_aura",{duration=duration})
 	caster:StartGesture(ACT_DOTA_VERSUS)
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_B04W2",{duration=duration})
 
 	local speed = distance/duration
 

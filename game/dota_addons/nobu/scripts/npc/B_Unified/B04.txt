@@ -99,6 +99,7 @@
 			{
 				"ModifierName"	"modifier_B04W2"
 				"Target" 		"CASTER"
+				"Duration"		"0.1"
 			}
 		}
 
@@ -161,7 +162,6 @@
 			"modifier_B04W2"
 			{
 				"IsHidden"			"0"
-				"Duration"			"0.5"
 				"States"
 				{
 					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
