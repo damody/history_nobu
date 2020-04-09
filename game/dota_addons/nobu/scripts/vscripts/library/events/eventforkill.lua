@@ -159,7 +159,7 @@ function Nobu:OnUnitKill( keys )
           GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."達成了"..AttackerUnit.sk_kill.."連殺，得到"..(AttackerUnit.sk_kill*50).."獎勵</font>",0,0)
         end
         if killedUnit.sk_kill and killedUnit.sk_kill > 1 then
-          AMHC:GivePlayerGold_UnReliable(AttackerUnit:GetPlayerOwnerID(), killedUnit.sk_kill*50)
+          AMHC:GivePlayerGold_UnReliable(AttackerUnit:GetPlayerOwnerID(), killedUnit.sk_kill*100)
           local nobu_id = _G.heromap[AttackerUnit:GetName()]
           local nobu_id2 = _G.heromap[killedUnit:GetName()]
           GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."中止了".._G.hero_name_zh[nobu_id2].."的連殺，得到"..(killedUnit.sk_kill*50).."獎勵</font>",0,0)
@@ -382,6 +382,7 @@ function Nobu:OnUnitKill( keys )
     elseif string.match(name, "courier") then
       killedUnit:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
       killedUnit:FindAbilityByName("courier_burst"):SetLevel(1)
+      killedUnit:RemoveModifierByName("modifier_courier_passive_bonus")
       if killedUnit:GetTeamNumber() == 2 then
         killedUnit:RespawnUnit()  
         killedUnit:SetOrigin(Vector(6912,-7168,128))
