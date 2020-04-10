@@ -5176,7 +5176,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_spike.lua"
-				"Function"	"Channeling"
+				"Function"	"Shock"
 			}
 		}
 		"Modifiers"
@@ -5201,30 +5201,6 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
-			}
-			"great_sword_of_spike"
-			{
-
-			}
-			"modifier_slow"
-			{
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-35" 	//跑速
-				}
-				"IsPurgable"	"0"
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Duration"	"1"
-			}
-			"modifier_protect"
-			{
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "-50"
-				}
-				"IsBuff"	"1"
-				"Duration"	"1.5"
 			}
 		}
 	}
@@ -11533,16 +11509,16 @@
 		
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/satsuma_gun"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		//"AbilityCooldown"	"55"
+		"AbilityCooldown"	"6"
 		
-		//"AbilityManaCost"	"75"
+		"AbilityManaCost"	"50"
 		//"AbilityCastPoint"	"0.35"
 		//"AbilityCastRange"	"750"
 		"ID"	"2819"
@@ -11552,6 +11528,14 @@
 		"ItemCost"	"3050"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_satsuma_gun.lua"
+				"Function"	"Shock"
+			}
+		}
 		"Modifiers"
 		{
 			"Passive_lightning_katana"
@@ -11580,11 +11564,15 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/Addon_Items/item_satsuma_gun.lua"
-						"Function"	"Shock"
+						"Function"	"OnAttackLanded"
 					}
 				}
 			}
-
+			"modifier_satsuma_gun_hint"
+			{
+				"IsHidden"	"0"
+				"Passive"	"1"
+			}
 			"modifier_satsuma_gun"
 			{
 				"States"
