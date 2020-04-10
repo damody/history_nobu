@@ -94,7 +94,7 @@ function B28T( keys )
 	local base_damage = ability:GetLevelSpecialValueFor("base_damage", (ability:GetLevel() -1))
 	local point = keys.target_points[1]
 
-	local units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
+	local units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false )
 	local count = 0
 	for i,unit in ipairs(units) do
 		count = count + 1
@@ -171,7 +171,7 @@ function B28T_old_Jump(keys)
 	-- Checks if there are jumps left
 	if ability.jump_count[current] > 0 then
 		-- Finds units in the jump_radius to jump to
-		local units = FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, jump_radius, team, ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false)
+		local units = FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, jump_radius, team, ability:GetAbilityTargetType(), DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, 0, false)
 		local closest = jump_radius
 		local new_target
 		--print("current", current)

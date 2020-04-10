@@ -100,7 +100,7 @@ function storm_break( keys )
 	for _,it in pairs(direUnits) do
 		if _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then
 			if IsValidEntity(caster) and caster:IsAlive() then
-				AMHC:Damage(caster.dummy, it, dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				AMHC:Damage(caster, it, dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 			else
 				AMHC:Damage(caster.dummy, it, dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 				caster.takedamage = caster.takedamage + dmg
