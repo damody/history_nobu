@@ -152,7 +152,7 @@ function C08R:OnSpellStart()
 	local caster = self:GetCaster()
 	local debuff_duraiton = self:GetSpecialValueFor("flux_duration")
 	local dir = self:GetCursorPosition() - caster:GetOrigin()
-	caster.vDir = caster:GetForwardVector()
+	--caster.vDir = caster:GetForwardVector()
 	caster:SetForwardVector(dir:Normalized())
 	caster:EmitSound("hook_throw")
 	caster:AddNewModifier(caster, self, "C08R_modifier", { duration = 2}) 
@@ -160,6 +160,8 @@ function C08R:OnSpellStart()
 end
 
 function C08R:OnAbilityPhaseStart()
+	self:GetCaster().vDir = self:GetCaster():GetForwardVector()
+	print("start")
 	self:GetCaster():StartGesture( ACT_DOTA_CAST_ABILITY_1 )
 	return true
 end
