@@ -55,7 +55,6 @@ function OntakeDamage( keys )
 end
 
 function OnEquip(keys)
-	print("123")
 	local caster = keys.caster
 	local ability = keys.ability
 	caster:AddNewModifier(caster, ability, "modifier_ronin_jitte", {})
@@ -63,7 +62,6 @@ function OnEquip(keys)
 end
 
 function OnUnequip(keys)
-	print("312")
 	local caster = keys.caster
 	caster:RemoveModifierByName("modifier_ronin_jitte")
 end

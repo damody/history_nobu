@@ -3,20 +3,13 @@
 function Shock( keys )
 	local caster = keys.caster
 	local target = keys.target
-	local ability = keys.ability
+    local ability = keys.ability
     if target:GetTeamNumber() ~= caster:GetTeamNumber() then
         AMHC:Damage(caster,keys.target, 1,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
         if target:IsMagicImmune() then
             -- ability:ApplyDataDrivenModifier(caster,target,"modifier_soul_adder",{duration = 3})
         else
             ability:ApplyDataDrivenModifier(caster,target,"modifier_soul_adder",{duration = 3})
-            Timers:CreateTimer(2.9, function() 
-                if (target:HasModifier("modifier_soul_adder")) then
-                    Timers:CreateTimer(0.11, function()
-                        ability:ApplyDataDrivenModifier(target,target,"modifier_soul_adder2",{duration = 8})
-                    end)
-                end
-            end)
         end
     else
         target:Stop()
@@ -91,4 +84,14 @@ function Heal_target(keys)
     local attacker = keys.attacker
     attacker:Heal(30, attacker)
     attacker:SetMana((attacker:GetMana() + 5))
+end
+
+function OnCreated( keys )
+    local target = keys.target
+    target.magical_resistance = target.magical_resistance - 20
+end
+
+function OnDestroy( keys )
+    local target = keys.target
+    target.magical_resistance = target.magical_resistance + 20
 end

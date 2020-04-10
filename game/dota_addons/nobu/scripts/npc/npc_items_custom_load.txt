@@ -3276,9 +3276,9 @@
 		
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/soul_adder"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
@@ -3300,9 +3300,9 @@
 		{
 			"RunScript"
 			{
-				"ScriptFile"	"items/Addon_Items/item_commander_of_fan.lua"
-				"Function"	"Shock3"
-				"Target"	"POINT"
+				"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+				"Function"	"Shock"
+				"Target"	"TARGET"
 			}
 			"RunScript"
 			{
@@ -3314,6 +3314,20 @@
 		
 		"Modifiers"
 		{
+			"modifier_soul_adder"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsPurgable"	"1"
+				"IsDebuff"		"1"
+				"EffectName"	"particles/generic_gameplay/generic_sleep.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"modifier_soul_adder2"
 			{
 				"Passive"			"0"
@@ -3396,6 +3410,53 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "20" //攻速
+				}
+			}
+			"Unique_passive_soul_adder"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"Target"	"TARGET"
+						"ModifierName"	"modifier_reduce_magical_resistance"
+					}
+				}
+			}
+			"modifier_reduce_magical_resistance"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"			
+				"Duration"			"1"
+				// "EffectName"		"particles/econ/items/puck/puck_alliance_set/puck_dreamcoil_magic_aproset.vpcf"
+				// "EffectAttachType"	"follow_origin"
+				"ThinkInterval"	"0.5"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+						"Function"	"OnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+						"Function"	"OnDestroy"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+						"Function"	"reduce_magical_resistance"
+					}
 				}
 			}
 		}
@@ -10488,7 +10549,7 @@
 				// "EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" 	"7"//回魔
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" 	"7"//抗魔
 				}
 			}
 		}
