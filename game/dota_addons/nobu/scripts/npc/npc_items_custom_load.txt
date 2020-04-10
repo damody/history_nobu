@@ -5176,7 +5176,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_spike.lua"
-				"Function"	"Shock"
+				"Function"	"Channeling"
 			}
 		}
 		"Modifiers"

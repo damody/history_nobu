@@ -11,8 +11,9 @@ function Channeling( keys )
 	local spell_hint_table = {
 		duration   = 1,		-- 持續時間
 		radius     = 600,-- 半徑
+		show = true,
 	}
-	caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint_self",spell_hint_table)
 	Timers:CreateTimer(1, function()
 		if not caster:IsAlive() then
 			return nil
@@ -23,7 +24,7 @@ function Channeling( keys )
 			return nil
 		end
 		Timers:CreateTimer(0.5, function()
-			caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint",spell_hint_table)
+			caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint_self",spell_hint_table)
 			end)
 		return 1.5
 	end)
