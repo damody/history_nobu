@@ -5115,7 +5115,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_spike.lua"
-				"Function"	"Channeling"
+				"Function"	"Shock"
 			}
 		}
 		"Modifiers"
@@ -5140,30 +5140,6 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
-			}
-			"great_sword_of_spike"
-			{
-
-			}
-			"modifier_slow"
-			{
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-35" 	//跑速
-				}
-				"IsPurgable"	"0"
-				"Passive"	"0"
-				"IsHidden"	"1"
-				"Duration"	"1"
-			}
-			"modifier_protect"
-			{
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "-50"
-				}
-				"IsBuff"	"1"
-				"Duration"	"1.5"
 			}
 		}
 	}

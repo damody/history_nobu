@@ -7,47 +7,32 @@ function Channeling( keys )
 	ability.IsFinish = false
 	ability.channel_timer = 0
 	local count = 0
-	ability:ApplyDataDrivenModifier(caster,caster,"modifier_slow",{})
-	ability:ApplyDataDrivenModifier(caster,caster,"modifier_protect",{})
-	Timers:CreateTimer(0, function()
+	
+	local spell_hint_table = {
+		duration   = 1,		-- 持續時間
+		radius     = 600,-- 半徑
+	}
+	caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	Timers:CreateTimer(1, function()
 		if not caster:IsAlive() then
 			return nil
 		end
-		if count >= 1 then
-			Shock(keys)
-		end
-		if ability.IsFinish then
-			return nil 
-		end
-		if ability.channel_timer > 1 then
+		Shock(keys)
+		count = count + 1
+		if count > 2 then
 			return nil
 		end
-		local dummy = CreateUnitByName("hide_unit", caster:GetAbsOrigin() , true, nil, caster, caster:GetTeamNumber()) 
-		local spell_hint_table = {
-			duration   = 0.09,		-- 持續時間
-			radius     = 200 + 400*ability.channel_timer,-- 半徑
-		}
-		dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
-		dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=0.09})
-		ability.channel_timer = ability.channel_timer + 0.05
-		count = count + 0.05
-		return 0.05
+		Timers:CreateTimer(0.5, function()
+			caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint",spell_hint_table)
+			end)
+		return 1.5
 	end)
 end
 
 function Shock( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	local max_radius = 200 + 400*ability.channel_timer
-	ability.IsFinish = true
-	local dummy = CreateUnitByName("hide_unit", caster:GetAbsOrigin() , true, nil, caster, caster:GetTeamNumber()) 
-	local spell_hint_table = {
-		duration   = 0.15,		-- 持續時間
-		radius     = 200 + 400*ability.channel_timer,-- 半徑
-	}
-	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
-	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
-	Timers:CreateTimer(0.2, function()
+	Timers:CreateTimer(0, function()
 		local point = caster:GetAbsOrigin()
 		local pointx = point.x
 		local pointy = point.y
@@ -55,7 +40,7 @@ function Shock( keys )
 		local pointx2
 		local pointy2
 		local maxrock = 6
-		for radius=50,max_radius,150 do
+		for radius=50,600,150 do
 			maxrock = maxrock + 8
 			local maxspike = maxrock
 			Timers:CreateTimer(radius*0.0003, function() 
@@ -76,7 +61,7 @@ function Shock( keys )
 		local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
 								caster:GetAbsOrigin(),
 								nil,
-								max_radius,
+								600,
 								DOTA_UNIT_TARGET_TEAM_ENEMY,
 								DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
 								DOTA_UNIT_TARGET_FLAG_NONE,
@@ -86,10 +71,10 @@ function Shock( keys )
 		--effect:傷害+暈眩
 		for _,it in pairs(direUnits) do
 			if not(it:IsBuilding()) and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then
-				AMHC:Damage(caster, it, 250, AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+				AMHC:Damage(caster, it, 50, AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				if IsValidEntity(it) and not it:HasModifier("great_sword_of_spike") then
 					Physics:Unit(it)
-					keys.ability:ApplyDataDrivenModifier(caster,it,"modifier_stunned",{duration = 1.6})
+					keys.ability:ApplyDataDrivenModifier(caster,it,"modifier_stunned",{duration = 1})
 					-- keys.ability:ApplyDataDrivenModifier(caster,it,"great_sword_of_spike",{duration = 2.7})
 					-- keys.ability:ApplyDataDrivenModifier(caster,it,"modifier_invulnerable",{duration = 1})
 					it:SetPhysicsVelocity(Vector(0,0,800))
