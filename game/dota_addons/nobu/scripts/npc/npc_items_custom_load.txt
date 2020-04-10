@@ -8366,7 +8366,7 @@
 	{
 	    "ID" "3073"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "4100"
+		"ItemCost" "3100"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_over_lightning_art_of_war"  //合成後物品
