@@ -103,13 +103,15 @@ function CheckDay( keys )
 	end
 end
 
+function C10W_OnAbilityPhaseStart( keys )
+	keys.ability.forwardVec = keys.caster:GetForwardVector()
+end
+
 function C10W( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local point  = keys.caster:GetAbsOrigin()
 	local point2 = ability:GetCursorPosition()
-	local forwardVec =(point2 - point ):Normalized()
-	forwardVec = caster:GetForwardVector()
 
 	local level = ability:GetLevel() - 1
 
@@ -125,7 +127,7 @@ function C10W( keys )
 		EffectName = "particles/c10w/c10w.vpcf",
 		Ability = ability,
 		vSpawnOrigin = point,
-		vVelocity = forwardVec * movespeed * 8,
+		vVelocity = ability.forwardVec * movespeed * 8,
 		fDistance = distance,
 		fStartRadius = start_radius,
 		fEndRadius = end_radius,
