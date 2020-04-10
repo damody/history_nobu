@@ -143,7 +143,7 @@ function Nobu:OnUnitKill( keys )
         end
         AttackerUnit.kill_hero_count = AttackerUnit.kill_hero_count + 1
         --拿經驗
-        AttackerUnit:AddExperience(killedUnit:GetLevel()*10, 0, false, false)
+        AttackerUnit:AddExperience(killedUnit:GetLevel()*20, 0, false, false)
         --連殺獎勵
         local sk_kill = 1
         if AttackerUnit.sk_kill then
