@@ -95,12 +95,6 @@
 				"Target"	"CASTER"
 				"EffectName"	"B04W.vo1"
 			}
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_B04W2"
-				"Target" 		"CASTER"
-				"Duration"		"0.1"
-			}
 		}
 
 		"OnSpellStart"

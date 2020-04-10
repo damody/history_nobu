@@ -388,6 +388,9 @@ function Nobu:eventfororder( filterTable )
 	if ordertype == DOTA_UNIT_ORDER_MOVE_TO_POSITION then --1
 		if filterTable.units and filterTable.units["0"] then
 			local caster = EntIndexToHScript(filterTable.units["0"])
+			if caster:HasModifier("modifier_knockback") then
+				return true
+			end
 			local pos = caster:GetAbsOrigin()
 			local target = Vector(filterTable.position_x, filterTable.position_y, 0)
 			local forward = target - pos
@@ -397,6 +400,20 @@ function Nobu:eventfororder( filterTable )
 			end
 		end
 	elseif ordertype == DOTA_UNIT_ORDER_MOVE_TO_TARGET then --2
+		if filterTable.units and filterTable.units["0"] then
+			local caster = EntIndexToHScript(filterTable.units["0"])
+			local target = EntIndexToHScript(filterTable.entindex_target)
+			if caster:HasModifier("modifier_knockback") then
+				return true
+			end
+			local pos = caster:GetAbsOrigin()
+			local target = target:GetAbsOrigin()
+			local forward = target - pos
+			forward.z = 0
+			if forward:Length2D() > 1 then
+				caster:SetForwardVector(forward)
+			end
+		end
 		-- [   VScript       ]: {
 		-- [   VScript       ]:    entindex_ability                	= 0 (number)
 		-- [   VScript       ]:    sequence_number_const           	= 12 (number)
@@ -415,6 +432,9 @@ function Nobu:eventfororder( filterTable )
 	elseif ordertype == DOTA_UNIT_ORDER_ATTACK_MOVE then --3
 		if filterTable.units and filterTable.units["0"] then
 			local caster = EntIndexToHScript(filterTable.units["0"])
+			if caster:HasModifier("modifier_knockback") then
+				return true
+			end
 			local pos = caster:GetAbsOrigin()
 			local target = Vector(filterTable.position_x, filterTable.position_y, 0)
 			local group = FindUnitsInRadius(caster:GetTeamNumber(), target,
@@ -449,6 +469,9 @@ function Nobu:eventfororder( filterTable )
 		if filterTable.units and filterTable.units["0"] then
 			local caster = EntIndexToHScript(filterTable.units["0"])
 			local target = EntIndexToHScript(filterTable.entindex_target)
+			if caster:HasModifier("modifier_knockback") then
+				return true
+			end
 			local pos = caster:GetAbsOrigin()
 			local target = target:GetAbsOrigin()
 			local forward = target - pos
