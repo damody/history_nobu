@@ -14014,6 +14014,14 @@
                 "Duration"      "10"
             }
 		}
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_insight_gem.lua"
+				"Function"		"OnEquip"
+			}
+		}
 		"Modifiers"
 		{
 			"Passive_insight_gem"
@@ -14037,14 +14045,20 @@
 	                    "Duration"      "0.50"
 	                }
 	            }
-	            "OnDeath"
-	            {
-	            	"RunScript"
+			}
+			"modifier_lose_gem"
+			{
+				"IsHidden"	"1"
+				"IsPurgable"	"0"
+				"IsBuff"	"1"
+				"OnDeath"
+				{
+					"RunScript"
 					{
 						"ScriptFile"	"items/Addon_Items/item_insight_gem.lua"
 						"Function"		"Death"
-					}
-	            }
+					}	
+				}
 			}
 		}
 		

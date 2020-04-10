@@ -8,14 +8,22 @@ function Shock( keys )
 end
 
 
+function OnEquip( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_lose_gem", {})
+end
+
 function Death( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	for itemSlot=0,5 do
+	for itemSlot=0,8 do
 		local item = caster:GetItemInSlot(itemSlot)
 		if item ~= nil then
+			print(item:GetName())
 			local itemName = item:GetName()
 			if (itemName == "item_insight_gem_s") then
+				caster:RemoveModifierByName("modifier_lose_gem")
 				item:Destroy()
 			end
 		end
