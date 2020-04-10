@@ -3475,7 +3475,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-				
+		"AbilityCooldown"	"20"
 		"AOERadius"		"900"
 		"ID"	"2572"
 		"ItemQuality"	"component"
