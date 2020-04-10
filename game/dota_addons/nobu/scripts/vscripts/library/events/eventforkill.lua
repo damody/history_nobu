@@ -156,15 +156,13 @@ function Nobu:OnUnitKill( keys )
         if AttackerUnit.sk_kill > 1 then
           AMHC:GivePlayerGold_UnReliable(AttackerUnit:GetPlayerOwnerID(), AttackerUnit.sk_kill*50)
           local nobu_id = _G.heromap[AttackerUnit:GetName()]
-          GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."達成了"..AttackerUnit.sk_kill.."連殺，得到"..(AttackerUnit.sk_kill*50).."獎勵</font>",0,0)
+          GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."達成了"..AttackerUnit.sk_kill.."連殺，得到"..(AttackerUnit.sk_kill*50).."獎勵</font>",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
         end
-        print(killedUnit.sk_kill)
         if killedUnit.sk_kill and killedUnit.sk_kill > 1 then
           AMHC:GivePlayerGold_UnReliable(AttackerUnit:GetPlayerOwnerID(), killedUnit.sk_kill*100)
-          print("rampage")
           local nobu_id = _G.heromap[AttackerUnit:GetName()]
           local nobu_id2 = _G.heromap[killedUnit:GetName()]
-          GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."中止了".._G.hero_name_zh[nobu_id2].."的連殺，得到"..(killedUnit.sk_kill*100).."獎勵</font>",0,0)
+          GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."中止了".._G.hero_name_zh[nobu_id2].."的連殺，得到"..(killedUnit.sk_kill*100).."獎勵</font>",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
         end
         --屯錢獎勵
         if killedUnit:GetGold() > 3000 then
@@ -172,7 +170,7 @@ function Nobu:OnUnitKill( keys )
           AMHC:GivePlayerGold_UnReliable(AttackerUnit:GetPlayerOwnerID(), (2 + level)*50)
           local nobu_id = _G.heromap[AttackerUnit:GetName()]
           local nobu_id2 = _G.heromap[killedUnit:GetName()]
-          GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."獲得了".._G.hero_name_zh[nobu_id2].."的賞金，得到".. ((2 + level)*50) .."獎勵</font>",0,0)          
+          GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."獲得了".._G.hero_name_zh[nobu_id2].."的賞金，得到".. ((2 + level)*50) .."獎勵</font>",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)          
         end
         Timers:CreateTimer(15, function()
           if AttackerUnit.sk_kill == sk_kill then
