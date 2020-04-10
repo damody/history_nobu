@@ -7768,13 +7768,13 @@
 	{
 	    "ID" "3030"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "900"
+		"ItemCost" "1200"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_kisyosennfuyuzuki"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_yubashiri;item_staff"  //合成所需物品
+			"01" "item_frozen_ring;item_mana_ingot;item_staff"  //合成所需物品
 		}
 	}
 
@@ -8578,7 +8578,7 @@
 					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"Duration"	"2.51"
+				"Duration"	"2.0"
 				"ThinkInterval"	"0.5"
 				"OnIntervalThink"
 				{
@@ -8598,11 +8598,11 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "10"		//敏
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "10"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "28"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
-					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_MANA_BONUS" "300"			//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
