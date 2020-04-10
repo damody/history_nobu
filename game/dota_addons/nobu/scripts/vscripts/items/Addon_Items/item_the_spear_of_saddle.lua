@@ -34,13 +34,9 @@ function Shock( keys )
 		armor = armor/(1 - armor_reduction_percentage * 0.01)
 	end
 	if not target:IsBuilding() then
-		print(armor*armor_reduction_percentage*0.01)
-		print(math.abs(armor_reduction))
 		if armor*armor_reduction_percentage*0.01 < math.abs(armor_reduction) then
 			ability:ApplyDataDrivenModifier(caster, keys.target,"modifier_spear_of_saddle",{ duration = 1.5 })
-			print("small")
 		else
-			print("big")
 			ability:ApplyDataDrivenModifier(caster, keys.target,"modifier_spear_of_saddle2",{ duration = 1.5 })
 			local modifier = target:FindModifierByName("modifier_spear_of_saddle2")
 			if modifier ~= nil then
