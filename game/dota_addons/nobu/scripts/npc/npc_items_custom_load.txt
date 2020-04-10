@@ -6112,11 +6112,19 @@
 		}
 		"OnSpellStart"
 		{
-			"RunScript"
+			"ApplyModifier"
 			{
-				"ScriptFile"	"items/Addon_Items/item_ronin_jitte.lua"
-				"Function"	"Shock"
 				"Target"	"CASTER"
+				"ModifierName"	"modifier_reckoning"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"ApplyModifier"
+			{
+				"Target"	"TARGET"
+				"ModifierName"	"modifier_stunned"
+				"Duration"	"1"
 			}
 		}
 		"Modifiers"
@@ -6128,12 +6136,12 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "10"	//力
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "25"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "14"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "21"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
-					"MODIFIER_PROPERTY_MANA_BONUS" "300"				//魔
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
@@ -6142,22 +6150,34 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
 			}
-			"modifier_melee_block"
+			"modifier_reckoning"
 			{
-				"IsHidden"	"0"
-				"EffectName"	"particles/item_ronin_jitte_shield.vpcf"
-				"EffectAttachType"	"follow_origin"
-				"Passive"	"0"
-				"OntakeDamage"
+				"Duration"	"3"
+				"IsBuff"	"1"
+				"OnCreated"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"items/Addon_Items/item_ronin_jitte.lua"
-						"Function"	"OntakeDamage"
-						"DamageTaken"	"%attack_damage"
+						"ScriptFile"	"items/Addon_Items/item_ninja_cloth.lua"
+						"Function"	"OnCreated"
 					}
 				}
-
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_ninja_cloth.lua"
+						"Function"	"OnDestroy"
+					}
+				}
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_ninja_cloth.lua"
+						"Function"	"Reckoning"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -7391,13 +7411,13 @@
 	{
 	    "ID" "3003"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1200"
+		"ItemCost" "850"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_ronin_jitte"
 		"ItemRequirements"
 		{
-			"01" "item_naginata;item_mana_ingot"
+			"01" "item_moon_spear;item_naginata"
 		}
 	}
 	
@@ -8561,7 +8581,7 @@
 					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"Duration"	"2.0"
+				"Duration"	"2.1"
 				"ThinkInterval"	"0.5"
 				"OnIntervalThink"
 				{
@@ -8569,7 +8589,7 @@
 					{
 						"Target"	"TARGET"
 						"Type"	"DAMAGE_TYPE_MAGICAL"
-						"Damage"	"50"
+						"Damage"	"75"
 					}
 				}
 			}
@@ -9238,23 +9258,6 @@
             	}
             }
 		}
-		"OnSpellStart"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_reckoning"
-			}
-		}
-		"OnProjectileHitUnit"
-		{
-			"ApplyModifier"
-			{
-				"Target"	"TARGET"
-				"ModifierName"	"modifier_stunned"
-				"Duration"	"1"
-			}
-		}
 		"Modifiers"
 		{
 			"modifier_ninja_cloth2"
@@ -9287,35 +9290,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
 			}
-			// "modifier_reckoning"
-			// {
-			// 	"Duration"	"3"
-			// 	"IsBuff"	"1"
-			// 	"OnCreated"
-			// 	{
-			// 		"RunScript"
-			// 		{
-			// 			"ScriptFile"	"items/Addon_Items/item_ninja_cloth.lua"
-			// 			"Function"	"OnCreated"
-			// 		}
-			// 	}
-			// 	"OnDestroy"
-			// 	{
-			// 		"RunScript"
-			// 		{
-			// 			"ScriptFile"	"items/Addon_Items/item_ninja_cloth.lua"
-			// 			"Function"	"OnDestroy"
-			// 		}
-			// 	}
-			// 	"OnTakeDamage"
-			// 	{
-			// 		"RunScript"
-			// 		{
-			// 			"ScriptFile"	"items/Addon_Items/item_ninja_cloth.lua"
-			// 			"Function"	"Reckoning"
-			// 		}
-			// 	}
-			// }
+
 		}
 	}
 
