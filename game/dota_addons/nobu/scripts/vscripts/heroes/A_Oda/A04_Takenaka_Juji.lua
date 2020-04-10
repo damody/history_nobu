@@ -6,6 +6,9 @@
 	A04T_UNIT={}
 	A04R_FLOAT={}
 --<<endglobal>>
+function A04E_OnAbilityPhaseStart( keys )
+	keys.ability.forwardVector = keys.caster:GetForwardVector()
+end
 
 function FireEffect_IcePath( event )
 	local caster		= event.caster
@@ -16,7 +19,7 @@ function FireEffect_IcePath( event )
 	local pathRadius	= event.path_radius
 
 	local startPos = caster:GetAbsOrigin()
-	local endPos = startPos + caster:GetForwardVector() * pathLength
+	local endPos = startPos + ability.forwardVector * pathLength
 
 	ability.ice_path_stunStart	= GameRules:GetGameTime() + pathDelay
 	ability.ice_path_stunEnd	= GameRules:GetGameTime() + pathDelay + 0.01
@@ -58,7 +61,7 @@ function FireEffect_IcePath( event )
 	local stepLength = pathLength / ( numProjectiles - 1 )
 
 	for i=1, numProjectiles do
-		local projectilePos = startPos + caster:GetForwardVector() * (i-1) * stepLength
+		local projectilePos = startPos + ability.forwardVector * (i-1) * stepLength
 		local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
                               projectilePos,
                               nil,

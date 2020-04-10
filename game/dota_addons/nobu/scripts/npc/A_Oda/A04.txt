@@ -258,6 +258,14 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_jakiro.vsndevts"
 			"particle"	"particles/a04e/a04e.vpcf"
 		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript" 
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A04_Takenaka_Juji.lua"
+				"Function"	"A04E_OnAbilityPhaseStart"
+			}
+		}
 		"OnSpellStart"
 		{
 			"FireSound"
