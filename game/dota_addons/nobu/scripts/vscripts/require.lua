@@ -73,3 +73,4 @@ loadModule ( 'nobu_modifiers/nobu_modifier_spell_hint' ) -- 可以顯示施法�
 loadModule ( 'nobu_modifiers/nobu_modifier_spell_hint_self' ) -- 可以只顯示自己施法範圍
 loadModule ( 'nobu_modifiers/nobu_modifier_magical_shield' ) -- 法術護盾
 loadModule ( 'nobu_modifiers/nobu_modifier_rooted' ) -- 自定義定身
+loadModule ( 'nobu_modifiers/modifier_kisyosennfuyuzuki_shield' ) -- 桔梗仙冬月

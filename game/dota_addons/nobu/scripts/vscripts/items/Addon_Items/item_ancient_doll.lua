@@ -35,7 +35,7 @@ function modifier_zimbabwe:OnTakeDamage(event)
 		local caster = self.caster
 	    if (caster ~= nil) and IsValidEntity(caster) then
 			if victim:GetTeam() ~= attacker:GetTeam() and attacker == self.caster and not event.attacker:IsBuilding() then
-				caster:Heal(event.damage*0.3, caster)
+				caster:Heal(event.original_damage*0.3, caster)
 		        if damage_flags ~= DOTA_DAMAGE_FLAG_REFLECTION then
 	            	if (IsValidEntity(caster) and caster:IsAlive()) then
 		            	local damageTable = {

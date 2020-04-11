@@ -6671,7 +6671,7 @@
 		
 		"AbilityCooldown"	"25"
 		
-		"AbilityManaCost"	"95"
+		"AbilityManaCost"	"60"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"600"
 		"ID"	"2587"
@@ -6755,7 +6755,7 @@
 		
 		"AbilityCooldown"	"60"
 		
-		"AbilityManaCost"	"100"
+		"AbilityManaCost"	"60"
 		"AbilityCastPoint"	"0.1"
 		"AbilityCastRange"	"1200"
 		"AOERadius"		"300"
@@ -8557,8 +8557,8 @@
 		
 		"AbilityCooldown"	"36"
 		
-		"AbilityManaCost"	"110"
-		"AbilityCastPoint"	"0.2"
+		"AbilityManaCost"	"60"
+		"AbilityCastPoint"	"0.1"
 		"AbilityCastRange"	"1200"
 		"ID"	"2520"
 		"ItemQuality"	"component"
@@ -8690,27 +8690,9 @@
 					}
 				}
 			}
-			"modifier_mana_transfer"
-			{
-				"IsHidden"	"1"
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MANA_BONUS" "-1"				//魔
-				}
-			}
 			"modifier_shield"
 			{
 				"IsBuff"	"1"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
-						"Function"	"OnTakeDamage"
-						"dmg"	"%attack_damage"
-					}
-				}
 			}
 		}
 	}
