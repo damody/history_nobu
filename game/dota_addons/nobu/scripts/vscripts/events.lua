@@ -250,7 +250,34 @@ courier_modifier_ban ={
   "modifier_courier_flying",
   "modifier_courier_passive_bonus"
 }
-function Nobu:ClearModifierGainedFilter( filterTable )
+
+
+function DumpTable( tTable )
+	local inspect = require('inspect')
+	local iDepth = 3
+ 	print(inspect(tTable,
+ 		{depth=iDepth} 
+ 	))
+end
+
+function Nobu:HealFilter(keys)
+	--[[
+	entindex_healer_const: 329
+	entindex_inflictor_const: 600
+	entindex_target_const: 329
+	heal: 60
+  ]]
+	local target = EntIndexToHScript(keys.entindex_target_const)
+	local heal = keys.heal
+	local healer = keys.entindex_inflictor_const and EntIndexToHScript(keys.entindex_inflictor_const) or nil
+  if healer then
+    print(healer:GetName(), keys.heal)
+  end
+
+	return true
+end
+
+function Nobu:ModifierGainedFilter( filterTable )
   if filterTable.entindex_caster_const == nil then
     return true
   end
@@ -302,7 +329,8 @@ function Nobu:Init_Event_and_Filter_GameMode()
   GameRules:GetGameModeEntity():SetModifyExperienceFilter(Dynamic_Wrap(Nobu, "SetModifyExperienceFilter"), Nobu)  --經驗值
   GameRules:GetGameModeEntity():SetTrackingProjectileFilter(Dynamic_Wrap(Nobu, "SetTrackingProjectileFilter"), Nobu)  --投射物
   GameRules:GetGameModeEntity():SetModifyGoldFilter( Dynamic_Wrap( Nobu, "FilterGold" ), Nobu ) --金錢事件 不知道為什麼會跳兩次
-  GameRules:GetGameModeEntity():SetModifierGainedFilter( Dynamic_Wrap( Nobu, "ClearModifierGainedFilter" ), Nobu ) --modifier事件 不知道為什麼會跳兩次
+  GameRules:GetGameModeEntity():SetModifierGainedFilter( Dynamic_Wrap( Nobu, "ModifierGainedFilter" ), Nobu ) --modifier事件 不知道為什麼會跳兩次
+  GameRules:GetGameModeEntity():SetHealingFilter(Dynamic_Wrap(Nobu, "HealFilter"), self)
 
   --【Evnet】
   Nobu.Event ={
