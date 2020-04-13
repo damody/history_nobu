@@ -187,8 +187,17 @@ function Nobu:OnGameRulesStateChange( keys )
 	Timers:CreateTimer(0, function()
 		local allCPs = Entities:FindAllByClassname('npc_dota_creep_lane')
 		for k, ent in pairs(allCPs) do
-			ent:AddAbility("when_cp_first_spawn"):SetLevel(1)
-			ent:AddNoDraw()
+			if not string.match(ent:GetUnitName(),"general") then
+				ent:AddAbility("when_cp_first_spawn"):SetLevel(1)
+				ent:AddNoDraw()
+			else
+				--800 加技能
+				for i = 0 , ent:GetAbilityCount() - 1 do
+					if ent:GetAbilityByIndex(i) then
+						ent:GetAbilityByIndex(i):SetLevel(1)
+					end
+				end
+			end
 		end
 	end)
 	--60秒後出野怪
