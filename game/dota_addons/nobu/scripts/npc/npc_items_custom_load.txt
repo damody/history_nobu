@@ -9471,7 +9471,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"25"
+		"AbilityCooldown"	"40"
 		
 		"AbilityManaCost"	"100"
 		"AbilityCastRange"	"1200"
