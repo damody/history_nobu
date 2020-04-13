@@ -8,4 +8,6 @@ function Shock( keys )
 	else
 		keys.ability:ApplyDataDrivenModifier(caster, target,"modifier_spell_book_enemy", nil)
 	end
+	local particle = ParticleManager:CreateParticle("particles/a03t_old_j.vpcf", PATTACH_ABSORIGIN, target)
+	ParticleManager:SetParticleControl(particle, 3, target:GetAbsOrigin()+Vector(0,0,100))
 end
