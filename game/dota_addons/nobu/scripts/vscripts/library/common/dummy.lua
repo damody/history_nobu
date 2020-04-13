@@ -647,3 +647,19 @@ function OnUnitDied( keys )
     end
   end
 end
+
+function courier_damage_immune_OnCreated( keys )
+  local target = keys.target
+  local ability = keys.ability
+  if target:GetUnitName() == "npc_dota_courier" then
+    ability:ApplyDataDrivenModifier(target,target,"modifier_courier_physical_immune2",{})
+  end
+end
+
+function courier_damage_immune_OnDestroy( keys )
+  local target = keys.target
+  local ability = keys.ability
+  if target:GetUnitName() == "npc_dota_courier" then
+    target:RemoveModifierByName("modifier_courier_physical_immune2")
+  end
+end

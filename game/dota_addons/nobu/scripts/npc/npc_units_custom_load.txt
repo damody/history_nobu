@@ -3387,7 +3387,7 @@
  		//----------------------------------------------------------------
 	
  		"Ability1"					"for_move300"			// Ability 1.
- 		"Ability2"					""			// Ability 2.
+ 		"Ability2"					"courier_physical_immune"			// Ability 2.
  		"Ability3"					""			// Ability 3.
  		"Ability4"					""			// Ability 4.
  		"Ability5"					""			// Ability 5.

@@ -4905,6 +4905,56 @@
 			}
 		}
 	}
+	// 馬物理無效
+	"courier_physical_immune"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_courier_physical_immune_aura"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsDebuff"			"0"
+				"Aura"	"modifier_courier_physical_immune"
+				"Aura_Radius"	"1200"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_ALL"
+				"Aura_ApplyToCaster"	"0"
+			}
+			"modifier_courier_physical_immune"
+			{
+				"IsHidden"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"courier_damage_immune_OnCreated"
+						"dmg"	"%attack_damage"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"courier_damage_immune_OnDestroy"
+						"dmg"	"%attack_damage"
+					}
+				}
+			}
+			"modifier_courier_physical_immune2"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
+				}
+			}
+		}
+	}
 	// 雜賀眾被動
 	"passive_b01w_unit"
 	{
