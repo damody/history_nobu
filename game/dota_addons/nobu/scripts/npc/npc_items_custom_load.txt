@@ -11591,7 +11591,7 @@
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"80"
 		"AbilityManaCost"	"100"
-		
+		"AbilityCastRange"	"900"
 		"ID"	"2533"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -11626,7 +11626,7 @@
 					"Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 					"Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 					"Center"	"CASTER"
-					"Radius"	"500"
+					"Radius"	"900"
 				}
 				"Action"
 				{
@@ -11683,7 +11683,7 @@
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Passive"	"1"
 				"Aura"	"modifier_art_of_war_mountain_chapter3"
-				"Aura_Radius"	"500"
+				"Aura_Radius"	"900"
 				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_ApplyToCaster"	"1"
