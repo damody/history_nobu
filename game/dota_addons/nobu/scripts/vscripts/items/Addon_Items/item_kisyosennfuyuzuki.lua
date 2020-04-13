@@ -36,7 +36,6 @@ function Take_mana_to_shield( keys )
     local mana04 = caster:GetMaxMana()*0.4
     if caster:GetMana() > mana04 then
         if caster:GetMana() >= mana04 then
-            print("mana", caster:GetMana(), mana04)
             if ability.shield_broken then
                 caster:FindModifierByName("modifier_shield"):SetStackCount(caster.shield_stack)
                 if caster.kisyosennfuyuzuki_shield then
@@ -54,7 +53,7 @@ function Take_mana_to_shield( keys )
             if caster.shield_stack > caster:GetMaxMana() * 0.6 then
                 caster.shield_stack = caster:GetMaxMana() * 0.6
             end
-            caster:FindModifierByName("modifier_shield"):SetStackCount(caster.shield_stack)
+            caster:FindModifierByName("modifier_shield"):SetStackCount(caster.shield_stack*0.8)
             caster:SetMana(caster:GetMaxMana() * 0.4)
         end
     end
