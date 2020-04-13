@@ -146,7 +146,7 @@ end
 function C11W_miss_target( keys )
 	local caster = keys.caster
 	local dummy = CreateUnitByName("hide_unit",keys.target_points[1],false,nil,nil,caster:GetTeamNumber())
-	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=5})
+	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=2})
 	keys.target = dummy
 	C11W_hit_unit(keys)
 end
@@ -201,7 +201,7 @@ function C11R_start( keys )
 		point.z = GetGroundHeight(point,nil)
 
 		local dummy = CreateUnitByName("hide_unit",point,false,nil,nil,caster:GetTeamNumber())
-		dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=5})
+		dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=2})
 		local ifx = ParticleManager:CreateParticle("particles/item/item_thunderstorms.vpcf",PATTACH_ABSORIGIN,dummy)
 		ParticleManager:SetParticleControl(ifx,1,point)
 		ParticleManager:ReleaseParticleIndex(ifx)
@@ -209,7 +209,7 @@ function C11R_start( keys )
 
 	-- 打雷音效
 	local dummy = CreateUnitByName("hide_unit",center,false,nil,nil,caster:GetTeamNumber())
-	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=5})
+	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=2})
 	EmitSoundOn("ITEM_D09.sound",dummy)
 	AddFOWViewer(caster:GetTeamNumber(), center, radius, 0.5, false)
 end
