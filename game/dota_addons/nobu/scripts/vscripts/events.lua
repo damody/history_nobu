@@ -248,7 +248,8 @@ end
 courier_modifier_ban ={
   "name_const: modifier_courier_morph_effect",
   "modifier_courier_flying",
-  "modifier_courier_passive_bonus"
+  "modifier_courier_passive_bonus",
+  "modifier_fountain_aura_buff",
 }
 
 

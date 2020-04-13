@@ -380,9 +380,6 @@ function Nobu:OnUnitKill( keys )
         end
       end)
     elseif string.match(name, "courier") then
-      killedUnit:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
-      killedUnit:FindAbilityByName("courier_burst"):SetLevel(1)
-      killedUnit:RemoveModifierByName("modifier_courier_passive_bonus")
       if killedUnit:GetTeamNumber() == 2 then
         killedUnit:RespawnUnit()  
         killedUnit:SetOrigin(Vector(6912,-7168,128))
@@ -390,10 +387,13 @@ function Nobu:OnUnitKill( keys )
         killedUnit:RespawnUnit()
         killedUnit:SetOrigin(Vector(-7168,6656,128))
       end
-      local for_no_collision = killedUnit:FindAbilityByName("for_no_collision")
-      if for_no_collision then
-        for_no_collision:ApplyDataDrivenModifier(killedUnit,killedUnit,"modifier_for_no_collision",nil)
-      end
+      Timers:CreateTimer(0.5,function() 
+        for i = 0 , killedUnit:GetAbilityCount()-1 do
+          if killedUnit:GetAbilityByIndex(i) then
+            killedUnit:GetAbilityByIndex(i):SetLevel(1)
+          end
+        end
+      end)
     -- end
     end
 

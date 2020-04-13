@@ -58,25 +58,6 @@ function Nobu:OnHeroIngame( keys )
               ent:GetOwner():GetAssignedHero().courier = 1
             end
           end
-          --[[叫馬
-          local donkey = CreateUnitByName("npc_dota_courier", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
-          donkey.oripos = donkey:GetAbsOrigin()
-          hero.donkey = donkey
-          donkey:SetOwner(hero)
-          donkey:SetHullRadius(1)
-          donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
-          donkey:SetBaseMaxHealth(500)
-          donkey:FindAbilityByName("courier_go_to_secretshop"):SetLevel(1)
-          donkey:FindAbilityByName("courier_return_stash_items"):SetLevel(1)
-          donkey:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
-          donkey:FindAbilityByName("courier_transfer_items"):SetLevel(1)
-          donkey:FindAbilityByName("courier_burst"):SetLevel(1)
-          donkey:FindAbilityByName("courier_shield"):SetLevel(1)
-          donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
-          donkey:AddAbility("for_magic_immune"):SetLevel(1)
-          donkey:AddAbility("for_no_collision"):SetLevel(1)
-          donkey:AddAbility("for_move500"):SetLevel(1)
-          ]]
         end
       end
     end)
