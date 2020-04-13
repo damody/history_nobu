@@ -342,6 +342,65 @@
 		}
 	}
 
+	// 天雷之書
+	"item_the_storm_call_book"
+	{
+		// General
+		
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/the_over_lightning_art_of_war"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		"AbilityCastRange"	"500"
+		"AbilityCooldown"	"90"
+		"AbilityManaCost"	"150"
+		"AOERadius"	"500"
+		"ID"	"2617"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/generic_gameplay/move_slow.vpc"
+		"ItemCost"	"8650"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_the_over_lightning_art_of_war.lua"
+				"Function"	"Shock"
+			}
+		}
+		"precache"
+		{
+			"particle"	"particles/item/d09/d09.vpcf"
+		}
+		"Modifiers"
+		{
+			"Passive_the_over_lightning_art_of_war"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "40"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "0" //減前搖
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "7" //技能傷害
+				}
+			}
+		}
+	}
+
 	// 真‧大炎上之書
 	"item_the_overflame_art_of_war_hyper"
 	{
@@ -8444,6 +8503,21 @@
 		"ItemRequirements"
 		{
 			"01" "item_tachi;item_naginata;item_staff;item_thunderbolt_book"  //合成所需物品
+		}
+	}
+
+	//天雷之書製作單
+	"item_recipe_the_storm_call_book" 
+	{
+	    "ID" "3074"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "1900"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"ItemResult" "item_the_storm_call_book"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_storm_book;item_thunderstorms"  //合成所需物品
 		}
 	}
 
