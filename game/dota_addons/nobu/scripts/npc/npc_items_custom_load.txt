@@ -10406,7 +10406,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"magical_resistance"	"15"
+				"magical_resistance"	"10"
 			}
 		}
 	}
