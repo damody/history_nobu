@@ -310,7 +310,7 @@ function Nobu:ModifierGainedFilter( filterTable )
   end
   --ban 掉馬飛行 及 增加血量
   for _,v in pairs(courier_modifier_ban) do
-    if modifier_name == v then
+    if target:GetName() == "npc_dota_courier" and modifier_name == v then
       return false
     end
   end
