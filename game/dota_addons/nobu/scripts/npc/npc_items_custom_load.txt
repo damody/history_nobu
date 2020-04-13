@@ -8814,7 +8814,7 @@
 			"Heal"
 			{
 				"Target"        "TARGET"
-				"HealAmount"	"650"
+				"HealAmount"	"500"
 
 			}
 			"FireSound"
