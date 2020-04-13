@@ -393,6 +393,7 @@ function Nobu:OnUnitKill( keys )
             killedUnit:GetAbilityByIndex(i):SetLevel(1)
           end
         end
+        killedUnit:SetOriginalModel("models/props_gameplay/donkey.vmdl")
       end)
     -- end
     end
