@@ -749,7 +749,9 @@ function Precache( context )
     --闇牙黃泉津
     "particles/item/zimbabwe.vpcf",
     --銀甲
-    "particles/item_the_great_silver_armor/item_the_great_silver_armor.vpcf"
+    "particles/item_the_great_silver_armor/item_the_great_silver_armor.vpcf",
+    --法術書
+    "particles/a03t_old_j.vpcf",
     --注意要加,
     
     

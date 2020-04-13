@@ -17,7 +17,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		
+		"AbilitySharedCooldown" "share_lightning_scroll"
 		"AbilityCooldown"	"25"
 		
 		"AbilityManaCost"	"100"
@@ -56,8 +56,8 @@
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "20"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "10"	//攻
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "30"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
@@ -126,7 +126,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		
+		"AbilitySharedCooldown" "share_lightning_scroll"
 		"AbilityCooldown"	"25"
 		
 		"AbilityManaCost"	"100"
@@ -165,12 +165,12 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "10"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "10"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "3.5" //技能傷害
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "0" //技能傷害
 				}
 			}
 			"modifier_muted"
@@ -1217,7 +1217,7 @@
 			}
 		}
 	}
-	// 風卷
+	// 風之卷
 	"item_wind_scroll"
 	{
 		// General
@@ -1443,7 +1443,7 @@
 			}
 		}
 	}
-	// 電卷
+	// 電卷 雷之卷
 	"item_lightning_scroll"
 	{
 		// General
@@ -1531,7 +1531,7 @@
 		"AbilityTextureName"	"item_custom/spell_book"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_EMPTY"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
@@ -1545,7 +1545,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"500"
+		"ItemCost"	"2000"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -1555,21 +1555,6 @@
 		}
 		"Modifiers"
 		{
-			"modifier_spell_book_friendly"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"Duration"			"10"
-			
-				"EffectName"		"particles/item/item_spell_book.vpcf"
-				"EffectAttachType"	"follow_origin"
-			
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "40"	//回血
-				}
-			}
 			"modifier_spell_book_enemy"
 			{
 				"IsPurgable"	"1"
@@ -1581,15 +1566,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30" 	//跑速
-				}
-				"OnCreated"
-				{
-					"Damage"
-					{
-						"Target"	"TARGET"
-						"Type"	"DAMAGE_TYPE_MAGICAL"
-						"Damage"	"1"
-					}
 				}
 			}
 		}
@@ -1607,8 +1583,39 @@
 				"sound"	"black_hole_loop"
 				"time"	"3"
 			}
+			"Damage"
+			{
+				"Target"		"TARGET"
+				"Type"			"DAMAGE_TYPE_MAGICAL"
+				"Damage"		"400"
+			}
 		}
-		
+		"Modifiers"
+		{
+			"Passive_thunderbolt_book1"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "20"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "3.5" //技能傷害
+				}
+			}		
+		}
 	}
 	//肉
 	"item_S01"
@@ -7772,7 +7779,7 @@
 	{
 	    "ID" "3026"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "600"
+		"ItemCost" "100"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_commander_of_fan"  //合成後物品
@@ -8385,7 +8392,7 @@
 	{
 	    "ID" "3070"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1000"
+		"ItemCost" "650"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_red_lightning_chapter"  //合成後物品
@@ -12424,7 +12431,7 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "10"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
-					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_MANA_BONUS" "300"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
@@ -14486,19 +14493,367 @@
 	// 		}
 	// 	}
 	// }
-	// 水計製作單
-	"item_recipe_flood_book" 
+
+	// 冰爆之書
+	"item_frozen_book"
+	{
+		// General
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/frozen_book"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		
+		"AbilityCooldown"	"40"
+		
+		"AbilityManaCost"	"150"
+		"AbilityCastRange"	"500"
+		
+		"ID"	"3871"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"3000"
+		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"						"1"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_frozen_ring.lua"
+				"Function"	"Shock_book"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Ability.FrostNova"
+				"Target"	"TARGET"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_frost_bite_root_datadriven"
+			{
+				"IsPurgable"	"1"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"Passive_lightning_katana"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "20"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "3.5" //技能傷害
+				}
+			}
+		}
+	}
+
+	// 冰風爆之杖
+	"item_frozen_staff"
+	{
+		// General
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/frozen_staff"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		
+		"AbilityCooldown"	"60"
+		
+		"AbilityManaCost"	"150"
+		"AbilityCastRange"	"500"
+		
+		"ID"	"3872"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"3000"
+		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"						"1"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_frozen_ring.lua"
+				"Function"	"Shock_book2"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Ability.FrostNova"
+				"Target"	"TARGET"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_frozen_ring.lua"
+				"Function"	"storm_break"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_frost_bite_root_datadriven"
+			{
+				"IsPurgable"	"1"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"Passive_lightning_katana"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "40"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "7" //技能傷害
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"400"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"collision_radius"	"100 100 100"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"splash_radius"	"150 150 150"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"8"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"speed"	"1000"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"machines_per_sec"	"72"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"distance"	"1000"
+			}
+			"08"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"distance_scepter"	"1200"
+			}
+			"09"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"72"
+			}
+		}
+	}
+
+	// 法術書製作單
+	"item_recipe_spell_book" 
 	{
 	    "ID" "2831"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1000"
+		"ItemCost" "800"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"SideShop"						"1"
+		"ItemResult" "item_spell_book"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_staff;item_staff;"  //合成所需物品
+		}
+	}
+	// 水計之書製作單
+	"item_recipe_flood_book" 
+	{
+	    "ID" "2832"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "250"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"SideShop"						"1"
 		"ItemResult" "item_flood_book"  //合成後物品
 		"ItemRequirements"
 		{
+			"01" "item_staff;item_mana_ingot"  //合成所需物品
+		}
+	}
+	// 土遁製作單
+	"item_recipe_earth_wall_book" 
+	{
+	    "ID" "2833"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "250"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"SideShop"						"1"
+		"ItemResult" "item_earth_wall_book"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_staff;item_spirit_ingot"  //合成所需物品
+		}
+	}
+	// 落石之書製作單
+	"item_recipe_rockfall_book" 
+	{
+	    "ID" "2834"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "500"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"SideShop"						"1"
+		"ItemResult" "item_rockfall_book"  //合成後物品
+		"ItemRequirements"
+		{
 			"01" "item_spell_book"  //合成所需物品
+		}
+	}
+	// 火計之書製作單
+	"item_recipe_ignite_book" 
+	{
+	    "ID" "2835"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "1250"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"SideShop"						"1"
+		"ItemResult" "item_ignite_book"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_spell_book;item_fire_scroll"  //合成所需物品
+		}
+	}
+	// 天變之書製作單
+	"item_recipe_thunderstorms" 
+	{
+	    "ID" "2836"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "400"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"SideShop"						"1"
+		"ItemResult" "item_thunderstorms"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_spell_book"  //合成所需物品
+		}
+	}
+	// 怒雷之書製作單
+	"item_recipe_thunderbolt_book" 
+	{
+	    "ID" "2837"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "800"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"SideShop"						"1"
+		"ItemResult" "item_thunderbolt_book"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_thunderstorms;item_lightning_scroll"  //合成所需物品
+		}
+	}
+	// 狂風之書製作單
+	"item_recipe_storm_book" 
+	{
+	    "ID" "2838"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "600"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"SideShop"						"1"
+		"ItemResult" "item_storm_book"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_spell_book;item_wind_scroll"  //合成所需物品
+		}
+	}
+	// 冰爆之書製作單
+	"item_recipe_frozen_book" 
+	{
+	    "ID" "2839"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "250"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"SideShop"						"1"
+		"ItemResult" "item_frozen_book"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_spell_book;item_frozen_ring"  //合成所需物品
+		}
+	}
+	
+	// 冰風爆之杖製作單
+	"item_recipe_frozen_staff" 
+	{
+	    "ID" "2840"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "2800"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"SideShop"						"1"
+		"ItemResult" "item_frozen_staff"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_frozen_book;item_storm_book"  //合成所需物品
 		}
 	}
 	"item_money"
@@ -14840,7 +15195,7 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "10"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
-					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_MANA_BONUS" "5"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔

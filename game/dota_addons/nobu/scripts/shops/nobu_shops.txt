@@ -25,6 +25,9 @@
 	"item"      "item_spirit_ingot"			//回魔鋼
 	"item"      "item_health_ingot"			//生命鋼
 	"item"      "item_mana_ingot"			//法力鋼
+	"item"      "item_strength_ingot"		//蠻力鋼
+	"item"      "item_agility_ingot"		//迅捷鋼
+	"item"      "item_intelligence_ingot"	//技巧鋼
 	"item"      "item_perceive_wine"		//般若湯
 	"item"      "item_rations"				//軍糧丸
 	"item"      "item_sake"					//清酒
@@ -37,6 +40,9 @@
 	"item"      "item_tachi"				//太刀
 	"item"      "item_speed_clothes"		//疾風衣
 	"item"		"item_ninja1"				//下忍
+	"item"		"item_the_red_lightning_chapter"		//赤雷
+	"item"		"item_gorgeous_tachi"		//陣太刀
+	"item"      "item_spell_book"			//法術書
 }
 
 
@@ -97,6 +103,8 @@
 	"item"      "item_spell_book"			//法術書
 	"item"      "item_thunderstorms"		//天變之書
 	"item"		"item_earth_wall_book"		//忍法．土遁
+	"item"      "item_frozen_book"			//冰爆之書
+	"item"      "item_frozen_staff"			//冰風爆之杖
 }   
 
 //高階武器
