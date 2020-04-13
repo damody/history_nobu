@@ -7409,8 +7409,8 @@
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "15"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "10"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "35"	//攻
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "5"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "21"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
@@ -7809,13 +7809,13 @@
 	{
 	    "ID" "3028"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1900"
+		"ItemCost" "800"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_spear_of_spiders"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_naginata;item_spear;item_intelligence_ingot"  //合成所需物品
+			"01" "item_moon_spear;item_intelligence_ingot"  //合成所需物品
 		}
 	}
 
