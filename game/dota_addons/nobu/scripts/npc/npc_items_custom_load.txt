@@ -7974,13 +7974,13 @@
 	{
 	    "ID" "3039"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1550"
+		"ItemCost" "900"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_dark_armor"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_the_poketto_of_meiso"  //合成所需物品
+			"01" "item_the_poketto_of_meiso;item_spirit_ingot"  //合成所需物品
 		}
 	}
 
@@ -9427,7 +9427,7 @@
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "10" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "3"	//防禦
