@@ -1460,7 +1460,7 @@
 		"AbilityCooldown"	"20"
 		"AbilitySharedCooldown" "share_lightning_scroll"
 		"AbilityManaCost"	"60"
-		"AbilityCastPoint"	"0.2"
+		"AbilityCastPoint"	"0.1"
 		"AbilityCastRange"	"500"
 		"ID"	"2502"
 		"ItemQuality"	"component"
