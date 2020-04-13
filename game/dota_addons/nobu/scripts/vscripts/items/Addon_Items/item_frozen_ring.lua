@@ -207,15 +207,17 @@ function Shock_book( keys )
 		for _,v in pairs(am) do
 			if IsValidEntity(v:GetCaster()) and v:GetParent().GetTeamNumber ~= nil and v:GetDuration() > 0.5 then
 				local ab = v:GetAbility()
-				local abname = ab:GetName()
-				local len = string.len(abname)
-				local big_skill = false
-				if len == 4 and string.sub(abname, 4, 4) == "T" then
-					big_skill = true
-				end
-				if big_skill==false and (v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber()) then
-					it:RemoveModifierByName(v:GetName())
-					print(v:GetName(), v:GetCaster():GetTeamNumber(), caster:GetTeamNumber())
+				if ab then
+					local abname = ab:GetName()
+					local len = string.len(abname)
+					local big_skill = false
+					if len == 4 and string.sub(abname, 4, 4) == "T" then
+						big_skill = true
+					end
+					if big_skill==false and (v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber()) then
+						it:RemoveModifierByName(v:GetName())
+						print(v:GetName(), v:GetCaster():GetTeamNumber(), caster:GetTeamNumber())
+					end
 				end
 			end
 		end
