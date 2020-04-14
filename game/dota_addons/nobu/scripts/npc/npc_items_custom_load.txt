@@ -342,6 +342,65 @@
 		}
 	}
 
+	// 天雷之書
+	"item_the_storm_call_book"
+	{
+		// General
+		
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/the_over_lightning_art_of_war"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		"AbilityCastRange"	"500"
+		"AbilityCooldown"	"90"
+		"AbilityManaCost"	"150"
+		"AOERadius"	"500"
+		"ID"	"2617"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/generic_gameplay/move_slow.vpc"
+		"ItemCost"	"8650"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_the_over_lightning_art_of_war.lua"
+				"Function"	"Shock"
+			}
+		}
+		"precache"
+		{
+			"particle"	"particles/item/d09/d09.vpcf"
+		}
+		"Modifiers"
+		{
+			"Passive_the_over_lightning_art_of_war"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "40"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "0" //減前搖
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "7" //技能傷害
+				}
+			}
+		}
+	}
+
 	// 真‧大炎上之書
 	"item_the_overflame_art_of_war_hyper"
 	{
@@ -1460,7 +1519,7 @@
 		"AbilityCooldown"	"20"
 		"AbilitySharedCooldown" "share_lightning_scroll"
 		"AbilityManaCost"	"60"
-		"AbilityCastPoint"	"0.2"
+		"AbilityCastPoint"	"0.1"
 		"AbilityCastRange"	"500"
 		"ID"	"2502"
 		"ItemQuality"	"component"
@@ -3536,7 +3595,7 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "15"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "35"	//攻
@@ -3662,12 +3721,12 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "15"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"	//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "30"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "21"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "10"	//回血
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 				}
@@ -4215,7 +4274,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"30"
+		"AbilityCooldown"	"45"
 		
 		"AbilityManaCost"	"60"
 		"AbilityCastRange"	"700"
@@ -4741,7 +4800,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"9850"
+		"ItemCost"	"9000"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SecretShop" "1"
@@ -7409,8 +7468,8 @@
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "15"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "10"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "35"	//攻
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "5"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "21"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
@@ -7569,13 +7628,13 @@
 	{
 	    "ID" "3012"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1000"
+		"ItemCost" "0"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_cross_spear"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_spear;item_spear;item_insight_gem"  //合成所需物品
+			"01" "item_moon_spear;item_insight_gem"  //合成所需物品
 		}
 	}
 
@@ -7614,13 +7673,13 @@
 	{
 	    "ID" "3015"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1250"
+		"ItemCost" "150"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_nagamaki"
 		"ItemRequirements"
 		{
-			"01" "item_spear;item_regeneration_ingot"
+			"01" "item_moon_spear"
 		}
 	}
 
@@ -7809,13 +7868,13 @@
 	{
 	    "ID" "3028"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1900"
+		"ItemCost" "800"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_spear_of_spiders"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_naginata;item_spear;item_intelligence_ingot"  //合成所需物品
+			"01" "item_moon_spear;item_intelligence_ingot"  //合成所需物品
 		}
 	}
 
@@ -7884,7 +7943,7 @@
 	{
 	    "ID" "3033"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "500"
+		"ItemCost" "1000"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_scream_of_spiders"  //合成後物品
@@ -7974,13 +8033,13 @@
 	{
 	    "ID" "3039"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1550"
+		"ItemCost" "900"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_dark_armor"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_the_poketto_of_meiso"  //合成所需物品
+			"01" "item_the_poketto_of_meiso;item_spirit_ingot"  //合成所需物品
 		}
 	}
 
@@ -8447,6 +8506,21 @@
 		}
 	}
 
+	//天雷之書製作單
+	"item_recipe_the_storm_call_book" 
+	{
+	    "ID" "3074"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "1900"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"ItemResult" "item_the_storm_call_book"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_storm_book;item_thunderstorms"  //合成所需物品
+		}
+	}
+
 	// 紅雪左文字
 	"item_kousetsusamonnji"
 	{
@@ -8463,7 +8537,6 @@
 		
 		"AbilityCooldown"	"15"
 		
-		"AbilityManaCost"	"50"
 		"ID"	"2519"
 		"ItemQuality"	"component"
 		"Model"	"models/heroes/abaddon/weapon.vmdl"
@@ -8814,7 +8887,7 @@
 			"Heal"
 			{
 				"Target"        "TARGET"
-				"HealAmount"	"650"
+				"HealAmount"	"500"
 
 			}
 			"FireSound"
@@ -8954,8 +9027,8 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "20"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "20"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "20"	//智
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "15"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "10"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "50"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
@@ -9428,7 +9501,7 @@
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "10" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "3"	//防禦
@@ -9478,7 +9551,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"25"
+		"AbilityCooldown"	"40"
 		
 		"AbilityManaCost"	"100"
 		"AbilityCastRange"	"1200"
@@ -10406,7 +10479,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"magical_resistance"	"15"
+				"magical_resistance"	"10"
 			}
 		}
 	}
@@ -11037,7 +11110,7 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "360" 			//血
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "300" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
@@ -11591,7 +11664,7 @@
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"80"
 		"AbilityManaCost"	"100"
-		
+		"AbilityCastRange"	"900"
 		"ID"	"2533"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -11626,7 +11699,7 @@
 					"Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 					"Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 					"Center"	"CASTER"
-					"Radius"	"500"
+					"Radius"	"900"
 				}
 				"Action"
 				{
@@ -13758,7 +13831,7 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "360" 			//血
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "300" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
@@ -13824,7 +13897,6 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"75"
-		"AbilityManaCost"	"150"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		"SecretShop" "1"
 		"ID"	"2827"
