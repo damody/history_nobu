@@ -272,7 +272,7 @@ function Nobu:HealFilter(keys)
 	local heal = keys.heal
 	local healer = keys.entindex_inflictor_const and EntIndexToHScript(keys.entindex_inflictor_const) or nil
   if healer then
-    if healer:HasModifier("Passive_item_glass_mitsutomo") then
+    if healer.HasModifier and healer:HasModifier("Passive_item_glass_mitsutomo") ~= nil then
       if healer ~= target then
         keys.heal = keys.heal * 1.2
       end

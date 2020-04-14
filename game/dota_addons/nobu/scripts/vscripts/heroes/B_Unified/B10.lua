@@ -64,7 +64,7 @@ end
 function B10T_heal( event )
 	local ability = event.ability	
 	local caster = event.caster
-	caster:Heal(caster:GetMaxHealth(),ability)
+	caster:SetHealth(caster:GetMaxHealth())
 end
 
 function B10T_regen( event )
