@@ -306,7 +306,7 @@ function Nobu:ModifierGainedFilter( filterTable )
       return false
     end
   end
-  --南蠻啟動
+  --南蠻 啟動
   if target:HasModifier("modifier_nannbann_purge") then
     if caster:GetTeamNumber() ~= target:GetTeamNumber() then
       return false

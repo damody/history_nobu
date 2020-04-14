@@ -20,7 +20,7 @@ end
 
 function OnCreated( keys )
 	local caster = keys.caster
-	caster.shield_effect = ParticleManager:CreateParticle("particles/item/supressor_armor.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	caster.shield_effect = ParticleManager:CreateParticle("particles/item/item_ronin_jitte_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(caster.shield_effect, 1,caster:GetAbsOrigin()+Vector(0, 0, 0))
 end
 
@@ -54,11 +54,11 @@ function Reckoning( keys )
 		iVisionRadius = 225                              -- Optional
 	}
 	projectile = ProjectileManager:CreateTrackingProjectile(info)
-		local modifiers = caster:FindAllModifiers()
-		for i,m in ipairs(modifiers) do
-			if m:IsDebuff() then
-				print(m:GetName())
-				caster:RemoveModifierByName(m:GetName())
-			end
+	local modifiers = caster:FindAllModifiers()
+	for i,m in ipairs(modifiers) do
+		if m:IsDebuff() then
+			print(m:GetName())
+			caster:RemoveModifierByName(m:GetName())
 		end
+	end
 end
