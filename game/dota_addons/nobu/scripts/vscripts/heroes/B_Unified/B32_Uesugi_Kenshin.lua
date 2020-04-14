@@ -41,7 +41,6 @@ function FireEffect_IcePath( event )
 	local pathDelay		= event.path_delay
 	local pathDuration	= event.duration
 	local pathRadius	= event.path_radius
-
 	local startPos = caster:GetAbsOrigin()
 	local endPos = ability:GetCursorPosition()
 
@@ -55,8 +54,8 @@ function FireEffect_IcePath( event )
 	ability.ice_path_endPos.z = 0
 
 	-- Create ice_path
-	local particleName = "particles/units/heroes/hero_jakiro/jakiro_ice_path.vpcf"
-	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN, caster )
+	local particleName = "particles/b32e/b32e.vpcf"
+	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl( pfx, 0, startPos )
 	ParticleManager:SetParticleControl( pfx, 1, endPos )
 	ParticleManager:SetParticleControl( pfx, 2, startPos )
@@ -64,13 +63,16 @@ function FireEffect_IcePath( event )
 	ability.pfxIcePath = pfx
 
 	-- Create ice_path_b
-	particleName = "particles/units/heroes/hero_jakiro/jakiro_ice_path_b.vpcf"
-	pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN, caster )
+	particleName = "particles/b32e/b32e_b.vpcf"
+	pfx = ParticleManager:CreateParticle( particleName, PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl( pfx, 0, startPos )
 	ParticleManager:SetParticleControl( pfx, 1, endPos )
 	ParticleManager:SetParticleControl( pfx, 2, Vector( pathDelay + pathDuration, 0, 0 ) )
 	ParticleManager:SetParticleControl( pfx, 9, startPos )
+
 	ability.pfxIcePath2 = pfx
+	local dummy = CreateUnitByName("hide_unit", endPos , true, nil, caster, caster:GetTeamNumber()) 
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=3})
 
 	-- Generate projectiles
 	if pathRadius < 32 then
