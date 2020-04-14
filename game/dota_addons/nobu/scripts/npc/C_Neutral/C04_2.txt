@@ -8,10 +8,10 @@
 		"override_hero"	"npc_dota_hero_lina"
 		// //"Enabled"	"1"
 		"HeroUnlockOrder"	"3"
-		"Model"	"models/c04/c04.vmdl"
+		// "Model"	"models/c04/c04.vmdl"
 		"Role"	"Carry,Support,Disabler,Initiator,Nuker"
 		"Rolelevels"	"1,1,2,2,1"
-		"ModelScale"	"2"
+		"ModelScale"	"1"
 		"LoadoutScale"	"0.8"
 		"PickSound"	"silencer_silen_spawn_01"
 		"BanSound"	"silencer_silen_anger_07"
@@ -27,10 +27,10 @@
 		"Ability1"	"C04W"
 		"Ability2"	"C04E"
 		"Ability3"	"C04R"
-		"Ability4"	""
-		"Ability5"	"magical_resistance"
+		"Ability4"	"magical_resistance"
+		"Ability5"	"C04_precache"
 		"Ability6"	"C04T"
-		"Ability7"	"C04_precache"
+		"Ability7"	""
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
@@ -95,7 +95,7 @@
 		"Ability15"	""
 		"Ability16"	""
 		"AbilityLayout"	"5"
-		"DisableWearables"	"1"
+		"DisableWearables"	"0"
 	}
 
 }

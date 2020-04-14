@@ -38,11 +38,15 @@ function C04E_OnIntervalThink( keys )
 
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
+		local damage = ability:GetAbilityDamage()+unit:GetMaxHealth()*dmghp
+		if not unit:IsHero() and damage > 600 then
+			damage = 600
+		end
 		ApplyDamage({
 			victim = unit,
 			attacker = caster,
 			ability = ability,
-			damage = ability:GetAbilityDamage()+unit:GetMaxHealth()*dmghp,
+			damage = damage,
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		})
