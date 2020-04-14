@@ -8466,13 +8466,13 @@
 	{
 	    "ID" "3071"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "2150"
+		"ItemCost" "500"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_red_lightning_chapter_hyper"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_the_red_lightning_chapter"  //合成所需物品
+			"01" "item_spell_book;item_the_red_lightning_chapter"  //合成所需物品
 		}
 	}
 
