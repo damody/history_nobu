@@ -3683,7 +3683,7 @@
 	{
 		// General
 		"BaseClass"	"item_datadriven"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName"	"item_custom/variety_tachi"
 		"FightRecapLevel"	"1"
 		"ID"	"2575"
