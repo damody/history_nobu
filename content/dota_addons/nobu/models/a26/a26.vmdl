@@ -89,8 +89,8 @@
 						[
 							{
 								m_influenceName = "Bone_Pelvis"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
+								m_vTranslationOffset = [ 0.0, -0.0, -72.486366 ]
+								m_vRotationOffset = [ 0.0, 0.0, -0.00001 ]
 								m_flWeight = 1.0
 								m_bRoot = false
 							},
