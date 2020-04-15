@@ -43,8 +43,8 @@
 		"AttributeIntelligenceGain"	"3.2"		
 		// Bounty
 		// ----------------------------------------------------------------
-		"BountyGoldMin"	"300.0"
-		"BountyGoldMax"	"300.0"
+		"BountyGoldMin"	"0"
+		"BountyGoldMax"	"0"
 		// Gold and Lumber
 		// ----------------------------------------------------------------
 		"GoldCost"	"0"
