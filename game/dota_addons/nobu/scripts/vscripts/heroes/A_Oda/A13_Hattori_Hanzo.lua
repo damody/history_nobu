@@ -645,7 +645,6 @@ function A13T ( keys )
 			counter = counter + 0.3
 			if counter > duration then
 				caster:RemoveModifierByName("modifier_A13T_invisible")
-				caster:SetRenderColor(255,255,255)
 				return nil
 			end
 			units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
@@ -653,10 +652,8 @@ function A13T ( keys )
 				local distance = (caster:GetAbsOrigin() - point):Length()
 				if distance < radius then
 					ability:ApplyDataDrivenModifier(caster,caster,"modifier_A13T_invisible",{duration = 0.5})
-					caster:SetRenderColor(0,0,0)
 				else
 					caster:RemoveModifierByName("modifier_A13T_invisible")
-					caster:SetRenderColor(255,255,255)
 				end				
 				if not(unit:GetTeamNumber() == caster:GetTeamNumber()) and distance < radius then
 					local randomVector = RandomVector(1)
@@ -682,6 +679,16 @@ function A13T ( keys )
 		end)
 end
 
+function A13T_OnCreated( keys )
+	print("created")
+	keys.caster:SetRenderColor(0,0,0)
+	
+end
+
+function A13T_OnDestroy( keys )
+	print("destroy")
+	keys.caster:SetRenderColor(255,255,255)
+end
 
 function A13T_16( keys )
 	-- Variables
