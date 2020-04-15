@@ -89,6 +89,10 @@ end
 --要注意魔法免疫
 --ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags() 超好用
 
+function B06R_Respawn( keys )
+	keys.caster.B06R_Buff = true
+end
+
 function B06R_Learn_Ability( keys )
 	local ability = keys.ability
 	local caster = keys.caster

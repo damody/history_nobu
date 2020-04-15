@@ -379,6 +379,14 @@
 				"Function"	"B06R_Learn_Ability"
 			}
 		}
+		"OnOwnerSpawned"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B06_Sanada_Yukimura.lua"
+				"Function"	"B06R_Respawn"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_C19T"
@@ -443,6 +451,7 @@
 				"IsHidden"	"0"
 				"Duration"	"%Float_Timer"
 				"IsBuff"	"0"
+				"IsPurgable"	"0"
 				"TextureName"	"cps_d06_7"
 				"StatusEffectName"	"particles/units/heroes/hero_slardar/slardar_amp_damage.vpcf"
 				"StatusEffectPriority"	"20"
