@@ -504,6 +504,7 @@ local function chat_of_test(keys)
 
 		if string.match(s,"supercd") or string.match(s,"scd") then
 			--【Timer】
+			caster.scd = 1
 			Timers:CreateTimer(0.1, function()
 				caster:SetMana(caster:GetMaxMana() )
 				--caster:SetHealth(caster:GetMaxHealth())
@@ -523,8 +524,14 @@ local function chat_of_test(keys)
 						item:EndCooldown()
 					end
 				end
-				return 0.1
+				if caster.scd == 1 then
+					return 0.1
+				end
 			end)
+		end
+
+		if string.match(s,"xcd") then
+			caster.scd = 0
 		end
 
 		if string.match(s,"test") then
