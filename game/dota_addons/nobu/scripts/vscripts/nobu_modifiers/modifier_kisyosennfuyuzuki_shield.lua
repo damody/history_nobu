@@ -2,7 +2,8 @@ modifier_kisyosennfuyuzuki_shield = class({})
 
 function modifier_kisyosennfuyuzuki_shield:DeclareFunctions()
     local funcs = {
-		MODIFIER_EVENT_ON_TAKEDAMAGE
+        MODIFIER_EVENT_ON_TAKEDAMAGE,
+        MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
     }
     return funcs
 end
@@ -11,6 +12,12 @@ function modifier_kisyosennfuyuzuki_shield:OnCreated( keys )
     if IsServer() then
         self.caster = self:GetParent()
     end
+end
+
+function modifier_kisyosennfuyuzuki_shield:GetModifierIncomingDamage_Percentage( keys )
+    local caster = self.caster
+    caster.current_hp = caster:GetHealth()
+	return 0
 end
 
 function modifier_kisyosennfuyuzuki_shield:OnTakeDamage(event)
@@ -28,7 +35,7 @@ function modifier_kisyosennfuyuzuki_shield:OnTakeDamage(event)
             caster.shield_stack = caster.shield_stack - damage
             if caster.shield_stack < 0 then
                 caster:FindModifierByName("modifier_shield"):SetStackCount(0)
-                caster:SetHealth(caster:GetHealth()+lastshield)
+                caster:SetHealth(caster.current_hp - damage +lastshield)
                 if caster.kisyosennfuyuzuki_shield then
                     ability.shield_broken = true
                     ParticleManager:DestroyParticle(caster.kisyosennfuyuzuki_shield, false)
@@ -39,7 +46,7 @@ function modifier_kisyosennfuyuzuki_shield:OnTakeDamage(event)
                 if damage >= caster:GetHealth() and caster:IsIllusion() then
                     --print("kill iluustion")
                 else
-                    caster:SetHealth(caster:GetHealth()+damage)
+                    caster:SetHealth(caster.current_hp)
                 end
             end
         end

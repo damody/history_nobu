@@ -10,6 +10,7 @@ function OnEquip( keys )
     ParticleManager:SetParticleControlEnt(caster.kisyosennfuyuzuki_shield, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_shield", {})
     caster:AddNewModifier(caster, ability, "modifier_kisyosennfuyuzuki_shield", {})
+    caster:FindModifierByName("modifier_kisyosennfuyuzuki_shield").caster = caster
     if caster.shield_stack == nil then
         caster.shield_stack = 0
     end
