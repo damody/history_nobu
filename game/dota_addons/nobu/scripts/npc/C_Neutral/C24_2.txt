@@ -15,8 +15,8 @@
 		"Ability2"	"C24E"
 		"Ability3"	"C24R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"C24T"
-		"Ability6"	"C24_precache"
+		"Ability5"	"C24_precache"
+		"Ability6"	"C24T"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
@@ -28,10 +28,8 @@
 		"AttackDamageMax"	"144.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.80"
-		"AttackAnimationPoint"	"0.33"
 		"AttackAcquisitionRange"	"500"
 		"AttackRange"	"128"
-		"ProjectileSpeed"	"10000"
 		// Attributes
 		// ----------------------------------------------------------------
 		"AttributePrimary"	"DOTA_ATTRIBUTE_STRENGTH"
