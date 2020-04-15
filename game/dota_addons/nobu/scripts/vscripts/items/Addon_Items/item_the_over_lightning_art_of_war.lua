@@ -37,8 +37,9 @@ end
 
 function Shock( keys )
 	local caster = keys.caster
-	local point = caster:GetAbsOrigin()
+	
 	local ability = keys.ability
+	local point = ability:GetCursorPosition()
 	GridNav:DestroyTreesAroundPoint(point, 500, false)
 
 	local dummy =  CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 

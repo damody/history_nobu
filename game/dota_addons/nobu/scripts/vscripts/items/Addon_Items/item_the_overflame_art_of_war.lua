@@ -118,9 +118,9 @@ function Shock( keys )
 				end
 			else
 				if caster:IsAlive() then
-					AMHC:Damage(caster,it,ability:GetLevelSpecialValueFor("damage", 0 )*0.2,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+					AMHC:Damage(caster,it,ability:GetLevelSpecialValueFor("damage", 0 )*0.1,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				else
-					AMHC:Damage(dummy,it,ability:GetLevelSpecialValueFor("damage", 0 )*0.2,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+					AMHC:Damage(dummy,it,ability:GetLevelSpecialValueFor("damage", 0 )*0.1,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				end
 			end
 		end
