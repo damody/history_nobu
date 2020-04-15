@@ -195,6 +195,7 @@ function Nobu:FilterGold( filterTable )
     if reason == DOTA_ModifyGold_Building then      
       if gold ~= 150 and gold ~= 750 and gold ~= 50 then return false end
       if gold == 750 then filterTable["gold"] = 300 end
+      print("tower")
       return true
     end
     -- Disable all hero kill gold
@@ -204,44 +205,9 @@ function Nobu:FilterGold( filterTable )
         return false
       end
       filterTable["gold"] = 300
+      print("kill + 300")
       return true
-    --   if gold == 150 or gold == 300 or gold == 450 then
-    --     _G.not_assist = playerID
-    --     return true
-    --   else
-    --     local player = PlayerResource:GetPlayer(playerID)
-    --     if player then
-    --       local hero = player:GetAssignedHero()
-    --       if hero then
-    --         table.insert(_G.assist, playerID)
-    --         PrintTable(_G.assist)
-    --         if not _G.assist_timer then
-    --           _G.assist_timer = true
-    --           Timers:CreateTimer( 0.1, function()
-    --             local total = #_G.assist - 1
-    --             if total > 0 then
-    --               local moneyb = 0
-    --               if prestige[hero:GetTeamNumber()] > 100 then
-    --                 moneyb = math.floor(prestige[hero:GetTeamNumber()]/100)*20
-    --               end
-    --               local money = (150+moneyb)/total
-    --               for _,v in pairs(_G.assist) do
-    --                 if v ~= _G.not_assist then
-    --                   AMHC:GivePlayerGold_UnReliable(v, money)
-    --                 end
-    --               end
-    --             end
-    --             _G.assist = {}
-    --             _G.assist_timer = false
-    --             _G.not_assist = -1
-    --             end)
-    --         end
-    --       end
-    --     end
-    --     return false
-    --   end
     end
-
     return true
 end
 
