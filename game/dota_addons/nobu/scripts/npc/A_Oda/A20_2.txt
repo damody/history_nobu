@@ -15,8 +15,8 @@
 		"Ability2"	"A20E"
 		"Ability3"	"A20R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"A20T"
-		"Ability6"	"A20_precache"
+		"Ability5"	"A20_precache"
+		"Ability6"	"A20T"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
