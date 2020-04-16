@@ -163,6 +163,7 @@ function A13W( event )
 				-- handle_UnitOwner needs to be nil, else it will crash the game.
 				illusion[i] = CreateUnitByName(unit_name, origin, true, caster, nil, caster:GetTeamNumber())
 				illusion[i]:SetPlayerID(caster:GetPlayerID())
+				illusion[i].magical_resistance = caster.magical_resistance
 				illusion[i]:SetControllableByPlayer(player, true)
 				
 				-- Level Up the unit to the casters level
@@ -680,13 +681,11 @@ function A13T ( keys )
 end
 
 function A13T_OnCreated( keys )
-	print("created")
 	keys.caster:SetRenderColor(0,0,0)
 	
 end
 
 function A13T_OnDestroy( keys )
-	print("destroy")
 	keys.caster:SetRenderColor(255,255,255)
 end
 

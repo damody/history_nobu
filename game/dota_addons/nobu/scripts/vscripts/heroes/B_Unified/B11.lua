@@ -125,6 +125,7 @@ function B11R_OnAttackLanded( keys )
 			illusion[i]:SetOwner(caster)
 			illusion[i]:SetControllableByPlayer(player, true)
 			illusion[i].illusion_damage = 0.6
+			illusion[i].magical_resistance = caster.magical_resistance
 			-- Level Up the unit to the casters level
 			local casterLevel = caster:GetLevel()
 			for j=1,casterLevel-1 do
