@@ -144,13 +144,16 @@ end
 
 attack_target={}
 A14R_current_time=0
+A14T_stack = 0
 A14T_first=false
 function modifier_A14R_OnAttackLanded(keys)
 	local target_point = keys.target:GetAbsOrigin()
 	local ability=keys.ability
 	local caster = keys.caster
-	if attack_target==keys.target or A14T_first then
-		A14T_first=false
+	if A14R_current_time < A14T_stack then
+		A14R_current_time = A14T_stack
+	end
+	if attack_target==keys.target then
 		attack_target = keys.target
 		A14R_current_time=A14R_current_time+1
 		modifier=caster:FindModifierByName("modifier_A14R_atk_bonus")
@@ -160,26 +163,41 @@ function modifier_A14R_OnAttackLanded(keys)
 		modifier:SetStackCount(A14R_current_time)
 	else
 		modifier=caster:FindModifierByName("modifier_A14R_atk_bonus")
-		A14R_current_time=1
+		A14R_current_time=1 + A14T_stack
 		attack_target = keys.target
-		modifier:SetStackCount(1)
+		modifier:SetStackCount(A14R_current_time)
 	end
 end
 
 
 function A14T_OnSpellStart( keys )
+	-- if keys.caster:FindModifierByName("modifier_A14R_atk_bonus") then
+	-- 	A14T_first=true
+	-- 	A14R_current_time=A14R_current_time+5
+	-- 	ability=keys.caster:FindAbilityByName("A14R")
+	-- 	if A14R_current_time>= ability:GetSpecialValueFor("buff_max_time") then
+	-- 		A14R_current_time=ability:GetSpecialValueFor("buff_max_time")
+	-- 	end
+	-- 	modifier=keys.caster:FindModifierByName("modifier_A14R_atk_bonus")
+	-- 	modifier:SetStackCount(A14R_current_time)
+	-- end
+end
+
+function A14T_OnCreated( keys )
+	local ability = keys.ability
+	A14T_stack = ability:GetSpecialValueFor("a14r_bouns_count")
 	if keys.caster:FindModifierByName("modifier_A14R_atk_bonus") then
-		A14T_first=true
-		A14R_current_time=A14R_current_time+5
-		ability=keys.caster:FindAbilityByName("A14R")
-		if A14R_current_time>= ability:GetSpecialValueFor("buff_max_time") then
-			A14R_current_time=ability:GetSpecialValueFor("buff_max_time")
+		if A14R_current_time < A14T_stack then
+			modifier=keys.caster:FindModifierByName("modifier_A14R_atk_bonus")
+			modifier:SetStackCount(A14T_stack)
 		end
-		modifier=keys.caster:FindModifierByName("modifier_A14R_atk_bonus")
-		modifier:SetStackCount(A14R_current_time)
 	end
 end
 
+function A14T_OnDestroy( keys )
+	local ability = keys.ability
+	A14T_stack = 0
+end
 
 function A14W_old_OnSpellStart( event )
 	local ability = event.ability
