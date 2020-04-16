@@ -389,6 +389,11 @@
 				"var_type"	"FIELD_INTEGER"
 				"def"	"1 2 3 4"
 			}
+			"07"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stunned"	"0.3 0.6 0.9 1.2"
+			}
 		}
 	}
 

@@ -169,7 +169,7 @@ function SearchArea(keys)
 	local radius = ability:GetLevelSpecialValueFor("spread_aoe", (ability:GetLevel() -1))
 	local sight_radius = ability:GetLevelSpecialValueFor("sight_radius", (ability:GetLevel() -1))
 	local sight_duration = ability:GetLevelSpecialValueFor("sight_duration", (ability:GetLevel() -1))
-	
+	local duration = ability:GetSpecialValueFor("stunned")
 	
 	-- Gives vision to the caster's team in the radius
 	AddFOWViewer(caster:GetTeam(), point, sight_radius, sight_duration, false)
@@ -179,7 +179,7 @@ function SearchArea(keys)
 		-- Applies the ministun and the damage to the target
 		ApplyDamage({victim = target, attacker = caster, damage = ability:GetAbilityDamage()+caster:GetIntellect()*2, damage_type = ability:GetAbilityDamageType()})
 		if target:HasModifier("modifier_thundergods_wrath_datadriven") then
-			ability:ApplyDataDrivenModifier(caster, target, "modifier_stunned", {duration = 1.5})
+			ability:ApplyDataDrivenModifier(caster, target, "modifier_stunned", {duration = duration})
 		end
 		-- Renders the particle on the target
 		local particle = ParticleManager:CreateParticle(keys.particle, PATTACH_WORLDORIGIN, target)
