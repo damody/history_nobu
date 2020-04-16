@@ -348,7 +348,7 @@
 		// General
 		
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/the_over_lightning_art_of_war"
+		"AbilityTextureName"	"item_custom/the_item_storm_call"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
