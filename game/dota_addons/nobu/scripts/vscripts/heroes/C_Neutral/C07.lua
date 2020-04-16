@@ -129,15 +129,6 @@ function C07R( keys )
 	local point = caster:GetAbsOrigin()
 	local point2 = target:GetAbsOrigin()
 	local vec   = (point2 - point):Normalized()
-	
-	-- 扣20%血
-	if not caster:HasModifier("modifier_C07D") then
-		if (caster:GetHealth() < caster:GetMaxHealth()*0.1) then
-			caster:SetHealth(1)
-		else
-			AMHC:Damage( caster, caster, caster:GetMaxHealth()*0.1,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-		end
-	end
 
 	local level = ability:GetLevel() - 1
 	local radius = ability:GetLevelSpecialValueFor("radius",level)

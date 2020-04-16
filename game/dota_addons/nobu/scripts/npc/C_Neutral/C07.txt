@@ -313,7 +313,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"target_count"	"3"
+				"target_count"	"6"
 			}
 		}
 		"AbilityDamage"	"150 250 350 450"
