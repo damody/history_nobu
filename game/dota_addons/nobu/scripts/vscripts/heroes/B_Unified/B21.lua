@@ -122,6 +122,8 @@ function modifier_b21r_lua:OnTakeDamage( keys )
 		-- 不能反彈反彈傷害
 		if keys.damage_flags == DOTA_DAMAGE_FLAG_REFLECTION then return end
 
+		if keys.original_damage < 130 then return end
+
 		local attacker = keys.attacker
 		local ability = self:GetAbility()
 		if not attacker:IsBuilding() and not attacker:IsInvulnerable() then
