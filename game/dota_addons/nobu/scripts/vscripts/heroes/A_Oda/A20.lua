@@ -410,7 +410,15 @@ function modifier_A20T_model:IsPurgable()
 end
 
 function modifier_A20T_model:OnCreated( keys )
-	self:GetParent().states_resistance = A20T_states_resistance
+	local caster = self:GetParent()
+	if caster.states_resistance == nil then
+		caster.states_resistance = 0
+	end
+	caster.states_resistance = caster.states_resistance + A20T_states_resistance
+end
+
+function modifier_A20T_model:OnDestroy( keys )
+	self:GetParent().states_resistance = self:GetParent().states_resistance - A20T_states_resistance
 end
 
 
