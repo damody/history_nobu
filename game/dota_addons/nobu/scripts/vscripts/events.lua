@@ -259,6 +259,9 @@ function Nobu:ModifierGainedFilter( filterTable )
   local target = EntIndexToHScript( filterTable.entindex_parent_const )
   local modifier_name = filterTable.name_const
   local duration = filterTable.duration
+  if target:IsHero() and target.states_resistance ~= nil and caster:GetTeamNumber() ~= target:GetTeamNumber() then
+    filterTable.duration = filterTable.duration * (1 - target.states_resistance*0.01)
+  end
   --強王
   if target:GetUnitName() == "npc_dota_the_king_of_robbers" then
     if caster ~= target then

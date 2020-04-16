@@ -1,5 +1,5 @@
 --九鬼嘉隆
-
+A20T_states_resistance = 0
 
 function A20W_OnUpgrade( keys )
 	local caster = keys.caster
@@ -393,7 +393,7 @@ function modifier_A20T_model:GetModifierModelChange()
 end
 
 function modifier_A20T_model:GetModifierModelScale()
-	return 85
+	return 30
 end
 
 function modifier_A20T_model:IsHidden() 
@@ -409,7 +409,9 @@ function modifier_A20T_model:IsPurgable()
 	return false
 end
 
-
+function modifier_A20T_model:OnCreated( keys )
+	self:GetParent().states_resistance = A20T_states_resistance
+end
 
 
 function A20T_OnSpellStart( event )
@@ -417,6 +419,9 @@ function A20T_OnSpellStart( event )
 	local ability = event.ability
 	local caster = event.caster
 	local duration = ability:GetSpecialValueFor("During")
+	local states_resistance = ability:GetSpecialValueFor("states_resistance")
+	A20T_states_resistance = states_resistance
+	A20_caster = caster
 	--local ifx = ParticleManager:CreateParticle( "particles/c20r_real/c20r.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	--ParticleManager:SetParticleControl( ifx, 0, caster:GetAbsOrigin())
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_A20T_model", {duration=duration})

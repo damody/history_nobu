@@ -475,7 +475,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"regen"	"80 120 170"
+				"regen"	"50 90 130"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"states_resistance"	"60 80 100"
 			}
 		}
 	}
