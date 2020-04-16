@@ -27,6 +27,7 @@ function Shock( keys )
 			return 0.1
 		end
 		end)
+	ability:OnToggle()
 end
 
 

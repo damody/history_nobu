@@ -220,10 +220,10 @@
 				"Passive"	"0"
 				"OnAbilityExecuted"
 				{
-					"RemoveModifier"
+					"RunScript"
 					{
-						"ModifierName"	"modifier_B28E2"
-						"Target" 		"CASTER"
+						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B28.lua"
+						"Function"	"B28E2_OnAbilityExecuted"
 					}
 				}
 			}

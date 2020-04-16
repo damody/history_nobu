@@ -459,7 +459,7 @@ end
 function C07E2_OnAbilityExecuted( keys )
 	-- 開關型技能不能用
 	if keys.event_ability:IsToggle() then return end
-	if keys.event_ability:GetName() == "attribute_bonusx" then return end
+	if keys.event_ability:GetName() == "item_logging" or keys.event_ability:GetName() == "item_tpscroll" then return end
 	local caster = keys.caster
 	caster:RemoveModifierByName("modifier_C07E2")
 end
