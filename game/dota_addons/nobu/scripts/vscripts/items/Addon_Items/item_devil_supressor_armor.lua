@@ -119,6 +119,7 @@ end
 function ShockTarget( keys, target, havetime )
 	local caster = keys.caster
 	local ability = keys.ability
+	if target:IsIllusion() then return end
 	local handle = target:FindModifierByName("modifier_devil_supressor_armor")
 	if handle then
 		ParticleManager:DestroyParticle(handle.shield_effect, false)
