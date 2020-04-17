@@ -11633,7 +11633,11 @@
 			"modifier_satsuma_gun_hint"
 			{
 				"IsHidden"	"0"
-				"Passive"	"1"
+				"Passive"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "300"
+				}
 			}
 			"modifier_satsuma_gun"
 			{
