@@ -156,7 +156,7 @@ function Nobu:OnUnitKill( keys )
         --拿經驗
         AttackerUnit:AddExperience(killedUnit:GetLevel()*20, 0, false, false)
         --殺人與助攻金錢
-        local kill_bounty = 300
+        local kill_bounty = 100
         local extra_bounty = 300
         local bounty = 0
         --額外獎勵 
@@ -190,7 +190,7 @@ function Nobu:OnUnitKill( keys )
           end
         end
         print(extra_bounty + bounty)
-        --殺人固定+300
+        --殺人錢
         AMHC:GivePlayerGold_UnReliable(AttackerUnit:GetPlayerOwnerID(), kill_bounty)
         --額外獎勵
         AMHC:GivePlayerGold_UnReliable(AttackerUnit:GetPlayerOwnerID(), extra_bounty + bounty)
