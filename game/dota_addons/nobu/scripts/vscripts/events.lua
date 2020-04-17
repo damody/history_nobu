@@ -200,13 +200,7 @@ function Nobu:FilterGold( filterTable )
     end
     -- Disable all hero kill gold
     if reason == DOTA_ModifyGold_HeroKill then
-      PrintTable(filterTable)
-      if gold == 50 then
-        return false
-      end
-      filterTable["gold"] = 300
-      print("kill + 300")
-      return true
+      return false
     end
     return true
 end

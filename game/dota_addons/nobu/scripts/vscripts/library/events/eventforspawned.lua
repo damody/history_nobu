@@ -38,6 +38,7 @@ function Nobu:OnHeroIngame( keys )
           hero.damage = 0
           hero.takedamage = 0
           hero.herodamage = 0
+          hero.assist_count = 0
           hero:AddNewModifier(caster,ability,"modifier_record",{})
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
