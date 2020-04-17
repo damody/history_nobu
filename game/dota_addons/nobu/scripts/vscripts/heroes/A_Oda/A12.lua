@@ -449,10 +449,25 @@ function A12D_OnAbilityExecuted( keys )
 			handle:SetStackCount(handle:GetStackCount() + 1)
 		end
 		if handle:GetStackCount() > 4 then
-			caster:FindAbilityByName("A12D")
-			caster.A12D_B = true
-			caster.A12D_Time = 0
-			handle:SetStackCount(0)
+			local is_ability = false
+			for i = 0 , caster:GetAbilityCount() - 1 do
+				if caster:GetAbilityByIndex(i) then
+					if keys.event_ability:GetName() == caster:GetAbilityByIndex(i):GetName() then
+						if caster:GetAbilityByIndex(i):GetName() ~= "A12T" then
+							is_ability = true
+							break
+						end
+					end
+				end
+			end
+			if is_ability then
+				caster:FindAbilityByName("A12D")
+				caster.A12D_B = true
+				caster.A12D_Time = 0
+				handle:SetStackCount(0)
+			else
+				handle:SetStackCount(4)
+			end
 		end
 		caster.A12D_Time = handle:GetStackCount()
 	end

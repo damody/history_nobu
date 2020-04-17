@@ -676,6 +676,8 @@
 		"precache"
 		{
 			"particle"	"particles/a12f/a12f.vpcf"
+			"soundfile"	"sounds/weapons/hero/zuus/arc_lightning.vsnd"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
 		}
 		"OnSpellStart"
 		{
@@ -696,8 +698,8 @@
 			}
 			"FireSound"
 			{
+				"EffectName"	"Hero_Zuus.ArcLightning.Cast"
 				"Target"	"CASTER"
-				"EffectName"	"A12W.vo1"
 			}
 			"RunScript"
 			{

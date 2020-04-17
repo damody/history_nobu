@@ -781,7 +781,8 @@ function Precache( context )
     "soundevents/game_sounds_roshan_halloween.vsndevts",
     --土遁
     "soundevents/game_sounds_heroes/game_sounds_elder_titan.vsndevts",
-    
+    --巨龍
+    "soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts",
     }
     for i,v in ipairs(sound_Precache_Table) do
       PrecacheResource("soundfile", v, context)
