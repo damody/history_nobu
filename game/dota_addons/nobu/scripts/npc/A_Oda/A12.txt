@@ -668,10 +668,10 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"AbilityCastPoint"		"0.2"
-		"AbilityCooldown"	"1.8"
+		"AbilityCastPoint"		"0"
+		"AbilityCooldown"	"1.2"
 		"AbilityCastAnimation"	"ACT_DOTA_ATTACK"
-		"AbilityManaCost"	"100 150 200"
+		"AbilityManaCost"	"50 75 100"
 		"MaxLevel" 				"3"
 		"precache"
 		{
@@ -693,6 +693,11 @@
 				"TargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"HasFrontalCone"	"1"
 				"ProvidesVision"	"0"
+			}
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"A12W.vo1"
 			}
 			"RunScript"
 			{
@@ -748,12 +753,11 @@
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"storm_spirit_overload"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityCastPoint"	"0.1"
-		"AbilityCooldown"	"5"
+		"AbilityCooldown"	"100"
 		"AbilityCastRange"	"2000 2500 3000"
 		"AbilityManaCost"	"50"
 		"precache"
@@ -768,7 +772,7 @@
 				"Function"		"A12T_OnOwnerSpawned"
 			}
 		}
-		"OnToggleOn"
+		"OnSpellStart"
 		{
 			"RunScript"
 			{
@@ -784,61 +788,23 @@
 				}
 				"ModifierName"	"modifier_A12T"
 			}
-			"ApplyModifier"
-			{
-				"Target"
-				{
-				    "Center" "CASTER"
-				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-				}
-				"ModifierName"	"modifier_A12T_locker"
-			}
-		}
-		"OnToggleOff"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A12.lua"
-				"Function"		"A12T_OnToggleOff"
-			}
-			"RemoveModifier"
-			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_A12T"
-			}
 		}
 		"Modifiers"
 		{
-			// 暫時鎖住此技能
-			"modifier_A12T_locker"
+			"modifier_A12T"
 			{
-				"Duration" "%lock"
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A12.lua"
-						"Function"		"A12T_lock"
-					}
-				}
+				"EffectName" "particles/a12t/a12t_aura.vpcf"
+				"EffectAttachType" "follow_origin"
+				"Duration"	"20"
+				"IsBuff"	"1"
+				"IsPurgable"	"0"
 				"OnDestroy"
 				{
 					"RunScript"
 					{
 						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A12.lua"
-						"Function"		"A12T_unlock"
+						"Function"		"A12T_OnToggleOff"
 					}
-				}
-			}
-			"modifier_A12T"
-			{
-				"EffectName" "particles/a12t/a12t_aura.vpcf"
-				"EffectAttachType" "follow_origin"
-				"IsBuff"	"1"
-				"IsPurgable"	"0"
-				"States"
-				{
-					"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
