@@ -113,7 +113,7 @@ _G.heromap = {
   npc_dota_hero_alchemist           = "C21",
   npc_dota_hero_jakiro              = "C22",
   npc_dota_hero_undying             = "C23",
-  npc_dota_hero_batrider            = "C24",
+  npc_dota_hero_weaver            = "C24",
   npc_dota_hero_templar_assassin    = "C25",
 }
 
