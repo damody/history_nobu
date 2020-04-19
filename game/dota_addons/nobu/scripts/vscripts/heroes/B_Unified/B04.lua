@@ -27,7 +27,7 @@ function B04W_Start( keys )
 	    should_stun = 0,
 	}
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_knockback",knockbackProperties)
-	ability:ApplyDataDrivenModifier(caster,caster,"modifier_B04W2",{duration = duration})
+	--ability:ApplyDataDrivenModifier(caster,caster,"modifier_B04W2",{duration = duration})
 	caster:RemoveGesture(ACT_DOTA_FLAIL)
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_B04W_aura",{duration=duration})
 	caster:StartGesture(ACT_DOTA_VERSUS)
@@ -40,7 +40,7 @@ function B04W_Start( keys )
 	Timers:CreateTimer(duration, function()
 		if IsValidEntity(caster) then
 			caster:RemoveGesture(ACT_DOTA_VERSUS)
-			caster:Stop()
+			--caster:Stop()
 		end
 		ParticleManager:DestroyParticle(ifx,false)
 	end)

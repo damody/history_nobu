@@ -260,7 +260,7 @@ function spell_ability ( filterTable )
 			local target = Vector(filterTable.position_x, filterTable.position_y, 0)
 			local forward = target - pos
 			forward.z = 0
-			if forward:Length2D() > 1 then
+			if forward:Length2D() > 1 and not caster:HasModifier("modifier_knockback") then
 				caster:SetForwardVector(forward)
 			end
 		end
@@ -312,7 +312,7 @@ function spell_ability ( filterTable )
 			local target = target:GetAbsOrigin()
 			local forward = target - pos
 			forward.z = 0
-			if forward:Length2D() > 1 then
+			if forward:Length2D() > 1 and not caster:HasModifier("modifier_knockback") then
 				caster:SetForwardVector(forward)
 			end
 		end
@@ -395,7 +395,7 @@ function Nobu:eventfororder( filterTable )
 			local target = Vector(filterTable.position_x, filterTable.position_y, 0)
 			local forward = target - pos
 			forward.z = 0
-			if forward:Length2D() > 1 then
+			if forward:Length2D() > 1 and not caster:HasModifier("modifier_knockback") then
 				caster:SetForwardVector(forward)
 			end
 		end
@@ -410,7 +410,7 @@ function Nobu:eventfororder( filterTable )
 			local target = target:GetAbsOrigin()
 			local forward = target - pos
 			forward.z = 0
-			if forward:Length2D() > 1 then
+			if forward:Length2D() > 1 and not caster:HasModifier("modifier_knockback") then
 				caster:SetForwardVector(forward)
 			end
 		end
@@ -445,7 +445,7 @@ function Nobu:eventfororder( filterTable )
 			end
 			local forward = target - pos
 			forward.z = 0
-			if forward:Length2D() > 1 then
+			if forward:Length2D() > 1 and not caster:HasModifier("modifier_knockback") then
 				caster:SetForwardVector(forward)
 			end
 		end
@@ -476,7 +476,7 @@ function Nobu:eventfororder( filterTable )
 			local target = target:GetAbsOrigin()
 			local forward = target - pos
 			forward.z = 0
-			if forward:Length2D() > 1 then
+			if forward:Length2D() > 1 and not caster:HasModifier("modifier_knockback") then
 				caster:SetForwardVector(forward)
 			end
 		end

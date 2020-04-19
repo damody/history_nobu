@@ -99,7 +99,7 @@
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"dota2/c24_e"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
@@ -107,6 +107,7 @@
 		"AbilityCooldown"	"9"
 		"AbilityManaCost"	"85 110 135 160"
 		"AbilityCastRange"	"500 600 700 800"
+		"AOERadius"	"300"
 
 		"OnSpellStart"
 		{
