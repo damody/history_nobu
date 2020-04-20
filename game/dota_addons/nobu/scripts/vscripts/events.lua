@@ -206,12 +206,34 @@ function Nobu:FilterGold( filterTable )
 end
 
 courier_modifier_ban ={
-  "name_const: modifier_courier_morph_effect",
+  "modifier_courier_morph_effect",
   "modifier_courier_flying",
   "modifier_courier_passive_bonus",
   "modifier_fountain_aura_buff",
 }
 
+ultimate_modifiers = {
+  "modifier_freezing_field_debuff_datadriven",
+  "modifier_A11T_slow1",
+  "modifier_A11T_slow2",
+  "modifier_A11T_slow3",
+  "modifier_A12F",
+  "modifier_A13T_Blind",
+  "modifier_B05T_stunned1",
+  "modifier_B05T_stunned2",
+  "modifier_B09T",
+  "modifier_B28T_arc_lightning_datadriven",
+  "modifier_B29T",
+  "modifier_spawn_spiderlings_datadriven",
+  "modifier_C01T",
+  "modifier_C07T_2",
+  "modifier_C08T_bleeding",
+  "modifier_in_belly",
+  "modifier_C09T_debuff",
+  "modifier_C10T",
+  "modifier_C11T_stun",
+  "modifier_C15T_2",
+}
 
 function DumpTable( tTable )
 	local inspect = require('inspect')
@@ -256,6 +278,13 @@ function Nobu:ModifierGainedFilter( filterTable )
   if modifier_name == "modifier_truesight" then
     return true
   end
+  
+  for _,v in pairs(ultimate_modifiers) do
+    if modifier_name == v then
+      return true
+    end
+  end
+
   if target:IsHero() and target.states_resistance ~= nil and caster:GetTeamNumber() ~= target:GetTeamNumber() then
     filterTable.duration = filterTable.duration * (1 - target.states_resistance*0.01)
   end

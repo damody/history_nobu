@@ -782,6 +782,30 @@
 					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_B05T_stunned1"
+			{
+				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"IsDebuff"	"1"
+				"OverrideAnimation"	"ACT_DOTA_DISABLED"
+				"Duration"	"%duration"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_B05T_stunned2"
+			{
+				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"IsDebuff"	"1"
+				"OverrideAnimation"	"ACT_DOTA_DISABLED"
+				"Duration"	"%duration2"
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 		"OnAbilityPhaseStart"
 		{
@@ -854,6 +878,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"radius"	"800"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration2"	"2.5 3 3.5"
 			}
 		}
 		"AbilityDamage"	"900 1100 1300"
