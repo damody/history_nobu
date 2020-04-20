@@ -115,6 +115,7 @@
 		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"						"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_NONE"
 
 		"AbilityCastPoint"          				"0.25"
@@ -216,10 +217,6 @@
 	{
 		"BaseClass"                 				"ability_datadriven"
 		"AbilityBehavior"           				"DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"AbilityUnitTargetType"     				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetTeam"     				"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetFlags"    				"DOTA_UNIT_TARGET_FLAG_NONE"
-		
 		"AbilityCooldown"           				"0"
 		"AbilityManaCost"           				"0"
 		"AbilityTextureName"                         "custom/B09/B09R"
