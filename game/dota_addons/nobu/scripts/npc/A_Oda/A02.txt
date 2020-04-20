@@ -166,7 +166,6 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastPoint"	"0.1"
 		"AbilityCooldown"				"15 14 13 12"
 		"AbilityManaCost"				"130 150 170 190"
@@ -322,7 +321,6 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCooldown"				"140 130 120"
 		"AbilityManaCost"				"200 225 250"
 
