@@ -373,7 +373,7 @@ function B25T_start( keys )
 		AddFOWViewer(DOTA_TEAM_BADGUYS, target, 1000, interval+0.1, false)
 		local units = FindUnitsInRadius(
 				caster:GetTeamNumber(), target, caster, radius, targetTeam,
-				targetType, targetFlag, FIND_ANY_ORDER, false
+				targetType, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false
 			)
 		if #units > 0 then
 			for k, v in pairs( units ) do
@@ -404,7 +404,9 @@ function B25T_start( keys )
 						v:RemoveModifierByName("modifier_fiends_grip_caster_datadriven")
 					end
 				end
-				ApplyDamage( damageTable )
+				if not v:IsMagicImmune() then
+					ApplyDamage( damageTable )
+				end
 			end
 		end
 
