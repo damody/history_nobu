@@ -27,7 +27,11 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/A13D"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"	"6"
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"HotKeyOverride"	"D"
@@ -146,7 +150,7 @@
 		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_NONE"
 		"AbilityType"  								"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
-		
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityCastPoint"          				"0.15"
 		"AbilityCastRange"							"800"
 		"AbilityCooldown"                           "26"
@@ -232,6 +236,7 @@
 		"AbilityUnitTargetTeam"                		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityType"  								"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"    					"custom/A15/A15E"
 
 		"AbilityCooldown"							"16 14 12 10"
@@ -303,6 +308,7 @@
 		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
 		"AbilityType"  								"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"                        "custom/A15/A15R"
 
 		"OnProjectileHitUnit"
@@ -381,11 +387,7 @@
 	{
 		"BaseClass"                 				"ability_datadriven"
 		"AbilityBehavior"           				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		//"AbilityUnitTargetType"     				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		//"AbilityUnitTargetTeam"     				"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		//"AbilityUnitTargetFlags"    				"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityType"  								"DOTA_ABILITY_TYPE_ULTIMATE"
-		//"AbilityUnitDamageType"						"DAMAGE_TYPE_PURE"
 		"AbilityTextureName"                        "custom/A15/A15T"
 		
 		"AbilityCooldown"           				"60"
