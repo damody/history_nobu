@@ -441,6 +441,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"A11T_maxTarget"	"3 4 5"
 			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"A11T_heal_constant"	"0.8 1.0 1.2"
+			}
 		}
 	}
 

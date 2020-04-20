@@ -113,6 +113,8 @@ function A11T_OnSpellStart( keys )
 	local ability = keys.ability
 	local radius = ability:GetSpecialValueFor("A11T_radius")
 	local duration = ability:GetSpecialValueFor("A11T_duration")
+	local heal = ability:GetSpecialValueFor("A11T_hpBonus")
+	caster:Heal( heal , caster)
 	local spell_hint_table = {
 		duration   = duration,		-- 持續時間
 		radius     = radius,		-- 半徑
@@ -128,7 +130,8 @@ function A11T( keys )
 	local radius = ability:GetSpecialValueFor("A11T_radius")
 	local A11T_damage = caster:GetIntellect()
 	local maxTarget = ability:GetSpecialValueFor("A11T_maxTarget")
-	caster:Heal( A11T_damage * 0.75, caster)
+	local heal_constant = ability:GetSpecialValueFor("A11T_heal_constant")
+	caster:Heal( A11T_damage * heal_constant, caster)
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetOrigin(), nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
 	for i,unit in ipairs(units) do
 		damageTable = {
