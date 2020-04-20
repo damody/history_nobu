@@ -31,7 +31,7 @@
 		"AbilityUnitTargetType"						"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_NONE"
-
+		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityCastPoint"          				"0.25"
 		"AbilityCastRange"							"800"
 		"AbilityCooldown"                           "9"
@@ -81,6 +81,7 @@
 		"AbilityUnitTargetTeam"                		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityType"  								"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"    					"custom/A11/A11E"
 
 		"AbilityCooldown"							"22 18 14 10"
@@ -201,8 +202,8 @@
 		"AbilityUnitTargetTeam"                		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityType"  								"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityUnitDamageType"               		"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"                        "custom/A11/A11R"
-
 		"AbilityCastRange"              			"%A11R_radius"
 
 		"OnUpgrade"
@@ -290,6 +291,7 @@
 		"AbilityUnitTargetFlags"    				"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityType"  								"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"						"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"                        "custom/A11/A11T"
 		
 		"AbilityCooldown"           				"100"
