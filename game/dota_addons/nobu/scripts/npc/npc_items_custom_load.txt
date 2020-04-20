@@ -12632,6 +12632,7 @@
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"500"
 
+		"AbilitySharedCooldown" "item_frozen_staff"
 		"ID"	"2514"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
