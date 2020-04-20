@@ -1514,6 +1514,10 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"		"550"
 				}
+				"States"
+				{
+					"MODIFIER_STATE_MUTED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
 		}
 	}
