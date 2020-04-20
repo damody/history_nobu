@@ -17,7 +17,6 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/cps_d01_1 (Copy)"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityCooldown"	"22"
 		"AbilityManaCost"	"100"
 		"AbilityCastRange"		"900 1050 1200 1400"
@@ -222,6 +221,12 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/cps_d01_3 (Copy)"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
 		"Modifiers"
 		{
 			"modifier_B01R"
