@@ -35,10 +35,12 @@ function C24E_OnSpellStart( keys )
 	    duration = duration,
 	    knockback_duration = duration,
 	    knockback_distance = distance,
-	    knockback_height = 0,
+	    knockback_height = 100,
 	    should_stun = 0,
 	}
-	ability:ApplyDataDrivenModifier(caster,caster,"modifier_knockback",knockbackProperties)
+	caster:AddNewModifier( caster, nil, "modifier_knockback", knockbackProperties )
+	--ability:ApplyDataDrivenModifier(caster,caster,"modifier_C24E2",{duration = duration})
+	
 	caster:RemoveGesture(ACT_DOTA_FLAIL)
 	--caster:SetAbsOrigin(point)
 	caster:AddNewModifier(caster,ability,"modifier_phased",{duration=duration+0.1})
