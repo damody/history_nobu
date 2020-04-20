@@ -50,6 +50,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"                           "16 14 12 10"
 		"AbilityUnitDamageType"                     "DAMAGE_TYPE_MAGICAL" 
+		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"                           "120 140 160 180"
 		"AnimationPlaybackRate"						"3"
@@ -120,6 +121,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"                           "16"
 		"AbilityUnitDamageType"                     "DAMAGE_TYPE_MAGICAL" 
+		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"                           "120"
 		"AbilityDamage"								"180 280 380 480"
@@ -173,8 +175,6 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"  "custom/A14/A14R"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
 		"HotKeyOverride"	"R"
 		"Modifiers"
 		{
@@ -241,9 +241,6 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/A14/A14T"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"	"2"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
 		"HotKeyOverride"	"T"
