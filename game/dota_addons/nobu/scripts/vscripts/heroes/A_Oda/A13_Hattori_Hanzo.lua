@@ -150,7 +150,7 @@ function A13W( event )
 	local origin_pos = caster:GetOrigin()
 
 	local am = caster:FindAllModifiers()
-
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_invulnerable",{duration = 0.1})
 	for _,v in pairs(am) do
 		if v:GetParent():GetTeamNumber() ~= caster:GetTeamNumber() or v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber() then
 			caster:RemoveModifierByName(v:GetName())
