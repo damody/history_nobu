@@ -226,6 +226,8 @@ ultimate_modifiers = {
   "modifier_B29T",
   "modifier_spawn_spiderlings_datadriven",
   "modifier_C01T",
+  "modifier_C04T",
+  "modifier_C04T2",
   "modifier_C07T_2",
   "modifier_C08T_bleeding",
   "modifier_in_belly",
