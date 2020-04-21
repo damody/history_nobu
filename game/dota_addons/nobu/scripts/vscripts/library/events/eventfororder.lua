@@ -391,6 +391,9 @@ function Nobu:eventfororder( filterTable )
 			if caster:HasModifier("modifier_knockback") then
 				return true
 			end
+			if caster:IsStunned() then 
+				return true
+			end
 			local pos = caster:GetAbsOrigin()
 			local target = Vector(filterTable.position_x, filterTable.position_y, 0)
 			local forward = target - pos
@@ -404,6 +407,9 @@ function Nobu:eventfororder( filterTable )
 			local caster = EntIndexToHScript(filterTable.units["0"])
 			local target = EntIndexToHScript(filterTable.entindex_target)
 			if caster:HasModifier("modifier_knockback") then
+				return true
+			end
+			if caster:IsStunned() then 
 				return true
 			end
 			local pos = caster:GetAbsOrigin()
@@ -433,6 +439,9 @@ function Nobu:eventfororder( filterTable )
 		if filterTable.units and filterTable.units["0"] then
 			local caster = EntIndexToHScript(filterTable.units["0"])
 			if caster:HasModifier("modifier_knockback") then
+				return true
+			end
+			if caster:IsStunned() then 
 				return true
 			end
 			local pos = caster:GetAbsOrigin()
@@ -470,6 +479,9 @@ function Nobu:eventfororder( filterTable )
 			local caster = EntIndexToHScript(filterTable.units["0"])
 			local target = EntIndexToHScript(filterTable.entindex_target)
 			if caster:HasModifier("modifier_knockback") then
+				return true
+			end
+			if caster:IsStunned() then 
 				return true
 			end
 			local pos = caster:GetAbsOrigin()
