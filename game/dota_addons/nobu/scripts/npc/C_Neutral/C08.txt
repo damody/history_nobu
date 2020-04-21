@@ -436,6 +436,7 @@
 			}
 			"modifier_in_belly"
 			{
+				"IsHidden"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_BLIND" "MODIFIER_STATE_VALUE_ENABLED"

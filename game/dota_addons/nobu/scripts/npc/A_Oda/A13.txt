@@ -329,6 +329,15 @@
 				"EffectAttachType"	"follow_origin"
 				"IsHidden"	"0"
 			}
+			"modifier_invulnerable"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 		"AbilitySpecial"
 		{

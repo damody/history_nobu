@@ -132,6 +132,7 @@
 			"modifier_C04E_locker"
 			{
 				"Duration" "1"
+				"IsHidden"	"1"
 				"OnCreated"
 				{
 					"RunScript"

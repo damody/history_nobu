@@ -147,6 +147,7 @@
 			"modifier_a07w_borrowed_time"
 			{
 				"IsBuff"	"1"
+				"IsHidden"	"1"
 				"EffectName"	"particles/a07w3/a07w3.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"

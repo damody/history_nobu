@@ -332,7 +332,7 @@
 			"modifier_B11T_Crit"
             {
             	"Passive" "1"
-            	"IsHidden"	"0"
+            	"IsHidden"	"1"
             	"OnAttackStart"
             	{
 					"RunScript"

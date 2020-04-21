@@ -101,6 +101,28 @@ function B06R_Learn_Ability( keys )
 	end
 end
 
+function B06R_OnIntervalThink( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	if not caster:HasModifier("modifier_B06R_miss") then
+		ability:ApplyDataDrivenModifier(caster,caster,"modifier_B06R_miss",nil)
+	else
+		local nc = caster:FindModifierByName("modifier_B06R_miss")
+		if nc:GetStackCount() < 1 then
+			caster:RemoveModifierByName("modifier_B06R_miss")
+			ability:ApplyDataDrivenModifier(caster,caster,"modifier_B06R_miss",nil)
+			nc = caster:FindModifierByName("modifier_B06R_miss")
+			nc:SetStackCount(1)
+		end
+	end
+end
+
+function B06R_OnOnCreated( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local nc = caster:FindModifierByName("modifier_B06R_miss")
+	nc:SetStackCount(1)
+end
 
 function B06R_TimeUP( keys )
 	local level  = keys.ability:GetLevel()--獲取技能等級

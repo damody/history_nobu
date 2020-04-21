@@ -260,7 +260,6 @@ function A12F_finish( keys )
 end
 
 function A12F( keys )
-	PrintTable(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability

@@ -457,7 +457,7 @@
 			"modifier_small_bomb"
 			{
 				"Passive"	"1"
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"OnAttackLanded"
 				{
 					"RunScript"
