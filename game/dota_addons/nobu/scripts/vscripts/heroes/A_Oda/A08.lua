@@ -59,10 +59,12 @@ function modifier_A08T2:GetModifierIncomingDamage_Percentage( keys )
 	a = a:Normalized()
 	b = self.caster:GetForwardVector()
 	local angle = math.acos(dot(a,b) / (a:Length() * b:Length()))
-	if math.deg(angle) < 90 then
-		return self.incoming_damage_percentage
+	local enemies = FindUnitsInRadius( self.caster:GetTeamNumber(), self.caster:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
+	local enemies_reduce = #enemies * 3 * -1 * 2
+	if math.deg(angle) > 90 then
+		return enemies_reduce
 	end
-	return 0
+	return self.incoming_damage_percentage + enemies_reduce
 end
 
 function dot(a,b)
@@ -83,10 +85,12 @@ function modifier_A08T:GetModifierIncomingDamage_Percentage( keys )
 	a = a:Normalized()
 	b = self.caster:GetForwardVector()
 	local angle = math.acos(dot(a,b) / (a:Length() * b:Length()))
-	if math.deg(angle) < 90 then
-		return self.incoming_damage_percentage
+	local enemies = FindUnitsInRadius( self.caster:GetTeamNumber(), self.caster:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
+	local enemies_reduce = #enemies * 3 * -1
+	if math.deg(angle) > 90 then
+		return enemies_reduce
 	end
-	return 0
+	return self.incoming_damage_percentage + enemies_reduce
 end
 
 function A08T_OnUpgrade( keys )
