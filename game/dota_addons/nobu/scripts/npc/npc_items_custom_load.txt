@@ -2870,6 +2870,33 @@
 		}
 		"Modifiers"
 		{
+			"item_the_great_sword_of_precision_critical_strike_crit"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"	"220"
+				}
+				"OnAttackLanded"
+				{							
+					"FireSound"
+					{
+						"EffectName"	"Hero_SkeletonKing.CriticalStrike"
+						"Target"	"CASTER"
+					}
+					"FireEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+						"Target"	"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"item_the_great_sword_of_precision_critical_strike_crit"
+						"Target"	"CASTER"
+					}
+				}
+			}
 			"Passive_the_great_sword_of_precision"
 			{
 				"IsHidden"	"1"
@@ -2887,7 +2914,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 				}
-				"OnAttackStart"
+				"OnAttackLanded"
 				{
 					"RunScript"
 					{
@@ -3898,12 +3925,39 @@
 		
 		"Modifiers"
 		{
+			"item_big_tachi_critical_strike_crit"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"	"185"
+				}
+				"OnAttackLanded"
+				{							
+					"FireSound"
+					{
+						"EffectName"	"Hero_SkeletonKing.CriticalStrike"
+						"Target"	"CASTER"
+					}
+					"FireEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+						"Target"	"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"item_big_tachi_critical_strike_crit"
+						"Target"	"CASTER"
+					}
+				}
+			}
 			"Passive_big_tachi"
 			{
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Passive"	"1"
-				"OnAttackStart"
+				"OnAttackLanded"
 				{
 					"RunScript"
 					{
@@ -8578,6 +8632,33 @@
 		}
 		"Modifiers"
 		{
+			"item_kousetsusamonnji_critical_strike_crit"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"	"220"
+				}
+				"OnAttackLanded"
+				{							
+					"FireSound"
+					{
+						"EffectName"	"Hero_SkeletonKing.CriticalStrike"
+						"Target"	"CASTER"
+					}
+					"FireEffect"
+					{
+						"EffectName"	"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+						"Target"	"TARGET"
+					}
+					"RemoveModifier"
+					{
+						"ModifierName"	"item_kousetsusamonnji_critical_strike_crit"
+						"Target"	"CASTER"
+					}
+				}
+			}
 			"modifier_fire_attack"
 			{
 				"Properties"
@@ -8594,7 +8675,7 @@
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Passive"	"1"
-				"OnAttackStart"
+				"OnAttackLanded"
 				{
 					"RunScript"
 					{

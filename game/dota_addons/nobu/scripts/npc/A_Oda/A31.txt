@@ -404,7 +404,6 @@
 				"Properties"
 				{
 					// "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100" //攻速
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "-50"
 				}
 			}
 		}

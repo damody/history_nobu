@@ -535,23 +535,23 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
-				"OnAttackStart"
+				"OnAttackLanded"
 				{
 					"RemoveModifier"
 					{
 						"ModifierName"	"modifier_A13R_critical_strike_crit"
 						"Target"	"CASTER"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A13_Hattori_Hanzo.lua"
+						"Function"	"A13R_test"
+					}
 					"Random"
 					{
 						"Chance"	"%crit_chance"
 						"OnSuccess"
 						{
-							"FireSound"
-							{
-								"EffectName"	"Hero_SkeletonKing.CriticalStrike"
-								"Target"	"CASTER"
-							}
 							"FireEffect"
 							{
 								"EffectName"	"particles/units/heroes/hero_juggernaut/jugg_attack_blur.vpcf"
@@ -577,7 +577,12 @@
 					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"	"300"
 				}
 				"OnAttackLanded"
-				{
+				{							
+					"FireSound"
+					{
+						"EffectName"	"Hero_SkeletonKing.CriticalStrike"
+						"Target"	"CASTER"
+					}
 					"FireEffect"
 					{
 						"EffectName"	"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"

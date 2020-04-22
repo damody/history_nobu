@@ -295,8 +295,7 @@ function A31T( keys )
 			if not(unit:GetTeamNumber() == caster:GetTeamNumber()) then
 				--PerformAttack(handle hTarget, bool bUseCastAttackOrb, bool bProcessProcs, bool bSkipCooldown, bool bIgnoreInvis, bool bUseProjectile, bool bFakeAttack, bool bNeverMiss)
 				caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,2)
-				caster:PerformAttack(unit, true, false, true, false, true, false, false)
-				caster:PerformAttack(unit, true, true, false, false, false, true, false)
+				caster:PerformAttack(unit, true, true, true, true, true, false, true)
 			end
 		end
 		return attakc_time

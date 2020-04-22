@@ -37,23 +37,23 @@ function Shock( keys )
 	end
 	if (caster.great_sword_of_precision_count >= 4 or ran <= 25) then
 		caster.great_sword_of_precision_count = 0
-		StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
-		local rate = caster:GetAttackSpeed()
-		caster:AddNewModifier(caster, skill, "great_sword_of_precision", { duration = 0.1 } )
+		-- StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+		-- local rate = caster:GetAttackSpeed()
+		skill:ApplyDataDrivenModifier(caster, caster, "item_the_great_sword_of_precision_critical_strike_crit", { } )
 		--SE
 		-- local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf", PATTACH_POINT, keys.target)
 		-- ParticleManager:SetParticleControlEnt(particle, 0, keys.target, PATTACH_POINT, "attach_hitloc", Vector(0,0,0), true)
 		--動作
-		local rate = caster:GetAttackSpeed()
+		-- local rate = caster:GetAttackSpeed()
 		--print(tostring(rate))
 
 		--播放動畫
 	    --caster:StartGesture( ACT_SLAM_TRIPMINE_ATTACH )
-		if rate < 1 then
-		    caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,1)
-		else
-		    caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,rate)
-		end
+		-- if rate < 1 then
+		--     caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,1)
+		-- else
+		--     caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,rate)
+		-- end
 
 	end
 
