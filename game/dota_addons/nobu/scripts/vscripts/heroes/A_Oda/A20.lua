@@ -244,7 +244,7 @@ function modifier_A20R_OnAttackLanded( event )
 				end
 			)
 		end
-		Timers:CreateTimer(0.3, function ()
+		Timers:CreateTimer(0.5, function ()
 			caster.a20r_lock=nil
 			return nil
    		end)
