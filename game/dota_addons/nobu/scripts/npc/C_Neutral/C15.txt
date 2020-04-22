@@ -364,7 +364,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_B11R_trigger"
+			"modifier_C15T_trigger"
 			{
 				"Passive" 			"1"
 				"IsDebuff"			"0"

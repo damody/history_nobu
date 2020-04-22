@@ -192,7 +192,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_C14W"
+			"modifier_C14R"
 			{
 				"Passive" 			"1"
 				"IsPurgable"		"0"
@@ -250,6 +250,7 @@
 				"EffectName" 						"particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf"
 				"IsDebuff"							"1"
 				"IsPurgable"						"0"
+				"IsHidden"	"1"
 			}
 			"modifier_C14T"
 			{

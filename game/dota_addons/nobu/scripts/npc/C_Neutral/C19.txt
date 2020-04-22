@@ -44,12 +44,12 @@
 			"ApplyModifier"
 			{
 				"Target"	"TARGET"
-				"ModifierName"	"modifier_C15W"
+				"ModifierName"	"modifier_C19W"
 			}
 			"ApplyModifier"
 			{
 				"Target"	"TARGET"
-				"ModifierName"	"modifier_C15W_2"
+				"ModifierName"	"modifier_C19W_2"
 			}
 			"RunScript"
 			{
@@ -60,7 +60,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_C15W"
+			"modifier_C19W"
 			{
 				"Duration"	"1.5"
 				"IsDebuff"	"1"
@@ -81,7 +81,7 @@
 					}
 				}
 			}
-			"modifier_C15W_2"
+			"modifier_C19W_2"
 			{
 				"IsHidden"	"1"
 				"Duration"	"%KeepTime"
@@ -545,7 +545,7 @@
 			}
 			"modifier_ninja_cloth"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"Passive"	"1"
 				//"Priority" "MODIFIER_PRIORITY_ULTRA"
 				"Properties"

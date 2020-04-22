@@ -158,7 +158,7 @@
 			}
 			"modifier_C24E2"
 			{
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"States"
 				{
 					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"

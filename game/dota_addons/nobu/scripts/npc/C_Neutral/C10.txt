@@ -419,7 +419,7 @@
 				"Passive"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%speed" //攻速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%speed" //跑速
 				}
 			}
 			"modifier_C10T_x"
