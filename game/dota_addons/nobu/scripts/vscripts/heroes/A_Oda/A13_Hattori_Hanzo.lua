@@ -49,6 +49,55 @@ function A13R_Levelup( keys )
 	end
 end
 
+function A13R_OnAttackLanded( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
+	if not target:IsBuilding() then
+		if (caster.A13R == nil) then
+			caster.A13R = 0
+		end
+		caster.A13R = caster.A13R + 1
+		local trigger = 3
+		if caster.A13R >= trigger then
+			caster.A13R = 0
+			local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
+							target:GetAbsOrigin(),
+							nil,
+							225,
+							DOTA_UNIT_TARGET_TEAM_ENEMY,
+							DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+							DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+							FIND_ANY_ORDER,
+							false)
+			local dmg = ability:GetSpecialValueFor("damage")
+			if not target:IsMagicImmune() then
+				AMHC:Damage(caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+				local stack = 1
+				if target:HasModifier("modifier_A13R_debuff") then
+					stack = target:FindModifierByName("modifier_A13R_debuff"):GetStackCount() + 1
+				end
+				if stack > 3 then
+					stack = 3
+				end
+				ability:ApplyDataDrivenModifier(caster,target,"modifier_A13R_debuff",{duration = 5})
+				if target:FindModifierByName("modifier_A13R_debuff") then
+					target:FindModifierByName("modifier_A13R_debuff"):SetStackCount(stack)
+				end
+			end
+			for _,it in pairs(direUnits) do
+				if it ~= target and not it:IsMagicImmune() then
+					AMHC:Damage(caster,it,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+				end
+			end
+			local particle = ParticleManager:CreateParticle("particles/econ/items/invoker/glorious_inspiration/invoker_forge_spirit_death_esl_explode.vpcf", PATTACH_ABSORIGIN, target)
+			Timers:CreateTimer(3, function ()
+				ParticleManager:DestroyParticle(particle, true)
+			end)
+		end
+	end
+end
+
 function A13D( keys )
 	local caster = keys.caster
 	local ability = keys.ability

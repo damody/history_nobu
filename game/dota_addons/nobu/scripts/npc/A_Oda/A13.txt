@@ -531,71 +531,6 @@
 		}
 		"Modifiers"
 		{
-			"modifier_A13R_critical_strike"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"OnAttackLanded"
-				{
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_A13R_critical_strike_crit"
-						"Target"	"CASTER"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A13_Hattori_Hanzo.lua"
-						"Function"	"A13R_test"
-					}
-					"Random"
-					{
-						"Chance"	"%crit_chance"
-						"OnSuccess"
-						{
-							"FireEffect"
-							{
-								"EffectName"	"particles/units/heroes/hero_juggernaut/jugg_attack_blur.vpcf"
-								"EffectAttachType"	"attach_sword"
-								"Target"	"CASTER"
-								"ControlPoints"	{}
-								"ControlPointEntities"	{}
-							}
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_A13R_critical_strike_crit"
-								"Target"	"CASTER"
-							}
-						}
-					}
-				}
-			}
-			"modifier_A13R_critical_strike_crit"
-			{
-				"IsHidden"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"	"300"
-				}
-				"OnAttackLanded"
-				{							
-					"FireSound"
-					{
-						"EffectName"	"Hero_SkeletonKing.CriticalStrike"
-						"Target"	"CASTER"
-					}
-					"FireEffect"
-					{
-						"EffectName"	"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
-						"EffectAttachType"	"attach_hitloc"
-						"Target"	"TARGET"
-					}
-					"RemoveModifier"
-					{
-						"ModifierName"	"modifier_A13R_critical_strike_crit"
-						"Target"	"CASTER"
-					}
-				}
-			}
 			"modifier_A13R"
 			{
 				"IsBuff"	"0"
@@ -605,6 +540,22 @@
 				}
 				"Passive"	"1"
 				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A13_Hattori_Hanzo.lua"
+						"Function"	"A13R_OnAttackLanded"
+					}
+				}
+			}
+			"modifier_A13R_debuff"
+			{
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"10"
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -612,7 +563,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"crit_chance"	"10 14 18 22"
+				"damage"	"75 100 125 150"
 			}
 		}
 	}
