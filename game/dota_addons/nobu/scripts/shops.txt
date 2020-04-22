@@ -23,6 +23,7 @@
 	"item"      "item_pleated_skirt"			//褶裙
 	"item"		"item_the_club_of_nebula"			//星杵
 	"item"      "item_lightning_scroll"			//雷之卷
+	"item"      "item_flame_armor"			//鱗片甲
 	"item"      "item_regeneration_ingot"			//再生鋼
 	"item"      "item_spirit_ingot"			//回魔鋼
 	"item"      "item_health_ingot"			//生命鋼
@@ -39,6 +40,7 @@
 	"item"      "item_magic_ring"	//法術戒指
 	"item"      "item_katana"			//打刀
 	"item"      "item_tachi"			//太刀
+	"item"      "item_staff"			//杵杖
 	"item"		"item_ninja1"		//忍者
 	"item"		"item_the_red_lightning_chapter"		//赤雷
 	"item"		"item_gorgeous_tachi"		//陣太刀
