@@ -603,7 +603,9 @@ function Precache( context )
     "particles/07t/c07t.vpcf",
     "particles/07t/c07t_zc.vpcf",
     "particles/b05e/b05e.vpcf",
-
+    --服部
+    "particles/econ/items/invoker/glorious_inspiration/invoker_forge_spirit_death_esl_explode.vpcf",
+    
     --光秀
     "particles/c09/c09w_hide.vpcf",
     --阿市
