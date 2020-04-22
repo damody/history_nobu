@@ -137,7 +137,7 @@
 		"AbilityCastPoint"          				"0.25"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"9"
+		"AbilityCooldown"	"7"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"125 145 165 185"
@@ -493,6 +493,11 @@
 				"var_type"	"FIELD_FLOAT"
 				"cd_reduce"	"2"
 			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"mana_bonus"	"300 400 500"
+			}
 		}
 		"Modifiers"
 		{
@@ -529,6 +534,10 @@
 			{
 				"Passive"	"1"
 				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_BONUS"	"%mana_bonus"
+				}
 			}
 		}
 	}
