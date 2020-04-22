@@ -200,6 +200,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%atk_bonus"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_bonus"
 				}
 			}
 		}
@@ -211,7 +212,11 @@
 				"var_type"					"FIELD_INTEGER"
 				"atk_bonus"					"7 14 21 28"
 			}
-
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"armor_bonus"				"3 5 7 9"
+			}
 		}
 	}
 
@@ -259,7 +264,6 @@
 				//"Target"            "CASTER"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"8"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%speed_bonus"
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"472"
 				}
