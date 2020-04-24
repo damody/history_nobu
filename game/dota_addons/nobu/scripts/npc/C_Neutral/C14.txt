@@ -264,7 +264,6 @@
 				//"Target"            "CASTER"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"8"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%speed_bonus"
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"472"
 				}
