@@ -14202,6 +14202,14 @@
 				"Function"		"OnEquip"
 			}
 		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_insight_gem.lua"
+				"Function"		"Death"
+			}
+		}
 		"Modifiers"
 		{
 			"Passive_insight_gem"
