@@ -802,7 +802,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"movespeed_slow"	"-30"
+				"movespeed_slow"	"-40"
 			}
 			"05"
 			{

@@ -698,7 +698,8 @@ function A13T ( keys )
 				return nil
 			end
 			units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
-			for _,unit in ipairs(units) do
+			local n = RandomInt(1, #units)
+			for i,unit in ipairs(units) do
 				local distance = (caster:GetAbsOrigin() - point):Length()
 				if distance < radius then
 					ability:ApplyDataDrivenModifier(caster,caster,"modifier_A13T_invisible",{duration = 0.5})
@@ -716,12 +717,15 @@ function A13T ( keys )
 						victim = unit,
 						attacker = caster,
 						ability = ability,
-						damage = damage,
+						damage = caster:GetAverageTrueAttackDamage(unit),
 						damage_type = ability:GetAbilityDamageType(),
 						damage_flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 					}
-					caster:PerformAttack(unit, true, true, true, true, true, false, true)
-					ApplyDamage(damageTable)
+					if i == n then
+						caster:PerformAttack(unit, true, true, true, true, true, true, true)
+					else
+						ApplyDamage(damageTable)
+					end
 					ability:ApplyDataDrivenModifier(caster,unit,"modifier_A13T_Blind", {duration = 0.5})
 				end
 			end

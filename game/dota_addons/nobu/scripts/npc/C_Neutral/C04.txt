@@ -201,7 +201,7 @@
 			"01"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"dmghp"		"0.03 0.04 0.05 0.06"
+				"dmghp"		"0.01 0.02 0.03 0.04"
 			}
 			"02"
 			{
@@ -211,7 +211,7 @@
 			"03"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"damage"	"40 50 60 70"
+				"damage"	"20 30 40 50"
 			}
 		}
 	}

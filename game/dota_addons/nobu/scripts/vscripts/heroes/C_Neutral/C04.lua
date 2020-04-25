@@ -20,8 +20,8 @@ function C04E_OnIntervalThink( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local dmghp = ability:GetSpecialValueFor("dmghp") + (caster:GetIntellect()/50*0.01)
-	local damage = ability:GetSpecialValueFor("damage")
-	print(damage)
+	local odamage = ability:GetSpecialValueFor("damage")
+	
 	local mana = ability:GetSpecialValueFor("mana")
 	if caster:GetMana() < mana then
 		ability:ToggleAbility()
@@ -40,7 +40,10 @@ function C04E_OnIntervalThink( keys )
 
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
-		damage = damage+unit:GetMaxHealth()*dmghp
+		damage = odamage+unit:GetMaxHealth()*dmghp
+		if #units == 1 then
+			damage = damage * 1.25
+		end
 		if not unit:IsHero() and damage > 600 then
 			damage = 600
 		end

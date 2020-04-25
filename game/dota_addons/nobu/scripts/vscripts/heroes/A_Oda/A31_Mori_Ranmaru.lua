@@ -247,6 +247,25 @@ function A31T_Levelup( keys )
 	keys.caster:CalculateStatBonus()
 end
 
+-- Apply the auto attack damage to the hit unit
+function A31T_SplitShotDamage( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local damage_modifier = ability:GetSpecialValueFor("damage_modifier")
+
+	local damage_table = {}
+
+	damage_table.attacker = caster
+	damage_table.victim = target
+	damage_table.damage_type = ability:GetAbilityDamageType()
+	damage_table.damage = caster:GetAverageTrueAttackDamage(target) * damage_modifier
+	if _G.EXCLUDE_TARGET_NAME2[target:GetUnitName()] then
+		damage_table.damage = damage_table.damage * 0.5
+	end
+	ApplyDamage(damage_table)
+end
+
 function A31T( keys )
 	local caster = keys.caster
 	local ability = keys.ability

@@ -122,7 +122,7 @@
 		"AbilityCastPoint"	"0.0"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"20 18 16 14"
+		"AbilityCooldown"	"20 14 10 7"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"80 100 120 140"
@@ -413,13 +413,8 @@
 		{
 			"01"
 			{
-				"var_type"	"FIELD_INTEGER"
-				"damage_modifier"	"-25 -20 -15"
-			}
-			"02"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"damage_modifier_tooltip"	"80"
+				"var_type"	"FIELD_FLOAT"
+				"damage_modifier"	"0.6 0.7 0.8"
 			}
 			"03"
 			{
