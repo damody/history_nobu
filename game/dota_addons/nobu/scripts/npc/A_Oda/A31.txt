@@ -400,6 +400,7 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"IsDebuff"	"0"
+				"Duration"	"5"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%damage_modifier" 	//攻擊百分比
