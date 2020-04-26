@@ -156,7 +156,7 @@ function ShuaGuai( )
   		return _G.minions
 	 end)
 	 -- 出弓箭手
-	 Timers:CreateTimer(start_time+3, function()--50
+	 Timers:CreateTimer(start_time+2, function()--50
 		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,2,1)
 		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,2,2) 
 		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,2,3)
