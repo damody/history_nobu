@@ -60,32 +60,22 @@ function B29E_OnSpellStart( keys )
 	caster:RemoveGesture(ACT_DOTA_FLAIL)
 
 	caster:AddNewModifier(caster,ability,"modifier_phased",{duration=duration+0.1})
-	Timers:CreateTimer(duration,function()
+	Timers:CreateTimer(duration+0.05,function()
 		StartSoundEvent("Hero_ElderTitan.EarthSplitter.Cast",caster)
 		-- 搜尋
 		local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
 			caster:GetAbsOrigin(),							-- 搜尋的中心點
 			nil, 							-- 好像是優化用的參數不懂怎麼用
-			ability:GetCastRange(),			-- 搜尋半徑
+			500,			-- 搜尋半徑
 			ability:GetAbilityTargetTeam(),	-- 目標隊伍
 			ability:GetAbilityTargetType(),	-- 目標類型
 			ability:GetAbilityTargetFlags(),-- 額外選擇或排除特定目標
 			FIND_ANY_ORDER,					-- 結果的排列方式
 			false) 							-- 好像是優化用的參數不懂怎麼用
 
-		local damage_table = {
-			--victim = unit,
-			attacker = caster,
-			ability = ability,
-			damage = ability:GetAbilityDamage(),
-			damage_type = ability:GetAbilityDamageType(),
-			damage_flags = DOTA_DAMAGE_FLAG_NONE,
-		}
-
 		-- 處理搜尋結果
 		for _,unit in ipairs(units) do
-			damage_table.victim = unit
-			ApplyDamage(damage_table)
+			AMHC:Damage( caster,unit,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			ability:ApplyDataDrivenModifier(caster,unit,"modifier_B29E_debuff", nil)
 		end
 	end)
