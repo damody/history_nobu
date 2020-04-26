@@ -91,7 +91,7 @@
 		"AbilityTextureName"	"custom/icon_128x128_98"
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE "
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -101,9 +101,8 @@
 		"AbilityManaCost"				"105 125 145 165"
 		"AbilityDamage"					"200"
 
-		"AbilityCastRange"				"500"
 		"AOERadius"						"500"
-		"AbilityCastPoint"				"0.25"
+		"AbilityCastPoint"				"0.15"
 
 		"AbilitySpecial"
 		{
@@ -117,10 +116,15 @@
 				"var_type"		"FIELD_INTEGER"
 				"debuff_movement_speed"	"-18 -22 -26 -30"
 			}
-			"02"
+			"03"
 			{
 				"var_type"	"FIELD_FLOAT"
 				"radius"	"800"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"max_blink_range"	"300"
 			}
 		}
 
@@ -139,13 +143,23 @@
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B29.lua"
 				"Function"		"B29E_OnSpellStart"
+				"Target"	"POINT"
+				"MaxBlinkRange"	"%max_blink_range"
 			}
-			"FireEffect"
+			"DelayedAction"
 			{
-				"Target"	"CASTER"
-				"EffectName"	"particles/b26w3/b26w3.vpcf"
-				"EffectAttachType"	"follow_hitloc"
+				"Delay"		"0.25"
+				"Action"
+				{
+					"FireEffect"
+					{
+						"Target"	"CASTER"
+						"EffectName"	"particles/b26w3/b26w3.vpcf"
+						"EffectAttachType"	"follow_hitloc"
+					}
+				}
 			}
+			
 			"FireSound"
 			{
 				"Target"	"CASTER"

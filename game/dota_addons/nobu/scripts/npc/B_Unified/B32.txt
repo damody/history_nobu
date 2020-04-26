@@ -204,7 +204,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityCastPoint" "0.3" //stun
@@ -472,7 +472,7 @@
 		"AnimationPlaybackRate"	"2"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"17"
+		"AbilityCooldown"	"16 14 12 10"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"160 180 200 220"
@@ -586,7 +586,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"100 200 300 400"
+				"damage"	"100 150 200 250"
 			}
 			"04"
 			{
@@ -596,7 +596,7 @@
 			"05"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"duration2"	"0.5 1 1.5 2"
+				"duration2"	"0.2 0.4 0.6 0.8"
 			}
 			"06"
 			{

@@ -4,11 +4,6 @@ udg_C05W_stun[2] = 0.50
 udg_C05W_stun[3] = 0.70
 udg_C05W_stun[4] = 0.90	
 
-
-
-
-
-
 function new_C17R( keys )
 	--【Basic】
 	local caster = keys.caster
@@ -133,7 +128,7 @@ function C17E(keys)
 	--ParticleManager:SetParticleControlForward(int nFXIndex,int nPoint,vForward)
 end
 
-function C17W(keys)
+function C17W_Enemy(keys)
 	--【Basic】
 	local caster = keys.caster
 	local target = keys.target
@@ -150,16 +145,16 @@ function C17W(keys)
 	local ctime = 0
 	Timers:CreateTimer(0.2, function ()
 		ctime = ctime + 0.2
-          AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
-          AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
-          AddFOWViewer(DOTA_TEAM_GOODGUYS, target:GetAbsOrigin(), 100, 0.3, false)
-          AddFOWViewer(DOTA_TEAM_BADGUYS, target:GetAbsOrigin(), 100, 0.3, false)
-          if ctime < duration+0.3 then
-          	return 0.2
-          else
-          	return nil
-          end
-        end)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
+		AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, target:GetAbsOrigin(), 100, 0.3, false)
+		AddFOWViewer(DOTA_TEAM_BADGUYS, target:GetAbsOrigin(), 100, 0.3, false)
+		if ctime < duration+0.3 then
+			return 0.2
+		else
+			return nil
+		end
+		end)
 
 	-- Fire the explosion effect
 	local height = 3
@@ -193,7 +188,7 @@ function C17W(keys)
 		time = r2*udg_C05W_stun[level + 1]
 
 		--【Modifier】
-		ability:ApplyDataDrivenModifier(caster,target,"modifier_C17W",{duration = time})		
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_C17W",{duration = time})
 		--ParticleManager:SetParticleControl(particle2,1, point2)
 
 		--【SE】
@@ -207,12 +202,62 @@ function C17W(keys)
 			Timers:CreateTimer(time,function()
 				ParticleManager:DestroyParticle(particle2,false)
 			end)
-		end		
+		end
+	end)			
+end
 
-		--【DEBUG】
-		--print(r)			
-		--print(time)	
+function C17W(keys)
+	--【Basic】
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	if caster:GetTeamNumber() ~= target:GetTeamNumber() then
+		C17W_Enemy(keys)
+	else
+		C17W_Friend(keys)
+	end
+end
 
+
+function C17W_Friend(keys)
+	--【Basic】
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	--local player = caster:GetPlayerID()
+	local point = caster:GetAbsOrigin()
+	local point2 = target:GetAbsOrigin() 
+	--local point2 = ability:GetCursorPosition()
+	local level = ability:GetLevel() - 1
+	local duration = ability:GetLevelSpecialValueFor("duration",level)
+	ability:ApplyDataDrivenModifier(caster,target,"modifier_C17W2",{duration = duration})
+	--local vec = caster:GetForwardVector():Normalized()
+	local ctime = 0
+	Timers:CreateTimer(0.2, function ()
+		ctime = ctime + 0.2
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
+		AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 100, 0.3, false)
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, target:GetAbsOrigin(), 100, 0.3, false)
+		AddFOWViewer(DOTA_TEAM_BADGUYS, target:GetAbsOrigin(), 100, 0.3, false)
+		if ctime < duration+0.3 then
+			return 0.2
+		else
+			return nil
+		end
+		end)
+
+	-- Fire the explosion effect
+	local height = 3
+	local particleName = "particles/c17w2/c17w2.vpcf"
+	local particle = ParticleManager:CreateParticle( particleName, PATTACH_POINT_FOLLOW, caster )
+	ParticleManager:SetParticleControlEnt(particle, 1, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(particle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(particle, 2, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(particle, 3, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+	--ParticleManager:SetParticleControl(particle,6, Vector(height,height,height))		
+	--【Timer】
+	Timers:CreateTimer(duration,function()
+		ParticleManager:DestroyParticle(particle,true)
 	end)			
 end
 

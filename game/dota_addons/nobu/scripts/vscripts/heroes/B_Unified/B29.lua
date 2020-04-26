@@ -33,34 +33,62 @@ function B29E_OnSpellStart( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local center = caster:GetAbsOrigin()
-	caster:StartGestureWithPlaybackRate(ACT_DOTA_TELEPORT_END,2)
-	StartSoundEvent("Hero_ElderTitan.EarthSplitter.Cast",caster)
-	-- 搜尋
-	local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
-		center,							-- 搜尋的中心點
-		nil, 							-- 好像是優化用的參數不懂怎麼用
-		ability:GetCastRange(),			-- 搜尋半徑
-		ability:GetAbilityTargetTeam(),	-- 目標隊伍
-		ability:GetAbilityTargetType(),	-- 目標類型
-		ability:GetAbilityTargetFlags(),-- 額外選擇或排除特定目標
-		FIND_ANY_ORDER,					-- 結果的排列方式
-		false) 							-- 好像是優化用的參數不懂怎麼用
-
-	local damage_table = {
-		--victim = unit,
-		attacker = caster,
-		ability = ability,
-		damage = ability:GetAbilityDamage(),
-		damage_type = ability:GetAbilityDamageType(),
-		damage_flags = DOTA_DAMAGE_FLAG_NONE,
-	}
-
-	-- 處理搜尋結果
-	for _,unit in ipairs(units) do
-		damage_table.victim = unit
-		ApplyDamage(damage_table)
-		ability:ApplyDataDrivenModifier(caster,unit,"modifier_B29E_debuff", nil)
+	
+	local origin_point = keys.caster:GetAbsOrigin()
+	local target_point = keys.target_points[1]
+	local difference_vector = target_point - origin_point
+	if difference_vector:Length2D() > keys.MaxBlinkRange then  --Clamp the target point to the BlinkRangeClamp range in the same direction.
+		target_point = origin_point + (target_point - origin_point):Normalized() * keys.MaxBlinkRange
 	end
+	local speed = 1500
+	-- 防呆
+	local fake_center = center - difference_vector
+	local distance = (target_point-center):Length()
+	local duration = 0.15
+	-- 把自己踢過去
+	local knockbackProperties = {
+	    center_x = fake_center.x,
+	    center_y = fake_center.y,
+	    center_z = fake_center.z,
+	    duration = duration,
+	    knockback_duration = duration,
+	    knockback_distance = distance,
+	    knockback_height = 200,
+	    should_stun = 0,
+	}
+	caster:AddNewModifier( caster, nil, "modifier_knockback", knockbackProperties )
+	caster:RemoveGesture(ACT_DOTA_FLAIL)
+
+	caster:AddNewModifier(caster,ability,"modifier_phased",{duration=duration+0.1})
+	Timers:CreateTimer(duration,function()
+		StartSoundEvent("Hero_ElderTitan.EarthSplitter.Cast",caster)
+		-- 搜尋
+		local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
+			caster:GetAbsOrigin(),							-- 搜尋的中心點
+			nil, 							-- 好像是優化用的參數不懂怎麼用
+			ability:GetCastRange(),			-- 搜尋半徑
+			ability:GetAbilityTargetTeam(),	-- 目標隊伍
+			ability:GetAbilityTargetType(),	-- 目標類型
+			ability:GetAbilityTargetFlags(),-- 額外選擇或排除特定目標
+			FIND_ANY_ORDER,					-- 結果的排列方式
+			false) 							-- 好像是優化用的參數不懂怎麼用
+
+		local damage_table = {
+			--victim = unit,
+			attacker = caster,
+			ability = ability,
+			damage = ability:GetAbilityDamage(),
+			damage_type = ability:GetAbilityDamageType(),
+			damage_flags = DOTA_DAMAGE_FLAG_NONE,
+		}
+
+		-- 處理搜尋結果
+		for _,unit in ipairs(units) do
+			damage_table.victim = unit
+			ApplyDamage(damage_table)
+			ability:ApplyDataDrivenModifier(caster,unit,"modifier_B29E_debuff", nil)
+		end
+	end)
 end
 
 
