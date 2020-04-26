@@ -367,7 +367,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A31_Mori_Ranmaru.lua"
-				"Function"	"SplitShotDamage"
+				"Function"	"A31T_SplitShotDamage"
 			}
 		}
 		"OnUpgrade"
@@ -400,10 +400,9 @@
 				"Passive"	"0"
 				"IsHidden"	"1"
 				"IsDebuff"	"0"
-				"Duration"	"5"
 				"Properties"
 				{
-					// "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100" //攻速
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%damage_modifier" 	//攻擊百分比
 				}
 			}
 		}
@@ -413,8 +412,8 @@
 		{
 			"01"
 			{
-				"var_type"	"FIELD_FLOAT"
-				"damage_modifier"	"0.6 0.7 0.8"
+				"var_type"	"FIELD_INTEGER"
+				"damage_modifier"	"-30 -20 -10"
 			}
 			"03"
 			{

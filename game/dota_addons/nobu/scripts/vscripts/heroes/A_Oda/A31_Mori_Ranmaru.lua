@@ -259,7 +259,7 @@ function A31T_SplitShotDamage( keys )
 	damage_table.attacker = caster
 	damage_table.victim = target
 	damage_table.damage_type = ability:GetAbilityDamageType()
-	damage_table.damage = caster:GetAverageTrueAttackDamage(target) * damage_modifier
+	damage_table.damage = caster:GetAverageTrueAttackDamage(target) * 0.9
 	if _G.EXCLUDE_TARGET_NAME2[target:GetUnitName()] then
 		damage_table.damage = damage_table.damage * 0.5
 	end
@@ -273,6 +273,7 @@ function A31T( keys )
 	local duration = ability:GetSpecialValueFor("duration")
 	local radius = ability:GetSpecialValueFor("radius")
 	local attakc_time = ability:GetSpecialValueFor("attack_time")
+	local split_shot_projectile = keys.split_shot_projectile
 	local dummy = CreateUnitByName("npc_dummy_unit",point,false,nil,nil,caster:GetTeamNumber())
 	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=6})
 	dummy:SetOwner(caster)
@@ -310,11 +311,28 @@ function A31T( keys )
 			return nil 
 		end
 		units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
-		for _,unit in ipairs(units) do	
+		local n = RandomInt(1,#units)
+		for i,unit in ipairs(units) do	
 			if not(unit:GetTeamNumber() == caster:GetTeamNumber()) then
 				--PerformAttack(handle hTarget, bool bUseCastAttackOrb, bool bProcessProcs, bool bSkipCooldown, bool bIgnoreInvis, bool bUseProjectile, bool bFakeAttack, bool bNeverMiss)
 				caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,2)
-				caster:PerformAttack(unit, true, true, true, true, true, false, true)
+				local projectile_info = 
+				{
+					EffectName = "particles/items2_fx/necronomicon_archer_projectile.vpcf",
+					Ability = ability,
+					vSpawnOrigin = caster:GetAbsOrigin(),
+					Target = unit,
+					Source = caster,
+					bHasFrontalCone = false,
+					iMoveSpeed = 1500,
+					bReplaceExisting = false,
+					bProvidesVision = false
+				}
+				if n == i then
+					caster:PerformAttack(unit, true, true, true, true, true, false, true)
+				else
+					ProjectileManager:CreateTrackingProjectile(projectile_info)
+				end
 			end
 		end
 		return attakc_time
