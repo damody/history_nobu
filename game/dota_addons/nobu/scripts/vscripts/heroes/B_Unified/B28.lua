@@ -93,6 +93,7 @@ function B28T_OnAbilityPhaseStart( keys )
 	}
 	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=0.5})
+	AddFOWViewer(caster:GetTeamNumber(),point,radius,2.0,false)
 end
 
 function B28T( keys )
@@ -101,7 +102,6 @@ function B28T( keys )
 	local radius = ability:GetSpecialValueFor("B28T_radius")
 	local base_damage = ability:GetLevelSpecialValueFor("base_damage", (ability:GetLevel() -1))
 	local point = keys.target_points[1]
-
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false )
 	local count = 0
 	for i,unit in ipairs(units) do
