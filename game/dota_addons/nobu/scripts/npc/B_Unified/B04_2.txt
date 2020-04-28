@@ -61,8 +61,8 @@
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
-		"AttackDamageMin"	"129"
-		"AttackDamageMax"	"145"
+		"AttackDamageMin"	"120"
+		"AttackDamageMax"	"120"
 		"AttackRate"	"1.8"
 		"AttackAnimationPoint"	"0.17"
 		"AttackAcquisitionRange"	"500"	// Range within a target can be acquired.
