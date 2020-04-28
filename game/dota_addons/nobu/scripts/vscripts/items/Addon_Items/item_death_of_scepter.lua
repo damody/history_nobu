@@ -61,6 +61,7 @@ function OnDeath( keys )
 	local ability = keys.ability
 	local caster = keys.caster
 	caster.item_death_of_scepter_count = caster.item_death_of_scepter_count - 3
+	print(caster.item_death_of_scepter_count)
 	if caster.item_death_of_scepter_count < 0 then
 		caster.item_death_of_scepter_count = 0
 	end
