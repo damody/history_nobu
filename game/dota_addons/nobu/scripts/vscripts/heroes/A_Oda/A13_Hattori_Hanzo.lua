@@ -179,6 +179,18 @@ function A13D_End( keys )
 	end
 end
 
+function A13W2( event )
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	local apos = caster:GetAbsOrigin()
+	if target.caster then
+		local bpos = target:GetAbsOrigin()
+		target:SetAbsOrigin(apos)
+		caster:SetAbsOrigin(bpos)
+	end
+end
+
 function A13W( event )
 	local caster = event.caster
 	local player = caster:GetPlayerID()
@@ -205,7 +217,13 @@ function A13W( event )
 			caster:RemoveModifierByName(v:GetName())
 		end
 	end
-	
+	local lv = ability:GetLevel()
+	caster:RemoveAbility("A13W")
+	caster:AddAbility("A13W2"):SetLevel(1)
+	Timers:CreateTimer(6, function()
+		caster:RemoveAbility("A13W2")
+		caster:AddAbility("A13W"):SetLevel(lv)
+	end)
 	if IsValidEntity(caster) and caster:IsAlive() then
 		for i=1,people do
 			if (i ~= origin_go_index) then
@@ -214,7 +232,7 @@ function A13W( event )
 				illusion[i]:SetPlayerID(caster:GetPlayerID())
 				illusion[i].magical_resistance = caster.magical_resistance
 				illusion[i]:SetControllableByPlayer(player, true)
-				
+				illusion[i].caster = caster
 				-- Level Up the unit to the casters level
 				local casterLevel = caster:GetLevel()
 				for j=1,casterLevel-1 do
@@ -289,7 +307,7 @@ function A13W( event )
 			end )
 	end
 	Timers:CreateTimer(0.25, function()
-		AMHC:SetCamera(caster:GetPlayerOwnerID(), caster)
+		--AMHC:SetCamera(caster:GetPlayerOwnerID(), caster)
 		end)
 end
 

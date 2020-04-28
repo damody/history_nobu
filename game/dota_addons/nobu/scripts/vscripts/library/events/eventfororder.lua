@@ -309,11 +309,13 @@ function spell_ability ( filterTable )
 			local caster = EntIndexToHScript(filterTable.units["0"])
 			local target = EntIndexToHScript(filterTable.entindex_target)
 			local pos = caster:GetAbsOrigin()
-			local target = target:GetAbsOrigin()
-			local forward = target - pos
-			forward.z = 0
-			if forward:Length2D() > 1 and not caster:HasModifier("modifier_knockback") then
-				caster:SetForwardVector(forward)
+			if target then
+				local target = target:GetAbsOrigin()
+				local forward = target - pos
+				forward.z = 0
+				if forward:Length2D() > 1 and not caster:HasModifier("modifier_knockback") then
+					caster:SetForwardVector(forward)
+				end
 			end
 		end
 		return EventForSpellTarget(filterTable)
