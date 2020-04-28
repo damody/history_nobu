@@ -777,6 +777,12 @@
 				}
 				"OnAttackLanded"
 				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"	"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"100"
+					}
 					"RunScript"
 					{
 						"ScriptFile"	"scripts/vscripts/AON_Cleave.lua"
