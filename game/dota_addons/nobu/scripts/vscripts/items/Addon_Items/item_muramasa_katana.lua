@@ -5,8 +5,15 @@ function OnHeroKilled(keys)
 end
 
 function OnEquip( keys )	
+	local caster = keys.caster
 	local ability = keys.ability
-	ability.stack = 0
+	if caster.muramasa_katana_stack == nil or caster.muramasa_katana_stack == 0 then
+		caster.muramasa_katana_stack = 0
+	else
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_muramasa_atk", {})
+		local matk = caster:FindModifierByName("modifier_muramasa_atk")
+		matk:SetStackCount(caster.muramasa_katana_stack)
+	end
 end
 
 function OnUnequip( keys )	
@@ -19,15 +26,15 @@ function OnKill( keys )
 	local ability = keys.ability
 	local target = keys.unit
 	if target:IsHero() then
-		ability.stack = ability.stack + 15
+		caster.muramasa_katana_stack = caster.muramasa_katana_stack + 15
 	else
-		ability.stack = ability.stack + 1
+		caster.muramasa_katana_stack = caster.muramasa_katana_stack + 1
 	end
-	if ability.stack > 0 then
+	if caster.muramasa_katana_stack > 0 then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_muramasa_atk", {})
 		local matk = caster:FindModifierByName("modifier_muramasa_atk")
 		if matk then
-			matk:SetStackCount(ability.stack)
+			matk:SetStackCount(caster.muramasa_katana_stack)
 		end
 	end
 end
@@ -35,20 +42,21 @@ end
 function OnDeath( keys )
 	local ability = keys.ability
 	local caster = keys.caster
-	ability.stack = ability.stack / 3
+	caster.muramasa_katana_stack = caster.muramasa_katana_stack / 3
 	if caster:HasModifier("modifier_muramasa_atk") then
-		caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(ability.stack)
-		if ability.stack == 0 then
+		caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(caster.muramasa_katana_stack)
+		if caster.muramasa_katana_stack == 0 then
 			caster:RemoveModifierByName("modifier_muramasa_atk")
 		end
 	end
+	caster:RemoveModifierByName("modifier_muramasa_atk_speed")
 end
 
 function OnRespawn( keys )
 	local ability = keys.ability
 	local caster = keys.caster
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_muramasa_atk", {})
-	caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(ability.stack)
+	caster:FindModifierByName("modifier_muramasa_atk"):SetStackCount(caster.muramasa_katana_stack)
 end
 
 function Shock( keys )
@@ -62,12 +70,12 @@ function StealLife(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	if not caster:FindModifierByName("modifier_muramasa_atk_speed") then ability.attackCount = 0 end
+	if not caster:FindModifierByName("modifier_muramasa_atk_speed") then caster.muramasa_attackCount = 0 end
 	ability:ApplyDataDrivenModifier(caster , caster, "modifier_muramasa_atk_speed", nil)
-	ability.attackCount = ability.attackCount + 1
-	if ability.attackCount > 10 then  ability.attackCount = 10 end
+	caster.muramasa_attackCount = caster.muramasa_attackCount + 1
+	if caster.muramasa_attackCount > 10 then  caster.muramasa_attackCount = 10 end
 	local modifier = caster:FindModifierByName("modifier_muramasa_atk_speed")
-	modifier:SetStackCount(ability.attackCount)
+	modifier:SetStackCount(caster.muramasa_attackCount)
 	if target.isvoid == nil then
 		local ability = keys.ability
 		local level = ability:GetLevel() - 1
@@ -89,7 +97,7 @@ function StealLife(keys)
 			if damageReduction > 1 then
 				damageReduction = 1
 			end
-			caster:Heal(dmg*ability.attackCount*0.03*(1-damageReduction), ability)
+			caster:Heal(dmg*caster.muramasa_attackCount*0.03*(1-damageReduction), ability)
 		    ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW, caster)
 		end
 	end

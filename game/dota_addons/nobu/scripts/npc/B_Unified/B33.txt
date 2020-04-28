@@ -573,7 +573,7 @@
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed"
 					"MODIFIER_PROPERTY_DISABLE_HEALING"	"1"
-					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"	"100"
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"	"%move_speed"
 				}
 			}
 		}
@@ -599,12 +599,12 @@
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"speed"	"-50 -60 -70"
+				"move_speed"	"200 150 100"
 			}
 			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"attack_speed"	"-60 -90 -120"
+				"attack_speed"	"-30 -75 -120"
 			}
 		}
 		// Stats

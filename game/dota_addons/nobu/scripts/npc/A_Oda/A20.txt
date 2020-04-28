@@ -149,7 +149,7 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"%bonus_atk"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%bonus_atk"
 				}
 			}
 			"modifier_A20W_aura"

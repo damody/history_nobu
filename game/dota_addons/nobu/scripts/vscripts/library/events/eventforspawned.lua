@@ -59,6 +59,18 @@ function Nobu:OnHeroIngame( keys )
               ent:GetOwner():GetAssignedHero().courier = 1
             end
           end
+        else
+          for i = 0, 6 do
+            local item = caster:GetItemInSlot( i )
+            if item then
+              local item_name = item:GetName()
+              if not item:IsStackable() then
+                print(item_name .. "destroy")
+                item:Destroy()
+                hero:AddItem(CreateItem(item_name, hero, hero))
+              end
+            end
+          end
         end
       end
     end)

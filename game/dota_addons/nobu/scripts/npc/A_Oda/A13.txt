@@ -281,7 +281,7 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/A13W"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"FightRecapLevel"	"0"
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
@@ -335,7 +335,6 @@
 				"States"
 				{
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}

@@ -101,14 +101,15 @@ function B28T( keys )
 	local radius = ability:GetSpecialValueFor("B28T_radius")
 	local base_damage = ability:GetLevelSpecialValueFor("base_damage", (ability:GetLevel() -1))
 	local point = keys.target_points[1]
-
-	local units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false )
+	local units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), 0, FIND_ANY_ORDER, false )
 	local count = 0
 	for i,unit in ipairs(units) do
-		count = count + 1
-		B28T_old_jump_init(keys, caster:GetAbsOrigin(), unit, count)
-		ApplyDamage({victim = unit, attacker = caster, damage = base_damage, damage_type = ability:GetAbilityDamageType()})
-		ability:ApplyDataDrivenModifier(caster,unit,"modifier_B28T_arc_lightning_datadriven",{})
+		if not unit:IsInvisible() or unit:HasModifier("modifier_truesight") then
+			count = count + 1
+			B28T_old_jump_init(keys, caster:GetAbsOrigin(), unit, count)
+			ApplyDamage({victim = unit, attacker = caster, damage = base_damage, damage_type = ability:GetAbilityDamageType()})
+			ability:ApplyDataDrivenModifier(caster,unit,"modifier_B28T_arc_lightning_datadriven",{})
+		end
 	end
 end
 
@@ -179,24 +180,26 @@ function B28T_old_Jump(keys)
 	-- Checks if there are jumps left
 	if ability.jump_count[current] > 0 then
 		-- Finds units in the jump_radius to jump to
-		local units = FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, jump_radius, team, ability:GetAbilityTargetType(), DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, 0, false)
+		local units = FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, jump_radius, team, ability:GetAbilityTargetType(), 0, 0, false)
 		local closest = jump_radius
 		local new_target
 		--print("current", current)
 		for i,unit in ipairs(units) do
-			-- Positioning and distance variables
-			local unit_location = unit:GetAbsOrigin()
-			local vector_distance = pos - unit_location
-			local distance = (vector_distance):Length2D()
-			-- Checks if the unit is closer than the closest checked so far
-			if distance < closest then
-				-- If the unit has not been hit yet, we set its distance as the new closest distance and it as the new target
-				if unit.hit == nil then
-					new_target = unit
-					closest = distance
-				elseif unit.hit[current] == nil then
-					new_target = unit
-					closest = distance
+			if not unit:IsInvisible() or unit:HasModifier("modifier_truesight") then
+				-- Positioning and distance variables
+				local unit_location = unit:GetAbsOrigin()
+				local vector_distance = pos - unit_location
+				local distance = (vector_distance):Length2D()
+				-- Checks if the unit is closer than the closest checked so far
+				if distance < closest then
+					-- If the unit has not been hit yet, we set its distance as the new closest distance and it as the new target
+					if unit.hit == nil then
+						new_target = unit
+						closest = distance
+					elseif unit.hit[current] == nil then
+						new_target = unit
+						closest = distance
+					end
 				end
 			end
 		end
