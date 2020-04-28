@@ -722,7 +722,7 @@ function A13T ( keys )
 						damage_flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 					}
 					if i == n then
-						caster:PerformAttack(unit, true, true, true, true, true, true, true)
+						caster:PerformAttack(unit, true, true, true, true, true, false, true)
 					else
 						ApplyDamage(damageTable)
 					end
