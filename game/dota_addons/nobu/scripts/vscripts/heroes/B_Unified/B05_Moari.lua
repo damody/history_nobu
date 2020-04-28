@@ -90,7 +90,7 @@ function LightningJump(keys)
 	
 	end)
 	if target:HasModifier("modifier_thundergods_wrath_datadriven") then
-		ApplyDamage({victim = target, attacker = caster, damage = ability:GetAbilityDamage()*1.4, damage_type = ability:GetAbilityDamageType()})
+		ApplyDamage({victim = target, attacker = caster, damage = ability:GetAbilityDamage()*1.25, damage_type = ability:GetAbilityDamageType()})
 	else
 		ApplyDamage({victim = target, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
 	end
