@@ -699,6 +699,7 @@ function A13T ( keys )
 			end
 			units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
 			local n = RandomInt(1, #units)
+
 			for i,unit in ipairs(units) do
 				local distance = (caster:GetAbsOrigin() - point):Length()
 				if distance < radius then
@@ -721,6 +722,7 @@ function A13T ( keys )
 						damage_type = ability:GetAbilityDamageType(),
 						damage_flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 					}
+					
 					if i == n then
 						caster:PerformAttack(unit, true, true, true, true, true, false, true)
 					else
