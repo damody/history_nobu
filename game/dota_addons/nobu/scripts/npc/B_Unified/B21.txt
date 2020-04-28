@@ -307,7 +307,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"stack_hp"			"12" // %
+				"stack_hp"			"16" // %
 			}
 		}
 		"OnUpgrade"
