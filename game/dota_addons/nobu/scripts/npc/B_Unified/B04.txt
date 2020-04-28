@@ -298,7 +298,7 @@
 			"02"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"duration"		"33 37 41"
+				"duration"		"28 32 36"
 			}
 			"03"
 			{
@@ -308,12 +308,12 @@
 			"04"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"stun_chance"	"100"
+				"stun_chance"	"55"
 			}
 			"05"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"stun_time"		"0.15"
+				"stun_time"		"0.2"
 			}
 		}
 
@@ -367,10 +367,6 @@
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE" "%add_base_attack"
 				    "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "%add_attack_range"
 				    "MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS" "alternate"
-				}
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"OnCreated"
 				{
