@@ -74,7 +74,9 @@ function OnEquip(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	caster:AddNewModifier(caster,ability,"modifier_fubuki_shoulders2",{})
-	caster:FindModifierByName("modifier_fubuki_shoulders2").caster = caster
+	if caster:FindModifierByName("modifier_fubuki_shoulders2") then
+		caster:FindModifierByName("modifier_fubuki_shoulders2").caster = caster
+	end
 end
 
 function OnUnequip(keys)
