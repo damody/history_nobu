@@ -60,13 +60,15 @@ function Nobu:OnHeroIngame( keys )
             end
           end
         else
+          -- 裝備重放
           for i = 0, 6 do
             local item = caster:GetItemInSlot( i )
             if item then
               local item_name = item:GetName()
               if not item:IsStackable() then
                 item:Destroy()
-                hero:AddItem(CreateItem(item_name, hero, hero))
+                local new_item = hero:AddItem(CreateItem(item_name, hero, hero))
+                hero:SwapItems(new_item:GetItemSlot(), i)
               end
             end
           end
