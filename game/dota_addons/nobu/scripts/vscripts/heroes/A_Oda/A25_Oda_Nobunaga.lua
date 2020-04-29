@@ -365,9 +365,9 @@ function A25D_old( keys )
 			local unit = units[i]
 			if IsValidEntity(unit) then
 				if unit:IsHero() then
-					ability:ApplyDataDrivenModifier(caster,unit,"modifier_A25D_old_buff_for_hero",{})
+					ability:ApplyDataDrivenModifier(unit,unit,"modifier_A25D_old_buff_for_hero",{})
 				else
-					ability:ApplyDataDrivenModifier(caster,unit,"modifier_A25D_old_buff_for_soldier",{})
+					ability:ApplyDataDrivenModifier(unit,unit,"modifier_A25D_old_buff_for_soldier",{})
 				end
 			end
 			i = i + 1

@@ -1,3 +1,38 @@
+function C04W_OnSpellStart( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local units = FindUnitsInRadius(
+		caster:GetTeamNumber(),
+		Vector(0,0,0),
+		nil,
+		99999,
+		ability:GetAbilityTargetTeam(),
+		ability:GetAbilityTargetType(),
+		ability:GetAbilityTargetFlags(),
+		FIND_ANY_ORDER,
+		false)
+
+	local i = 1
+	local last = #units
+
+	-- 慢慢加
+	Timers:CreateTimer( 0, function()
+		if i <= last then
+			local unit = units[i]
+			if IsValidEntity(unit) then
+				if unit:IsHero() then
+					ability:ApplyDataDrivenModifier(unit,unit,"modifier_C04W",{})
+				else
+					ability:ApplyDataDrivenModifier(unit,unit,"modifier_C04W",{})
+				end
+			end
+			i = i + 1
+			return 0.01
+		else
+			return nil
+		end
+	end)
+end
 
 function C04E_lock( keys )
 	keys.ability:SetActivated(false)
