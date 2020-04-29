@@ -617,6 +617,13 @@ function def_home( keys )
   end
 end
 
+function remove_def_home( keys )
+  local unit = keys.unit or keys.attacker
+  if unit:HasModifier("modifier_speed_up") then
+    unit:RemoveModifierByName("modifier_speed_up")
+  end
+end
+
 function hero_attack_tower( keys )
   local caster = keys.caster
   local target = keys.target

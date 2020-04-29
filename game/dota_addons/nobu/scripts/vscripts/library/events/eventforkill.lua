@@ -178,6 +178,9 @@ function Nobu:OnUnitKill( keys )
         average_level_2 = average_level_2 / 5
         if average_level_1 < average_level_2 then
           AttackerUnit:AddExperience(killedUnit:GetLevel()*20, 0, false, false)
+          local nobu_id = _G.heromap[AttackerUnit:GetName()]
+          local nobu_id2 = _G.heromap[killedUnit:GetName()]
+          GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."擊殺了".._G.hero_name_zh[nobu_id2].."得到"..(killedUnit:GetLevel()*20).."的額外經驗</font>",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
         end
         --殺人與助攻金錢
         local kill_bounty = 100

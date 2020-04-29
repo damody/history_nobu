@@ -113,7 +113,7 @@ function Nobu:OnGameRulesStateChange( keys )
 	  end
 	end
 	--守護家園
-	Timers:CreateTimer(600, function()
+	Timers:CreateTimer(0, function()
 		local oda_def_home = CreateUnitByName("hide_unit", Vector(7445.46,-7517.94,128) , true, nil, nil, DOTA_TEAM_GOODGUYS) 
 		oda_def_home:AddAbility("speed_up"):SetLevel(1)
 		local unified_def_home = CreateUnitByName("hide_unit", Vector(-7390.63,7203.02,128) , true, nil, nil, DOTA_TEAM_BADGUYS) 
