@@ -423,6 +423,9 @@ function C08T_OnCreate(keys)
 	modifier_atk_bouns:SetStackCount(atk_stack)
 end
 
+C08T_cannot_steal ={}
+C08T_cannot_steal["A20W"] = 1
+
 function C08T_OnSpellStart( keys )
 	local caster = keys.caster
 	local target = keys.target
@@ -466,9 +469,12 @@ function C08T_OnSpellStart( keys )
 	else
 		caster:FindAbilityByName("C08T"):EndCooldown()
 	end
+
+	--steal ability
+
 	local abilityIndex = RandomInt(0,2)
 	local target_ability = target:GetAbilityByIndex(abilityIndex)
-	while(target_ability:IsPassive()) do
+	while(target_ability:IsPassive() or C08T_cannot_steal[target_ability:GetName()]) do
 		abilityIndex = RandomInt(0,2)
 		target_ability = target:GetAbilityByIndex(abilityIndex)
 	end
