@@ -7,7 +7,7 @@ function OnEquip( keys )
 	caster.Is_invincible_equip = true
 	caster:RemoveModifierByName("modifier_sword_of_invincible_passive")
 	print(ability:GetCooldownTimeRemaining())
-	Timers:CreateTimer(0, function() 
+	ability.timer = Timers:CreateTimer(0, function() 
 		if not caster.Is_invincible_equip then
 			return nil
 		end
@@ -20,8 +20,10 @@ end
 
 function OnUnequip( keys )
 	local caster = keys.caster
+	local ability = keys.ability
 	caster.Is_invincible_equip = false
 	caster:RemoveModifierByName("modifier_sword_of_invincible_passive")
+	Timers:RemoveTimer(ability.timer)
 end
 
 function Shock( keys )

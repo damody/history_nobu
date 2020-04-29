@@ -526,6 +526,7 @@
 			"modifier_B10T"
 			{
 				"Passive"	"0"
+				"IsDebuff"	"1"
 				"EffectName"		"particles/b10t_ring.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Properties"

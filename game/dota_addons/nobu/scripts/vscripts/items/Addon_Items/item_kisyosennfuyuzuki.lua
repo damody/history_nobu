@@ -1,7 +1,6 @@
 local shield_size = 75
 function OnEquip( keys )
     Timers:CreateTimer(0.1,function()
-        print("item_kisyosennfuyuzuki")
         local caster = keys.caster
         local ability = keys.ability
         if caster:IsIllusion()then
@@ -15,11 +14,15 @@ function OnEquip( keys )
         ParticleManager:SetParticleControlEnt(caster.kisyosennfuyuzuki_shield, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_shield", {})
         caster:AddNewModifier(caster, ability, "modifier_kisyosennfuyuzuki_shield", {})
-        caster:FindModifierByName("modifier_kisyosennfuyuzuki_shield").caster = caster
+        if caster:FindModifierByName("modifier_kisyosennfuyuzuki_shield") then
+            caster:FindModifierByName("modifier_kisyosennfuyuzuki_shield").caster = caster
+        end
         if caster.shield_stack == nil then
             caster.shield_stack = 0
         end
-        caster:FindModifierByName("modifier_shield"):SetStackCount(caster.shield_stack)
+        if caster:FindModifierByName("modifier_shield") then
+            caster:FindModifierByName("modifier_shield"):SetStackCount(caster.shield_stack)
+        end
         ability.shield_broken = false
         if not caster:IsAlive() then
             return 1
@@ -33,7 +36,6 @@ function OnUnequip( keys )
     caster:RemoveModifierByName("modifier_shield")
     caster:RemoveModifierByName("modifier_kisyosennfuyuzuki_shield")
     ParticleManager:DestroyParticle(caster.kisyosennfuyuzuki_shield, false)
-    caster.shield_stack = nil
 end
 
 function Take_mana_to_shield( keys )

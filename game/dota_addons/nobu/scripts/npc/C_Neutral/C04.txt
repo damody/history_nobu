@@ -40,16 +40,10 @@
 				"Function"	"sound"
 				"sound"	"powershot_falcon_bow"
 			}
-			"ApplyModifier"
+			"RunScript"
 			{
-				"ModifierName"	"modifier_C04W"
-				"Target"
-				{
-					"Center"  	"CASTER"
-					"Radius" 	"10000"
-					"Teams" 	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-					"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				}
+			  	"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C04.lua"
+				"Function"	"C04W_OnSpellStart"
 			}
 		}
 		"Modifiers"
@@ -211,7 +205,7 @@
 			"03"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"damage"	"40 45 50 55"
+				"damage"	"40 50 60 70"
 			}
 		}
 	}

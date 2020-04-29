@@ -65,7 +65,6 @@ function Nobu:OnHeroIngame( keys )
             if item then
               local item_name = item:GetName()
               if not item:IsStackable() then
-                print(item_name .. "destroy")
                 item:Destroy()
                 hero:AddItem(CreateItem(item_name, hero, hero))
               end

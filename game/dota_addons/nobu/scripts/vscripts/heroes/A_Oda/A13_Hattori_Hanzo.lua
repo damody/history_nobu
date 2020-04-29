@@ -183,6 +183,7 @@ function A13W2( event )
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
+	print(ability:GetAbilityIndex())
 	local apos = caster:GetAbsOrigin()
 	if target.caster then
 		local bpos = target:GetAbsOrigin()
@@ -220,7 +221,7 @@ function A13W( event )
 	local lv = ability:GetLevel()
 	caster:RemoveAbility("A13W")
 	caster:AddAbility("A13W2"):SetLevel(1)
-	Timers:CreateTimer(6, function()
+	caster.timer = Timers:CreateTimer(6, function()
 		caster:RemoveAbility("A13W2")
 		caster:AddAbility("A13W"):SetLevel(lv)
 	end)
