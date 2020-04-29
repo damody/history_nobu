@@ -228,7 +228,10 @@ function A13W( event )
 	caster.A13W = {}
 	Timers:CreateTimer(0, function()
 		if IsValidEntity(caster) and caster:IsAlive() then
-			if IsValidEntity(caster.A13W[people]) then
+			if people ~= origin_go_index and IsValidEntity(caster.A13W[people]) then
+				return nil
+			end
+			if people == origin_go_index and IsValidEntity(caster.A13W[people-1]) then
 				return nil
 			end
 			for i=1,people do
