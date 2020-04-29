@@ -179,9 +179,6 @@ function A15R_bounceAttack(keys)
 	if ability.jump_count[current] < jump_max then
 		local base_damage = ability.damage[current]
 		local new_damage = base_damage * math.pow( 1 + bonus_damage, jump_max-ability.jump_count[current] )
-		if new_damage < 0.3*base_damage then
-			new_damage = 0.3*base_damage
-		end
 		local damageTable = {
 			victim = target, 
 			attacker = caster, 
