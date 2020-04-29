@@ -414,16 +414,6 @@ end
 function C08T_OnRespawn(keys)
 	local ability = keys.ability
 	local caster = keys.caster
-	if attributes_stack > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_attribute_bouns", {})
-		local modifier_attribute_bouns = caster:FindModifierByName("modifier_attribute_bouns")
-		modifier_attribute_bouns:SetStackCount(attributes_stack)
-	end
-	if atk_stack > 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_atk_bouns", {})
-		local modifier_atk_bouns = caster:FindModifierByName("modifier_atk_bouns")
-		modifier_atk_bouns:SetStackCount(atk_stack)
-	end
 end
 
 
@@ -470,18 +460,29 @@ function C08T_OnSpellStart( keys )
 			target:RemoveNoDraw()
 		end)
 		local modifier_C08W_bleeding = target:FindModifierByName("modifier_C08W_bleeding")
-		if modifier_C08W_bleeding then
-			attributes_stack = attributes_stack + 1
-			ability:ApplyDataDrivenModifier(caster, caster, "modifier_attribute_bouns", {})
-			local modifier_attribute_bouns = caster:FindModifierByName("modifier_attribute_bouns")
-			modifier_attribute_bouns:SetStackCount(attributes_stack)
-		end
 		-- AMHC:Damage(caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_C08T_bleeding",{duration=4})
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_in_belly",{duration=1.5})
 	else
 		caster:FindAbilityByName("C08T"):EndCooldown()
 	end
+	local abilityIndex = RandomInt(0,2)
+	local target_ability = target:GetAbilityByIndex(abilityIndex)
+	while(target_ability:IsPassive()) do
+		abilityIndex = RandomInt(0,2)
+		target_ability = target:GetAbilityByIndex(abilityIndex)
+	end
+	local target_ability_level = target_ability:GetLevel()
+	if target_ability_level == 0 then
+		target_ability_level = 1
+	end
+	if caster.steal_ability == nil then
+		caster.steal_ability = caster:FindAbilityByName("C08_Steal")
+	end
+	caster:RemoveAbilityByHandle(caster.steal_ability)
+	caster:AddAbility(target_ability:GetName()):SetLevel(target_ability_level)
+	caster.steal_ability = caster:FindAbilityByName(target_ability:GetName())
+	caster.steal_ability:CanAbilityBeUpgraded()
 end
 
 function modifier_C08T_bleeding_OnIntervalThink( keys )
@@ -518,9 +519,7 @@ function modifier_C08T_OnDestroy( keys )
 	target:RemoveNoDraw()
 	if caster:IsAlive() and (not target:IsAlive()) then
 		atk_stack = atk_stack + 1
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_atk_bouns", {})
-		local modifier_atk_bouns = caster:FindModifierByName("modifier_atk_bouns")
-		modifier_atk_bouns:SetStackCount(atk_stack)
+		Timers:RemoveTimer(ability.C08T_Timer)
 	end
 end
 

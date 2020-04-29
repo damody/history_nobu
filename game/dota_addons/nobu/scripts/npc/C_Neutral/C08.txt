@@ -18,7 +18,11 @@
 			"particle"	"particles/title/c08t.vpcf"
 		}
 	}
-
+	"C08_Steal"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	}
 	// 加藤段藏 忍法．迷蹤步
 	"C08D"
 	{
