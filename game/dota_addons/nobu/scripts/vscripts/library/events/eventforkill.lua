@@ -154,7 +154,31 @@ function Nobu:OnUnitKill( keys )
         end
         AttackerUnit.kill_hero_count = AttackerUnit.kill_hero_count + 1
         --拿經驗
-        AttackerUnit:AddExperience(killedUnit:GetLevel()*20, 0, false, false)
+        local average_level_1 = 0
+        for i=0,20 do
+          local player = PlayerResource:GetPlayer(i)
+          if player then
+            hero = player:GetAssignedHero()
+            if hero:GetTeamNumber() == AttackerUnit:GetTeamNumber() then
+              average_level_1 = average_level_1 + hero:GetLevel()
+            end
+          end
+        end
+        local average_level_2 = 0
+        for i=0,20 do
+          local player = PlayerResource:GetPlayer(i)
+          if player then
+            hero = player:GetAssignedHero()
+            if hero:GetTeamNumber() == killedUnit:GetTeamNumber() then
+              average_level_2 = average_level_2 + hero:GetLevel()
+            end
+          end
+        end
+        average_level_1 = average_level_1 / 5
+        average_level_2 = average_level_2 / 5
+        if average_level_1 < average_level_2 then
+          AttackerUnit:AddExperience(killedUnit:GetLevel()*20, 0, false, false)
+        end
         --殺人與助攻金錢
         local kill_bounty = 100
         local extra_bounty = 300
@@ -171,7 +195,6 @@ function Nobu:OnUnitKill( keys )
           GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."中止了".._G.hero_name_zh[nobu_id2].."的連殺，得到"..(killedUnit.continue_kill*100).."獎勵</font>",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
         elseif killedUnit.continue_die then
           bounty = killedUnit.continue_die * 50 * -1
-          print("continue die")
           if bounty < -200 then
             bounty = -200
           end
@@ -183,13 +206,11 @@ function Nobu:OnUnitKill( keys )
             local hero = player:GetAssignedHero()  
             --助攻的人拿額外獎勵
             if hero.assist_count < hero:GetAssists() then
-              print(hero:GetUnitName() .. " assist")
               AMHC:GivePlayerGold_UnReliable(hero:GetPlayerOwnerID(), extra_bounty + bounty)
               hero.assist_count = hero:GetAssists()
             end
           end
         end
-        print(extra_bounty + bounty)
         --殺人錢
         AMHC:GivePlayerGold_UnReliable(AttackerUnit:GetPlayerOwnerID(), kill_bounty)
         --額外獎勵
