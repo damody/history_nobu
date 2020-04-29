@@ -1940,24 +1940,6 @@
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"	"1"
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_mana_ingot.lua"
-				"Function"	"OnEquip"
-				"mana"	"300"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_mana_ingot.lua"
-				"Function"	"OnUnequip"
-				"mana"	"300"
-			}
-		}
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -6421,24 +6403,6 @@
 			}
 			
 		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_mana_ingot.lua"
-				"Function"	"OnEquip"
-				"mana"	"400"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_mana_ingot.lua"
-				"Function"	"OnUnequip"
-				"mana"	"400"
-			}
-		}
 		"Modifiers"
 		{
 			"Passive_item_glass_mitsutomo2"
@@ -10263,24 +10227,6 @@
 			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
 				"Function"	"sound"
 				"sound"	"RestorationPotion"
-			}
-		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_mana_ingot.lua"
-				"Function"	"OnEquip"
-				"mana"	"400"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_mana_ingot.lua"
-				"Function"	"OnUnequip"
-				"mana"	"400"
 			}
 		}
 		"Modifiers"
@@ -14311,24 +14257,6 @@
 			"FireSound"
 			{
 				"EffectName"	"Hero_QueenOfPain.Pick"
-			}
-		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_mana_ingot.lua"
-				"Function"	"OnEquip"
-				"mana"	"500"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_mana_ingot.lua"
-				"Function"	"OnUnequip"
-				"mana"	"500"
 			}
 		}
 		"Modifiers"
