@@ -478,11 +478,14 @@ function C08T_OnSpellStart( keys )
 	end
 	if caster.steal_ability == nil then
 		caster.steal_ability = caster:FindAbilityByName("C08_Steal")
+	else
+		caster.steal_ability = caster:GetAbilityByIndex(3)
+	end
+	if caster.timer then
+		Timers:RemoveTimer(caster.timer)
 	end
 	caster:RemoveAbilityByHandle(caster.steal_ability)
 	caster:AddAbility(target_ability:GetName()):SetLevel(target_ability_level)
-	caster.steal_ability = caster:FindAbilityByName(target_ability:GetName())
-	caster.steal_ability:CanAbilityBeUpgraded()
 end
 
 function modifier_C08T_bleeding_OnIntervalThink( keys )
