@@ -219,19 +219,18 @@ function A13W( event )
 		end
 	end
 	local lv = ability:GetLevel()
-	caster:RemoveAbility("A13W")
-	caster:AddAbility("A13W2"):SetLevel(1)
-	caster.timer = Timers:CreateTimer(6, function()
-		caster:RemoveAbility("A13W2")
-		caster:AddAbility("A13W"):SetLevel(lv)
-	end)
+	
 	caster.A13W = {}
 	Timers:CreateTimer(0, function()
 		if IsValidEntity(caster) and caster:IsAlive() then
-			if people ~= origin_go_index and IsValidEntity(caster.A13W[people]) then
-				return nil
-			end
-			if people == origin_go_index and IsValidEntity(caster.A13W[people-1]) then
+			if (people ~= origin_go_index and IsValidEntity(caster.A13W[people])) or
+				people == origin_go_index and IsValidEntity(caster.A13W[people-1]) then
+				caster:RemoveAbility("A13W")
+				caster:AddAbility("A13W2"):SetLevel(1)
+				caster.timer = Timers:CreateTimer(6, function()
+					caster:RemoveAbility("A13W2")
+					caster:AddAbility("A13W"):SetLevel(lv)
+				end)
 				return nil
 			end
 			for i=1,people do
@@ -729,14 +728,14 @@ function A13T ( keys )
 			end
 			units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
 			local n = RandomInt(1, #units)
-
+			local distance = nobu_distance(caster:GetAbsOrigin(), point)
+			if distance < radius then
+				ability:ApplyDataDrivenModifier(caster,caster,"modifier_A13T_invisible",{duration = 0.5})
+			else
+				caster:RemoveModifierByName("modifier_A13T_invisible")
+			end	
 			for i,unit in ipairs(units) do
-				local distance = (caster:GetAbsOrigin() - point):Length()
-				if distance < radius then
-					ability:ApplyDataDrivenModifier(caster,caster,"modifier_A13T_invisible",{duration = 0.5})
-				else
-					caster:RemoveModifierByName("modifier_A13T_invisible")
-				end				
+							
 				if not(unit:GetTeamNumber() == caster:GetTeamNumber()) and distance < radius then
 					local randomVector = RandomVector(1)
 					local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact_dagger.vpcf",PATTACH_POINT,unit)
