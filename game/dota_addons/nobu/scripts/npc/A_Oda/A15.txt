@@ -415,7 +415,7 @@
 		{
 			"ApplyModifier"
 			{
-				"ModifierName"		"modifier_A15T2"
+				"ModifierName"		"modifier_A15T"
 				"Target" 			"CASTER"
 			}
 			"RunScript"
@@ -430,9 +430,16 @@
 		{
 			"modifier_A15T"
 			{
-				"Passive"			"1"
+				"Passive"			"0"
 				"IsDebuff"			"0"
 				"IsPurgable"		"0"
+				"Duration"	"%A15T_duration"
+				"EffectName"		"particles/a15t/a15t.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%A15T_attackBonus"
+				}
 				"OnAttackLanded"
 				{
 					"RunScript"
@@ -463,7 +470,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"A15T_lifeSteal"	"10"
+				"A15T_lifeSteal"	"36"
 			}
 			"03"
 			{
