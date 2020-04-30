@@ -462,7 +462,8 @@ function CP_recover( keys )
   local ability = keys.ability
   local attacker = keys.attacker
   local recover = ability:GetSpecialValueFor("recover")
-  local heal = recover * (1 + attacker:GetHealth()/attacker:GetMaxHealth())
+  local recover_ampify = ability:GetSpecialValueFor("recover_ampify")
+  local heal = recover * (1 + (attacker:GetHealth()/attacker:GetMaxHealth())*recover_ampify/100)
   attacker:SetHealth(attacker:GetHealth() + heal)
 end
 
