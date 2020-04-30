@@ -76,7 +76,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"abilityDamage"	"20 35 50 65"
+				"abilityDamage"	"40 70 100 130"
 			}
 			"04"
 			{
