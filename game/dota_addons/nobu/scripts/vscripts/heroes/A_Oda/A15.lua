@@ -53,7 +53,7 @@ function A15E_OnSpellStart( keys )
 	local damage = ability:GetSpecialValueFor("A15E_damage")
 	local stunDuration = ability:GetSpecialValueFor("A15E_stunDuration")
 	local maxMoon = ability:GetSpecialValueFor("A15E_maxMoon")
-
+	local maxHit = ability:GetSpecialValueFor("A15E_maxHit")
 	local moonCount = 0
 
 	Timers:CreateTimer( 0, function()
@@ -62,8 +62,18 @@ function A15E_OnSpellStart( keys )
 		end
 		if moonCount < maxMoon then
 			moonCount = moonCount + 1
+			--先打沒打中的人
+			local units = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
+			local IsFind = false
 			local randomPoint = point + RandomVector( RandomInt( 0 , radius ) )
-
+			for _,unit in ipairs(units) do
+				if not unit:HasModifier("modifier_A15E_hit") then
+					IsFind = true
+					--有人沒被打到 先掉他頭上
+					randomPoint = unit:GetAbsOrigin()
+					break
+				end
+			end
 			local particle = ParticleManager:CreateParticle( "particles/econ/items/luna/luna_lucent_ti5/luna_eclipse_impact_moonfall.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl( particle, 0, randomPoint )
 			ParticleManager:SetParticleControl( particle, 1, randomPoint )
@@ -73,7 +83,7 @@ function A15E_OnSpellStart( keys )
 
 			StartSoundEventFromPosition( "Hero_Luna.Eclipse.NoTarget" , randomPoint )
 
-			local units = FindUnitsInRadius( caster:GetTeamNumber(), randomPoint, nil, moonradius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
+			units = FindUnitsInRadius( caster:GetTeamNumber(), randomPoint, nil, moonradius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
 			for _,unit in ipairs(units) do
 				local damage_table = {
 					attacker = caster,
@@ -81,8 +91,17 @@ function A15E_OnSpellStart( keys )
 					damage = damage,
 					damage_type = ability:GetAbilityDamageType()
 				}
-				unit:AddNewModifier( caster, ability, "modifier_stunned", { duration = stunDuration } )
-				ApplyDamage(damage_table)
+				if unit:HasModifier("modifier_A15E_hit") and unit:FindModifierByName("modifier_A15E_hit"):GetStackCount() > maxHit then
+					--print("over")
+				else
+					unit:AddNewModifier( caster, ability, "modifier_stunned", { duration = stunDuration } )
+					ApplyDamage(damage_table)
+					if unit:FindModifierByName("modifier_A15E_hit") then
+						unit:FindModifierByName("modifier_A15E_hit"):SetStackCount(unit:FindModifierByName("modifier_A15E_hit"):GetStackCount()+1)
+					else
+						ability:ApplyDataDrivenModifier(caster,unit,"modifier_A15E_hit",{duration = 0.8}):SetStackCount(1)
+					end
+				end
 			end
 		end
 		return 0.1

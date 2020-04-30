@@ -267,7 +267,15 @@
 				"Function"							"A15E_OnSpellStart"
 			}
 		}
-
+		"Modifiers"
+		{
+			"modifier_A15E_hit"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"IsPurgable" "0"
+			}
+		}
 		"AbilitySpecial"
 		{
 			"01"
@@ -299,6 +307,11 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"A15E_maxMoon"					"4 5 6 7"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"A15E_maxHit"					"4"
 			}
 		}
 	}
