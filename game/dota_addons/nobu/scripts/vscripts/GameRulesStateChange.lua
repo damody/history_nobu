@@ -119,6 +119,10 @@ function Nobu:OnGameRulesStateChange( keys )
 		local unified_def_home = CreateUnitByName("hide_unit", Vector(-7390.63,7203.02,128) , true, nil, nil, DOTA_TEAM_BADGUYS) 
 		unified_def_home:AddAbility("speed_up"):SetLevel(1)
 	end)
+	--平均等級1
+	_G.average_level = {}
+	_G.average_level[DOTA_TEAM_GOODGUYS] = 1
+	_G.average_level[DOTA_TEAM_BADGUYS] = 1
 	--檢查有沒有馬
 	Timers:CreateTimer(60, function()
 		for playerID = 0, 9 do

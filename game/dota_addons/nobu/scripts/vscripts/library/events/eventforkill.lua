@@ -154,29 +154,7 @@ function Nobu:OnUnitKill( keys )
         end
         AttackerUnit.kill_hero_count = AttackerUnit.kill_hero_count + 1
         --拿經驗
-        local average_level_1 = 0
-        for i=0,20 do
-          local player = PlayerResource:GetPlayer(i)
-          if player then
-            hero = player:GetAssignedHero()
-            if hero:GetTeamNumber() == AttackerUnit:GetTeamNumber() then
-              average_level_1 = average_level_1 + hero:GetLevel()
-            end
-          end
-        end
-        local average_level_2 = 0
-        for i=0,20 do
-          local player = PlayerResource:GetPlayer(i)
-          if player then
-            hero = player:GetAssignedHero()
-            if hero:GetTeamNumber() == killedUnit:GetTeamNumber() then
-              average_level_2 = average_level_2 + hero:GetLevel()
-            end
-          end
-        end
-        average_level_1 = average_level_1 / 5
-        average_level_2 = average_level_2 / 5
-        if average_level_1 < average_level_2 then
+        if _G.average_level[AttackerUnit:GetTeamNumber()] < _G.average_level[killedUnit:GetTeamNumber()] then
           AttackerUnit:AddExperience(killedUnit:GetLevel()*20, 0, false, false)
           local nobu_id = _G.heromap[AttackerUnit:GetName()]
           local nobu_id2 = _G.heromap[killedUnit:GetName()]
@@ -351,6 +329,18 @@ function Nobu:OnUnitKill( keys )
       -- end
       --Tutorial: AddQuest("quest_1",1,"破塔成功","ssssssssss")
     if string.match(name, "neutral_130")then
+      --後追經驗
+      if AttackerUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+        if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_BADGUYS] then
+          local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - AttackerUnit:GetLevel())
+          AttackerUnit:AddExperience(killedUnit:GetDeathXP()*diff*15/100, 0, false, false)
+        end
+      else
+        if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_GOODGUYS] then
+          local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - AttackerUnit:GetLevel())
+          AttackerUnit:AddExperience(killedUnit:GetDeathXP()*diff*15/100, 0, false, false)
+        end
+      end
       local unitname = name
       local pos = killedUnit:GetAbsOrigin()
       local team = killedUnit:GetTeamNumber()
@@ -403,6 +393,18 @@ function Nobu:OnUnitKill( keys )
         end
       end)
     elseif string.match(name, "neutral_160") then
+      --後追經驗
+      if AttackerUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+        if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_BADGUYS] then
+          local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - AttackerUnit:GetLevel())
+          AttackerUnit:AddExperience(killedUnit:GetDeathXP()*diff*15/100, 0, false, false)
+        end
+      else
+        if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_GOODGUYS] then
+          local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - AttackerUnit:GetLevel())
+          AttackerUnit:AddExperience(killedUnit:GetDeathXP()*diff*15/100, 0, false, false)
+        end
+      end
       local unitname = name
       local pos = killedUnit:GetAbsOrigin()
       local team = killedUnit:GetTeamNumber()
