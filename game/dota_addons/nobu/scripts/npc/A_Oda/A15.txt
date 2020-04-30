@@ -75,7 +75,7 @@
 				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 				}
 				"ModifierName"	"modifier_invisible"
-				"Duration"	"20"
+				"Duration"	"%duration"
 			}
 		}
 		"Modifiers"
@@ -136,6 +136,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"A15D_movement_speed"	"5 10 15 20 25"
+			}
+			"03"
+			{
+				"var_type" "FIELD_INTEGER"
+				"duration"	"10 15 20 25"
 			}
 		}
 	}
