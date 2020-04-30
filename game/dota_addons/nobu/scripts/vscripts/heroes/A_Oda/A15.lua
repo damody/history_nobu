@@ -95,12 +95,15 @@ function A15E_OnSpellStart( keys )
 					--print("over")
 				else
 					unit:AddNewModifier( caster, ability, "modifier_stunned", { duration = stunDuration } )
-					ApplyDamage(damage_table)
 					if unit:FindModifierByName("modifier_A15E_hit") then
 						unit:FindModifierByName("modifier_A15E_hit"):SetStackCount(unit:FindModifierByName("modifier_A15E_hit"):GetStackCount()+1)
 					else
-						ability:ApplyDataDrivenModifier(caster,unit,"modifier_A15E_hit",{duration = 0.8}):SetStackCount(1)
+						if unit then
+							print(unit)
+							ability:ApplyDataDrivenModifier(caster,unit,"modifier_A15E_hit",{duration = 0.8}):SetStackCount(1)
+						end
 					end
+					ApplyDamage(damage_table)
 				end
 			end
 		end
