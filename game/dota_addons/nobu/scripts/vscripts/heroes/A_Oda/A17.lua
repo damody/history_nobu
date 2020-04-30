@@ -35,10 +35,12 @@ function shrapnel_fire( keys )
 	local launch_particle_name = "particles/units/heroes/hero_sniper/sniper_shrapnel_launch.vpcf"
 	local launch_sound_name = "Hero_Sniper.ShrapnelShoot"
 
+	local dummy = CreateUnitByName("hide_unit", target , true, nil, caster, caster:GetTeamNumber())
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=0.3})
 	-- Create particle at caster
-	local fxLaunchIndex = ParticleManager:CreateParticle( launch_particle_name, PATTACH_CUSTOMORIGIN, caster )
-	ParticleManager:SetParticleControl( fxLaunchIndex, 0, casterLoc )
-	ParticleManager:SetParticleControl( fxLaunchIndex, 1, Vector( casterLoc.x, casterLoc.y, 800 ) )
+	local fxLaunchIndex = ParticleManager:CreateParticle( launch_particle_name, PATTACH_CUSTOMORIGIN, dummy )
+	ParticleManager:SetParticleControl( fxLaunchIndex, 0, target )
+	ParticleManager:SetParticleControl( fxLaunchIndex, 1, Vector( target.x, target.y, 800 ) )
 
 	StartSoundEvent( launch_sound_name, caster )
 
@@ -66,6 +68,70 @@ function shrapnel_fire( keys )
 		end
 	)
 
+end
+
+function shrapnel_fire2( keys )
+	local caster = keys.caster
+	local target = keys.target_points[1]
+	local ability = keys.ability
+	local casterLoc = caster:GetAbsOrigin()
+	local modifierName = "modifier_shrapnel_stack_counter_datadriven"
+	local dummyModifierName = "modifier_shrapnel_dummy_datadriven"
+	local radius = ability:GetLevelSpecialValueFor( "radius", ( ability:GetLevel() - 1 ) )
+	local dummy_duration = ability:GetLevelSpecialValueFor( "duration", ( ability:GetLevel() - 1 ) ) + 0.1
+	local damage_delay = ability:GetLevelSpecialValueFor( "damage_delay", ( ability:GetLevel() - 1 ) ) + 0.1
+	local launch_particle_name = "particles/units/heroes/hero_sniper/sniper_shrapnel_launch.vpcf"
+	local launch_sound_name = "Hero_Sniper.ShrapnelShoot"
+	AddFOWViewer(caster:GetTeamNumber(), target, radius, 7, false)
+	local dummy = CreateUnitByName("hide_unit", target , true, nil, caster, caster:GetTeamNumber())
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=0.3})
+	-- Create particle at caster
+	local fxLaunchIndex = ParticleManager:CreateParticle( launch_particle_name, PATTACH_CUSTOMORIGIN, dummy )
+	ParticleManager:SetParticleControl( fxLaunchIndex, 0, target )
+	ParticleManager:SetParticleControl( fxLaunchIndex, 1, Vector( target.x, target.y, 800 ) )
+
+	StartSoundEvent( launch_sound_name, caster )
+
+	-- create dummy to do damage and apply debuff modifier
+	--dummy:FindAbilityByName("majia"):SetLevel(1)
+	--StartSoundEventFromPosition("Hero_Sniper.ShrapnelShatter",target)	
+	local dummy = CreateUnitByName( "hide_unit", target, false, caster, caster, caster:GetTeamNumber() )
+	ability:ApplyDataDrivenModifier( caster, dummy, "modifier_A17W", {} )			
+	StartSoundEvent( "Hero_Sniper.ShrapnelShatter", dummy )	
+	Timers:CreateTimer( damage_delay, function()
+
+			local dummy2 = CreateUnitByName( "hide_unit", target, false, caster, caster, caster:GetTeamNumber() )	
+			ability:ApplyDataDrivenModifier( caster, dummy2, dummyModifierName, {} )
+			ability:ApplyDataDrivenModifier( caster, dummy2, "modifier_A17W", {} )
+			Timers:CreateTimer( dummy_duration, function()
+					StopSoundOn("Hero_Sniper.ShrapnelShatter",dummy)
+					dummy:ForceKill( true )
+					dummy2:ForceKill( true )
+					--StopSoundEvent("Hero_Sniper.ShrapnelShatter",dummy)
+					--dummy:Destroy()
+					return nil
+				end
+			)
+			return nil
+		end
+	)
+
+end
+
+function A17T_OnToggleOn( keys )
+	local caster = keys.caster
+	local A17W = caster:FindAbilityByName("A17W")
+	local A17W_level = A17W:GetLevel()
+	caster:RemoveAbilityByHandle(A17W)
+	caster:AddAbility("A17W_HIDE"):SetLevel(A17W_level)
+end
+
+function A17T_OnToggleOff( keys )
+	local caster = keys.caster
+	local A17W_HIDE = caster:FindAbilityByName("A17W_HIDE")
+	local A17W_level = A17W_HIDE:GetLevel()
+	caster:RemoveAbilityByHandle(A17W_HIDE)
+	caster:AddAbility("A17W"):SetLevel(A17W_level)
 end
 
 function A17T( event )

@@ -37,7 +37,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		"AbilityCastPoint" "0.3" //stun
+		"AbilityCastPoint" "0.1" //stun
 		"AbilityCooldown"	"20"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
@@ -173,6 +173,195 @@
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"EffectName"	"particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Duration"	"%stun_duration"
+			}
+		}
+		// Special
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_delay"	"0.8 0.8 0.8 0.8"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"300 360 420 480"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"duration"	"1.0 1.3 1.6 1.9"
+			}
+			// Extra variables
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"tick_interval"	"0.1"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"stun_duration"	"0.1"
+			}
+		}
+		// Damage.
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"	"15 20 21 24"
+	}
+	//佐佐成政 爆烈彈
+	"A17W_HIDE"
+	{
+		// General
+		// -------------------------------------------------------------------------------------------------------------
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"sniper_shrapnel"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		"AbilityCastPoint" "0.1" //stun
+		"AbilityCooldown"	"20"
+		// Cost
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"	"120 140 160 180"
+		// Casting
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"	"1300"
+		"AOERadius"	"%radius"
+		// Data driven
+		// -------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_sniper/sniper_shrapnel_launch.vpcf"
+			"particle"	"particles/units/heroes/hero_sniper/sniper_shrapnel.vpcf"
+			"particle"	"particles/econ/items/sniper/sniper_charlie/sniper_shrapnel_charlie.vpcf"
+			"particle"	"particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"A17W.vo1"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A17.lua"
+				"Function"	"shrapnel_fire2"
+				"Target"	"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_shrapnel_stack_counter_datadriven"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"IsPurgable"	"0"
+				"IsDebuff"	"0"
+			}
+			"modifier_shrapnel_dummy_datadriven"
+			{
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"	"TARGET"
+						"EffectName"	"particles/units/heroes/hero_sniper/sniper_shrapnel.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"EffectRadius"	"%radius"
+					}
+					"AttachEffect"
+					{
+						"Target"	"TARGET"
+						"EffectName"	"particles/econ/items/sniper/sniper_charlie/sniper_shrapnel_charlie.vpcf"
+						"EffectAttachType"	"follow_origin"
+						"EffectRadius"	"%radius"
+					}
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Radius"	"%radius"
+							"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+						}
+						"Action"
+						{
+							"Damage"
+							{
+								"Target"	"TARGET"
+								"Damage"	"%AbilityDamage"
+								"Type"	"DAMAGE_TYPE_MAGICAL"
+							}
+							"RunScript"
+							{
+								"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A17.lua"
+								"Function"	"A17W2"
+							}
+						}
+					}
+				}
+				"ThinkInterval"	"%tick_interval"
+				"OnIntervalThink"
+				{
+					"ActOnTargets"
+					{
+						"Target"
+						{
+							"Center"	"TARGET"
+							"Radius"	"%radius"
+							"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+							"Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+							"Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+						}
+						"Action"
+						{
+							"Damage"
+							{
+								"Target"	"TARGET"
+								"Damage"	"%AbilityDamage"
+								"Type"	"DAMAGE_TYPE_MAGICAL"
+							}
+							"RunScript"
+							{
+								"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A17.lua"
+								"Function"	"A17W2"
+							}
+						}
+					}
+				}
+				"Properties"	{}
+				"Passive"	"0"
+			}
+			"modifier_A17W"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_A17W_2"
+			{
+				"Duration"	"%duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-30"
+				}
+				"EffectName"	"particles/generic_gameplay/move_slow.vpcf"
 				"EffectAttachType"	"follow_overhead"
 				"Duration"	"%stun_duration"
 			}
@@ -359,6 +548,11 @@
 		}
 		"OnToggleOn"
 		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A17.lua"
+				"Function"	"A17T_OnToggleOn"
+			}
 			"ApplyModifier"
 			{
 				"Target"
@@ -380,6 +574,11 @@
 		}
 		"OnToggleOff"
 		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A17.lua"
+				"Function"	"A17T_OnToggleOff"
+			}
 			"RemoveModifier"
 			{
 				"Target"	"CASTER"
