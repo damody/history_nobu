@@ -425,6 +425,7 @@ end
 
 C08T_cannot_steal ={}
 C08T_cannot_steal["A20W"] = 1
+C08T_cannot_steal["B16W"] = 1
 
 function C08T_OnSpellStart( keys )
 	local caster = keys.caster
