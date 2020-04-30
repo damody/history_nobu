@@ -52,12 +52,10 @@
 		{
 			"modifier_A31W"
 			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsDebuff"	"0"
+				"IsDebuff"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "15"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-5"
 				}
 			}
 		}
@@ -73,7 +71,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"duration"	"10.0"
+				"duration"	"5"
 			}
 			"03"
 			{
@@ -155,6 +153,19 @@
 				"BlinkRangeClamp"	"%max_blink_range"
 				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A31_Mori_Ranmaru.lua"
 				"Function"	"A31E"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_A31E"
+			{
+				"Passive"	"0"
+				"IsHidden"	"0"
+				"IsDebuff"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "15"
+				}
 			}
 		}
 		// Special

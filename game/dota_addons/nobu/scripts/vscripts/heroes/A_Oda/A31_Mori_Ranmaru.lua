@@ -26,6 +26,14 @@ function A31E(keys)
 	FindClearSpaceForUnit(keys.caster, target_point, false)
 	
 	ParticleManager:CreateParticle("particles/items_fx/blink_dagger_end.vpcf", PATTACH_ABSORIGIN, keys.caster)
+	local lv = caster:FindAbilityByName("A31T"):GetLevel()
+	if lv > 0 then
+		keys.ability:ApplyDataDrivenModifier(caster, caster,"modifier_A31E", {duration = 7})
+		local handle = caster:FindModifierByName("modifier_A31E")
+		if handle then
+			handle:SetStackCount(lv)
+		end
+	end
 end
 
 function OB(keys)
@@ -57,14 +65,6 @@ function A31W( keys )
 		end )
 	
 	caster:StartGesture( ACT_DOTA_OVERRIDE_ABILITY_1 )
-	local lv = caster:FindAbilityByName("A31T"):GetLevel()
-	if lv > 0 then
-		keys.ability:ApplyDataDrivenModifier(caster, caster,"modifier_A31W", {duration = 10})
-		local handle = caster:FindModifierByName("modifier_A31W")
-		if handle then
-			handle:SetStackCount(lv)
-		end
-	end
 
 	Timers:CreateTimer( 1, 
 		function()
@@ -80,11 +80,16 @@ function A31W( keys )
 	                              false)
 			for _, it in pairs( units ) do
 				if (not(it:IsBuilding())) then
+					local stack = 0
+					if it:HasModifier("modifier_A31W") then
+						stack = it:FindModifierByName("modifier_A31W"):GetStackCount()
+					end
+					ability:ApplyDataDrivenModifier(caster,it,"modifier_A31W",{duration = 1.1}):SetStackCount(stack + 1)
 					AMHC:Damage(caster, it, abilityDamage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				end
 			end
 			caster:EmitSound("starstorm_impact01")
-			if (second <= 10) then
+			if (second < 5) then
 				return 1
 			else
 				return nil
