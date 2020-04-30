@@ -5139,12 +5139,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"recover"			"25"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"recover_ampify"			"2"
+				"recover"			"45"
 			}
 		}
 	}
