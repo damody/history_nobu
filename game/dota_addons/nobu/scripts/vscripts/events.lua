@@ -195,13 +195,14 @@ function Nobu:FilterGold( filterTable )
     if reason == DOTA_ModifyGold_Building then      
       if gold ~= 150 and gold ~= 750 and gold ~= 50 then return false end
       if gold == 750 then filterTable["gold"] = 300 end
-      print("tower")
+      _G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + gold
       return true
     end
     -- Disable all hero kill gold
     if reason == DOTA_ModifyGold_HeroKill then
       return false
     end
+    _G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + gold
     return true
 end
 
