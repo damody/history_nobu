@@ -547,8 +547,8 @@ function C08T_OnAbilityExecuted( keys )
 		stack = stack - use_count
 		caster:FindModifierByName("modifier_C08T_steal_stack"):SetStackCount(stack)
 		if use_count >=  ability:GetLevel() then
-			caster:RemoveAbilityByHandle(caster.steal_ability)
-			caster:AddAbility("C08_Steal")
+			print("max")
+			event_ability:SetActivated(false)
 			caster:RemoveModifierByName("modifier_C08T_steal_stack")
 		end
 	end
