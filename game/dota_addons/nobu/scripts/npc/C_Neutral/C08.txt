@@ -397,6 +397,23 @@
 		}
 		"Modifiers"
 		{
+			"modifier_C08T_steal_stack"
+			{
+				
+			}
+			"modifier_C08T_use_ability"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"	
+					{
+						"ScriptFile" "scripts/vscripts/heroes/C_Neutral/C08.lua"
+						"Function"	"C08T_OnAbilityExecuted"
+					}
+				}
+			}
 			"modifier_C08T_bleeding"
 			{
 				"OnCreated"
