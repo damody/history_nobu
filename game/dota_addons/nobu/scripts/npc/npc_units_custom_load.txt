@@ -5592,7 +5592,7 @@
 	{
 		"BaseClass"	"npc_dota_creature"
 		"Ability1"	"ability_dummy_unit"
-		"Ability2"	""
+		"Ability2"	"B33T_movespeed"
 		"Ability3"	""
 		"Ability4"	""
 		"Ability5"	""

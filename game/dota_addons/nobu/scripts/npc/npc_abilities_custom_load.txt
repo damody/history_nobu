@@ -4276,6 +4276,27 @@
 		}
 	}
 
+	"B33T_movespeed"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/icon_128x128_64"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Modifiers"
+		{
+			"modifier_courier_speed"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"IsPurgable"	"0"
+				"AllowIllusionDuplicate"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"		"2000"
+				}
+			}
+		}
+	}
+
 	"for_no_hp_bar"
 	{
 		"BaseClass"	"ability_datadriven"

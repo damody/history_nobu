@@ -104,7 +104,7 @@ function B33T( keys )
 	keys.ability:ApplyDataDrivenModifier(caster, dummy,"modifier_tofly",{duration = 10})
 	Timers:CreateTimer(0.1, function()
 			if IsValidEntity(target) and not target:HasModifier("modifier_spawn_spiderlings_datadriven") then
-				--dummy:SetPhysicsVelocity((target:GetAbsOrigin() - dummy:GetAbsOrigin())*3)
+				-- dummy:SetPhysicsVelocity((target:GetAbsOrigin() - dummy:GetAbsOrigin())*3)
 				return 0.1
 			end
 		end)
