@@ -101,10 +101,10 @@ function B33T( keys )
 	EmitSoundOn("broodmother_broo_immort_01",keys.caster)
 	dummy:EmitSound("broodmother_broo_win_01")
 	Physics:Unit(dummy)
-	keys.ability:ApplyDataDrivenModifier(dummy, dummy,"modifier_tofly",nil)
+	keys.ability:ApplyDataDrivenModifier(caster, dummy,"modifier_tofly",{duration = 10})
 	Timers:CreateTimer(0.1, function()
 			if IsValidEntity(target) and not target:HasModifier("modifier_spawn_spiderlings_datadriven") then
-				dummy:SetPhysicsVelocity((target:GetAbsOrigin() - dummy:GetAbsOrigin())*3)
+				--dummy:SetPhysicsVelocity((target:GetAbsOrigin() - dummy:GetAbsOrigin())*3)
 				return 0.1
 			end
 		end)
