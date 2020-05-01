@@ -43,6 +43,10 @@ function Nobu:OnHeroIngame( keys )
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
           hero:AddItem(CreateItem("item_logging", hero, hero))
+          --松姬 奇襲 開場要有30秒CD
+          if hero.name == "C19" then
+            hero:FindAbilityByName("C19D"):StartCooldown(30)
+          end
           --把砍樹移動到neutral item slot
           for i = 0, 15 do
             local item = caster:GetItemInSlot( i )
