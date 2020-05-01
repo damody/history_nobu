@@ -414,6 +414,7 @@ end
 function C08T_OnRespawn(keys)
 	local ability = keys.ability
 	local caster = keys.caster
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_C08T_steal_stack",{}):SetStackCount(ability:GetLevel() - use_count)
 end
 
 
