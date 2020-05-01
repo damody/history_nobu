@@ -4853,7 +4853,7 @@
 			
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "1"	//回血
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "2"	//回血
 				}
 			}
 		}
