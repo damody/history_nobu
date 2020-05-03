@@ -5592,7 +5592,7 @@
 	{
 		"BaseClass"	"npc_dota_creature"
 		"Ability1"	"ability_dummy_unit"
-		"Ability2"	""
+		"Ability2"	"B33T_movespeed"
 		"Ability3"	""
 		"Ability4"	""
 		"Ability5"	""
@@ -14114,11 +14114,11 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
- 		"StatusHealth"				"805"		// Base health.
+ 		"StatusHealth"				"966"		// Base health.
  		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
  		"StatusMana"				"150"			// Base mana.
  		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
@@ -14143,7 +14143,7 @@
  		"Model"						"models/creeps/neutral_creeps/n_creep_troll_dark_a/n_creep_troll_dark_a.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"2"
+ 		"Level"						"1"
  		"ModelScale" 					".90"
  		"IsNeutralUnitType"			"1"
 
@@ -14186,11 +14186,11 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
- 		"StatusHealth"				"705"		// Base health.
+ 		"StatusHealth"				"846"		// Base health.
  		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
  		"StatusMana"				"800"			// Base mana.
  		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
@@ -14215,7 +14215,7 @@
  		"Model"						"models/creeps/item_creeps/i_creep_necro_warrior/necro_warrior.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"3"
+ 		"Level"						"1"
  		"ModelScale" 					".90"
  		"IsNeutralUnitType"			"1"
 
@@ -14258,11 +14258,11 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
- 		"StatusHealth"				"805"		// Base health.
+ 		"StatusHealth"				"966"		// Base health.
  		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
  		"StatusMana"				"125"			// Base mana.
  		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
@@ -14287,7 +14287,7 @@
  		"Model"						"models/items/lone_druid/true_form/dark_wood_true_form/dark_wood_true_form.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"3"
+ 		"Level"						"1"
  		"ModelScale" 					".90"
  		"IsNeutralUnitType"			"1"
 
@@ -14317,7 +14317,7 @@
  		// Bounds
  		//----------------------------------------------------------------
  		"RingRadius"				"60"
- 		"HealthBarOffset"			"190"
+ 		"HealthBarOffset"			"350"
 
  		// Bounty
  		//----------------------------------------------------------------
@@ -14334,7 +14334,7 @@
 
  		// Status
  		//----------------------------------------------------------------
- 		"StatusHealth"				"750"		// Base health.
+ 		"StatusHealth"				"900"		// Base health.
  		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
  		"StatusMana"				"200"			// Base mana.
  		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
@@ -14359,7 +14359,7 @@
  		"Model"						"models/items/lone_druid/true_form/wolf_hunter_true_form/wolf_hunter_true_form.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"4"
+ 		"Level"						"1"
  		"ModelScale" 					".70"
  		"IsNeutralUnitType"			"1"
 
@@ -14402,11 +14402,11 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
- 		"StatusHealth"				"985"		// Base health.
+ 		"StatusHealth"				"1182"		// Base health.
  		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
  		"StatusMana"				"175"			// Base mana.
  		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
@@ -14431,7 +14431,7 @@
  		"Model"						"models/creeps/neutral_creeps/n_creep_thunder_lizard/n_creep_thunder_lizard_big.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"4"
+ 		"Level"						"1"
  		"ModelScale" 					".90"
  		"IsNeutralUnitType"			"1"
 
@@ -14474,11 +14474,11 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
- 		"StatusHealth"				"995"		// Base health.
+ 		"StatusHealth"				"1194"		// Base health.
  		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
  		"StatusMana"				"365"			// Base mana.
  		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
@@ -14503,7 +14503,7 @@
  		"Model"						"models/heroes/lycan/summon_wolves.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"4"
+ 		"Level"						"1"
  		"ModelScale" 					"1.40"
  		"IsNeutralUnitType"			"1"
 
@@ -14546,11 +14546,11 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
- 		"StatusHealth"				"995"		// Base health.
+ 		"StatusHealth"				"1194"		// Base health.
  		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
  		"StatusMana"				"400"			// Base mana.
  		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
@@ -14575,7 +14575,7 @@
  		"Model"						"models/heroes/lone_druid/spirit_bear.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"4"
+ 		"Level"						"1"
  		"ModelScale" 					"1.40"
  		"IsNeutralUnitType"			"1"
 
@@ -14618,11 +14618,11 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
- 		"StatusHealth"				"1600"		// Base health.
+ 		"StatusHealth"				"1920"		// Base health.
  		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
  		"StatusMana"				"400"			// Base mana.
  		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
@@ -14647,7 +14647,7 @@
  		"Model"						"models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"4"
+ 		"Level"						"1"
  		"ModelScale" 					"2.20"
  		"IsNeutralUnitType"			"1"
 
@@ -14690,11 +14690,11 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
- 		"StatusHealth"				"1015"		// Base health.
+ 		"StatusHealth"				"1260"		// Base health.
  		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
  		"StatusMana"				"350"			// Base mana.
  		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
@@ -14719,7 +14719,7 @@
  		"Model"						"models/creeps/lane_creeps/creep_radiant_hulk/creep_radiant_diretide_ancient_hulk.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"4"
+ 		"Level"						"1"
  		"ModelScale" 					".50"
  		"IsNeutralUnitType"			"1"
 
@@ -14762,11 +14762,11 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
- 		"StatusHealth"				"665"		// Base health.
+ 		"StatusHealth"				"798"		// Base health.
  		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
  		"StatusMana"				"100"			// Base mana.
  		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
@@ -14791,7 +14791,7 @@
  		"Model"						"models/heroes/bounty_hunter/bounty_hunter.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"5"
+ 		"Level"						"1"
  		"ModelScale" 				"1.50"
  		"IsNeutralUnitType"			"1"
 
@@ -14832,7 +14832,7 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
@@ -14861,7 +14861,7 @@
  		"Model"						"models/creeps/neutral_creeps/n_creep_beast/n_creep_beast.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"5"
+ 		"Level"						"1"
  		"ModelScale" 					"1.50"
  		"IsNeutralUnitType"			"1"
 
@@ -14902,7 +14902,7 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
@@ -14931,7 +14931,7 @@
  		"Model"						"models/creeps/neutral_creeps/n_creep_forest_trolls/n_creep_forest_troll_high_priest.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"4"
+ 		"Level"						"1"
  		"ModelScale" 					"1.60"
  		"IsNeutralUnitType"			"1"
 
@@ -14972,11 +14972,11 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
- 		"StatusHealth"				"1900"		// Base health.
+ 		"StatusHealth"				"2280"		// Base health.
  		"StatusHealthRegen"			"0.5"		// Health regeneration rate.
  		"StatusMana"				"750"			// Base mana.
  		"StatusManaRegen"			"0"			// Mana regeneration rate.		 
@@ -15001,7 +15001,7 @@
  		"Model"						"models/creeps/lane_creeps/creep_bad_melee_diretide/creep_bad_melee_diretide.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"6"
+ 		"Level"						"1"
  		"ModelScale" 					"2.0"
  		"IsNeutralUnitType"			"1"
 
@@ -15042,7 +15042,7 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
@@ -15071,7 +15071,7 @@
  		"Model"						"models/items/terrorblade/marauders_demon/marauders_demon.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"6"
+ 		"Level"						"25"
  		"ModelScale" 					"2.2"
  		"IsNeutralUnitType"			"1"
 
@@ -15141,7 +15141,7 @@
  		"Model"						"models/creeps/neutral_creeps/n_creep_centaur_lrg/n_creep_centaur_lrg.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
- 		"Level"						"7"
+ 		"Level"						"12"
  		"ModelScale" 					"1.50"
  		"IsNeutralUnitType"			"1"
 
@@ -15252,7 +15252,7 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"270"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
@@ -15322,7 +15322,7 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"300"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
@@ -15392,7 +15392,7 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"300"		// Speed.
+ 		"MovementSpeed"				"350"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------

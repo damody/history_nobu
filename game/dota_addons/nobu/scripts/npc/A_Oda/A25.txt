@@ -94,7 +94,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"shock_speed"	"2350"
+				"shock_speed"	"3000"
 			}
 			"02"
 			{
@@ -112,7 +112,7 @@
 				"shock_vision"	"100"
 			}
 		}
-		"AbilityDamage"	"200 300 400 500"
+		"AbilityDamage"	"200 275 350 425"
 	}
 
 	// 織田信長 厄災之棘

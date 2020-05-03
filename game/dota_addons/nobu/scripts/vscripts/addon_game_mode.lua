@@ -570,7 +570,7 @@ function Activate()
     print("[Nobu-lua] Activate")
     -- Script_reload_B = true
     -- StopListeningToAllGameEvents(Nobu:GetEntityHandle())
-
+    ListenToGameEvent("dota_player_gained_level", LevelUpEvent, nil)
     AMHCInit()
     if _G.nobu_server_b then
       Nobu:CheckAFK() --Server Init
@@ -815,4 +815,10 @@ end
 
 function CDOTA_BaseNPC:GetMagicalArmorValue()
   return 30.0
+end
+
+--升級事件
+function LevelUpEvent( keys )
+  local hero = EntIndexToHScript(keys.hero_entindex)
+  _G.average_level[hero:GetTeamNumber()] = _G.average_level[hero:GetTeamNumber()] + 0.25
 end

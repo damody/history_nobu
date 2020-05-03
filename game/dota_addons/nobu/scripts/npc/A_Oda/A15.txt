@@ -75,7 +75,7 @@
 				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 				}
 				"ModifierName"	"modifier_invisible"
-				"Duration"	"20"
+				"Duration"	"%duration"
 			}
 		}
 		"Modifiers"
@@ -136,6 +136,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"A15D_movement_speed"	"5 10 15 20 25"
+			}
+			"03"
+			{
+				"var_type" "FIELD_INTEGER"
+				"duration"	"10 15 20 25"
 			}
 		}
 	}
@@ -262,7 +267,15 @@
 				"Function"							"A15E_OnSpellStart"
 			}
 		}
-
+		"Modifiers"
+		{
+			"modifier_A15E_hit"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"IsPurgable" "0"
+			}
+		}
 		"AbilitySpecial"
 		{
 			"01"
@@ -294,6 +307,11 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"A15E_maxMoon"					"4 5 6 7"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"A15E_maxHit"					"4"
 			}
 		}
 	}
@@ -371,7 +389,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"jump_max"				"3 4 5 6"
+				"jump_max"				"2 3 4 5"
 			}
 			"03"
 			{

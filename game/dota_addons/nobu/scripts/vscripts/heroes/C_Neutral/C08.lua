@@ -11,7 +11,7 @@ LinkLuaModifier("modifier_C08D_old", "heroes/modifier_C08D_old.lua", LUA_MODIFIE
 
 local attributes_stack = 0		--紀錄+能力值層數
 local atk_stack = 0				--紀錄+攻擊層數
-
+local use_count = 0
 function C08D_OnSpellStart( keys )
 	local caster = keys.caster
 	local ability = keys.ability
@@ -414,6 +414,7 @@ end
 function C08T_OnRespawn(keys)
 	local ability = keys.ability
 	local caster = keys.caster
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_C08T_steal_stack",{}):SetStackCount(ability:GetLevel() - use_count)
 end
 
 
@@ -425,6 +426,7 @@ end
 
 C08T_cannot_steal ={}
 C08T_cannot_steal["A20W"] = 1
+C08T_cannot_steal["B16W"] = 1
 
 function C08T_OnSpellStart( keys )
 	local caster = keys.caster
@@ -492,6 +494,9 @@ function C08T_OnSpellStart( keys )
 	end
 	caster:RemoveAbilityByHandle(caster.steal_ability)
 	caster:AddAbility(target_ability:GetName()):SetLevel(target_ability_level)
+	caster.steal_ability = caster:FindAbilityByName(target_ability:GetName())
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_C08T_steal_stack",{}):SetStackCount(ability:GetLevel())
+	use_count = 0
 end
 
 function modifier_C08T_bleeding_OnIntervalThink( keys )
@@ -529,6 +534,23 @@ function modifier_C08T_OnDestroy( keys )
 	if caster:IsAlive() and (not target:IsAlive()) then
 		atk_stack = atk_stack + 1
 		Timers:RemoveTimer(ability.C08T_Timer)
+	end
+end
+
+function C08T_OnAbilityExecuted( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local event_ability = keys.event_ability
+	if event_ability:GetAbilityIndex() == 3 then
+		use_count = use_count + 1
+		local stack = caster:FindModifierByName("modifier_C08T_steal_stack"):GetStackCount()
+		stack = stack - use_count
+		caster:FindModifierByName("modifier_C08T_steal_stack"):SetStackCount(stack)
+		if use_count >=  ability:GetLevel() then
+			print("max")
+			event_ability:SetActivated(false)
+			caster:RemoveModifierByName("modifier_C08T_steal_stack")
+		end
 	end
 end
 

@@ -143,6 +143,7 @@ end
 
 function OnUnequip( keys )
 	local caster = keys.caster
+	caster:RemoveModifierByName("modifier_nannbann_armor")
 	if IsValidEntity(caster) then
 		caster.has_item_nannbann_armor = nil
 		if caster.nannbann_armor_effect and caster:IsRealHero() then

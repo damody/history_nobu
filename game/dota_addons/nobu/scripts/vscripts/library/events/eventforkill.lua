@@ -61,6 +61,7 @@ function Nobu:OnUnitKill( keys )
         for _,hero in ipairs(group) do
           if not hero:IsIllusion() then
             AMHC:GivePlayerGold_UnReliable(hero:GetPlayerOwnerID(), earn)
+            _G.PlayerEarnedGold[hero:GetPlayerOwnerID()] = _G.PlayerEarnedGold[hero:GetPlayerOwnerID()] + earn
           end
         end
       end
@@ -154,7 +155,12 @@ function Nobu:OnUnitKill( keys )
         end
         AttackerUnit.kill_hero_count = AttackerUnit.kill_hero_count + 1
         --拿經驗
-        AttackerUnit:AddExperience(killedUnit:GetLevel()*20, 0, false, false)
+        if _G.average_level[AttackerUnit:GetTeamNumber()] < _G.average_level[killedUnit:GetTeamNumber()] then
+          AttackerUnit:AddExperience(killedUnit:GetLevel()*20, 0, false, false)
+          local nobu_id = _G.heromap[AttackerUnit:GetName()]
+          local nobu_id2 = _G.heromap[killedUnit:GetName()]
+          GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."擊殺了".._G.hero_name_zh[nobu_id2].."得到"..(killedUnit:GetLevel()*20).."的額外經驗</font>",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+        end
         --殺人與助攻金錢
         local kill_bounty = 100
         local extra_bounty = 300
@@ -171,30 +177,29 @@ function Nobu:OnUnitKill( keys )
           GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."中止了".._G.hero_name_zh[nobu_id2].."的連殺，得到"..(killedUnit.continue_kill*100).."獎勵</font>",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
         elseif killedUnit.continue_die then
           bounty = killedUnit.continue_die * 50 * -1
-          print("continue die")
           if bounty < -200 then
             bounty = -200
           end
         end
         --發錢
-        for i=0,20 do
+        for i=0,9 do
           local player = PlayerResource:GetPlayer(i)
           if player then
             local hero = player:GetAssignedHero()  
             --助攻的人拿額外獎勵
             if hero.assist_count < hero:GetAssists() then
-              print(hero:GetUnitName() .. " assist")
               AMHC:GivePlayerGold_UnReliable(hero:GetPlayerOwnerID(), extra_bounty + bounty)
+              _G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + gold
               hero.assist_count = hero:GetAssists()
             end
           end
         end
-        print(extra_bounty + bounty)
         --殺人錢
         AMHC:GivePlayerGold_UnReliable(AttackerUnit:GetPlayerOwnerID(), kill_bounty)
+        _G.PlayerEarnedGold[AttackerUnit:GetPlayerOwnerID()] = _G.PlayerEarnedGold[AttackerUnit:GetPlayerOwnerID()] + kill_bounty
         --額外獎勵
         AMHC:GivePlayerGold_UnReliable(AttackerUnit:GetPlayerOwnerID(), extra_bounty + bounty)
-
+        _G.PlayerEarnedGold[AttackerUnit:GetPlayerOwnerID()] = _G.PlayerEarnedGold[AttackerUnit:GetPlayerOwnerID()] + extra_bounty + bounty
         --連殺獎勵
         local sk_kill = 1
         if AttackerUnit.sk_kill then
@@ -205,6 +210,7 @@ function Nobu:OnUnitKill( keys )
         end
         if AttackerUnit.sk_kill > 1 then
           AMHC:GivePlayerGold_UnReliable(AttackerUnit:GetPlayerOwnerID(), AttackerUnit.sk_kill*50)
+          _G.PlayerEarnedGold[AttackerUnit:GetPlayerOwnerID()] = _G.PlayerEarnedGold[AttackerUnit:GetPlayerOwnerID()] + AttackerUnit.sk_kill*50
           local nobu_id = _G.heromap[AttackerUnit:GetName()]
           GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."達成了"..AttackerUnit.sk_kill.."連殺，得到"..(AttackerUnit.sk_kill*50).."獎勵</font>",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
         end
@@ -213,6 +219,7 @@ function Nobu:OnUnitKill( keys )
         if killedUnit:GetGold() > 3000 then
           local level = math.floor((killedUnit:GetGold()-3000)/1000)
           AMHC:GivePlayerGold_UnReliable(AttackerUnit:GetPlayerOwnerID(), (2 + level)*50)
+          _G.PlayerEarnedGold[AttackerUnit:GetPlayerOwnerID()] = _G.PlayerEarnedGold[AttackerUnit:GetPlayerOwnerID()] + (2 + level)*50
           local nobu_id = _G.heromap[AttackerUnit:GetName()]
           local nobu_id2 = _G.heromap[killedUnit:GetName()]
           GameRules:SendCustomMessage("<font color='#ffff00'>".._G.hero_name_zh[nobu_id].."獲得了".._G.hero_name_zh[nobu_id2].."的賞金，得到".. ((2 + level)*50) .."獎勵</font>",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)          
@@ -327,6 +334,18 @@ function Nobu:OnUnitKill( keys )
       -- end
       --Tutorial: AddQuest("quest_1",1,"破塔成功","ssssssssss")
     if string.match(name, "neutral_130")then
+      --後追經驗
+      if AttackerUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+        if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_BADGUYS] then
+          local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - AttackerUnit:GetLevel())
+          AttackerUnit:AddExperience(killedUnit:GetDeathXP()*diff*15/100, 0, false, false)
+        end
+      else
+        if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_GOODGUYS] then
+          local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - AttackerUnit:GetLevel())
+          AttackerUnit:AddExperience(killedUnit:GetDeathXP()*diff*15/100, 0, false, false)
+        end
+      end
       local unitname = name
       local pos = killedUnit:GetAbsOrigin()
       local team = killedUnit:GetTeamNumber()
@@ -379,6 +398,18 @@ function Nobu:OnUnitKill( keys )
         end
       end)
     elseif string.match(name, "neutral_160") then
+      --後追經驗
+      if AttackerUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+        if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_BADGUYS] then
+          local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - AttackerUnit:GetLevel())
+          AttackerUnit:AddExperience(killedUnit:GetDeathXP()*diff*15/100, 0, false, false)
+        end
+      else
+        if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_GOODGUYS] then
+          local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - AttackerUnit:GetLevel())
+          AttackerUnit:AddExperience(killedUnit:GetDeathXP()*diff*15/100, 0, false, false)
+        end
+      end
       local unitname = name
       local pos = killedUnit:GetAbsOrigin()
       local team = killedUnit:GetTeamNumber()

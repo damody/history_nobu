@@ -103,11 +103,14 @@ function Nobu:OnGameRulesStateChange( keys )
     if _G.nobu_chubing_b then
 	  ShuaGuai()
 	  --跳錢
-	  for i=0,20 do
+	  _G.PlayerEarnedGold = {}
+	  for i=0,9 do
 		-- 跳錢
+		_G.PlayerEarnedGold[i] = 2000
 		Timers:CreateTimer(45, function()
 			local gold = PlayerResource:GetGold(i)
 			PlayerResource:SetGold(i,gold + 5,false)
+			_G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + 5
 			return 2
 		end)
 	  end
@@ -119,6 +122,10 @@ function Nobu:OnGameRulesStateChange( keys )
 		local unified_def_home = CreateUnitByName("hide_unit", Vector(-7390.63,7203.02,128) , true, nil, nil, DOTA_TEAM_BADGUYS) 
 		unified_def_home:AddAbility("speed_up"):SetLevel(1)
 	end)
+	--平均等級1
+	_G.average_level = {}
+	_G.average_level[DOTA_TEAM_GOODGUYS] = 1
+	_G.average_level[DOTA_TEAM_BADGUYS] = 1
 	--檢查有沒有馬
 	Timers:CreateTimer(60, function()
 		for playerID = 0, 9 do
@@ -265,6 +272,7 @@ function Nobu:OnGameRulesStateChange( keys )
 						local hero = player:GetAssignedHero()
 						if hero and hero:GetTeamNumber()==n then
 							AMHC:GivePlayerGold_UnReliable(playerID, money)
+							_G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + money
 						end
 					end
 				end
@@ -280,7 +288,7 @@ function Nobu:OnGameRulesStateChange( keys )
 				if hero then
 					local hero_id = _G.heromap[hero:GetName()]
 					GameRules: SendCustomMessage("<font color=\"#33cc33\">"..(_G.hero_name_zh[hero_id]).."</font> <font color=\"#33cc33\">"..
-						(hero:GetLevel()).."等</font> "..PlayerResource:GetTotalGoldSpent(playerID)+PlayerResource:GetGold(playerID), DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+						(hero:GetLevel()).."等</font> ".._G.PlayerEarnedGold[playerID], DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 				end
 			end
 		end

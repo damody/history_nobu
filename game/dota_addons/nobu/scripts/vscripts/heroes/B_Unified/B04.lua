@@ -156,10 +156,11 @@ function B04T_OnAttackStart( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	if caster.B04T_count == nil then caster.B04T_count = 5 end
+	local stun_chance = ability:GetSpecialValueFor("stun_chance")/10
+	if caster.B04T_count == nil then caster.B04T_count = stun_chance end
 	if caster.B04T_target ~= target then
 		caster.B04T_target = target
-		caster.B04T_count = 5
+		caster.B04T_count = stun_chance
 	else
 		caster.B04T_count = caster.B04T_count + 1
 	end

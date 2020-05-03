@@ -43,6 +43,10 @@ function Nobu:OnHeroIngame( keys )
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
           hero:AddItem(CreateItem("item_logging", hero, hero))
+          --松姬 奇襲 開場要有30秒CD
+          if hero.name == "C19" then
+            hero:FindAbilityByName("C19D"):StartCooldown(30)
+          end
           --把砍樹移動到neutral item slot
           for i = 0, 15 do
             local item = caster:GetItemInSlot( i )
@@ -60,13 +64,15 @@ function Nobu:OnHeroIngame( keys )
             end
           end
         else
+          -- 裝備重放
           for i = 0, 6 do
             local item = caster:GetItemInSlot( i )
             if item then
               local item_name = item:GetName()
               if not item:IsStackable() then
                 item:Destroy()
-                hero:AddItem(CreateItem(item_name, hero, hero))
+                local new_item = hero:AddItem(CreateItem(item_name, hero, hero))
+                hero:SwapItems(new_item:GetItemSlot(), i)
               end
             end
           end
