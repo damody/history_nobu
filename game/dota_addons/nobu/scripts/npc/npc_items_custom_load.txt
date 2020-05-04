@@ -5859,26 +5859,11 @@
 				"ThinkInterval"  "0.2"
 				"OnIntervalThink"
 				{
-					"ActOnTargets"
-					{
-						"Target"
-						{
-							"Center"  	"CASTER"
-							"Radius" 	"500"
-							"Teams" 	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-							"Types" 	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-						}
-					
-						"Action"    
-						{
-							"ApplyModifier"
-							{
-								"ModifierName"	"modifier_great_sword_of_drain"
-								"Target" 		"TARGET"
-								"Duration"		"1"
-							}
-						}
-					}
+					"RunScript"
+			 		{
+			 		  	"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_drain.lua"
+			 			"Function"	"ArmorReduceAura"
+			 		}
 				}
 			}
 			"modifier_great_sword_of_drain"
