@@ -269,6 +269,10 @@ function C08R_modifier:OnCreated( event )
 	end
 end
 
+local target_filter = {}
+target_filter["npc_dota_the_king_of_robbers"] = true
+target_filter["npc_dota_cursed_warrior_souls"] = true
+
 function C08R_modifier:OnIntervalThink()
 	if IsServer() then
 		local caster = self:GetParent()
@@ -329,7 +333,7 @@ function C08R_modifier:OnIntervalThink()
 				local hashook = false
 				for _,it in pairs(direUnits) do
 
-					if not string.match(it:GetUnitName(), "npc_dota_courier") and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil and not it:HasAbility("majia") then
+					if target_filter[it:GetUnitName()] or (not string.match(it:GetUnitName(), "npc_dota_courier") and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil and not it:HasAbility("majia")) then
 						ApplyDamage({ victim = it, attacker = self:GetCaster(), damage = self.hook_damage, 
 							damage_type = self.damage_type, ability = self:GetAbility()})
  						it:AddNewModifier(self:GetCaster(),self:GetAbility(),"modifier_stunned",{duration = self:GetAbility():GetSpecialValueFor("stun_time")})

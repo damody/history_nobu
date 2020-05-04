@@ -24,10 +24,7 @@ function Shock( keys )
 	                              FIND_ANY_ORDER,
 	                              false)
 	caster:EmitSound("A17T.sound1")
-	local dmg = 270+caster:GetLevel()*30
-	if dmg > 600 then 
-		dmg = 600
-	end
+	local dmg = 300
 	--effect:傷害+暈眩
 	for _,it in pairs(direUnits) do
 		if (not(it:IsBuilding())) then
