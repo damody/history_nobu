@@ -152,37 +152,18 @@ function B04T_OnDestroy( keys )
 	target:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
 end
 
-function B04T_OnAttackStart( keys )
-	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
-	local stun_chance = ability:GetSpecialValueFor("stun_chance")/10
-	if caster.B04T_count == nil then caster.B04T_count = stun_chance end
-	if caster.B04T_target ~= target then
-		caster.B04T_target = target
-		caster.B04T_count = stun_chance
-	else
-		caster.B04T_count = caster.B04T_count + 1
-	end
-	if target:IsHero() or target:IsCreep() then
-		if caster.B04T_count * 10 >= RandomInt(1,100) then
-			ability:ApplyDataDrivenModifier(caster,caster,"modifier_B04T_cannot_miss",{})
-		end
-	end
-end
 
 function B04T_OnAttack( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
 	local stun_time = ability:GetSpecialValueFor("stun_time")
-	if target:IsHero() or target:IsCreep() then
-		if caster:HasModifier("modifier_B04T_cannot_miss") then
+	local stun_chance = ability:GetSpecialValueFor("stun_chance")
+	if stun_chance >= RandomInt(1,100) then
+		if target:IsHero() or target:IsCreep() then
 			ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration=stun_time})
-			caster:RemoveModifierByName("modifier_B04T_cannot_miss")
 		end
 	end
-
 	EmitSoundOn("Hero_Clinkz.SearingArrows.Impact",target)
 end
 
