@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf26:version{26288658-411e-4f14-b698-2e1e5d00dec6} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -63,8 +63,8 @@
 	[
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMax = [ 45, 136, 255, 255 ]
-			m_ColorMin = [ 211, 239, 255, 255 ]
+			m_ColorMax = [ 0, 0, 0, 255 ]
+			m_ColorMin = [ 0, 0, 0, 255 ]
 		},
 		{
 			_class = "C_INIT_RandomLifeTime"
@@ -73,18 +73,13 @@
 		},
 		{
 			_class = "C_INIT_RandomRadius"
-			m_flRadiusMin = 30.0
-			m_flRadiusMax = 30.0
+			m_flRadiusMin = 0.0
+			m_flRadiusMax = 0.0
 		},
 		{
 			_class = "C_INIT_RandomAlpha"
 			m_nAlphaMin = 160
 			m_nAlphaMax = 180
-		},
-		{
-			_class = "C_INIT_PositionOffset"
-			m_OffsetMax = [ 0.0, 0.0, 8.0 ]
-			m_OffsetMin = [ 0.0, 0.0, 5.0 ]
 		},
 		{
 			_class = "C_INIT_RandomRotation"
@@ -103,13 +98,26 @@
 			m_fSpeedMin = 500.0
 			m_fSpeedMax = 700.0
 		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMax = [ 0.0, 0.0, 8.0 ]
+			m_OffsetMin = [ 0.0, 0.0, 5.0 ]
+		},
 	]
 	m_Emitters = 
 	[
 		{
 			_class = "C_OP_ContinuousEmitter"
-			m_flEmissionDuration = 0.5
-			m_flEmitRate = 170.0
+			m_flEmissionDuration = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.5
+			}
+			m_flEmitRate = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 170.0
+			}
 		},
 	]
 	m_controlPointConfigurations = 
@@ -127,4 +135,6 @@
 			]
 		},
 	]
+	m_nBehaviorVersion = 5
+	m_nFirstMultipleOverride_BackwardCompat = 7
 }
