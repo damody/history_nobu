@@ -256,6 +256,12 @@ function spell_ability ( filterTable )
 		if not filterTable.units["0"] then return true end
 		if filterTable.units and filterTable.units["0"] then
 			local caster = EntIndexToHScript(filterTable.units["0"])
+			if caster:HasModifier("modifier_knockback") then
+				return true
+			end
+			if caster:IsStunned() then 
+				return true
+			end
 			local pos = caster:GetAbsOrigin()
 			local target = Vector(filterTable.position_x, filterTable.position_y, 0)
 			local forward = target - pos
@@ -309,6 +315,12 @@ function spell_ability ( filterTable )
 			local caster = EntIndexToHScript(filterTable.units["0"])
 			local target = EntIndexToHScript(filterTable.entindex_target)
 			local pos = caster:GetAbsOrigin()
+			if caster:HasModifier("modifier_knockback") then
+				return true
+			end
+			if caster:IsStunned() then 
+				return true
+			end
 			if target then
 				local target = target:GetAbsOrigin()
 				local forward = target - pos
