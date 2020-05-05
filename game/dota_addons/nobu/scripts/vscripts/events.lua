@@ -188,6 +188,7 @@ _G.assist_timer = false
 _G.not_assist = -1
 
 function Nobu:FilterGold( filterTable )
+  PrintTable( filterTable )
     local gold = filterTable["gold"]
     local playerID = filterTable["player_id_const"]
     local reason = filterTable["reason_const"]
