@@ -25,7 +25,8 @@ function OnHeroKilled(keys)
     end
     AttackerUnit.kill_hero_count = AttackerUnit.kill_hero_count + 1
     --拿經驗
-    if _G.average_level[AttackerUnit:GetTeamNumber()] < _G.average_level[killedUnit:GetTeamNumber()] then
+    print(AttackerUnit:GetLevel(),killedUnit:GetLevel())
+    if AttackerUnit:GetLevel() < killedUnit:GetLevel() then
         AttackerUnit:AddExperience(killedUnit:GetLevel() * 20, 0, false, false)
         local nobu_id = _G.heromap[AttackerUnit:GetName()]
         local nobu_id2 = _G.heromap[killedUnit:GetName()]

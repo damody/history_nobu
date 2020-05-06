@@ -208,7 +208,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		end
 	end)
 	--60秒後出野怪
-	Timers:CreateTimer(1, function()
+	Timers:CreateTimer(30, function()
 		local allCPs = Entities:FindAllByClassname('npc_dota_creep_lane')
 		for k, ent in pairs(allCPs) do
 			ent:RemoveAbility("when_cp_first_spawn")

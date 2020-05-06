@@ -228,12 +228,8 @@ function Nobu:OnUnitKill( keys )
 
     -- 足輕經驗
     if string.match(name, "com_infantry")then
-
       local s,f = string.find(name,"com_infantry")
       local new_name = string.sub(name,s,f)
-      if AttackerUnit:IsHero()then
-        AttackerUnit:AddExperience(XP[new_name],0,false,false)
-      end
       local enemyHero = FindUnitsInRadius(killedUnit:GetTeamNumber(), killedUnit:GetAbsOrigin(),
       nil,  1400 , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO,
       DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS , 0, false)
@@ -243,25 +239,16 @@ function Nobu:OnUnitKill( keys )
           value:AddExperience(XP[new_name],0,false,false)
         elseif #enemyHero == 2 then
           value:AddExperience(XP[new_name]*0.7,0,false,false)
+          CallExperience(value,0.7)
         elseif #enemyHero == 3 then
           value:AddExperience(XP[new_name]*0.6,0,false,false)
+          CallExperience(value,0.6)
         elseif #enemyHero == 4 then
           value:AddExperience(XP[new_name]*0.5,0,false,false)
+          CallExperience(value,0.5)
         elseif #enemyHero == 5 then
           value:AddExperience(XP[new_name]*0.4,0,false,false)
-        end
-
-        --後追經驗
-        if value:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-          if _G.average_level[DOTA_TEAM_GOODGUYS] < _G.average_level[DOTA_TEAM_BADGUYS] then
-            local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - _G.average_level[DOTA_TEAM_GOODGUYS])
-            value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
-          end
-        else
-          if _G.average_level[DOTA_TEAM_BADGUYS] < _G.average_level[DOTA_TEAM_GOODGUYS] then
-            local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - _G.average_level[DOTA_TEAM_BADGUYS])
-            value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
-          end
+          CallExperience(value,0.4)
         end
       end
     end
@@ -281,24 +268,16 @@ function Nobu:OnUnitKill( keys )
           value:AddExperience(XP[new_name],0,false,false)
         elseif #enemyHero == 2 then
           value:AddExperience(XP[new_name]*0.7,0,false,false)
+          CallExperience(value,0.7)
         elseif #enemyHero == 3 then
           value:AddExperience(XP[new_name]*0.6,0,false,false)
+          CallExperience(value,0.6)
         elseif #enemyHero == 4 then
           value:AddExperience(XP[new_name]*0.5,0,false,false)
+          CallExperience(value,0.5)
         elseif #enemyHero == 5 then
           value:AddExperience(XP[new_name]*0.4,0,false,false)
-        end
-        --後追經驗
-        if value:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-          if _G.average_level[DOTA_TEAM_GOODGUYS] < _G.average_level[DOTA_TEAM_BADGUYS] then
-            local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - _G.average_level[DOTA_TEAM_GOODGUYS])
-            value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
-          end
-        else
-          if _G.average_level[DOTA_TEAM_BADGUYS] < _G.average_level[DOTA_TEAM_GOODGUYS] then
-            local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - _G.average_level[DOTA_TEAM_BADGUYS])
-            value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
-          end
+          CallExperience(value,0.4)
         end
       end
     end
@@ -318,24 +297,16 @@ function Nobu:OnUnitKill( keys )
           value:AddExperience(XP[new_name],0,false,false)
         elseif #enemyHero == 2 then
           value:AddExperience(XP[new_name]*0.7,0,false,false)
+          CallExperience(value,0.7)
         elseif #enemyHero == 3 then
           value:AddExperience(XP[new_name]*0.6,0,false,false)
+          CallExperience(value,0.6)
         elseif #enemyHero == 4 then
           value:AddExperience(XP[new_name]*0.5,0,false,false)
+          CallExperience(value,0.5)
         elseif #enemyHero == 5 then
           value:AddExperience(XP[new_name]*0.4,0,false,false)
-        end
-        --後追經驗
-        if value:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-          if _G.average_level[DOTA_TEAM_GOODGUYS] < _G.average_level[DOTA_TEAM_BADGUYS] then
-            local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - _G.average_level[DOTA_TEAM_GOODGUYS])
-            value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
-          end
-        else
-          if _G.average_level[DOTA_TEAM_BADGUYS] < _G.average_level[DOTA_TEAM_GOODGUYS] then
-            local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - _G.average_level[DOTA_TEAM_BADGUYS])
-            value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
-          end
+          CallExperience(value,0.4)
         end
       end
     end
@@ -355,26 +326,19 @@ function Nobu:OnUnitKill( keys )
           value:AddExperience(XP[new_name],0,false,false)
         elseif #enemyHero == 2 then
           value:AddExperience(XP[new_name]*0.7,0,false,false)
+          CallExperience(value,0.7)
         elseif #enemyHero == 3 then
           value:AddExperience(XP[new_name]*0.6,0,false,false)
+          CallExperience(value,0.6)
         elseif #enemyHero == 4 then
           value:AddExperience(XP[new_name]*0.5,0,false,false)
+          CallExperience(value,0.5)
         elseif #enemyHero == 5 then
           value:AddExperience(XP[new_name]*0.4,0,false,false)
+          CallExperience(value,0.4)
         end
       end
       --後追經驗
-      if value:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-        if _G.average_level[DOTA_TEAM_GOODGUYS] < _G.average_level[DOTA_TEAM_BADGUYS] then
-          local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - _G.average_level[DOTA_TEAM_GOODGUYS])
-          value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
-        end
-      else
-        if _G.average_level[DOTA_TEAM_BADGUYS] < _G.average_level[DOTA_TEAM_GOODGUYS] then
-          local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - _G.average_level[DOTA_TEAM_BADGUYS])
-          value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
-        end
-      end
     end
 
     if string.match(name, "neutral_130")then
@@ -569,5 +533,17 @@ function Nobu:OnUnitKill( keys )
         prestige[hero:GetTeamNumber()] = prestige[hero:GetTeamNumber()] + hero.kill_hero_count*5
       end
     end
+  end
+end
+
+function CallExperience(value,scale) 
+  if value:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+    if _G.average_level[DOTA_TEAM_GOODGUYS] < _G.average_level[DOTA_TEAM_BADGUYS] then
+      local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - _G.average_level[DOTA_TEAM_GOODGUYS])
+      value:AddExperience(XP[new_name]*diff*0.15*scale, 0, false, false)
+    end
+  elseif _G.average_level[DOTA_TEAM_BADGUYS] < _G.average_level[DOTA_TEAM_GOODGUYS] then
+      local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - _G.average_level[DOTA_TEAM_BADGUYS])
+      value:AddExperience(XP[new_name]*diff*0.15*scale, 0, false, false)
   end
 end
