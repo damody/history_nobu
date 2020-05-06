@@ -138,6 +138,7 @@ function OnUnequip( keys )
 	local caster = keys.caster
 	if IsValidEntity(caster) then
 		local caster = keys.caster
+		caster:RemoveModifierByName("modifier_magic_talisman")
 		caster.has_item_magic_talisman = nil
 		if caster.magic_talisman_effect and caster:IsRealHero() then
 			ParticleManager:DestroyParticle(keys.caster.magic_talisman_effect,false)

@@ -40,6 +40,8 @@ function Nobu:OnHeroIngame( keys )
           hero.herodamage = 0
           hero.assist_count = 0
           hero:AddNewModifier(caster,ability,"modifier_record",{})
+          hero:AddAbility("hero_kill"):SetLevel(1)
+          hero:AddAbility("hero_die"):SetLevel(1)
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
           hero:AddItem(CreateItem("item_logging", hero, hero))

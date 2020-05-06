@@ -299,6 +299,7 @@ _G.EXCLUDE_TARGET_NAME = {
   npc_dummy = true,
   npc_dummy = true,
   hide_unit = true,
+  ninja_unit1 = true,
 }
 
 _G.EXCLUDE_MODIFIER_NAME = {

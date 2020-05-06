@@ -28,3 +28,21 @@ function Shock( keys )
 	end
 	ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW, caster)
 end
+
+function ArmorReduceAura( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local aura_radius = ability:GetSpecialValueFor("aura_radius")
+	local point = caster:GetAbsOrigin()
+	local group = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, aura_radius,DOTA_UNIT_TARGET_TEAM_ENEMY,
+					DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+	for i,v in ipairs(group) do
+		if v:CanEntityBeSeenByMyTeam(caster) and not caster:IsIllusion() and not caster:HasModifier("modifier_invisible") then
+			ability:ApplyDataDrivenModifier(caster, v, "modifier_great_sword_of_drain", {duration = 0.25})
+			local flame = ParticleManager:CreateParticle("particles/great_sword_of_drain/great_sword_of_drain_ring.vpcf", PATTACH_ABSORIGIN, v)
+			Timers:CreateTimer(0.2, function ()
+				ParticleManager:DestroyParticle(flame, false)
+			end)
+		end
+	end
+end

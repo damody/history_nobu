@@ -131,6 +131,7 @@ end
 function OnUnequip( keys )
 	if IsValidEntity(keys.caster) then
 		local caster = keys.caster
+		caster:RemoveModifierByName("modifier_protection_amulet")
 		caster.has_item_protection_amulet = nil
 		if caster.protection_amulet_effect and caster:IsRealHero() then
 			ParticleManager:DestroyParticle(caster.protection_amulet_effect,false)

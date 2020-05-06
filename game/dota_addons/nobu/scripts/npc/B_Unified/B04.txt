@@ -308,7 +308,7 @@
 			"04"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"stun_chance"	"30 40 50"
+				"stun_chance"	"38"
 			}
 			"05"
 			{
@@ -360,14 +360,6 @@
 
 		"Modifiers"
 		{
-			"modifier_B04T_cannot_miss"
-			{
-				"IsHidden" "1"
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 			"modifier_B04T"
 			{
 				"Properties"
@@ -398,14 +390,6 @@
 						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B04.lua"
 						"Function"		"B04T_OnDestroy"
 						"Target"		"TARGET"
-					}
-				}
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B04.lua"
-						"Function"	"B04T_OnAttackStart"
 					}
 				}
 				"OnAttack"
