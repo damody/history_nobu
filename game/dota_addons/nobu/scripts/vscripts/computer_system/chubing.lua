@@ -93,7 +93,7 @@ function ShuaGuai( )
 	--30秒出第一波，之後每30秒出一波
 	local speedup = 0.01
 	local ShuaGuai_count = -1
-	local start_time = 45
+	local start_time = 2
 	local no_buff = {
 		["com_general_oda"] = true,
 		["com_general_unified"] = true,

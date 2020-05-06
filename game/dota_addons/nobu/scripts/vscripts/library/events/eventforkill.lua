@@ -3,6 +3,18 @@ die_time = {1, 2, 4, 7, 11, 15, 22, 29, 37, 46, 47, 49, 52, 56, 61, 67, 74, 80, 
 die_tim2 = {1, 2, 4, 7, 11, 16, 22, 25, 28, 32, 36, 46, 48, 50, 52, 54, 56, 66, 70, 74, 78, 82, 86, 90, 100}
 local warrior_soul_respawn_count = 1
 local robbers_king_respawn_count = 1
+XP = {
+
+com_infantry = 30,com_archer = 30,com_gunner = 60,com_cavalry = 60,
+
+npc_dota_neutral_160_douchebag = 36.7,npc_dota_neutral_160_bandit = 36.7,npc_dota_neutral_160_assassin = 36.7,npc_dota_neutral_160_executor = 60,npc_dota_neutral_160_bandit_military_adviser = 60,
+
+npc_dota_neutral_130_wild_bear = 36.7,npc_dota_neutral_130_giant_tortoise = 36.7,npc_dota_neutral_130_fear_molang = 36.7,npc_dota_neutral_130_bear = 90,
+npc_dota_neutral_130_forbearance_law_corpse = 30,npc_dota_neutral_130_japanese_pirates_sea_people = 45,npc_dota_neutral_130_japanese_pirates_leader = 60, 
+npc_dota_neutral_130_wild_warrior = 75,npc_dota_neutral_130_pour_odd_person = 75,
+npc_dota_neutral_130_robbers_remnants = 30
+}
+
 _G.CP_spawn_time = 60
 _G.CP_respawn_time = 120
 function Nobu:OnUnitKill( keys )
@@ -333,17 +345,170 @@ function Nobu:OnUnitKill( keys )
       --   GameRules: SendCustomMessage("   ",DOTA_TEAM_GOODGUYS,0)
       -- end
       --Tutorial: AddQuest("quest_1",1,"破塔成功","ssssssssss")
+
+    -- 足輕經驗
+    if string.match(name, "com_infantry")then
+
+      local s,f = string.find(name,"com_infantry")
+      local new_name = string.sub(name,s,f)
+      if AttackerUnit:IsHero()then
+        AttackerUnit:AddExperience(XP[new_name],0,false,false)
+      end
+      local enemyHero = FindUnitsInRadius(killedUnit:GetTeamNumber(), killedUnit:GetAbsOrigin(),
+      nil,  1400 , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO,
+      DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS , 0, false)
+
+      for key,value in pairs (enemyHero) do
+        if #enemyHero == 1 then
+          value:AddExperience(XP[new_name],0,false,false)
+        elseif #enemyHero == 2 then
+          value:AddExperience(XP[new_name]*0.7,0,false,false)
+        elseif #enemyHero == 3 then
+          value:AddExperience(XP[new_name]*0.6,0,false,false)
+        elseif #enemyHero == 4 then
+          value:AddExperience(XP[new_name]*0.5,0,false,false)
+        elseif #enemyHero == 5 then
+          value:AddExperience(XP[new_name]*0.4,0,false,false)
+        end
+
+        --後追經驗
+        if value:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+          if _G.average_level[DOTA_TEAM_GOODGUYS] < _G.average_level[DOTA_TEAM_BADGUYS] then
+            local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - _G.average_level[DOTA_TEAM_GOODGUYS])
+            value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
+          end
+        else
+          if _G.average_level[DOTA_TEAM_BADGUYS] < _G.average_level[DOTA_TEAM_GOODGUYS] then
+            local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - _G.average_level[DOTA_TEAM_BADGUYS])
+            value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
+          end
+        end
+      end
+    end
+    --弓箭手經驗
+    if string.match(name, "com_archer")then
+      local s,f = string.find(name,"com_archer")
+      local new_name = string.sub(name,s,f)
+      if AttackerUnit:IsHero()then
+        AttackerUnit:AddExperience(XP[new_name],0,false,false)
+      end
+      local enemyHero = FindUnitsInRadius(killedUnit:GetTeamNumber(), killedUnit:GetAbsOrigin(),
+      nil,  1400 , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO,
+      DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS , 0, false)
+
+      for key,value in pairs (enemyHero) do
+        if #enemyHero == 1 then
+          value:AddExperience(XP[new_name],0,false,false)
+        elseif #enemyHero == 2 then
+          value:AddExperience(XP[new_name]*0.7,0,false,false)
+        elseif #enemyHero == 3 then
+          value:AddExperience(XP[new_name]*0.6,0,false,false)
+        elseif #enemyHero == 4 then
+          value:AddExperience(XP[new_name]*0.5,0,false,false)
+        elseif #enemyHero == 5 then
+          value:AddExperience(XP[new_name]*0.4,0,false,false)
+        end
+        --後追經驗
+        if value:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+          if _G.average_level[DOTA_TEAM_GOODGUYS] < _G.average_level[DOTA_TEAM_BADGUYS] then
+            local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - _G.average_level[DOTA_TEAM_GOODGUYS])
+            value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
+          end
+        else
+          if _G.average_level[DOTA_TEAM_BADGUYS] < _G.average_level[DOTA_TEAM_GOODGUYS] then
+            local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - _G.average_level[DOTA_TEAM_BADGUYS])
+            value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
+          end
+        end
+      end
+    end
+    --火槍兵經驗
+    if string.match(name, "com_gunner")then
+      local s,f = string.find(name,"com_gunner")
+      local new_name = string.sub(name,s,f)
+      if AttackerUnit:IsHero()then
+        AttackerUnit:AddExperience(XP[new_name],0,false,false)
+      end
+      local enemyHero = FindUnitsInRadius(killedUnit:GetTeamNumber(), killedUnit:GetAbsOrigin(),
+      nil,  1400 , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO,
+      DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS , 0, false)
+
+      for key,value in pairs (enemyHero) do
+        if #enemyHero == 1 then
+          value:AddExperience(XP[new_name],0,false,false)
+        elseif #enemyHero == 2 then
+          value:AddExperience(XP[new_name]*0.7,0,false,false)
+        elseif #enemyHero == 3 then
+          value:AddExperience(XP[new_name]*0.6,0,false,false)
+        elseif #enemyHero == 4 then
+          value:AddExperience(XP[new_name]*0.5,0,false,false)
+        elseif #enemyHero == 5 then
+          value:AddExperience(XP[new_name]*0.4,0,false,false)
+        end
+        --後追經驗
+        if value:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+          if _G.average_level[DOTA_TEAM_GOODGUYS] < _G.average_level[DOTA_TEAM_BADGUYS] then
+            local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - _G.average_level[DOTA_TEAM_GOODGUYS])
+            value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
+          end
+        else
+          if _G.average_level[DOTA_TEAM_BADGUYS] < _G.average_level[DOTA_TEAM_GOODGUYS] then
+            local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - _G.average_level[DOTA_TEAM_BADGUYS])
+            value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
+          end
+        end
+      end
+    end
+    --騎兵經驗
+    if string.match(name, "com_cavalry")then
+      local s,f = string.find(name,"com_cavalry")
+      local new_name = string.sub(name,s,f)
+      if AttackerUnit:IsHero()then
+        AttackerUnit:AddExperience(XP[new_name],0,false,false)
+      end
+      local enemyHero = FindUnitsInRadius(killedUnit:GetTeamNumber(), killedUnit:GetAbsOrigin(),
+      nil,  1400 , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO,
+      DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS , 0, false)
+
+      for key,value in pairs (enemyHero) do
+        if #enemyHero == 1 then
+          value:AddExperience(XP[new_name],0,false,false)
+        elseif #enemyHero == 2 then
+          value:AddExperience(XP[new_name]*0.7,0,false,false)
+        elseif #enemyHero == 3 then
+          value:AddExperience(XP[new_name]*0.6,0,false,false)
+        elseif #enemyHero == 4 then
+          value:AddExperience(XP[new_name]*0.5,0,false,false)
+        elseif #enemyHero == 5 then
+          value:AddExperience(XP[new_name]*0.4,0,false,false)
+        end
+      end
+      --後追經驗
+      if value:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+        if _G.average_level[DOTA_TEAM_GOODGUYS] < _G.average_level[DOTA_TEAM_BADGUYS] then
+          local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - _G.average_level[DOTA_TEAM_GOODGUYS])
+          value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
+        end
+      else
+        if _G.average_level[DOTA_TEAM_BADGUYS] < _G.average_level[DOTA_TEAM_GOODGUYS] then
+          local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - _G.average_level[DOTA_TEAM_BADGUYS])
+          value:AddExperience(XP[new_name]*diff*15/100, 0, false, false)
+        end
+      end
+    end
+
     if string.match(name, "neutral_130")then
+      AttackerUnit:AddExperience(XP[name],0,false,false)
       --後追經驗
       if AttackerUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
         if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_BADGUYS] then
           local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - AttackerUnit:GetLevel())
-          AttackerUnit:AddExperience(killedUnit:GetDeathXP()*diff*15/100, 0, false, false)
+          AttackerUnit:AddExperience(XP[name]*diff*15/100, 0, false, false)
         end
       else
         if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_GOODGUYS] then
           local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - AttackerUnit:GetLevel())
-          AttackerUnit:AddExperience(killedUnit:GetDeathXP()*diff*15/100, 0, false, false)
+          AttackerUnit:AddExperience(XP[name]*diff*15/100, 0, false, false)
         end
       end
       local unitname = name
@@ -398,16 +563,18 @@ function Nobu:OnUnitKill( keys )
         end
       end)
     elseif string.match(name, "neutral_160") then
+      AttackerUnit:AddExperience(XP[name],0,false,false)
+
       --後追經驗
       if AttackerUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
         if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_BADGUYS] then
           local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - AttackerUnit:GetLevel())
-          AttackerUnit:AddExperience(killedUnit:GetDeathXP()*diff*15/100, 0, false, false)
+          AttackerUnit:AddExperience(XP[name]*diff*15/100, 0, false, false)
         end
       else
         if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_GOODGUYS] then
           local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - AttackerUnit:GetLevel())
-          AttackerUnit:AddExperience(killedUnit:GetDeathXP()*diff*15/100, 0, false, false)
+          AttackerUnit:AddExperience(XP[name]*diff*15/100, 0, false, false)
         end
       end
       local unitname = name
