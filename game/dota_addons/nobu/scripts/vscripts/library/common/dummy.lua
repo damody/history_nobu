@@ -674,13 +674,11 @@ end
 
 function Slow ( keys )
    local target = keys.target
-   print(keys.ms_slow.. '' .. keys.as_slow)
    target.ms_slow[keys.name] = keys.ms_slow
    target.as_slow[keys.name] = keys.as_slow
 end
 
 function ReturnSpeed ( keys )
-  PrintTable(keys)
   local target = keys.target
   target.ms_slow[keys.name] = nil
   target.as_slow[keys.name] = nil

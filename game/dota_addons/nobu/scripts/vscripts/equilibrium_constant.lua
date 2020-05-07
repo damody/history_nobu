@@ -170,18 +170,18 @@ function equilibrium_constant:GetModifierMoveSpeedBonus_Percentage( params )
     return movespeed
 end
 
-function equilibrium_constant:GetModifierMoveSpeed_Absolute( params )
-    local sum_ms_slow = 0
-    if self:GetParent().ms_slow then
-        for k,v in pairs(self:GetParent().ms_slow) do
-            if v < sum_ms_slow then
-                sum_ms_slow = v
-            end
-        end
-    end
-    movespeed = 350 * (1+sum_ms_slow)
-    return movespeed
-end
+-- function equilibrium_constant:GetModifierMoveSpeed_Absolute( params )
+--     local sum_ms_slow = 0
+--     if self:GetParent().ms_slow then
+--         for k,v in pairs(self:GetParent().ms_slow) do
+--             if v < sum_ms_slow then
+--                 sum_ms_slow = v
+--             end
+--         end
+--     end
+--     movespeed = 350 * ( 1 + sum_ms_slow/100)
+--     return movespeed
+-- end
 
 function equilibrium_constant:x_Start()
     ListenToGameEvent( "npc_spawned", Dynamic_Wrap( equilibrium_constant, "x_OnNPCSpawned" ), self )
