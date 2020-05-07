@@ -12926,10 +12926,30 @@
 				"IsDebuff"		"1"
 				"EffectName"	"particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_ice.vpcf"
 				"EffectAttachType"	"follow_hitloc"
-				"Properties"
+				// "Properties"
+				// {
+				// 	// "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+				// 	// "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-30"
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-30"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"AtkSpeed_slow" "50"
+						"movespeed_slow" "-50"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"AtkSpeed_slow" "0"
+						"movespeed_slow" "0"
+					}
 				}
 			}
 			"Passive_lightning_katana"
@@ -12954,6 +12974,7 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
 				}
 			}
+			
 		}
 	}
 

@@ -671,3 +671,17 @@ function courier_damage_immune_OnDestroy( keys )
     target:RemoveModifierByName("modifier_courier_physical_immune2")
   end
 end
+
+function Slow ( keys )
+   local target = keys.target
+   print(keys.movespeed_slow.. '' .. keys.AtkSpeed_slow)
+   target.movespeed_slow = keys.movespeed_slow
+   target.AtkSpeed_slow = keys.AtkSpeed_slow
+end
+
+function ReturnSpeed ( keys )
+  PrintTable(keys)
+  local target = keys.target
+  target.movespeed_slow = keys.movespeed_slow
+  target.AtkSpeed_slow = keys.AtkSpeed_slow
+end

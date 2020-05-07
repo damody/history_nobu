@@ -13,6 +13,8 @@ local MANA_REGEN_PER_INT = 0.15
 local ARMOR_PER_AGI = 0.2
 local ATKSPD_PER_AGI = 1.7
 local MAX_MS = 1500
+local movespeed = 0
+
 
 -- default value from dota
 local DEFAULT_HP_PER_STR = 20
@@ -33,6 +35,9 @@ if equilibrium_constant == nil then
     equilibrium_constant = class({})
 end
 
+
+
+
 function equilibrium_constant:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_HEALTH_BONUS,
@@ -44,6 +49,8 @@ function equilibrium_constant:DeclareFunctions()
         MODIFIER_PROPERTY_MOVESPEED_MIN,
         MODIFIER_PROPERTY_MOVESPEED_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+        MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     }
     return funcs
 end
@@ -75,9 +82,13 @@ end
 function equilibrium_constant:GetModifierAttackSpeedBonus_Constant( params )
     if IsServer() then
         local owner = self:GetParent()
+        if not self:GetParent().AtkSpeed_slow then
+            self:GetParent().AtkSpeed_slow = 0     
+        end
+        local AtkSpeed_slow = self:GetParent().AtkSpeed_slow
         if owner:IsHero() then
             local agi = owner:GetAgility()
-            local AtkSpeedBonus = ATKSPD_PER_AGI_DIFF * agi
+            local AtkSpeedBonus = ATKSPD_PER_AGI_DIFF * agi - AtkSpeed_slow
             return AtkSpeedBonus
         end
         return 0
@@ -140,6 +151,20 @@ end
 function equilibrium_constant:GetModifierMoveSpeed_Limit( params )
     return MAX_MS
 end
+
+function equilibrium_constant:GetModifierMoveSpeedBonus_Percentage( params )
+    
+    if not self:GetParent().movespeed_slow then
+        self:GetParent().movespeed_slow = 0
+    end
+
+    movespeed =  self:GetParent().movespeed_slow
+
+    return movespeed
+end
+
+
+
 
 function equilibrium_constant:x_Start()
     ListenToGameEvent( "npc_spawned", Dynamic_Wrap( equilibrium_constant, "x_OnNPCSpawned" ), self )
