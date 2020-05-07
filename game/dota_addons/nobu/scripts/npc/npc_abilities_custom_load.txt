@@ -5765,10 +5765,9 @@
 					}
 				}	
 			}
-			"IsHidden"	"1"
-			"IsDebuff"	"1"
 			"modifier_slow_down_movespeed"
 			{
+				"IsHidden"	"1"
 				"IsDebuff"	"1"
 				"Properties"
 				{
@@ -5777,6 +5776,7 @@
 			}
 			"modifier_slow_down_attackspeed"
 			{
+				"IsHidden"	"1"
 				"IsDebuff"	"1"
 				"Properties"
 				{
