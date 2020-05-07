@@ -12937,8 +12937,9 @@
 					{
 						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
 						"Function"	"Slow"
-						"AtkSpeed_slow" "50"
-						"movespeed_slow" "-50"
+						"name"	"frozen_ring"
+						"as_slow" "-50"
+						"ms_slow" "-50"
 					}
 				}
 				"OnDestroy"
@@ -12947,8 +12948,7 @@
 					{
 						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
 						"Function"	"ReturnSpeed"
-						"AtkSpeed_slow" "0"
-						"movespeed_slow" "0"
+						"name"	"frozen_ring"
 					}
 				}
 			}

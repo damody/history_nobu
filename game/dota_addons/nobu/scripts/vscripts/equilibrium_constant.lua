@@ -51,6 +51,7 @@ function equilibrium_constant:DeclareFunctions()
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
         MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
         MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+        MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
     }
     return funcs
 end
@@ -82,13 +83,17 @@ end
 function equilibrium_constant:GetModifierAttackSpeedBonus_Constant( params )
     if IsServer() then
         local owner = self:GetParent()
-        if not self:GetParent().AtkSpeed_slow then
-            self:GetParent().AtkSpeed_slow = 0     
+        local sum_as_slow = 0
+        if self:GetParent().as_slow then
+            for k,v in pairs(self:GetParent().as_slow) do
+                if v < sum_as_slow then
+                    sum_as_slow = v
+                end
+            end
         end
-        local AtkSpeed_slow = self:GetParent().AtkSpeed_slow
         if owner:IsHero() then
             local agi = owner:GetAgility()
-            local AtkSpeedBonus = ATKSPD_PER_AGI_DIFF * agi - AtkSpeed_slow
+            local AtkSpeedBonus = ATKSPD_PER_AGI_DIFF * agi + sum_as_slow
             return AtkSpeedBonus
         end
         return 0
@@ -153,18 +158,30 @@ function equilibrium_constant:GetModifierMoveSpeed_Limit( params )
 end
 
 function equilibrium_constant:GetModifierMoveSpeedBonus_Percentage( params )
-    
-    if not self:GetParent().movespeed_slow then
-        self:GetParent().movespeed_slow = 0
+    local sum_ms_slow = 0
+    if self:GetParent().ms_slow then
+        for k,v in pairs(self:GetParent().ms_slow) do
+            if v < sum_ms_slow then
+                sum_ms_slow = v
+            end
+        end
     end
-
-    movespeed =  self:GetParent().movespeed_slow
-
+    movespeed = sum_ms_slow
     return movespeed
 end
 
-
-
+function equilibrium_constant:GetModifierMoveSpeed_Absolute( params )
+    local sum_ms_slow = 0
+    if self:GetParent().ms_slow then
+        for k,v in pairs(self:GetParent().ms_slow) do
+            if v < sum_ms_slow then
+                sum_ms_slow = v
+            end
+        end
+    end
+    movespeed = 350 * (1+sum_ms_slow)
+    return movespeed
+end
 
 function equilibrium_constant:x_Start()
     ListenToGameEvent( "npc_spawned", Dynamic_Wrap( equilibrium_constant, "x_OnNPCSpawned" ), self )
@@ -192,6 +209,8 @@ function equilibrium_constant:x_OnNPCSpawned(keys)
         and not hSpawnedUnit:HasModifier("equilibrium_constant")
         then
         if hSpawnedUnit.AddNewModifier ~= nil then
+            hSpawnedUnit.ms_slow = {}
+            hSpawnedUnit.as_slow = {}
             hSpawnedUnit:AddNewModifier(hSpawnedUnit,nil,"equilibrium_constant",{})
         end
     end
