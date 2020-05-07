@@ -674,14 +674,39 @@ end
 
 function Slow ( keys )
    local target = keys.target
-   print(keys.ms_slow.. '' .. keys.as_slow)
    target.ms_slow[keys.name] = keys.ms_slow
    target.as_slow[keys.name] = keys.as_slow
 end
 
 function ReturnSpeed ( keys )
-  PrintTable(keys)
   local target = keys.target
   target.ms_slow[keys.name] = nil
   target.as_slow[keys.name] = nil
+end
+
+function slow_self_passive( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  -- slow movespeed
+  local sum_ms_slow = 0
+  if caster.ms_slow then
+      for k,v in pairs(caster.ms_slow) do
+          if v < sum_ms_slow then
+              sum_ms_slow = v
+          end
+      end
+  end
+  if sum_ms_slow < 0 then
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_slow_down_movespeed", {duration = 10})
+  end
+  -- slow attackspeed
+  local sum_as_slow = 0
+  if caster.as_slow then
+      for k,v in pairs(caster.as_slow) do
+          if v < sum_as_slow then
+              sum_as_slow = v
+          end
+      end
+  end
+
 end
