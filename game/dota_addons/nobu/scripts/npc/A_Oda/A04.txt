@@ -42,10 +42,25 @@
 			{
 				"EffectName"	"particles/a04e/a04e2.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-30"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-30"
+					"RunScript"
+					{
+					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					"Function"	"Slow"
+					"name"	"A04D"
+					"ms_slow"	"-30"
+					"as_slow"	"-30"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A04D"
+					}
 				}
 				"IsDebuff"	"1"
 				"Duration"	"1"
@@ -136,15 +151,27 @@
 						"EffectName"	"particles/units/heroes/hero_beastmaster/beastmaster_call_bird.vpcf"
 						"EffectAttachType"	"follow_origin"
 					}
+					"RunScript"
+					{
+					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					"Function"	"Slow"
+					"name"	"A04W_summend"
+					"ms_slow"	"%basic_speed"
+					"as_slow"	"%basic_attack_speed"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A04W_summend"
+					}
 				}
 				"IsBuff"	"0"
 				"EffectName"	"particles/units/heroes/hero_ancient_apparition/ancient_apparition_ambient.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"%basic_attack_speed"
-					"MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE"	"%basic_speed"
-				}
 				"OnAttackLanded"
 				{
 					"RunScript"
@@ -727,10 +754,25 @@
 				"EffectName"	"particles/generic_gameplay/generic_slowed_cold.vpcf"
 				"StatusEffectName"	"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"	"10"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_slow"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movespeed_slow"
+					"RunScript"
+					{
+					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					"Function"	"Slow"
+					"name"	"A04T"
+					"ms_slow"	"%movespeed_slow"
+					"as_slow"	"%attack_slow"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A04T"
+					}
 				}
 				"OnIntervalThink"
 				{

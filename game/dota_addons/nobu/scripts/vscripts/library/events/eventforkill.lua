@@ -7,9 +7,9 @@ XP = {
 
 com_infantry = 30,com_archer = 30,com_gunner = 60,com_cavalry = 60,
 
-npc_dota_neutral_160_douchebag = 36.7,npc_dota_neutral_160_bandit = 36.7,npc_dota_neutral_160_assassin = 36.7,npc_dota_neutral_160_executor = 60,npc_dota_neutral_160_bandit_military_adviser = 60,
+npc_dota_neutral_160_douchebag = 37,npc_dota_neutral_160_bandit = 37,npc_dota_neutral_160_assassin = 37,npc_dota_neutral_160_executor = 60,npc_dota_neutral_160_bandit_military_adviser = 60,
 
-npc_dota_neutral_130_wild_bear = 36.7,npc_dota_neutral_130_giant_tortoise = 36.7,npc_dota_neutral_130_fear_molang = 36.7,npc_dota_neutral_130_bear = 90,
+npc_dota_neutral_130_wild_bear = 37,npc_dota_neutral_130_giant_tortoise = 37,npc_dota_neutral_130_fear_molang = 37,npc_dota_neutral_130_bear = 90,
 npc_dota_neutral_130_forbearance_law_corpse = 30,npc_dota_neutral_130_japanese_pirates_sea_people = 45,npc_dota_neutral_130_japanese_pirates_leader = 60, 
 npc_dota_neutral_130_wild_warrior = 75,npc_dota_neutral_130_pour_odd_person = 75,
 npc_dota_neutral_130_robbers_remnants = 30

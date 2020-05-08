@@ -2316,7 +2316,7 @@
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
-		"ItemCost"	"800"
+		"ItemCost"	"700"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"	"1"
@@ -5250,8 +5250,26 @@
 				"EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-190" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-10"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"hurricane"
+						"as_slow" "-190"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"hurricane"
+					}
 				}
 			}
 			"Passive_great_sword_of_hurricane"
@@ -9108,9 +9126,24 @@
 				"IsDebuff"	"1"
 				"Duration"	"4"
 				"EffectName"	"particles/generic_gameplay/generic_slowed_cold.vpcf"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-15"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"bizennosafunekanemitsu"
+						"ms_slow" "-15"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"bizennosafunekanemitsu"
+					}
 				}
 			}
 		}
@@ -9164,10 +9197,25 @@
 				"IsDebuff"			"1"
 				"Duration"			"1"
 			
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-15"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-15"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"frozen_ring"
+						"ms_slow" "-15"
+						"as_slow" "-15"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"frozen_ring"
+					}
 				}
 			}
 			"Passive_scream_of_spiders"
@@ -9267,10 +9315,24 @@
 				"IsDebuff"		"1"
 				"EffectName"	"particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_ice.vpcf"
 				"EffectAttachType"	"follow_hitloc"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-30"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"kokumo"
+						"ms_slow" "-30"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"kokumo"
+					}
 				}
 			}
 			"Passive_kokumo1"
@@ -10816,9 +10878,24 @@
 				"Passive"	"0"
 				"IsDebuff"	"1"
 				"Duration"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-30" //攻速
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"fubuki_shoulders"
+						"as_slow" "-30"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"fubuki_shoulders"
+					}
 				}
 			}
 			"modifier_slow_move_speed"
@@ -10828,9 +10905,24 @@
 				"IsDebuff"	"1"
 				"Duration"	"1"
 				"EffectName"	"particles/generic_gameplay/generic_slowed_cold.vpcf"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-15"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"fubuki_shoulders"
+						"ms_slow" "-15"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"fubuki_shoulders"
+					}
 				}
 			}
 			"modifier_slow_move_speed2"
@@ -10839,9 +10931,24 @@
 				"Passive"	"0"
 				"IsDebuff"	"1"
 				"EffectName"	"particles/generic_gameplay/generic_slowed_cold.vpcf"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-30"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"fubuki_shoulders"
+						"ms_slow" "-30"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"fubuki_shoulders"
+					}
 				}
 			}
 			"modifier_A04R_Boom"
@@ -12617,9 +12724,24 @@
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
 			
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"flood_book"
+						"ms_slow" "-80"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"flood_book"
+					}
 				}
 			}
 			"modifier_flood_walk"

@@ -5746,4 +5746,43 @@
 			}
 		}
 	}
+	"slow_self"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_slow_self_passive"
+			{
+				"Passive"	"1"
+				"ThinkInterval"	"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"slow_self_passive"
+					}
+				}	
+			}
+			"modifier_slow_down_movespeed"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-1"
+				}
+			}
+			"modifier_slow_down_attackspeed"
+			{
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "-1"
+				}
+			}
+		}
+	}
 }
