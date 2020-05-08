@@ -152,8 +152,13 @@ end
 
 function equilibrium_constant:x_OnNPCSpawned(keys)
     local hSpawnedUnit = EntIndexToHScript( keys.entindex )
-    hSpawnedUnit.ms_slow = {}
-    hSpawnedUnit.as_slow = {}
+    if IsValidEntity(hSpawnedUnit) then
+        hSpawnedUnit.ms_slow = {}
+        hSpawnedUnit.as_slow = {}
+    end
+    if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("slow_self") then
+        hSpawnedUnit:FindAbilityByName("slow_self"):SetLevel(1)
+    end
     if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("for_cp_position") then
         hSpawnedUnit:FindAbilityByName("for_cp_position"):SetLevel(1)
     end

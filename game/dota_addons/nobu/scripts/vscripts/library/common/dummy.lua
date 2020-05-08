@@ -689,22 +689,25 @@ function slow_self_passive( keys )
   local ability = keys.ability
   -- slow movespeed
   local sum_ms_slow = 0
+  if not caster.ms_slow then
+    hSpawnedUnit.ms_slow = {}
+  end
   if caster.ms_slow then
       for k,v in pairs(caster.ms_slow) do
           if v < sum_ms_slow then
               sum_ms_slow = v
           end
-          print(v)
       end
     else
-      print("not find caster")
   end
   if sum_ms_slow < 0 then
-    print("123")
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_slow_down_movespeed", {duration = 0.15}):SetStackCount(sum_ms_slow*-1)
   end
   -- slow attackspeed
   local sum_as_slow = 0
+  if not caster.as_slow then
+    hSpawnedUnit.as_slow = {}
+  end
   if caster.as_slow then
       for k,v in pairs(caster.as_slow) do
           if v < sum_as_slow then
