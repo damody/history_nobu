@@ -693,12 +693,14 @@ function slow_self_passive( keys )
     hSpawnedUnit.ms_slow = {}
   end
   if caster.ms_slow then
-      for k,v in pairs(caster.ms_slow) do
-          if v < sum_ms_slow then
-              sum_ms_slow = v
-          end
+    for k,v in pairs(caster.ms_slow) do
+      if v < sum_ms_slow then
+        sum_ms_slow = v
       end
-    else
+      -- if k == "B10W_slow" then
+      --   caster.ms_slow[k] = caster.ms_slow[k] - 10
+      -- end
+    end
   end
   if sum_ms_slow < 0 then
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_slow_down_movespeed", {duration = 0.15}):SetStackCount(sum_ms_slow*-1)

@@ -289,6 +289,7 @@ function ExorcismPhysics( event )
 						unit.current_target = target_enemy
 						point = unit.current_target:GetAbsOrigin()
 						print("Acquiring -> Enemy Target acquired: "..unit.current_target:GetUnitName())
+						
 
 					-- If no enemies, set the unit to collide with a random idle point.
 					else
@@ -350,14 +351,25 @@ function ExorcismPhysics( event )
 							ApplyDamage(damage_table)
 							
 							local hModifier = unit.current_target:FindModifierByNameAndCaster("modifier_B10W_slow", caster)
-							if hModifier then
+							if hModifier == nil then
+								--first blood
+								ability:ApplyDataDrivenModifier(caster,unit.current_target,"modifier_B10W_slow",{})
+								hModifier = unit.current_target:FindModifierByNameAndCaster("modifier_B10W_slow", caster)
+								hModifier:SetStackCount(1)
+							else
+								-- double kill
 								local scount = hModifier:GetStackCount()
 								scount = scount + 1
 								if (scount <= 5) then
 									hModifier:SetStackCount(scount)
 								end
 							end
-							ability:ApplyDataDrivenModifier(caster,unit.current_target,"modifier_B10W_slow",{})
+							if unit.current_target.ms_slow["B10W_slow"] then
+								if unit.current_target.ms_slow["B10W_slow"] > -50 then
+									unit.current_target.ms_slow["B10W_slow"] = unit.current_target.ms_slow["B10W_slow"] - 10
+								end
+							end
+							
 							-- Calculate how much physical damage was dealt
 							local targetArmor = unit.current_target:GetPhysicalArmorValue(true)
 							local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
