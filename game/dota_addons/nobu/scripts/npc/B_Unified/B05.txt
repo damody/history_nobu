@@ -211,9 +211,24 @@
 			{
 				"Duration"	"%sight_duration"
 				"IsDebuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%decrease_attack_speed"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"B05E"
+						"as_slow" "%decrease_attack_speed"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"B05E"
+					}
 				}
 			}
 		}

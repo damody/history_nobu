@@ -83,10 +83,7 @@
 				"StatusEffectPriority"	"15"
 				"IsHidden"	"1"
 
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%debuff_attack_speed"
-				}
+				
 			}
 			"modifier_C09W_debuff"
 			{
@@ -96,11 +93,7 @@
 				"Duration"	"%debuff_duration"
 				"StatusEffectPriority"	"15"
 
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%debuff_movement_speed"
-				}
-
+				
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -108,6 +101,23 @@
 						"EffectName"		"particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_ice.vpcf"
 						"EffectAttachType"	"follow_hitloc"
 						"Target"			"TARGET"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"C09W"
+						"ms_slow" "%debuff_movement_speed"
+						"as_slow" "%debuff_attack_speed"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"C09W"
 					}
 				}
 			}
@@ -239,12 +249,29 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%C09R_debuffAsMs"
 				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%C09R_debuffAsMs" 
 				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"C09R"
+						"ms_slow" "%C09R_debuffAsMs"
+						"as_slow" "%C09R_debuffAsMs"
+					}
+				}
 				"OnDestroy"
 				{
 					"RunScript"
 					{
 						"ScriptFile"						"scripts/vscripts/heroes/C_Neutral/C09.lua"
 						"Function"							"C09R_debuff_OnDestroy"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"C09R"
 					}
 				}
 			}

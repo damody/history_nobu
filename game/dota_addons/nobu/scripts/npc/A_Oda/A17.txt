@@ -357,9 +357,24 @@
 			"modifier_A17W_2"
 			{
 				"Duration"	"%duration"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-30"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"A17W_2"
+						"ms_slow" "-30"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A17W_2"
+					}
 				}
 				"EffectName"	"particles/generic_gameplay/move_slow.vpcf"
 				"EffectAttachType"	"follow_overhead"
@@ -622,9 +637,27 @@
 					"MODIFIER_PROPERTY_BONUS_DAY_VISION"	"%night_sight"
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"%night_sight"
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"%attack_range_bonus"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%move_speed_bonus"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%attack_bonus"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"A17T"
+						"ms_slow"	"%move_speed_bonus"
+						"as_slow"	"%attack_speed_bonus"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A17T"
+					}
 				}
 				"IsBuff"	"1"
 				"OnAttackLanded"
