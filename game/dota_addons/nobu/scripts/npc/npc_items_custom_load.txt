@@ -14337,15 +14337,15 @@
 		}
 	}
 
-	// 寶石碎片
-	"item_insight_gem_s"
+	// 真視碎片
+	"item_insight_gem_hero"
 	{
 		// General
 		
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/insight_gem_s"
+		"AbilityTextureName"	"item_custom/insight_gem_hero"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
@@ -14357,7 +14357,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"550"
+		"ItemCost"	"250"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"						"1"
@@ -14382,7 +14382,7 @@
                     "Center"    "CASTER"
                     "Radius"    "1200"
                     "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-                    "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+                    "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
                 }
                 "ModifierName"      "modifier_truesight"
                 "Duration"      "10"
@@ -14393,7 +14393,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_insight_gem.lua"
-				"Function"		"OnEquip"
+				"Function"		"OnEquipHero"
 			}
 		}
 		"OnOwnerDied"
@@ -14406,7 +14406,7 @@
 		}
 		"Modifiers"
 		{
-			"Passive_insight_gem"
+			"Passive_insight_gem_hero"
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"
@@ -14420,7 +14420,116 @@
 	                        "Center"    "CASTER"
 	                        "Radius"    "600"
 	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+	                    "ModifierName"      "modifier_truesight"
+	                    "Duration"      "0.50"
+	                }
+	            }
+			}
+			"modifier_lose_gem"
+			{
+				"IsHidden"	"1"
+				"IsPurgable"	"0"
+				"IsBuff"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_insight_gem.lua"
+						"Function"		"Death"
+					}	
+				}
+			}
+		}
+		
+	}
+
+		// 真知碎片
+	"item_insight_gem_ninja"
+	{
+		// General
+		
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/insight_gem_ninja"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		
+		"AbilityCooldown"	"30"
+		
+		"ID"	"2841"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"250"
+		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"						"1"
+		"AOERadius"	"1200"
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"	"TARGET"
+				"EffectName"	"RevealMap"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_insight_gem.lua"
+				"Function"	"Shock"
+			}
+			"ApplyModifier"
+            {
+                "Target"
+                {
+                    "Center"    "CASTER"
+                    "Radius"    "1200"
+                    "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                    "Types" "DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+                }
+                "ModifierName"      "modifier_truesight"
+                "Duration"      "10"
+            }
+		}
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_insight_gem.lua"
+				"Function"		"OnEquipNinja"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_insight_gem.lua"
+				"Function"		"Death"
+			}
+		}
+		"Modifiers"
+		{
+			"Passive_insight_gem_ninja"
+			{
+				"Passive"          "1"  
+	            "IsHidden"      "1"
+	            "ThinkInterval"     "0.25"
+	            "OnIntervalThink"
+	            {
+	                "ApplyModifier"
+	                {
+	                    "Target"
+	                    {
+	                        "Center"    "CASTER"
+	                        "Radius"    "600"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 	                    }
 	                    "ModifierName"      "modifier_truesight"
@@ -14457,7 +14566,7 @@
 		"ItemResult" "item_insight_gem"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_insight_gem_s"  //合成所需物品
+			"01" "item_insight_gem_hero;item_insight_gem_ninja"  //合成所需物品
 		}
 	}
 

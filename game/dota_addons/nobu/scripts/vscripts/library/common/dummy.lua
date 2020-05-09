@@ -697,9 +697,6 @@ function slow_self_passive( keys )
       if v < sum_ms_slow then
         sum_ms_slow = v
       end
-      -- if k == "B10W_slow" then
-      --   caster.ms_slow[k] = caster.ms_slow[k] - 10
-      -- end
     end
   end
   if sum_ms_slow < 0 then

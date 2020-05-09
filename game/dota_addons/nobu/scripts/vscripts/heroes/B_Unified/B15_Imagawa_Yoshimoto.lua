@@ -238,10 +238,10 @@ function B15T_create_illusion(keys, illusion_origin, illusion_incoming_damage, i
 		end
 	end
 
-	if (caster:HasModifier("modifier_b15w")) then
-		caster:FindAbilityByName("B15W"):ApplyDataDrivenModifier(illusion,illusion,"modifier_b15w",{duration=999})
-		AMHC:AddModelScale(illusion, 1.3, 20)
-	end
+	-- if (caster:HasModifier("modifier_b15w")) then
+	-- 	caster:FindAbilityByName("B15W"):ApplyDataDrivenModifier(illusion,illusion,"modifier_b15w",{duration=999})
+	-- 	AMHC:AddModelScale(illusion, 1.3, 20)
+	-- end
 	if (caster:HasModifier("modifier_searing_arrow")) then
 		caster:FindAbilityByName("B15E"):ApplyDataDrivenModifier(illusion,illusion,"modifier_searing_arrow2",{duration=999})
 	else
@@ -250,7 +250,7 @@ function B15T_create_illusion(keys, illusion_origin, illusion_incoming_damage, i
 	end
 	
 	-- modifier_illusion controls many illusion properties like +Green damage not adding to the unit damage, not being able to cast spells and the team-only blue particle 
-	illusion:AddNewModifier(keys.caster, keys.ability, "modifier_illusion", {duration = 10, outgoing_damage = -70, incoming_damage = 200})
+	illusion:AddNewModifier(keys.caster, keys.ability, "modifier_illusion", {duration = 10, outgoing_damage = -70, incoming_damage = 50})
 	
 	illusion:MakeIllusion()  --Without MakeIllusion(), the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.  Without it, IsIllusion() returns false and IsRealHero() returns true.
 	illusion:SetHealth(keys.caster:GetHealth())
@@ -393,9 +393,6 @@ function B15T_20_create_illusion(keys, illusion_origin, illusion_incoming_damage
 	end
 	illusion.illusion_damage = 0.3
 	illusion:AddNewModifier(nil,nil,"modifier_phased",{duration=0.1})
-	if (caster:HasModifier("modifier_b15w")) then
-		caster:FindAbilityByName("B15W_20"):ApplyDataDrivenModifier(illusion,illusion,"modifier_b15w",{duration=999})
-	end
 	if (caster:HasModifier("modifier_searing_arrow")) then
 		caster:FindAbilityByName("B15E_20"):ApplyDataDrivenModifier(illusion,illusion,"modifier_searing_arrow",{duration=999})
 	else

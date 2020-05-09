@@ -10,7 +10,8 @@
 	"item"      "item_liquor"				//燒酒
 	"item"      "item_napalm_bomb"			//爆烈彈
 	"item"      "item_shuriken"				//手裏劍
-	"item"      "item_insight_gem_s"		//寶石碎片
+	"item"      "item_insight_gem_hero"		//真視碎片
+	"item"      "item_insight_gem_ninja"	//真知碎片
 	"item"      "item_gold_to_prestige"		//兵力
 	"item"		"item_ninja1"				//下忍
 }
@@ -34,7 +35,8 @@
 	"item"      "item_liquor"				//燒酒
 	"item"      "item_napalm_bomb"			//爆烈彈
 	"item"      "item_shuriken"				//手裏劍
-	"item"      "item_insight_gem_s"		//寶石碎片
+	"item"      "item_insight_gem_hero"		//真視碎片
+	"item"      "item_insight_gem_ninja"	//真知碎片
 	"item"      "item_magic_ring"			//法術戒指
 	"item"      "item_katana"				//打刀
 	"item"      "item_tachi"				//太刀
@@ -219,7 +221,8 @@
 // 路邊商店
 "sideshop1"
 {
-	"item"      "item_insight_gem_s"		//寶石碎片
+	"item"      "item_insight_gem_hero"		//真視碎片
+	"item"      "item_insight_gem_ninja"	//真知碎片
 	"item"      "item_healing_totem"		//療癒圖騰
 	"item"      "item_flash_ring"			//閃光輪
 	"item"      "item_ancient_doll"			//久棄邪物

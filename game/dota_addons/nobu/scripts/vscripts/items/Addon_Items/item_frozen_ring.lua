@@ -14,8 +14,12 @@ function Shock( keys )
 						FIND_ANY_ORDER,
 						false)
 	for _,it in pairs(direUnits) do
-		ability:ApplyDataDrivenModifier(caster, it,"modifier_frozen_ring",{duration=3.5})
+		if not it:IsHero() and it:FindAbilityByName("for_cp_position") then
+			AMHC:Damage(caster,it,275*0.7,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		else
 		AMHC:Damage(caster,it,275,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		end
+		ability:ApplyDataDrivenModifier(caster, it,"modifier_frozen_ring",{duration=3.5})
 	end
 	local particle = ParticleManager:CreateParticle("particles/a34e2/a34e2.vpcf", PATTACH_ABSORIGIN, caster)
 	Timers:CreateTimer(2, function ()
