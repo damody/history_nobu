@@ -65,7 +65,12 @@ function Shock( keys )
 				ParticleManager:SetParticleControl(particle,1, tem_point)
 			
 				--【DMG】
+				if not unit:IsHero() and unit:FindAbilityByName("for_cp_position") then
+					ApplyDamage({ victim = unit, attacker = caster, damage = damage*0.7, damage_type = AbilityDamageType})
+				else
 					ApplyDamage({ victim = unit, attacker = caster, damage = damage, damage_type = AbilityDamageType})
+				end
+					
 				-- Increment counter
 				targets_shocked = targets_shocked + 1
 			end
