@@ -455,7 +455,6 @@
 			{
 				"Duration"	"%slow_duration"
 				"States"	{}
-				"Properties"
 				"OnCreated"
 				{
 					"RunScript"
