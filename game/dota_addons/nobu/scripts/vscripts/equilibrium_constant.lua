@@ -155,6 +155,8 @@ function equilibrium_constant:x_OnNPCSpawned(keys)
     if IsValidEntity(hSpawnedUnit) then
         hSpawnedUnit.ms_slow = {}
         hSpawnedUnit.as_slow = {}
+        hSpawnedUnit.ms_unslow = {}
+        hSpawnedUnit.states_res = {}
     end
     if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("slow_self") then
         hSpawnedUnit:FindAbilityByName("slow_self"):SetLevel(1)

@@ -410,14 +410,46 @@ end
 
 function modifier_A20T_model:OnCreated( keys )
 	local caster = self:GetParent()
+	local states_resistance1 = 0
+
 	if caster.states_resistance == nil then
 		caster.states_resistance = 0
 	end
-	caster.states_resistance = caster.states_resistance + A20T_states_resistance
+
+	if caster.states_res == nil then
+		caster.states_res = {}
+	end
+
+	
+	if caster.states_res then
+		caster.states_res["A20T"] =  A20T_states_resistance
+		if caster.states_res then
+			for k,v in pairs(caster.states_res) do
+				if v > states_resistance1 then
+					states_resistance1 = v
+				end
+			end
+		end
+		caster.states_resistance = states_resistance1
+	end
+	
 end
 
 function modifier_A20T_model:OnDestroy( keys )
-	self:GetParent().states_resistance = self:GetParent().states_resistance - A20T_states_resistance
+	local states_resistance1 = 0
+	local caster = self:GetParent()
+	self:GetParent().states_res["A20T"] = nil
+
+	if caster.states_res ~= nil then
+        for k,v in pairs(caster.states_res) do
+            if v > states_resistance1 then
+                states_resistance1 = v
+            end
+        end
+		caster.states_resistance = states_resistance1
+	else
+		caster.states_resistance = 0
+    end
 end
 
 
@@ -429,6 +461,8 @@ function A20T_OnSpellStart( event )
 	local states_resistance = ability:GetSpecialValueFor("states_resistance")
 	A20T_states_resistance = states_resistance
 	A20_caster = caster
+
+
 	--local ifx = ParticleManager:CreateParticle( "particles/c20r_real/c20r.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	--ParticleManager:SetParticleControl( ifx, 0, caster:GetAbsOrigin())
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_A20T_model", {duration=duration})

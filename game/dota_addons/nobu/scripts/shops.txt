@@ -74,6 +74,8 @@
 	"item"      "item_flash_ring"	//閃光輪
 	"item"      "item_strength_ingot"			//蠻力鋼
 	"item"      "item_agility_ingot"			//迅捷鋼
+	"item"		"item_toughness_ingot"		//韌性鋼
+	"item"		"item_magic_resistance_ingot"		//禦魔鋼
 	"item"      "item_intelligence_ingot"			//技巧鋼
 	"item"      "item_power_ingot"			//強化鋼
 	"item"      "item_regeneration_ingot"			//再生鋼
@@ -132,6 +134,7 @@
 	"item"      "item_dark_boots"			//暗部長靴
 	"item"      "item_mana_boots"			//仕手能靴
 	"item"      "item_magic_defence_boots"			//禦魔長踏
+	"item"		"item_swiftness_boots"				//流風捷履
 	"item"      "item_ryukyu_ronin_clogs"			//琉球浪人木屐
 	"item"      "item_the_shell_of_spirituality_kappa"			//妖化河童殼
 	"item"      "item_kotennmyohiragumo"			//平蜘蛛釜
@@ -211,6 +214,7 @@
 	"item"      "item_dark_boots_1"			//暗部長靴
 	"item"      "item_mana_boots_1"			//仕手能靴
 	"item"      "item_magic_defence_boots_1"			//禦魔長踏
+	"item"      "item_swiftness_boots_1"			//流風捷履
 	"item"      "item_ryukyu_ronin_clogs_1"			//琉球浪人木屐
 }
 

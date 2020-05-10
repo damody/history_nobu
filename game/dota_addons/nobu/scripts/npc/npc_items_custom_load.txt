@@ -1830,6 +1830,151 @@
 			}
 		}
 	}
+	// 韌性鋼	
+	"item_toughness_ingot"
+	{
+		// General
+		
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/toughness_ingot"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"FightRecapLevel"	"1"
+		"ID"	"2845"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
+		// Item Info
+		
+		"ItemCost"	"650"
+		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"	"1"
+		"ItemRequirements"	{}
+		"precache"
+		{
+			"particle"	"particles/item/d01/d01.vpcf"
+			"particle"	"particles/item/d02_4/d02_4_f.vpcf"
+		}
+		"OnEquip"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/Addon_Items/item_states_resistance.lua"
+					"Function"	"OnEquip"
+					"name"		"toughness_ingot"
+					"ms_unslow"	"15"
+				}
+			}
+			"OnUnequip"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/Addon_Items/item_states_resistance.lua"
+					"Function"	"OnUnequip"
+					"name"		"toughness_ingot"
+					"ms_unslow"	"15"
+				}
+			}
+		"Modifiers"
+		{
+			"Passive_toughness_ingot"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"states_resistance"	"10"
+			}
+		}
+	}
+	// 禦魔鋼	
+	"item_magic_resistance_ingot"
+	{
+		// General
+		
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/magic_resistance_ingot"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"FightRecapLevel"	"1"
+		"ID"	"2846"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
+		// Item Info
+		
+		"ItemCost"	"650"
+		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"	"1"
+		"ItemRequirements"	{}
+		"precache"
+		{
+			"particle"	"particles/item/d01/d01.vpcf"
+			"particle"	"particles/item/d02_4/d02_4_f.vpcf"
+		}
+		"OnEquip"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+						"Function"	"OnEquip"
+					}
+				}
+			"OnUnequip"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+					"Function"	"OnUnequip"
+				}
+			}
+		"Modifiers"
+		{
+			"Passive_magicresistance_ingot"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+				}
+			}
+			
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magical_resistance"	"7"
+			}
+		}
+	}
 
 	// 技巧鋼
 	"item_intelligence_ingot"
@@ -8370,13 +8515,13 @@
 	{
 	    "ID" "3053"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "900"
+		"ItemCost" "250"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_magic_defence_boots"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_pleated_skirt;item_regeneration_ingot;item_regeneration_ingot"  //合成所需物品
+			"01" "item_pleated_skirt;item_regeneration_ingot;item_regeneration_ingot;item_magic_resistance_ingot"  //合成所需物品
 		}
 	}
 
@@ -11239,7 +11384,7 @@
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "20"	//回血
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "30"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
@@ -11403,7 +11548,223 @@
 			}
 		}
 	}
-
+	// 流風捷履
+	"item_swiftness_boots"
+	{
+		// General
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/swiftness_boots"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		
+		"AbilityCooldown"	"60"
+		"AbilitySharedCooldown" "share_perceive_wine_hyper"
+		"AbilityManaCost"	"0"
+		"ID"	"2842"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"2500"
+		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_states_resistance.lua"
+				"Function"	"OnEquip"
+				"name"	"swiftness_boots"
+				"ms_unslow"	"30"
+			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_states_resistance.lua"
+				"Function"	"OnUnequip"
+				"name"	"swiftness_boots"
+				"ms_unslow"	"30"
+			}
+		}
+		"OnToggleOn"
+		{
+			"RunScript"
+			{
+			  	"ScriptFile"	"items/Addon_Items/item_perceive_wine.lua"
+				"Function"	"Shock"
+				"Time"	"4.5"
+			}
+		}
+		"Modifiers"
+		{
+			"Passive_item_pleated_skirt"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "60"	//跑速
+				}
+			}
+			"passive_swiftness_boots"
+				{
+					"IsHidden"	"0"
+					"Passive"	"1"
+					
+				}
+			"modifier_perceive_wine"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Passive"	"0"
+				"EffectName"	"particles/item/item_perceive_wine.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"IsHidden"	"0"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"states_resistance"	"20"
+			}
+		}
+	}
+	//流風捷履製作單
+	"item_recipe_swiftness_boots" 
+	{
+	    "ID" "2844"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "700"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"ItemResult" "item_swiftness_boots"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_pleated_skirt;item_toughness_ingot;item_toughness_ingot"  //合成所需物品
+		}
+	}
+	
+		// 破魔。流風捷履
+	"item_swiftness_boots_1"
+	{
+		// General
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/swiftness_boots"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		
+		"AbilityCooldown"	"60"
+		"AbilitySharedCooldown" "share_perceive_wine_hyper"
+		"AbilityManaCost"	"0"
+		"ID"	"2843"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"4500"
+		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_states_resistance.lua"
+				"Function"	"OnEquip"
+			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_states_resistance.lua"
+				"Function"	"OnUnequip"
+			}
+		}
+		"OnToggleOn"
+		{
+			"RunScript"
+			{
+			  	"ScriptFile"	"items/Addon_Items/item_perceive_wine.lua"
+				"Function"	"Shock"
+				"Time"	"9"
+			}
+		}
+		"Modifiers"
+		{
+			"Passive_item_pleated_skirt"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE" "60"	//跑速
+				}
+			}
+			"passive_swiftness_boots"
+				{
+					"IsHidden"	"0"
+					"Passive"	"1"
+					
+				}
+			"modifier_perceive_wine"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Passive"	"0"
+				"EffectName"	"particles/item/item_perceive_wine.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"IsHidden"	"0"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"states_resistance"	"20"
+			}
+		}
+	}
 	//平蜘蛛釜
 	"item_kotennmyohiragumo"
 	{
@@ -13740,6 +14101,21 @@
 			"01" "item_hama_orb;item_magic_defence_boots"  //合成所需物品
 		}
 	}
+	//流風捷履+1製作單
+	"item_recipe_swiftness_boots_1" 
+	{
+	    "ID" "3080"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "0"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"ItemResult" "item_swiftness_boots_1"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_hama_orb;item_swiftness_boots"  //合成所需物品
+		}
+	}
+
 
 	//琉球浪人木屐+1製作單
 	"item_recipe_ryukyu_ronin_clogs_1" 
