@@ -6,8 +6,8 @@
 		// General
 		// ----------------------------------------------------------------
 		// Add model
-		"Model"	"models/a07/a07.vmdl"
-		"ModelScale"	"1.2"
+		"Model"	"models/a07/a07_new.vmdl"
+		"ModelScale"	"1.0"
 		//"Level"	"5"
 		"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
 		"HealthBarOffset"	"180"
@@ -20,7 +20,6 @@
 		"Ability4"	"magical_resistance"
 		"Ability5"	"A07D"
 		"Ability6"	"A07T"
-
 		"Ability7"	"A07_precache"
 		// Armor
 		// ----------------------------------------------------------------
