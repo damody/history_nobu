@@ -80,7 +80,6 @@ function Check() {
   $.Msg(shop_combines.GetChildCount())
   var combines_items = shop_combines.FindChildTraverse("ItemsContainer")
   shop.FindChildTraverse("GuideFlyout").visible = false
-  //shop_heightLimiter.style.height = "550px"
   shop.style.width = largeMainPanelWidth
   shop.style.marginBottom = "0px"
   shop_main.style.width = largeMainPanelWidth
@@ -105,12 +104,5 @@ function Check() {
         }
       }
     }
-  }
-  // 調整商店合成物品大小
-  shop_combines.style.height = "200px"
-  for (var i = 0; i < combines_items.GetChildCount(); i++) {
-    var item = combines_items.GetChild(i)
-    item.style.height = item_height
-    item.style.width = item_width
   }
 })();
