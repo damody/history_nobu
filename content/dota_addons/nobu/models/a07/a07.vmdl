@@ -115,8 +115,8 @@
 						[
 							{
 								m_influenceName = "Bone_Chest"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
+								m_vTranslationOffset = [ -0.966118, 1.832569, -0.369064 ]
+								m_vRotationOffset = [ -2.69076, -3.137834, 10.91527 ]
 								m_flWeight = 1.0
 								m_bRoot = false
 							},
