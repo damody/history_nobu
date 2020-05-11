@@ -20,8 +20,6 @@
 
   <Panel class="AddonLoadingRoot">
     <Slider class="HorizontalSlider" direction="horizontal" id="Slider1" />
-    <Panel id="DotaHud_trasform">
-      <Panel id="shop"/>
-    </Panel>
+    <Panel id="DotaHud_trasform" />
   </Panel>
 </root>

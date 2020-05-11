@@ -1,33 +1,30 @@
 
-var slider = $.GetContextPanel().FindChildInLayoutFile( "Slider1" );
+var slider = $.GetContextPanel().FindChildInLayoutFile("Slider1");
 var lastValue = 0;
 
-function OnValueChanged(slider)
-{
-	$.Msg(slider.value);
-	GameUI.SetCameraDistance( slider.value );
+function OnValueChanged(slider) {
+  $.Msg(slider.value);
+  GameUI.SetCameraDistance(slider.value);
 
 }
 
-function  Check()
-{
-	if (slider.value != lastValue)
-		OnValueChanged(slider);
-	lastValue = slider.value;
-	$.Schedule(0.03, Check);
-	  
+function Check() {
+  if (slider.value != lastValue)
+    OnValueChanged(slider);
+  lastValue = slider.value;
+  $.Schedule(0.03, Check);
+
 }
 
-(function()
-{
-    slider.min = 500;
-    slider.max = 1600;
-	slider.value = 1100;
-	lastValue = slider.value;
-    $.Schedule(0.03, Check);
+(function () {
+  slider.min = 500;
+  slider.max = 1600;
+  slider.value = 1100;
+  lastValue = slider.value;
+  $.Schedule(0.03, Check);
 
 
-var y = $.GetContextPanel().GetParent().GetParent().GetParent();
+  var y = $.GetContextPanel().GetParent().GetParent().GetParent();
   y = y.FindChildTraverse('HUDElements')
   y = y.FindChildTraverse('topbar')
   var dire = y.FindChildTraverse('TopBarDireTeam')
@@ -37,8 +34,8 @@ var y = $.GetContextPanel().GetParent().GetParent().GetParent();
   TopBarDirePlayers.SetParent('TopBarRadiantTeam')
   TopBarRadiantPlayers.SetParent('TopBarDireTeam')
   $.Msg(dire.id);
-  
-	 // 暫時先讓所有和天賦樹的UI都點不到
+
+  // 暫時先讓所有和天賦樹的UI都點不到
   $.Msg("Disable Talent Tree")
   var x = $.GetContextPanel().GetParent().GetParent().GetParent();
   x = x.FindChildTraverse('HUDElements')
@@ -59,19 +56,21 @@ var y = $.GetContextPanel().GetParent().GetParent().GetParent();
   x = x.FindChildTraverse('StatBranch')
   x.hittest = false
   x.hittestchildren = false
-
+  $.Msg("testsetset")
   // 建立一個panel
+  var item_height = "55px"
+  var item_width = "55px"
   var HUDElements = $.GetContextPanel().GetParent().GetParent().GetParent()
   HUDElements = HUDElements.FindChildTraverse('HUDElements')
-  this.panel = $.CreatePanel("Panel", $( "#DotaHud_trasform" ), "")
-  this.panel.BLoadLayoutSnippet( "Shop" )
+  this.panel = $.CreatePanel("Panel", $("#DotaHud_trasform"), "")
+  this.panel.BLoadLayoutSnippet("Shop")
   var largeMainPanelWidth = '1350px'
   var shop = $.GetContextPanel().GetParent().GetParent().GetParent()
   shop = shop.FindChildTraverse('HUDElements')
   shop = shop.FindChildTraverse('shop')
   if (shop == null) {
     shop = this.panel.FindChildTraverse("shop")
-  }else{
+  } else {
     shop.SetParent(this.panel.FindChildTraverse("shop_transform"))
   }
   var shop_heightLimiter = shop.FindChildTraverse("HeightLimiter")
@@ -81,8 +80,9 @@ var y = $.GetContextPanel().GetParent().GetParent().GetParent();
   $.Msg(shop_combines.GetChildCount())
   var combines_items = shop_combines.FindChildTraverse("ItemsContainer")
   shop.FindChildTraverse("GuideFlyout").visible = false
-  shop_heightLimiter.style.height = "650px"
+  shop_heightLimiter.style.height = "550px"
   shop.style.width = largeMainPanelWidth
+  shop.style.marginBottom = "0px"
   shop_main.style.width = largeMainPanelWidth
   // 調整商店物品大小
   for (var i = 0; i < shop_grid.GetChildCount(); i++) {
@@ -93,21 +93,24 @@ var y = $.GetContextPanel().GetParent().GetParent().GetParent();
       $.Msg(items.id)
       for (var k = 0; k < items.GetChildCount(); k++) {
         var itemsContainer = items.GetChild(k).FindChildTraverse("ShopItemsContainer")
-        if (itemsContainer != null){
-          for (var m = 0; m < itemsContainer.GetChildCount(); m++){
+        if (itemsContainer != null) {
+          for (var m = 0; m < itemsContainer.GetChildCount(); m++) {
             var item = itemsContainer.GetChild(m)
-            item.style.height = "61px"
-            item.style.width = "61px"
-          } 
+            var itemOverlay = item.FindChildTraverse("CanPurchaseOverlay")
+            item.style.height = item_height
+            item.style.width = item_width
+            itemOverlay.style.height = item_height
+            itemOverlay.style.width = item_width
+          }
         }
       }
     }
   }
   // 調整商店合成物品大小
-  $.Msg(combines_items.GetChildCount())
-  for (var i = 0; i < combines_items.GetChildCount(); i++){
+  shop_combines.style.height = "200px"
+  for (var i = 0; i < combines_items.GetChildCount(); i++) {
     var item = combines_items.GetChild(i)
-    item.style.height = "1px"
-    item.style.width = "61px"
+    item.style.height = item_height
+    item.style.width = item_width
   }
 })();
