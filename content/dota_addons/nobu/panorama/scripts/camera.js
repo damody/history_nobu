@@ -59,4 +59,55 @@ var y = $.GetContextPanel().GetParent().GetParent().GetParent();
   x = x.FindChildTraverse('StatBranch')
   x.hittest = false
   x.hittestchildren = false
+
+  // 建立一個panel
+  var HUDElements = $.GetContextPanel().GetParent().GetParent().GetParent()
+  HUDElements = HUDElements.FindChildTraverse('HUDElements')
+  this.panel = $.CreatePanel("Panel", $( "#DotaHud_trasform" ), "")
+  this.panel.BLoadLayoutSnippet( "Shop" )
+  var largeMainPanelWidth = '1350px'
+  var shop = $.GetContextPanel().GetParent().GetParent().GetParent()
+  shop = shop.FindChildTraverse('HUDElements')
+  shop = shop.FindChildTraverse('shop')
+  if (shop == null) {
+    shop = this.panel.FindChildTraverse("shop")
+  }else{
+    shop.SetParent(this.panel.FindChildTraverse("shop_transform"))
+  }
+  var shop_heightLimiter = shop.FindChildTraverse("HeightLimiter")
+  var shop_main = shop.FindChildTraverse("Main")
+  var shop_grid = shop.FindChildTraverse("GridMainShopContents")
+  var shop_combines = shop.FindChildTraverse("ItemCombines")
+  $.Msg(shop_combines.GetChildCount())
+  var combines_items = shop_combines.FindChildTraverse("ItemsContainer")
+  shop.FindChildTraverse("GuideFlyout").visible = false
+  shop_heightLimiter.style.height = "650px"
+  shop.style.width = largeMainPanelWidth
+  shop_main.style.width = largeMainPanelWidth
+  // 調整商店物品大小
+  for (var i = 0; i < shop_grid.GetChildCount(); i++) {
+    var shoptype = shop_grid.GetChild(i)
+    $.Msg(shoptype.id)
+    for (var j = 0; j < shoptype.GetChildCount(); j++) {
+      var items = shoptype.GetChild(j)
+      $.Msg(items.id)
+      for (var k = 0; k < items.GetChildCount(); k++) {
+        var itemsContainer = items.GetChild(k).FindChildTraverse("ShopItemsContainer")
+        if (itemsContainer != null){
+          for (var m = 0; m < itemsContainer.GetChildCount(); m++){
+            var item = itemsContainer.GetChild(m)
+            item.style.height = "61px"
+            item.style.width = "61px"
+          } 
+        }
+      }
+    }
+  }
+  // 調整商店合成物品大小
+  $.Msg(combines_items.GetChildCount())
+  for (var i = 0; i < combines_items.GetChildCount(); i++){
+    var item = combines_items.GetChild(i)
+    item.style.height = "1px"
+    item.style.width = "61px"
+  }
 })();
