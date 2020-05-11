@@ -56,15 +56,13 @@ function Check() {
   x = x.FindChildTraverse('StatBranch')
   x.hittest = false
   x.hittestchildren = false
-  $.Msg("testsetset")
   // 建立一個panel
-  var item_height = "55px"
-  var item_width = "55px"
+  var item_height = "35px"
+  var item_width = "35px"
   var HUDElements = $.GetContextPanel().GetParent().GetParent().GetParent()
   HUDElements = HUDElements.FindChildTraverse('HUDElements')
   this.panel = $.CreatePanel("Panel", $("#DotaHud_trasform"), "")
   this.panel.BLoadLayoutSnippet("Shop")
-  var largeMainPanelWidth = '1350px'
   var shop = $.GetContextPanel().GetParent().GetParent().GetParent()
   shop = shop.FindChildTraverse('HUDElements')
   shop = shop.FindChildTraverse('shop')
@@ -79,11 +77,8 @@ function Check() {
   var shop_combines = shop.FindChildTraverse("ItemCombines")
   $.Msg(shop_combines.GetChildCount())
   var combines_items = shop_combines.FindChildTraverse("ItemsContainer")
-  shop.FindChildTraverse("GuideFlyout").visible = false
-  shop_heightLimiter.style.height = "550px"
-  shop.style.width = largeMainPanelWidth
   shop.style.marginBottom = "0px"
-  shop_main.style.width = largeMainPanelWidth
+  shop.FindChildTraverse("GuideFlyout").visible = false
   // 調整商店物品大小
   for (var i = 0; i < shop_grid.GetChildCount(); i++) {
     var shoptype = shop_grid.GetChild(i)
@@ -106,11 +101,11 @@ function Check() {
       }
     }
   }
-  // 調整商店合成物品大小
-  shop_combines.style.height = "200px"
-  for (var i = 0; i < combines_items.GetChildCount(); i++) {
-    var item = combines_items.GetChild(i)
-    item.style.height = item_height
-    item.style.width = item_width
-  }
+  // // 調整商店合成物品大小
+  // shop_combines.style.height = "200px"
+  // for (var i = 0; i < combines_items.GetChildCount(); i++) {
+  //   var item = combines_items.GetChild(i)
+  //   item.style.height = item_height
+  //   item.style.width = item_width
+  // }
 })();
