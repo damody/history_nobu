@@ -10,7 +10,8 @@
 	"item"      "item_liquor"				//燒酒
 	"item"      "item_napalm_bomb"			//爆烈彈
 	"item"      "item_shuriken"				//手裏劍
-	"item"      "item_insight_gem_s"		//寶石碎片
+	"item"      "item_insight_gem_hero"		//真視碎片
+	"item"      "item_insight_gem_ninja"	//真知碎片
 	"item"      "item_gold_to_prestige"		//兵力
 	"item"		"item_ninja1"				//下忍
 }
@@ -34,7 +35,8 @@
 	"item"      "item_liquor"				//燒酒
 	"item"      "item_napalm_bomb"			//爆烈彈
 	"item"      "item_shuriken"				//手裏劍
-	"item"      "item_insight_gem_s"		//寶石碎片
+	"item"      "item_insight_gem_hero"		//真視碎片
+	"item"      "item_insight_gem_ninja"	//真知碎片
 	"item"      "item_magic_ring"			//法術戒指
 	"item"      "item_katana"				//打刀
 	"item"      "item_tachi"				//太刀
@@ -70,6 +72,8 @@
 {
 	"item"      "item_magic_ring"			//法術戒指
 	"item"      "item_flash_ring"			//閃光輪
+	"item"		"item_toughness_ingot"		//韌性鋼
+	"item"		"item_magic_resistance_ingot"//禦魔鋼
 	"item"      "item_strength_ingot"		//蠻力鋼
 	"item"      "item_agility_ingot"		//迅捷鋼
 	"item"      "item_intelligence_ingot"	//技巧鋼
@@ -132,6 +136,7 @@
 	"item"      "item_mana_boots"			//仕手能靴
 	"item"      "item_magic_defence_boots"			//禦魔長踏
 	"item"      "item_ryukyu_ronin_clogs"			//琉球浪人木屐
+	"item"		"item_swiftness_boots"				//流風捷履
 	"item"      "item_the_shell_of_spirituality_kappa"			//妖化河童殼
 	"item"      "item_kotennmyohiragumo"			//平蜘蛛釜
 	"item"      "item_magic_talisman"			//御魔護符
@@ -212,6 +217,7 @@
 	"item"      "item_dark_boots_1"			//暗部長靴
 	"item"      "item_mana_boots_1"			//仕手能靴
 	"item"      "item_magic_defence_boots_1"			//禦魔長踏
+	"item"      "item_swiftness_boots_1"			//流風捷履
 	"item"      "item_ryukyu_ronin_clogs_1"			//琉球浪人木屐
 	"item"		"item_flash_shoes"	//百里
 }
@@ -219,7 +225,8 @@
 // 路邊商店
 "sideshop1"
 {
-	"item"      "item_insight_gem_s"		//寶石碎片
+	"item"      "item_insight_gem_hero"		//真視碎片
+	"item"      "item_insight_gem_ninja"	//真知碎片
 	"item"      "item_healing_totem"		//療癒圖騰
 	"item"      "item_flash_ring"			//閃光輪
 	"item"      "item_ancient_doll"			//久棄邪物

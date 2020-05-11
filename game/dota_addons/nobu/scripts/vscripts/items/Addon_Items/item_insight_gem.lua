@@ -8,11 +8,18 @@ function Shock( keys )
 end
 
 
-function OnEquip( keys )
+function OnEquipHero( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_lose_gem", {})
 end
+
+-- function OnEquipHeroNinja( keys )
+-- 	local caster = keys.caster
+-- 	local ability = keys.ability
+-- 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_lose_gem_ninja", {})
+-- end
+
 
 function Death( keys )
 	local caster = keys.caster
@@ -22,7 +29,10 @@ function Death( keys )
 		if item ~= nil then
 			print(item:GetName())
 			local itemName = item:GetName()
-			if (itemName == "item_insight_gem_s") then
+			if (itemName == "item_insight_gem_hero") then
+				caster:RemoveModifierByName("modifier_lose_gem")
+				item:Destroy()
+			elseif (itemName == "item_insight_gem_ninja") then
 				caster:RemoveModifierByName("modifier_lose_gem")
 				item:Destroy()
 			end

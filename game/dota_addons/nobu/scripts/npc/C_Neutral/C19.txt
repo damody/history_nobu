@@ -323,10 +323,25 @@
 				"Duration"	"%duration"
 				"EffectName"	"particles/c19r/c19r.vpcf"
 				"EffectAttachType"	"follow_origin"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_moveandattackspeed"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_moveandattackspeed"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"C19R"
+						"ms_slow" "%bonus_moveandattackspeed"
+						"as_slow" "%bonus_moveandattackspeed"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"C19R"
+					}
 				}
 				"OnIntervalThink"
 				{

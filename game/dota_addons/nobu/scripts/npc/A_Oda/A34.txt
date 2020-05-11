@@ -215,10 +215,25 @@
 				"IsDebuff"	"1"
 				"StatusEffectName"	"particles/status_fx/status_effect_frost_lich.vpcf"
 				"StatusEffectPriority"	"10"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_movement_speed"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%slow_attack_speed"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"A34E"
+						"ms_slow"	"%slow_movement_speed"
+						"as_slow"	"%slow_attack_speed"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A34E"
+					}
 				}
 				"EffectName"	"particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_ice.vpcf"
 				"EffectAttachType"	"follow_hitloc"
@@ -237,7 +252,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"duration"	"10"
+				"duration"	"5"
 			}
 			"03"
 			{

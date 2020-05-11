@@ -227,9 +227,24 @@
 				"EffectAttachType"	"follow_overhead"
 				"Duration"	"4"
 				"IsDebuff"	"1"
-				"Properties"
+				"OnCreated"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-10" 
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"B10W_slow"
+						"ms_slow" "-10"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"B10W_slow"
+					}
 				}
 			}
 		}

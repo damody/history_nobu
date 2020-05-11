@@ -40,7 +40,12 @@ function Shock( keys )
 	ParticleManager:SetParticleControl(particle,0, point + vec * 100)
 	ParticleManager:SetParticleControl(particle,1, point2 + Vector(0,0,100))
 	--【DMG】
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = AbilityDamageType})
+	if not target:IsHero() and target:FindAbilityByName("for_cp_position") then
+		ApplyDamage({ victim = target, attacker = caster, damage = damage*0.7, damage_type = AbilityDamageType})
+	else
+		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = AbilityDamageType})
+	end
+	
 	target.has_D09 = true
 
 	local cone_units = FindUnitsInRadius( caster:GetTeamNumber(), point2, nil, 700, 
@@ -60,8 +65,12 @@ function Shock( keys )
 				ParticleManager:SetParticleControl(particle,1, tem_point)
 			
 				--【DMG】
-				ApplyDamage({ victim = unit, attacker = caster, damage = damage, damage_type = AbilityDamageType})
-
+				if not unit:IsHero() and unit:FindAbilityByName("for_cp_position") then
+					ApplyDamage({ victim = unit, attacker = caster, damage = damage*0.7, damage_type = AbilityDamageType})
+				else
+					ApplyDamage({ victim = unit, attacker = caster, damage = damage, damage_type = AbilityDamageType})
+				end
+					
 				-- Increment counter
 				targets_shocked = targets_shocked + 1
 			end

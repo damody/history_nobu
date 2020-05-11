@@ -391,7 +391,7 @@
 		"AbilityCastRange"							"1000"
 		"AbilityCastPoint"							"0.25"
 		"AbilityCooldown"           				"130 125 120"
-		"AbilityManaCost"           				"400 600 800"
+		"AbilityManaCost"           				"200 300 400"
 		"AOERadius"                                 "%B28T_radius"
 
 		"OnAbilityPhaseStart"

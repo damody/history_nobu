@@ -673,9 +673,23 @@ function courier_damage_immune_OnDestroy( keys )
 end
 
 function Slow ( keys )
-   local target = keys.target
-   target.ms_slow[keys.name] = keys.ms_slow
-   target.as_slow[keys.name] = keys.as_slow
+  local target = keys.target
+  local unslow = 0
+
+  for k,v in pairs(target.ms_unslow) do
+    if v > unslow then
+      unslow = v
+      print(v)
+    end
+  end
+
+  if target.ms_unslow then
+    target.ms_slow[keys.name] = keys.ms_slow  * (1 - unslow/100)
+    print(target.ms_slow[keys.name])
+  else
+    target.ms_slow[keys.name] = keys.ms_slow 
+    target.as_slow[keys.name] = keys.as_slow 
+  end
 end
 
 function ReturnSpeed ( keys )
@@ -693,12 +707,11 @@ function slow_self_passive( keys )
     hSpawnedUnit.ms_slow = {}
   end
   if caster.ms_slow then
-      for k,v in pairs(caster.ms_slow) do
-          if v < sum_ms_slow then
-              sum_ms_slow = v
-          end
+    for k,v in pairs(caster.ms_slow) do
+      if v < sum_ms_slow then
+        sum_ms_slow = v
       end
-    else
+    end
   end
   if sum_ms_slow < 0 then
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_slow_down_movespeed", {duration = 0.15}):SetStackCount(sum_ms_slow*-1)

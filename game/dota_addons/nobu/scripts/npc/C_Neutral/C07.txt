@@ -401,8 +401,26 @@
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow"
 					"MODIFIER_PROPERTY_DISABLE_HEALING"	"1"
+				}
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"C07T_2"
+						"ms_slow" "%slow"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"C07T_2"
+					}
 				}
 				"EffectName"	"particles/c07t2/c07t2.vpcf"
 				"EffectAttachType"	"follow_hitloc"
