@@ -13,8 +13,6 @@
 	"item"      "item_shuriken"				//手裏劍
 	"item"		"item_earth_wall_book"		//忍法．土遁之書
 	"item"		"item_earth_wall_book2"		//忍法．土遁之書
-	"item"      "item_insight_gem_s"		//寶石碎片
-	"item"      "item_gold_to_prestige"		//兵力
 }
 
 //偷買
@@ -37,7 +35,6 @@
 	"item"      "item_liquor"				//燒酒
 	"item"      "item_napalm_bomb"			//爆烈彈
 	"item"      "item_shuriken"				//手裏劍
-	"item"      "item_magic_ring"	//法術戒指
 	"item"      "item_katana"			//打刀
 	"item"      "item_tachi"			//太刀
 	"item"      "item_staff"			//杵杖
@@ -70,7 +67,6 @@
 //基礎物品
 "weapons_armor"
 {
-	"item"      "item_magic_ring"	//法術戒指
 	"item"      "item_flash_ring"	//閃光輪
 	"item"      "item_strength_ingot"			//蠻力鋼
 	"item"      "item_agility_ingot"			//迅捷鋼
@@ -209,8 +205,6 @@
 // 升級類裝備
 "artifacts"
 {
-	"item"      "item_samurai_cloth_x"			//武士服．改
-	"item"      "item_ronin_jitte_2"			//浪人十手+2
 	"item"      "item_dark_boots_1"			//暗部長靴
 	"item"      "item_mana_boots_1"			//仕手能靴
 	"item"      "item_magic_defence_boots_1"			//禦魔長踏
@@ -222,7 +216,6 @@
 "sideshop1"
 {
 	"item"      "item_insight_gem_s"		//寶石碎片
-	"item"      "item_healing_totem"		//療癒圖騰
 	"item"      "item_flash_ring"			//閃光輪
 	"item"      "item_ancient_doll"			//久棄邪物
 	"item"      "item_tea_bowl"				//茶碗
@@ -234,25 +227,6 @@
 	"item"      "item_rations"				//軍糧丸
 	"item"      "item_sake"					//清酒
 	"item"      "item_liquor"				//燒酒
-	"item"      "item_poisonous_ring"				//毒之戒指
-}
-
-// 路邊名刀舖
-"sideshop"
-{
-	"item"      "item_the_great_sword_of_xnew_moon"			//三日月宗近．銘刀
-	"item"      "item_the_great_sword_of_toxic"			//梅鶯毒．妖刀
-	"item"      "item_the_great_sword_of_teleport"			//陸奧守吉行．銘刀
-	"item"      "item_the_great_sword_of_drain"			//吉光骨食．銘刀
-	"item"      "item_the_great_sword_of_weakness"			//天之叢雲．銘刀
-	"item"      "item_the_great_sword_of_banish"			//大典太光世．銘刀
-	"item"      "item_the_great_sword_of_berserker"			//數珠丸恆次．銘刀
-	"item"      "item_the_great_sword_of_disarmament"			//童子切安鋼．銘刀
-	"item"		"item_the_great_spirited_away"			//神隱
-	"item"		"item_waterfall_book"				//水瀑之書
-	"item"		"item_ksitigarbha"				//地藏王菩薩木雕‧古物
-	"item"		"item_the_great_bow_of_scorpion"				//蠍尾妖弓
-	"item"		"item_frozen_book"				//冰爆之書
 }
 
 //名刀舖
