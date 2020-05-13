@@ -158,6 +158,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		local CP_Monster = 0
 		local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
 		unit.origin_pos = pos
+		unit.deathbuff = 0
 		local hp = unit:GetMaxHealth()
 		unit:SetBaseMaxHealth(hp+CP_Monster * 50)
 		local dmgmax = unit:GetBaseDamageMax()
