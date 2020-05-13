@@ -5,14 +5,12 @@
 "consumables"
 {
 	"item"      "item_perceive_wine"		//般若湯
-	"item"      "item_perceive_wine_hyper"	//抗魔
 	"item"      "item_rations"				//軍糧丸
 	"item"      "item_sake"					//清酒
 	"item"      "item_liquor"				//燒酒
 	"item"      "item_napalm_bomb"			//爆烈彈
 	"item"      "item_shuriken"				//手裏劍
 	"item"		"item_earth_wall_book"		//忍法．土遁之書
-	"item"		"item_earth_wall_book2"		//忍法．土遁之書
 }
 
 //偷買
@@ -80,7 +78,6 @@
 	"item"      "item_mana_ingot"			//法力鋼
 	"item"      "item_energy_ingot"			//能量鋼
 	"item"      "item_protection_amulet"	//御守
-	"item"		"item_ice_book"				//冰計之書
 }
 
 //法書
@@ -132,15 +129,12 @@
 	"item"      "item_magic_defence_boots"			//禦魔長踏
 	"item"		"item_swiftness_boots"				//流風捷履
 	"item"      "item_ryukyu_ronin_clogs"			//琉球浪人木屐
-	"item"      "item_the_shell_of_spirituality_kappa"			//妖化河童殼
 	"item"      "item_kotennmyohiragumo"			//平蜘蛛釜
 	"item"      "item_magic_talisman"			//御魔護符
 	"item"      "item_moon_mirror"			//月輪鏡
-	"item"      "item_hachiman_bell"			//八幡鈴
 	"item"      "item_ghost_mask"			//鬼面
 	"item"      "item_satsuma_gun"			//薩摩銃
 	"item"      "item_hama_orb"			//破魔寶珠
-	"item"      "item_wakizashi"			//
 }
 
 //高階法書
@@ -172,7 +166,6 @@
 	"item"      "item_nannbann_armor"			//南蠻胴具足
 	"item"      "item_foxfire_armor"			//狐火大鎧
 	"item"      "item_contemporary_armor"			//當世具足
-	"item"      "item_ghost_gloves"			//鬼之籠手
 	"item"      "item_shun_armor"			//掛面具足
 	"item"      "item_prophet_armor"			//真知短甲
 	"item"      "item_devil_supressor_armor"			//制魔腹卷
@@ -198,7 +191,6 @@
 	"item"      "item_the_scream_of_spiders"			//鬼蜘蛛．夜哭
 	"item"      "item_raikiri"			//雷切
 	"item"      "item_the_sword_of_kaminaobi"			//神直毘御劍
-	"item"		"item_kat_steel" //吉鋼鐵
 }
 
 
@@ -223,7 +215,6 @@
 	"item"      "item_brave_ring"			//武尊環
 	"item"      "item_samurai's_badge"		//侍的徽章
 	"item"      "item_perceive_wine"		//般若湯
-	"item"      "item_perceive_wine_hyper"	//抗魔
 	"item"      "item_rations"				//軍糧丸
 	"item"      "item_sake"					//清酒
 	"item"      "item_liquor"				//燒酒
