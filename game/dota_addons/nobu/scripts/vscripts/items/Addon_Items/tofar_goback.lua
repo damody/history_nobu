@@ -235,20 +235,41 @@ function robbers_checkfly( keys )
 	
 end
 
-function kill_robber( keys )
+function robber_create( keys )
 	local caster = keys.caster
 	local ability = keys.ability
+	if caster.deathbuff == nil then
+		caster.deathbuff = 0
+	end
+	print(caster.deathbuff.. "" .. "123")
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_truesight",{})
 	if kill_robber_count == 0 then
+		print(kill_robber_count)
+		if caster.deathbuff == 0 then
+			print("111")
+			GameRules: SendCustomMessage("強盜王蒐集了各地的錢財", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+			print("111")
+		end
 		caster:ForceKill(true)
 		kill_robber_count = kill_robber_count + 1
+	else
+		caster.deathbuff = RandomInt(0, 3)
+		if caster.deathbuff == 0 then
+			GameRules: SendCustomMessage("強盜王蒐集了各地的錢財，並捲土重來", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		elseif caster.deathbuff == 1 then
+			GameRules: SendCustomMessage("強盜王蒐集了各地的武器，並捲土重來", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		elseif caster.deathbuff == 2 then
+			GameRules: SendCustomMessage("強盜王蒐集了各地的裝甲，並捲土重來", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		elseif caster.deathbuff == 3 then
+			GameRules: SendCustomMessage("強盜王蒐集了各地的療傷藥，並捲土重來", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		end
 	end
 end
 
-function robbers_skill( keys )
+function robber_death( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	local random_skill = RandomInt(0, 3)
+	local random_skill = caster.deathbuff
 	if kill_robber_count == 0 then
 		return 
 	end
