@@ -129,7 +129,7 @@ function C05T_OnChannelInterrupted( keys )
 	local ability = keys.ability
 	local level = ability:GetLevel()
 	ability:EndCooldown()
-	ability:StartCooldown(ability:GetCooldown(level)*0.5)
+	ability:StartCooldown(20)
 end
 
 function C05T_OnChannelSucceeded( keys )

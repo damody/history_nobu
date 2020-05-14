@@ -21,11 +21,7 @@ function C22W_Damage( keys )
 	for _,v in ipairs(group) do
 		----print(v:GetUnitName())
 		if caster:HasModifier("modifier_C22D") then
-			if v:IsMagicImmune() then
-				AMHC:Damage( caster,v,damage*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-			else
-				AMHC:Damage( caster,v,damage*0.3,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-			end
+			
 		end
 		if not v:IsMagicImmune() then --是否魔免(如果是加深傷害)
 			AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
@@ -216,15 +212,9 @@ function C22T_Damage( keys )
 			if v:IsHero() then
 				ParticleManager:CreateParticle("particles/shake3.vpcf", PATTACH_ABSORIGIN, v)
 			end
-			local damage = 500 + 0.28*v:GetHealth()
-			
+			local damage = 0.28*v:GetMaxHealth()
 			ability:ApplyDataDrivenModifier(caster,v,"modifier_C22T",nil)
-			
-			if v:IsMagicImmune() then
-				AMHC:Damage( caster,v,damage*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-			else
-				AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-			end
+			AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		end
 	end
 
@@ -241,7 +231,7 @@ function C22E_old_pull_back( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local dis = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
-	if IsValidEntity(target) and target:IsAlive() and target:HasModifier("modifier_C22E_old_stun") and dis < 3000 then
+	if IsValidEntity(target) and target:IsAlive() and target:HasModifier("modifier_C22E_old_stun") and dis < 2000 then
 		-- 將目標拉回自己面前
 		local new_pos = caster:GetAbsOrigin()+caster:GetForwardVector()*100
 		FindClearSpaceForUnit(target,new_pos,true)

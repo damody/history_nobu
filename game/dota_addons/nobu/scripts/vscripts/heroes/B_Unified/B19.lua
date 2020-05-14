@@ -123,7 +123,7 @@ function B19E_OnSpellStart( keys )
 	local randonint = 5
 	local dura = ability:GetSpecialValueFor( "A25E_Duration")
 	local damage = ability:GetSpecialValueFor( "A25E_damage")
-	local spike = ParticleManager:CreateParticle("particles/b19/b19eikes.vpcf", PATTACH_ABSORIGIN, keys.caster)
+	
 	local maxrock = 20
 	local pos = {}
 	local pointx = targetLocation.x
@@ -138,6 +138,8 @@ function B19E_OnSpellStart( keys )
 	end
 	local ct = 0
 	local interval = 0.05
+	local spike = ParticleManager:CreateParticle("particles/b19/b19eikes.vpcf", PATTACH_ABSORIGIN, keys.caster)
+	ParticleManager:SetParticleControl(spike, 3, pos[1])
 	Timers:CreateTimer(interval, function() 
 		ct = ct + 1
 		ParticleManager:SetParticleControl(spike, 3, pos[math.fmod(ct,#pos)+1])

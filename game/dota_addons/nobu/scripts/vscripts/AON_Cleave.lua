@@ -218,11 +218,7 @@ function AON_Cleave_A06(keys)
 
 		for _, it in pairs(group) do
 			if _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then
-				if it:IsMagicImmune() then
-					AMHC:Damage( caster,it,keys.dmg*dmgp*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-				else
-					AMHC:Damage( caster,it,keys.dmg*dmgp,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-				end
+				AMHC:Damage( caster,it,keys.dmg*dmgp,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 			end
 		end
 	end

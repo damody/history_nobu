@@ -76,7 +76,7 @@ function A06R_OnAttack(keys)
 		local hModifier = caster:FindModifierByNameAndCaster("modifier_A06R_to_A06D", hCaster)
 		local scount = hModifier:GetStackCount()
 		scount = scount + 1
-		if (scount <= 14) then
+		if (scount <= 9) then
 			hModifier:SetStackCount(scount)
 		end
 		if (scount >= 5) then
