@@ -58,8 +58,8 @@ function Check() {
   x.hittestchildren = false
   $.Msg("testsetset")
   // 建立一個panel
-  var item_height = "35px"
-  var item_width = "35px"
+  var item_height = "33px"
+  var item_width = "33px"
   var HUDElements = $.GetContextPanel().GetParent().GetParent().GetParent()
   HUDElements = HUDElements.FindChildTraverse('HUDElements')
   this.panel = $.CreatePanel("Panel", $("#DotaHud_trasform"), "")

@@ -2,6 +2,7 @@ LinkLuaModifier("modifier_ninja2", "heroes/modifier_ninja2.lua", LUA_MODIFIER_MO
 local kill_robber_count = 0
 local kill_warrior_soul_count = 0
 local dummy
+local robber_buff
 function choose_20( keys )
 	local caster = keys.caster
 	local ability = keys.ability
@@ -235,25 +236,45 @@ function robbers_checkfly( keys )
 	
 end
 
-function kill_robber( keys )
+function robber_create( keys )
 	local caster = keys.caster
 	local ability = keys.ability
+	caster.deathbuff = robber_buff
+
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_truesight",{})
 	if kill_robber_count == 0 then
 		caster:ForceKill(true)
 		kill_robber_count = kill_robber_count + 1
+	else
+		if kill_robber_count == 1 then
+			GameRules: SendCustomMessage("強盜王蒐集了各地的錢財", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		else
+			if caster.deathbuff == 0 then
+				GameRules: SendCustomMessage("強盜王蒐集了各地的錢財，並捲土重來", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+			elseif caster.deathbuff == 1 then
+				GameRules: SendCustomMessage("強盜王蒐集了各地的武器，並捲土重來", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+			elseif caster.deathbuff == 2 then
+				GameRules: SendCustomMessage("強盜王蒐集了各地的裝甲，並捲土重來", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+			elseif caster.deathbuff == 3 then
+				GameRules: SendCustomMessage("強盜王蒐集了各地的療傷藥，並捲土重來", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+			end
+		end
 	end
 end
 
-function robbers_skill( keys )
+function robber_death( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	local random_skill = RandomInt(0, 3)
+	local random_skill = caster.deathbuff
 	if kill_robber_count == 0 then
 		return 
 	end
 	if kill_robber_count == 1 then
 		random_skill = 0
+		robber_buff = RandomInt(0,3)
+		kill_robber_count = kill_robber_count + 1
+	else 
+		robber_buff = RandomInt(0,3)
 		kill_robber_count = kill_robber_count + 1
 	end
 
@@ -323,6 +344,19 @@ function robbers_skill( keys )
 			end
 		end
 	end
+
+	Timers:CreateTimer(60, function()
+		if robber_buff == 0 then
+			GameRules: SendCustomMessage("強盜王正在蒐集各地的錢財", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		elseif robber_buff == 1 then
+			GameRules: SendCustomMessage("強盜王正在蒐集各地的武器", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		elseif robber_buff == 2 then
+			GameRules: SendCustomMessage("強盜王正在蒐集各地的裝甲", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		elseif robber_buff == 3 then
+			GameRules: SendCustomMessage("強盜王正在蒐集各地的療傷藥", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		end
+	end)
+
 end
 
 function play_on_die( keys )

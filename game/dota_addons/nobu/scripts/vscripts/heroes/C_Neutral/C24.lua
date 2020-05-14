@@ -116,6 +116,14 @@ function C24T_OnSpellStart( keys )
 	ParticleManager:ReleaseParticleIndex(ifx)
 end
 
+function C24T_prepare ( keys )
+local caster = keys.caster
+local target = keys.target
+PrintTable(target)
+local particle = ParticleManager:CreateParticle("particles/c24/c24t_hint.vpcf",PATTACH_ABSORIGIN,target)
+ParticleManager:ReleaseParticleIndex(particle)
+end
+
 -- 11.2B
 
 function C24W_old_OnSpellStart( keys )
