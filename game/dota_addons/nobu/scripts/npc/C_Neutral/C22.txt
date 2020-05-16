@@ -243,7 +243,7 @@
 				"EffectName"	"particles/c20e/c20e.vpcf"
 				"Dodgeable"	"1"
 				"ProvidesVision"	"1"
-				"MoveSpeed"	"1800"
+				"MoveSpeed"	"1400"
 				"VisionRadius"	"225"
 				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
 			}

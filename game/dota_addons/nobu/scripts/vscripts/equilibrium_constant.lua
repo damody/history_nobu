@@ -7,8 +7,7 @@
 
 -- 
 local HP_PER_STR = 25
-local HP_REGEN_PER_STR = 0.5
-local MANA_PER_INT = 18
+local HP_REGEN_PER_STR = 0.25local MANA_PER_INT = 18
 local MANA_REGEN_PER_INT = 0.15
 local ARMOR_PER_AGI = 0.2
 local ATKSPD_PER_AGI = 1.5
@@ -120,6 +119,9 @@ function equilibrium_constant:GetModifierConstantHealthRegen( params )
         if owner:IsAlive() and owner:IsHero() then
             local str = owner:GetStrength()
             local HealthRegenBonus = HP_REGEN_PER_STR_DIFF * str
+            if owner:GetBaseAttackRange() < 200 then
+                HealthRegenBonus = HealthRegenBonus + str * HP_REGEN_PER_STR
+            end
             return HealthRegenBonus
         end
         return 0
