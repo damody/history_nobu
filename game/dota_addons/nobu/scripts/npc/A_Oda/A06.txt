@@ -593,7 +593,7 @@
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
 		"AbilityCooldown"	"90 80 70"
-		"AbilityManaCost"	"300 400 500"
+		"AbilityManaCost"	"200 250 300"
 		"AbilityCastRange"	"0"
 		"AbilityCastRangeBuffer"	"250"
 
@@ -658,12 +658,12 @@
 						"dmg"	"%attack_damage"
 						"Target"	"TARGET"
 					}
-					"CleaveAttack"
-					{
-						"CleaveEffect"	"particles/dire_fx/dire_ancient_base001_destruction_l1.vpcf"
-						"CleaveRadius"	"525"
-						"CleavePercent"	"100"
-					}
+					// "CleaveAttack"
+					// {
+					// 	"CleaveEffect"	"particles/dire_fx/dire_ancient_base001_destruction_l1.vpcf"
+					// 	"CleaveRadius"	"525"
+					// 	"CleavePercent"	"100"
+					// }
 					"FireSound"
 					{
 						"Target"	"CASTER"
@@ -683,7 +683,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"A06T_ADD_D"	"100 150 180"
+				"A06T_ADD_D"	"60 120 180"
 			}
 			"02"
 			{
@@ -693,7 +693,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"CleaveRadius"	"550"
+				"CleaveRadius"	"1000"
 			}
 		}
 		"OnCastbar"	"1"

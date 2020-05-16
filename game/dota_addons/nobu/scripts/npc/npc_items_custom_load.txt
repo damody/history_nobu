@@ -9348,7 +9348,7 @@
 					{
 						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
 						"Function"	"Slow"
-						"name"	"frozen_ring"
+						"name"	"spear_of_spiders"
 						"ms_slow" "-15"
 						"as_slow" "-15"
 					}
@@ -9359,7 +9359,7 @@
 					{
 						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
 						"Function"	"ReturnSpeed"
-						"name"	"frozen_ring"
+						"name"	"spear_of_spiders"
 					}
 				}
 			}

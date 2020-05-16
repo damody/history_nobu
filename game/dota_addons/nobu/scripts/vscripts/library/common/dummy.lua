@@ -679,7 +679,6 @@ function Slow ( keys )
   for k,v in pairs(target.ms_unslow) do
     if v > unslow then
       unslow = v
-      print(v)
     end
   end
 

@@ -217,8 +217,15 @@ function AON_Cleave_A06(keys)
 
 
 		for _, it in pairs(group) do
+			local distance = (caster:GetAbsOrigin() - it:GetAbsOrigin()):Length()
 			if _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then
+				if distance < 550 then
 				AMHC:Damage( caster,it,keys.dmg*dmgp,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				elseif distance < 750 and distance > 550 then
+				AMHC:Damage( caster,it,keys.dmg*dmgp*0.3,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				elseif distance < 1000 and distance > 750 then
+				AMHC:Damage( caster,it,keys.dmg*dmgp*0.1,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				end
 			end
 		end
 	end
