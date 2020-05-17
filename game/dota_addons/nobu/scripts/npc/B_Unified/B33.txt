@@ -587,7 +587,6 @@
 				"ThinkInterval"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed"
 					"MODIFIER_PROPERTY_DISABLE_HEALING"	"1"
 					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"	"%move_speed"
 				}

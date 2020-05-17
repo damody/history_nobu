@@ -453,8 +453,8 @@
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
 		"AbilityCastPoint"          				"0.35"
-		"AbilityCooldown"	"110"
-		"AbilityManaCost"	"350 450 550"
+		"AbilityCooldown"	"110 100 90"
+		"AbilityManaCost"	"200 250 300"
 		"AoERadius"	"750"
 		"precache"
 		{
@@ -490,6 +490,7 @@
 			{
 				"Duration"	"%Stun_Time"
 				"IsDebuff"	"1"
+				"Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -497,6 +498,7 @@
 				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
 				"EffectAttachType"	"follow_overhead"
 			}
+
 		}
 		"AbilitySpecial"
 		{
