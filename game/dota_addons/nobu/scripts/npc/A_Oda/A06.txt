@@ -658,12 +658,12 @@
 						"dmg"	"%attack_damage"
 						"Target"	"TARGET"
 					}
-					// "CleaveAttack"
-					// {
-					// 	"CleaveEffect"	"particles/dire_fx/dire_ancient_base001_destruction_l1.vpcf"
-					// 	"CleaveRadius"	"525"
-					// 	"CleavePercent"	"100"
-					// }
+					"CleaveAttack"
+					{
+						"CleaveEffect"	"particles/dire_fx/dire_ancient_base001_destruction_l1.vpcf"
+						"CleaveRadius"	"525"
+						"CleavePercent"	"100"
+					}
 					"FireSound"
 					{
 						"Target"	"CASTER"

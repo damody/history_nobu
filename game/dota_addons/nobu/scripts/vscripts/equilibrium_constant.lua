@@ -7,7 +7,8 @@
 
 -- 
 local HP_PER_STR = 25
-local HP_REGEN_PER_STR = 0.25local MANA_PER_INT = 18
+local HP_REGEN_PER_STR = 0.25
+local MANA_PER_INT = 18
 local MANA_REGEN_PER_INT = 0.15
 local ARMOR_PER_AGI = 0.2
 local ATKSPD_PER_AGI = 1.5

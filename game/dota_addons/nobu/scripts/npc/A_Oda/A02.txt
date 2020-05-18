@@ -162,7 +162,7 @@
 					{
 						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
 						"Function"	"ReturnSpeed"
-						"name"	"A02_debuff"
+						"name"	"A02W_debuff"
 					}
 				}
 			}
