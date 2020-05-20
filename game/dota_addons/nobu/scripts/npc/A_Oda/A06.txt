@@ -536,7 +536,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"A06R_SPEED"	"5 9 13 17"
+				"A06R_SPEED"	"4 6 8 10"
 			}
 		}
 	}

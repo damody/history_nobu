@@ -592,7 +592,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE"	"%Decrease_Health"
-					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"	"%move_speed"
 				}
 				"OnCreated"
 				{
@@ -602,7 +601,7 @@
 						"Function"	"Slow"
 						"name"	"B33T"
 						"as_slow" "%attack_speed"
-						"ms_slow" "0"
+						"ms_slow" "%move_speed"
 					}
 				}
 				"OnDestroy"
@@ -638,7 +637,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"move_speed"	"200 150 100"
+				"move_speed"	"-60 -80 -100"
 			}
 			"05"
 			{

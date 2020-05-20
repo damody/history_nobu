@@ -453,7 +453,7 @@
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
 		"AbilityCastPoint"          				"0.35"
-		"AbilityCooldown"	"110 100 90"
+		"AbilityCooldown"	"85 70 55"
 		"AbilityManaCost"	"200 250 300"
 		"AoERadius"	"750"
 		"precache"
@@ -482,6 +482,7 @@
 				"Target"	"CASTER"
 				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C22_Sasaki_Kojiro.lua"
 				"Function"	"C22T_Damage"
+				"ult_damage"	"%ult_damage"
 			}
 		}
 		"Modifiers"
@@ -511,6 +512,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"radius"	"750"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"ult_damage"	"28 32 36"
 			}
 		}
 	}

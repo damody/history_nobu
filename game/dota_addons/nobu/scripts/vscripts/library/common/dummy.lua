@@ -684,6 +684,7 @@ function Slow ( keys )
 
   if target.ms_unslow then
     target.ms_slow[keys.name] = keys.ms_slow  * (1 - unslow/100)
+    target.as_slow[keys.name] = keys.as_slow 
     print(target.ms_slow[keys.name])
   else
     target.ms_slow[keys.name] = keys.ms_slow 

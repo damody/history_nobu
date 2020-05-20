@@ -197,7 +197,9 @@ end
 function C22T_Damage( keys )
 	local caster = keys.caster
 	local ability = keys.ability
+	local ult_damage = keys.ult_damage/100
 	local abilitylevel = ability:GetLevel()
+	
 
 	-- Finds all the enemies in a radius around the target and then deals damage to each of them
     --獲取攻擊範圍
@@ -212,7 +214,7 @@ function C22T_Damage( keys )
 			if v:IsHero() then
 				ParticleManager:CreateParticle("particles/shake3.vpcf", PATTACH_ABSORIGIN, v)
 			end
-			local damage = 0.28*v:GetMaxHealth()
+			local damage = ult_damage*v:GetMaxHealth()
 			ability:ApplyDataDrivenModifier(caster,v,"modifier_C22T",nil)
 			AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		end
