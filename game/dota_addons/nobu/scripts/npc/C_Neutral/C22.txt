@@ -190,6 +190,10 @@
 					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"modifier_C22W_EFFECT"
+			{
+				"EffectName"	"particles/c22/c22w_effect1.vpcf"
+			}
 		}
 		// Special
 		// -------------------------------------------------------------------------------------------------------------
@@ -227,8 +231,9 @@
 			"particle"	"particles/a23r/necronomicon_archer_projectile_2.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
-			"particle"	"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+			"particle"	"particles/c22/sven_storm_bolt_projectile_explosion.vpcf"
 			"particle"	"particles/generic_gameplay/generic_stunned.vpcf"
+			"particle"	"particles/c22/c22e.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -240,12 +245,12 @@
 			"TrackingProjectile"
 			{
 				"Target"	"TARGET"
-				"EffectName"	"particles/c20e/c20e.vpcf"
+				"EffectName"	"particles/c22/c22e.vpcf"
 				"Dodgeable"	"1"
 				"ProvidesVision"	"1"
 				"MoveSpeed"	"1400"
 				"VisionRadius"	"225"
-				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"
+				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_hitloc"
 			}
 			"FireSound"
 			{
@@ -264,7 +269,7 @@
 			"FireEffect"
 			{
 				"Target"	"TARGET"
-				"EffectName"	"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+				"EffectName"	"particles/c22/sven_storm_bolt_projectile_explosion.vpcf"
 				"EffectAttachType"	"attach_origin"
 				"ControlPointEntities"
 				{
@@ -453,13 +458,14 @@
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
 		"AbilityCastPoint"          				"0.35"
-		"AbilityCooldown"	"85 70 55"
+		"AbilityCooldown"	"95 85 75"
 		"AbilityManaCost"	"200 250 300"
 		"AoERadius"	"750"
 		"precache"
 		{
 			"particle"	"particles/generic_gameplay/generic_stunned.vpcf"
 			"particle"  "particles/econ/items/monkey_king/arcana/death/monkey_king_spring_arcana_death.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_brewmaster.vsndevts"
 		}
 		"OnUpgrade"
 		{
@@ -471,6 +477,10 @@
 		}
 		"OnSpellStart"
 		{
+			"FireSound"
+			{
+				"EffectName"	"Hero_Brewmaster.ThunderClap"
+			}
 			"RunScript"
 			{
 			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"

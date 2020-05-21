@@ -14640,7 +14640,7 @@
  		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
  		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
  	}
- 	//忍法操屍
+ 	 //忍法操屍
  	"npc_dota_neutral_130_forbearance_law_corpse"
  	{										
  		// General

@@ -14,7 +14,10 @@ function C22W_Damage( keys )
     --獲取攻擊範圍
     local group = {}
     local radius = 435
-
+	local dummy = CreateUnitByName("npc_dummy_unit_Ver2",caster:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
+	dummy:FindAbilityByName("majia"):SetLevel(1)
+	ability:ApplyDataDrivenModifier(dummy,dummy,"modifier_C22W_EFFECT",{duration=5})
+	caster.dummy = dummy
     --獲取周圍的單位
     group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false)
 
@@ -30,6 +33,8 @@ function C22W_Damage( keys )
 end
 function C22W_Stop( keys )
 	local caster = keys.caster
+	local dummy = caster.dummy
+	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=0})
 	caster:RemoveModifierByName("modifier_C22W")
 end
 
@@ -137,6 +142,22 @@ function C22D_GetAbility( keys )
 			local  x2 	  = point2.x
 			local  y2     = point2.y
 			local  a      = caster:GetAngles().y --bj_RADTODEG *math.atan2(y2-y,x2-x) 
+
+			local projTable = {
+		        EffectName = "particles/c22/c22ed.vpcf",
+		        Ability = ability,
+		        vSpawnOrigin = target:GetAbsOrigin(),
+		        Target = caster,
+		        Source = target,
+		        iMoveSpeed = 10000,
+		        iVisionRadius = 225,
+				iVisionTeamNumber = caster:GetTeamNumber(),
+		        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1
+			 }
+			ProjectileManager:CreateTrackingProjectile( projTable )
+
+
+
 			point3 = Vector(x+100*math.cos(a*bj_DEGTORAD) ,  y+100*math.sin(a*bj_DEGTORAD), point.z)--需要Z軸 要不然會低於地圖
 			target:SetOrigin(point3)
 			target:AddNewModifier(nil,nil,"modifier_phased",{duration=0.1})
