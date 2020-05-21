@@ -36,9 +36,7 @@ function item_blink_datadriven_on_spell_start(keys)
 			local particle = ParticleManager:CreateParticle("particles/item/c05/c05.vpcf",PATTACH_POINT,caster)
 			ParticleManager:SetParticleControl(particle,0, target_point)
 			ParticleManager:SetParticleControl(particle,1, target_point)		
-		end)		
-
-		ExecuteOrderFromTable({UnitIndex = keys.caster:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_STOP, Queue = false}) 
+		end)
 	end
 end
 
