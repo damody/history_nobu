@@ -13123,7 +13123,7 @@
 		// Team
 		// ----------------------------------------------------------------
 		"TeamName"	"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
@@ -13206,7 +13206,7 @@
 		// Team
 		// ----------------------------------------------------------------
 		"TeamName"	"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
@@ -13289,7 +13289,7 @@
 		// Team
 		// ----------------------------------------------------------------
 		"TeamName"	"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
@@ -13372,7 +13372,7 @@
 		// Team
 		// ----------------------------------------------------------------
 		"TeamName"	"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
@@ -13457,7 +13457,7 @@
 		// Team
 		// ----------------------------------------------------------------
 		"TeamName"	"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
@@ -13540,7 +13540,7 @@
 		// Team
 		// ----------------------------------------------------------------
 		"TeamName"	"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
@@ -13623,7 +13623,7 @@
 		// Team
 		// ----------------------------------------------------------------
 		"TeamName"	"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
@@ -13708,7 +13708,7 @@
 		// Team
 		// ----------------------------------------------------------------
 		"TeamName"	"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
@@ -13791,7 +13791,7 @@
 		// Team
 		// ----------------------------------------------------------------
 		"TeamName"	"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"
@@ -13874,7 +13874,7 @@
 		// Team
 		// ----------------------------------------------------------------
 		"TeamName"	"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability2"	"tower_armor"

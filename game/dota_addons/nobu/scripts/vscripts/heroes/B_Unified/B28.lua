@@ -17,14 +17,17 @@ function B28E( keys )
 
 	r = dis - 200
 	r1 = ( 600 - r ) / 600 * duration
-	print(dis)
 	duration = r1
-	print(duration)
 	if duration < 1 then
 		duration = 1
 	end
 
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_B28E",{duration=duration})
+
+	Timers:CreateTimer(duration,function()
+		ability:EndChannel(true)
+		
+	end)
 
 	local particle = ParticleManager:CreateParticle("particles/b28e/b28e.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControlEnt(particle, 2, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)

@@ -673,8 +673,15 @@ function courier_damage_immune_OnDestroy( keys )
 end
 
 function Slow ( keys )
+  local caster = keys.caster
   local target = keys.target
   local unslow = 0
+  if keys.ms_slow == nil then
+    keys.ms_slow = 0
+  end
+  if keys.as_slow == nil then
+    keys.as_slow = 0 
+  end
 
   for k,v in pairs(target.ms_unslow) do
     if v > unslow then
@@ -682,13 +689,22 @@ function Slow ( keys )
     end
   end
 
-  if target.ms_unslow then
-    target.ms_slow[keys.name] = keys.ms_slow  * (1 - unslow/100)
-    target.as_slow[keys.name] = keys.as_slow 
-    print(target.ms_slow[keys.name])
+  if caster.illusion_damage ~= nil then
+    if target.ms_unslow then
+      target.ms_slow[keys.name] = keys.ms_slow  * (1 - unslow/100) * caster.illusion_damage
+      target.as_slow[keys.name] = keys.as_slow  * (1 - unslow/100) * caster.illusion_damage
+    else
+      target.ms_slow[keys.name] = keys.ms_slow * caster.illusion_damage
+      target.as_slow[keys.name] = keys.as_slow * caster.illusion_damage
+    end
   else
-    target.ms_slow[keys.name] = keys.ms_slow 
-    target.as_slow[keys.name] = keys.as_slow 
+    if target.ms_unslow ~= nil then
+      target.ms_slow[keys.name] = keys.ms_slow * (1 - unslow/100)
+      target.as_slow[keys.name] = keys.as_slow * (1 - unslow/100)
+    else
+      target.ms_slow[keys.name] = keys.ms_slow 
+      target.as_slow[keys.name] = keys.as_slow 
+    end
   end
 end
 

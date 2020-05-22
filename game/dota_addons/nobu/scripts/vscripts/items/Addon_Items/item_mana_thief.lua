@@ -182,7 +182,10 @@ function Shock( keys )
 		local mana_to_burn = math.min( current_mana,  burn_amount)
 		local life_time = 2.0
 		local digits = string.len( math.floor( mana_to_burn ) ) + 1
-		
+		if caster.illusion_damage ~= nil then
+			mana_to_burn = mana_to_burn * caster.illusion_damage
+		end
+
 		-- Apply effect of ability
 		target:ReduceMana( mana_to_burn )
 		local damageTable = {

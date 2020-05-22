@@ -31,6 +31,7 @@ function C22W_Damage( keys )
 		end
 	end
 end
+
 function C22W_Stop( keys )
 	local caster = keys.caster
 	local dummy = caster.dummy
@@ -241,10 +242,16 @@ function C22T_Damage( keys )
 		end
 	end
 
-	local particle = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/death/monkey_king_spring_arcana_death.vpcf",PATTACH_ABSORIGIN,caster)
+
+	local dummy = CreateUnitByName("npc_dummy_unit_Ver2",caster:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
+	dummy:FindAbilityByName("majia"):SetLevel(1)
+	caster.dummy = dummy
+
+	local particle = ParticleManager:CreateParticle("particles/c22/c22t.vpcf",PATTACH_ABSORIGIN,dummy)
 	ParticleManager:SetParticleControl(particle, 1, Vector(radius,radius,radius))
 	ParticleManager:SetParticleControl(particle, 2, Vector(radius,0,0))
 	ParticleManager:ReleaseParticleIndex(particle)
+	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=1})
 end
 
 -- 佐佐木小次郎 11.2B

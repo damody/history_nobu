@@ -68,7 +68,6 @@ function item_kokumo( keys )
 	local ability = keys.ability
 	local target = keys.target
 	if not target:IsBuilding() then
-		local ran =  RandomInt(0, 100)
 		if (caster.kokumo == nil) then
 			caster.kokumo = 0
 		end
@@ -79,29 +78,29 @@ function item_kokumo( keys )
 		end
 		if caster.kokumo >= trigger then
 			caster.kokumo = 0
-		local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
-							target:GetAbsOrigin(),
-							nil,
-							225,
-							DOTA_UNIT_TARGET_TEAM_ENEMY,
-							DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-							DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-							FIND_ANY_ORDER,
-							false)
-		local dmg = 200
-		if not target:IsMagicImmune() then
-			AMHC:Damage(caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-		end
-		for _,it in pairs(direUnits) do
-			ability:ApplyDataDrivenModifier(caster, it,"modifier_frozen_ring",{duration=3})
-			if it ~= target and not it:IsMagicImmune() then
-				AMHC:Damage(caster,it,100,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+			local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
+								target:GetAbsOrigin(),
+								nil,
+								225,
+								DOTA_UNIT_TARGET_TEAM_ENEMY,
+								DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+								DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+								FIND_ANY_ORDER,
+								false)
+			local dmg = 200
+			if not target:IsMagicImmune() then
+				AMHC:Damage(caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			end
-		end
-		local particle = ParticleManager:CreateParticle("particles/a34e2/a34e2.vpcf", PATTACH_ABSORIGIN, target)
-		Timers:CreateTimer(3, function ()
-			ParticleManager:DestroyParticle(particle, true)
-			end)
+			for _,it in pairs(direUnits) do
+				ability:ApplyDataDrivenModifier(caster, it,"modifier_frozen_ring",{duration=3})
+				if it ~= target and not it:IsMagicImmune() then
+					AMHC:Damage(caster,it,100,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+				end
+			end
+			local particle = ParticleManager:CreateParticle("particles/a34e2/a34e2.vpcf", PATTACH_ABSORIGIN, target)
+			Timers:CreateTimer(3, function ()
+				ParticleManager:DestroyParticle(particle, true)
+				end)
 		end
 	end
 end
