@@ -340,6 +340,11 @@ local function chat_of_test(keys)
 		end
 	end
 
+	if s == "reg" then
+		local regen = caster:GetHealthRegen()
+		GameRules: SendCustomMessage("[HealthRegen] ".. regen ,DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+	end
+
 	if s == "ms" then
 		for k,v in pairs(caster.ms_slow) do
 			GameRules: SendCustomMessage("[ms_slow]" ..k .. " " .. v  ,DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)

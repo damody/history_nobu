@@ -18,7 +18,7 @@ local movespeed = 0
 
 -- default value from dota
 local DEFAULT_HP_PER_STR = 20
-local DEFAULT_HP_REGEN_PER_STR = 0.03
+local DEFAULT_HP_REGEN_PER_STR = 0.1
 local DEFAULT_MANA_PER_INT = 12
 local DEFAULT_MANA_REGEN_PER_INT = 0.04
 local DEFAULT_ARMOR_PER_AGI = 0.14

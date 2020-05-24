@@ -92,8 +92,14 @@ function C05T_OnSpellStart( keys )
 	
 	local dummy = CreateUnitByName("npc_dummy_unit_new",point,false,nil,nil,caster:GetTeamNumber())
 	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=5})
-	local ifx = ParticleManager:CreateParticle("particles/c05/c05t_aoe_hint.vpcf",PATTACH_ABSORIGIN,dummy)
+	local ifx = ParticleManager:CreateParticleForTeam("particles/c05/c05t_aoe_hint.vpcf",PATTACH_ABSORIGIN,dummy, caster:GetTeamNumber())
 	ParticleManager:ReleaseParticleIndex(ifx)
+
+	
+	Timers:CreateTimer(0.75, function()
+		local ifx1 = ParticleManager:CreateParticle("particles/c05/c05t_aoe_hint.vpcf",PATTACH_ABSORIGIN,dummy)
+		ParticleManager:ReleaseParticleIndex(ifx1)
+	end)
 	
 
 	Timers:CreateTimer(ability:GetChannelTime()-0.3, function()
