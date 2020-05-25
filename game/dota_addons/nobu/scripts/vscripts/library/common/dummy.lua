@@ -748,3 +748,36 @@ function slow_self_passive( keys )
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_slow_down_attackspeed", {duration = 0.15}):SetStackCount(sum_ms_slow*-1)
   end
 end
+
+function health_regen_passive ( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  if not caster.HealthRegen then
+    hSpawnedUnit.HealthRegen = 0
+  end
+  if caster.HealthRegen then
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_healthregen",{duration = 0.15}):SetStackCount(caster.HealthRegen/0.1)
+  end
+end
+
+function mana_regen_passive ( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  if not caster.ManaRegen then
+    hSpawnedUnit.ManaRegen = 0
+  end
+  if caster.ManaRegen then
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_manaregen",{duration = 0.15}):SetStackCount(caster.ManaRegen/0.01)
+  end
+end
+
+function aspd_passive ( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  if not caster.Aspd then
+    hSpawnedUnit.Aspd = 0
+  end
+  if caster.Aspd then
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_aspd",{duration = 0.15}):SetStackCount(caster.Aspd/0.1)
+  end
+end

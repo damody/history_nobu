@@ -345,6 +345,20 @@ local function chat_of_test(keys)
 		GameRules: SendCustomMessage("[HealthRegen] ".. regen ,DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 	end
 
+	if s == "manareg" then
+		local regen = caster:GetManaRegen()
+		GameRules: SendCustomMessage("[ManaRegen] ".. regen ,DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+	end
+
+	if s == "aspd" then
+		local aspd = caster:GetIncreasedAttackSpeed()
+		GameRules: SendCustomMessage("[AttackSpeed] ".. aspd ,DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+		local stack = caster:GetModifierStackCount("modifier_aspd", caster)
+		print(stack)
+		print(caster:GetAttackSpeed())
+		print(caster.Aspd)
+	end
+
 	if s == "ms" then
 		for k,v in pairs(caster.ms_slow) do
 			GameRules: SendCustomMessage("[ms_slow]" ..k .. " " .. v  ,DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
