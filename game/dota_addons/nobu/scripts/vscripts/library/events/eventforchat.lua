@@ -353,10 +353,6 @@ local function chat_of_test(keys)
 	if s == "aspd" then
 		local aspd = caster:GetIncreasedAttackSpeed()
 		GameRules: SendCustomMessage("[AttackSpeed] ".. aspd ,DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
-		local stack = caster:GetModifierStackCount("modifier_aspd", caster)
-		print(stack)
-		print(caster:GetAttackSpeed())
-		print(caster.Aspd)
 	end
 
 	if s == "ms" then

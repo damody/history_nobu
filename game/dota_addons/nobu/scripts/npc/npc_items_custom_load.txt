@@ -1930,21 +1930,21 @@
 			"particle"	"particles/item/d02_4/d02_4_f.vpcf"
 		}
 		"OnEquip"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
-						"Function"	"OnEquip"
-					}
-				}
-			"OnUnequip"
+		{
+			"RunScript"
 			{
-				"RunScript"
-				{
-					"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
-					"Function"	"OnUnequip"
-				}
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnEquip"
 			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnUnequip"
+			}
+		}
 		"Modifiers"
 		{
 			"Passive_magicresistance_ingot"
@@ -8105,6 +8105,36 @@
 		}
 	}
 
+	//新藤五國光製作單
+	"item_recipe_Shintogo_Kunimitsu" 
+	{
+	    "ID" "2848"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "130"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"ItemResult" "item_Shintogo_Kunimitsu"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_katana;item_tachi;item_health_ingot;item_magic_resistance_ingot"  //合成所需物品
+		}
+	}
+
+	//般若鬼丸製作單
+	"item_recipe_Hannya_Onimaru" 
+	{
+	    "ID" "2851"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "750"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"ItemResult" "item_Hannya_Onimaru"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_moon_spear;item_magic_resistance_ingot"  //合成所需物品
+		}
+	}
+
 	//雪走製作單
 	"item_recipe_yubashiri" 
 	{
@@ -8320,13 +8350,13 @@
 	{
 	    "ID" "3039"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "900"
+		"ItemCost" "250"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_dark_armor"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_the_poketto_of_meiso;item_spirit_ingot"  //合成所需物品
+			"01" "item_the_poketto_of_meiso;item_spirit_ingot;item_magic_resistance_ingot"  //合成所需物品
 		}
 	}
 
@@ -8440,13 +8470,13 @@
 	{
 	    "ID" "3048"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1000"
+		"ItemCost" "350"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_prophet_armor"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_lesser_armor;item_insight_gem"  //合成所需物品
+			"01" "item_lesser_armor;item_insight_gem;item_magic_resistance_ingot"  //合成所需物品
 		}
 	}
 
@@ -8455,14 +8485,14 @@
 	{
 	    "ID" "3049"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1450"
+		"ItemCost" "800"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_devil_supressor_armor"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_regeneration_ingot;item_regeneration_ingot;item_lesser_shield"  //合成所需物品
-		}
+			"01" "item_regeneration_ingot;item_regeneration_ingot;item_lesser_shield;item_magic_resistance_ingot"  //合成所需物品
+		}	
 	}
 
 	//吹雪護肩製作單
@@ -9806,6 +9836,7 @@
 			{
 				"ScriptFile"	"items/Addon_Items/item_the_dark_armor.lua"
 				"Function"	"Shock"
+				"Target"	"TARGET"
 			}
 			"ApplyModifier"
 			{
@@ -9813,7 +9844,30 @@
 				"ModifierName"      "modifier_dark_armor_aura"
 			}
 		}
-		
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnEquip"
+			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnUnequip"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magical_resistance"	"10"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_dark_armor_aura"
@@ -9892,6 +9946,7 @@
 				}
 			}
 		}
+
 	}
 
 	// 靈都宮燈
@@ -15894,6 +15949,209 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"duration"	"5"
+			}
+		}
+	}
+	// 新藤五國光
+	"item_Shintogo_Kunimitsu"
+	{
+		// General
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/Shintogo_Kunimitsu"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		
+		"AbilityCooldown"	"0"
+		
+		"AbilityManaCost"	"0"
+		"ID"	"2847"
+		"ItemQuality"	"component"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"3500"
+		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequirements"	{}
+		"Modifiers"
+		{
+			
+			"Passive_item_Shintogo_Kunimitsu"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items\Addon_Items\item_Shintogo_Kunimitsu.lua"
+						"Function"	"TakenDamage"
+					}
+				}
+			}
+			"Passive_Shintogo_Kunimitsu"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "10"	//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "20"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "400" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15" //攻速
+				}
+			}
+			"modifier_Shintogo_Kunimitsu"
+			{
+				"IsHidden"	"0"
+				"Passive"	"0"
+				"Duration"	"2"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"Target"	"CASTER"
+						"ScriptFile"	"items\Addon_Items\item_Shintogo_Kunimitsu.lua"
+						"Function"	"OnDestroy"
+					}
+				}
+			}
+		}
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnEquip"
+			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnUnequip"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magical_resistance"	"10"
+			}
+		}
+	}
+	// 般若鬼丸
+	"item_Hannya_Onimaru"
+	{
+		// General
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/Hannya_Onimaru"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		
+		"AbilityCooldown"	"0"
+		
+		"AbilityManaCost"	"0"
+		"ID"	"2849"
+		"ItemQuality"	"component"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"3500"
+		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequirements"	{}
+		"Modifiers"
+		{
+			
+			"Passive_item_Hannya_Onimaru"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				// "ThinkInterval"	"1"
+				// "OnIntervalThink"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"items\Addon_Items\item_Hannya_Onimaru.lua"
+				// 		"Function"	"Moved"
+				// 	}
+				// }
+				"OnUnitMoved"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items\Addon_Items\item_Hannya_Onimaru.lua"
+						"Function"	"Moved"
+					}
+				}
+			}
+			"Passive_Hannya_Onimaru"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "15"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"	//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "21"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+				}
+			}
+			"modifier_Hannya_Onimaru"
+			{
+				"IsHidden"	"0"
+				"Passive"	"0"
+				
+				// "Oncreated"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"items\Addon_Items\item_Hannya_Onimaru.lua"
+				// 		"Function"	"Moved"
+				// 	}
+				// }
+				
+			}
+		}
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnEquip"
+			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+				"Function"	"OnUnequip"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magical_resistance"	"10"
 			}
 		}
 	}

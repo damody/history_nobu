@@ -127,6 +127,8 @@
 	"item"      "item_sakabatou"			//逆刃刀
 	"item"      "item_glass_mitsutomo"		//琉璃光姬
 	"item"      "item_the_dark_yellow_teeth_and_zimbabwe"			//闇牙黃泉津
+	// "item"		"item_Shintogo_Kunimitsu"	//新藤五國光
+	// "item"		"item_Hannya_Onimaru"	//般若鬼丸
 }
 
 //高階道具

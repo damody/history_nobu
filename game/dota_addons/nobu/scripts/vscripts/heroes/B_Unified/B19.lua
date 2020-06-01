@@ -303,6 +303,30 @@ function B19T_OnSpellStart( keys )
 		end)
 end
 
+function B19T_prepare (keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local thinkness = 0
+	local point = ability:GetCursorPosition()
+	local teamonly 	= keys.teamonly
+	local aura_radius = ability:GetSpecialValueFor("radius")
+	local ignore_fog 	= keys.ignore_fog
+	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber())
+	local spell_hint_table = {
+		duration   = 0.7,		-- 持續時間
+		radius     = aura_radius,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
+end
+
+function B19T_OnChannelInterrupted (keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local level = ability:GetLevel()
+	ability:EndCooldown()
+	ability:StartCooldown(20)
+end
 
 function B19W_old_OnSpellStart(keys)
 	local caster = keys.caster

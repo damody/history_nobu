@@ -165,6 +165,7 @@ function B08E_Action2( keys )
 	
 	--move
 	caster:AddNewModifier(nil,nil,"modifier_phased",{duration=0.1})--添加0.1秒的相位状态避免卡位
+	target:AddNewModifier(nil,nil,"modifier_phased",{duration=0.1})
 	caster:SetAbsOrigin(target:GetAbsOrigin())
 	if not target:IsMagicImmune() then
 		local dmg = keys.ability:GetLevelSpecialValueFor("B08E_Damage", keys.ability:GetLevel() - 1 )
