@@ -132,7 +132,7 @@ function Nobu:OnGameRulesStateChange( keys )
     end
     
     GameRules:SendCustomMessage("歡迎來到 AON信長的野望 21版", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-    GameRules:SendCustomMessage("5分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+    GameRules:SendCustomMessage("15分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("目前作者: Victor", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("響雨工作室", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	elseif(newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then --遊戲開始 --7
@@ -206,6 +206,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		local CP_Monster = 0
 		local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
 		unit.origin_pos = pos
+		unit.deathbuff = 0
 		local hp = unit:GetMaxHealth()
 		unit:SetBaseMaxHealth(hp+CP_Monster * 50)
 		local dmgmax = unit:GetBaseDamageMax()

@@ -123,7 +123,7 @@ function B19E_OnSpellStart( keys )
 	local randonint = 5
 	local dura = ability:GetSpecialValueFor( "A25E_Duration")
 	local damage = ability:GetSpecialValueFor( "A25E_damage")
-	local spike = ParticleManager:CreateParticle("particles/b19/b19eikes.vpcf", PATTACH_ABSORIGIN, keys.caster)
+	
 	local maxrock = 20
 	local pos = {}
 	local pointx = targetLocation.x
@@ -138,6 +138,8 @@ function B19E_OnSpellStart( keys )
 	end
 	local ct = 0
 	local interval = 0.05
+	local spike = ParticleManager:CreateParticle("particles/b19/b19eikes.vpcf", PATTACH_ABSORIGIN, keys.caster)
+	ParticleManager:SetParticleControl(spike, 3, pos[1])
 	Timers:CreateTimer(interval, function() 
 		ct = ct + 1
 		ParticleManager:SetParticleControl(spike, 3, pos[math.fmod(ct,#pos)+1])
@@ -301,6 +303,30 @@ function B19T_OnSpellStart( keys )
 		end)
 end
 
+function B19T_prepare (keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local thinkness = 0
+	local point = ability:GetCursorPosition()
+	local teamonly 	= keys.teamonly
+	local aura_radius = ability:GetSpecialValueFor("radius")
+	local ignore_fog 	= keys.ignore_fog
+	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber())
+	local spell_hint_table = {
+		duration   = 0.7,		-- 持續時間
+		radius     = aura_radius,		-- 半徑
+	}
+	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
+end
+
+function B19T_OnChannelInterrupted (keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local level = ability:GetLevel()
+	ability:EndCooldown()
+	ability:StartCooldown(20)
+end
 
 function B19W_old_OnSpellStart(keys)
 	local caster = keys.caster

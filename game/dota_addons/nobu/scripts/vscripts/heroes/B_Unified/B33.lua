@@ -96,6 +96,14 @@ function B33T( keys )
 	local dummy = CreateUnitByName("B33T_UNIT",caster:GetAbsOrigin(),true,nil,nil,team)
 	local time = 0.1
 	local num = 0
+	local Ult_Level = keys.Ult_Level
+
+	if target.b33T == nil then	
+		target.b33T = 0
+	end
+	target.b33T = Ult_Level
+
+
 	--dummy:AddAbility("majia"):SetLevel(1)
 	dummy:SetForwardVector(caster:GetForwardVector())
 	EmitSoundOn("broodmother_broo_immort_01",keys.caster)
@@ -135,7 +143,8 @@ function B33T( keys )
     			dummy:ForceKill( true )
     			end)
     		if target:HasModifier("modifier_spawn_spiderlings_datadriven") then
-    			target:RemoveModifierByName("modifier_spawn_spiderlings_datadriven")
+				target:RemoveModifierByName("modifier_spawn_spiderlings_datadriven")
+				target.b33T = 0
     		end
     		return nil
     	else
@@ -151,7 +160,8 @@ function B33T( keys )
     			target:RemoveModifierByName("modifier_spawn_spiderlings_datadriven")
     		end
     		return nil
-    	elseif (isstart and not target:HasModifier("modifier_spawn_spiderlings_datadriven")) then
+		elseif (isstart and not target:HasModifier("modifier_spawn_spiderlings_datadriven")) then
+
     		keys.ability:ApplyDataDrivenModifier(caster, target,"modifier_spawn_spiderlings_datadriven",nil)
     		return time
     	else

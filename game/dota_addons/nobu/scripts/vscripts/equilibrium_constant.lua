@@ -7,20 +7,20 @@
 
 -- 
 local HP_PER_STR = 25
-local HP_REGEN_PER_STR = 0.05
+local HP_REGEN_PER_STR = 0.2
 local MANA_PER_INT = 18
 local MANA_REGEN_PER_INT = 0.15
 local ARMOR_PER_AGI = 0.2
-local ATKSPD_PER_AGI = 1.7
+local ATKSPD_PER_AGI = 1.5
 local MAX_MS = 1500
 local movespeed = 0
 
 
 -- default value from dota
 local DEFAULT_HP_PER_STR = 20
-local DEFAULT_HP_REGEN_PER_STR = 0.03
+local DEFAULT_HP_REGEN_PER_STR = 0.1
 local DEFAULT_MANA_PER_INT = 12
-local DEFAULT_MANA_REGEN_PER_INT = 0.04
+local DEFAULT_MANA_REGEN_PER_INT = 0.05
 local DEFAULT_ARMOR_PER_AGI = 0.14
 local DEFAULT_ATKSPD_PER_AGI = 1
 
@@ -83,6 +83,8 @@ function equilibrium_constant:GetModifierAttackSpeedBonus_Constant( params )
         if owner:IsHero() then
             local agi = owner:GetAgility()
             local AtkSpeedBonus = ATKSPD_PER_AGI_DIFF * agi
+            owner.Aspd = AtkSpeedBonus
+            AtkSpeedBonus = 0
             return AtkSpeedBonus
         end
         return 0
@@ -108,6 +110,8 @@ function equilibrium_constant:GetModifierConstantManaRegen( params )
         if owner:IsHero() then
             local int = owner:GetIntellect()
             local ManaRegenBonus = MANA_REGEN_PER_INT_DIFF * int
+            owner.ManaRegen = ManaRegenBonus
+            ManaRegenBonus = 0
             return ManaRegenBonus
         end
         return 0
@@ -117,9 +121,14 @@ end
 function equilibrium_constant:GetModifierConstantHealthRegen( params )
     if IsServer() then
         local owner = self:GetParent()
-        if owner:IsAlive() then
+        if owner:IsAlive() and owner:IsHero() then
             local str = owner:GetStrength()
             local HealthRegenBonus = HP_REGEN_PER_STR_DIFF * str
+            if owner:GetBaseAttackRange() < 200 then
+                HealthRegenBonus = HealthRegenBonus + str * HP_REGEN_PER_STR
+            end
+            owner.HealthRegen = HealthRegenBonus
+            HealthRegenBonus = 0
             return HealthRegenBonus
         end
         return 0
@@ -157,9 +166,18 @@ function equilibrium_constant:x_OnNPCSpawned(keys)
         hSpawnedUnit.as_slow = {}
         hSpawnedUnit.ms_unslow = {}
         hSpawnedUnit.states_res = {}
+        hSpawnedUnit.HealthRegen = 0
+        hSpawnedUnit.ManaRegen = 0
+        hSpawnedUnit.Aspd = 0
     end
     if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("slow_self") then
         hSpawnedUnit:FindAbilityByName("slow_self"):SetLevel(1)
+    end
+    if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("HealthRegen_self") then
+        hSpawnedUnit:FindAbilityByName("HealthRegen_self"):SetLevel(1)
+    end
+    if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("HealthRegen_self") then
+        hSpawnedUnit:FindAbilityByName("ManaRegen_self"):SetLevel(1)
     end
     if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("for_cp_position") then
         hSpawnedUnit:FindAbilityByName("for_cp_position"):SetLevel(1)

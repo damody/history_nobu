@@ -256,12 +256,23 @@ function Nobu:HealFilter(keys)
   ]]
 	local target = EntIndexToHScript(keys.entindex_target_const)
 	local heal = keys.heal
-	local healer = keys.entindex_inflictor_const and EntIndexToHScript(keys.entindex_inflictor_const) or nil
+  local healer = keys.entindex_inflictor_const and EntIndexToHScript(keys.entindex_inflictor_const) or nil
+  
   if healer then
     if healer.HasModifier and healer:HasModifier("Passive_item_glass_mitsutomo") ~= nil then
       if healer ~= target then
         keys.heal = keys.heal * 1.2
       end
+    end
+  end
+
+  if target.HasModifier and target:HasModifier("modifier_decreased_health_regen") then
+    if target.b33T == 1 then
+      keys.heal = keys.heal * 0.4
+    elseif target.b33T == 2 then
+      keys.heal = keys.heal * 0.2
+    elseif target.b33T == 3 then
+      keys.heal = keys.heal * 0.01
     end
   end
 

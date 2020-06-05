@@ -1,11 +1,10 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf26:version{26288658-411e-4f14-b698-2e1e5d00dec6} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 1
 	m_flConstantRadius = 0.7
 	m_bShouldSort = false
-	m_flMaxRecreationTime = -1.0
 	m_Renderers = 
 	[
 		{
@@ -19,6 +18,7 @@
 			m_nLOD = 1
 			m_bIgnoreNormal = true
 			m_bOrientZ = true
+			m_bForceLoopingAnimation = true
 		},
 	]
 	m_Operators = 
@@ -53,12 +53,12 @@
 			m_RateMax = 15.0
 			m_flEndTime_min = 999999.0
 			m_flEndTime_max = 9999999.0
-			m_nField = 20
+			m_nField = "20"
 			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_Orient2DRelToCP"
-			m_nFieldOutput = 12
+			m_nFieldOutput = "12"
 			m_nCP = 1
 		},
 	]
@@ -76,7 +76,7 @@
 		{
 			_class = "C_INIT_RandomRotation"
 			m_flDegreesMax = 0.0
-			m_nFieldOutput = 12
+			m_nFieldOutput = "12"
 			m_bRandomlyFlipDirection = false
 		},
 		{
@@ -86,35 +86,81 @@
 		},
 		{
 			_class = "C_INIT_Orient2DRelToCP"
-			m_nFieldOutput = 12
+			m_nFieldOutput = "12"
 			m_flRotOffset = -90.0
 			m_nCP = 1
 		},
 		{
 			_class = "C_INIT_RandomColor"
 		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 245, 236, 236, 255 ]
+		},
 	]
 	m_Emitters = 
 	[
 		{
 			_class = "C_OP_InstantaneousEmitter"
-			m_nParticlesToEmit = 1
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
 		},
 	]
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/b33/b33r_old_orb_a0.vpcf"
+			m_ChildRef = resource:"particles/a02/b33r_old_orb_a0.vpcf"
 		},
 		{
 			m_bEndCap = true
-			m_ChildRef = resource:"particles/b33/b33r_old_orb_a1.vpcf"
+			m_ChildRef = resource:"particles/a02/b33r_old_orb_a1.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/b33/b33r_old_orb_a2.vpcf"
+			m_ChildRef = resource:"particles/a02/b33r_old_orb_a2.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/b33/b33r_old_orb_a3.vpcf"
+			m_ChildRef = resource:"particles/a02/b33r_old_orb_a3.vpcf"
+		},
+	]
+	m_nBehaviorVersion = 4
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 4
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 5
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+			]
 		},
 	]
 }

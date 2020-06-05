@@ -43,6 +43,9 @@ function Nobu:OnHeroIngame( keys )
           hero:AddAbility("hero_kill"):SetLevel(1)
           hero:AddAbility("hero_die"):SetLevel(1)
           hero:AddAbility("slow_self"):SetLevel(1)
+          hero:AddAbility("HealthRegen_self"):SetLevel(1)
+          hero:AddAbility("ManaRegen_self"):SetLevel(1)
+          hero:AddAbility("AtkSpeedBonus_self"):SetLevel(1)
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
           hero:AddItem(CreateItem("item_logging", hero, hero))
@@ -72,6 +75,10 @@ function Nobu:OnHeroIngame( keys )
             local item = caster:GetItemInSlot( i )
             if item then
               local item_name = item:GetName()
+              if item ~= nil then
+              item:SetBuybackGoldLimitTime(0)
+              item:SetPurchaseTime(0)
+              end
               if not item:IsStackable() then
                 item:Destroy()
                 local new_item = hero:AddItem(CreateItem(item_name, hero, hero))

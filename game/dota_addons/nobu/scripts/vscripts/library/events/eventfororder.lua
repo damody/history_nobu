@@ -415,6 +415,43 @@ function Nobu:eventfororder( filterTable )
 			if forward:Length2D() > 1 and not caster:HasModifier("modifier_knockback") then
 				caster:SetForwardVector(forward)
 			end
+			-- if caster:HasModifier("Passive_Hannya_Onimaru") then
+				
+			-- 	local enemy = FindUnitsInRadius(
+			-- 	DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS
+			-- 	,caster:GetAbsOrigin()
+			-- 	,nil
+			-- 	,700
+			-- 	,DOTA_UNIT_TARGET_TEAM_ENEMY
+			-- 	,DOTA_UNIT_TARGET_HERO 
+			-- 	,DOTA_UNIT_TARGET_FLAG_NONE
+			-- 	,0
+			-- 	,false)
+				
+			-- 	for i,v in pairs(enemy) do
+			-- 		local a = v:GetAbsOrigin() - caster:GetAbsOrigin() 
+			-- 		a = a:Normalized()
+			-- 		b = caster:GetForwardVector()
+			-- 		local dot = a[1] * b[1] + a[2] * b[2] + a[3] * b[3]
+			-- 		local angle = math.acos(dot / (a:Length() * b:Length()))
+			-- 		if math.deg(angle) < 90 then
+			-- 			print("find enemy")
+			-- 		else
+			-- 			print("not find")
+			-- 		end
+			-- 	end
+			-- else
+			-- 	print("111")
+			-- end
+			
+			-- if forward:Length2D() > 1 and caster:HasModifier("Passive_Hannya_Onimaru") then
+			-- 	print("111")
+			-- else 
+			-- 	print("321")
+			-- 	print(forward:Length2D())
+			-- 	print(caster:GetAbsOrigin())
+			-- 	print(target)
+			-- end
 		end
 	elseif ordertype == DOTA_UNIT_ORDER_MOVE_TO_TARGET then --2
 		if filterTable.units and filterTable.units["0"] then

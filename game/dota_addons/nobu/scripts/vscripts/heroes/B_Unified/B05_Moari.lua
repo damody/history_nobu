@@ -503,7 +503,7 @@ function B05T_Prepare( keys )
 	local point = ability:GetCursorPosition()
 	local teamonly 	= keys.teamonly
 	local ignore_fog 	= keys.ignore_fog
-	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
+	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber())
 	local aura_radius = ability:GetSpecialValueFor("radius")
 	local spell_hint_table = {
 		duration   = 1.5,		-- 持續時間

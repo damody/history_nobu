@@ -14,26 +14,28 @@ function C22W_Damage( keys )
     --獲取攻擊範圍
     local group = {}
     local radius = 435
-
+	local dummy = CreateUnitByName("npc_dummy_unit_Ver2",caster:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
+	dummy:FindAbilityByName("majia"):SetLevel(1)
+	ability:ApplyDataDrivenModifier(dummy,dummy,"modifier_C22W_EFFECT",{duration=5})
+	caster.dummy = dummy
     --獲取周圍的單位
     group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false)
 
 	for _,v in ipairs(group) do
 		----print(v:GetUnitName())
 		if caster:HasModifier("modifier_C22D") then
-			if v:IsMagicImmune() then
-				AMHC:Damage( caster,v,damage*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-			else
-				AMHC:Damage( caster,v,damage*0.3,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-			end
+			
 		end
 		if not v:IsMagicImmune() then --是否魔免(如果是加深傷害)
 			AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		end
 	end
 end
+
 function C22W_Stop( keys )
 	local caster = keys.caster
+	local dummy = caster.dummy
+	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=0})
 	caster:RemoveModifierByName("modifier_C22W")
 end
 
@@ -141,6 +143,22 @@ function C22D_GetAbility( keys )
 			local  x2 	  = point2.x
 			local  y2     = point2.y
 			local  a      = caster:GetAngles().y --bj_RADTODEG *math.atan2(y2-y,x2-x) 
+
+			local projTable = {
+		        EffectName = "particles/c22/c22ed.vpcf",
+		        Ability = ability,
+		        vSpawnOrigin = target:GetAbsOrigin(),
+		        Target = caster,
+		        Source = target,
+		        iMoveSpeed = 10000,
+		        iVisionRadius = 225,
+				iVisionTeamNumber = caster:GetTeamNumber(),
+		        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1
+			 }
+			ProjectileManager:CreateTrackingProjectile( projTable )
+
+
+
 			point3 = Vector(x+100*math.cos(a*bj_DEGTORAD) ,  y+100*math.sin(a*bj_DEGTORAD), point.z)--需要Z軸 要不然會低於地圖
 			target:SetOrigin(point3)
 			target:AddNewModifier(nil,nil,"modifier_phased",{duration=0.1})
@@ -201,7 +219,9 @@ end
 function C22T_Damage( keys )
 	local caster = keys.caster
 	local ability = keys.ability
+	local ult_damage = keys.ult_damage/100
 	local abilitylevel = ability:GetLevel()
+	
 
 	-- Finds all the enemies in a radius around the target and then deals damage to each of them
     --獲取攻擊範圍
@@ -216,22 +236,22 @@ function C22T_Damage( keys )
 			if v:IsHero() then
 				ParticleManager:CreateParticle("particles/shake3.vpcf", PATTACH_ABSORIGIN, v)
 			end
-			local damage = 500 + 0.28*v:GetHealth()
-			
+			local damage = ult_damage*v:GetMaxHealth()
 			ability:ApplyDataDrivenModifier(caster,v,"modifier_C22T",nil)
-			
-			if v:IsMagicImmune() then
-				AMHC:Damage( caster,v,damage*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-			else
-				AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-			end
+			AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		end
 	end
 
-	local particle = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/death/monkey_king_spring_arcana_death.vpcf",PATTACH_ABSORIGIN,caster)
+
+	local dummy = CreateUnitByName("npc_dummy_unit_Ver2",caster:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
+	dummy:FindAbilityByName("majia"):SetLevel(1)
+	caster.dummy = dummy
+
+	local particle = ParticleManager:CreateParticle("particles/c22/c22t.vpcf",PATTACH_ABSORIGIN,dummy)
 	ParticleManager:SetParticleControl(particle, 1, Vector(radius,radius,radius))
 	ParticleManager:SetParticleControl(particle, 2, Vector(radius,0,0))
 	ParticleManager:ReleaseParticleIndex(particle)
+	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=1})
 end
 
 -- 佐佐木小次郎 11.2B
@@ -241,7 +261,7 @@ function C22E_old_pull_back( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local dis = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
-	if IsValidEntity(target) and target:IsAlive() and target:HasModifier("modifier_C22E_old_stun") and dis < 3000 then
+	if IsValidEntity(target) and target:IsAlive() and target:HasModifier("modifier_C22E_old_stun") and dis < 2000 then
 		-- 將目標拉回自己面前
 		local new_pos = caster:GetAbsOrigin()+caster:GetForwardVector()*100
 		FindClearSpaceForUnit(target,new_pos,true)

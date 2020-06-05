@@ -673,22 +673,38 @@ function courier_damage_immune_OnDestroy( keys )
 end
 
 function Slow ( keys )
+  local caster = keys.caster
   local target = keys.target
   local unslow = 0
+  if keys.ms_slow == nil then
+    keys.ms_slow = 0
+  end
+  if keys.as_slow == nil then
+    keys.as_slow = 0 
+  end
 
   for k,v in pairs(target.ms_unslow) do
     if v > unslow then
       unslow = v
-      print(v)
     end
   end
 
-  if target.ms_unslow then
-    target.ms_slow[keys.name] = keys.ms_slow  * (1 - unslow/100)
-    print(target.ms_slow[keys.name])
+  if caster.illusion_damage ~= nil then
+    if target.ms_unslow then
+      target.ms_slow[keys.name] = keys.ms_slow  * (1 - unslow/100) * caster.illusion_damage
+      target.as_slow[keys.name] = keys.as_slow  * (1 - unslow/100) * caster.illusion_damage
+    else
+      target.ms_slow[keys.name] = keys.ms_slow * caster.illusion_damage
+      target.as_slow[keys.name] = keys.as_slow * caster.illusion_damage
+    end
   else
-    target.ms_slow[keys.name] = keys.ms_slow 
-    target.as_slow[keys.name] = keys.as_slow 
+    if target.ms_unslow ~= nil then
+      target.ms_slow[keys.name] = keys.ms_slow * (1 - unslow/100)
+      target.as_slow[keys.name] = keys.as_slow * (1 - unslow/100)
+    else
+      target.ms_slow[keys.name] = keys.ms_slow 
+      target.as_slow[keys.name] = keys.as_slow 
+    end
   end
 end
 
@@ -730,5 +746,38 @@ function slow_self_passive( keys )
   end
   if sum_as_slow < 0 then
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_slow_down_attackspeed", {duration = 0.15}):SetStackCount(sum_ms_slow*-1)
+  end
+end
+
+function health_regen_passive ( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  if not caster.HealthRegen then
+    hSpawnedUnit.HealthRegen = 0
+  end
+  if caster.HealthRegen then
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_healthregen",{duration = 0.15}):SetStackCount(caster.HealthRegen/0.1)
+  end
+end
+
+function mana_regen_passive ( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  if not caster.ManaRegen then
+    hSpawnedUnit.ManaRegen = 0
+  end
+  if caster.ManaRegen then
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_manaregen",{duration = 0.15}):SetStackCount(caster.ManaRegen/0.01)
+  end
+end
+
+function aspd_passive ( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  if not caster.Aspd then
+    hSpawnedUnit.Aspd = 0
+  end
+  if caster.Aspd then
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_aspd",{duration = 0.15}):SetStackCount(caster.Aspd/0.1)
   end
 end

@@ -94,6 +94,12 @@ function C05T_OnSpellStart( keys )
 	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=5})
 	local ifx = ParticleManager:CreateParticleForTeam("particles/c05/c05t_aoe_hint.vpcf",PATTACH_ABSORIGIN,dummy, caster:GetTeamNumber())
 	ParticleManager:ReleaseParticleIndex(ifx)
+
+	
+	Timers:CreateTimer(0.75, function()
+		local ifx1 = ParticleManager:CreateParticle("particles/c05/c05t_aoe_hint.vpcf",PATTACH_ABSORIGIN,dummy)
+		ParticleManager:ReleaseParticleIndex(ifx1)
+	end)
 	
 
 	Timers:CreateTimer(ability:GetChannelTime()-0.3, function()
@@ -129,7 +135,7 @@ function C05T_OnChannelInterrupted( keys )
 	local ability = keys.ability
 	local level = ability:GetLevel()
 	ability:EndCooldown()
-	ability:StartCooldown(ability:GetCooldown(level)*0.5)
+	ability:StartCooldown(20)
 end
 
 function C05T_OnChannelSucceeded( keys )

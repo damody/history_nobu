@@ -4,7 +4,30 @@
 function B28E( keys )
 	local caster = keys.caster
 	local target = keys.target
+	local ability = keys.ability
 	caster.B28E_target = target
+	local duration = keys.duration
+	local dis = CalcDistanceBetweenEntityOBB(caster, target)
+	local r = 0
+	local r1 = 0
+
+	if dis < 200 then
+		dis = 200
+	end
+
+	r = dis - 200
+	r1 = ( 600 - r ) / 600 * duration
+	duration = r1
+	if duration < 1 then
+		duration = 1
+	end
+
+	ability:ApplyDataDrivenModifier(caster,target,"modifier_B28E",{duration=duration})
+
+	Timers:CreateTimer(duration,function()
+		ability:EndChannel(true)
+		
+	end)
 
 	local particle = ParticleManager:CreateParticle("particles/b28e/b28e.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControlEnt(particle, 2, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
@@ -19,7 +42,7 @@ function B28E( keys )
       	else
       		if IsValidEntity(target) then
       			target:RemoveModifierByName("modifier_B28E")
-      		end
+      		end 
       		if IsValidEntity(caster) then
       			caster.B28E_target = nil
       		end
