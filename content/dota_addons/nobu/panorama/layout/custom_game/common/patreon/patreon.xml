@@ -1,0 +1,25 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/patreon.css" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/layout/custom_game/common/utils.js" />
+		<include src="s2r://panorama/layout/custom_game/common/patreon/patreon.js" />
+		<!-- <include src="s2r://panorama/layout/custom_game/common/kicks.js" /> -->
+	</scripts>
+
+	<snippets>
+		<snippet name="WebWindow">
+			<Panel class="WebWindow">
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<Panel hittest="false" class="PatreonRoot">
+		<Panel hittest="true" id="PaymentWindow">
+			<Panel id="PaymentWindowContent">
+				<HTML id="PaymentWindowBody" acceptsinput="true" />
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

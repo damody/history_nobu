@@ -23,6 +23,36 @@ function SendHTTPRequest(path, method, values, callback)
 	end)
 end
 
+function SendHTTPRequest_test(path, method, values, callback)
+	local req = CreateHTTPRequestScriptVM( method, "http://103.29.70.64:7878/")
+	for key, value in pairs(values) do
+		req:SetHTTPRequestGetOrPostParameter(key, value)
+	end
+	req:Send(function(result)
+		-- print("status code " .. result.StatusCode)
+		local count = 0
+		local table = {}
+		for key, value in string.gmatch(tostring(result.Body), "(%w+)=(%w+)") do 
+			table[key] = value
+		end
+		if table["hero"] then
+			local player = PlayerResource:GetPlayer(tonumber(table["id"]))
+			local hero = ""
+			for k, v in pairs(_G.heromap) do
+				print(table["hero"] .. " :: " .. v)
+				if table["hero"] == v then
+					hero = k;
+					print(hero)
+					break
+				end
+			end
+			player:SetSelectedHero(hero)
+		end
+		callback(result.Body)
+	end)
+end
+
+
 -- 測試模式送裝
 function for_test_equiment()
   Timers:CreateTimer ( 1, function ()
@@ -61,10 +91,28 @@ function Nobu:OnGameRulesStateChange( keys )
 	elseif(newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD) then
 		--self.bSeenWaitForPlayers = true
 	elseif(newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) then
-
+		
+		-- -- --2織田軍 3聯合軍 5沒隊伍
+		Timers:CreateTimer(0.1, function()
+			-- GameRules:FinishCustomGameSetup()
+		-- 	for i=0, 20 do 
+		-- 		PlayerResource:SetCustomTeamAssignment(i, 5)
+		-- 	end
+		end)
 	elseif(newState == DOTA_GAMERULES_STATE_HERO_SELECTION) then --選擇英雄階段
-		-- self:PostLoadPrecache()
-		-- self:OnAllPlayersLoaded()
+		Timers:CreateTimer(30, function()
+			for playerID = 0, 9 do
+				local steamID = PlayerResource:GetSteamAccountID(playerID)
+				SendHTTPRequest_test("", "POST",
+				{id = tostring(playerID), steamID = tostring(steamID)}, function(res)
+					if (string.match(res, "error")) then
+						callback()
+					end
+				end)
+			end
+		end)
+		-- local player = PlayerResource:GetPlayer(0)
+		-- player:SetSelectedHero("npc_dota_hero_chen")
 		for i=0,20 do
 			PlayerResource:SetGold(i,2000,false)--玩家ID需要減一
 		end

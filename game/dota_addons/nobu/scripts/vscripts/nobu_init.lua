@@ -40,7 +40,7 @@ function _G.Nobu:InitGameMode()
   --GameRules:SetCustomGameTeamMaxPlayers(3, 7)
 
   GameRules:SetUseUniversalShopMode( false ) --开启/关闭全地图商店模式
-  GameRules:SetHeroSelectionTime( 30 )--設定選擇英雄時間
+  GameRules:SetHeroSelectionTime( 999 )--設定選擇英雄時間
   if _G.nobu_debug then
     GameRules:SetPreGameTime( 0 )--設置遊戲準備時間
   else
@@ -59,7 +59,7 @@ function _G.Nobu:InitGameMode()
   GameRules:SetCustomGameEndDelay(30) --遊戲結束時間 --正常30
   GameRules:SetCustomVictoryMessageDuration(3)  --遊戲結束發送訊息時間
   GameRules:SetCustomVictoryMessage("天下布武！")
-  -- GameRules:SetCustomGameSetupTimeout(20)
+  -- GameRules:SetCustomGameSetupTimeout(1)
   -- GameRules:SetHeroMinimapIconScale( 1 )
   -- GameRules:SetCreepMinimapIconScale( 1 )
   -- GameRules:SetRuneMinimapIconScale( 1 )

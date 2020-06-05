@@ -1,15 +1,33 @@
-<root> 
-  <styles>
-    <include src="file://{resources}/styles/custom_loading_screen.css" />
-  </styles>
-  <Panel class="AddonLoadingRoot">
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_loading_screen.css" />
+	</styles>
+	<scripts>
+		<!-- <include src="s2r://panorama/layout/custom_game/common/utils.js" />
+		<include src="s2r://panorama/layout/custom_game/common/patreon/patreon.js" /> -->
+		<!-- <include src="s2r://panorama/layout/custom_game/common/kicks.js" /> -->
+	</scripts>
 
-    <Panel id="CustomBg" >  
-	  <Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/loading_screen/xin1.png" />
-    </Panel>
-	
-    <Panel id="TitlePanel"> 
-      <Label id="AddonTitle" text="dota2nobu.com" />
-    </Panel>
-  </Panel>
+	<snippets>
+		<snippet name="WebWindow">
+			<Panel class="WebWindow">
+			</Panel>
+		</snippet>
+	</snippets>
+
+	<Panel hittest="false" class="AddonLoadingRoot">
+		<Panel id="CustomBg">
+			<Image id="gamemode" class="SeqImg" src="file://{images}/custom_game/loading_screen/xin1.png" />
+		</Panel>
+
+		<Panel id="TitlePanel">
+			<Label id="AddonTitle" text="dota2nobu.com" />
+			<Button class="TestButton"/>
+		</Panel>
+		<!-- <Panel hittest="true" id="PaymentWindow">
+			<Panel id="PaymentWindowContent">
+				<HTML id="PaymentWindowBody" acceptsinput="true" />
+			</Panel>
+		</Panel> -->
+	</Panel>
 </root>
