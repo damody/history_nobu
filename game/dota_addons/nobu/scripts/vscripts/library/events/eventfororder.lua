@@ -396,6 +396,14 @@ function Nobu:eventfororder( filterTable )
 		if IsValidEntity(unit) then
 			unit.go_protection = nil
 		end
+
+	end
+	--竹中 水元素
+	if filterTable.units and filterTable.units["0"] then
+		local unit = EntIndexToHScript(filterTable.units["0"])
+		if unit.inmoveable then
+			return false
+		end
 	end
 
 	local ordertype = filterTable.order_type

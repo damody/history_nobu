@@ -16,6 +16,7 @@ function OnAttackLanded( keys )
             target:AddPhysicsVelocity(dir*1000)
         end
     end
+    ability:ApplyDataDrivenModifier(caster,target,"modifier_satsuma_gun_DH",{})
 end
 
 function Shock( keys )
