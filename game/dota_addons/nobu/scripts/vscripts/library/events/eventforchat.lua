@@ -5,6 +5,9 @@ BUG
 
 local inspect = require("inspect")
 
+author = {
+	["186150724"] = true,
+}
 
 skin_table = {
 	["128732954"] = true,
@@ -334,6 +337,11 @@ local function chat_of_test(keys)
 	-- 	print(_G.CP_respawn_time)
 	-- 	GameRules:SendCustomMessage("設定CP重生時間"..rs, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	-- end
+	if s == "gg" then
+		if author[tostring(steamid)] then
+			_G.Oda_home:ForceKill(false)
+		end
+	end
 	if s == "sm" then
 		for _,m in ipairs(caster:FindAllModifiers()) do
 			GameRules: SendCustomMessage("[Modifier] "..m:GetName(),DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
