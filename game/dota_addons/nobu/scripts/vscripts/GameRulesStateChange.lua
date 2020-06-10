@@ -39,7 +39,6 @@ function SendHTTPRequest_test(path, method, values, callback)
 			local player = PlayerResource:GetPlayer(tonumber(table["id"]))
 			local hero = ""
 			for k, v in pairs(_G.heromap) do
-				print(table["hero"] .. " :: " .. v)
 				if table["hero"] == v then
 					hero = k;
 					print(hero)
@@ -100,7 +99,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- 	end
 		end)
 	elseif(newState == DOTA_GAMERULES_STATE_HERO_SELECTION) then --選擇英雄階段
-		Timers:CreateTimer(30, function()
+		Timers:CreateTimer(33, function()
 			for playerID = 0, 9 do
 				local steamID = PlayerResource:GetSteamAccountID(playerID)
 				SendHTTPRequest_test("", "POST",
