@@ -7,6 +7,8 @@ local inspect = require("inspect")
 
 author = {
 	["186150724"] = true,
+	["128732954"] = true,
+	["107980391"] = true,
 }
 
 skin_table = {
@@ -279,7 +281,6 @@ local function chat_of_test(keys)
 		caster:SetOriginalModel("models/a31/a31.vmdl")
 	end
 	if (s == "-donkey" and caster.has_dota_donkey == nil and not _G.hardcore) then
-		print(caster)
 		caster.has_dota_donkey = 1
 		local donkey = CreateUnitByName("npc_dota_courier", caster:GetAbsOrigin()+Vector(100, 100, 0), true, caster, caster, caster:GetTeam())
 		donkey:SetOwner(caster)
@@ -364,6 +365,7 @@ local function chat_of_test(keys)
 	if s == "sm" then
 		for _,m in ipairs(caster:FindAllModifiers()) do
 			GameRules: SendCustomMessage("[Modifier] "..m:GetName(),DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			print("[Modifier] " .. m:GetName())
 		end
 	end
 

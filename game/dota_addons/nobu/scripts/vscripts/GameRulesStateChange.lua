@@ -1,3 +1,4 @@
+LinkLuaModifier( "modifier_record", "items/Addon_Items/record.lua",LUA_MODIFIER_MOTION_NONE )
 gamestates =
 {
 	[0] = "DOTA_GAMERULES_STATE_INIT",
@@ -99,7 +100,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- 	end
 		-- end)
 	elseif(newState == DOTA_GAMERULES_STATE_HERO_SELECTION) then --選擇英雄階段
-		Timers:CreateTimer(1, function()
+		Timers:CreateTimer(33, function()
 			for playerID = 0, 9 do
 				local steam_id = PlayerResource:GetSteamAccountID(playerID)
 				SendHTTPRequest_test("", "POST",
@@ -247,6 +248,11 @@ function Nobu:OnGameRulesStateChange( keys )
 	Timers:CreateTimer(0, function()
 		local allCPs = Entities:FindAllByClassname('npc_dota_creep_lane')
 		for k, ent in pairs(allCPs) do
+			if ent:HasModifier("modifier_record") then
+				ent:RemoveModifierByName("modifier_record")
+			end
+			ent:AddNewModifier(ent, nil,"modifier_record",{})
+			ent:FindModifierByName("modifier_record").caster = ent
 			if not string.match(ent:GetUnitName(),"general") then
 				ent:AddAbility("when_cp_first_spawn"):SetLevel(1)
 				ent:AddNoDraw()
@@ -462,7 +468,7 @@ function Nobu:OnGameRulesStateChange( keys )
 					equ_4=equ[4],
 					equ_5=equ[5],
 					equ_6=equ[6],
-					
+
 				})
 				--紀錄到 table:Hero_usage 
 				RECORD:StoreToHeroUsage({steam_id=steam_id, hero=_G.heromap[hero:GetName()], choose_count=1})

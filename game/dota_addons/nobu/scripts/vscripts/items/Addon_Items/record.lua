@@ -5,32 +5,30 @@ modifier_record = class({})
 --------------------------------------------------------------------------------
 
 function modifier_record:DeclareFunctions()
-    local funcs = {
-        MODIFIER_EVENT_ON_TAKEDAMAGE
-    }
+	local funcs = {
+		MODIFIER_EVENT_ON_TAKEDAMAGE
+	}
 
-    return funcs
+	return funcs
 end
 
 --------------------------------------------------------------------------------
 
-function modifier_record:OnCreated( event )
-	
+function modifier_record:OnCreated(event)
 end
 
 function modifier_record:IsHidden()
-    return true
+	return true
 end
 
 function modifier_record:OnTakeDamage(event)
-	if IsServer() then
-	    local attacker = event.attacker
-	    local victim = event.unit
-	    local original_damage = event.original_damage
-	    local damage_type = event.damage_type
-		local damage_flags = event.damage_flags
-		local damage = event.damage
-		local ability = self:GetAbility()
+	local attacker = event.attacker
+	local victim = event.unit
+	local original_damage = event.original_damage
+	local damage_type = event.damage_type
+	local damage_flags = event.damage_flags
+	local damage = event.damage
+	if victim == self.caster then
 		if victim ~= nil and IsValidEntity(victim) then
 			-- 承受傷害
 			if victim.damage_taken == nil then
@@ -73,20 +71,21 @@ function modifier_record:OnTakeDamage(event)
 			if attacker.true_damage == nil then
 				attacker.true_damage = 0
 			end
-			if attacker.maximum_critical_damage == nil then 
+			if attacker.maximum_critical_damage == nil then
 				attacker.maximum_critical_damage = 0
 			end
 			if attacker.damage_to_tower == nil then
 				attacker.damage_to_tower = 0
 			end
 			if attacker.damage_to_unit == nil then
-				attacker.damage_to_unit = 0;
+				attacker.damage_to_unit = 0
 			end
 			victim.damage_taken = victim.damage_taken + damage
+			attacker.damage = attacker.damage + damage
+			--damage reduce
+			victim.damage_reduce = victim.damage_reduce + (original_damage - damage)
 			--damage to hero
 			if victim:IsRealHero() and not victim:IsIllusion() then
-				print(original_damage)
-				print(damage)
 				attacker.damage_to_hero = attacker.damage_to_hero + damage
 				if damage_type == DAMAGE_TYPE_PHYSICAL then
 					attacker.physical_damage_to_hero = attacker.physical_damage_to_hero + damage
@@ -100,7 +99,6 @@ function modifier_record:OnTakeDamage(event)
 					attacker.true_damage_to_hero = attacker.true_damage_to_hero + damage
 					victim.true_damage_taken = victim.true_damage_taken + damage
 				end
-				--damage reduce
 			else
 				if damage_type == DAMAGE_TYPE_PHYSICAL then
 					attacker.physical_damage = attacker.physical_damage + damage
@@ -109,31 +107,37 @@ function modifier_record:OnTakeDamage(event)
 					attacker.magical_damage = attacker.magical_damage + damage
 				end
 				if damage_type == DAMAGE_TYPE_PURE then
-					attacker.true_damage = attacker.true_damage + damage					
+					attacker.true_damage = attacker.true_damage + damage
 				end
 			end
-			--damage to tower
-			--damage to unit
+			if victim:IsBuilding() then
+				--damage to tower
+				attacker.damage_to_tower = attacker.damage_to_tower + damage
+			elseif not victim:IsBuilding() and not victim:IsRealHero() then
+				--damage to unit
+				attacker.damage_to_unit = attacker.damage_to_unit + damage
+			end
 		end
 	end
 end
 
-function Start( keys )
+function Start(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	--local target = keys.target
 	caster.damage = 0
 	caster.takedamage = 0
 	caster.herodamage = 0
-	caster:AddNewModifier(caster,ability,"modifier_record",{})
+	caster:AddNewModifier(caster, ability, "modifier_record", {})
 	caster:FindModifierByName("modifier_record").caster = caster
-	Timers:CreateTimer(1,function()
-		if not caster:HasModifier("modifier_record") then
-			caster:AddNewModifier(caster,ability,"modifier_record",{})
-			caster:FindModifierByName("modifier_record").caster = caster
+	Timers:CreateTimer(
+		1,
+		function()
+			if not caster:HasModifier("modifier_record") then
+				caster:AddNewModifier(caster, ability, "modifier_record", {})
+				caster:FindModifierByName("modifier_record").caster = caster
+			end
+			return 1
 		end
-		return 1
-		end)
-	
+	)
 end
-

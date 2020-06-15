@@ -6,18 +6,20 @@ heromap = _G.heromap
 
 function Nobu:OnHeroIngame( keys )
   local hero = EntIndexToHScript( keys.entindex )
+  if hero ~= nil and IsValidEntity(hero) then
+    if hero:HasModifier("modifier_record") then
+      hero:RemoveModifierByName("modifier_record")
+    end
+    hero:AddNewModifier(hero, nil,"modifier_record",{})
+    hero:FindModifierByName("modifier_record").caster = hero
+  end
   if hero ~= nil and IsValidEntity(hero) and hero:IsHero() then
     local caster = hero
     Timers:CreateTimer(0.1,function()
       hero.spawn_location = hero:GetAbsOrigin()
     end)
-    if caster:HasModifier("modifier_record") then
-      caster:RemoveModifierByName("modifier_record")
-    end
     caster.name = heromap[caster:GetUnitName()]
     caster.version = "16"
-    caster:AddNewModifier(caster,ability,"modifier_record",{})
-    caster:FindModifierByName("modifier_record").caster = caster
     -- caster:FindAbilityByName("attribute_bonusx"):SetLevel(1)
     
 	-- 拿掉天賦樹的技能
