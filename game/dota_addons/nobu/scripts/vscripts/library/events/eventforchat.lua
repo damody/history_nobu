@@ -5,6 +5,11 @@ BUG
 
 local inspect = require("inspect")
 
+author = {
+	["186150724"] = true,
+	["128732954"] = true,
+	["107980391"] = true,
+}
 
 skin_table = {
 	["128732954"] = true,
@@ -276,7 +281,6 @@ local function chat_of_test(keys)
 		caster:SetOriginalModel("models/a31/a31.vmdl")
 	end
 	if (s == "-donkey" and caster.has_dota_donkey == nil and not _G.hardcore) then
-		print(caster)
 		caster.has_dota_donkey = 1
 		local donkey = CreateUnitByName("npc_dota_courier", caster:GetAbsOrigin()+Vector(100, 100, 0), true, caster, caster, caster:GetTeam())
 		donkey:SetOwner(caster)
@@ -334,9 +338,34 @@ local function chat_of_test(keys)
 	-- 	print(_G.CP_respawn_time)
 	-- 	GameRules:SendCustomMessage("設定CP重生時間"..rs, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	-- end
+	if s == "gg" then
+		if author[tostring(steamid)] then
+			local playerID = 0
+			local steam_id = PlayerResource:GetSteamAccountID(playerID)
+			local player = PlayerResource:GetPlayer(playerID)
+			local hero = player:GetAssignedHero()
+			GameRules: SendCustomMessage("damage_to_hero " .. hero.damage_to_hero, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("physical_damage_to_hero " .. hero.physical_damage_to_hero, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("magical_damage_to_hero " .. hero.magical_damage_to_hero, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("true_damage_to_hero " .. hero.true_damage_to_hero, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("damage " .. hero.damage, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("physical_damage " .. hero.physical_damage, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("magical_damage " .. hero.magical_damage, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("true_damage " .. hero.true_damage, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("maximum_critical_damage " .. hero.maximum_critical_damage, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("damage_to_tower " .. hero.damage_to_tower, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("damage_to_unit " .. hero.damage_to_unit, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("damage_taken " .. hero.damage_taken, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("physical_damage_taken " .. hero.physical_damage_taken, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("magical_damage_taken " .. hero.magical_damage_taken, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("damage_reduce " .. hero.damage_reduce, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			-- _G.Oda_home:ForceKill(false)
+		end
+	end
 	if s == "sm" then
 		for _,m in ipairs(caster:FindAllModifiers()) do
 			GameRules: SendCustomMessage("[Modifier] "..m:GetName(),DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			print("[Modifier] " .. m:GetName())
 		end
 	end
 

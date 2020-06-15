@@ -6,18 +6,20 @@ heromap = _G.heromap
 
 function Nobu:OnHeroIngame( keys )
   local hero = EntIndexToHScript( keys.entindex )
+  if hero ~= nil and IsValidEntity(hero) then
+    if hero:HasModifier("modifier_record") then
+      hero:RemoveModifierByName("modifier_record")
+    end
+    hero:AddNewModifier(hero, nil,"modifier_record",{})
+    hero:FindModifierByName("modifier_record").caster = hero
+  end
   if hero ~= nil and IsValidEntity(hero) and hero:IsHero() then
     local caster = hero
     Timers:CreateTimer(0.1,function()
       hero.spawn_location = hero:GetAbsOrigin()
     end)
-    if caster:HasModifier("modifier_record") then
-      caster:RemoveModifierByName("modifier_record")
-    end
     caster.name = heromap[caster:GetUnitName()]
     caster.version = "16"
-    caster:AddNewModifier(caster,ability,"modifier_record",{})
-    caster:FindModifierByName("modifier_record").caster = caster
     -- caster:FindAbilityByName("attribute_bonusx"):SetLevel(1)
     
 	-- 拿掉天賦樹的技能
@@ -35,10 +37,23 @@ function Nobu:OnHeroIngame( keys )
         if hero.init1 == nil then
           hero.init1 = true
           hero.kill_count = 0
+          hero.damage_to_hero = 0
+          hero.physical_damage_to_hero = 0
+          hero.magical_damage_to_hero = 0
+          hero.true_damage_to_hero = 0
           hero.damage = 0
-          hero.takedamage = 0
-          hero.herodamage = 0
-          hero.assist_count = 0
+          hero.physical_damage = 0
+          hero.magical_damage = 0
+          hero.true_damage = 0
+          hero.maximum_critical_damage = 0
+          hero.damage_to_tower = 0
+          hero.damage_to_unit = 0
+          hero.heal = 0
+          hero.damage_taken = 0
+          hero.physical_damage_taken = 0
+          hero.magical_damage_taken = 0
+          hero.true_damage_taken = 0
+          hero.damage_reduce = 0
           hero:AddNewModifier(caster,ability,"modifier_record",{})
           hero:AddAbility("hero_kill"):SetLevel(1)
           hero:AddAbility("hero_die"):SetLevel(1)

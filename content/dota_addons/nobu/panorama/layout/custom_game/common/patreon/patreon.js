@@ -55,7 +55,8 @@ function updatePaymentWindow() {
 	var playerIDs_OnTeam_A = Game.GetPlayerIDsOnTeam(2);
 	var playerIDs_OnTeam_B = Game.GetPlayerIDsOnTeam(3);
 	var id = get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
-	var url = "http://103.29.70.64:88/game/123?id=" + id;
+	var urlA = "http://103.29.70.64:88/game/123?id=" + id;
+	var urlB = "http://103.29.70.64:88/game/123?id=" + id;
 	for (const key in all_playersID) {
 		if (all_playersID.hasOwnProperty(key)) {
 			var player_id = all_playersID[key];
@@ -70,13 +71,24 @@ function updatePaymentWindow() {
 			steam_id_num -= 1197960265728;
 			all_steamIDs.push(steam_id_num);
 			var id = get_choose_id(player_id, team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
-			url = url + "&steamID" + id + "=" + steam_id_num;
-			all_players_name.push(Players.GetPlayerName(player_id))
-			url = url + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
+			if (team_id == 2){
+				urlA = urlA + "&steamID" + id + "=" + steam_id_num;
+				all_players_name.push(Players.GetPlayerName(player_id))
+				urlA = urlA + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
+			}else{
+				urlB = urlB + "&steamID" + id + "=" + steam_id_num;
+				all_players_name.push(Players.GetPlayerName(player_id))
+				urlB = urlB + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
+			}
+			
 		}
 	}
-	$.Msg(url)
-	$('#PaymentWindowBody').SetURL(url);
+	if (player_team_id == 2){
+		$('#PaymentWindowBody').SetURL(urlA);
+	}else{
+		$('#PaymentWindowBody').SetURL(urlB);
+	}
+	
 	setPaymentWindowStatus('success');
 	$.Schedule(35, closeWindow);
 }
@@ -124,7 +136,7 @@ function get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_
 				}
 			}
 		}
-		id += pos * 1 + 5;
+		id += pos * 1;
 	}
 	return id;
 }

@@ -1,5 +1,6 @@
 LinkLuaModifier( "modifier_unit_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_tower_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_record", "items/Addon_Items/record.lua",LUA_MODIFIER_MOTION_NONE )
 --print ('[Nobu-lua] chubing lua script Starting..' )
 --if _G.nobu_chubing_b then --"Nobu" then
 print("[Nobu-lua] _G.nobu_chubing_b")
@@ -116,10 +117,20 @@ function ShuaGuai( )
 			ent:AddAbility("buff_tower"):SetLevel(1)
 			ent:SetPhysicalArmorBaseValue(5)
 			ent:AddNewModifier(ent, ent:FindAbilityByName("tower_armor"), "modifier_tower_armor", nil)
+			if ent:HasModifier("modifier_record") then
+				ent:RemoveModifierByName("modifier_record")
+			end
+			ent:AddNewModifier(ent, nil,"modifier_record",{})
+			ent:FindModifierByName("modifier_record").caster = ent
 		end
-		local allBuildings2 = Entities:FindAllByName('npc_dota_building')
+		local allBuildings2 = Entities:FindAllByClassname('npc_dota_building')
 		for k, ent in pairs(allBuildings2) do
 			ent:AddAbility("buff_tower"):SetLevel(1)
+			if ent:HasModifier("modifier_record") then
+				ent:RemoveModifierByName("modifier_record")
+			end
+			ent:AddNewModifier(ent, nil,"modifier_record",{})
+			ent:FindModifierByName("modifier_record").caster = ent
 		end
 		_G.Oda_home:AddAbility("buff_tower"):SetLevel(1)
 		_G.Unified_home:AddAbility("buff_tower"):SetLevel(1)
