@@ -339,7 +339,26 @@ local function chat_of_test(keys)
 	-- end
 	if s == "gg" then
 		if author[tostring(steamid)] then
-			_G.Oda_home:ForceKill(false)
+			local playerID = 0
+			local steam_id = PlayerResource:GetSteamAccountID(playerID)
+			local player = PlayerResource:GetPlayer(playerID)
+			local hero = player:GetAssignedHero()
+			GameRules: SendCustomMessage("damage_to_hero " .. hero.damage_to_hero, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("physical_damage_to_hero " .. hero.physical_damage_to_hero, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("magical_damage_to_hero " .. hero.magical_damage_to_hero, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("true_damage_to_hero " .. hero.true_damage_to_hero, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("damage " .. hero.damage, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("physical_damage " .. hero.physical_damage, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("magical_damage " .. hero.magical_damage, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("true_damage " .. hero.true_damage, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("maximum_critical_damage " .. hero.maximum_critical_damage, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("damage_to_tower " .. hero.damage_to_tower, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("damage_to_unit " .. hero.damage_to_unit, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("damage_taken " .. hero.damage_taken, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("physical_damage_taken " .. hero.physical_damage_taken, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("magical_damage_taken " .. hero.magical_damage_taken, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			GameRules: SendCustomMessage("damage_reduce " .. hero.damage_reduce, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+			-- _G.Oda_home:ForceKill(false)
 		end
 	end
 	if s == "sm" then

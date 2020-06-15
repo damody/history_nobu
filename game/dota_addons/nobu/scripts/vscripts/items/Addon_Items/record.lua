@@ -24,32 +24,96 @@ end
 
 function modifier_record:OnTakeDamage(event)
 	if IsServer() then
-	    local attacker = event.unit
-	    local victim = event.attacker
-	    local return_damage = event.original_damage
+	    local attacker = event.attacker
+	    local victim = event.unit
+	    local original_damage = event.original_damage
 	    local damage_type = event.damage_type
-	    local damage_flags = event.damage_flags
-	    local ability = self:GetAbility()
-	    if (self.caster ~= nil) and IsValidEntity(self.caster) then
-	    	if self.caster.damage == nil then
-	    		self.caster.damage = 0
-	    	end
-	    	if self.caster.takedamage == nil then
-	    		self.caster.takedamage = 0
-	    	end
-	    	if self.caster.herodamage == nil then
-	    		self.caster.herodamage = 0
-	    	end
-	    	if attacker:GetEntityIndex() == self.caster:GetEntityIndex() then
-	    		self.caster.damage = self.caster.damage + return_damage
-	    	end
-
-		    if victim:GetEntityIndex() == self.caster:GetEntityIndex() then
-		    	self.caster.takedamage = self.caster.takedamage + return_damage
-		    	if attacker:IsRealHero() and not attacker:IsIllusion() then
-		    		self.caster.herodamage = self.caster.herodamage + return_damage
-		    	end
-		    end
+		local damage_flags = event.damage_flags
+		local damage = event.damage
+		local ability = self:GetAbility()
+		if victim ~= nil and IsValidEntity(victim) then
+			-- 承受傷害
+			if victim.damage_taken == nil then
+				victim.damage_taken = 0
+			end
+			if victim.physical_damage_taken == nil then
+				victim.physical_damage_taken = 0
+			end
+			if victim.magical_damage_taken == nil then
+				victim.magical_damage_taken = 0
+			end
+			if victim.true_damage_taken == nil then
+				victim.true_damage_taken = 0
+			end
+			if victim.damage_reduce == nil then
+				victim.damage_reduce = 0
+			end
+			-- 造成傷害
+			if attacker.damage_to_hero == nil then
+				attacker.damage_to_hero = 0
+			end
+			if attacker.physical_damage_to_hero == nil then
+				attacker.physical_damage_to_hero = 0
+			end
+			if attacker.magical_damage_to_hero == nil then
+				attacker.magical_damage_to_hero = 0
+			end
+			if attacker.true_damage_to_hero == nil then
+				attacker.true_damage_to_hero = 0
+			end
+			if attacker.damage == nil then
+				attacker.damage = 0
+			end
+			if attacker.physical_damage == nil then
+				attacker.physical_damage = 0
+			end
+			if attacker.magical_damage == nil then
+				attacker.magical_damage = 0
+			end
+			if attacker.true_damage == nil then
+				attacker.true_damage = 0
+			end
+			if attacker.maximum_critical_damage == nil then 
+				attacker.maximum_critical_damage = 0
+			end
+			if attacker.damage_to_tower == nil then
+				attacker.damage_to_tower = 0
+			end
+			if attacker.damage_to_unit == nil then
+				attacker.damage_to_unit = 0;
+			end
+			victim.damage_taken = victim.damage_taken + damage
+			--damage to hero
+			if victim:IsRealHero() and not victim:IsIllusion() then
+				print(original_damage)
+				print(damage)
+				attacker.damage_to_hero = attacker.damage_to_hero + damage
+				if damage_type == DAMAGE_TYPE_PHYSICAL then
+					attacker.physical_damage_to_hero = attacker.physical_damage_to_hero + damage
+					victim.physical_damage_taken = victim.physical_damage_taken + damage
+				end
+				if damage_type == DAMAGE_TYPE_MAGICAL then
+					attacker.magical_damage_to_hero = attacker.magical_damage_to_hero + damage
+					victim.magical_damage_taken = victim.magical_damage_taken + damage
+				end
+				if damage_type == DAMAGE_TYPE_PURE then
+					attacker.true_damage_to_hero = attacker.true_damage_to_hero + damage
+					victim.true_damage_taken = victim.true_damage_taken + damage
+				end
+				--damage reduce
+			else
+				if damage_type == DAMAGE_TYPE_PHYSICAL then
+					attacker.physical_damage = attacker.physical_damage + damage
+				end
+				if damage_type == DAMAGE_TYPE_MAGICAL then
+					attacker.magical_damage = attacker.magical_damage + damage
+				end
+				if damage_type == DAMAGE_TYPE_PURE then
+					attacker.true_damage = attacker.true_damage + damage					
+				end
+			end
+			--damage to tower
+			--damage to unit
 		end
 	end
 end

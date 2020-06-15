@@ -35,10 +35,23 @@ function Nobu:OnHeroIngame( keys )
         if hero.init1 == nil then
           hero.init1 = true
           hero.kill_count = 0
+          hero.damage_to_hero = 0
+          hero.physical_damage_to_hero = 0
+          hero.magical_damage_to_hero = 0
+          hero.true_damage_to_hero = 0
           hero.damage = 0
-          hero.takedamage = 0
-          hero.herodamage = 0
-          hero.assist_count = 0
+          hero.physical_damage = 0
+          hero.magical_damage = 0
+          hero.true_damage = 0
+          hero.maximum_critical_damage = 0
+          hero.damage_to_tower = 0
+          hero.damage_to_unit = 0
+          hero.heal = 0
+          hero.damage_taken = 0
+          hero.physical_damage_taken = 0
+          hero.magical_damage_taken = 0
+          hero.true_damage_taken = 0
+          hero.damage_reduce = 0
           hero:AddNewModifier(caster,ability,"modifier_record",{})
           hero:AddAbility("hero_kill"):SetLevel(1)
           hero:AddAbility("hero_die"):SetLevel(1)

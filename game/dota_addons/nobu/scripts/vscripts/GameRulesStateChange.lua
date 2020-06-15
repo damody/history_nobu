@@ -29,7 +29,6 @@ function SendHTTPRequest_test(path, method, values, callback)
 		req:SetHTTPRequestGetOrPostParameter(key, value)
 	end
 	req:Send(function(result)
-		-- print("status code " .. result.StatusCode)
 		local count = 0
 		local table = {}
 		for key, value in string.gmatch(tostring(result.Body), "(%w+)=(%w+)") do 
@@ -41,7 +40,6 @@ function SendHTTPRequest_test(path, method, values, callback)
 			for k, v in pairs(_G.heromap) do
 				if table["hero"] == v then
 					hero = k;
-					print(hero)
 					break
 				end
 			end
@@ -83,6 +81,8 @@ Q2.每一個玩家進入事件異步，還是同步呢?
 function Nobu:OnGameRulesStateChange( keys )
   --獲取遊戲進度
   local newState = GameRules:State_Get()
+  local createtime
+  local endtime
   print("[Nobu-lua] GameRules State Changed: ",gamestates[newState])
 
   if(newState == DOTA_GAMERULES_STATE_INIT) then
@@ -92,26 +92,24 @@ function Nobu:OnGameRulesStateChange( keys )
 	elseif(newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) then
 		
 		-- -- --2織田軍 3聯合軍 5沒隊伍
-		Timers:CreateTimer(0.1, function()
-			-- GameRules:FinishCustomGameSetup()
+		-- Timers:CreateTimer(0.1, function()
+		-- 	GameRules:FinishCustomGameSetup()
 		-- 	for i=0, 20 do 
 		-- 		PlayerResource:SetCustomTeamAssignment(i, 5)
 		-- 	end
-		end)
+		-- end)
 	elseif(newState == DOTA_GAMERULES_STATE_HERO_SELECTION) then --選擇英雄階段
-		Timers:CreateTimer(33, function()
+		Timers:CreateTimer(1, function()
 			for playerID = 0, 9 do
-				local steamID = PlayerResource:GetSteamAccountID(playerID)
+				local steam_id = PlayerResource:GetSteamAccountID(playerID)
 				SendHTTPRequest_test("", "POST",
-				{id = tostring(playerID), steamID = tostring(steamID)}, function(res)
+				{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
 					if (string.match(res, "error")) then
 						callback()
 					end
 				end)
 			end
 		end)
-		-- local player = PlayerResource:GetPlayer(0)
-		-- player:SetSelectedHero("npc_dota_hero_chen")
 		for i=0,20 do
 			PlayerResource:SetGold(i,2000,false)--玩家ID需要減一
 		end
@@ -128,8 +126,15 @@ function Nobu:OnGameRulesStateChange( keys )
 	elseif(newState == DOTA_GAMERULES_STATE_PRE_GAME) then --當英雄選擇結束 --6
     if (_G.nobu_debug) then -- 測試模式給裝
       for_test_equiment()
-    end
-    
+	end
+	--遊戲開始時間
+	for mm, dd, yy in string.gmatch(tostring(GetSystemDate()), "(%w+)/(%w+)/(%w+)") do
+		createtime = string.format("20%d%02d%02d", yy, mm, dd)
+	end
+	for hh, mm, ss in string.gmatch(tostring(GetSystemTime()), "(%w+):(%w+):(%w+)") do
+		createtime = string.format("%s%02d%02d%02d",createtime, hh, mm, ss)
+	end
+	----------------------------------------------------------------------------------
     GameRules:SendCustomMessage("歡迎來到 AON信長的野望 21版", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     GameRules:SendCustomMessage("15分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("目前作者: Victor", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
@@ -396,8 +401,77 @@ function Nobu:OnGameRulesStateChange( keys )
 	  ]]
 
 	elseif(newState == DOTA_GAMERULES_STATE_POST_GAME) then
-    if _G.nobu_server_b then
-        Nobu:CloseRoom()
+	if _G.nobu_server_b then
+		-- 紀錄遊戲結束時間
+		for mm, dd, yy in string.gmatch(tostring(GetSystemDate()), "(%w+)/(%w+)/(%w+)") do
+			endtime = string.format("20%d%02d%02d", yy, mm, dd)
+		end
+		for hh, mm, ss in string.gmatch(tostring(GetSystemTime()), "(%w+):(%w+):(%w+)") do
+			endtime = string.format("%s%02d%02d%02d",endtime, hh, mm, ss)
+		end
+		-- 傳送遊戲結果
+		--紀錄到 table:Finished_game
+		RECORD:StoreToFinishedGame({createtime=start_time, endtime=start_time})
+		Timers:CreateTimer(0.3, function()
+			
+			for playerID = 0, 9 do
+				local steam_id = PlayerResource:GetSteamAccountID(playerID)
+				local player = PlayerResource:GetPlayer(playerID)
+				local hero = player:GetAssignedHero()
+				local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
+				local nobu_res = "L"
+				local unified_res = "W"
+				local equ = {}
+				--紀錄到 table:Players
+				if ancient1:IsAlive() then
+					nobu_res = "W"
+					unified_res = "L"
+				end
+				if PlayerResource:GetCustomTeamAssignment(playerID) == 2 then
+					if nobu_res == "L" then
+						RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
+					else
+						RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
+					end
+				end
+				if PlayerResource:GetCustomTeamAssignment(playerID) == 3 then
+					if nobu_res == "W" then
+						RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
+					else
+						RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
+					end
+				end
+				--紀錄到 table:AFKRecord
+				if afk then
+					RECORD:StoreToAFKRecord({game_id=_G.game_id, steam_id=steam_id})
+				end
+				--紀錄到 table:Finished_detail
+				for i = 0, 6 do
+					equ[i] = ""
+					local item = caster:GetItemInSlot( i )
+					if item then
+						equ[i] = item:GetName()
+					end
+				end
+				RECORD:StoreToFinishedDetail({
+					game_id=_G.game_id,
+					steam_id=steam_id,
+					equ_1=equ[1],
+					equ_2=equ[2],
+					equ_3=equ[3],
+					equ_4=equ[4],
+					equ_5=equ[5],
+					equ_6=equ[6],
+					
+				})
+				--紀錄到 table:Hero_usage 
+				RECORD:StoreToHeroUsage({steam_id=steam_id, hero=_G.heromap[hero:GetName()], choose_count=1})
+				--紀錄到 table:Hero_detail
+				--紀錄到 table:Equipment_detail
+				--紀錄到 table:Equipment_purchased
+			end
+			Nobu:CloseRoom()
+		end)	
     end
 	elseif(newState == DOTA_GAMERULES_STATE_DISCONNECT) then
 
