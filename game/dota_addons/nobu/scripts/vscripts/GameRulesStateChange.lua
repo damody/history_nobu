@@ -144,7 +144,7 @@ function Nobu:OnGameRulesStateChange( keys )
     end
 		--刪除建築物無敵
 	  local allBuildings = Entities:FindAllByClassname('npc_dota_building')
-	  for i = 1, #allBuildings, 1 do
+	  for i = 33, #allBuildings, 1 do
 	     local building = allBuildings[i]
 	     if building:HasModifier('modifier_invulnerable') then
 	        building:RemoveModifierByName('modifier_invulnerable')
