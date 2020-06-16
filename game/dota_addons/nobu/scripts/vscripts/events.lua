@@ -285,7 +285,6 @@ function Nobu:HealFilter(keys)
       target.decrease_health = 0.5
     end
       
-
     if target:IsHero() then
     keys.heal = keys.heal * target.decrease_health
     end

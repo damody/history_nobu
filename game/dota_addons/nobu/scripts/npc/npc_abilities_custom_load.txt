@@ -2776,7 +2776,7 @@
 			"modifier_check_is_dead"
 			{
 				"Passive"	"1"
-				"IsHidden"			"1"
+				"IsHidden"	"1"
 				"OnCreated"
 				{
 					"RunScript"
@@ -5681,7 +5681,7 @@
 			"modifier_on_death"
 			{
 				"Passive"	"1"
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"OnDeath"
 				{
 					"RunScript"
@@ -5754,7 +5754,7 @@
 		{
 			"modifier_slow_self_passive"
 			{
-				"Passive"	"1"
+				"Passive"	"0"
 				"ThinkInterval"	"0.1"
 				"OnIntervalThink"
 				{
@@ -5793,6 +5793,7 @@
 		{
 			"modifier_health_regen_passive"
 			{
+				"IsHidden"	"1"
 				"Passive"	"1"
 				"ThinkInterval"	"0.1"
 				"OnIntervalThink"
@@ -5806,6 +5807,7 @@
 			}
 			"modifier_healthregen"
 			{
+				
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
 				"Properties"
@@ -5817,12 +5819,14 @@
 	}
 	"ManaRegen_self"
 	{
+		
 		"BaseClass"	"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"Modifiers"
 		{
 			"modifier_mana_regen_passive"
 			{
+				"IsHidden"	"1"
 				"Passive"	"1"
 				"ThinkInterval"	"0.1"
 				"OnIntervalThink"
@@ -5853,6 +5857,7 @@
 		{
 			"modifier_aspd_passive"
 			{
+				"IsHidden"	"1"
 				"Passive"	"1"
 				"ThinkInterval"	"0.1"
 				"OnIntervalThink"

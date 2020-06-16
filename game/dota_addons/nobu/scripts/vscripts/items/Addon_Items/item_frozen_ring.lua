@@ -264,6 +264,8 @@ function storm( keys )
 	local dummy = CreateUnitByName("npc_dummy_unit_Ver2",caster:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
 	dummy:FindAbilityByName("majia"):SetLevel(1)
 	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=12})
+	-- dummy:AddNewModifier(dummy,nil,"modifier_dummy_phased",{duration=1})
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_dummy_phased",{duration=12})
 	ability:ApplyDataDrivenModifier(dummy, dummy,"modifier_invulnerable",{duration=12})
 	caster.dummy = dummy
 
@@ -406,7 +408,6 @@ function Shock_book2( keys )
 		pointx2 	=  	pointx 	+ 	250 	* 	math.cos(a)
 		pointy2 	=  	pointy 	+ 	250 	*	math.sin(a)
 		point = Vector(pointx2 ,pointy2 , pointz)
-
 		local dummy = CreateUnitByName("npc_dummy_unit_Ver2",point,false,nil,nil,caster:GetTeam())
 		dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=2})
 		dummy:FindAbilityByName("majia"):SetLevel(1)
