@@ -98,7 +98,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- 	end
 		-- end)
 	elseif(newState == DOTA_GAMERULES_STATE_HERO_SELECTION) then --選擇英雄階段
-		Timers:CreateTimer(1, function()
+		Timers:CreateTimer(33, function()
 			for playerID = 0, 9 do
 				local steam_id = PlayerResource:GetSteamAccountID(playerID)
 				SendHTTPRequest_test("", "POST",
@@ -144,7 +144,7 @@ function Nobu:OnGameRulesStateChange( keys )
     end
 		--刪除建築物無敵
 	  local allBuildings = Entities:FindAllByClassname('npc_dota_building')
-	  for i = 33, #allBuildings, 1 do
+	  for i = 1, #allBuildings, 1 do
 	     local building = allBuildings[i]
 	     if building:HasModifier('modifier_invulnerable') then
 	        building:RemoveModifierByName('modifier_invulnerable')
@@ -436,6 +436,7 @@ function Nobu:OnGameRulesStateChange( keys )
 				local steam_id = PlayerResource:GetSteamAccountID(playerID)
 				local player = PlayerResource:GetPlayer(playerID)
 				if player then 
+					GameRules: SendCustomMessage("player " .. steam_id, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 					local hero = player:GetAssignedHero()
 					local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
 					local nobu_res = "L"
