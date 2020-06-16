@@ -40,10 +40,6 @@ function Nobu:OnItemPurchased( keys )
   if _G.purchased_itmes_time[playerID] == nil then
     _G.purchased_itmes_time[playerID] = {}
   end
-  print("purchased " .. #_G.purchased_items[playerID])
-  for index, _ in pairs(_G.purchased_items[playerID]) do
-    print("item : " .. _G.purchased_items[playerID][index])
-  end
   _G.equipment_used[playerID][keys.itemname] = 1
   _G.purchased_items[playerID][#_G.purchased_items[playerID]+1] = keys.itemname
   _G.purchased_itmes_time[playerID][#_G.purchased_itmes_time[playerID]+1] = math.floor(GameRules:GetDOTATime(false,false))
