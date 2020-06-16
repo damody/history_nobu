@@ -611,7 +611,7 @@ function Nobu:OnGameRulesStateChange( keys )
 							totalgame=1
 						})
 					end
-					GameRules: SendCustomMessage("purchase ", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+					GameRules: SendCustomMessage("purchase " .. playerID, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 					GameRules: SendCustomMessage("purchase length" .. #_G.purchased_items[playerID] , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 					--紀錄到 table:Equipment_purchased
 					for i=1,#_G.purchased_items[playerID] do
