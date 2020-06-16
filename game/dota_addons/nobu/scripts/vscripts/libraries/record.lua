@@ -163,7 +163,7 @@ function RECORD:StoreToHeroDetail(keys)
         "hero_detail/",
         "POST",
         {
-            hero = tostring(keys.hero_name),
+            hero = tostring(keys.hero),
             k = tostring(keys.k),
             d = tostring(keys.d),
             a = tostring(keys.a),
@@ -177,10 +177,10 @@ function RECORD:StoreToHeroDetail(keys)
             skillr = tostring(keys.skillr),
             skillt = tostring(keys.skillt),
             skilld = tostring(keys.skilld),
-            hurt = tostring(keys.hurt),
-            hurt_hero = tostring(keys.hurt_hero),
-            injured = tostring(keys.injured),
-            regen = tostring(keys.regen)
+            damage = tostring(keys.damage),
+            damage_to_hero = tostring(keys.damage_to_hero),
+            damage_taken = tostring(keys.damage_taken),
+            heal = tostring(keys.heal)
         },
         function(res)
             if (string.match(res, "error")) then

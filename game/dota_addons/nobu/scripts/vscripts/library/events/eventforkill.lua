@@ -76,7 +76,6 @@ function Nobu:OnUnitKill( keys )
           end
         end
       end
-      
       Timers:CreateTimer(1, function ()
         for _,hero in ipairs(group) do
           if IsValidEntity(hero) then

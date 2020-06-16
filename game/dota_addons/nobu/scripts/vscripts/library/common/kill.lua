@@ -5,6 +5,15 @@ function OnHeroKilled(keys)
     local bounty = 0
     local killedUnit = keys.target
     local AttackerUnit = keys.attacker
+    if _G.first_blood == nil then
+        _G.first_blood = true
+        AttackerUnit.first_blood = true
+    end
+    --計算muti-kill
+    if AttackerUnit.largest_multi_kill < AttackerUnit:GetMultipleKillCount() then
+        AttackerUnit.largest_multi_kill = AttackerUnit:GetMultipleKillCount()
+    end
+    -------
     if AttackerUnit.kill_hero_count == nil then
         AttackerUnit.kill_hero_count = 0
     end
@@ -116,6 +125,9 @@ function OnHeroKilled(keys)
     --殺人者連死歸0 連殺 +1
     AttackerUnit.continue_die = 0
     AttackerUnit.continue_kill = AttackerUnit.continue_kill + 1
+    if AttackerUnit.continue_kill > AttackerUnit.largest_killing_spree then
+        AttackerUnit.largest_killing_spree = AttackerUnit.continue_kill
+    end
     --被殺者連殺歸0 連死 +1
     killedUnit.continue_die = killedUnit.continue_die + 1
     killedUnit.continue_kill = 0

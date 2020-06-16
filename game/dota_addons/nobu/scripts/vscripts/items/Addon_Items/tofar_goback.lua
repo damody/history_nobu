@@ -685,6 +685,7 @@ function afk_gogo(keys)
 			hero.deathtime = hero.deathtime - 1
 		end
 		if state == 3 then -- 2 = connected
+			hero.afk_time = hero.afk_time + 1
 			hero:MoveToPosition(hero.spawn_location)
 		end
 	end
