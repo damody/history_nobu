@@ -40,14 +40,13 @@ function Nobu:OnItemPurchased( keys )
   if _G.purchased_itmes_time[playerID] == nil then
     _G.purchased_itmes_time[playerID] = {}
   end
-  GameRules: SendCustomMessage("purchase " .. keys.itemname, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
-  GameRules: SendCustomMessage("purchase " .. #_G.purchased_items[playerID], DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+  print("purchased " .. #_G.purchased_items[playerID])
   for index, _ in pairs(_G.purchased_items[playerID]) do
-    GameRules: SendCustomMessage("purchase " .. _G.purchased_items[playerID][index], DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+    print("item : " .. _G.purchased_items[playerID][index])
   end
   _G.equipment_used[playerID][keys.itemname] = 1
-  _G.purchased_items[playerID][#_G.purchased_items+1] = keys.itemname
-  _G.purchased_itmes_time[playerID][#_G.purchased_itmes_time+1] = math.floor(GameRules:GetDOTATime(false,false))
+  _G.purchased_items[playerID][#_G.purchased_items[playerID]+1] = keys.itemname
+  _G.purchased_itmes_time[playerID][#_G.purchased_itmes_time[playerID]+1] = math.floor(GameRules:GetDOTATime(false,false))
   -- DeepPrintTable(keys)
   -- [   VScript              ]:    itemcost                         = 50 (number)
   -- [   VScript              ]:    itemname                         = "item_tpscroll" (string)
