@@ -82,8 +82,6 @@ Q2.每一個玩家進入事件異步，還是同步呢?
 function Nobu:OnGameRulesStateChange( keys )
   --獲取遊戲進度
   local newState = GameRules:State_Get()
-  local createtime
-  local endtime
   print("[Nobu-lua] GameRules State Changed: ",gamestates[newState])
 
   if(newState == DOTA_GAMERULES_STATE_INIT) then
@@ -100,7 +98,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- 	end
 		-- end)
 	elseif(newState == DOTA_GAMERULES_STATE_HERO_SELECTION) then --選擇英雄階段
-		Timers:CreateTimer(33, function()
+		Timers:CreateTimer(1, function()
 			for playerID = 0, 9 do
 				local steam_id = PlayerResource:GetSteamAccountID(playerID)
 				SendHTTPRequest_test("", "POST",
@@ -129,24 +127,24 @@ function Nobu:OnGameRulesStateChange( keys )
       for_test_equiment()
 	end
 	--遊戲開始時間
-	for mm, dd, yy in string.gmatch(tostring(GetSystemDate()), "(%w+)/(%w+)/(%w+)") do
-		createtime = string.format("20%d%02d%02d", yy, mm, dd)
-	end
-	for hh, mm, ss in string.gmatch(tostring(GetSystemTime()), "(%w+):(%w+):(%w+)") do
-		createtime = string.format("%s%02d%02d%02d",createtime, hh, mm, ss)
-	end
-	----------------------------------------------------------------------------------
     GameRules:SendCustomMessage("歡迎來到 AON信長的野望 21版", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     GameRules:SendCustomMessage("15分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("目前作者: Victor", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("響雨工作室", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	elseif(newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then --遊戲開始 --7
+		for mm, dd, yy in string.gmatch(tostring(GetSystemDate()), "(%w+)/(%w+)/(%w+)") do
+			_G.createtime = string.format("20%d%02d%02d", yy, mm, dd)
+		end
+		for hh, mm, ss in string.gmatch(tostring(GetSystemTime()), "(%w+):(%w+):(%w+)") do
+			_G.createtime = string.format("%s%02d%02d%02d",_G.createtime, hh, mm, ss)
+		end
+		----------------------------------------------------------------------------------
 	if _G.nobu_server_b then
       Nobu:OpenRoom()
     end
 		--刪除建築物無敵
 	  local allBuildings = Entities:FindAllByClassname('npc_dota_building')
-	  for i = 1, #allBuildings, 1 do
+	  for i = 33, #allBuildings, 1 do
 	     local building = allBuildings[i]
 	     if building:HasModifier('modifier_invulnerable') then
 	        building:RemoveModifierByName('modifier_invulnerable')
@@ -166,6 +164,18 @@ function Nobu:OnGameRulesStateChange( keys )
 			_G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + 5
 			return 2
 		end)
+		-- 紀錄技能
+		_G.CountUsedAbility_Table[i] = {}
+		-- 紀錄裝備
+		if _G.equipment_used[i] == nil then
+			_G.equipment_used[i] = {}
+		end
+		if _G.purchased_items[i] == nil then
+			_G.purchased_items[i] = {}
+		end
+		if _G.purchased_itmes_time[i] == nil then
+			_G.purchased_itmes_time[i] = {}
+		end
 	  end
 	end
 	--守護家園
@@ -252,7 +262,9 @@ function Nobu:OnGameRulesStateChange( keys )
 				ent:RemoveModifierByName("modifier_record")
 			end
 			ent:AddNewModifier(ent, nil,"modifier_record",{})
-			ent:FindModifierByName("modifier_record").caster = ent
+			if ent:FindModifierByName("modifier_record") then 
+				ent:FindModifierByName("modifier_record").caster = ent
+			end
 			if not string.match(ent:GetUnitName(),"general") then
 				ent:AddAbility("when_cp_first_spawn"):SetLevel(1)
 				ent:AddNoDraw()
@@ -410,71 +422,206 @@ function Nobu:OnGameRulesStateChange( keys )
 	if _G.nobu_server_b then
 		-- 紀錄遊戲結束時間
 		for mm, dd, yy in string.gmatch(tostring(GetSystemDate()), "(%w+)/(%w+)/(%w+)") do
-			endtime = string.format("20%d%02d%02d", yy, mm, dd)
+			_G.endtime = string.format("20%d%02d%02d", yy, mm, dd)
 		end
 		for hh, mm, ss in string.gmatch(tostring(GetSystemTime()), "(%w+):(%w+):(%w+)") do
-			endtime = string.format("%s%02d%02d%02d",endtime, hh, mm, ss)
+			_G.endtime = string.format("%s%02d%02d%02d",_G.endtime, hh, mm, ss)
 		end
 		-- 傳送遊戲結果
 		--紀錄到 table:Finished_game
-		RECORD:StoreToFinishedGame({createtime=start_time, endtime=start_time})
+		print("FinishedGame")
+		RECORD:StoreToFinishedGame({createtime=_G.createtime, endtime=endtime})
 		Timers:CreateTimer(0.3, function()
-			
 			for playerID = 0, 9 do
 				local steam_id = PlayerResource:GetSteamAccountID(playerID)
 				local player = PlayerResource:GetPlayer(playerID)
-				local hero = player:GetAssignedHero()
-				local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
-				local nobu_res = "L"
-				local unified_res = "W"
-				local equ = {}
-				--紀錄到 table:Players
-				if ancient1:IsAlive() then
-					nobu_res = "W"
-					unified_res = "L"
-				end
-				if PlayerResource:GetCustomTeamAssignment(playerID) == 2 then
-					if nobu_res == "L" then
-						RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
-					else
-						RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
+				if player then 
+					local hero = player:GetAssignedHero()
+					local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
+					local nobu_res = "L"
+					local unified_res = "W"
+					local res
+					local pos
+					local win=0
+					local lose=0
+					local afk=0
+					local isAfk = false
+					local skillw = _G.CountUsedAbility_Table[playerID][hero:GetAbilityByIndex(0):GetName()] or 0
+					local skille = _G.CountUsedAbility_Table[playerID][hero:GetAbilityByIndex(1):GetName()] or 0
+					local skillr = _G.CountUsedAbility_Table[playerID][hero:GetAbilityByIndex(2):GetName()] or 0
+					local skillt = _G.CountUsedAbility_Table[playerID][hero:GetAbilityByIndex(5):GetName()] or 0
+					local skilld = _G.CountUsedAbility_Table[playerID][hero:GetAbilityByIndex(4):GetName()] or 0
+					local equ = {}
+					if afk/GameRules:GetDOTATime(false,false) > 0.3 then
+						afk = 1
+						isAfk = true
+					end
+					--紀錄到 table:Players
+					if ancient1:IsAlive() then
+						nobu_res = "W"
+						unified_res = "L"
+					end
+					print("Players")
+					if PlayerResource:GetCustomTeamAssignment(playerID) == 2 then
+						if nobu_res == "L" then
+							RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
+							res = "L"
+						else
+							RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
+							res = "W"
+						end
+					end
+					if PlayerResource:GetCustomTeamAssignment(playerID) == 3 then
+						if nobu_res == "W" then
+							RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
+							res = "L"
+						else
+							RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
+							res = "W"
+						end
+					end
+					if res == "W" then
+						win = 1 
+						lose = 0
+					elseif res == "L" then
+						win = 0
+						lose = 1
+					end
+					--算位置 1 ~ 5 織田 6 ~ 10聯合
+					local team = hero:GetTeamNumber()
+					for i = 1, 5 do
+						if playerID == PlayerResource:GetNthPlayerIDOnTeam(team, i) then
+							if team == 2 then
+								pos = i
+								break
+							end
+							if team == 3 then
+								pos  = i + 5
+								break
+							end
+						end
+					end
+					--紀錄到 table:AFKRecord
+					if isAfk then
+						print("AFK")
+						RECORD:StoreToAFKRecord({game_id=_G.game_id, steam_id=steam_id})
+					end
+					--紀錄到 table:Finished_detail
+					for i = 0, 6 do
+						equ[i] = ""
+						local item = hero:GetItemInSlot( i )
+						if item then
+							equ[i] = item:GetName()
+						end
+					end
+					print("FinishedDetail")
+					RECORD:StoreToFinishedDetail({
+						game_id=_G.game_id,
+						steam_id=steam_id,
+						equ_1=equ[1],
+						equ_2=equ[2],
+						equ_3=equ[3],
+						equ_4=equ[4],
+						equ_5=equ[5],
+						equ_6=equ[6],
+						damage_to_hero=hero.damage_to_hero,
+						physical_damage_to_hero=hero.physical_damage_to_hero,
+						magical_damage_to_hero=hero.magical_damage_to_hero,
+						true_damage_to_hero=hero.true_damage_to_hero,
+						damage=hero.damage,
+						physical_damage=hero.physical_damage,
+						magical_damage=hero.magical_damage,
+						true_damage=hero.true_damage,
+						maximum_critical_damage=hero.maximum_critical_damage, --未
+						damage_to_tower=hero.damage_to_tower,
+						damage_to_unit=hero.damage_to_unit,
+						heal=hero.heal,
+						damage_taken=hero.damage_taken,
+						physical_damage_taken=hero.physical_damage_taken,
+						magical_damage_taken=hero.magical_damage_taken,
+						true_damage_taken=hero.true_damage_taken,
+						damage_reduce=hero.damage_reduce,
+						hero=_G.heromap[hero:GetName()],
+						res=res,
+						pos=pos,
+						k=hero:GetKills(),
+						d=hero:GetDeaths(),
+						a=hero.assist_count,
+						largest_killing_spree=hero.largest_killing_spree,
+						largest_multi_kill=hero.largest_multi_kill,
+						first_blood=hero.first_blood,
+						skillw=skillw,
+						skille=skille,
+						skillr=skillr,
+						skillt=skillt,
+						skilld=skilld,
+						income=_G.PlayerEarnedGold[playerID],
+						spent=_G.PlayerEarnedGold[playerID]-hero:GetGold(),
+						killed_unit=hero.kill_count,
+						point1=hero.ability_order[1] or "x",
+						point2=hero.ability_order[2] or "x",
+						point3=hero.ability_order[3] or "x",
+						point4=hero.ability_order[4] or "x",
+						point5=hero.ability_order[5] or "x",
+						point6=hero.ability_order[6] or "x",
+						point7=hero.ability_order[7] or "x",
+						point8=hero.ability_order[8] or "x",
+						point9=hero.ability_order[9] or "x",
+						point10=hero.ability_order[10] or "x",
+						point11=hero.ability_order[11] or "x",
+						point12=hero.ability_order[12] or "x",
+						point13=hero.ability_order[13] or "x",
+						point14=hero.ability_order[14] or "x",
+						point15=hero.ability_order[15] or "x",
+					})
+					--紀錄到 table:Hero_usage 
+					print("HeroUsage")
+					RECORD:StoreToHeroUsage({steam_id=steam_id, hero=_G.heromap[hero:GetName()], choose_count=1})
+					--紀錄到 table:Hero_detail
+					print(_G.heromap[hero:GetName()])
+					RECORD:StoreToHeroDetail({
+						hero=_G.heromap[hero:GetName()],
+						k=hero:GetKills(),
+						d=hero:GetDeaths(),
+						a=hero.assist_count,
+						win=win,
+						lose=lose,
+						afk=afk,
+						totalcount=1,
+						money=_G.PlayerEarnedGold[playerID],
+						skillw=skillw,
+						skille=skille,
+						skillr=skillr,
+						skillt=skillt,
+						skilld=skilld,
+						damage=hero.damage,
+						damage_to_hero=hero.damage_to_hero,
+						damage_taken=hero.damage_taken,
+						heal=hero.heal
+					})
+					--紀錄到 table:Equipment_detail
+					for item_name, _ in pairs(_G.equipment_used[playerID]) do
+						print("EquipmentDetail")
+						RECORD:StoreToEquipmentDetail({
+							equipment=item_name,
+							win=win,
+							lose=lose,
+							afk=afk,
+							totalgame=1
+						})
+					end
+					--紀錄到 table:Equipment_purchased
+					for i=1,#_G.purchased_items[playerID] do
+						print("EquipmentPurchased")
+						RECORD:StoreToEquipmentPurchased({
+							game_id=_G.game_id,
+							steam_id=steam_id,
+							purchased_time=_G.purchased_itmes_time[playerID][i],
+							purchased_count=i,
+							equipment=_G.purchased_items[playerID][i],
+						})
 					end
 				end
-				if PlayerResource:GetCustomTeamAssignment(playerID) == 3 then
-					if nobu_res == "W" then
-						RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
-					else
-						RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
-					end
-				end
-				--紀錄到 table:AFKRecord
-				if afk then
-					RECORD:StoreToAFKRecord({game_id=_G.game_id, steam_id=steam_id})
-				end
-				--紀錄到 table:Finished_detail
-				for i = 0, 6 do
-					equ[i] = ""
-					local item = caster:GetItemInSlot( i )
-					if item then
-						equ[i] = item:GetName()
-					end
-				end
-				RECORD:StoreToFinishedDetail({
-					game_id=_G.game_id,
-					steam_id=steam_id,
-					equ_1=equ[1],
-					equ_2=equ[2],
-					equ_3=equ[3],
-					equ_4=equ[4],
-					equ_5=equ[5],
-					equ_6=equ[6],
-
-				})
-				--紀錄到 table:Hero_usage 
-				RECORD:StoreToHeroUsage({steam_id=steam_id, hero=_G.heromap[hero:GetName()], choose_count=1})
-				--紀錄到 table:Hero_detail
-				--紀錄到 table:Equipment_detail
-				--紀錄到 table:Equipment_purchased
 			end
 			Nobu:CloseRoom()
 		end)	

@@ -7,6 +7,10 @@ function Nobu:LevelUP( keys )
 end
 
 function Nobu:Learn_Ability( keys )
+  playerID = keys.PlayerID
+  player = PlayerResource:GetPlayer(playerID)
+  hero = player:GetAssignedHero()
+  hero.ability_order[#hero.ability_order+1] = hero.ability_map[keys.abilityname]
   -- DeepPrintTable(keys)
   -- [   VScript          ]:    player                           = 1 (number)
   -- [   VScript          ]:    abilityname                      = "A06W" (string)
@@ -26,6 +30,19 @@ function Nobu:OnDisconnect( keys ) --代測試
 end
 
 function Nobu:OnItemPurchased( keys )
+  playerID = keys.PlayerID
+  if _G.equipment_used[playerID] == nil then
+    _G.equipment_used[playerID] = {}
+  end
+  if _G.purchased_items[playerID] == nil then
+    _G.purchased_items[playerID] = {}
+  end
+  if _G.purchased_itmes_time[playerID] == nil then
+    _G.purchased_itmes_time[playerID] = {}
+  end
+  _G.equipment_used[playerID][keys.itemname] = 1
+  _G.purchased_items[playerID][#_G.purchased_items+1] = keys.itemname
+  _G.purchased_itmes_time[playerID][#_G.purchased_itmes_time+1] = math.floor(GameRules:GetDOTATime(false,false))
   -- DeepPrintTable(keys)
   -- [   VScript              ]:    itemcost                         = 50 (number)
   -- [   VScript              ]:    itemname                         = "item_tpscroll" (string)

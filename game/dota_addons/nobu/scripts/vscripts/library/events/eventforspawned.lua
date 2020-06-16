@@ -3,7 +3,9 @@ LinkLuaModifier( "modifier_record", "items/Addon_Items/record.lua",LUA_MODIFIER_
 --單位創建也會運行
 
 heromap = _G.heromap 
-
+ability_index = {
+  "w","e","r","","d","t",
+}
 function Nobu:OnHeroIngame( keys )
   local hero = EntIndexToHScript( keys.entindex )
   if hero ~= nil and IsValidEntity(hero) then
@@ -32,11 +34,13 @@ function Nobu:OnHeroIngame( keys )
 
     local name = caster:GetUnitName()
 
-    Timers:CreateTimer ( 1, function ()
+    Timers:CreateTimer ( 0.2, function ()
       if hero ~= nil and IsValidEntity(hero) and not hero:IsIllusion() and caster:GetTeamNumber() < 4 then
         if hero.init1 == nil then
           hero.init1 = true
+          hero.assist_count = 0
           hero.kill_count = 0
+          hero.building_count = 0
           hero.damage_to_hero = 0
           hero.physical_damage_to_hero = 0
           hero.magical_damage_to_hero = 0
@@ -54,6 +58,17 @@ function Nobu:OnHeroIngame( keys )
           hero.magical_damage_taken = 0
           hero.true_damage_taken = 0
           hero.damage_reduce = 0
+          hero.largest_killing_spree = 0
+          hero.largest_multi_kill = 0
+          hero.first_blood = false
+          hero.on_multikill = 0
+          hero.multikill_count = 0
+          hero.ability_order = {}
+          hero.ability_map = {}
+          hero.afk_time = 0
+          for i=0,5 do 
+            hero.ability_map[hero:GetAbilityByIndex(i):GetName()] = ability_index[i+1]
+          end
           hero:AddNewModifier(caster,ability,"modifier_record",{})
           hero:AddAbility("hero_kill"):SetLevel(1)
           hero:AddAbility("hero_die"):SetLevel(1)
@@ -109,7 +124,7 @@ end
 
 -- 統計英雄使用情況
 function Nobu:CountUsedAbility( keys )
-  local keyid = keys.PlayerID + 1
+  local keyid = keys.PlayerID
   if (_G.CountUsedAbility_Table[keyid] == nil) then
     _G.CountUsedAbility_Table[keyid]  = {}
   end
