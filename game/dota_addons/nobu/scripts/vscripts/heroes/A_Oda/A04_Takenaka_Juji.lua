@@ -115,7 +115,7 @@ function A04T_HIDEUNIT_SPELLABLILITY( keys )
 	local point = keys.target_points[1] 
 	local caster = keys.caster
 	local id 	= caster:GetPlayerID() --獲取玩家ID
-	local dummy2 = CreateUnitByName( "npc_dummy_unit_Ver2", point, false, caster, caster, caster:GetTeamNumber() )
+	local dummy2 = CreateUnitByName( "npc_dummy_unit", point, false, caster, caster, caster:GetTeamNumber() )
 	local level  = keys.ability:GetLevel()--獲取技能等級
 
 	--記錄在全局
@@ -203,7 +203,7 @@ function A04T_freezing_field_explode( keys )
 	ParticleManager:SetParticleControl( fxIndex, 0, attackPoint )
 	
 	-- Fire sound at dummy
-	local dummy = CreateUnitByName( "npc_dummy_unit_Ver2", attackPoint, false, caster, caster, caster:GetTeamNumber() )
+	local dummy = CreateUnitByName( "npc_dummy_unit", attackPoint, false, caster, caster, caster:GetTeamNumber() )
 	ability:ApplyDataDrivenModifier( caster, dummy, refModifierName, {} )
 	StartSoundEvent( soundEventName, dummy )
 	Timers:CreateTimer( 0.1, function()

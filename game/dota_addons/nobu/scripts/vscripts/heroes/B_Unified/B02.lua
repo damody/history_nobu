@@ -152,7 +152,7 @@ function B02R(keys)
 	-- local deg = 0 
 	-- local distance = 300	
 	--【Dummy Kv】
-	local dummy = CreateUnitByName("npc_dummy_unit_Ver2",point_tem ,false,caster,caster,caster:GetTeam())	
+	local dummy = CreateUnitByName("npc_dummy_unit",point_tem ,false,caster,caster,caster:GetTeam())	
 	--dummy:SetControllableByPlayer(player,false)
 	--ability:ApplyDataDrivenModifier(caster,dummy,"modifier_C07T",nil)
 	dummy:FindAbilityByName("majia"):SetLevel(1)		
@@ -377,7 +377,7 @@ function B02E_Cast(keys)
 	--print(nobu_distance( point,caster.B02E_Location ))
 	if caster.B02E_Location and (nobu_distance( point,caster.B02E_Location )) > 100 then
 		caster.B02E_Location = point
-		local dummy = CreateUnitByName("npc_dummy_unit_Ver2",point,false,caster,caster,caster:GetTeam())	--"npc_dummy_unit_Ver2"
+		local dummy = CreateUnitByName("npc_dummy_unit",point,false,caster,caster,caster:GetTeam())	--"npc_dummy_unit_Ver2"
 		dummy:FindAbilityByName("majia"):SetLevel(1)
 		--【MODIFIER】
 		ability:ApplyDataDrivenModifier(caster,dummy,"modifier_B02E_2",nil) 	
@@ -423,7 +423,7 @@ function B02E_old_fire_path_creator( keys )
 
 	if (nobu_distance( point,ability.pre_position )) > 100 then
 		ability.pre_position = point
-		local dummy = CreateUnitByName("npc_dummy_unit_Ver2",point,false,caster,caster,caster:GetTeam())	--"npc_dummy_unit_Ver2"
+		local dummy = CreateUnitByName("npc_dummy_unit",point,false,caster,caster,caster:GetTeam())	--"npc_dummy_unit_Ver2"
 		dummy:FindAbilityByName("majia"):SetLevel(1)
 		--【MODIFIER】
 		ability:ApplyDataDrivenModifier(caster,dummy,"modifier_B02E_2",nil)

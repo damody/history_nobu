@@ -13,11 +13,15 @@ function C22W_Damage( keys )
 	-- Finds all the enemies in a radius around the target and then deals damage to each of them
     --獲取攻擊範圍
     local group = {}
-    local radius = 435
-	local dummy = CreateUnitByName("npc_dummy_unit_Ver2",caster:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
+	local radius = 435
+	local time = ability:GetSpecialValueFor("duration")
+	-- local dummy = CreateUnitByName("npc_dummy_unit_Ver2",caster:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
+	local dummy = CreateUnitByName("npc_dummy_unit",caster:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
 	dummy:FindAbilityByName("majia"):SetLevel(1)
 	ability:ApplyDataDrivenModifier(dummy,dummy,"modifier_C22W_EFFECT",{duration=5})
+	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=time})
 	caster.dummy = dummy
+	
     --獲取周圍的單位
     group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false)
 
@@ -243,7 +247,7 @@ function C22T_Damage( keys )
 	end
 
 
-	local dummy = CreateUnitByName("npc_dummy_unit_Ver2",caster:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
+	local dummy = CreateUnitByName("npc_dummy_unit",caster:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
 	dummy:FindAbilityByName("majia"):SetLevel(1)
 	caster.dummy = dummy
 

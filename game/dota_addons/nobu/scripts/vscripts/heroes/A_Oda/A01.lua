@@ -66,7 +66,7 @@ function A01E_old(keys)
 		end	)
 	end
 	local point_tem = point
-	local dummy = CreateUnitByName("npc_dummy_unit_Ver2",point_tem ,false,caster,caster,caster:GetTeam())	
+	local dummy = CreateUnitByName("npc_dummy_unit",point_tem ,false,caster,caster,caster:GetTeam())	
 	dummy:FindAbilityByName("majia"):SetLevel(1)		
 	
 	dummy.A01E_D = 0

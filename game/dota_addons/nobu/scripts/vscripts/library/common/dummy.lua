@@ -339,7 +339,7 @@ function showTitle( keys )
   end
   
   if keys.dummy then
-    local dummy = CreateUnitByName("npc_dummy_unit_Ver2",caster:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
+    local dummy = CreateUnitByName("npc_dummy_unit",caster:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
     dummy:FindAbilityByName("majia"):SetLevel(1)
     dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=5})
     local spike = ParticleManager:CreateParticle(keys.title, PATTACH_ABSORIGIN, dummy)
@@ -780,4 +780,36 @@ function aspd_passive ( keys )
   if caster.Aspd then
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_aspd",{duration = 0.15}):SetStackCount(caster.Aspd/0.1)
   end
+end
+
+function phased_dummy ( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  local target = keys.target
+  -- local friend_dummy = FindUnitsInRadius(
+  -- caster:GetTeamNumber(),
+  -- caster:GetAbsOrigin(),
+  -- nil,
+  -- 100,
+  -- DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+  -- DOTA_UNIT_TARGET_ALL,
+  -- DOTA_UNIT_TARGET_FLAG_NONE,
+  -- 0,
+  -- false)
+
+  if target ~= nil then
+    target:AddNewModifier(caster,caster,"modifier_phased",{duration=5})
+    print("suc")
+  else
+    print("fail")
+  end
+  -- for k,v in pairs(friend_dummy) do
+  --   if string.match(v:GetUnitName(),"dummy") then
+  --     caster:AddNewModifier(caster,caster,"modifier_phased",{duration=1})
+  --     print(v:GetUnitName())
+  --   else
+  --     caster:RemoveModifierByName("modifier_phased")
+  --     print("fail")
+  --   end
+  -- end
 end

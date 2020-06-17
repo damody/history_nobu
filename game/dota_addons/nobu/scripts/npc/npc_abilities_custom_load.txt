@@ -5880,4 +5880,41 @@
 			}
 		}
 	}
+	"phased_dummy"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"passive_phased_dummy"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Aura"	"modifier_phased_dummy"
+				"Aura_Radius"	"50"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_BOTH"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"		
+			}
+			"modifier_phased_dummy"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+				"Duration"			"1"
+				"States"
+					{
+						"MODIFIER_STATE_NO_UNIT_COLLISION" 	"MODIFIER_STATE_VALUE_ENABLED"
+					}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"TARGET"	"TARGET"
+						"ModifierName"	"modifier_phased_dummy"
+					}
+				}
+			}
+		}
+	}
 }

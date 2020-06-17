@@ -26,7 +26,7 @@ function new_C15E( keys )
 			point_tem = Vector(point_tem.x+distance*vec.x ,  point_tem.y+distance*vec.y , point_tem.z)
 			local z = GetGroundHeight(point_tem, nil)
 			point_tem.z = z
-			local dummy = CreateUnitByName("npc_dummy_unit_Ver2",point_tem ,false,caster,caster,caster:GetTeam())	
+			local dummy = CreateUnitByName("npc_dummy_unit",point_tem ,false,caster,caster,caster:GetTeam())	
 			dummy:SetOwner(caster)
 			dummy:FindAbilityByName("majia"):SetLevel(1)
 			ability:ApplyDataDrivenModifier(dummy,dummy,"modifier_C15E_2",nil)
