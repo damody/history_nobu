@@ -6,6 +6,7 @@ var giftNotificationRemainingTime = 0;
 var giftNotificationScheduler = false;
 var paymentTargetID = Game.GetLocalPlayerID();
 var donation_target_dropdown = false;
+var gid = -1;
 
 function setPaymentWindowVisible(visible) {
 	// GameEvents.SendCustomGameEventToServer('patreon:payments:window', { visible: visible });
@@ -35,6 +36,7 @@ var createPaymentRequest = createEventRequestCreator('patreon:payments:create');
 var paymentWindowUpdateListener;
 var paymentWindowPostUpdateTimer;
 function updatePaymentWindow() {
+	$.Msg(Game.GetState())
 	$.Msg("update")
 	if (paymentWindowUpdateListener != null) {
 		GameEvents.Unsubscribe(paymentWindowUpdateListener);
@@ -45,53 +47,61 @@ function updatePaymentWindow() {
 	}
 	$.Msg("loadging")
 	setPaymentWindowStatus('loading');
-	var player_id = Game.GetLocalPlayerID();
-	var all_playersID = Game.GetAllPlayerIDs();
-	var playerInfo = Game.GetPlayerInfo(Game.GetLocalPlayerID())
-	var player_team_id = playerInfo.player_team_id;
-	var all_steamIDs = [];
-	var all_players_name = [];
-	//2織田軍 3聯合軍
-	var playerIDs_OnTeam_A = Game.GetPlayerIDsOnTeam(2);
-	var playerIDs_OnTeam_B = Game.GetPlayerIDsOnTeam(3);
-	var id = get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
-	var urlA = "http://103.29.70.64:88/game/123?id=" + id;
-	var urlB = "http://103.29.70.64:88/game/123?id=" + id;
-	for (const key in all_playersID) {
-		if (all_playersID.hasOwnProperty(key)) {
-			var player_id = all_playersID[key];
-			var team_id = Game.GetPlayerInfo(player_id).player_team_id
-			var steam_id = Game.GetPlayerInfo(player_id).player_steamid
-			var steam_id_num = 0;
-			var multi = 1000000000000;
-			for (i = 4; i < steam_id.length; i++) {
-				steam_id_num += steam_id[i] * multi;
-				multi /= 10;
+	if (Game.GetState() == 3) {
+		var player_id = Game.GetLocalPlayerID();
+		var all_playersID = Game.GetAllPlayerIDs();
+		var playerInfo = Game.GetPlayerInfo(Game.GetLocalPlayerID())
+		var player_team_id = playerInfo.player_team_id;
+		var all_steamIDs = [];
+		var all_players_name = [];
+		//2織田軍 3聯合軍
+		var playerIDs_OnTeam_A = Game.GetPlayerIDsOnTeam(2);
+		var playerIDs_OnTeam_B = Game.GetPlayerIDsOnTeam(3);
+		var id = get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
+		var urlA = "http://103.29.70.64:88/game/123?id=" + id;
+		var urlB = "http://103.29.70.64:88/game/123?id=" + id;
+		for (const key in all_playersID) {
+			if (all_playersID.hasOwnProperty(key)) {
+				var player_id = all_playersID[key];
+				var team_id = Game.GetPlayerInfo(player_id).player_team_id
+				var steam_id = Game.GetPlayerInfo(player_id).player_steamid
+				var steam_id_num = 0;
+				var multi = 1000000000000;
+				for (i = 4; i < steam_id.length; i++) {
+					steam_id_num += steam_id[i] * multi;
+					multi /= 10;
+				}
+				steam_id_num -= 1197960265728;
+				all_steamIDs.push(steam_id_num);
+				var id = get_choose_id(player_id, team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
+				if (team_id == 2){
+					urlA = urlA + "&steamID" + id + "=" + steam_id_num;
+					all_players_name.push(Players.GetPlayerName(player_id))
+					urlA = urlA + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
+				}else{
+					urlB = urlB + "&steamID" + id + "=" + steam_id_num;
+					all_players_name.push(Players.GetPlayerName(player_id))
+					urlB = urlB + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
+				}
+				
 			}
-			steam_id_num -= 1197960265728;
-			all_steamIDs.push(steam_id_num);
-			var id = get_choose_id(player_id, team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
-			if (team_id == 2){
-				urlA = urlA + "&steamID" + id + "=" + steam_id_num;
-				all_players_name.push(Players.GetPlayerName(player_id))
-				urlA = urlA + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
-			}else{
-				urlB = urlB + "&steamID" + id + "=" + steam_id_num;
-				all_players_name.push(Players.GetPlayerName(player_id))
-				urlB = urlB + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
-			}
-			
+		}
+		if (player_team_id == 2){
+			$('#PaymentWindowBody').SetURL(urlA);
+			$.Msg(urlA)
+		}else{
+			$('#PaymentWindowBody').SetURL(urlB);
+			$.Msg(urlB)
+		}
+		$.Schedule(35, closeWindow);
+	} else {
+		if (gid != -1){
+			$('#PaymentWindowBody').SetURL("http://103.29.70.64:88/settlement/" + gid);
 		}
 	}
-	if (player_team_id == 2){
-		$('#PaymentWindowBody').SetURL(urlA);
-	}else{
-		$('#PaymentWindowBody').SetURL(urlB);
-	}
-	
 	setPaymentWindowStatus('success');
-	$.Schedule(35, closeWindow);
 }
+
 
 GameEvents.Subscribe('patreon:payments:update', function (response) {
 	if (response.error) {
@@ -102,15 +112,22 @@ GameEvents.Subscribe('patreon:payments:update', function (response) {
 });
 
 function showWindowTick() {
-	if (Game.GetState() == 3) {
+	// if (Game.GetState() == 3) {
 		setPaymentWindowVisible(true);
-	} else {
-		$.Schedule(0.1, showWindowTick);
-	}
+	// } else {
+	// 	$.Schedule(0.1, showWindowTick);
+	// }
+}
+
+function show_settlement( keys ){
+	gid = keys.game_id
+	$.Msg(keys)
+	$.Msg(gid)
+	updatePaymentWindow();
 }
 
 function debug_choose_hero() {
-	$.Msg(Game.GetState());
+	$.Msg("testdebug " + Game.GetState());
 }
 
 function get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B) {
@@ -143,3 +160,5 @@ function get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_
 
 showWindowTick();
 GameEvents.Subscribe("debug_choose_hero", debug_choose_hero);
+GameEvents.Subscribe("show_settlement", show_settlement);
+$.Msg("subscribe");
