@@ -115,7 +115,7 @@ function A04T_HIDEUNIT_SPELLABLILITY( keys )
 	local point = keys.target_points[1] 
 	local caster = keys.caster
 	local id 	= caster:GetPlayerID() --獲取玩家ID
-	local dummy2 = CreateUnitByName( "npc_dummy_unit_Ver2", point, false, caster, caster, caster:GetTeamNumber() )
+	local dummy2 = CreateUnitByName( "npc_dummy_unit", point, false, caster, caster, caster:GetTeamNumber() )
 	local level  = keys.ability:GetLevel()--獲取技能等級
 
 	--記錄在全局
@@ -203,7 +203,7 @@ function A04T_freezing_field_explode( keys )
 	ParticleManager:SetParticleControl( fxIndex, 0, attackPoint )
 	
 	-- Fire sound at dummy
-	local dummy = CreateUnitByName( "npc_dummy_unit_Ver2", attackPoint, false, caster, caster, caster:GetTeamNumber() )
+	local dummy = CreateUnitByName( "npc_dummy_unit", attackPoint, false, caster, caster, caster:GetTeamNumber() )
 	ability:ApplyDataDrivenModifier( caster, dummy, refModifierName, {} )
 	StartSoundEvent( soundEventName, dummy )
 	Timers:CreateTimer( 0.1, function()
@@ -364,11 +364,55 @@ function A04W_OnSpawn( keys )
 		unit:AddNewModifier(unit,ability,"modifier_phased",{duration=0.1})
 		ability:ApplyDataDrivenModifier(unit,unit,"modifier_A04W_summend",{})
 		ability:ApplyDataDrivenModifier(unit,unit,"modifier_A04W_Tech",{})
-		Timers:CreateTimer(0.3 ,function()
-			unit:MoveToTargetToAttack(target)
-		end)
+		ability:ApplyDataDrivenModifier(unit,unit,"modifier_A04W_move",{})
+		unit:SetControllableByPlayer(caster:GetPlayerID(),true)
+		if not caster:HasModifier("nobu_modifier_spell_hint_self") then
+			local spell_hint_table = {
+				duration   = 9999,		-- 持續時間
+				radius     = 1000,		-- 半徑
+				caster     = caster,	-- 角色
+			}
+			caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint_self",spell_hint_table)
+		end
+		-- Timers:CreateTimer(0.3 ,function()
+		-- 	unit:MoveToTargetToAttack(target)
+		-- end)
 		
 	end
+end
+
+function A04W_Death ( keys )
+	local caster = keys.caster
+	local owner = caster:GetOwner()
+	if owner:HasModifier("nobu_modifier_spell_hint_self") then
+		owner:RemoveModifierByName("nobu_modifier_spell_hint_self")
+	end
+end
+
+function A04W_move ( keys )
+	local caster = keys.caster
+	local owner = caster:GetOwner()
+	local ability = keys.ability
+	local point = owner:GetAbsOrigin()
+	local dif = CalcDistanceBetweenEntityOBB(caster,owner)
+
+	if dif > 1000 then
+		-- ability:ApplyDataDrivenModifier(caster,caster,"modifier_A04W_inmoveable",{})
+		caster.inmoveable = 1
+		caster:MoveToNPC(owner)	
+	end
+	-- if caster:HasModifier("modifier_A04W_inmoveable") then
+	-- 	print("yes")
+	-- 	caster:MoveToNPC(owner)
+	-- end
+	if dif < 800 then
+		caster.inmoveable = nil
+		-- caster:RemoveModifierByName("modifier_A04W_inmoveable")
+	end
+
+			-- caster:SetAbsOrigin(point)
+		-- caster:AddNewModifier(caster,ability,"modifier_phased",{duration=0.1})
+
 end
 
 function A04W_ATTACK_BUILDING( event )
@@ -381,7 +425,7 @@ function A04W_ATTACK_BUILDING( event )
 end
 
 function A04W_Bonus( event )
-	PrintTable(event)
+	-- PrintTable(event)
 	--隨著英雄等級提升
 	local caster = event.caster.owner
 	local target = event.target

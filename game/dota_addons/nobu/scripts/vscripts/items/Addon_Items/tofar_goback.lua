@@ -402,7 +402,7 @@ function reward6300(keys)
 	local ability = keys.ability
 	local pos = caster:GetAbsOrigin()
 	if caster:IsHero() then
-		local dummy = CreateUnitByName("npc_dummy_unit_Ver2",caster.donkey.oripos ,false,caster,caster,caster:GetTeamNumber())	
+		local dummy = CreateUnitByName("npc_dummy_unit",caster.donkey.oripos ,false,caster,caster,caster:GetTeamNumber())	
 		ability:ApplyDataDrivenModifier(caster,dummy,"modifier_invulnerable",{duration=60})
 		ability:ApplyDataDrivenModifier(caster,dummy,"modifier_kill",{duration=60})
 		dummy:AddAbility("reward6300"):SetLevel(1)

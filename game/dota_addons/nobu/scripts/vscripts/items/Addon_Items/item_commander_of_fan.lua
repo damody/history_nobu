@@ -115,3 +115,22 @@ function Shock3( keys )
 		end
 	end
 end
+
+-- function AuraHR (keys)
+-- 	local caster = keys.caster
+-- 	local target = keys.target
+-- 	if not target.decrease_health then
+-- 		target.decrease_health = 0.5
+-- 	else
+-- 		if target.decrease_health < 0.5 then
+-- 			return
+-- 	end
+-- end
+
+-- function AuraHR2 (keys)
+-- 	local caster = keys.caster
+-- 	local target = keys.target
+-- 	if target:IsHero then
+-- 		target.decrease_health = 1
+-- 	end
+-- end

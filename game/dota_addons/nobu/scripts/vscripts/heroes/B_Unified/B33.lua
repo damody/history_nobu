@@ -91,18 +91,27 @@ end
 function B33T( keys )
 	local caster = keys.caster
 	local target = keys.target
+	local ability = keys.ability
 	local point = caster:GetAbsOrigin()
 	local team  = caster:GetTeamNumber()
 	local dummy = CreateUnitByName("B33T_UNIT",caster:GetAbsOrigin(),true,nil,nil,team)
 	local time = 0.1
 	local num = 0
-	local Ult_Level = keys.Ult_Level
+	local Ult_Level = ability:GetSpecialValueFor("Ult_Level")
+	local decrease_health = ability:GetSpecialValueFor("decrease_health") / 100
+	print(Ult_Level)
+	print(decrease_health)
 
 	if target.b33T == nil then	
 		target.b33T = 0
 	end
+	if target.decrease_health == nil then
+		target.decrease_health = 0
+	end
 	target.b33T = Ult_Level
-
+	if target.decrease_health < decrease_health then
+		target.decrease_health = decrease_health
+	end
 
 	--dummy:AddAbility("majia"):SetLevel(1)
 	dummy:SetForwardVector(caster:GetForwardVector())
@@ -157,11 +166,10 @@ function B33T( keys )
     			dummy:ForceKill( true )
     			end)
     		if target:HasModifier("modifier_spawn_spiderlings_datadriven") then
-    			target:RemoveModifierByName("modifier_spawn_spiderlings_datadriven")
+				target:RemoveModifierByName("modifier_spawn_spiderlings_datadriven")
     		end
     		return nil
 		elseif (isstart and not target:HasModifier("modifier_spawn_spiderlings_datadriven")) then
-
     		keys.ability:ApplyDataDrivenModifier(caster, target,"modifier_spawn_spiderlings_datadriven",nil)
     		return time
     	else

@@ -119,8 +119,8 @@
 	"item"      "item_sakabatou"			//逆刃刀
 	"item"      "item_glass_mitsutomo"			//琉璃光姬
 	"item"      "item_the_dark_yellow_teeth_and_zimbabwe"			//闇牙黃泉津
-	// "item"		"item_Shintogo_Kunimitsu"	//新藤五國光
-	// "item"		"item_Hannya_Onimaru"	//般若鬼丸
+	"item"		"item_Shintogo_Kunimitsu"	//新藤五國光
+	"item"		"item_Hannya_Onimaru"	//般若鬼丸
 }
 
 //高階道具
@@ -170,6 +170,7 @@
 	"item"      "item_contemporary_armor"			//當世具足
 	"item"      "item_shun_armor"			//掛面具足
 	"item"      "item_prophet_armor"			//真知短甲
+	"item"		"item_prophet_Akazonae_armor"	//真視赤備挂甲
 	"item"      "item_devil_supressor_armor"			//制魔腹卷
 	"item"      "item_fubuki_shoulders"			//吹雪護肩
 	"item"      "item_ninja_cloth"			//忍者裝束

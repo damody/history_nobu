@@ -2776,7 +2776,7 @@
 			"modifier_check_is_dead"
 			{
 				"Passive"	"1"
-				"IsHidden"			"1"
+				"IsHidden"	"1"
 				"OnCreated"
 				{
 					"RunScript"
@@ -5681,7 +5681,7 @@
 			"modifier_on_death"
 			{
 				"Passive"	"1"
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"OnDeath"
 				{
 					"RunScript"
@@ -5754,7 +5754,7 @@
 		{
 			"modifier_slow_self_passive"
 			{
-				"Passive"	"1"
+				"Passive"	"0"
 				"ThinkInterval"	"0.1"
 				"OnIntervalThink"
 				{
@@ -5793,6 +5793,7 @@
 		{
 			"modifier_health_regen_passive"
 			{
+				"IsHidden"	"1"
 				"Passive"	"1"
 				"ThinkInterval"	"0.1"
 				"OnIntervalThink"
@@ -5806,6 +5807,7 @@
 			}
 			"modifier_healthregen"
 			{
+				
 				"IsHidden"	"1"
 				"IsDebuff"	"1"
 				"Properties"
@@ -5817,12 +5819,14 @@
 	}
 	"ManaRegen_self"
 	{
+		
 		"BaseClass"	"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"Modifiers"
 		{
 			"modifier_mana_regen_passive"
 			{
+				"IsHidden"	"1"
 				"Passive"	"1"
 				"ThinkInterval"	"0.1"
 				"OnIntervalThink"
@@ -5853,6 +5857,7 @@
 		{
 			"modifier_aspd_passive"
 			{
+				"IsHidden"	"1"
 				"Passive"	"1"
 				"ThinkInterval"	"0.1"
 				"OnIntervalThink"
@@ -5871,6 +5876,43 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"0.1"
+				}
+			}
+		}
+	}
+	"phased_dummy"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"passive_phased_dummy"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"Aura"	"modifier_phased_dummy"
+				"Aura_Radius"	"50"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_BOTH"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"		
+			}
+			"modifier_phased_dummy"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"IsDebuff"			"1"
+				"Duration"			"1"
+				"States"
+					{
+						"MODIFIER_STATE_NO_UNIT_COLLISION" 	"MODIFIER_STATE_VALUE_ENABLED"
+					}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"TARGET"	"TARGET"
+						"ModifierName"	"modifier_phased_dummy"
+					}
 				}
 			}
 		}

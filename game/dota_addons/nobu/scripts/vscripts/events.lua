@@ -283,15 +283,45 @@ function Nobu:HealFilter(keys)
     end
   end
 
-  if target.HasModifier and target:HasModifier("modifier_decreased_health_regen") then
-    if target.b33T == 1 then
-      keys.heal = keys.heal * 0.4
-    elseif target.b33T == 2 then
-      keys.heal = keys.heal * 0.2
-    elseif target.b33T == 3 then
-      keys.heal = keys.heal * 0.01
+  if target:HasModifier("modifier_spawn_spiderlings_datadriven") then
+      if target.b33T == 1 then
+        keys.heal = keys.heal * target.decrease_health
+      elseif target.b33T == 2 then
+        keys.heal = keys.heal * target.decrease_health
+      elseif target.b33T == 3 then
+        keys.heal = keys.heal * target.decrease_health
+      end
+  end
+
+  if target:HasModifier("modifier_decrease_HR") then
+    if target.decrease_health then
+      if target.decrease_health >= 0.5 then
+        target.decrease_health = 0.5
+      end
+    else
+      target.decrease_health = 0.5
+    end
+      
+    if target:IsHero() then
+    keys.heal = keys.heal * target.decrease_health
     end
   end
+
+  if target:HasModifier("modifier_satsuma_gun_DH") then
+    if target.decrease_health then
+      if target.decrease_health >= 0.5 then
+        target.decrease_health = 0.5
+      end
+    else
+      target.decrease_health = 0.5
+    end
+
+  if target:IsHero() then
+  keys.heal = keys.heal * target.decrease_health
+  end
+end
+
+
 
 	return true
 end

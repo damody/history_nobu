@@ -336,7 +336,8 @@ function A26T_OnSpellStart( keys )
 	}
 	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
 	ability.dummy = dummy
-	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=5})
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
+	caster:AddNewModifier(nil,nil,"modifier_phased",{duration=1})
 	local diff = point-caster:GetAbsOrigin()
 	diff.z = 0
 	dummy:SetForwardVector(diff:Normalized())

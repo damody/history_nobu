@@ -740,7 +740,7 @@ function C08R_old_OnSpellStart( keys )
 		x3 = x1 + 138*i*math.cos(a1-90*3.14159/180)
 		y3 = y1 + 138*i*math.sin(a1-90*3.14159/180)
 
-			dummy = CreateUnitByName("npc_dummy_unit_Ver2",Vector(x2,y2) ,false,nil,nil,caster:GetTeam())
+			dummy = CreateUnitByName("npc_dummy_unit",Vector(x2,y2) ,false,nil,nil,caster:GetTeam())
 			dummy:FindAbilityByName("majia"):SetLevel(1)
 			dummy:AddAbility("for_no_damage"):SetLevel(1)
 			--modifier
@@ -752,7 +752,7 @@ function C08R_old_OnSpellStart( keys )
 			--紀錄
 			dummy.C08R_old_P = particle
 
-		dummy = CreateUnitByName("npc_dummy_unit_Ver2",Vector(x3,y3) ,false,nil,nil,caster:GetTeam())
+		dummy = CreateUnitByName("npc_dummy_unit",Vector(x3,y3) ,false,nil,nil,caster:GetTeam())
 		dummy:FindAbilityByName("majia"):SetLevel(1)
 		dummy:AddAbility("for_no_damage"):SetLevel(1)
 		--modifier
