@@ -421,6 +421,7 @@ function Nobu:OnGameRulesStateChange( keys )
 	elseif(newState == DOTA_GAMERULES_STATE_POST_GAME) then
 	if _G.nobu_server_b then
 		Timers:CreateTimer(0.3, function()
+			GameRules: SendCustomMessage("遊戲結束啦", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 			CustomGameEventManager:Send_ServerToAllClients("show_settlement", {game_id = _G.game_id})
 			Nobu:CloseRoom()
 		end)	
