@@ -125,7 +125,7 @@
 	"item"      "item_moon_spear"			//斬月槍
 	"item"      "item_ronin_jitte"			//浪人十手
 	"item"      "item_sakabatou"			//逆刃刀
-	"item"      "item_glass_mitsutomo"		//琉璃光姬
+
 	"item"      "item_the_dark_yellow_teeth_and_zimbabwe"			//闇牙黃泉津
 	"item"		"item_Shintogo_Kunimitsu"	//新藤五國光
 	"item"		"item_Hannya_Onimaru"	//般若鬼丸
@@ -141,6 +141,7 @@
 	"item"		"item_swiftness_boots"				//流風捷履
 	"item"      "item_the_shell_of_spirituality_kappa"			//妖化河童殼
 	"item"      "item_kotennmyohiragumo"			//平蜘蛛釜
+	"item"      "item_glass_mitsutomo"		//琉璃光姬
 	"item"      "item_magic_talisman"			//御魔護符
 	"item"      "item_moon_mirror"			//月輪鏡
 	"item"      "item_hachiman_bell"			//八幡鈴
@@ -270,12 +271,12 @@
 	"item"      "item_the_great_sword_of_tiger"			//長曾彌虎撤．銘刀
 	"item"      "item_muramasa_katana"					//妖刀．村正
 	"item"      "item_the_great_sword_of_invincible"	//葵紋越前康繼．禦神刀
-	"item"      "item_the_great_spear_of_dragonfly"		//蜻蛉切．銘槍
+	"item"      "item_the_great_sword_of_drain"			//吉光骨食．銘刀
 	"item"      "item_the_great_sword_of_hurricane"		//鐵碎牙．妖刀
 	"item"      "item_the_great_sword_of_spike"			//鬼丸國鋼．銘刀
 	"item"		"item_the_great_silver_armor"			//銀伊予札白糸威胴丸具足
 	"item"      "item_the_great_sword_of_teleport"		//陸奧守吉行．銘刀
-	"item"      "item_the_great_sword_of_drain"			//吉光骨食．銘刀
+	"item"      "item_the_great_spear_of_dragonfly"		//蜻蛉切．銘槍
 	"item"      "item_the_great_sword_of_toxic"			//梅鶯毒．妖刀
 }
 
