@@ -44,7 +44,9 @@ function SendHTTPRequest_test(path, method, values, callback)
 					break
 				end
 			end
-			player:SetSelectedHero(hero)
+			if (hero ~= "") then
+				player:SetSelectedHero(hero)
+			end
 		end
 		callback(result.Body)
 	end)
@@ -98,15 +100,31 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- 	end
 		-- end)
 	elseif(newState == DOTA_GAMERULES_STATE_HERO_SELECTION) then --選擇英雄階段
+		-- 檢查是不是已經用client選好腳色了
+		for playerID = 0, 9 do
+			local steam_id = PlayerResource:GetSteamAccountID(playerID)
+			SendHTTPRequest_test("", "POST",
+			{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
+				if (string.match(res, "error")) then
+					callback()
+				end
+			end)
+		end
+
+		-- 沒選好用內嵌的網頁選
 		Timers:CreateTimer(33, function()
 			for playerID = 0, 9 do
 				local steam_id = PlayerResource:GetSteamAccountID(playerID)
-				SendHTTPRequest_test("", "POST",
-				{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
-					if (string.match(res, "error")) then
-						callback()
-					end
-				end)
+				local player        = PlayerResource:GetPlayer(playerID)
+				print(player:GetAssignedHero());
+				if (player:GetAssignedHero() == nil) then
+					SendHTTPRequest_test("", "POST",
+					{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
+						if (string.match(res, "error")) then
+							callback()
+						end
+					end)
+				end
 			end
 		end)
 		for i=0,20 do

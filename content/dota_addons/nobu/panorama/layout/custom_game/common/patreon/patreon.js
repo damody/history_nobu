@@ -35,6 +35,7 @@ var createPaymentRequest = createEventRequestCreator('patreon:payments:create');
 
 var paymentWindowUpdateListener;
 var paymentWindowPostUpdateTimer;
+
 function updatePaymentWindow() {
 	$.Msg(Game.GetState())
 	$.Msg("update")
