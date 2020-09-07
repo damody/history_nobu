@@ -53,7 +53,7 @@ function SendHTTPRequestGetHero(path, method, values, callback)
 end
 
 function SendHTTPRequestGetPlayers(path, method, values, callback)
-	local req = CreateHTTPRequestScriptVM( method, "http://103.29.70.64:7878/")
+	local req = CreateHTTPRequestScriptVM( method, "http://103.29.70.64:7878/"..path)
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
 	end
@@ -63,23 +63,23 @@ function SendHTTPRequestGetPlayers(path, method, values, callback)
 			table[key] = value
 		end
 		if table["0"] then
-		 	GameRules:FinishCustomGameSetup()
 		 	for i=0, 10 do 
 		 		PlayerResource:SetCustomTeamAssignment(i, 5)
 		 	end
 		end
-		for k,v in ipairs(table) do
+		for k,v in pairs(table) do
 			for i=0, 10 do
 				if tostring(PlayerResource:GetSteamID(i)) == v then
-					if k < 5 then
+					if tonumber(k) < 5 then
 						PlayerResource:SetCustomTeamAssignment(i, 2)
 					end
-					if k > 5 then
+					if tonumber(k) > 5 then
 						PlayerResource:SetCustomTeamAssignment(i, 3)
 					end
 				end
 			end
 		end
+		GameRules:FinishCustomGameSetup()
 		callback(result.Body)
 	end)
 end
@@ -123,13 +123,13 @@ function Nobu:OnGameRulesStateChange( keys )
 		--self.bSeenWaitForPlayers = true
 	elseif(newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) then
 		-- 檢查這場遊戲是不是由client開的
-		local steam_id = PlayerResource:GetSteamAccountID(0)
-		SendHTTPRequestGetHero("", "POST",
-			{id = tostring(steam_id)}, function(res)
-				if (string.match(res, "error")) then
-					callback()
-				end
-			end)
+		local steam_id = PlayerResource:GetSteamID(0)
+		SendHTTPRequestGetPlayers("get_players/", "POST",
+		{id = tostring(steam_id)}, function(res)
+			if (string.match(res, "error")) then
+				callback()
+			end
+		end)
 		-- -- --2織田軍 3聯合軍 5沒隊伍
 		-- Timers:CreateTimer(0.1, function()
 		-- 	GameRules:FinishCustomGameSetup()
@@ -155,7 +155,6 @@ function Nobu:OnGameRulesStateChange( keys )
 			for playerID = 0, 9 do
 				local steam_id = PlayerResource:GetSteamAccountID(playerID)
 				local player        = PlayerResource:GetPlayer(playerID)
-				print(player:GetAssignedHero());
 				if (player:GetAssignedHero() == nil) then
 					SendHTTPRequestGetHero("", "POST",
 					{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
