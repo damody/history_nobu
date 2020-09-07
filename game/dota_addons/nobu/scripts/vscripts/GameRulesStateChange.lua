@@ -24,7 +24,7 @@ function SendHTTPRequest(path, method, values, callback)
 	end)
 end
 
-function SendHTTPRequest_test(path, method, values, callback)
+function SendHTTPRequestGetHero(path, method, values, callback)
 	local req = CreateHTTPRequestScriptVM( method, "http://103.29.70.64:7878/")
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
@@ -52,6 +52,37 @@ function SendHTTPRequest_test(path, method, values, callback)
 	end)
 end
 
+function SendHTTPRequestGetPlayers(path, method, values, callback)
+	local req = CreateHTTPRequestScriptVM( method, "http://103.29.70.64:7878/")
+	for key, value in pairs(values) do
+		req:SetHTTPRequestGetOrPostParameter(key, value)
+	end
+	req:Send(function(result)
+		local table = {}
+		for key, value in string.gmatch(tostring(result.Body), "(%w+)=(%w+)") do 
+			table[key] = value
+		end
+		if table["0"] then
+		 	GameRules:FinishCustomGameSetup()
+		 	for i=0, 10 do 
+		 		PlayerResource:SetCustomTeamAssignment(i, 5)
+		 	end
+		end
+		for k,v in ipairs(table) do
+			for i=0, 10 do
+				if tostring(PlayerResource:GetSteamID(i)) == v then
+					if k < 5 then
+						PlayerResource:SetCustomTeamAssignment(i, 2)
+					end
+					if k > 5 then
+						PlayerResource:SetCustomTeamAssignment(i, 3)
+					end
+				end
+			end
+		end
+		callback(result.Body)
+	end)
+end
 
 -- 測試模式送裝
 function for_test_equiment()
@@ -91,7 +122,14 @@ function Nobu:OnGameRulesStateChange( keys )
 	elseif(newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD) then
 		--self.bSeenWaitForPlayers = true
 	elseif(newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) then
-		
+		-- 檢查這場遊戲是不是由client開的
+		local steam_id = PlayerResource:GetSteamAccountID(0)
+		SendHTTPRequestGetHero("", "POST",
+			{id = tostring(steam_id)}, function(res)
+				if (string.match(res, "error")) then
+					callback()
+				end
+			end)
 		-- -- --2織田軍 3聯合軍 5沒隊伍
 		-- Timers:CreateTimer(0.1, function()
 		-- 	GameRules:FinishCustomGameSetup()
@@ -103,7 +141,8 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- 檢查是不是已經用client選好腳色了
 		for playerID = 0, 9 do
 			local steam_id = PlayerResource:GetSteamAccountID(playerID)
-			SendHTTPRequest_test("", "POST",
+			print(steam_id)
+			SendHTTPRequestGetHero("", "POST",
 			{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
 				if (string.match(res, "error")) then
 					callback()
@@ -118,7 +157,7 @@ function Nobu:OnGameRulesStateChange( keys )
 				local player        = PlayerResource:GetPlayer(playerID)
 				print(player:GetAssignedHero());
 				if (player:GetAssignedHero() == nil) then
-					SendHTTPRequest_test("", "POST",
+					SendHTTPRequestGetHero("", "POST",
 					{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
 						if (string.match(res, "error")) then
 							callback()
