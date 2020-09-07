@@ -14,8 +14,8 @@ gamestates =
 }
 
 
-function SendHTTPRequest(path, method, values, callback)
-	local req = CreateHTTPRequestScriptVM( method, "http://172.104.107.13/"..path )
+function SendHTTPRequestEndGame(path, method, values, callback)
+	local req = CreateHTTPRequestScriptVM( method, "http://103.29.70.64:7878/"..path )
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
 	end
@@ -478,6 +478,19 @@ function Nobu:OnGameRulesStateChange( keys )
 	if _G.nobu_server_b then
 		Timers:CreateTimer(0.3, function()
 			GameRules: SendCustomMessage("遊戲結束啦", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+			print("end game")
+			SendHTTPRequestEndGame(
+				"end_game/",
+				"POST",
+				{
+					id = tostring(PlayerResource:GetSteamID(0)),
+				},
+				function(res)
+					if (string.match(res, "error")) then
+						callback()
+					end
+				end
+			)
 			CustomGameEventManager:Send_ServerToAllClients("show_settlement", {game_id = _G.game_id})
 			Nobu:CloseRoom()
 		end)	
