@@ -140,7 +140,7 @@ function Nobu:OnGameRulesStateChange( keys )
 	elseif(newState == DOTA_GAMERULES_STATE_HERO_SELECTION) then --選擇英雄階段
 		-- 檢查是不是已經用client選好腳色了
 		for playerID = 0, 9 do
-			local steam_id = PlayerResource:GetSteamAccountID(playerID)
+			local steam_id = PlayerResource:GetSteamID(playerID)
 			print(steam_id)
 			SendHTTPRequestGetHero("", "POST",
 			{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
@@ -479,11 +479,17 @@ function Nobu:OnGameRulesStateChange( keys )
 		Timers:CreateTimer(0.3, function()
 			GameRules: SendCustomMessage("遊戲結束啦", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 			print("end game")
+			local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
+			local nobu_res = "L"
+			if ancient1:IsAlive() then
+				local nobu_res = "W"
+			end
 			SendHTTPRequestEndGame(
 				"end_game/",
 				"POST",
 				{
 					id = tostring(PlayerResource:GetSteamID(0)),
+					res = nobu_res
 				},
 				function(res)
 					if (string.match(res, "error")) then
