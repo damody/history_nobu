@@ -14,8 +14,8 @@ gamestates =
 }
 
 
-function SendHTTPRequest(path, method, values, callback)
-	local req = CreateHTTPRequestScriptVM( method, "http://172.104.107.13/"..path )
+function SendHTTPRequestEndGame(path, method, values, callback)
+	local req = CreateHTTPRequestScriptVM( method, "http://103.29.70.64:7878/"..path )
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
 	end
@@ -24,7 +24,7 @@ function SendHTTPRequest(path, method, values, callback)
 	end)
 end
 
-function SendHTTPRequest_test(path, method, values, callback)
+function SendHTTPRequestGetHero(path, method, values, callback)
 	local req = CreateHTTPRequestScriptVM( method, "http://103.29.70.64:7878/")
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
@@ -44,12 +44,45 @@ function SendHTTPRequest_test(path, method, values, callback)
 					break
 				end
 			end
-			player:SetSelectedHero(hero)
+			if (hero ~= "") then
+				player:SetSelectedHero(hero)
+			end
 		end
 		callback(result.Body)
 	end)
 end
 
+function SendHTTPRequestGetPlayers(path, method, values, callback)
+	local req = CreateHTTPRequestScriptVM( method, "http://103.29.70.64:7878/"..path)
+	for key, value in pairs(values) do
+		req:SetHTTPRequestGetOrPostParameter(key, value)
+	end
+	req:Send(function(result)
+		local table = {}
+		for key, value in string.gmatch(tostring(result.Body), "(%w+)=(%w+)") do 
+			table[key] = value
+		end
+		if table["0"] then
+		 	for i=0, 10 do 
+		 		PlayerResource:SetCustomTeamAssignment(i, 5)
+		 	end
+		end
+		for k,v in pairs(table) do
+			for i=0, 10 do
+				if tostring(PlayerResource:GetSteamID(i)) == v then
+					if tonumber(k) < 5 then
+						PlayerResource:SetCustomTeamAssignment(i, 2)
+					end
+					if tonumber(k) > 5 then
+						PlayerResource:SetCustomTeamAssignment(i, 3)
+					end
+				end
+			end
+		end
+		GameRules:FinishCustomGameSetup()
+		callback(result.Body)
+	end)
+end
 
 -- 測試模式送裝
 function for_test_equiment()
@@ -89,7 +122,14 @@ function Nobu:OnGameRulesStateChange( keys )
 	elseif(newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD) then
 		--self.bSeenWaitForPlayers = true
 	elseif(newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) then
-		
+		-- 檢查這場遊戲是不是由client開的
+		local steam_id = PlayerResource:GetSteamID(0)
+		SendHTTPRequestGetPlayers("get_players/", "POST",
+		{id = tostring(steam_id)}, function(res)
+			if (string.match(res, "error")) then
+				callback()
+			end
+		end)
 		-- -- --2織田軍 3聯合軍 5沒隊伍
 		-- Timers:CreateTimer(0.1, function()
 		-- 	GameRules:FinishCustomGameSetup()
@@ -98,15 +138,31 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- 	end
 		-- end)
 	elseif(newState == DOTA_GAMERULES_STATE_HERO_SELECTION) then --選擇英雄階段
+		-- 檢查是不是已經用client選好腳色了
+		for playerID = 0, 9 do
+			local steam_id = PlayerResource:GetSteamID(playerID)
+			print(steam_id)
+			SendHTTPRequestGetHero("", "POST",
+			{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
+				if (string.match(res, "error")) then
+					callback()
+				end
+			end)
+		end
+
+		-- 沒選好用內嵌的網頁選
 		Timers:CreateTimer(33, function()
 			for playerID = 0, 9 do
 				local steam_id = PlayerResource:GetSteamAccountID(playerID)
-				SendHTTPRequest_test("", "POST",
-				{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
-					if (string.match(res, "error")) then
-						callback()
-					end
-				end)
+				local player        = PlayerResource:GetPlayer(playerID)
+				if (player:GetAssignedHero() == nil) then
+					SendHTTPRequestGetHero("", "POST",
+					{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
+						if (string.match(res, "error")) then
+							callback()
+						end
+					end)
+				end
 			end
 		end)
 		for i=0,20 do
@@ -422,6 +478,25 @@ function Nobu:OnGameRulesStateChange( keys )
 	if _G.nobu_server_b then
 		Timers:CreateTimer(0.3, function()
 			GameRules: SendCustomMessage("遊戲結束啦", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+			print("end game")
+			local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
+			local nobu_res = "L"
+			if ancient1:IsAlive() then
+				local nobu_res = "W"
+			end
+			SendHTTPRequestEndGame(
+				"end_game/",
+				"POST",
+				{
+					id = tostring(PlayerResource:GetSteamID(0)),
+					res = nobu_res
+				},
+				function(res)
+					if (string.match(res, "error")) then
+						callback()
+					end
+				end
+			)
 			CustomGameEventManager:Send_ServerToAllClients("show_settlement", {game_id = _G.game_id})
 			Nobu:CloseRoom()
 		end)	

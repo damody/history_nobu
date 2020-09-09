@@ -35,6 +35,7 @@ var createPaymentRequest = createEventRequestCreator('patreon:payments:create');
 
 var paymentWindowUpdateListener;
 var paymentWindowPostUpdateTimer;
+
 function updatePaymentWindow() {
 	$.Msg(Game.GetState())
 	$.Msg("update")
@@ -58,8 +59,8 @@ function updatePaymentWindow() {
 		var playerIDs_OnTeam_A = Game.GetPlayerIDsOnTeam(2);
 		var playerIDs_OnTeam_B = Game.GetPlayerIDsOnTeam(3);
 		var id = get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
-		var urlA = "http://103.29.70.64:88/game/123?id=" + id;
-		var urlB = "http://103.29.70.64:88/game/123?id=" + id;
+		var urlA = "http://103.29.70.64:88/g/123?id=" + id;
+		var urlB = "http://103.29.70.64:88/g/123?id=" + id;
 		for (const key in all_playersID) {
 			if (all_playersID.hasOwnProperty(key)) {
 				var player_id = all_playersID[key];
@@ -93,7 +94,7 @@ function updatePaymentWindow() {
 			$('#PaymentWindowBody').SetURL(urlB);
 			$.Msg(urlB)
 		}
-		$.Schedule(35, closeWindow);
+		$.Schedule(0, closeWindow);
 	} else {
 		if (gid != -1){
 			$('#PaymentWindowBody').SetURL("http://103.29.70.64:88/settlement/" + gid);
