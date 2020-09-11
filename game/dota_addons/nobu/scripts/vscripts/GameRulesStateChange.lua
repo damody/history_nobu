@@ -151,9 +151,9 @@ function Nobu:OnGameRulesStateChange( keys )
 		end
 
 		-- 沒選好用內嵌的網頁選
-		Timers:CreateTimer(33, function()
+		Timers:CreateTimer(40, function()
 			for playerID = 0, 9 do
-				local steam_id = PlayerResource:GetSteamAccountID(playerID)
+				local steam_id = PlayerResource:GetSteamID(playerID)
 				local player        = PlayerResource:GetPlayer(playerID)
 				if (player:GetAssignedHero() == nil) then
 					SendHTTPRequestGetHero("", "POST",
