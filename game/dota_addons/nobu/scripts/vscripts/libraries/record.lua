@@ -32,7 +32,7 @@ function RECORD:StoreToPlayers(keys)
         },
         function(res)
             if (string.match(res, "error")) then
-                callback()
+                print("store to Players fail")
             end
         end
     )
@@ -45,6 +45,7 @@ function RECORD:StoreToAFKRecord(keys)
         {game_id = tostring(keys.game_id), steam_id = tostring(keys.steam_id)},
         function(res)
             if (string.match(res, "error")) then
+                print("store to AFKRecord fail")
                 callback()
             end
         end
@@ -62,6 +63,7 @@ function RECORD:StoreToFinishedGame(keys)
         },
         function(res)
             if (string.match(res, "error")) then
+                print("store to FinishedGame fail")
                 callback()
             else
                 _G.game_id = tostring(res)
@@ -135,6 +137,7 @@ function RECORD:StoreToFinishedDetail(keys)
         },
         function(res)
             if (string.match(res, "error")) then
+                print("store to FinishedDetail fail")
                 callback()
             end
         end

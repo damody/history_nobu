@@ -154,8 +154,8 @@ function Nobu:OnGameRulesStateChange( keys )
 		Timers:CreateTimer(40, function()
 			for playerID = 0, 9 do
 				local steam_id = PlayerResource:GetSteamID(playerID)
-				local player        = PlayerResource:GetPlayer(playerID)
-				if (player:GetAssignedHero() == nil) then
+				local player   = PlayerResource:GetPlayer(playerID)
+				if (player and player:GetAssignedHero() == nil) then
 					SendHTTPRequestGetHero("", "POST",
 					{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
 						if (string.match(res, "error")) then
@@ -476,7 +476,7 @@ function Nobu:OnGameRulesStateChange( keys )
 
 	elseif(newState == DOTA_GAMERULES_STATE_POST_GAME) then
 	if _G.nobu_server_b then
-		Timers:CreateTimer(0.3, function()
+		Timers:CreateTimer(3, function()
 			GameRules: SendCustomMessage("遊戲結束啦", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 			print("end game")
 			local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
