@@ -73,6 +73,9 @@ function RECORD:StoreToFinishedGame(keys)
 end
 
 function RECORD:StoreToFinishedDetail(keys)
+    PrintTable(keys)
+    print(keys.level)
+    print(keys.play_time)
     SendHTTPRequest_record(
         "finished_detail/",
         "POST",
@@ -133,7 +136,9 @@ function RECORD:StoreToFinishedDetail(keys)
             point12 = tostring(keys.point12),
             point13 = tostring(keys.point13),
             point14 = tostring(keys.point14),
-            point15 = tostring(keys.point15)
+            point15 = tostring(keys.point15),
+            level = tostring(keys.level),
+            play_time = tostring(keys.play_time),
         },
         function(res)
             if (string.match(res, "error")) then

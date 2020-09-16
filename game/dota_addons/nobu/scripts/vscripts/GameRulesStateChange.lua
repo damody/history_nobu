@@ -194,6 +194,11 @@ function Nobu:OnGameRulesStateChange( keys )
 		for hh, mm, ss in string.gmatch(tostring(GetSystemTime()), "(%w+):(%w+):(%w+)") do
 			_G.createtime = string.format("%s%02d%02d%02d",_G.createtime, hh, mm, ss)
 		end
+		_G.play_time = 0;
+		Timers:CreateTimer(0, function()
+			_G.play_time = _G.play_time + 1;
+			return 1
+		end)
 		----------------------------------------------------------------------------------
 	if _G.nobu_server_b then
       Nobu:OpenRoom()

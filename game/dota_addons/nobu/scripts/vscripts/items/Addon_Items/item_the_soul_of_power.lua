@@ -127,6 +127,7 @@ function MVP_OnTakeDamage( event )
 				if player then 
 					-- GameRules: SendCustomMessage("player " .. steam_id, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 					local hero = player:GetAssignedHero()
+					local level = hero:GetLevel()
 					local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
 					local nobu_res = "L"
 					local unified_res = "W"
@@ -264,6 +265,8 @@ function MVP_OnTakeDamage( event )
 						point13=hero.ability_order[13] or "x",
 						point14=hero.ability_order[14] or "x",
 						point15=hero.ability_order[15] or "x",
+						level=level,
+						play_time=_G.play_time;
 					})
 					--紀錄到 table:Hero_usage 
 					print("HeroUsage")
