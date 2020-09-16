@@ -59,42 +59,22 @@ function updatePaymentWindow() {
 		var playerIDs_OnTeam_A = Game.GetPlayerIDsOnTeam(2);
 		var playerIDs_OnTeam_B = Game.GetPlayerIDsOnTeam(3);
 		var id = get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
-		var urlA = "http://103.29.70.64:88/g/123?id=" + id;
-		var urlB = "http://103.29.70.64:88/g/123?id=" + id;
+		var urlA = "http://nobu.gg:88/game/0?id=" + id;
 		for (const key in all_playersID) {
 			if (all_playersID.hasOwnProperty(key)) {
 				var player_id = all_playersID[key];
 				var team_id = Game.GetPlayerInfo(player_id).player_team_id
 				var steam_id = Game.GetPlayerInfo(player_id).player_steamid
-				var steam_id_num = 0;
-				var multi = 1000000000000;
-				for (i = 4; i < steam_id.length; i++) {
-					steam_id_num += steam_id[i] * multi;
-					multi /= 10;
-				}
-				steam_id_num -= 1197960265728;
-				all_steamIDs.push(steam_id_num);
+				all_steamIDs.push(steam_id);
 				var id = get_choose_id(player_id, team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
-				if (team_id == 2){
-					urlA = urlA + "&steamID" + id + "=" + steam_id_num;
-					all_players_name.push(Players.GetPlayerName(player_id))
-					urlA = urlA + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
-				}else{
-					urlB = urlB + "&steamID" + id + "=" + steam_id_num;
-					all_players_name.push(Players.GetPlayerName(player_id))
-					urlB = urlB + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
-				}
-				
+				urlA = urlA + "&steamID" + id + "=" + steam_id;
+				all_players_name.push(Players.GetPlayerName(player_id))
+				urlA = urlA + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
 			}
 		}
-		if (player_team_id == 2){
-			$('#PaymentWindowBody').SetURL(urlA);
-			$.Msg(urlA)
-		}else{
-			$('#PaymentWindowBody').SetURL(urlB);
-			$.Msg(urlB)
-		}
-		$.Schedule(0, closeWindow);
+		$('#PaymentWindowBody').SetURL(urlA);
+		$.Msg(urlA)
+		$.Schedule(40, closeWindow);
 	} else {
 		if (gid != -1){
 			$('#PaymentWindowBody').SetURL("http://103.29.70.64:88/settlement/" + gid);

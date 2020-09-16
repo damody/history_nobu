@@ -32,7 +32,7 @@ function RECORD:StoreToPlayers(keys)
         },
         function(res)
             if (string.match(res, "error")) then
-                callback()
+                print("store to Players fail")
             end
         end
     )
@@ -45,6 +45,7 @@ function RECORD:StoreToAFKRecord(keys)
         {game_id = tostring(keys.game_id), steam_id = tostring(keys.steam_id)},
         function(res)
             if (string.match(res, "error")) then
+                print("store to AFKRecord fail")
                 callback()
             end
         end
@@ -62,6 +63,7 @@ function RECORD:StoreToFinishedGame(keys)
         },
         function(res)
             if (string.match(res, "error")) then
+                print("store to FinishedGame fail")
                 callback()
             else
                 _G.game_id = tostring(res)
@@ -71,6 +73,9 @@ function RECORD:StoreToFinishedGame(keys)
 end
 
 function RECORD:StoreToFinishedDetail(keys)
+    PrintTable(keys)
+    print(keys.level)
+    print(keys.play_time)
     SendHTTPRequest_record(
         "finished_detail/",
         "POST",
@@ -131,10 +136,13 @@ function RECORD:StoreToFinishedDetail(keys)
             point12 = tostring(keys.point12),
             point13 = tostring(keys.point13),
             point14 = tostring(keys.point14),
-            point15 = tostring(keys.point15)
+            point15 = tostring(keys.point15),
+            level = tostring(keys.level),
+            play_time = tostring(keys.play_time),
         },
         function(res)
             if (string.match(res, "error")) then
+                print("store to FinishedDetail fail")
                 callback()
             end
         end

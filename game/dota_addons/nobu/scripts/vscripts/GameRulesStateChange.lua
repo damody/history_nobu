@@ -151,11 +151,11 @@ function Nobu:OnGameRulesStateChange( keys )
 		end
 
 		-- 沒選好用內嵌的網頁選
-		Timers:CreateTimer(33, function()
+		Timers:CreateTimer(40, function()
 			for playerID = 0, 9 do
-				local steam_id = PlayerResource:GetSteamAccountID(playerID)
-				local player        = PlayerResource:GetPlayer(playerID)
-				if (player:GetAssignedHero() == nil) then
+				local steam_id = PlayerResource:GetSteamID(playerID)
+				local player   = PlayerResource:GetPlayer(playerID)
+				if (player and player:GetAssignedHero() == nil) then
 					SendHTTPRequestGetHero("", "POST",
 					{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
 						if (string.match(res, "error")) then
@@ -194,6 +194,11 @@ function Nobu:OnGameRulesStateChange( keys )
 		for hh, mm, ss in string.gmatch(tostring(GetSystemTime()), "(%w+):(%w+):(%w+)") do
 			_G.createtime = string.format("%s%02d%02d%02d",_G.createtime, hh, mm, ss)
 		end
+		_G.play_time = 0;
+		Timers:CreateTimer(0, function()
+			_G.play_time = _G.play_time + 1;
+			return 1
+		end)
 		----------------------------------------------------------------------------------
 	if _G.nobu_server_b then
       Nobu:OpenRoom()
@@ -476,7 +481,7 @@ function Nobu:OnGameRulesStateChange( keys )
 
 	elseif(newState == DOTA_GAMERULES_STATE_POST_GAME) then
 	if _G.nobu_server_b then
-		Timers:CreateTimer(0.3, function()
+		Timers:CreateTimer(3, function()
 			GameRules: SendCustomMessage("遊戲結束啦", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 			print("end game")
 			local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
