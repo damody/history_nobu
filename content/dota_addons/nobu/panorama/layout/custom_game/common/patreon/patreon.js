@@ -60,16 +60,16 @@ function updatePaymentWindow() {
 		var playerIDs_OnTeam_B = Game.GetPlayerIDsOnTeam(3);
 		var id = get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
 		var urlA = "http://nobu.gg:88/game/0?id=" + id;
+		id = 0;
 		for (const key in all_playersID) {
 			if (all_playersID.hasOwnProperty(key)) {
 				var player_id = all_playersID[key];
-				var team_id = Game.GetPlayerInfo(player_id).player_team_id
 				var steam_id = Game.GetPlayerInfo(player_id).player_steamid
 				all_steamIDs.push(steam_id);
-				var id = get_choose_id(player_id, team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
 				urlA = urlA + "&steamID" + id + "=" + steam_id;
 				all_players_name.push(Players.GetPlayerName(player_id))
 				urlA = urlA + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
+				id = id + 1;
 			}
 		}
 		$('#PaymentWindowBody').SetURL(urlA);
