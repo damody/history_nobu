@@ -199,7 +199,7 @@ function MVP_OnTakeDamage( event )
 					end
 					--紀錄到 table:Finished_detail
 					for i = 0, 6 do
-						equ[i] = ""
+						equ[i] = "x"
 						local item = hero:GetItemInSlot( i )
 						if item then
 							equ[i] = item:GetName()
@@ -210,12 +210,12 @@ function MVP_OnTakeDamage( event )
 					RECORD:StoreToFinishedDetail({
 						game_id=_G.game_id,
 						steam_id=steam_id,
-						equ_1=equ[1],
-						equ_2=equ[2],
-						equ_3=equ[3],
-						equ_4=equ[4],
-						equ_5=equ[5],
-						equ_6=equ[6],
+						equ_1=equ[0] or "x",
+						equ_2=equ[1] or "x",
+						equ_3=equ[2] or "x",
+						equ_4=equ[3] or "x",
+						equ_5=equ[4] or "x",
+						equ_6=equ[5] or "x",
 						damage_to_hero=hero.damage_to_hero,
 						physical_damage_to_hero=hero.physical_damage_to_hero,
 						magical_damage_to_hero=hero.magical_damage_to_hero,
