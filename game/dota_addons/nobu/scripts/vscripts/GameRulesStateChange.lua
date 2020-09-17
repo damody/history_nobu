@@ -141,7 +141,6 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- 檢查是不是已經用client選好腳色了
 		for playerID = 0, 9 do
 			local steam_id = PlayerResource:GetSteamID(playerID)
-			print(steam_id)
 			SendHTTPRequestGetHero("", "POST",
 			{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
 				if (string.match(res, "error")) then

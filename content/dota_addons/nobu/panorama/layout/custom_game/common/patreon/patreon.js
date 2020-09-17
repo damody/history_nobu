@@ -60,13 +60,14 @@ function updatePaymentWindow() {
 		var playerIDs_OnTeam_B = Game.GetPlayerIDsOnTeam(3);
 		var id = get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
 		var urlA = "http://nobu.gg:88/game/0?id=" + id;
+		id = 0;
 		for (const key in all_playersID) {
 			if (all_playersID.hasOwnProperty(key)) {
 				var player_id = all_playersID[key];
 				var team_id = Game.GetPlayerInfo(player_id).player_team_id
 				var steam_id = Game.GetPlayerInfo(player_id).player_steamid
 				all_steamIDs.push(steam_id);
-				var id = get_choose_id(player_id, team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
+				id = get_choose_id(player_id, team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
 				urlA = urlA + "&steamID" + id + "=" + steam_id;
 				all_players_name.push(Players.GetPlayerName(player_id))
 				urlA = urlA + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
@@ -118,23 +119,23 @@ function get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_
 		for (const key in playerIDs_OnTeam_A) {
 			if (playerIDs_OnTeam_A.hasOwnProperty(key)) {
 				if (player_id == playerIDs_OnTeam_A[key]) {
-					pos = key;
 					break;
 				}
 			}
+			pos += 1;
 		}
-		id += pos * 1;
+		id = pos;
 	} else if (player_team_id == 3) {
 		var pos = 0;
 		for (const key in playerIDs_OnTeam_B) {
 			if (playerIDs_OnTeam_B.hasOwnProperty(key)) {
 				if (player_id == playerIDs_OnTeam_B[key]) {
-					pos = key;
 					break;
 				}
 			}
+			pos += 1;
 		}
-		id += pos * 1;
+		id = 5 + pos;
 	}
 	return id;
 }
