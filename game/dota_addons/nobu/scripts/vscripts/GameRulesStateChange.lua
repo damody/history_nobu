@@ -35,7 +35,7 @@ function SendHTTPRequestGetHero(path, method, values, callback)
 		for key, value in string.gmatch(tostring(result.Body), "(%w+)=(%w+)") do 
 			table[key] = value
 		end
-		if table["hero"] then
+		if (table["hero"] ~= "X") then
 			local player = PlayerResource:GetPlayer(tonumber(table["id"]))
 			local hero = ""
 			for k, v in pairs(_G.heromap) do
