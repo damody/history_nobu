@@ -64,12 +64,13 @@ function updatePaymentWindow() {
 		for (const key in all_playersID) {
 			if (all_playersID.hasOwnProperty(key)) {
 				var player_id = all_playersID[key];
+				var team_id = Game.GetPlayerInfo(player_id).player_team_id
 				var steam_id = Game.GetPlayerInfo(player_id).player_steamid
 				all_steamIDs.push(steam_id);
+				id = get_choose_id(player_id, team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
 				urlA = urlA + "&steamID" + id + "=" + steam_id;
 				all_players_name.push(Players.GetPlayerName(player_id))
 				urlA = urlA + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
-				id = id + 1;
 			}
 		}
 		$('#PaymentWindowBody').SetURL(urlA);
@@ -118,23 +119,23 @@ function get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_
 		for (const key in playerIDs_OnTeam_A) {
 			if (playerIDs_OnTeam_A.hasOwnProperty(key)) {
 				if (player_id == playerIDs_OnTeam_A[key]) {
-					pos = key;
 					break;
 				}
 			}
+			pos += 1;
 		}
-		id += pos * 1;
+		id = pos;
 	} else if (player_team_id == 3) {
 		var pos = 0;
 		for (const key in playerIDs_OnTeam_B) {
 			if (playerIDs_OnTeam_B.hasOwnProperty(key)) {
 				if (player_id == playerIDs_OnTeam_B[key]) {
-					pos = key;
 					break;
 				}
 			}
+			pos += 1;
 		}
-		id += pos * 1;
+		id = 5 + pos;
 	}
 	return id;
 }
