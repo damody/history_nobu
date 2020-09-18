@@ -6,7 +6,7 @@
 	"IsPlayable"	"1"
 	"nobu"
 	{
-		"MaxPlayers"    "10"
+		"MaxPlayers"    "4"
 	}
 	"nobu_pk"
 	{
