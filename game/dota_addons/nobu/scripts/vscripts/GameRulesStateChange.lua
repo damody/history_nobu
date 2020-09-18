@@ -65,21 +65,22 @@ function SendHTTPRequestGetPlayers(path, method, values, callback)
 		if table["0"] then
 		 	for i=0, 10 do 
 		 		PlayerResource:SetCustomTeamAssignment(i, 5)
-		 	end
-		end
-		for k,v in pairs(table) do
-			for i=0, 10 do
-				if tostring(PlayerResource:GetSteamID(i)) == v then
-					if tonumber(k) < 5 then
-						PlayerResource:SetCustomTeamAssignment(i, 2)
-					end
-					if tonumber(k) > 5 then
-						PlayerResource:SetCustomTeamAssignment(i, 3)
+			end
+			for k,v in pairs(table) do
+				for i=0, 10 do
+					if tostring(PlayerResource:GetSteamID(i)) == v then
+						if tonumber(k) < 5 then
+							PlayerResource:SetCustomTeamAssignment(i, 2)
+						end
+						if tonumber(k) > 5 then
+							PlayerResource:SetCustomTeamAssignment(i, 3)
+						end
 					end
 				end
 			end
+			GameRules:FinishCustomGameSetup()
 		end
-		GameRules:FinishCustomGameSetup()
+		
 		callback(result.Body)
 	end)
 end
@@ -182,6 +183,7 @@ function Nobu:OnGameRulesStateChange( keys )
       for_test_equiment()
 	end
 	--遊戲開始時間
+	_G.isRecord = false;
     GameRules:SendCustomMessage("歡迎來到 AON信長的野望 21版", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     GameRules:SendCustomMessage("15分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("目前作者: Victor", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
