@@ -28,7 +28,7 @@ function SendHTTPRequestGetHero(path, method, values, callback)
 	local req = CreateHTTPRequestScriptVM( method, "http://103.29.70.64:7878/")
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
-	end
+	end 
 	req:Send(function(result)
 		local count = 0
 		local table = {}
