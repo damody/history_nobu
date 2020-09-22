@@ -69,6 +69,7 @@ function SendHTTPRequestGetPlayers(path, method, values, callback)
 			for k,v in pairs(table) do
 				for i=0, 10 do
 					if tostring(PlayerResource:GetSteamID(i)) == v then
+						_G.matchCount = _G.matchCount + 1;
 						if tonumber(k) < 5 then
 							PlayerResource:SetCustomTeamAssignment(i, 2)
 						end
@@ -123,6 +124,7 @@ function Nobu:OnGameRulesStateChange( keys )
 	elseif(newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD) then
 		--self.bSeenWaitForPlayers = true
 	elseif(newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) then
+		_G.matchCount = 0;
 		-- 檢查這場遊戲是不是由client開的
 		local steam_id = PlayerResource:GetSteamID(0)
 		SendHTTPRequestGetPlayers("get_players/", "POST",
@@ -188,6 +190,10 @@ function Nobu:OnGameRulesStateChange( keys )
     GameRules:SendCustomMessage("15分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("目前作者: Victor", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("響雨工作室", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+	print(_G.matchCount)
+	if ( _G.matchCount < 10 ) then
+		GameRules:SendCustomMessage("此為練習模式 不計算分數", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+	end
 	elseif(newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then --遊戲開始 --7
 		for mm, dd, yy in string.gmatch(tostring(GetSystemDate()), "(%w+)/(%w+)/(%w+)") do
 			_G.createtime = string.format("20%d%02d%02d", yy, mm, dd)
@@ -490,19 +496,21 @@ function Nobu:OnGameRulesStateChange( keys )
 			if ancient1:IsAlive() then
 				local nobu_res = "W"
 			end
-			SendHTTPRequestEndGame(
-				"end_game/",
-				"POST",
-				{
-					id = tostring(PlayerResource:GetSteamID(0)),
-					res = nobu_res
-				},
-				function(res)
-					if (string.match(res, "error")) then
-						callback()
+			if (_G.matchCount >= 10) then
+				SendHTTPRequestEndGame(
+					"end_game/",
+					"POST",
+					{
+						id = tostring(PlayerResource:GetSteamID(0)),
+						res = nobu_res
+					},
+					function(res)
+						if (string.match(res, "error")) then
+							callback()
+						end
 					end
-				end
-			)
+				)
+			end
 			CustomGameEventManager:Send_ServerToAllClients("show_settlement", {game_id = _G.game_id})
 			Nobu:CloseRoom()
 		end)	
