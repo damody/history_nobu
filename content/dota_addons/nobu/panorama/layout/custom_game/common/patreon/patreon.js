@@ -76,7 +76,7 @@ function updatePaymentWindow() {
 		}
 		$('#PaymentWindowBody').SetURL(urlA);
 		$.Msg(urlA)
-		$.Schedule(40, closeWindow);
+		$.Schedule(1, closeWindow);
 	} else {
 		if (gid != -1){
 			$('#PaymentWindowBody').SetURL("http://103.29.70.64:88/settlement/" + gid);
@@ -146,8 +146,13 @@ function get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_
 	return id;
 }
 
+function printMsg(msg){
+	$.Msg(msg);
+}
+
 showWindowTick();
 GameEvents.Subscribe("debug_choose_hero", debug_choose_hero);
 GameEvents.Subscribe("show_settlement", show_settlement);
 GameEvents.Subscribe("closeWindow", closeWindow);
+GameEvents.Subscribe("printMsg", printMsg);
 $.Msg("subscribe");

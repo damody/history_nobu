@@ -120,13 +120,15 @@ function MVP_OnTakeDamage( event )
 					print("FinishedGame")
 					RECORD:StoreToFinishedGame({createtime=_G.createtime, endtime=_G.endtime})
 					Timers:CreateTimer(1, function()
-						for playerID = 0, 9 do
+						for playerID = 0, 20 do
 							local steam_id = PlayerResource:GetSteamID(playerID)
 							local player = PlayerResource:GetPlayer(playerID)
+							Send_ServerToAllClients(printMsg, {"playerID : " + playerID})
+							Send_ServerToAllClients(printMsg, {"plyaer : " + player})
 							if player then 
 								-- GameRules: SendCustomMessage("player " .. steam_id, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
-								local hero = player:GetAssignedHero()
-								local level = hero:GetLevel()
+								local hero = player:GetAssignedHero() or "";
+								local level = hero:GetLevel() or 0
 								local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
 								local nobu_res = "L"
 								local unified_res = "W"
@@ -204,6 +206,22 @@ function MVP_OnTakeDamage( event )
 										equ[i] = item:GetName()
 									end
 								end
+								Send_ServerToAllClients(printMsg, {"hero : " + hero})
+								Send_ServerToAllClients(printMsg, {"level : " + level})
+								Send_ServerToAllClients(printMsg, {"ancient : " + ancient1})
+								Send_ServerToAllClients(printMsg, {"nobu_res : " + nobu_res})
+								Send_ServerToAllClients(printMsg, {"unified_res : " + unified_res})
+								Send_ServerToAllClients(printMsg, {"res : " + res})
+								Send_ServerToAllClients(printMsg, {"pos : " + pos})
+								Send_ServerToAllClients(printMsg, {"win : " + win})
+								Send_ServerToAllClients(printMsg, {"lose : " + lose})
+								Send_ServerToAllClients(printMsg, {"afk : " + afk})
+								Send_ServerToAllClients(printMsg, {"isAfk : " + isAfk})
+								Send_ServerToAllClients(printMsg, {"skillw : " + skillw})
+								Send_ServerToAllClients(printMsg, {"skille : " + skille})
+								Send_ServerToAllClients(printMsg, {"skillr : " + skillr})
+								Send_ServerToAllClients(printMsg, {"skilld : " + skilld})
+								Send_ServerToAllClients(printMsg, {"equ : " + equ})
 								print("FinishedDetail")
 								print("game_id" .. _G.game_id)
 								RECORD:StoreToFinishedDetail({
