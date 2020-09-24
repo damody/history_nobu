@@ -122,7 +122,6 @@ function MVP_OnTakeDamage( event )
 					Timers:CreateTimer(1, function()
 						for playerID = 0, 9 do
 							local steam_id = PlayerResource:GetSteamID(playerID)
-							print(steam_id)
 							local player = PlayerResource:GetPlayer(playerID)
 							if player then 
 								-- GameRules: SendCustomMessage("player " .. steam_id, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
