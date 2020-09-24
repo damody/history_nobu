@@ -185,13 +185,17 @@ function Nobu:OnGameRulesStateChange( keys )
       for_test_equiment()
 	end
 	--遊戲開始時間
+	print("close window")
+	Timers:CreateTimer(1, function()
+		CustomGameEventManager:Send_ServerToAllClients("closeWindow", {})
+	end)
 	_G.isRecord = false;
     GameRules:SendCustomMessage("歡迎來到 AON信長的野望 21版", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     GameRules:SendCustomMessage("15分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("目前作者: Victor", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("響雨工作室", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	print(_G.matchCount)
-	if ( _G.matchCount < 10 ) then
+	if ( _G.matchCount < 4 ) then
 		GameRules:SendCustomMessage("此為練習模式 不計算分數", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	end
 	elseif(newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then --遊戲開始 --7
@@ -496,7 +500,7 @@ function Nobu:OnGameRulesStateChange( keys )
 			if ancient1:IsAlive() then
 				local nobu_res = "W"
 			end
-			if (_G.matchCount >= 10) then
+			if (_G.matchCount >= 4) then
 				SendHTTPRequestEndGame(
 					"end_game/",
 					"POST",
@@ -511,7 +515,7 @@ function Nobu:OnGameRulesStateChange( keys )
 					end
 				)
 			end
-			CustomGameEventManager:Send_ServerToAllClients("show_settlement", {game_id = _G.game_id})
+			-- CustomGameEventManager:Send_ServerToAllClients("show_settlement", {game_id = _G.game_id})
 			Nobu:CloseRoom()
 		end)	
     end

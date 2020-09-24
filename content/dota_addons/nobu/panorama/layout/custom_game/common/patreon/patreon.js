@@ -20,6 +20,7 @@ function setPaymentWindowVisible(visible) {
 
 function closeWindow() {
 	$('#PaymentWindow').visible = false;
+	$.Msg($('#PaymentWindow').visible);
 }
 
 /** @param {'success' | 'loading' | { error: string }} status */
@@ -75,7 +76,7 @@ function updatePaymentWindow() {
 		}
 		$('#PaymentWindowBody').SetURL(urlA);
 		$.Msg(urlA)
-		$.Schedule(40, closeWindow);
+		$.Schedule(1, closeWindow);
 	} else {
 		if (gid != -1){
 			$('#PaymentWindowBody').SetURL("http://103.29.70.64:88/settlement/" + gid);
@@ -105,7 +106,12 @@ function show_settlement( keys ){
 	gid = keys.game_id
 	$.Msg(keys)
 	$.Msg(gid)
-	updatePaymentWindow();
+	if (gid == -1) {
+		closeWindow();
+	} else {
+		setPaymentWindowVisible(true);
+		updatePaymentWindow();
+	}
 }
 
 function debug_choose_hero() {
@@ -143,4 +149,5 @@ function get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_
 showWindowTick();
 GameEvents.Subscribe("debug_choose_hero", debug_choose_hero);
 GameEvents.Subscribe("show_settlement", show_settlement);
+GameEvents.Subscribe("closeWindow", closeWindow);
 $.Msg("subscribe");
