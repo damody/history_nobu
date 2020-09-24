@@ -501,7 +501,7 @@ function Nobu:OnGameRulesStateChange( keys )
 			if ancient1:IsAlive() then
 				local nobu_res = "W"
 			end
-			if (_G.matchCount >= 4) then
+			if (_G.matchCount >= _G.recordCount) then
 				SendHTTPRequestEndGame(
 					"end_game/",
 					"POST",
