@@ -125,6 +125,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		--self.bSeenWaitForPlayers = true
 	elseif(newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) then
 		_G.matchCount = 0;
+		_G.recordCount = 2;
 		-- 檢查這場遊戲是不是由client開的
 		local steam_id = PlayerResource:GetSteamID(0)
 		SendHTTPRequestGetPlayers("get_players/", "POST",
@@ -195,7 +196,7 @@ function Nobu:OnGameRulesStateChange( keys )
 	GameRules:SendCustomMessage("目前作者: Victor", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("響雨工作室", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	print(_G.matchCount)
-	if ( _G.matchCount < 4 ) then
+	if ( _G.matchCount < _G.recordCount ) then
 		GameRules:SendCustomMessage("此為練習模式 不計算分數", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	end
 	elseif(newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then --遊戲開始 --7
