@@ -13,8 +13,7 @@ gamestates =
 	[9] = "DOTA_GAMERULES_STATE_DISCONNECT"
 }
 
-
-function SendHTTPRequestEndGame(path, method, values, callback)
+function SendHTTPRequest(path, method, values, callback)
 	local req = CreateHTTPRequestScriptVM( method, "http://103.29.70.64:7878/"..path )
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
@@ -142,6 +141,17 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- 	end
 		-- end)
 	elseif(newState == DOTA_GAMERULES_STATE_HERO_SELECTION) then --選擇英雄階段
+		--取得skin
+		_G.skin_table = {}
+		SendHTTPRequest("get_skin/", "POST", {}, function(res)
+			if (string.match(res, "error")) then
+				callback()
+			else
+				for id in string.gmatch(tostring(res), "%w+") do 
+					_G.skin_table[id] = true;
+				end
+			end
+		end)
 		-- 檢查是不是已經用client選好腳色了
 		for playerID = 0, 9 do
 			local steam_id = PlayerResource:GetSteamID(playerID)
@@ -609,7 +619,7 @@ function Nobu:OnGameRulesStateChange( keys )
 				local nobu_res = "W"
 			end
 			if (_G.matchCount >= _G.recordCount) then
-				SendHTTPRequestEndGame(
+				SendHTTPRequest(
 					"end_game/",
 					"POST",
 					{
