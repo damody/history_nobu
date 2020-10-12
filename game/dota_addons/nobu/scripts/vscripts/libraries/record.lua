@@ -5,7 +5,7 @@ if RECORD == nil then
 end
 
 function SendHTTPRequest_record(path, method, values, callback)
-    local req = CreateHTTPRequestScriptVM(method, "http://103.29.70.64:7878/record/" .. path)
+    local req = CreateHTTPRequestScriptVM(method, "https://nobu.gg/clientApi/record/" .. path)
     for key, value in pairs(values) do
         req:SetHTTPRequestGetOrPostParameter(key, value)
     end
