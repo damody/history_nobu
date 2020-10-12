@@ -202,7 +202,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		CustomGameEventManager:Send_ServerToAllClients("closeWindow", {})
 	end)
 	_G.isRecord = false;
-    GameRules:SendCustomMessage("歡迎來到 AON信長的野望 21版   v 0.0.1", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+    GameRules:SendCustomMessage("歡迎來到 AON信長的野望 21版   v0.0.1", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     GameRules:SendCustomMessage("15分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("目前作者: Victor", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("響雨工作室", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
