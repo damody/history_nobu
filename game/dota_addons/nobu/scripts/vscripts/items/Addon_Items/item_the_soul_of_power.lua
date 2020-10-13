@@ -61,7 +61,7 @@ function MVP_OnTakeDamage( event )
 			if damage > caster:GetHealth() then
 				caster:SetHealth(1000)
 				caster:AddNewModifier(caster, nil, "modifier_invulnerable", nil )
-				caster:AddNewModifier(caster, nil, "modifier_kill", {duration=30} )
+				caster:AddNewModifier(caster, nil, "modifier_kill", {duration=10} )
 				local mvp = nil
 				local mvp_value = -100
 				for _,hero in ipairs(HeroList:GetAllHeroes()) do
