@@ -235,3 +235,19 @@ function RECORD:StoreToEquipmentPurchased(keys)
         end
     )
 end
+
+function RECORD:EndGame(keys)
+    SendHTTPRequest(
+        "end_game/",
+        "POST",
+        {
+            id = tostring(keys.steam_id),
+            res = tostring(keys.res)
+        },
+        function(res)
+            if (string.match(res, "error")) then
+                callback()
+            end
+        end
+    )
+end

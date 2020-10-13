@@ -614,26 +614,30 @@ function Nobu:OnGameRulesStateChange( keys )
 		Timers:CreateTimer(3, function()
 			GameRules: SendCustomMessage("遊戲結束啦", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 			print("end game")
-			local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
-			local nobu_res = "L"
-			if ancient1:IsAlive() then
-				local nobu_res = "W"
-			end
-			if (_G.matchCount >= _G.recordCount) then
-				SendHTTPRequest(
-					"end_game/",
-					"POST",
-					{
-						id = tostring(PlayerResource:GetSteamID(0)),
-						res = nobu_res
-					},
-					function(res)
-						if (string.match(res, "error")) then
-							callback()
-						end
-					end
-				)
-			end
+			-- if (_G.matchCount >= _G.recordCount) then
+			-- 	local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
+			-- 	for playerID = 0, 9 do
+			-- 		PlayerResource:GetSteamID(playerID)
+			-- 		local team   = PlayerResource:GetCustomTeamAssignment(playerID)
+			-- 	end
+			-- 	local nobu_res = "L"
+			-- 	if ancient1:IsAlive() then
+			-- 		local nobu_res = "W"
+			-- 	end
+			-- 	SendHTTPRequest(
+			-- 		"end_game/",
+			-- 		"POST",
+			-- 		{
+			-- 			id = tostring(PlayerResource:GetSteamID(0)),
+			-- 			res = nobu_res
+			-- 		},
+			-- 		function(res)
+			-- 			if (string.match(res, "error")) then
+			-- 				callback()
+			-- 			end
+			-- 		end
+			-- 	)
+			-- end
 			-- CustomGameEventManager:Send_ServerToAllClients("show_settlement", {game_id = _G.game_id})
 			Nobu:CloseRoom()
 		end)	

@@ -172,6 +172,7 @@ function MVP_OnTakeDamage( event )
 										res = "W"
 									end
 								end
+								RECORD:EndGame({steam_id=steam_id, res=res})
 								if res == "W" then
 									win = 1 
 									lose = 0
