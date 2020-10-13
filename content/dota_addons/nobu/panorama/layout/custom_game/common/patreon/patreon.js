@@ -78,9 +78,9 @@ function updatePaymentWindow() {
 		$.Msg(urlA)
 		$.Schedule(40, closeWindow);
 	} else {
-		if (gid != -1){
-			$('#PaymentWindowBody').SetURL("http://103.29.70.64:88/settlement/" + gid);
-		}
+		// if (gid != -1){
+		// 	$('#PaymentWindowBody').SetURL("http://103.29.70.64:88/settlement/" + gid);
+		// }
 	}
 	setPaymentWindowStatus('success');
 }
