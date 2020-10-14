@@ -5880,6 +5880,32 @@
 			}
 		}
 	}
+	"preRegist"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"precache" 
+		{
+			"particle" "particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta_blood.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_blood_preRegist"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"AttachEffect"
+					{
+						"Target"	"TARGET"
+						"EffectName"	"particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta_blood.vpcf"
+						"EffectAttachType"	"start_at_origin"
+					}
+				}
+			}
+		}
+	}
 	"phased_dummy"
 	{
 		"BaseClass"	"ability_datadriven"
