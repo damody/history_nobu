@@ -70,10 +70,11 @@ function SendHTTPRequestGetPlayers(path, method, values, callback)
 				for i=0, 10 do
 					if tostring(PlayerResource:GetSteamID(i)) == v then
 						_G.matchCount = _G.matchCount + 1;
+						--織田2 聯合3
 						if tonumber(k) < 5 then
 							PlayerResource:SetCustomTeamAssignment(i, 2)
 						end
-						if tonumber(k) > 5 then
+						if tonumber(k) >= 5 then
 							PlayerResource:SetCustomTeamAssignment(i, 3)
 						end
 					end
