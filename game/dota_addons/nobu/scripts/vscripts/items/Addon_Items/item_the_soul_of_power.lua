@@ -149,27 +149,21 @@ function MVP_OnTakeDamage( event )
 									isAfk = true
 								end
 								--紀錄到 table:Players
-								if ancient1:IsAlive() then
-									nobu_res = "W"
-									unified_res = "L"
-								end
-								print("Players")
-								if PlayerResource:GetCustomTeamAssignment(playerID) == 2 then
-									if nobu_res == "L" then
-										RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
+								if caster:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+									if PlayerResource:GetCustomTeamAssignment(playerID) == DOTA_TEAM_BADGUYS then
+										RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
 										res = "L"
 									else
-										RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
+										RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
 										res = "W"
 									end
-								end
-								if PlayerResource:GetCustomTeamAssignment(playerID) == 3 then
-									if nobu_res == "W" then
+								else
+									if PlayerResource:GetCustomTeamAssignment(playerID) == DOTA_TEAM_BADGUYS then
 										RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
-										res = "L"
+										res = "W"
 									else
 										RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
-										res = "W"
+										res = "L"
 									end
 								end
 								RECORD:EndGame({steam_id=steam_id, res=res})
