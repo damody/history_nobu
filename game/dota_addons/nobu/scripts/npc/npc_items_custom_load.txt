@@ -10,7 +10,7 @@
 		// General
 		
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/the_red_lightning_chapter"
+		"AbilityTextureName"	"item_custom/the_red_lightning_chapter_hyper"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -11919,7 +11919,7 @@
 	{
 		// General
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/swiftness_boots"
+		"AbilityTextureName"	"item_custom/swiftness_boots_1"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -14391,7 +14391,7 @@
 		// General
 		
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/dark_boots"
+		"AbilityTextureName"	"item_custom/dark_boots_1"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -14475,7 +14475,7 @@
 		// General
 		
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/mana_boots"
+		"AbilityTextureName"	"item_custom/mana_boots_1"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -14568,7 +14568,7 @@
 		// General
 		
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/magic_defence_boots"
+		"AbilityTextureName"	"item_custom/magic_defence_boots_1"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -14669,7 +14669,7 @@
 		// General
 		
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/ryukyu_ronin_clogs"
+		"AbilityTextureName"	"item_custom/ryukyu_ronin_clogs_1"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"

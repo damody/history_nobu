@@ -363,6 +363,10 @@ local function chat_of_test(keys)
 			_G.Oda_home:ForceKill(false)
 		end
 	end
+	if s == "pre" then 
+		caster:AddAbility("preRegist"):SetLevel(1)
+		
+	end
 	if s == "sm" then
 		for _,m in ipairs(caster:FindAllModifiers()) do
 			GameRules: SendCustomMessage("[Modifier] "..m:GetName(),DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
