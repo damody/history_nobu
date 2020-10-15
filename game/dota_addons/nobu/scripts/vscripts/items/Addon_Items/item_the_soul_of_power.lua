@@ -120,7 +120,7 @@ function MVP_OnTakeDamage( event )
 					print("FinishedGame")
 					RECORD:StoreToFinishedGame({createtime=_G.createtime, endtime=_G.endtime})
 					Timers:CreateTimer(0.5, function()
-						-- local playersData = {};
+						local playersData = {};
 						for playerID = 0, 20 do
 							local steam_id = PlayerResource:GetSteamID(playerID)
 							local player = PlayerResource:GetPlayer(playerID)
@@ -172,27 +172,27 @@ function MVP_OnTakeDamage( event )
 								--紀錄到 table:Players
 								if caster:GetTeamNumber() == DOTA_TEAM_BADGUYS then
 									if PlayerResource:GetCustomTeamAssignment(playerID) == DOTA_TEAM_BADGUYS then
-										RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
+										-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
 										res = "L"
 									else
-										RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
+										-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
 										res = "W"
 									end
 								else
 									if PlayerResource:GetCustomTeamAssignment(playerID) == DOTA_TEAM_BADGUYS then
-										RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
+										-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
 										res = "W"
 									else
-										RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
+										-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
 										res = "L"
 									end
 								end
-								-- local endGame = {
-								-- 	steam_id = tostring(steam_id),
-								-- 	res = res,
-								-- }
-								-- print(json.encode(endGame))
-								RECORD:EndGame({steam_id=steam_id, res=res})
+								local endGame = {
+									steam_id = tostring(steam_id),
+									res = res,
+								}
+								print(json.encode(endGame))
+								-- RECORD:EndGame({steam_id=steam_id, res=res})
 								if res == "W" then
 									win = 1 
 									lose = 0
@@ -200,14 +200,14 @@ function MVP_OnTakeDamage( event )
 									win = 0
 									lose = 1
 								end
-								-- local player = {
-								-- 	steam_id=tostring(steam_id), 
-								-- 	afkcount=0,
-								-- 	wincount=win,
-								-- 	losecount=lose,
-								-- 	playcount=1,
-								-- 	invalidcount=0
-								-- }
+								local player = {
+									steam_id=tostring(steam_id), 
+									afkcount=0,
+									wincount=win,
+									losecount=lose,
+									playcount=1,
+									invalidcount=0
+								}
 								--算位置 1 ~ 5 織田 6 ~ 10聯合
 								local team = hero:GetTeamNumber()
 								for i = 1, 5 do
@@ -253,71 +253,9 @@ function MVP_OnTakeDamage( event )
 								CustomGameEventManager:Send_ServerToAllClients("printMsg", {equ = equ})
 								print("FinishedDetail")
 								print("game_id" .. _G.game_id)
-								-- local finishedDetail = {
-								-- 	game_id=_G.game_id,
-								-- 	steam_id=tostring(steam_id),
-								-- 	equ_1=equ[0] or "x",
-								-- 	equ_2=equ[1] or "x",
-								-- 	equ_3=equ[2] or "x",
-								-- 	equ_4=equ[3] or "x",
-								-- 	equ_5=equ[4] or "x",
-								-- 	equ_6=equ[5] or "x",
-								-- 	damage_to_hero=hero.damage_to_hero,
-								-- 	physical_damage_to_hero=hero.physical_damage_to_hero,
-								-- 	magical_damage_to_hero=hero.magical_damage_to_hero,
-								-- 	true_damage_to_hero=hero.true_damage_to_hero,
-								-- 	damage=hero.damage,
-								-- 	physical_damage=hero.physical_damage,
-								-- 	magical_damage=hero.magical_damage,
-								-- 	true_damage=hero.true_damage,
-								-- 	maximum_critical_damage=hero.maximum_critical_damage, --未
-								-- 	damage_to_tower=hero.damage_to_tower,
-								-- 	damage_to_unit=hero.damage_to_unit,
-								-- 	heal=hero.heal,
-								-- 	damage_taken=hero.damage_taken,
-								-- 	physical_damage_taken=hero.physical_damage_taken,
-								-- 	magical_damage_taken=hero.magical_damage_taken,
-								-- 	true_damage_taken=hero.true_damage_taken,
-								-- 	damage_reduce=hero.damage_reduce,
-								-- 	hero=_G.heromap[hero:GetName()],
-								-- 	res=res,
-								-- 	pos=pos,
-								-- 	k=hero:GetKills(),
-								-- 	d=hero:GetDeaths(),
-								-- 	a=hero.assist_count,
-								-- 	largest_killing_spree=hero.largest_killing_spree,
-								-- 	largest_multi_kill=hero.largest_multi_kill,
-								-- 	first_blood=hero.first_blood,
-								-- 	skillw=skillw,
-								-- 	skille=skille,
-								-- 	skillr=skillr,
-								-- 	skillt=skillt,
-								-- 	skilld=skilld,
-								-- 	income=_G.PlayerEarnedGold[playerID],
-								-- 	spent=_G.PlayerEarnedGold[playerID]-hero:GetGold(),
-								-- 	killed_unit=hero.kill_count,
-								-- 	point1=hero.ability_order[1] or "x",
-								-- 	point2=hero.ability_order[2] or "x",
-								-- 	point3=hero.ability_order[3] or "x",
-								-- 	point4=hero.ability_order[4] or "x",
-								-- 	point5=hero.ability_order[5] or "x",
-								-- 	point6=hero.ability_order[6] or "x",
-								-- 	point7=hero.ability_order[7] or "x",
-								-- 	point8=hero.ability_order[8] or "x",
-								-- 	point9=hero.ability_order[9] or "x",
-								-- 	point10=hero.ability_order[10] or "x",
-								-- 	point11=hero.ability_order[11] or "x",
-								-- 	point12=hero.ability_order[12] or "x",
-								-- 	point13=hero.ability_order[13] or "x",
-								-- 	point14=hero.ability_order[14] or "x",
-								-- 	point15=hero.ability_order[15] or "x",
-								-- 	level=level,
-								-- 	play_time=_G.play_time,
-								-- }
-								-- print(json.encode(finishedDetail))
-								RECORD:StoreToFinishedDetail({
+								local finishedDetail = {
 									game_id=_G.game_id,
-									steam_id=steam_id,
+									steam_id=tostring(steam_id),
 									equ_1=equ[0] or "x",
 									equ_2=equ[1] or "x",
 									equ_3=equ[2] or "x",
@@ -375,38 +313,79 @@ function MVP_OnTakeDamage( event )
 									point15=hero.ability_order[15] or "x",
 									level=level,
 									play_time=_G.play_time,
-								})
-								--紀錄到 table:Hero_usage 
-								print("HeroUsage")
-								-- local heroUsage = {
-								-- 	steam_id=tostring(steam_id), hero=_G.heromap[hero:GetName()], choose_count=1,
-								-- }
-								-- print(json.encode(heroUsage))
-								RECORD:StoreToHeroUsage({steam_id=steam_id, hero=_G.heromap[hero:GetName()], choose_count=1})
-								--紀錄到 table:Hero_detail
-								print(_G.heromap[hero:GetName()])
-								-- local heroDetail = {
+								}
+								print(json.encode(finishedDetail))
+								-- RECORD:StoreToFinishedDetail({
+								-- 	game_id=_G.game_id,
+								-- 	steam_id=steam_id,
+								-- 	equ_1=equ[0] or "x",
+								-- 	equ_2=equ[1] or "x",
+								-- 	equ_3=equ[2] or "x",
+								-- 	equ_4=equ[3] or "x",
+								-- 	equ_5=equ[4] or "x",
+								-- 	equ_6=equ[5] or "x",
+								-- 	damage_to_hero=hero.damage_to_hero,
+								-- 	physical_damage_to_hero=hero.physical_damage_to_hero,
+								-- 	magical_damage_to_hero=hero.magical_damage_to_hero,
+								-- 	true_damage_to_hero=hero.true_damage_to_hero,
+								-- 	damage=hero.damage,
+								-- 	physical_damage=hero.physical_damage,
+								-- 	magical_damage=hero.magical_damage,
+								-- 	true_damage=hero.true_damage,
+								-- 	maximum_critical_damage=hero.maximum_critical_damage, --未
+								-- 	damage_to_tower=hero.damage_to_tower,
+								-- 	damage_to_unit=hero.damage_to_unit,
+								-- 	heal=hero.heal,
+								-- 	damage_taken=hero.damage_taken,
+								-- 	physical_damage_taken=hero.physical_damage_taken,
+								-- 	magical_damage_taken=hero.magical_damage_taken,
+								-- 	true_damage_taken=hero.true_damage_taken,
+								-- 	damage_reduce=hero.damage_reduce,
 								-- 	hero=_G.heromap[hero:GetName()],
+								-- 	res=res,
+								-- 	pos=pos,
 								-- 	k=hero:GetKills(),
 								-- 	d=hero:GetDeaths(),
 								-- 	a=hero.assist_count,
-								-- 	win=win,
-								-- 	lose=lose,
-								-- 	afk=afk,
-								-- 	totalcount=1,
-								-- 	money=_G.PlayerEarnedGold[playerID],
+								-- 	largest_killing_spree=hero.largest_killing_spree,
+								-- 	largest_multi_kill=hero.largest_multi_kill,
+								-- 	first_blood=hero.first_blood,
 								-- 	skillw=skillw,
 								-- 	skille=skille,
 								-- 	skillr=skillr,
 								-- 	skillt=skillt,
 								-- 	skilld=skilld,
-								-- 	damage=hero.damage,
-								-- 	damage_to_hero=hero.damage_to_hero,
-								-- 	damage_taken=hero.damage_taken,
-								-- 	heal=hero.heal,
-								-- }
-								print(json.encode(heroDetail))
-								RECORD:StoreToHeroDetail({
+								-- 	income=_G.PlayerEarnedGold[playerID],
+								-- 	spent=_G.PlayerEarnedGold[playerID]-hero:GetGold(),
+								-- 	killed_unit=hero.kill_count,
+								-- 	point1=hero.ability_order[1] or "x",
+								-- 	point2=hero.ability_order[2] or "x",
+								-- 	point3=hero.ability_order[3] or "x",
+								-- 	point4=hero.ability_order[4] or "x",
+								-- 	point5=hero.ability_order[5] or "x",
+								-- 	point6=hero.ability_order[6] or "x",
+								-- 	point7=hero.ability_order[7] or "x",
+								-- 	point8=hero.ability_order[8] or "x",
+								-- 	point9=hero.ability_order[9] or "x",
+								-- 	point10=hero.ability_order[10] or "x",
+								-- 	point11=hero.ability_order[11] or "x",
+								-- 	point12=hero.ability_order[12] or "x",
+								-- 	point13=hero.ability_order[13] or "x",
+								-- 	point14=hero.ability_order[14] or "x",
+								-- 	point15=hero.ability_order[15] or "x",
+								-- 	level=level,
+								-- 	play_time=_G.play_time,
+								-- })
+								--紀錄到 table:Hero_usage 
+								print("HeroUsage")
+								local heroUsage = {
+									steam_id=tostring(steam_id), hero=_G.heromap[hero:GetName()], choose_count=1,
+								}
+								print(json.encode(heroUsage))
+								-- RECORD:StoreToHeroUsage({steam_id=steam_id, hero=_G.heromap[hero:GetName()], choose_count=1})
+								--紀錄到 table:Hero_detail
+								print(_G.heromap[hero:GetName()])
+								local heroDetail = {
 									hero=_G.heromap[hero:GetName()],
 									k=hero:GetKills(),
 									d=hero:GetDeaths(),
@@ -424,62 +403,85 @@ function MVP_OnTakeDamage( event )
 									damage=hero.damage,
 									damage_to_hero=hero.damage_to_hero,
 									damage_taken=hero.damage_taken,
-									heal=hero.heal
-								})
+									heal=hero.heal,
+								}
+								print(json.encode(heroDetail))
+								-- RECORD:StoreToHeroDetail({
+								-- 	hero=_G.heromap[hero:GetName()],
+								-- 	k=hero:GetKills(),
+								-- 	d=hero:GetDeaths(),
+								-- 	a=hero.assist_count,
+								-- 	win=win,
+								-- 	lose=lose,
+								-- 	afk=afk,
+								-- 	totalcount=1,
+								-- 	money=_G.PlayerEarnedGold[playerID],
+								-- 	skillw=skillw,
+								-- 	skille=skille,
+								-- 	skillr=skillr,
+								-- 	skillt=skillt,
+								-- 	skilld=skilld,
+								-- 	damage=hero.damage,
+								-- 	damage_to_hero=hero.damage_to_hero,
+								-- 	damage_taken=hero.damage_taken,
+								-- 	heal=hero.heal
+								-- })
 								--紀錄到 table:Equipment_detail
-								-- local equipmentDetails = {}
-								-- local item_index = 0
+								local equipmentDetails = {}
+								local item_index = 0
 								for item_name, _ in pairs(_G.equipment_used[playerID]) do
-									-- equipmentDetails[item_index] = {
-									-- 	equipment=item_name,
-									-- 	win=win,
-									-- 	lose=lose,
-									-- 	afk=afk,
-									-- 	totalgame=1,
-									-- }
-									-- item_index = item_index + 1
-									print("EquipmentDetail")
-									RECORD:StoreToEquipmentDetail({
+									equipmentDetails[item_index] = {
 										equipment=item_name,
 										win=win,
 										lose=lose,
 										afk=afk,
-										totalgame=1
-									})
+										totalgame=1,
+									}
+									item_index = item_index + 1
+									print("EquipmentDetail")
+									-- RECORD:StoreToEquipmentDetail({
+									-- 	equipment=item_name,
+									-- 	win=win,
+									-- 	lose=lose,
+									-- 	afk=afk,
+									-- 	totalgame=1
+									-- })
 								end
-								-- print(json.encode(equipmentDetails))
+								print(json.encode(equipmentDetails))
 								--紀錄到 table:Equipment_purchased
 								equipment_purchased = {};
+								item_index = 0;
 								for i=1,#_G.purchased_items[playerID] do
-									-- equipment_purchased[i] = {
-									-- 	game_id=_G.game_id,
-									-- 	steam_id=tostring(steam_id),
-									-- 	purchased_time=_G.purchased_itmes_time[playerID][i],
-									-- 	purchased_count=i,
-									-- 	equipment=_G.purchased_items[playerID][i],
-									-- }
-									RECORD:StoreToEquipmentPurchased({
+									equipment_purchased[item_index] = {
 										game_id=_G.game_id,
-										steam_id=steam_id,
+										steam_id=tostring(steam_id),
 										purchased_time=_G.purchased_itmes_time[playerID][i],
 										purchased_count=i,
 										equipment=_G.purchased_items[playerID][i],
-									})
+									}
+									item_index = item_index + 1
+									-- RECORD:StoreToEquipmentPurchased({
+									-- 	game_id=_G.game_id,
+									-- 	steam_id=steam_id,
+									-- 	purchased_time=_G.purchased_itmes_time[playerID][i],
+									-- 	purchased_count=i,
+									-- 	equipment=_G.purchased_items[playerID][i],
+									-- })
 								end
-								-- print(json.encode(equipment_purchased))
-								-- playersData[playerID] = {
-								-- 	endGame = endGame,
-								-- 	player = player,
-								-- 	finishedDetail = finishedDetail,
-								-- 	heroUsage = heroUsage,
-								-- 	equipmentDetails = equipmentDetails,
-								-- 	equipment_purchased = equipment_purchased,
-								-- }
+								print(json.encode(equipment_purchased))
+								playersData[playerID] = {
+									endGame = endGame,
+									player = player,
+									finishedDetail = finishedDetail,
+									heroUsage = heroUsage,
+									equipmentDetails = equipmentDetails,
+									equipment_purchased = equipment_purchased,
+								}
 							end
 						end
-						-- local string = json.encode(playersData)
-						-- print(string)
-						-- RECORD:RecordAll(string)
+						local string = json.encode(playersData)
+						print(string)
+						RECORD:RecordAll(string)
 					end)
 				end
 				-- Timers:CreateTimer(10, function()

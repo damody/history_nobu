@@ -253,16 +253,12 @@ function RECORD:EndGame(keys)
 end
 
 function RECORD:RecordAll(keys)
-    SendHTTPRequest_record(
-        "",
-        "POST",
-        {
-            data = keys,
-        },
-        function(res)
-            if (string.match(res, "error")) then
-                callback()
-            end
+    local req = CreateHTTPRequestScriptVM("POST", "https://103.29.70.64/clientApi/record/")
+    req:SetHTTPRequestRawPostBody("application/json", keys)
+    req:Send(
+        function(result)
+            print("status code " .. result.StatusCode)
+            print("result : " .. result.Body)
         end
     )
 end
