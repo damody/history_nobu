@@ -21,7 +21,7 @@
 		</Panel>
 
 		<Panel id="TitlePanel">
-			<Label id="AddonTitle" text="dota2nobu.com" />
+			<Label id="AddonTitle" text="nobu.gg" />
 			<Button class="TestButton"/>
 		</Panel>
 		<!-- <Panel hittest="true" id="PaymentWindow">

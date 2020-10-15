@@ -251,3 +251,18 @@ function RECORD:EndGame(keys)
         end
     )
 end
+
+function RECORD:RecordAll(keys)
+    SendHTTPRequest_record(
+        "",
+        "POST",
+        {
+            data = keys,
+        },
+        function(res)
+            if (string.match(res, "error")) then
+                callback()
+            end
+        end
+    )
+end

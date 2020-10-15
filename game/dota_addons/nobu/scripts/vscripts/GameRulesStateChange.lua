@@ -1,3 +1,4 @@
+local json = require "game/dkjson"
 LinkLuaModifier( "modifier_record", "items/Addon_Items/record.lua",LUA_MODIFIER_MOTION_NONE )
 gamestates =
 {
@@ -72,10 +73,10 @@ function SendHTTPRequestGetPlayers(path, method, values, callback)
 						_G.matchCount = _G.matchCount + 1;
 						--織田2 聯合3
 						if tonumber(k) < 5 then
-							PlayerResource:SetCustomTeamAssignment(i, 3)
+							PlayerResource:SetCustomTeamAssignment(i, 2)
 						end
 						if tonumber(k) >= 5 then
-							PlayerResource:SetCustomTeamAssignment(i, 2)
+							PlayerResource:SetCustomTeamAssignment(i, 3)
 						end
 					end
 				end
@@ -198,6 +199,17 @@ function Nobu:OnGameRulesStateChange( keys )
       for_test_equiment()
 	end
 	--遊戲開始時間
+	local test = {};
+	local test2 = {
+		abc = tostring(PlayerResource:GetSteamID(0)),
+		ccc = "333",
+	}
+	print(test2.abc)
+	test[1] = {
+		test2 = test2,
+	}
+	local string = json.encode(test)
+	print(string)
 	print("close window")
 	Timers:CreateTimer(1, function()
 		CustomGameEventManager:Send_ServerToAllClients("closeWindow", {})

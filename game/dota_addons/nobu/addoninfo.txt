@@ -2,14 +2,10 @@
 {
 	"TeamCount"		"2"
 	
-	"maps"			"nobu nobu_pk"
+	"maps"			"nobu"
 	"IsPlayable"	"1"
 	"nobu"
 	{
 		"MaxPlayers"    "6"
-	}
-	"nobu_pk"
-	{
-		"MaxPlayers"    "2"
 	}
 }
