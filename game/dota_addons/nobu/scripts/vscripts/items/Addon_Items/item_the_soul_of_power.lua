@@ -59,52 +59,52 @@ function MVP_OnTakeDamage( event )
 		if ability then
 			local caster = ability:GetCaster()
 			if damage > caster:GetHealth() then
-				caster:SetHealth(10000)
-				caster:AddNewModifier(caster, nil, "modifier_invulnerable", nil )
-				caster:AddNewModifier(caster, nil, "modifier_kill", {duration=10} )
-				local mvp = nil
-				local mvp_value = -100
-				for _,hero in ipairs(HeroList:GetAllHeroes()) do
-					if not hero:IsIllusion() then
-						if not hero:IsAlive() then
-							hero:SetTimeUntilRespawn(0)
-						end
-						if getMVP_value(hero)>mvp_value and hero:GetTeamNumber() ~= caster:GetTeamNumber() then
-							mvp_value = getMVP_value(hero)
-							mvp = hero
+				-- caster:SetHealth(10000)
+				-- caster:AddNewModifier(caster, nil, "modifier_invulnerable", nil )
+				-- caster:AddNewModifier(caster, nil, "modifier_kill", {duration=10} )
+				-- local mvp = nil
+				-- local mvp_value = -100
+				-- for _,hero in ipairs(HeroList:GetAllHeroes()) do
+				-- 	if not hero:IsIllusion() then
+				-- 		if not hero:IsAlive() then
+				-- 			hero:SetTimeUntilRespawn(0)
+				-- 		end
+				-- 		if getMVP_value(hero)>mvp_value and hero:GetTeamNumber() ~= caster:GetTeamNumber() then
+				-- 			mvp_value = getMVP_value(hero)
+				-- 			mvp = hero
 							
-						end
-					end
-				end
-				local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
-				local ancient2 =  Entities:FindByName( nil, "dota_badguys_fort" )
-				if ancient1:IsAlive() then
-					ancient2:AddNewModifier(ancient2, nil, "modifier_invulnerable", nil )
-				else
-					ancient1:AddNewModifier(ancient1, nil, "modifier_invulnerable", nil )
-				end
-				Timers:CreateTimer(0.1, function()
-					local pos = caster:GetAbsOrigin()
-					if mvp then
-						for i=0,9 do
-							AMHC:SetCamera(i, mvp)
-						end
-						mvp:SetAbsOrigin(pos+Vector(0,0,250))
-						local nobu_id = _G.heromap[mvp:GetName()]
-						local mesg = "本場MVP為 ".._G.hero_name_zh[nobu_id]
-						if caster:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-							mesg = mesg.."\n織田軍獲勝"
-						else
-							mesg = mesg.."\n聯合軍獲勝"
-						end
-						GameRules:SetCustomVictoryMessage(mesg)
-						Timers:CreateTimer(0.1, function()
-							mvp:SetAbsOrigin(pos+Vector(0,0,250))
-							mvp:AddNewModifier(mvp, nil, "modifier_invulnerable", nil )
-							-- return 0.1
-						end)
-					end
-				end)
+				-- 		end
+				-- 	end
+				-- end
+				-- local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
+				-- local ancient2 =  Entities:FindByName( nil, "dota_badguys_fort" )
+				-- if ancient1:IsAlive() then
+				-- 	ancient2:AddNewModifier(ancient2, nil, "modifier_invulnerable", nil )
+				-- else
+				-- 	ancient1:AddNewModifier(ancient1, nil, "modifier_invulnerable", nil )
+				-- end
+				-- Timers:CreateTimer(0.1, function()
+				-- 	local pos = caster:GetAbsOrigin()
+				-- 	if mvp then
+				-- 		for i=0,9 do
+				-- 			AMHC:SetCamera(i, mvp)
+				-- 		end
+				-- 		mvp:SetAbsOrigin(pos+Vector(0,0,250))
+				-- 		local nobu_id = _G.heromap[mvp:GetName()]
+				-- 		local mesg = "本場MVP為 ".._G.hero_name_zh[nobu_id]
+				-- 		if caster:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+				-- 			mesg = mesg.."\n織田軍獲勝"
+				-- 		else
+				-- 			mesg = mesg.."\n聯合軍獲勝"
+				-- 		end
+				-- 		GameRules:SetCustomVictoryMessage(mesg)
+				-- 		Timers:CreateTimer(0.1, function()
+				-- 			mvp:SetAbsOrigin(pos+Vector(0,0,250))
+				-- 			mvp:AddNewModifier(mvp, nil, "modifier_invulnerable", nil )
+				-- 			-- return 0.1
+				-- 		end)
+				-- 	end
+				-- end)
 				-- print("1")
 				-- 傳送遊戲結果
 				-- 紀錄遊戲結束時間
