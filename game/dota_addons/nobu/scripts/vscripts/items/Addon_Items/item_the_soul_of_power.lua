@@ -59,7 +59,7 @@ function MVP_OnTakeDamage( event )
 		if ability then
 			local caster = ability:GetCaster()
 			if damage > caster:GetHealth() then
-				caster:SetHealth(1000)
+				caster:SetHealth(10000)
 				caster:AddNewModifier(caster, nil, "modifier_invulnerable", nil )
 				caster:AddNewModifier(caster, nil, "modifier_kill", {duration=10} )
 				local mvp = nil
@@ -313,6 +313,7 @@ function MVP_OnTakeDamage( event )
 									point15=hero.ability_order[15] or "x",
 									level=level,
 									play_time=_G.play_time,
+									mode=_G.mode or "ng",
 								}
 								print(json.encode(finishedDetail))
 								-- RECORD:StoreToFinishedDetail({
