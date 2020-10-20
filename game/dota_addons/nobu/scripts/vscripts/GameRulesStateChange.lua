@@ -63,6 +63,9 @@ function SendHTTPRequestGetPlayers(path, method, values, callback)
 		for key, value in string.gmatch(tostring(result.Body), "(%w+)=(%w+)") do 
 			table[key] = value
 		end
+		if table["mode"] then
+			_G.mode = table["mode"]
+		end
 		if table["0"] then
 		 	for i=0, 10 do 
 		 		PlayerResource:SetCustomTeamAssignment(i, 5)

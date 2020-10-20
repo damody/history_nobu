@@ -6,6 +6,6 @@
 	"IsPlayable"	"1"
 	"nobu"
 	{
-		"MaxPlayers"    "6"
+		"MaxPlayers"    "10"
 	}
 }
