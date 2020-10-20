@@ -801,7 +801,7 @@ function phased_dummy ( keys )
     target:AddNewModifier(caster,caster,"modifier_phased",{duration=5})
     print("suc")
   else
-    print("fail")
+    print("fail") 
   end
   -- for k,v in pairs(friend_dummy) do
   --   if string.match(v:GetUnitName(),"dummy") then
@@ -812,4 +812,18 @@ function phased_dummy ( keys )
   --     print("fail")
   --   end
   -- end
+end
+
+function preRegist ( keys )
+  local target = keys.target
+  local caster = keys.caster
+  local targetVector = target:GetAbsOrigin()
+  local casterVector = caster:GetAbsOrigin()
+  local forward =  targetVector - casterVector
+  forward = forward:Normalized()
+  local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact_dagger.vpcf",PATTACH_POINT,target)
+  ParticleManager:SetParticleControlForward(ifx,0,forward)
+  ParticleManager:SetParticleControl(ifx,1,target:GetAbsOrigin())
+  ParticleManager:SetParticleControlForward(ifx,1,forward)
+  ParticleManager:ReleaseParticleIndex(ifx)
 end

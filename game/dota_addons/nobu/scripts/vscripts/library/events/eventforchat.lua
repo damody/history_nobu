@@ -367,7 +367,24 @@ local function chat_of_test(keys)
 	end
 	if s == "pre" then 
 		caster:AddAbility("preRegist"):SetLevel(1)
-		
+		local ifx = ParticleManager:CreateParticle("particles/title/jj1.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+		ParticleManager:ReleaseParticleIndex(ifx)
+	end
+	if s == "-jj1" then 
+		local ifx = ParticleManager:CreateParticle("particles/title/jj1.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+		ParticleManager:ReleaseParticleIndex(ifx)
+	end
+	if s == "-jj2" then 
+		local ifx = ParticleManager:CreateParticle("particles/title/jj2.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+		ParticleManager:ReleaseParticleIndex(ifx)
+	end
+	if s == "-jj3" then 
+		local ifx = ParticleManager:CreateParticle("particles/title/jj3.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+		ParticleManager:ReleaseParticleIndex(ifx)
+	end
+	if s == "-jj4" then 
+		local ifx = ParticleManager:CreateParticle("particles/title/jj4.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+		ParticleManager:ReleaseParticleIndex(ifx)
 	end
 	if s == "sm" then
 		for _,m in ipairs(caster:FindAllModifiers()) do
