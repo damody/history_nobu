@@ -15069,11 +15069,11 @@
  	{
  		// General
  		//----------------------------------------------------------------
- 		"Model"						"models/items/terrorblade/marauders_demon/marauders_demon.vmdl"	// Model.
+ 		"Model"						"models/cursed_warrior_souls/cursed_warrior_souls.vmdl"	// Model.
  		"BaseClass"					"npc_dota_creep_lane"
  		"SoundSet"					"n_creep_Melee"
  		"Level"						"25"
- 		"ModelScale" 					"2.2"
+ 		"ModelScale" 					"0.8"
  		"IsNeutralUnitType"			"1"
 
  		// Abilities

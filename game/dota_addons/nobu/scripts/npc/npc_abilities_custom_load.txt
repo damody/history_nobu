@@ -5896,11 +5896,10 @@
 				"IsHidden"	"1"
 				"OnAttackLanded"
 				{
-					"AttachEffect"
+					"RunScript"
 					{
-						"Target"	"TARGET"
-						"EffectName"	"particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta_blood.vpcf"
-						"EffectAttachType"	"start_at_origin"
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"preRegist"
 					}
 				}
 			}
