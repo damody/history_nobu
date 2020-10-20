@@ -1,0 +1,8 @@
+Attack_1    1~31
+Attack_2    31~61
+Attack_3    61~91
+Attack slam 92~122
+Run         123~183
+Death       184~244
+Idle        245~395
+Stun        396~426
