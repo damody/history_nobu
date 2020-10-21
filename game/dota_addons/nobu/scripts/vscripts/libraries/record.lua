@@ -5,7 +5,7 @@ if RECORD == nil then
 end
 
 function SendHTTPRequest_record(path, method, values, callback)
-    local req = CreateHTTPRequestScriptVM(method, "https://103.29.70.64/clientApi/record/" .. path)
+    local req = CreateHTTPRequestScriptVM(method, "https://nobu.gg/clientApi/record/" .. path)
     for key, value in pairs(values) do
         req:SetHTTPRequestGetOrPostParameter(key, value)
     end
@@ -253,7 +253,7 @@ function RECORD:EndGame(keys)
 end
 
 function RECORD:RecordAll(keys)
-    local req = CreateHTTPRequestScriptVM("POST", "https://103.29.70.64/clientApi/record/")
+    local req = CreateHTTPRequestScriptVM("POST", "https://172.104.72.206/clientApi/record/")
     req:SetHTTPRequestRawPostBody("application/json", keys)
     req:Send(
         function(result)
