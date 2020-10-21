@@ -154,6 +154,34 @@ function kill_warrior_souls_when_start( keys )
 	end
 end
 
+function warrior_souls_critical ( keys ) 
+	local caster = keys.caster
+	local ability = keys.ability
+	local ran =  RandomInt(1, 100)
+	local rate = caster:GetAttacksPerSecond()
+	caster:RemoveModifierByName("modifier_warrior_souls_criticalmultiplier")
+	print(ran)
+	print(caster.soul_critical)
+	if (caster.soul_critical == nil) then
+		caster.soul_critical = 0
+	end
+	if (ran > 25) then
+		caster.soul_critical = caster.soul_critical + 1
+	end
+	if ( caster.soul_critical > 4 or ran <= 40) then
+		caster.soul_critical = 0
+		ability:ApplyDataDrivenModifier(caster,caster,"modifier_warrior_souls_cannot_miss",{duration = rate})
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_warrior_souls_criticalmultiplier", { } )
+		if rate < 1 then
+			caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,1)
+		else
+			caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,rate)
+		end
+	end
+	
+end
+
+
 function warrior_souls_debuff_OnIntervalThink( keys )
 	local caster = keys.caster
 	local ability = keys.ability

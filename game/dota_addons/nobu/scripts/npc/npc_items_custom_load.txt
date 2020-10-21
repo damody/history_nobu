@@ -3053,7 +3053,7 @@
 				"IsHidden"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"	"220"
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"	"300"
 				}
 				"OnAttackLanded"
 				{							
