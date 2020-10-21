@@ -821,7 +821,7 @@ function preRegist ( keys )
   local casterVector = caster:GetAbsOrigin()
   local forward =  targetVector - casterVector
   forward = forward:Normalized()
-  local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact_dagger.vpcf",PATTACH_POINT,target)
+  local ifx = ParticleManager:CreateParticle("particles/preregist/phantom_assassin_crit_impact.vpcf",PATTACH_POINT,target)
   ParticleManager:SetParticleControlForward(ifx,0,forward)
   ParticleManager:SetParticleControl(ifx,1,target:GetAbsOrigin())
   ParticleManager:SetParticleControlForward(ifx,1,forward)

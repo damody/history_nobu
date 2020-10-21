@@ -899,8 +899,9 @@
 				}
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"300"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"100"
 				}
+
 			}
 			"modifier_show_invisible"
 			{
@@ -929,6 +930,35 @@
 				{
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "-1"
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "-1"
+				}
+			}
+			"modifier_warrior_souls_critical"
+			{
+				"Passive" "1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
+						"Function"	"warrior_souls_critical"
+						"Target"		"TARGET"
+					}
+				}
+			}
+			"modifier_warrior_souls_criticalmultiplier"
+			{
+				"IsHidden"			"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE" "200"
+				}
+			}
+			"modifier_warrior_souls_cannot_miss"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
