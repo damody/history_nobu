@@ -170,7 +170,7 @@ function warrior_souls_critical ( keys )
 	end
 	if ( caster.soul_critical > 4 or ran <= 40) then
 		caster.soul_critical = 0
-		ability:ApplyDataDrivenModifier(caster,caster,"modifier_warrior_souls_cannot_miss",{duration = rate})
+		ability:ApplyDataDrivenModifier(caster,caster,"modifier_warrior_souls_cannot_miss",{duration = 1/rate})
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_warrior_souls_criticalmultiplier", { } )
 		if rate < 1 then
 			caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,1)
