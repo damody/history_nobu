@@ -2900,7 +2900,7 @@
 		{
 			"modifier_wantgohome"
 			{
-				"EffectName"	"particles/events/ti6_teams/teleport_start_ti6_lvl3_ehome.vpcf"
+				"EffectName"	"particles/gohome/gohome.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
 		}
@@ -3010,7 +3010,7 @@
 		{
 			"modifier_wantgohome"
 			{
-				"EffectName"	"particles/events/ti6_teams/teleport_start_ti6_lvl3_ehome.vpcf"
+				"EffectName"	"particles/gohome/gohome.vpcf"
 				"EffectAttachType"	"follow_origin"
 			}
 		}
