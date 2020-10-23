@@ -53,6 +53,17 @@ function SendHTTPRequestGetHero(path, method, values, callback)
 	end)
 end
 
+function SendHTTPRequestCheckSubscription(path, method, values, callback)
+	local req = CreateHTTPRequestScriptVM( method, "https://nobu.gg/clientApi/"..path)
+	for key, value in pairs(values) do
+		req:SetHTTPRequestGetOrPostParameter(key, value)
+	end
+	req:Send(function(result)
+		print(result);
+		callback(result.Body)
+	end)
+end
+
 function SendHTTPRequestGetPlayers(path, method, values, callback)
 	local req = CreateHTTPRequestScriptVM( method, "https://nobu.gg/clientApi/"..path)
 	for key, value in pairs(values) do
@@ -147,6 +158,24 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- 	end
 		-- end)
 	elseif(newState == DOTA_GAMERULES_STATE_HERO_SELECTION) then --選擇英雄階段
+		--取得訂閱資格
+		_G.haveSubscription = {};
+		for playerID = 0, 9 do
+			local steam_id = PlayerResource:GetSteamID(playerID)
+			SendHTTPRequest("check_subscription/", "POST", {steam_id = tostring(steam_id)}, function(res)
+				if (string.match(res, "error")) then
+					callback()
+				else
+					print(res);
+					print(string.len(res));
+					if (string.len(res) > 10) then
+						_G.haveSubscription[tostring(steam_id)] = true;
+						print(steam_id);
+						print(_G.haveSubscription[tostring(steam_id)]);
+					end
+				end
+			end)
+		end
 		--取得skin
 		_G.skin_table = {}
 		SendHTTPRequest("get_skin/", "POST", {}, function(res)

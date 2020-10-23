@@ -331,6 +331,7 @@ local function chat_of_test(keys)
 		sump = 99
 	end
 	local steamid = PlayerResource:GetSteamAccountID(caster:GetPlayerOwnerID())
+	local steam_id = PlayerResource:GetSteamID(caster:GetPlayerOwnerID())
 	if author[tostring(steamid)] or author[tostring(accountID)] then
 		sump = 1
 	end
@@ -371,20 +372,30 @@ local function chat_of_test(keys)
 		ParticleManager:ReleaseParticleIndex(ifx)
 	end
 	if s == "-jj1" then 
-		local ifx = ParticleManager:CreateParticle("particles/title/jj1.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
-		ParticleManager:ReleaseParticleIndex(ifx)
+		print(steam_id)
+		print(_G.haveSubscription[tostring(steam_id)]);
+		if _G.haveSubscription[tostring(steam_id)] then
+			local ifx = ParticleManager:CreateParticle("particles/title/jj1.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+			ParticleManager:ReleaseParticleIndex(ifx)
+		end
 	end
 	if s == "-jj2" then 
-		local ifx = ParticleManager:CreateParticle("particles/title/jj2.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
-		ParticleManager:ReleaseParticleIndex(ifx)
+		if _G.haveSubscription[tostring(steam_id)] then
+			local ifx = ParticleManager:CreateParticle("particles/title/jj2.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+			ParticleManager:ReleaseParticleIndex(ifx)
+		end
 	end
 	if s == "-jj3" then 
-		local ifx = ParticleManager:CreateParticle("particles/title/jj3.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
-		ParticleManager:ReleaseParticleIndex(ifx)
+		if _G.haveSubscription[tostring(steam_id)] then
+			local ifx = ParticleManager:CreateParticle("particles/title/jj3.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+			ParticleManager:ReleaseParticleIndex(ifx)
+		end
 	end
 	if s == "-jj4" then 
-		local ifx = ParticleManager:CreateParticle("particles/title/jj4.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
-		ParticleManager:ReleaseParticleIndex(ifx)
+		if _G.haveSubscription[tostring(steam_id)] then
+			local ifx = ParticleManager:CreateParticle("particles/title/jj4.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+			ParticleManager:ReleaseParticleIndex(ifx)
+		end
 	end
 	if s == "sm" then
 		for _,m in ipairs(caster:FindAllModifiers()) do
