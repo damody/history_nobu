@@ -1,0 +1,134 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf27:version{36c3961f-02a4-4c52-bf8f-6e3147d7d142} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 12
+	m_flConstantLifespan = 0.2
+	m_ConstantColor = [ 233, 255, 84, 255 ]
+	m_flMaxDrawDistance = 2000.0
+	m_bShouldSort = false
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderTrails"
+			m_nSequenceCombineMode = "SEQUENCE_COMBINE_MODE_USE_SEQUENCE_0"
+			m_bAdditive = true
+			m_flOverbrightFactor = 2.0
+			m_hTexture = resource:"materials/particle/particle_cone_gradient_1.vtex"
+			m_flLengthFadeInTime = 0.1
+			m_flFinalTextureScaleV = -1.0
+			m_flFinalTextureOffsetV = 1.0
+			m_flRadiusTaper = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.0
+			}
+			m_flRadiusScale = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.5
+			}
+			m_vecTailColorScale = 
+			{
+				m_nType = "PVEC_TYPE_LITERAL_COLOR"
+				m_LiteralColor = [ 255, 255, 255 ]
+			}
+			m_flTailAlphaScale = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.0
+			}
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_Spin"
+			m_flOpTimeOffsetMax = 1.0
+			m_fSpinRateStopTime = 1.0
+			m_nSpinRateDegrees = 4
+		},
+		{
+			_class = "C_OP_Decay"
+			m_flOpTimeOffsetMax = 1.0
+		},
+		{
+			_class = "C_OP_PositionLock"
+			m_flStartTime_max = -1.0
+			m_flStartTime_min = -1.0
+		},
+		{
+			_class = "C_OP_ColorInterpolate"
+			m_ColorFade = [ 92, 78, 0, 255 ]
+			m_flFadeEndTime = 0.5
+		},
+		{
+			_class = "C_OP_BasicMovement"
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flBias = 0.75
+			m_flEndScale = 0.0
+			m_flStartScale = 10.0
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flOpTimeOffsetMax = 1.0
+			m_flRadiusMax = 14.0
+			m_flRadiusMin = 8.0
+		},
+		{
+			_class = "C_INIT_CreateWithinSphere"
+		},
+		{
+			_class = "C_INIT_RandomTrailLength"
+			m_flMinLength = 0.5
+			m_flMaxLength = 0.5
+		},
+		{
+			_class = "C_INIT_InitialVelocityNoise"
+			m_bLocalSpace = true
+			m_vecOutputMax = [ -1500.0, 0.0, 0.0 ]
+			m_vecOutputMin = [ -1500.0, 0.0, 0.0 ]
+			m_nControlPointNumber = 1
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_nControlPointNumber = 1
+			m_OffsetMin = [ -60.0, 0.0, 0.0 ]
+			m_OffsetMax = [ -60.0, 0.0, 0.0 ]
+			m_bLocalCoords = true
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_flStartTime = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.0
+			}
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 2.0
+			}
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"preregist/phantom_assassin_crit_impact_e0a.vpcf"
+		},
+	]
+	m_PreEmissionOperators = [  ]
+	m_nBehaviorVersion = 5
+	m_nFirstMultipleOverride_BackwardCompat = 3
+}

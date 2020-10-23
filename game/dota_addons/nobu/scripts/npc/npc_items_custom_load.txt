@@ -16495,7 +16495,7 @@
 		"ItemCost"	"50"
 		"precache"
 		{
-			"particle"	"particles/events/ti6_teams/teleport_start_ti6_lvl3_ehome.vpcf"
+			"particle"	"particles/gohome/gohome.vpcf"
 		}
 		"OnSpellStart"
 		{
