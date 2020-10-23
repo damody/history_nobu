@@ -88,7 +88,6 @@
 				m_nType = "PF_TYPE_LITERAL"
 				m_flLiteralValue = 1.0
 			}
-			m_bDisableOperator = true
 		},
 	]
 	m_Children = 

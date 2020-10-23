@@ -1928,7 +1928,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_01.vsnd"
+							"value0"		"sounds\3-nouhime_5-1.vsnd"
 						}
 					}
 					"volume"
@@ -1961,7 +1961,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_02.vsnd"
+							"value0"		"sounds\3-nouhime_6-1.vsnd"
 						}
 					}
 					"volume"
@@ -1994,7 +1994,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_03.vsnd"
+							"value0"		"sounds\3-nouhime_5-2.vsnd"
 						}
 					}
 					"volume"
@@ -2027,7 +2027,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_05.vsnd"
+							"value0"		"sounds\3-nouhime_5-3.vsnd"
 						}
 					}
 					"volume"
@@ -2060,7 +2060,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_06.vsnd"
+							"value0"		"sounds\3-nouhime_5-4.vsnd"
 						}
 					}
 					"volume"
@@ -2093,7 +2093,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_07.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -2126,7 +2126,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_09.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -2159,7 +2159,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_12.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -2192,7 +2192,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_13.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -2225,7 +2225,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_14.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -2258,7 +2258,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_15.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -2291,7 +2291,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_16.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -2324,7 +2324,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_19.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -2357,7 +2357,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_20.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -2390,7 +2390,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_21.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -2423,7 +2423,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_22.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -2456,7 +2456,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_23.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -2489,7 +2489,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_24.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -2522,7 +2522,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds\a26_attack_25.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
