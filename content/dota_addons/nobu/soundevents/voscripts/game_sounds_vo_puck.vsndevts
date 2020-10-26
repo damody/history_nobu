@@ -14,7 +14,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_spawn_01.vsnd"
+							"value0"		"sounds/c17/10-oichi_1-1.vsnd"
 						}
 					}
 					"volume"
@@ -47,7 +47,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_spawn_02.vsnd"
+							"value0"		"sounds/c17/10-oichi_2-1.vsnd"
 						}
 					}
 					"volume"
@@ -80,7 +80,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_spawn_03.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -113,7 +113,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_spawn_04.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -146,7 +146,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_spawn_05.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -179,7 +179,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_spawn_06.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -212,7 +212,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_spawn_07.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -245,7 +245,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_spawn_08.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -278,7 +278,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_move_01.vsnd"
+							"value0"		"sounds/c17/10-oichi_3-1.vsnd"
 						}
 					}
 					"volume"
@@ -311,7 +311,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_move_02.vsnd"
+							"value0"		"sounds/c17/10-oichi_3-2.vsnd"
 						}
 					}
 					"volume"
@@ -344,7 +344,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_move_03.vsnd"
+							"value0"		"sounds/c17/10-oichi_3-3.vsnd"
 						}
 					}
 					"volume"
@@ -377,7 +377,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_move_04.vsnd"
+							"value0"		"sounds/c17/10-oichi_4-1.vsnd"
 						}
 					}
 					"volume"
@@ -410,7 +410,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_move_05.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -443,7 +443,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_move_06.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -476,7 +476,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_move_07.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -509,7 +509,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_move_08.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -542,7 +542,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_move_09.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -575,7 +575,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_move_10.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -608,7 +608,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_move_11.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -641,7 +641,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_move_12.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -674,7 +674,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_attack_01.vsnd"
+							"value0"		"sounds/c17/10-oichi_5-1.vsnd"
 						}
 					}
 					"volume"
@@ -707,7 +707,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_attack_02.vsnd"
+							"value0"		"sounds/c17/10-oichi_5-2.vsnd"
 						}
 					}
 					"volume"
@@ -740,7 +740,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_attack_03.vsnd"
+							"value0"		"sounds/c17/10-oichi_5-3.vsnd"
 						}
 					}
 					"volume"
@@ -773,7 +773,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_attack_04.vsnd"
+							"value0"		"sounds/c17/10-oichi_5-4.vsnd"
 						}
 					}
 					"volume"
@@ -806,7 +806,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_attack_05.vsnd"
+							"value0"		"sounds/c17/10-oichi_6-1.vsnd"
 						}
 					}
 					"volume"
@@ -839,7 +839,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_attack_06.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -872,7 +872,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_attack_07.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -905,7 +905,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_attack_08.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -938,7 +938,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_attack_09.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -971,7 +971,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_attack_10.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -1004,7 +1004,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_attack_11.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -1037,7 +1037,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_attack_12.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -1070,7 +1070,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_cast_01.vsnd"
+							"value0"		"sounds/c17/10-oichi_5-1.vsnd"
 						}
 					}
 					"volume"
@@ -1103,7 +1103,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_cast_02.vsnd"
+							"value0"		"sounds/c17/10-oichi_5-2.vsnd"
 						}
 					}
 					"volume"
@@ -1136,7 +1136,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_cast_03.vsnd"
+							"value0"		"sounds/c17/10-oichi_5-3.vsnd"
 						}
 					}
 					"volume"
@@ -1169,7 +1169,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_orb_01.vsnd"
+							"value0"		"sounds/c17/10-oichi_5-1.vsnd"
 						}
 					}
 					"volume"
@@ -1202,7 +1202,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_orb_02.vsnd"
+							"value0"		"sounds/c17/10-oichi_5-2.vsnd"
 						}
 					}
 					"volume"
@@ -1235,7 +1235,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_orb_03.vsnd"
+							"value0"		"sounds/c17/10-oichi_5-3.vsnd"
 						}
 					}
 					"volume"
@@ -1268,7 +1268,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_orb_04.vsnd"
+							"value0"		"sounds/c17/10-oichi_5-4.vsnd"
 						}
 					}
 					"volume"
@@ -1301,7 +1301,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_orb_05.vsnd"
+							"value0"		"sounds/c17/10-oichi_6-1.vsnd"
 						}
 					}
 					"volume"
@@ -1334,7 +1334,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_orb_06.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -1367,7 +1367,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_orb_07.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -1400,7 +1400,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_orb_08.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -1433,7 +1433,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_rift_01.vsnd"
+							"value0"		"sounds/c17/10-oichi_5-1.vsnd"
 						}
 					}
 					"volume"
@@ -1466,7 +1466,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_rift_02.vsnd"
+							"value0"		"sounds/c17/10-oichi_5-2.vsnd"
 						}
 					}
 					"volume"
@@ -1499,7 +1499,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_rift_03.vsnd"
+							"value0"		"sounds/c17/10-oichi_5-3.vsnd"
 						}
 					}
 					"volume"
@@ -1928,7 +1928,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_failure_01.vsnd"
+							"value0"		"sounds/c17/10-oichi_7-1.vsnd"
 						}
 					}
 					"volume"
@@ -1961,7 +1961,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_failure_02.vsnd"
+							"value0"		"sounds/c17/10-oichi_8-1.vsnd"
 						}
 					}
 					"volume"
@@ -1994,7 +1994,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_failure_03.vsnd"
+							"value0"		"sounds/c17/10-oichi_8-2.vsnd"
 						}
 					}
 					"volume"
@@ -2027,7 +2027,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_ability_failure_04.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -2423,7 +2423,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_kill_01.vsnd"
+							"value0"		"sounds/c17/10-oichi_6-1.vsnd"
 						}
 					}
 					"volume"
@@ -2753,7 +2753,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_respawn_01.vsnd"
+							"value0"		"sounds/c17/10-oichi_2-1.vsnd"
 						}
 					}
 					"volume"
@@ -2786,7 +2786,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_respawn_02.vsnd"
+							"value0"		"sounds/c17/10-oichi_1-1.vsnd"
 						}
 					}
 					"volume"
@@ -3083,7 +3083,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_rare_01.vsnd"
+							"value0"		"sounds/c17/10-oichi_3-1.vsnd"
 						}
 					}
 					"volume"
@@ -3116,7 +3116,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_rare_02.vsnd"
+							"value0"		"sounds/c17/10-oichi_3-2.vsnd"
 						}
 					}
 					"volume"
@@ -3644,7 +3644,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_lasthit_01.vsnd"
+							"value0"		"sounds/c17/10-oichi_6-1.vsnd"
 						}
 					}
 					"volume"
@@ -3677,7 +3677,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_lasthit_02.vsnd"
+							"value0"		"sounds/c17/10-oichi_6-1.vsnd"
 						}
 					}
 					"volume"
@@ -3710,7 +3710,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_lasthit_03.vsnd"
+							"value0"		"sounds/c17/10-oichi_6-1.vsnd"
 						}
 					}
 					"volume"
@@ -3743,7 +3743,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_lasthit_04.vsnd"
+							"value0"		"sounds/c17/10-oichi_6-1.vsnd"
 						}
 					}
 					"volume"
@@ -3776,7 +3776,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_lasthit_05.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5129,7 +5129,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_notyet_01.vsnd"
+							"value0"		"sounds/c17/10-oichi_7-1.vsnd"
 						}
 					}
 					"volume"
@@ -5162,7 +5162,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_notyet_02.vsnd"
+							"value0"		"sounds/c17/10-oichi_8-1.vsnd"
 						}
 					}
 					"volume"
@@ -5195,7 +5195,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_notyet_03.vsnd"
+							"value0"		"sounds/c17/10-oichi_8-2.vsnd"
 						}
 					}
 					"volume"
@@ -5228,7 +5228,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_notyet_04.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5261,7 +5261,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_notyet_05.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5294,7 +5294,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_notyet_06.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5327,7 +5327,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_notyet_07.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5360,7 +5360,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_notyet_08.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5393,7 +5393,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_notyet_09.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5426,7 +5426,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_nomana_01.vsnd"
+							"value0"		"sounds/c17/10-oichi_9-1.vsnd"
 						}
 					}
 					"volume"
@@ -5459,7 +5459,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_nomana_02.vsnd"
+							"value0"		"sounds/c17/10-oichi_9-2.vsnd"
 						}
 					}
 					"volume"
@@ -5492,7 +5492,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_nomana_03.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5525,7 +5525,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_nomana_04.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5558,7 +5558,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_nomana_05.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5591,7 +5591,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_nomana_06.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5624,7 +5624,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_nomana_07.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5657,7 +5657,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_nomana_08.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5690,7 +5690,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_nomana_09.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5723,7 +5723,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_anger_01.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"
@@ -5756,7 +5756,7 @@
 					{
 						"value"
 						{
-							"value0"		"sounds/c17/c17_anger_02.vsnd"
+							"value0"		""
 						}
 					}
 					"volume"

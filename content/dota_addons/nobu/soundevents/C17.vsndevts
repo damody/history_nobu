@@ -83,8 +83,8 @@
 					{
 						"value"
 						{
-							"value0"        "sounds/c17/c17_w_01.vsnd"
-							"value0"        "sounds/c17/c17_w_02.vsnd"
+							"value0"        "sounds/c17/10-oichi_6-1.vsnd"
+							"value0"        "sounds/c17/10-oichi_5-4.vsnd"
 						}
 					}
 					"volume"
@@ -117,8 +117,8 @@
 					{
 						"value"
 						{
-							"value0"        "sounds/c17/c17_e_01.vsnd"
-							"value0"        "sounds/c17/c17_e_02.vsnd"
+							"value0"        "sounds/c17/10-oichi_2-1.vsnd"
+							"value0"        ""
 						}
 					}
 					"volume"
@@ -151,8 +151,8 @@
 					{
 						"value"
 						{
-							"value0"        "sounds/c17/c17_r_01.vsnd"
-							"value0"        "sounds/c17/c17_r_02.vsnd"
+							"value0"        "sounds/c17/10-oichi_6-1.vsnd"
+							"value0"        "sounds/c17/10-oichi_5-4.vsnd"
 						}
 					}
 					"volume"
@@ -185,8 +185,8 @@
 					{
 						"value"
 						{
-							"value0"        "sounds/c17/c17_t_01.vsnd"
-							"value0"        "sounds/c17/c17_t_02.vsnd"
+							"value0"        "sounds/c17/10-oichi_6-1.vsnd"
+							"value0"        ""
 						}
 					}
 					"volume"
