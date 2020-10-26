@@ -571,7 +571,7 @@ function Nobu:OnGameRulesStateChange( keys )
 						local hero = player:GetAssignedHero()
 						if hero and hero:GetTeamNumber()==n then
 							AMHC:GivePlayerGold_UnReliable(playerID, money)
-							_G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + money
+							-- _G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + money
 						end
 					end
 				end

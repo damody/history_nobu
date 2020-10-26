@@ -196,6 +196,7 @@ function give_money_for_together_hero(caster, gold, radius)
   for _,hero in ipairs(group) do
     if not hero:IsIllusion() and hero ~= caster then
       AMHC:GivePlayerGold_UnReliable(hero:GetPlayerOwnerID(), gold)
+      -- _G.PlayerEarnedGold[hero:GetPlayerOwnerID()] = _G.PlayerEarnedGold[hero:GetPlayerOwnerID()] + gold
     end
   end
 end
@@ -212,8 +213,13 @@ function Nobu:FilterGold( filterTable )
     filterTable["reliable"] = 0
     if reason == DOTA_ModifyGold_Building then      
       if gold ~= 150 and gold ~= 750 and gold ~= 50 then return false end
-      if gold == 750 then filterTable["gold"] = 300 end
-      _G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + gold
+      if gold == 750 then 
+        filterTable["gold"] = 300 
+        _G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + 300
+      else
+        _G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + gold
+      end
+      print(gold)
       return true
     end
     -- Disable all hero kill gold
@@ -221,6 +227,7 @@ function Nobu:FilterGold( filterTable )
       return false
     end
     _G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + gold
+    print(gold)
     return true
 end
 

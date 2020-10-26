@@ -513,6 +513,7 @@ function AMHC:GivePlayerGold_UnReliable( playerid,gold )
 		if hero then
 			--hero:EmitSoundParams("General.Sell",200,200,0.1)
 			PlayerResource:SetGold(playerid,PlayerResource:GetGold(playerid) + gold,false)
+			_G.PlayerEarnedGold[playerid] = _G.PlayerEarnedGold[playerid] + gold
 			self:CreateNumberEffect( hero,gold,1,self.MSG_GOLD,"yellow",0 )
 		end
 	end
