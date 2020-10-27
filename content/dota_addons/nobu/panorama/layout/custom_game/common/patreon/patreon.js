@@ -60,7 +60,7 @@ function updatePaymentWindow() {
 		var playerIDs_OnTeam_A = Game.GetPlayerIDsOnTeam(2);
 		var playerIDs_OnTeam_B = Game.GetPlayerIDsOnTeam(3);
 		var id = get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
-		var urlA = "http://nobu.gg:88/game/0?id=" + id;
+		var urlA = "https://nobu.gg/choose_hero/dotaGame/0?id=" + id;
 		id = 0;
 		for (const key in all_playersID) {
 			if (all_playersID.hasOwnProperty(key)) {
@@ -76,7 +76,7 @@ function updatePaymentWindow() {
 		}
 		$('#PaymentWindowBody').SetURL(urlA);
 		$.Msg(urlA)
-		$.Schedule(2, closeWindow);
+		$.Schedule(40, closeWindow);
 	} else {
 		// if (gid != -1){
 		// 	$('#PaymentWindowBody').SetURL("http://103.29.70.64:88/settlement/" + gid);

@@ -72,7 +72,7 @@ function Nobu:OnUnitKill( keys )
         for _,hero in ipairs(group) do
           if not hero:IsIllusion() then
             AMHC:GivePlayerGold_UnReliable(hero:GetPlayerOwnerID(), earn)
-            _G.PlayerEarnedGold[hero:GetPlayerOwnerID()] = _G.PlayerEarnedGold[hero:GetPlayerOwnerID()] + earn
+            -- _G.PlayerEarnedGold[hero:GetPlayerOwnerID()] = _G.PlayerEarnedGold[hero:GetPlayerOwnerID()] + earn
           end
         end
       end

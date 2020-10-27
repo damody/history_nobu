@@ -29,7 +29,7 @@ function OnOwnerDied(keys)
                     --助攻的人拿額外獎勵
                     if hero.assist_count < hero:GetAssists() then
                         AMHC:GivePlayerGold_UnReliable(hero:GetPlayerOwnerID(), extra_bounty + bounty)
-                        _G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + extra_bounty + bounty
+                        -- _G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + extra_bounty + bounty
                         hero.assist_count = hero.assist_count+1
                     end
                 end

@@ -366,6 +366,17 @@ local function chat_of_test(keys)
 			_G.Oda_home:ForceKill(false)
 		end
 	end
+	if s == "aa" then
+		for playerID = 0, 9 do
+			local p        = PlayerResource:GetPlayer(playerID)
+	  		local steamid = PlayerResource:GetSteamAccountID(playerID)
+	    	if p ~= nil and (p:GetAssignedHero()) ~= nil then
+			  local hero = p:GetAssignedHero()
+			  print("earn" .. _G.PlayerEarnedGold[playerID])
+			  print("gold" .. hero:GetGold());
+			end
+		end
+	end
 	if s == "pre" then 
 		caster:AddAbility("preRegist"):SetLevel(1)
 		local ifx = ParticleManager:CreateParticle("particles/title/jj1.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)

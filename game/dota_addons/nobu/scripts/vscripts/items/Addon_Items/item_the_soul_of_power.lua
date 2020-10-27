@@ -50,6 +50,7 @@ end
 
 
 function MVP_OnTakeDamage( event )
+	print("finished")
 	-- Variables
 	if IsServer() then
 		print(DOTA_TEAM_BADGUYS) -- 3
@@ -172,18 +173,14 @@ function MVP_OnTakeDamage( event )
 								--紀錄到 table:Players
 								if caster:GetTeamNumber() == DOTA_TEAM_BADGUYS then
 									if PlayerResource:GetCustomTeamAssignment(playerID) == DOTA_TEAM_BADGUYS then
-										-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
 										res = "L"
 									else
-										-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
 										res = "W"
 									end
 								else
 									if PlayerResource:GetCustomTeamAssignment(playerID) == DOTA_TEAM_BADGUYS then
-										-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
 										res = "W"
 									else
-										-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
 										res = "L"
 									end
 								end
@@ -235,22 +232,6 @@ function MVP_OnTakeDamage( event )
 										equ[i] = item:GetName()
 									end
 								end
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {hero = hero})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {level = level})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {ancient1 = ancient1})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {nobug_res = nobu_res})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {unified_res = unified_res})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {res = res})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {pos = pos})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {win = win})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {lose = lose})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {afk = afk})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {isAfk = isAfk})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {skillw = skillw})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {skille = skille})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {skillr = skillr})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {skilld = skilld})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {equ = equ})
 								print("FinishedDetail")
 								print("game_id" .. _G.game_id)
 								local finishedDetail = {
@@ -295,7 +276,7 @@ function MVP_OnTakeDamage( event )
 									skilld=skilld,
 									income=_G.PlayerEarnedGold[playerID],
 									spent=_G.PlayerEarnedGold[playerID]-hero:GetGold(),
-									killed_unit=hero.kill_count,
+									killed_unit=hero:GetLastHits(),
 									point1=hero.ability_order[1] or "x",
 									point2=hero.ability_order[2] or "x",
 									point3=hero.ability_order[3] or "x",
@@ -316,67 +297,6 @@ function MVP_OnTakeDamage( event )
 									mode=_G.mode or "ng",
 								}
 								print(json.encode(finishedDetail))
-								-- RECORD:StoreToFinishedDetail({
-								-- 	game_id=_G.game_id,
-								-- 	steam_id=steam_id,
-								-- 	equ_1=equ[0] or "x",
-								-- 	equ_2=equ[1] or "x",
-								-- 	equ_3=equ[2] or "x",
-								-- 	equ_4=equ[3] or "x",
-								-- 	equ_5=equ[4] or "x",
-								-- 	equ_6=equ[5] or "x",
-								-- 	damage_to_hero=hero.damage_to_hero,
-								-- 	physical_damage_to_hero=hero.physical_damage_to_hero,
-								-- 	magical_damage_to_hero=hero.magical_damage_to_hero,
-								-- 	true_damage_to_hero=hero.true_damage_to_hero,
-								-- 	damage=hero.damage,
-								-- 	physical_damage=hero.physical_damage,
-								-- 	magical_damage=hero.magical_damage,
-								-- 	true_damage=hero.true_damage,
-								-- 	maximum_critical_damage=hero.maximum_critical_damage, --未
-								-- 	damage_to_tower=hero.damage_to_tower,
-								-- 	damage_to_unit=hero.damage_to_unit,
-								-- 	heal=hero.heal,
-								-- 	damage_taken=hero.damage_taken,
-								-- 	physical_damage_taken=hero.physical_damage_taken,
-								-- 	magical_damage_taken=hero.magical_damage_taken,
-								-- 	true_damage_taken=hero.true_damage_taken,
-								-- 	damage_reduce=hero.damage_reduce,
-								-- 	hero=_G.heromap[hero:GetName()],
-								-- 	res=res,
-								-- 	pos=pos,
-								-- 	k=hero:GetKills(),
-								-- 	d=hero:GetDeaths(),
-								-- 	a=hero.assist_count,
-								-- 	largest_killing_spree=hero.largest_killing_spree,
-								-- 	largest_multi_kill=hero.largest_multi_kill,
-								-- 	first_blood=hero.first_blood,
-								-- 	skillw=skillw,
-								-- 	skille=skille,
-								-- 	skillr=skillr,
-								-- 	skillt=skillt,
-								-- 	skilld=skilld,
-								-- 	income=_G.PlayerEarnedGold[playerID],
-								-- 	spent=_G.PlayerEarnedGold[playerID]-hero:GetGold(),
-								-- 	killed_unit=hero.kill_count,
-								-- 	point1=hero.ability_order[1] or "x",
-								-- 	point2=hero.ability_order[2] or "x",
-								-- 	point3=hero.ability_order[3] or "x",
-								-- 	point4=hero.ability_order[4] or "x",
-								-- 	point5=hero.ability_order[5] or "x",
-								-- 	point6=hero.ability_order[6] or "x",
-								-- 	point7=hero.ability_order[7] or "x",
-								-- 	point8=hero.ability_order[8] or "x",
-								-- 	point9=hero.ability_order[9] or "x",
-								-- 	point10=hero.ability_order[10] or "x",
-								-- 	point11=hero.ability_order[11] or "x",
-								-- 	point12=hero.ability_order[12] or "x",
-								-- 	point13=hero.ability_order[13] or "x",
-								-- 	point14=hero.ability_order[14] or "x",
-								-- 	point15=hero.ability_order[15] or "x",
-								-- 	level=level,
-								-- 	play_time=_G.play_time,
-								-- })
 								--紀錄到 table:Hero_usage 
 								print("HeroUsage")
 								local heroUsage = {
@@ -407,26 +327,6 @@ function MVP_OnTakeDamage( event )
 									heal=hero.heal,
 								}
 								print(json.encode(heroDetail))
-								-- RECORD:StoreToHeroDetail({
-								-- 	hero=_G.heromap[hero:GetName()],
-								-- 	k=hero:GetKills(),
-								-- 	d=hero:GetDeaths(),
-								-- 	a=hero.assist_count,
-								-- 	win=win,
-								-- 	lose=lose,
-								-- 	afk=afk,
-								-- 	totalcount=1,
-								-- 	money=_G.PlayerEarnedGold[playerID],
-								-- 	skillw=skillw,
-								-- 	skille=skille,
-								-- 	skillr=skillr,
-								-- 	skillt=skillt,
-								-- 	skilld=skilld,
-								-- 	damage=hero.damage,
-								-- 	damage_to_hero=hero.damage_to_hero,
-								-- 	damage_taken=hero.damage_taken,
-								-- 	heal=hero.heal
-								-- })
 								--紀錄到 table:Equipment_detail
 								local equipmentDetails = {}
 								local item_index = 0
@@ -440,13 +340,6 @@ function MVP_OnTakeDamage( event )
 									}
 									item_index = item_index + 1
 									print("EquipmentDetail")
-									-- RECORD:StoreToEquipmentDetail({
-									-- 	equipment=item_name,
-									-- 	win=win,
-									-- 	lose=lose,
-									-- 	afk=afk,
-									-- 	totalgame=1
-									-- })
 								end
 								print(json.encode(equipmentDetails))
 								--紀錄到 table:Equipment_purchased
@@ -461,13 +354,6 @@ function MVP_OnTakeDamage( event )
 										equipment=_G.purchased_items[playerID][i],
 									}
 									item_index = item_index + 1
-									-- RECORD:StoreToEquipmentPurchased({
-									-- 	game_id=_G.game_id,
-									-- 	steam_id=steam_id,
-									-- 	purchased_time=_G.purchased_itmes_time[playerID][i],
-									-- 	purchased_count=i,
-									-- 	equipment=_G.purchased_items[playerID][i],
-									-- })
 								end
 								print(json.encode(equipment_purchased))
 								playersData[playerID] = {
@@ -485,10 +371,44 @@ function MVP_OnTakeDamage( event )
 						RECORD:RecordAll(string)
 					end)
 				end
-				-- Timers:CreateTimer(10, function()
-				-- 	print("show settlement")
-				-- 	CustomGameEventManager:Send_ServerToAllClients("show_settlement", {game_id = _G.game_id})
-				-- end)
+				-- destroy
+				local units = FindUnitsInRadius(caster:GetTeamNumber(), 
+					caster:GetAbsOrigin(), 
+					nil, 
+					5000, 
+					DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
+					DOTA_UNIT_TARGET_ALL, 
+					DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
+					FIND_ANY_ORDER, 
+					false 
+				)
+				local homes = Entities:FindAllByName('dota_badguys_fort')
+				for k, ent in pairs(homes) do
+					print(ent:GetName())
+					ent:RemoveAbility("when_cp_first_spawn")
+					ent:RemoveModifierByName("modifier_stuck")
+					ent:RemoveNoDraw()
+				end
+				local homes = Entities:FindAllByName('dota_goodguys_fort')
+				for k, ent in pairs(homes) do
+					print(ent:GetName())
+					ent:RemoveAbility("when_cp_first_spawn")
+					ent:RemoveModifierByName("modifier_stuck")
+					ent:RemoveNoDraw()
+				end
+				for _,unit in ipairs(units) do
+					local name = unit:GetName()
+					print("find:" .. name)
+					if string.match(name, "dota_badguys_fort") then
+
+						unit:AddNewModifier(unit, nil, "modifier_kill", {duration=0})
+						print("kill")
+					elseif string.match(name, "dota_goodguys_fort") then
+
+						unit:AddNewModifier(unit, nil, "modifier_kill", {duration=0})
+						print("kill")
+					end
+				end
 			end
 		end
 	end
