@@ -50,6 +50,7 @@ end
 
 
 function MVP_OnTakeDamage( event )
+	print("finished")
 	-- Variables
 	if IsServer() then
 		print(DOTA_TEAM_BADGUYS) -- 3
@@ -172,18 +173,14 @@ function MVP_OnTakeDamage( event )
 								--紀錄到 table:Players
 								if caster:GetTeamNumber() == DOTA_TEAM_BADGUYS then
 									if PlayerResource:GetCustomTeamAssignment(playerID) == DOTA_TEAM_BADGUYS then
-										-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
 										res = "L"
 									else
-										-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
 										res = "W"
 									end
 								else
 									if PlayerResource:GetCustomTeamAssignment(playerID) == DOTA_TEAM_BADGUYS then
-										-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
 										res = "W"
 									else
-										-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
 										res = "L"
 									end
 								end
@@ -235,22 +232,6 @@ function MVP_OnTakeDamage( event )
 										equ[i] = item:GetName()
 									end
 								end
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {hero = hero})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {level = level})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {ancient1 = ancient1})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {nobug_res = nobu_res})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {unified_res = unified_res})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {res = res})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {pos = pos})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {win = win})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {lose = lose})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {afk = afk})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {isAfk = isAfk})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {skillw = skillw})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {skille = skille})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {skillr = skillr})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {skilld = skilld})
-								CustomGameEventManager:Send_ServerToAllClients("printMsg", {equ = equ})
 								print("FinishedDetail")
 								print("game_id" .. _G.game_id)
 								local finishedDetail = {
@@ -389,6 +370,44 @@ function MVP_OnTakeDamage( event )
 						print(string)
 						RECORD:RecordAll(string)
 					end)
+				end
+				-- destroy
+				local units = FindUnitsInRadius(caster:GetTeamNumber(), 
+					caster:GetAbsOrigin(), 
+					nil, 
+					5000, 
+					DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
+					DOTA_UNIT_TARGET_ALL, 
+					DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
+					FIND_ANY_ORDER, 
+					false 
+				)
+				local homes = Entities:FindAllByName('dota_badguys_fort')
+				for k, ent in pairs(homes) do
+					print(ent:GetName())
+					ent:RemoveAbility("when_cp_first_spawn")
+					ent:RemoveModifierByName("modifier_stuck")
+					ent:RemoveNoDraw()
+				end
+				local homes = Entities:FindAllByName('dota_goodguys_fort')
+				for k, ent in pairs(homes) do
+					print(ent:GetName())
+					ent:RemoveAbility("when_cp_first_spawn")
+					ent:RemoveModifierByName("modifier_stuck")
+					ent:RemoveNoDraw()
+				end
+				for _,unit in ipairs(units) do
+					local name = unit:GetName()
+					print("find:" .. name)
+					if string.match(name, "dota_badguys_fort") then
+
+						unit:AddNewModifier(unit, nil, "modifier_kill", {duration=0})
+						print("kill")
+					elseif string.match(name, "dota_goodguys_fort") then
+
+						unit:AddNewModifier(unit, nil, "modifier_kill", {duration=0})
+						print("kill")
+					end
 				end
 			end
 		end

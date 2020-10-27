@@ -333,113 +333,6 @@ function Nobu:OnGameRulesStateChange( keys )
 			end
 		end
 	end)
-	-- record debug
-	Timers:CreateTimer(1, function()
-		for playerID = 0, 20 do
-			local steam_id = PlayerResource:GetSteamID(playerID)
-			local player = PlayerResource:GetPlayer(playerID)
-			CustomGameEventManager:Send_ServerToAllClients("printMsg", {playerID = playerID})
-			CustomGameEventManager:Send_ServerToAllClients("printMsg", {player = player})
-			if player then 
-				-- GameRules: SendCustomMessage("player " .. steam_id, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
-				local hero = player:GetAssignedHero();
-				local level = hero:GetLevel() or 0
-				local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
-				local nobu_res = "L"
-				local unified_res = "W"
-				local res
-				local pos
-				local win=0
-				local lose=0
-				local afk=0
-				local isAfk = false
-				local skillw = _G.CountUsedAbility_Table[playerID][hero:GetAbilityByIndex(0):GetName()] or 0
-				local skille = _G.CountUsedAbility_Table[playerID][hero:GetAbilityByIndex(1):GetName()] or 0
-				local skillr = _G.CountUsedAbility_Table[playerID][hero:GetAbilityByIndex(2):GetName()] or 0
-				local skillt = _G.CountUsedAbility_Table[playerID][hero:GetAbilityByIndex(5):GetName()] or 0
-				local skilld = _G.CountUsedAbility_Table[playerID][hero:GetAbilityByIndex(4):GetName()] or 0
-				local equ = {}
-				if afk/GameRules:GetDOTATime(false,false) > 0.3 then
-					afk = 1
-					isAfk = true
-				end
-				--紀錄到 table:Players
-				if ancient1:IsAlive() then
-					nobu_res = "W"
-					unified_res = "L"
-				end
-				if PlayerResource:GetCustomTeamAssignment(playerID) == 2 then
-					if nobu_res == "L" then
-						-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
-						res = "L"
-					else
-						-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
-						res = "W"
-					end
-				end
-				if PlayerResource:GetCustomTeamAssignment(playerID) == 3 then
-					if nobu_res == "W" then
-						-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=0,losecount=1,playcount=1,invalidcount=0})
-						res = "L"
-					else
-						-- RECORD:StoreToPlayers({steam_id=steam_id, afkcount=0,wincount=1,losecount=0,playcount=1,invalidcount=0})
-						res = "W"
-					end
-				end
-				if res == "W" then
-					win = 1 
-					lose = 0
-				elseif res == "L" then
-					win = 0
-					lose = 1
-				end
-				--算位置 1 ~ 5 織田 6 ~ 10聯合
-				local team = hero:GetTeamNumber()
-				for i = 1, 5 do
-					if playerID == PlayerResource:GetNthPlayerIDOnTeam(team, i) then
-						if team == 2 then
-							pos = i
-							break
-						end
-						if team == 3 then
-							pos  = i + 5
-							break
-						end
-					end
-				end
-				--紀錄到 table:AFKRecord
-				if isAfk then
-					-- print("AFK")
-					-- RECORD:StoreToAFKRecord({game_id=_G.game_id, steam_id=steam_id})
-				end
-				--紀錄到 table:Finished_detail
-				for i = 0, 6 do
-					equ[i] = "x"
-					local item = hero:GetItemInSlot( i )
-					if item then
-						equ[i] = item:GetName()
-					end
-				end
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {hero = hero})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {level = level})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {ancient1 = ancient1})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {nobug_res = nobu_res})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {unified_res = unified_res})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {res = res})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {pos = pos})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {win = win})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {lose = lose})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {afk = afk})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {isAfk = isAfk})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {skillw = skillw})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {skille = skille})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {skillr = skillr})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {skilld = skilld})
-				CustomGameEventManager:Send_ServerToAllClients("printMsg", {equ = equ})
-			end
-		end
-		return 60
-	end)
 	-- 出強王時間
 	Timers:CreateTimer(180, function()
 		GameRules: SendCustomMessage("<font color='#ffff00'>強盜之王出現了</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
@@ -503,6 +396,18 @@ function Nobu:OnGameRulesStateChange( keys )
 						ent:GetAbilityByIndex(i):SetLevel(1)
 					end
 				end
+			end
+		end
+		local homes = Entities:FindAllByName('dota_badguys_fort')
+		for k, ent in pairs(homes) do
+			if ent:HasModifier("modifier_stuck") then
+				ent:AddNoDraw()
+			end
+		end
+		local homes = Entities:FindAllByName('dota_goodguys_fort')
+		for k, ent in pairs(homes) do
+			if ent:HasModifier("modifier_stuck") then
+				ent:AddNoDraw()
 			end
 		end
 	end)

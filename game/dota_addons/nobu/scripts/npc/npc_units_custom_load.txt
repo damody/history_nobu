@@ -12974,6 +12974,81 @@
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
 		"Ability3"	"play_mvp"
 		"Ability4"	"afk_gogo"
+		"Ability5"	"when_cp_first_spawn"
+		"Ability6"	""
+		"Ability7"	""
+		"Ability8"	""
+		"Ability9"	""
+		"Ability10"	""
+		"Ability11"	""
+		"Ability12"	""
+		"Ability13"	""
+		"Ability14"	""
+		"Ability15"	""
+		"Ability16"	""
+		"ConsideredHero"	"0"
+		"HasInventory"	"0"
+		"RingRadius"	"300"
+		"MinimapIcon"	"minimap_tower90"
+		"MinimapIconSize"	"320"
+	}
+
+	// 聯合本陣
+	"com_soldiercamp_Unified_fake"
+	{
+		// General
+		// ----------------------------------------------------------------
+		"BaseClass"	"npc_dota_building"
+		// Add model
+		"Model"	"models/soildecamp/soildercamp.vmdl"
+		"ModelScale"	"3"
+		"Level"	"0"
+		"BoundsHullName"	"DOTA_HULL_SIZE_FILLER"
+		"HealthBarOffset"	"180"
+		// Abilities
+		// ----------------------------------------------------------------
+		// Reference: Adt1
+		"Ability1"	"check_general_live"
+		// Reference: A00W
+		"Ability2"	"check_Unified_is_dead"
+		// Armor
+		// ----------------------------------------------------------------
+		"ArmorPhysical"	"20"
+		"MagicalResistance"	"50"
+		// Attack
+		// ----------------------------------------------------------------
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"	"0"
+		"AttackAcquisitionRange"	"0"
+		// Bounty
+		// ----------------------------------------------------------------
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
+		"BountyXP"	"50"
+		// Gold and Lumber
+		// ----------------------------------------------------------------
+		"GoldCost"	"0"
+		"LumberCost"	"0"
+		// Movement
+		// ----------------------------------------------------------------
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		// Status
+		// ----------------------------------------------------------------
+		"StatusHealth"	"10000"
+		"StatusHealthRegen"	"20"
+		// Vision
+		// ----------------------------------------------------------------
+		"VisionDaytimeRange"	"1100"
+		"VisionNighttimeRange"	"1100"
+		// Team
+		// ----------------------------------------------------------------
+		"TeamName"	"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		"Ability3"	"play_mvp"
+		"Ability4"	"afk_gogo"
 		"Ability5"	""
 		"Ability6"	""
 		"Ability7"	""
@@ -12995,6 +13070,80 @@
 
 	// 織田本陣
 	"com_soldiercamp_Oda"
+	{
+		// General
+		// ----------------------------------------------------------------
+		"BaseClass"	"npc_dota_building"
+		// Add model
+		"Model"	"models/soildecamp/soildercamp.vmdl"
+		"ModelScale"	"3"
+		"Level"	"0"
+		"BoundsHullName"	"DOTA_HULL_SIZE_FILLER"
+		"HealthBarOffset"	"180"
+		// Abilities
+		// ----------------------------------------------------------------
+		// Reference: Adt1
+		"Ability1"	"check_general_live"
+		// Reference: A00W
+		"Ability2"	"check_Oda_is_dead"
+		// Armor
+		// ----------------------------------------------------------------
+		"ArmorPhysical"	"20"
+		"MagicalResistance"	"50"
+		// Attack
+		// ----------------------------------------------------------------
+		"AttackCapabilities"	"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		"AttackRate"	"0"
+		"AttackAcquisitionRange"	"0"
+		// Bounty
+		// ----------------------------------------------------------------
+		"BountyGoldMin"	"50.0"
+		"BountyGoldMax"	"50.0"
+		"BountyXP"	"50"
+		// Gold and Lumber
+		// ----------------------------------------------------------------
+		"GoldCost"	"0"
+		"LumberCost"	"0"
+		// Movement
+		// ----------------------------------------------------------------
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_NONE"
+		// Status
+		// ----------------------------------------------------------------
+		"StatusHealth"	"10000"
+		"StatusHealthRegen"	"20"
+		// Vision
+		// ----------------------------------------------------------------
+		"VisionDaytimeRange"	"1100"
+		"VisionNighttimeRange"	"1100"
+		// Team
+		// ----------------------------------------------------------------
+		"TeamName"	"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_STRUCTURE"
+		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_BUILDING"
+		"Ability3"	"play_mvp"
+		"Ability4"	"when_cp_first_spawn"
+		"Ability5"	""
+		"Ability6"	""
+		"Ability7"	""
+		"Ability8"	""
+		"Ability9"	""
+		"Ability10"	""
+		"Ability11"	""
+		"Ability12"	""
+		"Ability13"	""
+		"Ability14"	""
+		"Ability15"	""
+		"ConsideredHero"	"0"
+		"HasInventory"	"0"
+		"RingRadius"	"300"
+		"MinimapIcon"	"minimap_tower90"
+		"MinimapIconSize"	"320"
+	}
+
+	// 織田本陣
+	"com_soldiercamp_Oda_fake"
 	{
 		// General
 		// ----------------------------------------------------------------
