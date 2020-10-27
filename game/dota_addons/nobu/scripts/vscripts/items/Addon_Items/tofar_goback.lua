@@ -236,6 +236,7 @@ function warrior_souls_OnDeath( keys )
 	local dummy = CreateUnitByName("hide_unit", attacker:GetAbsOrigin() , true, nil, attacker, attacker:GetTeamNumber()) 
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=180})
 	dummy:AddAbility("warrior_souls_buff_skill"):SetLevel(1)
+	dummy:SetAbsOrigin(Vector(8000,8000,128))
 end
 
 function warrior_soul_buff_OnIntervalThink( keys )
