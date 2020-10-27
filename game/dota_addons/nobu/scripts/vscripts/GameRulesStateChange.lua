@@ -168,7 +168,7 @@ function Nobu:OnGameRulesStateChange( keys )
 				else
 					print(res);
 					print(string.len(res));
-					if (string.len(res) > 10) then
+					if (string.len(res) > 20) then
 						_G.haveSubscription[tostring(steam_id)] = true;
 						print(steam_id);
 						print(_G.haveSubscription[tostring(steam_id)]);

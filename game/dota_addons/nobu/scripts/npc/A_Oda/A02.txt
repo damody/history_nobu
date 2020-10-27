@@ -7,7 +7,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"precache"
 		{
-			"soundfile"	"soundevents/a02.vsndevts"
+			"soundfile"	"soundevents/A02.vsndevts"
 
 			// A02W_old
 			"particle"  "particles/a02/b33r_old_orb.vpcf"
@@ -71,6 +71,7 @@
 		"precache"
 		{
 			"particle"  "particles/a02/b33r_old_orb.vpcf"
+			"soundfile"	"soundevents/A02.vsndevts"
 			"particle"  "particles/status_fx/status_effect_poison_viper.vpcf"
 			"particle"  "particles/units/heroes/hero_viper/viper_viper_strike_debuff.vpcf"
 		}
@@ -86,6 +87,11 @@
 
 		"OnToggleOn"
 		{
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"A02W.vo1"
+			}
 			"RunScript"
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A02.lua"
@@ -218,6 +224,11 @@
 
 		"OnSpellStart"
 		{
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"A02E.vo1"
+			}
 			"RunScript"
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A02.lua"
