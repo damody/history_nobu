@@ -253,7 +253,7 @@ function RECORD:EndGame(keys)
 end
 
 function RECORD:RecordAll(keys)
-    local req = CreateHTTPRequestScriptVM("POST", "https://172.104.72.206/clientApi/record/")
+    local req = CreateHTTPRequestScriptVM("POST", "https://nobu.gg/clientApi/record/")
     req:SetHTTPRequestRawPostBody("application/json", keys)
     req:Send(
         function(result)

@@ -377,8 +377,23 @@ local function chat_of_test(keys)
 			end
 		end
 	end
-	if s == "pre" then 
+	if s == "-pre" then 
 		caster:AddAbility("preRegist"):SetLevel(1)
+	end
+	if s == "-ggbb1" then 
+		local ifx = ParticleManager:CreateParticle("particles/title/ggbb1.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+		ParticleManager:ReleaseParticleIndex(ifx)
+	end
+	if s == "-ggbb2" then 
+		local ifx = ParticleManager:CreateParticle("particles/title/ggbb2.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+		ParticleManager:ReleaseParticleIndex(ifx)
+	end
+	if s == "-ggbb3" then 
+		local ifx = ParticleManager:CreateParticle("particles/title/ggbb3.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
+		ParticleManager:ReleaseParticleIndex(ifx)
+	end
+	if s == "-ggbb4" then 
+		local ifx = ParticleManager:CreateParticle("particles/title/ggbb4.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 		ParticleManager:ReleaseParticleIndex(ifx)
 	end
 	if s == "-jj1" then 
