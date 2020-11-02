@@ -232,7 +232,6 @@ function Nobu:OnGameRulesStateChange( keys )
 	end
 	--遊戲開始時間
 	--test zone
-	local test = '{"0":{"player":{"steam_id":"76561198146416452","invalidcount":0,"playcount":1,"afkcount":0,"losecount":0,"wincount":1},"equipment_purchased":[{"steam_id":"76561198146416452","purchased_time":22,"game_id":"119","equipment":"item_true_katana","purchased_count":1},{"steam_id":"76561198146416452","purchased_time":22,"game_id":"119","equipment":"item_true_katana","purchased_count":2},{"steam_id":"76561198146416452","purchased_time":23,"game_id":"119","equipment":"item_true_katana","purchased_count":3},{"steam_id":"76561198146416452","purchased_time":23,"game_id":"119","equipment":"item_true_katana","purchased_count":4},{"steam_id":"76561198146416452","purchased_time":23,"game_id":"119","equipment":"item_true_katana","purchased_count":5},{"steam_id":"76561198146416452","purchased_time":26,"game_id":"119","equipment":"item_true_katana","purchased_count":6}],"heroUsage":{"steam_id":"76561198146416452","hero":"A07","choose_count":1},"finishedDetail":{"steam_id":"76561198146416452","point6":"r","largest_killing_spree":0,"point7":"w","point14":"r","skille":0,"equ_1":"item_true_katana","equ_6":"item_true_katana","d":0,"spent":-46999,"true_damage":0,"skillt":3,"magical_damage":0,"first_blood":false,"game_id":"119","magical_damage_to_hero":0,"play_time":43,"equ_4":"item_true_katana","level":25,"damage_reduce":3959.1495552063,"pos":1,"hero":"A07","true_damage_taken":0,"point3":"t","skillw":0,"killed_unit":0,"damage_to_hero":0,"point15":"e","point13":"w","equ_2":"item_true_katana","heal":0,"point12":"r","damage_taken":2653.8504447937,"res":"W","point10":"w","k":0,"damage_to_tower":6737.5382080078,"skillr":0,"point9":"r","skilld":3,"damage":6737.5382080078,"point8":"e","maximum_critical_damage":0,"equ_5":"item_true_katana","physical_damage_taken":2653.8504447937,"physical_damage_to_hero":0,"point1":"t","point2":"t","physical_damage":6737.5382080078,"point4":"w","point11":"e","point5":"e","magical_damage_taken":0,"income":2000,"damage_to_unit":0,"equ_3":"item_true_katana","largest_multi_kill":0,"a":0,"true_damage_to_hero":0},"end778899'
 	--test zone
 	print("close window")
 	Timers:CreateTimer(1, function()
@@ -274,8 +273,6 @@ function Nobu:OnGameRulesStateChange( keys )
     --出兵觸發
     if _G.nobu_chubing_b then
 	  ShuaGuai()
-	  --跳錢
-	  _G.PlayerEarnedGold = {}
 	  for i=0,9 do
 		-- 跳錢
 		_G.PlayerEarnedGold[i] = 2000
@@ -284,6 +281,15 @@ function Nobu:OnGameRulesStateChange( keys )
 			PlayerResource:SetGold(i,gold + 5,false)
 			_G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + 5
 			return 2
+		end)
+		Timers:CreateTimer(1, function ()
+			local player = PlayerResource:GetPlayer(i)
+			if player then
+				-- 紀錄玩家
+				_G.IsExist[i] = true
+				-- 紀錄角色
+				_G.Hero[i] = player:GetAssignedHero()
+			end
 		end)
 		-- 紀錄技能
 		_G.CountUsedAbility_Table[i] = {}

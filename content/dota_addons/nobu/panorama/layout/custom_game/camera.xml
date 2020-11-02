@@ -20,6 +20,7 @@
 
   <Panel class="AddonLoadingRoot">
     <Slider class="HorizontalSlider" direction="horizontal" id="Slider1" />
+    <!-- <Image id="test" class="testClass" src="https://cdn.discordapp.com/attachments/763051363323609098/763906605657358346/aon-35-00-800x600.png" /> -->
     <Panel id="DotaHud_trasform" />
   </Panel>
 </root>

@@ -17,6 +17,15 @@ _G.CountUsedAbility_Table = {}
 _G.equipment_used = {}
 _G.purchased_items = {}
 _G.purchased_itmes_time = {}
+_G.IsExist = {}
+--賺錢
+_G.PlayerEarnedGold = {}
+--花錢
+_G.SpentGold = {}
+for i = 0, 9 do
+  _G.SpentGold[i] = 0;
+end
+_G.Hero = {}
 
 _G.heromap = {
   npc_dota_hero_kunkka              = "A01",

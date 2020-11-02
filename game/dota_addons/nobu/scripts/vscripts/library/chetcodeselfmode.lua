@@ -108,6 +108,7 @@ local point    = hero:GetAbsOrigin()
 
   if s == "GOLD" then
     PlayerResource:SetGold(id-1,99999,false)--玩家ID需要減一 
+    _G.PlayerEarnedGold[playerid] = _G.PlayerEarnedGold[playerid] + 99999
   end
 
   if s == "playanislam" then

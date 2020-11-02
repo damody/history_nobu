@@ -50,7 +50,6 @@ end
 
 
 function MVP_OnTakeDamage( event )
-	print("finished")
 	-- Variables
 	if IsServer() then
 		print(DOTA_TEAM_BADGUYS) -- 3
@@ -60,53 +59,6 @@ function MVP_OnTakeDamage( event )
 		if ability then
 			local caster = ability:GetCaster()
 			if damage > caster:GetHealth() then
-				-- caster:SetHealth(10000)
-				-- caster:AddNewModifier(caster, nil, "modifier_invulnerable", nil )
-				-- caster:AddNewModifier(caster, nil, "modifier_kill", {duration=10} )
-				-- local mvp = nil
-				-- local mvp_value = -100
-				-- for _,hero in ipairs(HeroList:GetAllHeroes()) do
-				-- 	if not hero:IsIllusion() then
-				-- 		if not hero:IsAlive() then
-				-- 			hero:SetTimeUntilRespawn(0)
-				-- 		end
-				-- 		if getMVP_value(hero)>mvp_value and hero:GetTeamNumber() ~= caster:GetTeamNumber() then
-				-- 			mvp_value = getMVP_value(hero)
-				-- 			mvp = hero
-							
-				-- 		end
-				-- 	end
-				-- end
-				-- local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
-				-- local ancient2 =  Entities:FindByName( nil, "dota_badguys_fort" )
-				-- if ancient1:IsAlive() then
-				-- 	ancient2:AddNewModifier(ancient2, nil, "modifier_invulnerable", nil )
-				-- else
-				-- 	ancient1:AddNewModifier(ancient1, nil, "modifier_invulnerable", nil )
-				-- end
-				-- Timers:CreateTimer(0.1, function()
-				-- 	local pos = caster:GetAbsOrigin()
-				-- 	if mvp then
-				-- 		for i=0,9 do
-				-- 			AMHC:SetCamera(i, mvp)
-				-- 		end
-				-- 		mvp:SetAbsOrigin(pos+Vector(0,0,250))
-				-- 		local nobu_id = _G.heromap[mvp:GetName()]
-				-- 		local mesg = "本場MVP為 ".._G.hero_name_zh[nobu_id]
-				-- 		if caster:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-				-- 			mesg = mesg.."\n織田軍獲勝"
-				-- 		else
-				-- 			mesg = mesg.."\n聯合軍獲勝"
-				-- 		end
-				-- 		GameRules:SetCustomVictoryMessage(mesg)
-				-- 		Timers:CreateTimer(0.1, function()
-				-- 			mvp:SetAbsOrigin(pos+Vector(0,0,250))
-				-- 			mvp:AddNewModifier(mvp, nil, "modifier_invulnerable", nil )
-				-- 			-- return 0.1
-				-- 		end)
-				-- 	end
-				-- end)
-				-- print("1")
 				-- 傳送遊戲結果
 				-- 紀錄遊戲結束時間
 				for mm, dd, yy in string.gmatch(tostring(GetSystemDate()), "(%w+)/(%w+)/(%w+)") do
@@ -122,16 +74,12 @@ function MVP_OnTakeDamage( event )
 					RECORD:StoreToFinishedGame({createtime=_G.createtime, endtime=_G.endtime})
 					Timers:CreateTimer(0.5, function()
 						local playersData = {};
-						for playerID = 0, 20 do
+						for playerID = 0, 9 do
 							local steam_id = PlayerResource:GetSteamID(playerID)
-							local player = PlayerResource:GetPlayer(playerID)
-							CustomGameEventManager:Send_ServerToAllClients("printMsg", {playerID = playerID})
-							CustomGameEventManager:Send_ServerToAllClients("printMsg", {player = player})
-							if player then 
+							if _G.IsExist[playerID] then 
 								-- GameRules: SendCustomMessage("player " .. steam_id, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
-								local hero = player:GetAssignedHero() or "";
+								local hero = _G.Hero[playerID]
 								local level = hero:GetLevel() or 0
-								local ancient1 =  Entities:FindByName( nil, "dota_goodguys_fort" )
 								local nobu_res = "L"
 								local unified_res = "W"
 								local res
@@ -275,7 +223,7 @@ function MVP_OnTakeDamage( event )
 									skillt=skillt,
 									skilld=skilld,
 									income=_G.PlayerEarnedGold[playerID],
-									spent=_G.PlayerEarnedGold[playerID]-hero:GetGold(),
+									spent=_G.SpentGold[playerID],
 									killed_unit=hero:GetLastHits(),
 									point1=hero.ability_order[1] or "x",
 									point2=hero.ability_order[2] or "x",

@@ -31,6 +31,8 @@ end
 
 function Nobu:OnItemPurchased( keys )
   playerID = keys.PlayerID
+  _G.SpentGold[playerID] = _G.SpentGold[playerID] + keys.itemcost
+  print(_G.SpentGold[playerID])
   if _G.equipment_used[playerID] == nil then
     _G.equipment_used[playerID] = {}
   end
@@ -207,28 +209,28 @@ _G.not_assist = -1
 
 function Nobu:FilterGold( filterTable )
   PrintTable( filterTable )
-    local gold = filterTable["gold"]
-    local playerID = filterTable["player_id_const"]
-    local reason = filterTable["reason_const"]
-    filterTable["reliable"] = 0
-    if reason == DOTA_ModifyGold_Building then      
-      if gold ~= 150 and gold ~= 750 and gold ~= 50 then return false end
-      if gold == 750 then 
-        filterTable["gold"] = 300 
-        _G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + 300
-      else
-        _G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + gold
-      end
-      print(gold)
-      return true
+  local gold = filterTable["gold"]
+  local playerID = filterTable["player_id_const"]
+  local reason = filterTable["reason_const"]
+  filterTable["reliable"] = 0
+  if reason == DOTA_ModifyGold_Building then      
+    if gold ~= 150 and gold ~= 750 and gold ~= 50 then return false end
+    if gold == 750 then 
+      filterTable["gold"] = 300 
+      _G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + 300
+    else
+      _G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + gold
     end
-    -- Disable all hero kill gold
-    if reason == DOTA_ModifyGold_HeroKill then
-      return false
-    end
-    _G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + gold
     print(gold)
     return true
+  end
+  -- Disable all hero kill gold
+  if reason == DOTA_ModifyGold_HeroKill then
+    return false
+  end
+  _G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + gold
+  print(gold)
+  return true
 end
 
 courier_modifier_ban ={
