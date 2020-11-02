@@ -15,7 +15,7 @@ gamestates =
 }
 
 function SendHTTPRequest(path, method, values, callback)
-	local req = CreateHTTPRequestScriptVM( method, "https://nobu.gg/clientApi/"..path )
+	local req = CreateHTTPRequestScriptVM( method, "http://172.104.72.206/clientApi/"..path )
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
 	end
@@ -25,7 +25,7 @@ function SendHTTPRequest(path, method, values, callback)
 end
 
 function SendHTTPRequestGetHero(path, method, values, callback)
-	local req = CreateHTTPRequestScriptVM( method, "https://nobu.gg/clientApi/")
+	local req = CreateHTTPRequestScriptVM( method, "http://172.104.72.206/clientApi/")
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
 	end 
@@ -54,7 +54,7 @@ function SendHTTPRequestGetHero(path, method, values, callback)
 end
 
 function SendHTTPRequestCheckSubscription(path, method, values, callback)
-	local req = CreateHTTPRequestScriptVM( method, "https://nobu.gg/clientApi/"..path)
+	local req = CreateHTTPRequestScriptVM( method, "http://172.104.72.206/clientApi/"..path)
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
 	end
@@ -65,7 +65,7 @@ function SendHTTPRequestCheckSubscription(path, method, values, callback)
 end
 
 function SendHTTPRequestGetPlayers(path, method, values, callback)
-	local req = CreateHTTPRequestScriptVM( method, "https://nobu.gg/clientApi/"..path)
+	local req = CreateHTTPRequestScriptVM( method, "http://172.104.72.206/clientApi/"..path)
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
 	end
