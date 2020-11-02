@@ -726,14 +726,18 @@ function Nobu:eventfororder( filterTable )
 		end
 		--print(DeepPrintTable(_G.CountUsedAbility_Table))
 	elseif ordertype == DOTA_UNIT_ORDER_SELL_ITEM then --17
+		local item = EntIndexToHScript(filterTable.entindex_ability)
+		local itemcost = item:GetCost()
+		local player_id = filterTable.issuer_player_id_const
 		if filterTable.units and filterTable.units["0"] then
-			local item = EntIndexToHScript(filterTable.entindex_ability)
 			local unit = EntIndexToHScript(filterTable.units["0"])
-			local itemcost = item:GetCost()
 			if GameRules:GetGameTime() - item:GetPurchaseTime() > 10 then
 				AMHC:GivePlayerGold_UnReliable(unit:GetPlayerOwnerID(), 0.35*itemcost)
+				_G.PlayerEarnedGold[unit:GetPlayerOwnerID()] = _G.PlayerEarnedGold[unit:GetPlayerOwnerID()] - 0.35*itemcost
+				_G.SpentGold[unit:GetPlayerOwnerID()] = _G.SpentGold[unit:GetPlayerOwnerID()] - 0.85*itemcost
+			else
+				_G.SpentGold[unit:GetPlayerOwnerID()] = _G.SpentGold[unit:GetPlayerOwnerID()] - itemcost
 			end
-
 			if IsValidEntity(unit) then
 				if unit.B23T_old then
 					return false
@@ -742,8 +746,9 @@ function Nobu:eventfororder( filterTable )
 					return false
 				end
 			end
+		else
+			_G.SpentGold[player_id] = _G.SpentGold[player_id] - itemcost
 		end
-		
 	elseif ordertype == DOTA_UNIT_ORDER_DISASSEMBLE_ITEM then --18
 	elseif ordertype == DOTA_UNIT_ORDER_MOVE_ITEM	 then --19
 		local item = EntIndexToHScript(filterTable.entindex_ability)

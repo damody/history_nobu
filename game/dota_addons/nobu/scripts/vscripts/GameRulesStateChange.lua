@@ -273,8 +273,6 @@ function Nobu:OnGameRulesStateChange( keys )
     --出兵觸發
     if _G.nobu_chubing_b then
 	  ShuaGuai()
-	  --跳錢
-	  _G.PlayerEarnedGold = {}
 	  for i=0,9 do
 		-- 跳錢
 		_G.PlayerEarnedGold[i] = 2000

@@ -223,7 +223,7 @@ function MVP_OnTakeDamage( event )
 									skillt=skillt,
 									skilld=skilld,
 									income=_G.PlayerEarnedGold[playerID],
-									spent=_G.PlayerEarnedGold[playerID]-hero:GetGold(),
+									spent=_G.SpentGold[playerID],
 									killed_unit=hero:GetLastHits(),
 									point1=hero.ability_order[1] or "x",
 									point2=hero.ability_order[2] or "x",
