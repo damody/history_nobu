@@ -17,6 +17,7 @@ _G.CountUsedAbility_Table = {}
 _G.equipment_used = {}
 _G.purchased_items = {}
 _G.purchased_itmes_time = {}
+_G.game_id = 0
 _G.IsExist = {}
 --賺錢
 _G.PlayerEarnedGold = {}
