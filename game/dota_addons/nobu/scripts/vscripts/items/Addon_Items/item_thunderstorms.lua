@@ -27,7 +27,7 @@ function Shock( keys )
 	AddFOWViewer(DOTA_TEAM_BADGUYS,caster:GetAbsOrigin(), 300, 1, false)
 
 	-- 需要手動刪除
-	local ifx_cloud = ParticleManager:CreateParticle("particles/item/item_thunderstorms_cloud.vpcf",PATTACH_CUSTOMORIGIN,caster)
+	local ifx_cloud = ParticleManager:CreateParticle("particles/item/item_thunderstorms_cloud2.vpcf",PATTACH_CUSTOMORIGIN,caster)
 	ParticleManager:SetParticleControl(ifx_cloud,0,target_point)
 	Timers:CreateTimer(10, function()
 		if ifx_cloud ~= nil then

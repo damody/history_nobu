@@ -5847,6 +5847,37 @@
 			}
 		}
 	}
+	"AttackAnimationRate"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_attack_animationrate_passive"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"ThinkInterval"	"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"attack_animationrate_passive"
+					}
+				}
+			}
+			"modifier_attack_animationrate"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"	"100"
+				}
+			}
+		}
+	}
 	"ManaRegen_self"
 	{
 		
@@ -5931,6 +5962,14 @@
 						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
 						"Function"	"preRegist"
 					}
+				}
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"preRegistKill"
+					}	
 				}
 			}
 		}

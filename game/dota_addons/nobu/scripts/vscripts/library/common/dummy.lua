@@ -760,6 +760,14 @@ function health_regen_passive ( keys )
   end
 end
 
+function attack_animationrate_passive ( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  if caster:GetBaseAttackRange() < 200 then
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_attack_animationrate" , {duration = 0.15})
+  end
+end
+
 function mana_regen_passive ( keys )
   local caster = keys.caster
   local ability = keys.ability
@@ -825,5 +833,14 @@ function preRegist ( keys )
   ParticleManager:SetParticleControlForward(ifx,0,forward)
   ParticleManager:SetParticleControl(ifx,1,target:GetAbsOrigin())
   ParticleManager:SetParticleControlForward(ifx,1,forward)
+  ParticleManager:ReleaseParticleIndex(ifx)
+end
+
+function preRegistKill ( keys )
+  local target = keys.unit
+  local caster = keys.caster
+  local targetVector = target:GetAbsOrigin()
+  local ifx = ParticleManager:CreateParticle("particles/a25e4/a25e4_c0.vpcf",PATTACH_POINT,target)
+  -- local ifx = ParticleManager:CreateParticle("particles/econ/items/faceless_void/faceless_void_jewel_of_aeons/fv_time_walk_pentagon_jewel.vpcf",PATTACH_POINT,target)
   ParticleManager:ReleaseParticleIndex(ifx)
 end
