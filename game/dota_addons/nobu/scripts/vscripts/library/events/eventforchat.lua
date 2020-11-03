@@ -620,7 +620,14 @@ local function chat_of_test(keys)
 				end
 				local string = json.encode(playersData)
 				print("record data :" .. string)
-				RECORD:RecordAll(string)
+				RECORD:RecordAll(string, function(result) 
+						if tostring(result.StatusCode) == "200" then
+							GameRules:SendCustomMessage("遊戲已成功記錄", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+						else
+							GameRules:SendCustomMessage("發生意外的錯誤，無法記錄遊戲", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+						end
+					end
+				)
 			end
 		)
 	end

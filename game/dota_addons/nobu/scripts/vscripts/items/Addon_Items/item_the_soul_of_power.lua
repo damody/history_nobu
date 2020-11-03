@@ -319,8 +319,8 @@ function MVP_OnTakeDamage( event )
 							print("record data :" .. string)
 							RECORD:RecordAll(string, 
 								function(result)
-									GameRules:SendCustomMessage("遊戲已成功記錄", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 									if tostring(result.StatusCode) == "200" then
+										GameRules:SendCustomMessage("遊戲已成功記錄", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 										--destroy
 										local units = FindUnitsInRadius(caster:GetTeamNumber(), 
 										caster:GetAbsOrigin(), 
