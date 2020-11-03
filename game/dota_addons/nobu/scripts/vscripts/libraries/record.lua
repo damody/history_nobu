@@ -1,5 +1,4 @@
 --各項紀錄
-_G.game_id = 0
 if RECORD == nil then
     RECORD = class({})
 end
@@ -52,7 +51,7 @@ function RECORD:StoreToAFKRecord(keys)
     )
 end
 
-function RECORD:StoreToFinishedGame(keys)
+function RECORD:StoreToFinishedGame(keys, callback)
     local game_id = 0;
     SendHTTPRequest_record(
         "finished_game/",
@@ -62,11 +61,10 @@ function RECORD:StoreToFinishedGame(keys)
             endtime = tostring(keys.endtime)
         },
         function(res)
-            if (string.match(res, "error")) then
+            if (string.match(res, "error")) or (string.match(res, "ERROR")) then
                 print("store to FinishedGame fail")
-                callback()
             else
-                _G.game_id = tostring(res)
+                callback(res)
             end
         end
     )
@@ -252,13 +250,13 @@ function RECORD:EndGame(keys)
     )
 end
 
-function RECORD:RecordAll(keys)
+function RECORD:RecordAll(keys, callback)
     local req = CreateHTTPRequestScriptVM("POST", "https://172.104.72.206/clientApi/record/")
+    print("keys : " .. keys)
     req:SetHTTPRequestRawPostBody("application/json", keys)
     req:Send(
         function(result)
-            print("status code " .. result.StatusCode)
-            print("result : " .. result.Body)
+            callback(result)
         end
     )
 end
