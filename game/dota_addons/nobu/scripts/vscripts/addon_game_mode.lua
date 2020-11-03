@@ -3,6 +3,7 @@ print ( '[Nobu-lua] ADDON INIT EXECUTED' )
 LinkLuaModifier("modifier_charges", LUA_MODIFIER_MOTION_NONE)
 require('libraries/vector_targeting')
 require('libraries/record')
+require('game_info')
 function table.shallow_copy(t)
   local t2 = {}
   for k,v in pairs(t) do
