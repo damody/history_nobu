@@ -1,0 +1,1 @@
+_G.version = "AON刀塔信長1.0a"
