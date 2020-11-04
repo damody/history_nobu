@@ -71,7 +71,7 @@ function updatePaymentWindow() {
 				id = get_choose_id(player_id, team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
 				urlA = urlA + "&steamID" + id + "=" + steam_id;
 				all_players_name.push(Players.GetPlayerName(player_id))
-				urlA = urlA + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
+				urlA = urlA + "&playerName" + id + "=unknow";
 			}
 		}
 		$('#PaymentWindowBody').SetURL(urlA);
