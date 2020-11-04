@@ -1,0 +1,42 @@
+.PartyArrowRoot
+{
+	height: 100%;
+	width: 100%;
+}
+#DonateImages
+{
+    height: 100%;
+    width: 100%;
+	
+	opacity: 1;
+	
+	transition-property: opacity;
+	transition-duration: .32s;
+	transition-timing-function: ease-in-out;
+}
+
+#PartyArrowImage
+{
+	width: 300px;
+	height: 300px;
+}
+.DonateImage
+{
+	height: 100%;
+    width: 100%;
+	transition-property: opacity;
+	transition-duration: .32s;
+	transition-timing-function: ease-in-out;
+}
+.Hidden
+{
+	opacity: 0;
+}
+
+
+#IconContainer
+{
+	width: 300px;
+	height: 300px;
+	horizontal-align: center;
+}

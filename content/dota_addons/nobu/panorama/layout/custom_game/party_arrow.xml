@@ -1,0 +1,23 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/party_arrows.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/party_arrows.js" />
+	</scripts>
+	<snippets>
+		<snippet name="DonateImage">
+			<Panel class="DonateImage">
+				<Panel id="IconContainer">
+					<Image id="PartyArrowImage" src="https://cdn.discordapp.com/attachments/763051363323609098/763906605657358346/aon-35-00-800x600.png"/>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+	<Panel class="PartyArrowRoot">
+		<Panel id="DonateImages">
+
+		</Panel>
+	</Panel>
+</root>
