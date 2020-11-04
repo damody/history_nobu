@@ -374,14 +374,14 @@ local function chat_of_test(keys)
 			_G.endtime = string.format("%s%02d%02d%02d",_G.endtime, hh, mm, ss)
 		end
 		print(_G.endtime)
+		GameRules:SendCustomMessage("記錄遊戲場次...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 		RECORD:StoreToFinishedGame({createtime=_G.createtime, endtime=_G.endtime},
 			function(game_id)
 				print(game_id)
 				local playersData = {};
 				for playerID = 0, 9 do
-					local steam_id = PlayerResource:GetSteamID(playerID)
 					if _G.IsExist[playerID] then 
-						-- GameRules: SendCustomMessage("player " .. steam_id, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+						local steam_id = PlayerResource:GetSteamID(playerID)
 						local hero = _G.Hero[playerID]
 						local level = hero:GetLevel() or 0
 						local nobu_res = "L"
@@ -440,6 +440,7 @@ local function chat_of_test(keys)
 							steam_id = tostring(steam_id),
 							res = res,
 						}
+						GameRules: SendCustomMessage(playerID .. "記錄玩家勝敗...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 						print(json.encode(endGame))
 						-- RECORD:EndGame({steam_id=steam_id, res=res})
 						if res == "W" then
@@ -484,7 +485,7 @@ local function chat_of_test(keys)
 								equ[i] = item:GetName()
 							end
 						end
-						print("FinishedDetail")
+						print("FinishedDetail")						
 						print("game_id" .. tostring(game_id))
 						local finishedDetail = {
 							game_id=tostring(game_id),
@@ -549,12 +550,14 @@ local function chat_of_test(keys)
 							mode=_G.mode or "ng",
 						}
 						print(json.encode(finishedDetail))
+						GameRules: SendCustomMessage(playerID .. "記錄玩家細節...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 						--紀錄到 table:Hero_usage 
 						print("HeroUsage")
 						local heroUsage = {
 							steam_id=tostring(steam_id), hero=_G.heromap[hero:GetName()], choose_count=1,
 						}
 						print(json.encode(heroUsage))
+						GameRules: SendCustomMessage(playerID .. "記錄英雄使用...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 						-- RECORD:StoreToHeroUsage({steam_id=steam_id, hero=_G.heromap[hero:GetName()], choose_count=1})
 						--紀錄到 table:Hero_detail
 						print(_G.heromap[hero:GetName()])
@@ -579,6 +582,7 @@ local function chat_of_test(keys)
 							heal=hero.heal,
 						}
 						print(json.encode(heroDetail))
+						GameRules: SendCustomMessage(playerID .. "記錄英雄細節...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 						--紀錄到 table:Equipment_detail
 						local equipmentDetails = {}
 						local item_index = 0
@@ -594,6 +598,7 @@ local function chat_of_test(keys)
 							print("EquipmentDetail")
 						end
 						print(json.encode(equipmentDetails))
+						GameRules: SendCustomMessage(playerID .. "記錄道具細節...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 						--紀錄到 table:Equipment_purchased
 						equipment_purchased = {};
 						item_index = 0;
@@ -608,6 +613,7 @@ local function chat_of_test(keys)
 							item_index = item_index + 1
 						end
 						print(json.encode(equipment_purchased))
+						GameRules: SendCustomMessage(playerID .. "記錄道具購買時間...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 						playersData[playerID] = {
 							endGame = endGame,
 							player = player,
@@ -621,6 +627,7 @@ local function chat_of_test(keys)
 				local string = json.encode(playersData)
 				print("record data :" .. string)
 				RECORD:RecordAll(string, function(result) 
+						PrintTable(result)
 						if tostring(result.StatusCode) == "200" then
 							GameRules:SendCustomMessage("遊戲已成功記錄", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 						else

@@ -223,6 +223,8 @@ function Nobu:OnGameRulesStateChange( keys )
 			local id       = playerID
 			local p        = PlayerResource:GetPlayer(id)
 			if p ~= nil then
+				print("hero")
+				print(p)
 				p:MakeRandomHeroSelection()
 			end
 		end
@@ -282,13 +284,23 @@ function Nobu:OnGameRulesStateChange( keys )
 			_G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + 5
 			return 2
 		end)
-		Timers:CreateTimer(1, function ()
+		Timers:CreateTimer(0, function ()
 			local player = PlayerResource:GetPlayer(i)
 			if player then
 				-- 紀錄玩家
 				_G.IsExist[i] = true
 				-- 紀錄角色
 				_G.Hero[i] = player:GetAssignedHero()
+				PrintTable(player)
+				print(player:GetAssignedHero())
+				print(_G.Hero[i])
+				if (_G.Hero[i] == nil) then
+					GameRules: SendCustomMessage(i .. "獲取英雄失敗", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+					print("hero nil")
+					print("return 1")
+					return 1
+				end
+				GameRules: SendCustomMessage(i .. "獲取英雄成功", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 			end
 		end)
 		-- 紀錄技能
