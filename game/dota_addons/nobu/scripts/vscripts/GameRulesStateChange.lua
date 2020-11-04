@@ -284,7 +284,7 @@ function Nobu:OnGameRulesStateChange( keys )
 			_G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + 5
 			return 2
 		end)
-		-- Timers:CreateTimer(0, function ()
+		Timers:CreateTimer(0, function ()
 			local player = PlayerResource:GetPlayer(i)
 			if player then
 				-- 紀錄玩家
@@ -302,7 +302,7 @@ function Nobu:OnGameRulesStateChange( keys )
 				end
 				GameRules: SendCustomMessage(i .. "獲取英雄成功", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 			end
-		-- end)
+		end)
 		-- 紀錄技能
 		_G.CountUsedAbility_Table[i] = {}
 		-- 紀錄裝備
