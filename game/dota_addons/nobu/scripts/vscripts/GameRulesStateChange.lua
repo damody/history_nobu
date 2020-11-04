@@ -298,7 +298,7 @@ function Nobu:OnGameRulesStateChange( keys )
 					GameRules: SendCustomMessage(i .. "獲取英雄失敗", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 					print("hero nil")
 					print("return 1")
-					-- return 1
+					return 1
 				end
 				GameRules: SendCustomMessage(i .. "獲取英雄成功", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 			end

@@ -60,7 +60,7 @@ function updatePaymentWindow() {
 		var playerIDs_OnTeam_A = Game.GetPlayerIDsOnTeam(2);
 		var playerIDs_OnTeam_B = Game.GetPlayerIDsOnTeam(3);
 		var id = get_choose_id(player_id, player_team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
-		var urlA = "http://172.104.72.206/choose_hero/dotaGame/0?id=" + id;
+		var urlA = "http://172.104.72.206/choose_hero/dota_game/0?id=" + id;
 		id = 0;
 		for (const key in all_playersID) {
 			if (all_playersID.hasOwnProperty(key)) {
@@ -71,16 +71,13 @@ function updatePaymentWindow() {
 				id = get_choose_id(player_id, team_id, playerIDs_OnTeam_A, playerIDs_OnTeam_B);
 				urlA = urlA + "&steamID" + id + "=" + steam_id;
 				all_players_name.push(Players.GetPlayerName(player_id))
-				urlA = urlA + "&playerName" + id + "=" + Players.GetPlayerName(all_playersID[key]);
+				urlA = urlA + "&playerName" + id + "=unknow";
 			}
 		}
 		$('#PaymentWindowBody').SetURL(urlA);
 		$.Msg(urlA)
 		$.Schedule(40, closeWindow);
 	} else {
-		// if (gid != -1){
-		// 	$('#PaymentWindowBody').SetURL("http://103.29.70.64:88/settlement/" + gid);
-		// }
 	}
 	setPaymentWindowStatus('success');
 }
@@ -102,16 +99,12 @@ function showWindowTick() {
 	// }
 }
 
-function show_settlement( keys ){
-	gid = keys.game_id
+function open_url( keys ){
 	$.Msg(keys)
-	$.Msg(gid)
-	if (gid == -1) {
-		closeWindow();
-	} else {
-		setPaymentWindowVisible(true);
-		updatePaymentWindow();
-	}
+	$('#PaymentWindow').visible = true;
+	$.Msg($('#PaymentWindow').visible);
+	$('#PaymentWindowBody').SetURL(keys.url);
+	$.Msg(keys.url)
 }
 
 function debug_choose_hero() {
@@ -152,7 +145,7 @@ function printMsg(msg){
 
 showWindowTick();
 GameEvents.Subscribe("debug_choose_hero", debug_choose_hero);
-GameEvents.Subscribe("show_settlement", show_settlement);
+GameEvents.Subscribe("open_url", open_url);
 GameEvents.Subscribe("closeWindow", closeWindow);
 GameEvents.Subscribe("printMsg", printMsg);
 $.Msg("subscribe");

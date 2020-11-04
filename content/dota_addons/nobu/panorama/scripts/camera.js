@@ -5,7 +5,6 @@ var lastValue = 0;
 function OnValueChanged(slider) {
   $.Msg(slider.value);
   GameUI.SetCameraDistance(slider.value);
-
 }
 
 function Check() {
