@@ -638,6 +638,34 @@ local function chat_of_test(keys)
 			end
 		)
 	end
+	if string.match(s,"test") then
+		if author[tostring(steamid)] or author[tostring(accountID)] then
+			CustomGameEventManager:Send_ServerToAllClients("test", {})
+		end
+		-- local pID = tonumber(string.match(s, '%d+'))
+		-- local steamID = PlayerResource:GetSteamAccountID(pID)
+		-- GameRules: SendCustomMessage(tostring(steamID),DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+		-- local res = PlayerResource:GetConnectionState(pID)
+		-- if (res == 0) then
+		-- 	GameRules: SendCustomMessage("no connection",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+		-- elseif (res == 1) then
+		-- 	GameRules: SendCustomMessage("bot connected",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+		-- elseif (res == 2) then
+		-- 	GameRules: SendCustomMessage("player connected",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+		-- elseif (res == 3) then
+		-- 	GameRules: SendCustomMessage("bot/player disconnected",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+		-- end
+	end
+	if string.match(s,"open") then
+		if author[tostring(steamid)] or author[tostring(accountID)] then
+			CustomGameEventManager:Send_ServerToAllClients("open_url", {url = string.sub(s, 5)})
+		end
+	end
+	if string.match(s, "close") then
+		if author[tostring(steamid)] or author[tostring(accountID)] then
+			CustomGameEventManager:Send_ServerToAllClients("closeWindow", {url = string.sub(s, 5)})
+		end
+	end
 	if s == "gg" then
 		if author[tostring(steamid)] or author[tostring(accountID)] then
 			_G.Oda_home:ForceKill(false)
@@ -947,23 +975,6 @@ local function chat_of_test(keys)
 			caster.scd = 0
 		end
 
-		if string.match(s,"test") then
-			CustomGameEventManager:Send_ServerToAllClients("test", {})
-			-- local pID = tonumber(string.match(s, '%d+'))
-			-- local steamID = PlayerResource:GetSteamAccountID(pID)
-			-- GameRules: SendCustomMessage(tostring(steamID),DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
-			-- local res = PlayerResource:GetConnectionState(pID)
-			-- if (res == 0) then
-			-- 	GameRules: SendCustomMessage("no connection",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
-			-- elseif (res == 1) then
-			-- 	GameRules: SendCustomMessage("bot connected",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
-			-- elseif (res == 2) then
-			-- 	GameRules: SendCustomMessage("player connected",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
-			-- elseif (res == 3) then
-			-- 	GameRules: SendCustomMessage("bot/player disconnected",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
-			-- end
-		end
-		
 		if string.match(s,"item") then
 			for itemSlot=0,5 do
 				local item = caster:GetItemInSlot(itemSlot)
