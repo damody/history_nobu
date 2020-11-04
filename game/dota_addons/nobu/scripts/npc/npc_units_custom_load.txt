@@ -5894,7 +5894,7 @@
 		"VisionNighttimeRange"	"0"
 		"HasInventory"	"1"
 		"WakesNeutrals"	"0"
-		"Ability2"	""
+		"Ability2"	"phased_dummy"
 		"Ability3"	""
 		"Ability4"	""
 		"Ability5"	""

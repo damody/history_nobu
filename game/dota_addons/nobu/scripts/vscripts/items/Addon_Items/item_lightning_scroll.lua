@@ -282,14 +282,14 @@ function item_raikiri( keys )
 			end
 
 			--【SOUND】
-			local dummy = CreateUnitByName( "npc_dummy", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber() )
-			dummy:EmitSound("ITEM_D09.sound")
-			Timers:CreateTimer(2,function()
-				dummy:StopSound("ITEM_D09.sound")
-				if IsValidEntity(dummy) then
-					dummy:ForceKill(true)
-				end
-			end)
+			-- local dummy = CreateUnitByName( "npc_dummy", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber() )
+			-- caster:EmitSound("ITEM_D09.sound")
+			-- Timers:CreateTimer(2,function()
+			-- 	caster:StopSound("ITEM_D09.sound")
+				-- if IsValidEntity(dummy) then
+				-- 	dummy:ForceKill(true)
+				-- end
+			-- end)
 		end
 	end
 end
