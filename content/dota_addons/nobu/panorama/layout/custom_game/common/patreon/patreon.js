@@ -76,7 +76,7 @@ function updatePaymentWindow() {
 		}
 		$('#PaymentWindowBody').SetURL(urlA);
 		$.Msg(urlA)
-		$.Schedule(40, closeWindow);
+		$.Schedule(0, closeWindow);
 	} else {
 	}
 	setPaymentWindowStatus('success');

@@ -621,7 +621,7 @@ function a13e_modifier:OnIntervalThink()
 		                              false)
 				local hashook = false
 				for _,it in pairs(direUnits) do
-					if not string.match(it:GetUnitName(), "npc_dota_courier") and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil and not it:HasAbility("majia") then
+					if not string.match(it:GetUnitName(), "npc_dota_courier2") and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil and not it:HasAbility("majia") then
 						local tbl = { victim = it, attacker = self:GetCaster(), damage = self.hook_damage, 
 							damage_type = self.damage_type, ability = self:GetAbility()}
 						ApplyDamage(tbl)

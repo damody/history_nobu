@@ -728,7 +728,7 @@ function donkey_back(keys)
 		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false )
     for _,enemy in pairs(enemies) do
     	print(enemy:GetUnitName())
-		if string.match(enemy:GetUnitName(),"npc_dota_courier") then
+		if string.match(enemy:GetUnitName(),"npc_dota_courier2") then
 			enemy:SetAbsOrigin(caster:GetAbsOrigin()+(enemy:GetAbsOrigin()-caster:GetAbsOrigin()):Normalized()*1000)
 			enemy:AddNewModifier(nil, nil, 'modifier_phased', {duration = 0.1})
 			FindClearSpaceForUnit(enemy,enemy:GetAbsOrigin(),true)

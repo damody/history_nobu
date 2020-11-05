@@ -58,7 +58,7 @@ function MVP_OnTakeDamage( event )
 		local ability = event.ability
 		if ability then
 			local caster = ability:GetCaster()
-			if damage > caster:GetHealth() then
+			-- if damage > caster:GetHealth() then
 				-- 傳送遊戲結果
 				-- 紀錄遊戲結束時間
 				for mm, dd, yy in string.gmatch(tostring(GetSystemDate()), "(%w+)/(%w+)/(%w+)") do
@@ -367,7 +367,7 @@ function MVP_OnTakeDamage( event )
 						end
 					)
 				end
-			end
+			-- end
 		end
 	end
 end

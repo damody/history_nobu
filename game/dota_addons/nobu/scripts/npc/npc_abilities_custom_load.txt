@@ -160,7 +160,7 @@
 				"Passive"			"1"
 				"IsHidden"			"0"
 				"IsDebuff"			"0"
-				"OnTakeDamage"
+				"OnDeath"
 				{
 					"RunScript"
 					{
@@ -5987,7 +5987,7 @@
 				"Aura"	"modifier_phased_dummy"
 				"Aura_Radius"	"50"
 				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_BOTH"
-				"Aura_Types"	"DOTA_UNIT_TARGET_HERO"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"		
 			}
 			"modifier_phased_dummy"

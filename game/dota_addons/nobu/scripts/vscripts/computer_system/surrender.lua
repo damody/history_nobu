@@ -35,7 +35,7 @@ function SurrenderSystem:OnPlayerChat( keys )
 	-- 確認是否可以投降
 	local progressTime = GameRules:GetGameTime() - self.startTime
 	local remainTime = math.ceil(self.TIME_DELAY - progressTime)
-	if self.canSurrender then
+	if true then
 		-- 紀錄投票狀態，重複投票可以反悔
 		local votes = self.votes
 		if votes[playerid] == nil then
@@ -161,22 +161,21 @@ function OnOdaGiveUp()
 	_G.Unified_home:AddNewModifier(_G.Unified_home, nil, "modifier_invulnerable", nil )
 	Timers:CreateTimer(0.1, function()
 		local pos = _G.Oda_home:GetAbsOrigin()
-		if mvp then
+			print("123")
 			_G.Oda_home:ForceKill(false)
-			for i=0,9 do
-				AMHC:SetCamera(i, mvp)
-			end
-			mvp:SetAbsOrigin(pos+Vector(0,0,250))
-			local nobu_id = _G.heromap[mvp:GetName()]
-			local mesg = "本場MVP為 ".._G.hero_name_zh[nobu_id]
-			mesg = mesg.."\n聯合軍獲勝"
-			GameRules:SetCustomVictoryMessage(mesg)
-			Timers:CreateTimer(0.1, function()
-				mvp:SetAbsOrigin(pos+Vector(0,0,250))
-				mvp:AddNewModifier(mvp, nil, "modifier_invulnerable", nil )
-				return 0.1
-			end)
-		end
+			-- for i=0,9 do
+			-- 	AMHC:SetCamera(i, mvp)
+			-- end
+			-- mvp:SetAbsOrigin(pos+Vector(0,0,250))
+			-- local nobu_id = _G.heromap[mvp:GetName()]
+			-- local mesg = "本場MVP為 ".._G.hero_name_zh[nobu_id]
+			-- mesg = mesg.."\n聯合軍獲勝"
+			-- GameRules:SetCustomVictoryMessage(mesg)
+			-- Timers:CreateTimer(0.1, function()
+			-- 	mvp:SetAbsOrigin(pos+Vector(0,0,250))
+			-- 	mvp:AddNewModifier(mvp, nil, "modifier_invulnerable", nil )
+			-- 	return 0.1
+			-- end)
 		end)
 end
 
@@ -199,21 +198,19 @@ function OnUnifiedGiveUp()
 	_G.Oda_home:AddNewModifier(_G.Oda_home, nil, "modifier_invulnerable", nil )
 	Timers:CreateTimer(0.1, function()
 		local pos = _G.Unified_home:GetAbsOrigin()
-		if mvp then
 			_G.Unified_home:ForceKill(false)
-			for i=0,9 do
-				AMHC:SetCamera(i, mvp)
-			end
-			mvp:SetAbsOrigin(pos+Vector(0,0,250))
-			local nobu_id = _G.heromap[mvp:GetName()]
-			local mesg = "本場MVP為 ".._G.hero_name_zh[nobu_id]
-			mesg = mesg.."\n織田軍獲勝"
-			GameRules:SetCustomVictoryMessage(mesg)
-			Timers:CreateTimer(0.1, function()
-				mvp:SetAbsOrigin(pos+Vector(0,0,250))
-				mvp:AddNewModifier(mvp, nil, "modifier_invulnerable", nil )
-				return 0.1
-			end)
-		end
+			-- for i=0,9 do
+			-- 	AMHC:SetCamera(i, mvp)
+			-- end
+			-- mvp:SetAbsOrigin(pos+Vector(0,0,250))
+			-- local nobu_id = _G.heromap[mvp:GetName()]
+			-- local mesg = "本場MVP為 ".._G.hero_name_zh[nobu_id]
+			-- mesg = mesg.."\n織田軍獲勝"
+			-- GameRules:SetCustomVictoryMessage(mesg)
+			-- Timers:CreateTimer(0.1, function()
+			-- 	mvp:SetAbsOrigin(pos+Vector(0,0,250))
+			-- 	mvp:AddNewModifier(mvp, nil, "modifier_invulnerable", nil )
+			-- 	return 0.1
+			-- end)
 		end)
 end

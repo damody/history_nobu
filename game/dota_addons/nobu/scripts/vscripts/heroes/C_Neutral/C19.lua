@@ -52,7 +52,7 @@ function CreateTeleportParticles( event )
 	local teammate = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING, 0, 0, false )
 	caster.IsTeammate = false
 	for _,unit in ipairs(teammate) do
-		if unit:GetName() ~= "npc_dota_courier" then
+		if unit:GetName() ~= "npc_dota_courier2" then
 			caster.IsTeammate = true
 			break
 		end

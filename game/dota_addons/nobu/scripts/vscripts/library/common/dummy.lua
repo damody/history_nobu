@@ -223,7 +223,7 @@ function nodmg_courier( keys )
           FIND_ANY_ORDER, 
         false)
   for _,it in pairs(units) do
-    if it:GetUnitName() == "npc_dota_courier" or it:GetUnitName() == "npc_dota_courier2" then
+    if it:GetUnitName() == "npc_dota_courier2" or it:GetUnitName() == "npc_dota_courier22" then
       --it:AddNewModifier(it, nil, "modifier_invulnerable", {duration = 5})
     end
   end
@@ -659,7 +659,7 @@ end
 function courier_damage_immune_OnCreated( keys )
   local target = keys.target
   local ability = keys.ability
-  if target:GetUnitName() == "npc_dota_courier" then
+  if target:GetUnitName() == "npc_dota_courier2" then
     ability:ApplyDataDrivenModifier(target,target,"modifier_courier_physical_immune2",{})
   end
 end
@@ -667,7 +667,7 @@ end
 function courier_damage_immune_OnDestroy( keys )
   local target = keys.target
   local ability = keys.ability
-  if target:GetUnitName() == "npc_dota_courier" then
+  if target:GetUnitName() == "npc_dota_courier2" then
     target:RemoveModifierByName("modifier_courier_physical_immune2")
   end
 end

@@ -92,7 +92,7 @@ function Nobu:OnHeroIngame( keys )
               end
             end
           end
-          local allCouriers = Entities:FindAllByClassname('npc_dota_courier')
+          local allCouriers = Entities:FindAllByClassname('npc_dota_courier2')
           for k, ent in pairs(allCouriers) do
             if ent:GetOwner():GetAssignedHero() == hero then
               ent:ForceKill(true)
