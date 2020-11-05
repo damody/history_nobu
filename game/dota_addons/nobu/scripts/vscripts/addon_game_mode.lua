@@ -592,7 +592,7 @@ function Activate()
     end
     Nobu:InitGameMode()
     Nobu:Init_Event_and_Filter_GameMode() --管理事件、Filter
-    GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(true)
+    GameRules:GetGameModeEntity():SetFreeCourierModeEnabled(false)
   -- end
 end
 
