@@ -166,7 +166,7 @@
 					{
 						"ScriptFile"	"items/Addon_Items/item_the_soul_of_power.lua"
 						"Function"		"MVP_OnTakeDamage"
-						"DamageTaken"	"%attack_damage"
+						// "DamageTaken"	"%attack_damage"
 					}
 				}
 			}

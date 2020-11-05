@@ -54,10 +54,12 @@ function MVP_OnTakeDamage( event )
 	if IsServer() then
 		print(DOTA_TEAM_BADGUYS) -- 3
 		print(DOTA_TEAM_GOODGUYS) -- 2
-		local damage = event.DamageTaken
+		-- local damage = event.DamageTaken
+		PrintTable( event )
 		local ability = event.ability
 		if ability then
 			local caster = ability:GetCaster()
+			
 			-- if damage > caster:GetHealth() then
 				-- 傳送遊戲結果
 				-- 紀錄遊戲結束時間
@@ -366,6 +368,38 @@ function MVP_OnTakeDamage( event )
 							)
 						end
 					)
+				else 
+					--destroy
+					local units = FindUnitsInRadius(caster:GetTeamNumber(), 
+					caster:GetAbsOrigin(), 
+					nil, 
+					5000,
+					DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
+					DOTA_UNIT_TARGET_ALL, 
+					DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
+					FIND_ANY_ORDER, 
+					false 
+					)
+					if caster:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+						local homes = Entities:FindAllByName('dota_badguys_fort')
+						for k, ent in pairs(homes) do
+							print(ent:GetName())
+							ent:RemoveAbility("when_cp_first_spawn")
+							ent:RemoveModifierByName("modifier_stuck")
+							ent:AddNewModifier(unit, nil, "modifier_kill", {duration=0.2})
+							print("kill")
+						end
+					end
+					if caster:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+						local homes = Entities:FindAllByName('dota_goodguys_fort')
+						for k, ent in pairs(homes) do
+							print(ent:GetName())
+							ent:RemoveAbility("when_cp_first_spawn")
+							ent:RemoveModifierByName("modifier_stuck")
+							ent:AddNewModifier(unit, nil, "modifier_kill", {duration=0.2})
+							print("kill")
+						end
+					end
 				end
 			-- end
 		end
