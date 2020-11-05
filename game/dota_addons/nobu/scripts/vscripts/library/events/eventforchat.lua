@@ -264,6 +264,7 @@ local function chat_of_test(keys)
 	local accountID = PlayerResource:GetSteamAccountID(caster:GetPlayerOwnerID())
 	local steamid = PlayerResource:GetSteamID(caster:GetPlayerOwnerID())
 	local skin = false
+	local preregist = false
 	if _G.skin_table[tostring(steamid)] == true then
 		skin = true
 	end
@@ -273,7 +274,7 @@ local function chat_of_test(keys)
 	if _G.preregist_table[tostring(accountID)] == true then
 		preregist = true
 	end
-	if _G.preregist_table[tostring(steeamid)] == true then
+	if _G.preregist_table[tostring(steamid)] == true then
 		preregist = true
 	end
 	
