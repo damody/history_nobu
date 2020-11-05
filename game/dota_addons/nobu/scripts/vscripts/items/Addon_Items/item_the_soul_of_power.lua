@@ -257,7 +257,7 @@ function MVP_OnTakeDamage( event )
 										steam_id=tostring(steam_id), hero=_G.heromap[hero:GetName()], choose_count=1,
 									}
 									print(json.encode(heroUsage))
-									GameRules: SendCustomMessage(playerID .. "記錄英雄使用...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+									-- GameRules: SendCustomMessage(playerID .. "記錄英雄使用...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 									-- RECORD:StoreToHeroUsage({steam_id=steam_id, hero=_G.heromap[hero:GetName()], choose_count=1})
 									--紀錄到 table:Hero_detail
 									print(_G.heromap[hero:GetName()])

@@ -3328,6 +3328,8 @@
  		"Ability8"					"courier_take_stash_and_transfer_items"
  		"Ability9"					"for_magic_immune"
  		"Ability10"					"for_no_collision"
+		"Ability11"					"phased_dummy"
+		
 
  		// Bounds
  		//----------------------------------------------------------------
