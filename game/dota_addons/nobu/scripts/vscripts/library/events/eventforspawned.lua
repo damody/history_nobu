@@ -37,6 +37,17 @@ function Nobu:OnHeroIngame( keys )
     Timers:CreateTimer ( 0.2, function ()
       if hero ~= nil and IsValidEntity(hero) and not hero:IsIllusion() and caster:GetTeamNumber() < 4 then
         if hero.init1 == nil then
+          local donkey = CreateUnitByName("npc_dota_courier2", caster:GetAbsOrigin()+Vector(100, 100, 0), true, caster, caster, caster:GetTeam())
+          donkey:SetOwner(caster)
+          donkey:SetControllableByPlayer(caster:GetPlayerID(), true)
+          donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
+          donkey:FindAbilityByName("courier_go_to_secretshop"):SetLevel(1)
+          donkey:FindAbilityByName("courier_return_stash_items"):SetLevel(1)
+          donkey:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
+          donkey:FindAbilityByName("courier_transfer_items"):SetLevel(1)
+          donkey:FindAbilityByName("courier_burst"):SetLevel(1)
+          donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
+          donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
           hero.init1 = true
           hero.assist_count = 0
           hero.kill_count = 0
@@ -90,13 +101,6 @@ function Nobu:OnHeroIngame( keys )
               if item:GetName() == "item_logging" then
                 hero:SwapItems(i, 16)
               end
-            end
-          end
-          local allCouriers = Entities:FindAllByClassname('npc_dota_courier2')
-          for k, ent in pairs(allCouriers) do
-            if ent:GetOwner():GetAssignedHero() == hero then
-              ent:ForceKill(true)
-              ent:GetOwner():GetAssignedHero().courier = 1
             end
           end
         else

@@ -291,7 +291,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- 跳錢
 		_G.PlayerEarnedGold[i] = 2000
 		Timers:CreateTimer(45, function()
-			local gold = PlayerResource:GetGold(i)
+			local gold = PlayerResource:GetUnreliableGold(i)
 			PlayerResource:SetGold(i,gold + 5,false)
 			_G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + 5
 			return 2
