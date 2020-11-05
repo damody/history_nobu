@@ -178,6 +178,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		end
 		--取得skin
 		_G.skin_table = {}
+		_G.preregist_table = {}
 		SendHTTPRequest("get_skin/", "POST", {}, function(res)
 			if (string.match(res, "error")) then
 				callback()
@@ -187,6 +188,17 @@ function Nobu:OnGameRulesStateChange( keys )
 				end
 			end
 		end)
+
+		SendHTTPRequest("get_preregist/", "POST", {}, function(res)
+			if (string.match(res, "error")) then
+				callback()
+			else
+				for id in string.gmatch(tostring(res), "%w+") do 
+					_G.preregist_table[id] = true;
+				end
+			end
+		end)
+
 		-- 檢查是不是已經用client選好腳色了
 		for playerID = 0, 9 do
 			local steam_id = PlayerResource:GetSteamID(playerID)

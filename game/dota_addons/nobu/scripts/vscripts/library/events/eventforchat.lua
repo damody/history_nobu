@@ -270,6 +270,12 @@ local function chat_of_test(keys)
 	if _G.skin_table[tostring(accountID)] == true then
 		skin = true
 	end
+	if _G.preregist_table[tostring(accountID)] == true then
+		preregist = true
+	end
+	if _G.preregist_table[tostring(steeamid)] == true then
+		preregist = true
+	end
 	
 	--DebugDrawText(caster:GetAbsOrigin(), "殺爆全場就是現在", false, 10)
 	--舊版模式
@@ -684,7 +690,7 @@ local function chat_of_test(keys)
 			end
 		end
 	end
-	if s == "-pre" then 
+	if (s == "-pre" and preregist) then
 		caster:AddAbility("preRegist"):SetLevel(1)
 	end
 	if s == "-ggbb1" then 
