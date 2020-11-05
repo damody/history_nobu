@@ -188,7 +188,7 @@ function Nobu:OnGameRulesStateChange( keys )
 				end
 			end
 		end)
-
+		-- 取得事前登入資格
 		SendHTTPRequest("get_preregist/", "POST", {}, function(res)
 			if (string.match(res, "error")) then
 				callback()
