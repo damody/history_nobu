@@ -5784,7 +5784,7 @@
 		{
 			"modifier_slow_self_passive"
 			{
-				"Passive"	"0"
+				"Passive"	"1"
 				"ThinkInterval"	"0.1"
 				"OnIntervalThink"
 				{
@@ -5793,7 +5793,7 @@
 						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
 						"Function"	"slow_self_passive"
 					}
-				}	
+				}
 			}
 			"modifier_slow_down_movespeed"
 			{
