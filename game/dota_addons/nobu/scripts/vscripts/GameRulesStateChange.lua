@@ -295,12 +295,12 @@ function Nobu:OnGameRulesStateChange( keys )
 				print(player:GetAssignedHero())
 				print(_G.Hero[i])
 				if (_G.Hero[i] == nil) then
-					GameRules: SendCustomMessage(i .. "獲取英雄失敗", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
-					print("hero nil")
-					print("return 1")
+					-- GameRules: SendCustomMessage(i .. "獲取英雄失敗", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+					-- print("hero nil")
+					-- print("return 1")
 					return 1
 				end
-				GameRules: SendCustomMessage(i .. "獲取英雄成功", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+				-- GameRules: SendCustomMessage(i .. "獲取英雄成功", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 			end
 		end)
 		-- 紀錄技能
@@ -502,20 +502,20 @@ function Nobu:OnGameRulesStateChange( keys )
 		end
 		return 60
 	end)
-	Timers:CreateTimer(300, function()
-		for playerID = 0, 9 do
-			local player = PlayerResource:GetPlayer(playerID)
-			if player then
-				local hero = player:GetAssignedHero()
-				if hero then
-					local hero_id = _G.heromap[hero:GetName()]
-					GameRules: SendCustomMessage("<font color=\"#33cc33\">"..(_G.hero_name_zh[hero_id]).."</font> <font color=\"#33cc33\">"..
-						(hero:GetLevel()).."等</font> ".._G.PlayerEarnedGold[playerID], DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-				end
-			end
-		end
-		return 300
-	end)
+	-- Timers:CreateTimer(300, function()
+	-- 	for playerID = 0, 9 do
+	-- 		local player = PlayerResource:GetPlayer(playerID)
+	-- 		if player then
+	-- 			local hero = player:GetAssignedHero()
+	-- 			if hero then
+	-- 				local hero_id = _G.heromap[hero:GetName()]
+	-- 				GameRules: SendCustomMessage("<font color=\"#33cc33\">"..(_G.hero_name_zh[hero_id]).."</font> <font color=\"#33cc33\">"..
+	-- 					(hero:GetLevel()).."等</font> ".._G.PlayerEarnedGold[playerID], DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+	-- 			end
+	-- 		end
+	-- 	end
+	-- 	return 300
+	-- end)
 	
 
     Timers:CreateTimer(210, function()

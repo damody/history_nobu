@@ -71,7 +71,7 @@ function MVP_OnTakeDamage( event )
 					_G.isRecord = true;
 					--紀錄到 table:Finished_game
 					print("FinishedGame")
-					GameRules:SendCustomMessage("記錄遊戲場次...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+					-- GameRules:SendCustomMessage("記錄遊戲場次...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 					RECORD:StoreToFinishedGame({createtime=_G.createtime, endtime=_G.endtime},
 						function(game_id)
 							print(game_id)
@@ -139,7 +139,7 @@ function MVP_OnTakeDamage( event )
 										res = res,
 									}
 									print(json.encode(endGame))
-									GameRules: SendCustomMessage(playerID .. "記錄玩家勝敗...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+									-- GameRules: SendCustomMessage(playerID .. "記錄玩家勝敗...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 									-- RECORD:EndGame({steam_id=steam_id, res=res})
 									if res == "W" then
 										win = 1 
@@ -248,7 +248,7 @@ function MVP_OnTakeDamage( event )
 										mode=_G.mode or "ng",
 									}
 									print(json.encode(finishedDetail))
-									GameRules: SendCustomMessage(playerID .. "記錄玩家細節...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+									-- GameRules: SendCustomMessage(playerID .. "記錄玩家細節...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 									--紀錄到 table:Hero_usage 
 									print("HeroUsage")
 									local heroUsage = {
@@ -280,7 +280,7 @@ function MVP_OnTakeDamage( event )
 										heal=hero.heal,
 									}
 									print(json.encode(heroDetail))
-									GameRules: SendCustomMessage(playerID .. "記錄英雄細節...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+									-- GameRules: SendCustomMessage(playerID .. "記錄英雄細節...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 									--紀錄到 table:Equipment_detail
 									local equipmentDetails = {}
 									local item_index = 0
@@ -296,7 +296,7 @@ function MVP_OnTakeDamage( event )
 										print("EquipmentDetail")
 									end
 									print(json.encode(equipmentDetails))
-									GameRules: SendCustomMessage(playerID .. "記錄道具細節...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+									-- GameRules: SendCustomMessage(playerID .. "記錄道具細節...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 									--紀錄到 table:Equipment_purchased
 									equipment_purchased = {};
 									item_index = 0;
@@ -311,7 +311,7 @@ function MVP_OnTakeDamage( event )
 										item_index = item_index + 1
 									end
 									print(json.encode(equipment_purchased))
-									GameRules: SendCustomMessage(playerID .. "記錄道具購買時間...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+									-- GameRules: SendCustomMessage(playerID .. "記錄道具購買時間...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 									playersData[playerID] = {
 										endGame = endGame,
 										player = player,
