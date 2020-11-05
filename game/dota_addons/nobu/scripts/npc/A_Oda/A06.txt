@@ -683,7 +683,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"A06T_ADD_D"	"60 120 180"
+				"A06T_ADD_D"	"100 150 180"
 			}
 			"02"
 			{

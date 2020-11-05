@@ -271,6 +271,14 @@
 	"item_sange"	"REMOVE"
 	"item_blitz_knuckles" "REMOVE"
 	"item_voodoo_mask" "REMOVE"
+	"item_ring_of_tarrasque" "REMOVE"
+	"item_meteor_hammer" "REMOVE"
+	"item_holy_locket" "REMOVE"
+
+	"item_headling_totem" "REMOVE"
+
+	"item_crown" "REMOVE"
+
 	"item_vambrace" "REMOVE"
 	"item_recipe_helm_of_the_dominator"	"REMOVE"
 	"item_helm_of_the_dominator"	"REMOVE"
