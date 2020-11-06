@@ -13,9 +13,9 @@ function Shock( keys )
 	end
 	skill:ApplyDataDrivenModifier(caster, caster, "modifier_wantgohome", {duration = 8.5})
 	if (caster:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
-		GameRules: SendCustomMessage("<font color=\"#cc3333\">織田軍即將發動召集戰法</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+		--GameRules: SendCustomMessage("<font color=\"#cc3333\">織田軍即將發動召集戰法</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	else
-		GameRules: SendCustomMessage("<font color=\"#cc3333\">聯合軍即將發動召集戰法</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
+		--GameRules: SendCustomMessage("<font color=\"#cc3333\">聯合軍即將發動召集戰法</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
 	end
 	target:AddNewModifier(target,ability,"modifier_gohomelua",{duration=8})
 	target:FindModifierByName("modifier_gohomelua").caster = target
@@ -28,9 +28,9 @@ function Shock( keys )
 			--ParticleManager:DestroyParticle(particle,false)
 			if target:HasModifier("modifier_wantgohome") then
 				if (caster:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
-					GameRules: SendCustomMessage("<font color=\"#cc3333\">織田軍發動召集戰法</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+					--GameRules: SendCustomMessage("<font color=\"#cc3333\">織田軍發動召集戰法</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 				else
-					GameRules: SendCustomMessage("<font color=\"#cc3333\">聯合軍發動召集戰法</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
+					--GameRules: SendCustomMessage("<font color=\"#cc3333\">聯合軍發動召集戰法</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
 				end
 				-- target:SetTimeUntilRespawn(0)
 				print(target:GetUnitName())
