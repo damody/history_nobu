@@ -314,7 +314,7 @@ local function chat_of_test(keys)
 	end
 	if (s == "-donkey" and caster.has_dota_donkey == nil and not _G.hardcore) then
 		caster.has_dota_donkey = 1
-		local donkey = CreateUnitByName("npc_dota_courier", caster:GetAbsOrigin()+Vector(100, 100, 0), true, caster, caster, caster:GetTeam())
+		local donkey = CreateUnitByName("npc_dota_courier2", caster:GetAbsOrigin()+Vector(100, 100, 0), true, caster, caster, caster:GetTeam())
 		donkey:SetOwner(caster)
 		donkey:SetControllableByPlayer(caster:GetPlayerID(), true)
         donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)

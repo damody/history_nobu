@@ -5988,7 +5988,7 @@
 				"Aura_Radius"	"50"
 				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_BOTH"
 				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE"		
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"		
 			}
 			"modifier_phased_dummy"
 			{
