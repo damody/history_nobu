@@ -163,6 +163,8 @@ function OnOdaGiveUp()
 	Timers:CreateTimer(0.1, function()
 		local pos = _G.Oda_home:GetAbsOrigin()
 			_G.Oda_home:ForceKill(false)
+			GameRules:SetCustomGameEndDelay(1)
+			GameRules:SetGameWinner(DOTA_TEAM_BADGUYS)
 		end)
 end
 
@@ -186,5 +188,7 @@ function OnUnifiedGiveUp()
 	Timers:CreateTimer(0.1, function()
 		local pos = _G.Unified_home:GetAbsOrigin()
 			_G.Unified_home:ForceKill(false)
+			GameRules:SetCustomGameEndDelay(1)
+			GameRules:SetGameWinner(DOTA_TEAM_GOODGUYS)
 		end)
 end
