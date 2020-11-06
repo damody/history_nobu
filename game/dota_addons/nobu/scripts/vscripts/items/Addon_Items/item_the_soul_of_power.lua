@@ -367,38 +367,37 @@ function MVP_OnTakeDamage( event )
 								end
 							)
 						end
-					)
-				else 
-					--destroy
-					local units = FindUnitsInRadius(caster:GetTeamNumber(), 
-					caster:GetAbsOrigin(), 
-					nil, 
-					5000,
-					DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
-					DOTA_UNIT_TARGET_ALL, 
-					DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
-					FIND_ANY_ORDER, 
-					false 
-					)
-					if caster:GetTeamNumber() == DOTA_TEAM_BADGUYS then
-						local homes = Entities:FindAllByName('dota_badguys_fort')
-						for k, ent in pairs(homes) do
-							print(ent:GetName())
-							ent:RemoveAbility("when_cp_first_spawn")
-							ent:RemoveModifierByName("modifier_stuck")
-							ent:AddNewModifier(unit, nil, "modifier_kill", {duration=0.2})
-							print("kill")
-						end
+					) 
+				end
+				--destroy
+				local units = FindUnitsInRadius(caster:GetTeamNumber(), 
+				caster:GetAbsOrigin(), 
+				nil, 
+				5000,
+				DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
+				DOTA_UNIT_TARGET_ALL, 
+				DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
+				FIND_ANY_ORDER, 
+				false 
+				)
+				if caster:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+					local homes = Entities:FindAllByName('dota_badguys_fort')
+					for k, ent in pairs(homes) do
+						print(ent:GetName())
+						ent:RemoveAbility("when_cp_first_spawn")
+						ent:RemoveModifierByName("modifier_stuck")
+						ent:AddNewModifier(unit, nil, "modifier_kill", {duration=0.2})
+						print("kill")
 					end
-					if caster:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-						local homes = Entities:FindAllByName('dota_goodguys_fort')
-						for k, ent in pairs(homes) do
-							print(ent:GetName())
-							ent:RemoveAbility("when_cp_first_spawn")
-							ent:RemoveModifierByName("modifier_stuck")
-							ent:AddNewModifier(unit, nil, "modifier_kill", {duration=0.2})
-							print("kill")
-						end
+				end
+				if caster:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+					local homes = Entities:FindAllByName('dota_goodguys_fort')
+					for k, ent in pairs(homes) do
+						print(ent:GetName())
+						ent:RemoveAbility("when_cp_first_spawn")
+						ent:RemoveModifierByName("modifier_stuck")
+						ent:AddNewModifier(unit, nil, "modifier_kill", {duration=0.2})
+						print("kill")
 					end
 				end
 			-- end
