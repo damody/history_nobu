@@ -71,6 +71,7 @@ function SendHTTPRequestGetPlayers(path, method, values, callback)
 	end
 	req:Send(function(result)
 		local table = {}
+		PrintTable(table)
 		for key, value in string.gmatch(tostring(result.Body), "(%w+)=(%w+)") do 
 			table[key] = value
 		end
@@ -142,13 +143,21 @@ function Nobu:OnGameRulesStateChange( keys )
 	elseif(newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) then
 		_G.matchCount = 0;
 		_G.recordCount = 0;
+		_G.bStopGetFromClient = false;
 		-- 檢查這場遊戲是不是由client開的
-		local steam_id = PlayerResource:GetSteamID(0)
-		SendHTTPRequestGetPlayers("get_players/", "POST",
-		{id = tostring(steam_id)}, function(res)
-			if (string.match(res, "error")) then
-				callback()
+		Timers:CreateTimer(0, function()
+			local steam_id = PlayerResource:GetSteamID(0)
+			print(steam_id)
+			SendHTTPRequestGetPlayers("get_players/", "POST",
+			{id = tostring(steam_id)}, function(res)
+				if (string.match(res, "error")) then
+					callback()
+				end
+			end)
+			if (_G.bStopGetFromClient == false) then
+				return 1
 			end
+			return
 		end)
 		-- -- --2織田軍 3聯合軍 5沒隊伍
 		-- Timers:CreateTimer(0.1, function()
@@ -229,7 +238,7 @@ function Nobu:OnGameRulesStateChange( keys )
 			PlayerResource:SetGold(i,2000,false)--玩家ID需要減一
 		end
 	elseif(newState == DOTA_GAMERULES_STATE_STRATEGY_TIME) then
-
+		_G.bStopGetFromClient = true;
 	elseif(newState == DOTA_GAMERULES_STATE_TEAM_SHOWCASE) then --選擇英雄階段
 		for playerID = 0, 9 do
 			local id       = playerID
@@ -241,6 +250,7 @@ function Nobu:OnGameRulesStateChange( keys )
 			end
 		end
 	elseif(newState == DOTA_GAMERULES_STATE_PRE_GAME) then --當英雄選擇結束 --6
+		_G.bStopGetFromClient = true;
     if (_G.nobu_debug) then -- 測試模式給裝
       for_test_equiment()
 	end
