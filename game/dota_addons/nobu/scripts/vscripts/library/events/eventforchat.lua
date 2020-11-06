@@ -676,7 +676,7 @@ local function chat_of_test(keys)
 			CustomGameEventManager:Send_ServerToAllClients("closeWindow", {url = string.sub(s, 5)})
 		end
 	end
-	if s == "gg" then
+	if s == "-gg" then
 		if author[tostring(steamid)] or author[tostring(accountID)] then
 			_G.Oda_home:ForceKill(false)
 		end
@@ -692,47 +692,47 @@ local function chat_of_test(keys)
 			end
 		end
 	end
-	if (s == "-pre" and preregist) then
+	if (s == "-pre" and (preregist or author[tostring(steamid)] or author[tostring(accountID)])) then
 		caster:AddAbility("preRegist"):SetLevel(1)
 	end
-	if s == "-ggbb1" then 
+	if s == "-ggbb1" and (author[tostring(steamid)] or author[tostring(accountID)]) then 
 		local ifx = ParticleManager:CreateParticle("particles/title/ggbb1.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 		ParticleManager:ReleaseParticleIndex(ifx)
 	end
-	if s == "-ggbb2" then 
+	if s == "-ggbb2" and (author[tostring(steamid)] or author[tostring(accountID)]) then 
 		local ifx = ParticleManager:CreateParticle("particles/title/ggbb2.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 		ParticleManager:ReleaseParticleIndex(ifx)
 	end
-	if s == "-ggbb3" then 
+	if s == "-ggbb3" and (author[tostring(steamid)] or author[tostring(accountID)]) then 
 		local ifx = ParticleManager:CreateParticle("particles/title/ggbb3.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 		ParticleManager:ReleaseParticleIndex(ifx)
 	end
-	if s == "-ggbb4" then 
+	if s == "-ggbb4" and (author[tostring(steamid)] or author[tostring(accountID)]) then 
 		local ifx = ParticleManager:CreateParticle("particles/title/ggbb4.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 		ParticleManager:ReleaseParticleIndex(ifx)
 	end
 	if s == "-jj1" then 
 		print(steam_id)
 		print(_G.haveSubscription[tostring(steam_id)]);
-		if _G.haveSubscription[tostring(steam_id)] then
+		if _G.haveSubscription[tostring(steam_id)] or author[tostring(steamid)] or author[tostring(accountID)] then
 			local ifx = ParticleManager:CreateParticle("particles/title/jj1.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 			ParticleManager:ReleaseParticleIndex(ifx)
 		end
 	end
 	if s == "-jj2" then 
-		if _G.haveSubscription[tostring(steam_id)] then
+		if _G.haveSubscription[tostring(steam_id)] or author[tostring(steamid)] or author[tostring(accountID)] then
 			local ifx = ParticleManager:CreateParticle("particles/title/jj2.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 			ParticleManager:ReleaseParticleIndex(ifx)
 		end
 	end
 	if s == "-jj3" then 
-		if _G.haveSubscription[tostring(steam_id)] then
+		if _G.haveSubscription[tostring(steam_id)] or author[tostring(steamid)] or author[tostring(accountID)] then
 			local ifx = ParticleManager:CreateParticle("particles/title/jj3.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 			ParticleManager:ReleaseParticleIndex(ifx)
 		end
 	end
 	if s == "-jj4" then 
-		if _G.haveSubscription[tostring(steam_id)] then
+		if _G.haveSubscription[tostring(steam_id)] or author[tostring(steamid)] or author[tostring(accountID)] then
 			local ifx = ParticleManager:CreateParticle("particles/title/jj4.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 			ParticleManager:ReleaseParticleIndex(ifx)
 		end
