@@ -108,7 +108,7 @@ function B01E_CHECK(keys)
 	target.owner = caster
 	target.name = "B01W_UNIT"
     -- target:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
-	target:AddNewModifier(target,ability,"modifier_phased",{duration=0.1})
+	target:AddNewModifier(target,ability,"phased_dummy",{duration=1})
 	target:AddNewModifier(target,ability,"modifier_rooted",{})
 	if caster.great_sword_of_disease then
 		target:SetBaseMaxHealth(target:GetBaseMaxHealth()*1.5)

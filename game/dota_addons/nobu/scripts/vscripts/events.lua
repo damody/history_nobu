@@ -369,7 +369,11 @@ function Nobu:ModifierGainedFilter( filterTable )
   --亡靈
   if target:GetUnitName() == "npc_dota_cursed_warrior_souls" then
     if caster ~= target then
-      return false
+      if caster:FindAbilityByName("phased_dummy") then
+        return true
+      else
+        return false
+      end
     end
   end
   --南蠻 啟動

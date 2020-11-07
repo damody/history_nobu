@@ -243,6 +243,7 @@ function A26T_OnAttackLanded( keys )
 		ability:ApplyDataDrivenModifier(caster,caster,"modifier_A26T_big_bomb",{})
 	end
 	local dummy = CreateUnitByName("hide_unit",point,false,nil,nil,caster:GetTeamNumber())
+	dummy:AddNewModifier(nil,nil,"modifier_phased",{duration=1})
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
 	local diff = point-caster:GetAbsOrigin()
 	diff.z = 0
