@@ -1,6 +1,7 @@
 
 var slider = $.GetContextPanel().FindChildInLayoutFile("Slider1");
 var lastValue = 0;
+var score = 0;
 
 function OnValueChanged(slider) {
   $.Msg(slider.value);
@@ -15,18 +16,29 @@ function Check() {
 
 }
 
+function UpdateDireScore() {
+  $.Msg("here")
+  var y = $.GetContextPanel().GetParent().GetParent().GetParent();
+  y = y.FindChildTraverse('HUDElements')
+  y = y.FindChildTraverse('topbar')
+  var direScore = y.FindChildTraverse('TopBarDireScore')
+  score = score + 1;
+  direScore.text = score;
+}
+
 (function () {
+  GameEvents.Subscribe("UpdateDireScore", UpdateDireScore);
   slider.min = 500;
   slider.max = 1600;
   slider.value = 1100;
   lastValue = slider.value;
   $.Schedule(0.03, Check);
-
-
   var y = $.GetContextPanel().GetParent().GetParent().GetParent();
   y = y.FindChildTraverse('HUDElements')
   y = y.FindChildTraverse('topbar')
   var dire = y.FindChildTraverse('TopBarDireTeam')
+  var direScore = y.FindChildTraverse('TopBarDireScore')
+  direScore.text = score;
   var radiant = y.FindChildTraverse('TopBarRadiantTeam')
   var TopBarDirePlayers = dire.FindChildTraverse('TopBarDirePlayers')
   var TopBarRadiantPlayers = radiant.FindChildTraverse('TopBarRadiantPlayers')

@@ -220,20 +220,20 @@ function Nobu:OnGameRulesStateChange( keys )
 		end
 
 		-- 沒選好用內嵌的網頁選
-		Timers:CreateTimer(40, function()
-			for playerID = 0, 9 do
-				local steam_id = PlayerResource:GetSteamID(playerID)
-				local player   = PlayerResource:GetPlayer(playerID)
-				if (player and player:GetAssignedHero() == nil) then
-					SendHTTPRequestGetHero("", "POST",
-					{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
-						if (string.match(res, "error")) then
-							callback()
-						end
-					end)
-				end
-			end
-		end)
+		-- Timers:CreateTimer(40, function()
+		-- 	for playerID = 0, 9 do
+		-- 		local steam_id = PlayerResource:GetSteamID(playerID)
+		-- 		local player   = PlayerResource:GetPlayer(playerID)
+		-- 		if (player and player:GetAssignedHero() == nil) then
+		-- 			SendHTTPRequestGetHero("", "POST",
+		-- 			{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
+		-- 				if (string.match(res, "error")) then
+		-- 					callback()
+		-- 				end
+		-- 			end)
+		-- 		end
+		-- 	end
+		-- end)
 		for i=0,20 do
 			PlayerResource:SetGold(i,2000,false)--玩家ID需要減一
 		end
@@ -257,10 +257,10 @@ function Nobu:OnGameRulesStateChange( keys )
 	--遊戲開始時間
 	--test zone
 	--test zone
-	print("close window")
-	Timers:CreateTimer(1, function()
-		CustomGameEventManager:Send_ServerToAllClients("closeWindow", {})
-	end)
+	-- print("close window")
+	-- Timers:CreateTimer(1, function()
+	-- 	CustomGameEventManager:Send_ServerToAllClients("closeWindow", {})
+	-- end)
 	_G.isRecord = false;
     GameRules:SendCustomMessage(_G.version, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
     GameRules:SendCustomMessage("15分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)

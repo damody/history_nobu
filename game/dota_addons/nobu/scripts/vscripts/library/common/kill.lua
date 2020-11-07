@@ -5,6 +5,10 @@ function OnHeroKilled(keys)
     local bounty = 0
     local killedUnit = keys.target
     local AttackerUnit = keys.attacker
+    -- 重新更新 direScore
+    if killedUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+        CustomGameEventManager:Send_ServerToAllClients("UpdateDireScore", {})
+    end
     if _G.first_blood == nil then
         _G.first_blood = true
         AttackerUnit.first_blood = true

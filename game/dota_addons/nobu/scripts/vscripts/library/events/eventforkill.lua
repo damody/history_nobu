@@ -17,7 +17,7 @@ npc_dota_neutral_130_robbers_remnants = 30
 _G.CP_spawn_time = 60
 _G.CP_respawn_time = 120
 function Nobu:OnUnitKill( keys )
---每当单位死亡，检查其是否符合条件，如果符合就刷新任务
+  --每当单位死亡，检查其是否符合条件，如果符合就刷新任务
   ------------------------------------------------------------------
    --  local killedUnit = EntIndexToHScript( keys.entindex_killed )
 
@@ -168,6 +168,7 @@ function Nobu:OnUnitKill( keys )
       --AMHC:GivePlayerGold_UnReliable(killedUnit:GetPlayerOwnerID(), -300)
       if killedUnit.death_count == nil then
         killedUnit.death_count = 1
+      }
       else
         killedUnit.death_count = killedUnit.death_count + 1
       end
