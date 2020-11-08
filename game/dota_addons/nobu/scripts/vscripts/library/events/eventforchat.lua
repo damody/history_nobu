@@ -695,19 +695,19 @@ local function chat_of_test(keys)
 	if (s == "-pre" and (preregist or author[tostring(steamid)] or author[tostring(accountID)])) then
 		caster:AddAbility("preRegist"):SetLevel(1)
 	end
-	if s == "-ggbb1" and (author[tostring(steamid)] or author[tostring(accountID)]) then 
+	if s == "-ggbb1" and (author[tostring(steamid)] or author[tostring(accountID)] or true) then 
 		local ifx = ParticleManager:CreateParticle("particles/title/ggbb1.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 		ParticleManager:ReleaseParticleIndex(ifx)
 	end
-	if s == "-ggbb2" and (author[tostring(steamid)] or author[tostring(accountID)]) then 
+	if s == "-ggbb2" and (author[tostring(steamid)] or author[tostring(accountID)] or true) then 
 		local ifx = ParticleManager:CreateParticle("particles/title/ggbb2.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 		ParticleManager:ReleaseParticleIndex(ifx)
 	end
-	if s == "-ggbb3" and (author[tostring(steamid)] or author[tostring(accountID)]) then 
+	if s == "-ggbb3" and (author[tostring(steamid)] or author[tostring(accountID)] or true) then 
 		local ifx = ParticleManager:CreateParticle("particles/title/ggbb3.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 		ParticleManager:ReleaseParticleIndex(ifx)
 	end
-	if s == "-ggbb4" and (author[tostring(steamid)] or author[tostring(accountID)]) then 
+	if s == "-ggbb4" and (author[tostring(steamid)] or author[tostring(accountID)] or true) then 
 		local ifx = ParticleManager:CreateParticle("particles/title/ggbb4.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 		ParticleManager:ReleaseParticleIndex(ifx)
 	end
