@@ -339,6 +339,19 @@ function Nobu:OnGameRulesStateChange( keys )
 		end
 	  end
 	end
+	--更新分數
+	Timers:CreateTimer(1, function()
+		local score = 0
+		for i = 0,9 do
+			if _G.Hero[i] ~= nil and _G.Hero[i]:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+				if _G.Hero[i].kill_hero_count ~= nil then
+					score = score + _G.Hero[i].kill_hero_count
+				end
+			end	
+		end
+		CustomGameEventManager:Send_ServerToAllClients("UpdateDireScore", {score = score})
+		return 1
+	end)
 	--守護家園
 	Timers:CreateTimer(600, function()
 		local oda_def_home = CreateUnitByName("hide_unit", Vector(7445.46,-7517.94,128) , true, nil, nil, DOTA_TEAM_GOODGUYS) 
