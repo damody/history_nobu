@@ -213,9 +213,12 @@ function Nobu:FilterGold( filterTable )
   local playerID = filterTable["player_id_const"]
   local reason = filterTable["reason_const"]
   filterTable["reliable"] = 0
-  if reason == DOTA_ModifyGold_Building then      
+  if reason == DOTA_ModifyGold_Building then
     if gold ~= 150 and gold ~= 750 and gold ~= 50 and gold ~= 800 and gold ~= 1300 then return false end
-    if gold == 750 then 
+    if gold == 1300 then
+      local hero = _G.Hero[playerID]
+      give_money_for_together_hero(hero, 300, 2000)
+    elseif gold == 750 then 
       filterTable["gold"] = 300 
       _G.PlayerEarnedGold[playerID] = _G.PlayerEarnedGold[playerID] + 300
     else
