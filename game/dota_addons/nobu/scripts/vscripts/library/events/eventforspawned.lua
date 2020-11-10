@@ -48,7 +48,7 @@ function Nobu:OnHeroIngame( keys )
           donkey:FindAbilityByName("courier_burst"):SetLevel(1)
           donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
           donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
-          donkey:FindAbilityByName("phased_dummy"):SetLevel(1)
+          -- donkey:FindAbilityByName("phased_dummy"):SetLevel(1)
           hero.init1 = true
           hero.assist_count = 0
           hero.kill_count = 0
@@ -91,6 +91,13 @@ function Nobu:OnHeroIngame( keys )
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
           hero:AddItem(CreateItem("item_logging", hero, hero))
+          -- local allCouriers = Entities:FindAllByClassname('npc_dota_courier')
+          -- for k, ent in pairs(allCouriers) do
+          --   if ent:GetOwner():GetAssignedHero() == hero then
+          --     ent:ForceKill(true)
+          --     ent:GetOwner():GetAssignedHero().courier = 1
+          --   end
+          -- end
           --松姬 奇襲 開場要有30秒CD
           if hero.name == "C19" then
             hero:FindAbilityByName("C19D"):StartCooldown(30)

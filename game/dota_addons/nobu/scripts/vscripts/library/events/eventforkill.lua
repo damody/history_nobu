@@ -497,7 +497,7 @@ function Nobu:OnUnitKill( keys )
     -- end
     end
 
-    -- if killedUnit:GetUnitName() == "npc_dota_courier2" or killedUnit:GetUnitName() == "npc_dota_courier" then
+    -- if killedUnit:GetUnitName() == "npc_dota_courier2" or killedUnit:GetUnitName() == "npc_dota_courier2" then
     --   local sump = 0
     --   for playerID = 0, 9 do
     --     local id = playerID

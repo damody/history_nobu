@@ -33,7 +33,7 @@ function _G.Nobu:InitGameMode()
     GameRules:SetSameHeroSelectionEnabled( true )
   end
   -- 別在顯示pk畫面了
-  GameRules:SetStrategyTime( 10 )
+  GameRules:SetStrategyTime( 20 )
   GameRules:SetShowcaseTime( 1 )
   
   --GameRules:SetCustomGameTeamMaxPlayers(2, 7)
