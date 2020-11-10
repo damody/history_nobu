@@ -71,34 +71,56 @@ function SendHTTPRequestGetPlayers(path, method, values, callback)
 	end
 	req:Send(function(result)
 		local table = {}
-		PrintTable(table)
 		for key, value in string.gmatch(tostring(result.Body), "(%w+)=(%w+)") do 
 			table[key] = value
 		end
-		if table["mode"] then
-			_G.mode = table["mode"]
-		end
 		if table["0"] then
+			_G.bStopGetFromClient = true
 		 	for i=0, 10 do 
 		 		PlayerResource:SetCustomTeamAssignment(i, 5)
 			end
-			for k,v in pairs(table) do
-				for i=0, 10 do
-					if tostring(PlayerResource:GetSteamID(i)) == v then
-						_G.matchCount = _G.matchCount + 1;
-						--織田2 聯合3
-						if tonumber(k) < 5 then
-							PlayerResource:SetCustomTeamAssignment(i, 2)
-						end
-						if tonumber(k) >= 5 then
-							PlayerResource:SetCustomTeamAssignment(i, 3)
-						end
-					end
-				end
+		end
+		PrintTable(table)
+		for i=0, 10 do
+			if table["0"] == tostring(PlayerResource:GetSteamID(i)) then
+				PlayerResource:SetCustomTeamAssignment(i, 2)
+				_G.selectHero[i] = table["hero1"]
+			elseif table["1"] == tostring(PlayerResource:GetSteamID(i)) then
+				PlayerResource:SetCustomTeamAssignment(i, 2)
+				_G.selectHero[i] = table["hero2"]
+			elseif table["2"] == tostring(PlayerResource:GetSteamID(i)) then
+				PlayerResource:SetCustomTeamAssignment(i, 2)
+				_G.selectHero[i] = table["hero3"]
+			elseif table["3"] == tostring(PlayerResource:GetSteamID(i)) then
+				PlayerResource:SetCustomTeamAssignment(i, 2)
+				_G.selectHero[i] = table["hero4"]
+			elseif table["4"] == tostring(PlayerResource:GetSteamID(i)) then
+				PlayerResource:SetCustomTeamAssignment(i, 2)
+				_G.selectHero[i] = table["hero5"]
+			elseif table["5"] == tostring(PlayerResource:GetSteamID(i)) then
+				PlayerResource:SetCustomTeamAssignment(i, 3)
+				_G.selectHero[i] = table["hero6"]
+			elseif table["6"] == tostring(PlayerResource:GetSteamID(i)) then
+				PlayerResource:SetCustomTeamAssignment(i, 3)
+				_G.selectHero[i] = table["hero7"]
+			elseif table["7"] == tostring(PlayerResource:GetSteamID(i)) then
+				PlayerResource:SetCustomTeamAssignment(i, 3)
+				_G.selectHero[i] = table["hero8"]
+			elseif table["8"] == tostring(PlayerResource:GetSteamID(i)) then
+				PlayerResource:SetCustomTeamAssignment(i, 3)
+				_G.selectHero[i] = table["hero9"]
+			elseif table["9"] == tostring(PlayerResource:GetSteamID(i)) then
+				PlayerResource:SetCustomTeamAssignment(i, 3)
+				_G.selectHero[i] = table["hero10"]
 			end
+		end
+		if table["mode"] then
+			_G.mode = table["mode"]
 			GameRules:FinishCustomGameSetup()
 		end
-		
+		print("table")
+		print(_G.selectHero[0])
+		PrintTable(_G.selectHero)
 		callback(result.Body)
 	end)
 end
@@ -144,6 +166,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		_G.matchCount = 0;
 		_G.recordCount = 0;
 		_G.bStopGetFromClient = false;
+		_G.selectHero = {};
 		-- 檢查這場遊戲是不是由client開的
 		Timers:CreateTimer(0, function()
 			local steam_id = PlayerResource:GetSteamID(0)
@@ -155,7 +178,7 @@ function Nobu:OnGameRulesStateChange( keys )
 				end
 			end)
 			if (_G.bStopGetFromClient == false) then
-				return 1
+				return 2
 			end
 			return
 		end)
@@ -209,14 +232,20 @@ function Nobu:OnGameRulesStateChange( keys )
 		end)
 
 		-- 檢查是不是已經用client選好腳色了
-		for playerID = 0, 9 do
-			local steam_id = PlayerResource:GetSteamID(playerID)
-			SendHTTPRequestGetHero("", "POST",
-			{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
-				if (string.match(res, "error")) then
-					callback()
+		if _G.bStopGetFromClient then
+			for playerID = 0, 9 do
+				local player = PlayerResource:GetPlayer(playerID)
+				local hero = ""
+				for k, v in pairs(_G.heromap) do
+					if _G.selectHero[playerID] == v then
+						hero = k;
+						break
+					end
 				end
-			end)
+				if (hero ~= "") then
+					player:SetSelectedHero(hero)
+				end
+			end
 		end
 
 		-- 沒選好用內嵌的網頁選
