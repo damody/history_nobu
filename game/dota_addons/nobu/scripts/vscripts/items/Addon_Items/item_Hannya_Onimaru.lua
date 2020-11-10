@@ -89,10 +89,10 @@ function speedup (keys)
     DOTA_TEAM_GOODGUYS
     ,caster:GetAbsOrigin()
     ,nil
-    ,700
+    ,1400
     ,DOTA_UNIT_TARGET_TEAM_ENEMY
     ,DOTA_UNIT_TARGET_HERO 
-    ,DOTA_UNIT_TARGET_FLAG_NONE
+    ,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
     ,0
   ,false)
   else
@@ -100,10 +100,10 @@ function speedup (keys)
     DOTA_TEAM_BADGUYS
     ,caster:GetAbsOrigin()
     ,nil
-    ,700
+    ,1400
     ,DOTA_UNIT_TARGET_TEAM_ENEMY
     ,DOTA_UNIT_TARGET_HERO 
-    ,DOTA_UNIT_TARGET_FLAG_NONE
+    ,DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
     ,0
     ,false)
   end
