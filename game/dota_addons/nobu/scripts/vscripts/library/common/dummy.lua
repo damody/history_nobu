@@ -478,7 +478,9 @@ function modifier_unit_armor:DeclareFunctions()
 end
 
 function modifier_unit_armor:GetModifierIncomingDamage_Percentage( keys )
-  if keys.attacker:IsBuilding() then 
+  if string.match(keys.attacker:GetName(), "com_general") then 
+    return 50
+  elseif keys.attacker:IsBuilding() then 
     return -75
   end
 	return 0
