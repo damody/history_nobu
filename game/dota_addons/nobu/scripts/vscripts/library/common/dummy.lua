@@ -323,7 +323,9 @@ _G.EXCLUDE_MODIFIER_NAME = {
 
 function CP_Posistion( keys )
   local caster = keys.caster
-	caster.origin_pos = caster:GetAbsOrigin()
+  caster.origin_pos = caster:GetAbsOrigin()
+  caster:AddNewModifier(caster, ability, "modifier_unit_armor", nil)
+	caster:FindModifierByName("modifier_unit_armor").caster = caster
 	--donkey:AddAbility("majia_cp"):SetLevel(1)
 end
 
@@ -480,8 +482,12 @@ end
 function modifier_unit_armor:GetModifierIncomingDamage_Percentage( keys )
   if string.match(keys.attacker:GetName(), "com_general") then 
     return 50
-  elseif keys.attacker:IsBuilding() then 
-    return -75
+  elseif keys.attacker:IsBuilding() then
+    if self.caster then
+      return -100
+    else
+      return -75
+    end
   end
 	return 0
 end
