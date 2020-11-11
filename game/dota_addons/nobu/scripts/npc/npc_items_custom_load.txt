@@ -16278,23 +16278,6 @@
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
-				// "ThinkInterval"	"1"
-				// "OnIntervalThink"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"items\Addon_Items\item_Hannya_Onimaru.lua"
-				// 		"Function"	"Moved"
-				// 	}
-				// }
-				// "OnUnitMoved"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"items\Addon_Items\item_Hannya_Onimaru.lua"
-				// 		"Function"	"Moved"
-				// 	}
-				// }
 			}
 			"Passive_Hannya_Onimaru"
 			{
