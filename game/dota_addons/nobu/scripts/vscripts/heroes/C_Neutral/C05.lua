@@ -87,7 +87,11 @@ function C05T_OnSpellStart( keys )
 	local caster = keys.caster
 	local point = keys.target_points[1]
 	local ability = keys.ability
-	
+	local team_self = DOTA_TEAM_GOODGUYS
+	local team_enemy = DOTA_TEAM_BADGUYS
+	if team_enemy == caster:GetTeamNumber() then
+		team_self, team_enemy = team_enemy, team_self
+	end
 	-- 提示攻擊範圍
 	
 	local dummy = CreateUnitByName("npc_dummy_unit_new",point,false,nil,nil,caster:GetTeamNumber())
@@ -97,7 +101,7 @@ function C05T_OnSpellStart( keys )
 
 	
 	Timers:CreateTimer(0.75, function()
-		local ifx1 = ParticleManager:CreateParticle("particles/c05/c05t_aoe_hint.vpcf",PATTACH_ABSORIGIN,dummy)
+		local ifx1 = ParticleManager:CreateParticleForTeam("particles/c05/c05t_aoe_hint_enemy.vpcf",PATTACH_ABSORIGIN,dummy, team_enemy)
 		ParticleManager:ReleaseParticleIndex(ifx1)
 	end)
 	
