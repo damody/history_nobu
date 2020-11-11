@@ -118,7 +118,6 @@ function Nobu:OnHeroIngame( keys )
             if item then
               local item_name = item:GetName()
               if item ~= nil then
-              item:SetBuybackGoldLimitTime(0)
               item:SetPurchaseTime(0)
               end
               if not item:IsStackable() then

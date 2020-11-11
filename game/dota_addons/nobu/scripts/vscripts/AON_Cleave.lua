@@ -348,10 +348,9 @@ function AON_Cleave_robbers_skill(keys)
 			DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
 
 		for _, it in pairs(group) do
-			if it:IsHero() then
-				ParticleManager:CreateParticle("particles/shake3.vpcf", PATTACH_ABSORIGIN, it)
+			if target ~= it then
+				AMHC:Damage( caster,it,keys.dmg*0.7,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 			end
-			AMHC:Damage( caster,it,keys.dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 		end
 	end
 end
