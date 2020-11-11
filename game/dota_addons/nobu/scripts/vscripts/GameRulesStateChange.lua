@@ -169,16 +169,16 @@ function Nobu:OnGameRulesStateChange( keys )
 		_G.selectHero = {};
 		-- 檢查這場遊戲是不是由client開的
 		Timers:CreateTimer(0, function()
-			local steam_id = PlayerResource:GetSteamID(0)
-			print(steam_id)
-			SendHTTPRequestGetPlayers("get_players/", "POST",
-			{id = tostring(steam_id)}, function(res)
-				if (string.match(res, "error")) then
-					callback()
-				end
-			end)
 			if (_G.bStopGetFromClient == false) then
-				return 2
+				local steam_id = PlayerResource:GetSteamID(0)
+				print(steam_id)
+				SendHTTPRequestGetPlayers("get_players/", "POST",
+				{id = tostring(steam_id)}, function(res)
+					if (string.match(res, "error")) then
+						callback()
+					end
+				end)
+				return 3
 			end
 			return
 		end)
