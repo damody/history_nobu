@@ -72,7 +72,7 @@
 	//"npc_dota_hero_ember_spirit" "1" // 仙石秀久
 	//"npc_dota_hero_visage" "1" //直江兼續
 	//"npc_dota_hero_enchantress" "1" // 伊勢姬
-	//"npc_dota_hero_riki" "1" // 百地三太夫
+	"npc_dota_hero_riki" "1" // 百地三太夫
 	//"npc_dota_hero_rubick" "1" //果心居士	
 	//"npc_dota_hero_razor" "1" //山本勘助
 	//"npc_dota_hero_witch_doctor" "1" //宇喜多秀家
@@ -106,7 +106,7 @@
 	//"npc_dota_hero_phantom_lancer" "1" //前野長康
 	//"npc_dota_hero_dazzle" "1" //稻葉一鐵
 	//"npc_dota_hero_sven" "1" //上泉信綱
-	//"npc_dota_hero_bloodseeker" "1" //風魔小太郎
+	"npc_dota_hero_bloodseeker" "1" //風魔小太郎
 	//"npc_dota_hero_rattletrap" "1" //大友宗麟 
 	//"npc_dota_hero_night_stalker" "1" //龍造寺隆信
 	//"npc_dota_hero_batrider"	"1" 

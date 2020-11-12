@@ -753,7 +753,7 @@ function slow_self_passive( keys )
       end
   end
   if sum_as_slow < 0 then
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_slow_down_attackspeed", {duration = 0.15}):SetStackCount(sum_ms_slow*-1)
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_slow_down_attackspeed", {duration = 0.15}):SetStackCount(sum_as_slow*-1)
   end
 end
 

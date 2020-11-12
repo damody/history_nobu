@@ -28,7 +28,7 @@ function A01E(keys)
 										radius,
 										DOTA_UNIT_TARGET_TEAM_ENEMY,
 										DOTA_UNIT_TARGET_ALL,
-										DOTA_DAMAGE_FLAG_NONE ,
+										DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
 										FIND_ANY_ORDER,
 										false)
 	for _,it in pairs(direUnits) do
