@@ -411,6 +411,7 @@ function Nobu:OnGameRulesStateChange( keys )
 	-- 				donkey:FindAbilityByName("courier_burst"):SetLevel(1)
 	-- 				donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
 	-- 				donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
+	-- 				donkey:FindAbilityByName("phased_dummy"):SetLevel(1)
 	-- 			end
 	-- 		end
 	-- 	end

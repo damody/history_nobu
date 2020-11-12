@@ -2335,7 +2335,7 @@
 		"Ability3"	"for_no_collision"
 		"Ability4"	"update_buy_ninja1"
 		"Ability5"	"flash"
-		"Ability6"	""
+		"Ability6"	"phased_dummy"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""
@@ -3231,77 +3231,77 @@
  		"WakesNeutrals"				"0"	// Model.
 	}
 	//馬
-	// "npc_dota_courier"
- 	// {
- 	// 	// General
- 	// 	//----------------------------------------------------------------
- 	// 	"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
- 	// 	"Model"						"models/props_gameplay/donkey." //"models/props_gameplay/donkey.vmdl"	// Model.
- 	// 	"SoundSet"					""					// Name of sound set.
- 	// 	"Level"						"0"
- 	// 	"IsAncient"					"1"
- 	// 	"ModelScale"				"1"
- 	// 	"UnitLabel"					"courier"
- 	// 	// Abilities
- 	// 	//----------------------------------------------------------------
- 	// 	"AbilityLayout"				"6"		// changes when we change to flying -> "5"
+	"npc_dota_courier"
+ 	{
+ 		// General
+ 		//----------------------------------------------------------------
+ 		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+ 		"Model"						"models/props_gameplay/donkey." //"models/props_gameplay/donkey.vmdl"	// Model.
+ 		"SoundSet"					""					// Name of sound set.
+ 		"Level"						"0"
+ 		"IsAncient"					"1"
+ 		"ModelScale"				"1"
+ 		"UnitLabel"					"courier"
+ 		// Abilities
+ 		//----------------------------------------------------------------
+ 		"AbilityLayout"				"6"		// changes when we change to flying -> "5"
 
- 	// 	"Ability1"					"courier_return_to_base"
- 	// 	"Ability2"					"courier_go_to_secretshop"
- 	// 	"Ability3"					"courier_return_stash_items"
- 	// 	"Ability4"					"courier_take_stash_items"
- 	// 	"Ability5"					"courier_transfer_items"
- 	// 	"Ability6"					"courier_burst"
- 	// 	"Ability7"					"courier_speed"
- 	// 	"Ability8"					"courier_take_stash_and_transfer_items"
- 	// 	"Ability9"					"for_magic_immune"
- 	// 	"Ability10"					"for_no_collision"
-	// 	"Ability11"					"phased_dummy"
+ 		"Ability1"					"courier_return_to_base"
+ 		"Ability2"					"courier_go_to_secretshop"
+ 		"Ability3"					"courier_return_stash_items"
+ 		"Ability4"					"courier_take_stash_items"
+ 		"Ability5"					"courier_transfer_items"
+ 		"Ability6"					"courier_burst"
+ 		"Ability7"					"courier_speed"
+ 		"Ability8"					"courier_take_stash_and_transfer_items"
+ 		"Ability9"					"for_magic_immune"
+ 		"Ability10"					"for_no_collision"
+		"Ability11"					"phased_dummy"
 
- 	// 	// Bounds
- 	// 	//----------------------------------------------------------------
- 	// 	//"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
- 	// 	"HealthBarOffset"			"120"
+ 		// Bounds
+ 		//----------------------------------------------------------------
+ 		//"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"			// Hull type used for navigation/locomotion.
+ 		"HealthBarOffset"			"120"
 
- 	// 	// Movement
- 	// 	//----------------------------------------------------------------
- 	// 	"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
- 	// 	"MovementSpeed"				"550"		// Speed
- 	// 	"MovementTurnRate"			"0.5"		// Turning rate.
+ 		// Movement
+ 		//----------------------------------------------------------------
+ 		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"			// Type of locomotion - ground, air
+ 		"MovementSpeed"				"550"		// Speed
+ 		"MovementTurnRate"			"0.5"		// Turning rate.
 	
- 	// 	// Bounty
- 	// 	//----------------------------------------------------------------
- 	// 	"BountyGoldMin"				"250"		// Gold earned min.
- 	// 	"BountyGoldMax"				"250"		// Gold earned max.
+ 		// Bounty
+ 		//----------------------------------------------------------------
+ 		"BountyGoldMin"				"250"		// Gold earned min.
+ 		"BountyGoldMax"				"250"		// Gold earned max.
 
- 	// 		// Status
- 	// 	//----------------------------------------------------------------
- 	// 	"StatusHealth"				"500"		// Base health.
- 	// 	"StatusHealthRegen"			"10"			// Health regeneration rate.
+ 			// Status
+ 		//----------------------------------------------------------------
+ 		"StatusHealth"				"500"		// Base health.
+ 		"StatusHealthRegen"			"10"			// Health regeneration rate.
 
- 	// 	// Team
- 	// 	//----------------------------------------------------------------
- 	// 	"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
- 	// 	"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
- 	// 	"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
- 	// 	"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_COURIER"
+ 		// Team
+ 		//----------------------------------------------------------------
+ 		"TeamName"					"DOTA_TEAM_GOODGUYS"			// Team name.
+ 		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+ 		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+ 		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_COURIER"
 		
- 	// 	// Vision
- 	// 	//----------------------------------------------------------------
- 	// 	"VisionDaytimeRange"		"600"		// Range of vision during day light.
- 	// 	"VisionNighttimeRange"		"600"		// Range of vision at night time.
+ 		// Vision
+ 		//----------------------------------------------------------------
+ 		"VisionDaytimeRange"		"600"		// Range of vision during day light.
+ 		"VisionNighttimeRange"		"600"		// Range of vision at night time.
 
- 	// 	// Bots
- 	// 	//----------------------------------------------------------------
- 	// 	"AttackDesire"				"1.5"		// How much bots want to attack them vs other non-hero things
+ 		// Bots
+ 		//----------------------------------------------------------------
+ 		"AttackDesire"				"1.5"		// How much bots want to attack them vs other non-hero things
 
- 	// 	//Inventory
- 	// 	"HasInventory"				"1"
+ 		//Inventory
+ 		"HasInventory"				"1"
 		
- 	// 	"IdleExpression"			"scenes/default_idle.vcd"
+ 		"IdleExpression"			"scenes/default_idle.vcd"
 		
- 	// 	"WakesNeutrals"				"0"
- 	// }
+ 		"WakesNeutrals"				"0"
+ 	}
 	//馬
 	"npc_dota_courier2"
  	{
@@ -4565,7 +4565,7 @@
 		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_PIERCE"
 		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
 		"Ability2"	"for_no_collision"
-		"Ability3"	""
+		"Ability3"	"phased_dummy"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
@@ -14258,7 +14258,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"30"		// Experience earn.
+ 		"BountyXP"					"0"		// Experience earn.
  		//"BountyGoldMin"				"20"		// Gold earned min.
  		//"BountyGoldMax"				"20"		// Gold earned max.
 		"BountyGoldMin"				"40"		// Gold earned min.
@@ -15242,8 +15242,8 @@
  		// Attack
  		//----------------------------------------------------------------
  		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
- 		"AttackDamageMin"			"300"		// Damage range min.
- 		"AttackDamageMax"			"300"		// Damage range max.	
+ 		"AttackDamageMin"			"500"		// Damage range min.
+ 		"AttackDamageMax"			"500"		// Damage range max.	
  		"AttackRate"				"1.2"		// Speed of attack.
  		"AttackAnimationPoint"		"0.02"		// Normalized time in animation cycle to attack.
  		"AttackAcquisitionRange"	"300"		// Range within a target can be acquired.

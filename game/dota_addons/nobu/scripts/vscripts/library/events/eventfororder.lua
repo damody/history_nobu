@@ -639,6 +639,7 @@ function Nobu:eventfororder( filterTable )
 								item:Destroy()
 								local new_item = unit:AddItem(CreateItem(item_name, unit, unit))
 								unit:SwapItems(new_item:GetItemSlot(), i)
+								new_item:SetPurchaseTime(0)
 							end
 							end
 						end
@@ -696,6 +697,7 @@ function Nobu:eventfororder( filterTable )
 								item:Destroy()
 								local new_item = unit:AddItem(CreateItem(item_name, unit, unit))
 								unit:SwapItems(new_item:GetItemSlot(), i)
+								new_item:SetPurchaseTime(0)
 							end
 							end
 						end
@@ -732,6 +734,7 @@ function Nobu:eventfororder( filterTable )
 								item:Destroy()
 								local new_item = unit:AddItem(CreateItem(item_name, unit, unit))
 								unit:SwapItems(new_item:GetItemSlot(), i)
+								new_item:SetPurchaseTime(0)
 							end
 							end
 						end
@@ -789,6 +792,7 @@ function Nobu:eventfororder( filterTable )
 								item:Destroy()
 								local new_item = unit:AddItem(CreateItem(item_name, unit, unit))
 								unit:SwapItems(new_item:GetItemSlot(), i)
+								new_item:SetPurchaseTime(0)
 							end
 							end
 						end
@@ -859,6 +863,7 @@ function Nobu:eventfororder( filterTable )
 								item:Destroy()
 								local new_item = unit:AddItem(CreateItem(item_name, unit, unit))
 								unit:SwapItems(new_item:GetItemSlot(), i)
+								new_item:SetPurchaseTime(0)
 							end
 							end
 						end

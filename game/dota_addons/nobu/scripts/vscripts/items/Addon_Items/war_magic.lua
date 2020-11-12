@@ -303,51 +303,51 @@ function to_war_magic_unit(keys)
 	local caster = keys.caster
 	local pos = caster:GetAbsOrigin()
 	print("to_war_magic_unit")
-	--[[
-	local donkey = CreateUnitByName("npc_dota_courier", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeam())
-	Timers:CreateTimer(1, function() 
-			for abilitySlot=0,15 do
-		        local ability = donkey:GetAbilityByIndex(abilitySlot)
-		        if ability ~= nil then 
-		          local abilityLevel = ability:GetLevel()
-		          local abilityName = ability:GetAbilityName()
-		          donkey:RemoveAbility(abilityName)
-		        end
-		    end
-		    donkey:AddAbility("war_magic_light"):SetLevel(1)
-		    donkey:AddAbility("war_magic_speedup"):SetLevel(1)
-		    donkey:AddAbility("war_magic_moreattack"):SetLevel(1)
-		    donkey:AddAbility("war_magic_regen"):SetLevel(1)
-		    donkey:AddAbility("war_magic_slowattack"):SetLevel(1)
-		    donkey:AddAbility("war_magic_lessattack"):SetLevel(1)
-		    caster:ForceKill(true)
-		end)
-	Timers:CreateTimer(1, function()
-		local pres = prestige[donkey:GetTeamNumber()]
-		local maxmana = math.floor(pres / 50) * 5 + _G.war_magic_mana
-		if donkey:GetMana() > maxmana then
-			donkey:SetMana(maxmana)
-		end
-		return 0.2
-		end)
-		local count = 0
-	Timers:CreateTimer(1, function()
-    	for playerID = 0, 9 do
-    		local id       = playerID
-	  		local p        = PlayerResource:GetPlayer(id-1)
-	    	if p ~= nil and (p: GetAssignedHero()) ~= nil then
-			  local hero     = p: GetAssignedHero()
-			  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
-			  	donkey:SetOwner(hero)
-			  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
-			  	return nil
-			  end
-			end
-		end
-		return 5
-    	end)
-	donkey:AddNewModifier(donkey, ability, "modifier_war_magic", {})
-	]]
+
+	-- local donkey = CreateUnitByName("npc_dota_courier", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeam())
+	-- Timers:CreateTimer(1, function() 
+	-- 		for abilitySlot=0,15 do
+	-- 	        local ability = donkey:GetAbilityByIndex(abilitySlot)
+	-- 	        if ability ~= nil then 
+	-- 	          local abilityLevel = ability:GetLevel()
+	-- 	          local abilityName = ability:GetAbilityName()
+	-- 	          donkey:RemoveAbility(abilityName)
+	-- 	        end
+	-- 	    end
+	-- 	    donkey:AddAbility("war_magic_light"):SetLevel(1)
+	-- 	    donkey:AddAbility("war_magic_speedup"):SetLevel(1)
+	-- 	    donkey:AddAbility("war_magic_moreattack"):SetLevel(1)
+	-- 	    donkey:AddAbility("war_magic_regen"):SetLevel(1)
+	-- 	    donkey:AddAbility("war_magic_slowattack"):SetLevel(1)
+	-- 	    donkey:AddAbility("war_magic_lessattack"):SetLevel(1)
+	-- 	    caster:ForceKill(true)
+	-- 	end)
+	-- Timers:CreateTimer(1, function()
+	-- 	local pres = prestige[donkey:GetTeamNumber()]
+	-- 	local maxmana = math.floor(pres / 50) * 5 + _G.war_magic_mana
+	-- 	if donkey:GetMana() > maxmana then
+	-- 		donkey:SetMana(maxmana)
+	-- 	end
+	-- 	return 0.2
+	-- 	end)
+	-- 	local count = 0
+	-- Timers:CreateTimer(1, function()
+    -- 	for playerID = 0, 9 do
+    -- 		local id       = playerID
+	--   		local p        = PlayerResource:GetPlayer(id-1)
+	--     	if p ~= nil and (p: GetAssignedHero()) ~= nil then
+	-- 		  local hero     = p: GetAssignedHero()
+	-- 		  if hero:GetTeamNumber() == donkey:GetTeamNumber() then
+	-- 		  	donkey:SetOwner(hero)
+	-- 		  	donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
+	-- 		  	return nil
+	-- 		  end
+	-- 		end
+	-- 	end
+	-- 	return 5
+    -- 	end)
+	-- donkey:AddNewModifier(donkey, ability, "modifier_war_magic", {})
+	
 end
 
 

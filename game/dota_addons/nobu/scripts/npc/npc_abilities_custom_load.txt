@@ -5785,6 +5785,7 @@
 			"modifier_slow_self_passive"
 			{
 				"Passive"	"1"
+				"IsHidden"	"1"
 				"ThinkInterval"	"0.1"
 				"OnIntervalThink"
 				{

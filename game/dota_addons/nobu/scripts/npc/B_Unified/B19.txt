@@ -282,7 +282,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"cavalry"		"20 30 40"
+				"cavalry"		"20 20 20"
 			}
 			"03"
 			{
@@ -297,7 +297,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"add_damage"		"0 30 60"
+				"add_damage"		"0 75 180"
 			}
 		}
 	}

@@ -315,7 +315,6 @@ local function chat_of_test(keys)
 	if (s == "-donkey" and caster.has_dota_donkey == nil and not _G.hardcore) then
 		caster.has_dota_donkey = 1
 		local donkey = CreateUnitByName("npc_dota_courier2", caster:GetAbsOrigin()+Vector(100, 100, 0), true, caster, caster, caster:GetTeam())
-		donkey:SetOwner(caster)
 		donkey:SetControllableByPlayer(caster:GetPlayerID(), true)
         donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
         donkey:FindAbilityByName("courier_go_to_secretshop"):SetLevel(1)
@@ -876,7 +875,7 @@ local function chat_of_test(keys)
 			local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
 		end
 		if string.match(s,"search") then
-			local allCouriers = Entities:FindAllByClassname('npc_dota_courier')
+			local allCouriers = Entities:FindAllByClassname('npc_dota_courier2')
 			for k, ent in pairs(allCouriers) do
 				print(ent:GetName())
 				for i = 0 , ent:GetModifierCount() do 
@@ -885,7 +884,7 @@ local function chat_of_test(keys)
 			end
 		end
 		if string.match(s,"sl") then
-			local allCouriers = Entities:FindAllByClassname('npc_dota_courier')
+			local allCouriers = Entities:FindAllByClassname('npc_dota_courier2')
 			for _,v in pairs(allCouriers) do
 				for i = 0 , v:GetAbilityCount() - 1 do
 					if v:GetAbilityByIndex(i) then
