@@ -284,6 +284,13 @@ function Nobu:OnGameRulesStateChange( keys )
       for_test_equiment()
 	end
 	--遊戲開始時間
+	--計算人數
+	for i=0,20 do
+		local player = PlayerResource:GetPlayer(i)
+		if player then
+			_G.matchCount = _G.matchCount + 1
+		end
+	end
 	--test zone
 	--test zone
 	-- print("close window")
@@ -339,6 +346,7 @@ function Nobu:OnGameRulesStateChange( keys )
 			local player = PlayerResource:GetPlayer(i)
 			if player then
 				-- 紀錄玩家
+				_G.matchCount = _G.matchCount + 1
 				_G.IsExist[i] = true
 				-- 紀錄角色
 				_G.Hero[i] = player:GetAssignedHero()
