@@ -164,7 +164,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		--self.bSeenWaitForPlayers = true
 	elseif(newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) then
 		_G.matchCount = 0;
-		_G.recordCount = 0;
+		_G.recordCount = 10;
 		_G.bStopGetFromClient = false;
 		_G.selectHero = {};
 		-- 檢查這場遊戲是不是由client開的

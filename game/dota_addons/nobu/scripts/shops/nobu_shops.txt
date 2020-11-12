@@ -37,7 +37,6 @@
 	"item"      "item_shuriken"				//手裏劍
 	"item"      "item_insight_gem_hero"		//真視碎片
 	"item"      "item_insight_gem_ninja"	//真知碎片
-	"item"      "item_magic_ring"			//法術戒指
 	"item"      "item_katana"				//打刀
 	"item"      "item_tachi"				//太刀
 	"item"      "item_speed_clothes"		//疾風衣
