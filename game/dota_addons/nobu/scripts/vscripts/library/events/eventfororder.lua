@@ -645,6 +645,7 @@ function Nobu:eventfororder( filterTable )
 						unit.reitem = nil
 					end)
 				end
+				return false
 			end
 		end
 		-- DeepPrintTable(filterTable)
