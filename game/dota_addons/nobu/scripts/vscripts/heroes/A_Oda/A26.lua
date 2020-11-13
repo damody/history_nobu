@@ -244,6 +244,7 @@ function A26T_OnAttackLanded( keys )
 	end
 	local dummy = CreateUnitByName("hide_unit",point,false,nil,nil,caster:GetTeamNumber())
 	dummy:AddNewModifier(nil,nil,"modifier_phased",{duration=1})
+	target:AddNewModifier(nil,nil,"modifier_phased",{duration=1})
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
 	local diff = point-caster:GetAbsOrigin()
 	diff.z = 0
@@ -339,6 +340,7 @@ function A26T_OnSpellStart( keys )
 	ability.dummy = dummy
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
 	caster:AddNewModifier(nil,nil,"modifier_phased",{duration=1})
+	
 	local diff = point-caster:GetAbsOrigin()
 	diff.z = 0
 	dummy:SetForwardVector(diff:Normalized())

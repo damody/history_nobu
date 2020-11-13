@@ -798,37 +798,6 @@ function aspd_passive ( keys )
   end
 end
 
-function phased_dummy ( keys )
-  local caster = keys.caster
-  local ability = keys.ability
-  local target = keys.target
-  -- local friend_dummy = FindUnitsInRadius(
-  -- caster:GetTeamNumber(),
-  -- caster:GetAbsOrigin(),
-  -- nil,
-  -- 100,
-  -- DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-  -- DOTA_UNIT_TARGET_ALL,
-  -- DOTA_UNIT_TARGET_FLAG_NONE,
-  -- 0,
-  -- false)
-
-  if target ~= nil then
-    target:AddNewModifier(caster,caster,"modifier_phased",{duration=5})
-    print("suc")
-  else
-    print("fail") 
-  end
-  -- for k,v in pairs(friend_dummy) do
-  --   if string.match(v:GetUnitName(),"dummy") then
-  --     caster:AddNewModifier(caster,caster,"modifier_phased",{duration=1})
-  --     print(v:GetUnitName())
-  --   else
-  --     caster:RemoveModifierByName("modifier_phased")
-  --     print("fail")
-  --   end
-  -- end
-end
 
 function preRegist ( keys )
   local target = keys.target
@@ -852,3 +821,36 @@ function preRegistKill ( keys )
   -- local ifx = ParticleManager:CreateParticle("particles/econ/items/faceless_void/faceless_void_jewel_of_aeons/fv_time_walk_pentagon_jewel.vpcf",PATTACH_POINT,target)
   ParticleManager:ReleaseParticleIndex(ifx)
 end
+
+
+function phased_dummy( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local aura_radius = 50
+	local point = caster:GetAbsOrigin()
+	local group = FindUnitsInRadius(DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, point, nil, aura_radius,DOTA_UNIT_TARGET_TEAM_BOTH,
+					DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
+  for i,v in ipairs(group) do
+    if not caster:HasModifier("modifier_phased") then
+      ability:ApplyDataDrivenModifier(caster, caster, "modifier_phased",{duration = 1})
+    end
+    ability:ApplyDataDrivenModifier(v, v, "modifier_phased",{duration = 1})
+  end
+  if not caster:HasModifier("modifier_destroy_phase") and caster:GetUnitName() ~= "B33T_UNIT" then
+    ability:ApplyDataDrivenModifier(caster,caster,"modifier_destroy_phase",{})
+  end
+
+end
+
+function phased_dummy_destroy ( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  if caster:HasAbility(ability:GetName()) then
+    Timers:CreateTimer(1, function() 
+      caster:RemoveAbility(ability:GetName())
+    end)
+  end
+
+end
+
+

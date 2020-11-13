@@ -5983,30 +5983,53 @@
 		{
 			"passive_phased_dummy"
 			{
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 				"Passive"	"1"
-				"Aura"	"modifier_phased_dummy"
-				"Aura_Radius"	"50"
-				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_BOTH"
-				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
-				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"		
+				// "Aura"	"modifier_phased_dummy"
+				// "Aura_Radius"	"50"
+				// "Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_BOTH"
+				// "Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+				// "Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"ThinkInterval" "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"phased_dummy"
+					}
+				}
 			}
-			"modifier_phased_dummy"
+			// "modifier_phased_dummy"
+			// {
+			// 	"Passive"			"0"
+			// 	"IsHidden"			"0"
+			// 	"IsDebuff"			"1"
+			// 	"Duration"			"1"
+			// 	"States"
+			// 		{
+			// 			"MODIFIER_STATE_NO_UNIT_COLLISION" 	"MODIFIER_STATE_VALUE_ENABLED"
+			// 		}
+			// 	"OnDestroy"
+			// 	{
+			// 		"RemoveModifier"
+			// 		{
+			// 			"TARGET"	"TARGET"
+			// 			"ModifierName"	"modifier_phased_dummy"
+			// 		}
+			// 	}
+			// }
+			"modifier_destroy_phase"
 			{
 				"Passive"			"0"
-				"IsHidden"			"1"
-				"IsDebuff"			"1"
-				"Duration"			"1"
-				"States"
-					{
-						"MODIFIER_STATE_NO_UNIT_COLLISION" 	"MODIFIER_STATE_VALUE_ENABLED"
-					}
-				"OnDestroy"
+				"IsHidden"			"0"
+				"IsDebuff"	"1"
+				"OnCreated"
 				{
-					"RemoveModifier"
+					"RunScript"
 					{
-						"TARGET"	"TARGET"
-						"ModifierName"	"modifier_phased_dummy"
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"phased_dummy_destroy"
 					}
 				}
 			}
