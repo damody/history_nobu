@@ -828,17 +828,24 @@ function phased_dummy( keys )
 	local ability = keys.ability
 	local aura_radius = 50
 	local point = caster:GetAbsOrigin()
-	local group = FindUnitsInRadius(DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, point, nil, aura_radius,DOTA_UNIT_TARGET_TEAM_BOTH,
-					DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP, DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
+	local group = FindUnitsInRadius(
+    caster:GetTeamNumber(),
+    point,
+    nil,
+    aura_radius,DOTA_UNIT_TARGET_TEAM_BOTH,
+    DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+    DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+    0,
+    false)
   for i,v in ipairs(group) do
     if not caster:HasModifier("modifier_phased") then
       ability:ApplyDataDrivenModifier(caster, caster, "modifier_phased",{duration = 1})
     end
     ability:ApplyDataDrivenModifier(v, v, "modifier_phased",{duration = 1})
   end
-  if not caster:HasModifier("modifier_destroy_phase") and caster:GetUnitName() ~= "B33T_UNIT" then
-    ability:ApplyDataDrivenModifier(caster,caster,"modifier_destroy_phase",{})
-  end
+  -- if not caster:HasModifier("modifier_destroy_phase") and caster:GetUnitName() ~= "B33T_UNIT" then
+  --   ability:ApplyDataDrivenModifier(caster,caster,"modifier_destroy_phase",{})
+  -- end
 
 end
 

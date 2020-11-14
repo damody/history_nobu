@@ -56,39 +56,45 @@
 			}
 			"ApplyModifier"
 			{
-				"Target"	"CASTER"
-				"ModifierName"	"modifier_wind_walk_datadriven"
+				"Target"
+				{
+					"Center" "CASTER"
+					"Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+				}
+				"ModifierName"	"modifier_B02D"
 				"Duration"	"%duration"
 			}
 			"ApplyModifier"
 			{
-				"Target"	"CASTER"
+				"Target"
+				{
+				    "Center" "CASTER"
+				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+				}
 				"ModifierName"	"modifier_invisible"
 				"Duration"	"%duration"
 			}
 		}
 		"Modifiers"
 		{
-			"modifier_wind_walk_datadriven"
+			"modifier_B02D"
 			{
 				"Duration"	"%duration"
-				"isBuff"	"1"
-				"OnAttackLanded"
+				"OnCreated"
 				{
-					"RemoveModifier"
+					"AttachEffect"
 					{
-						"Target"	"CASTER"
-						"ModifierName"	"modifier_wind_walk_datadriven"
+						"Target"	"TARGET"
+						"EffectName"	"particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta_start.vpcf"
+						"EffectAttachType"	"start_at_origin"
 					}
-					"RemoveModifier"
-					{
-						"Target"	"CASTER"
-						"ModifierName"	"modifier_invisible"
-					}
+				}
+				"OnAttack"
+				{
 					"RunScript"
 					{
 						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B02.lua"
-						"Function"	"B02D_OnAttackLanded"
+						"Function"	"B02D_End"
 					}
 				}
 				"OnAbilityExecuted"
@@ -96,20 +102,8 @@
 					"RemoveModifier"
 					{
 						"Target"	"CASTER"
-						"ModifierName"	"modifier_wind_walk_datadriven"
+						"ModifierName"	"modifier_B02D"
 					}
-					"RemoveModifier"
-					{
-						"Target"	"CASTER"
-						"ModifierName"	"modifier_invisible"
-					}
-				}
-				"States"
-				{
-					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"OnDestroy"
-				{
 					"RemoveModifier"
 					{
 						"Target"	"CASTER"
@@ -118,10 +112,68 @@
 				}
 				"Properties"
 				{
+					"MODIFIER_PROPERTY_INVISIBILITY_LEVEL"	"0"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%speed"
 				}
-				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_LOW_ATTACK_PRIORITY" "MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
+			// "modifier_wind_walk_datadriven"
+			// {
+			// 	"Duration"	"%duration"
+			// 	"isBuff"	"1"
+			// 	"OnAttackLanded"
+			// 	{
+			// 		"RemoveModifier"
+			// 		{
+			// 			"Target"	"CASTER"
+			// 			"ModifierName"	"modifier_wind_walk_datadriven"
+			// 		}
+			// 		"RemoveModifier"
+			// 		{
+			// 			"Target"	"CASTER"
+			// 			"ModifierName"	"modifier_invisible"
+			// 		}
+			// 		"RunScript"
+			// 		{
+			// 			"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B02.lua"
+			// 			"Function"	"B02D_OnAttackLanded"
+			// 		}
+			// 	}
+			// 	"OnAbilityExecuted"
+			// 	{
+			// 		"RemoveModifier"
+			// 		{
+			// 			"Target"	"CASTER"
+			// 			"ModifierName"	"modifier_wind_walk_datadriven"
+			// 		}
+			// 		"RemoveModifier"
+			// 		{
+			// 			"Target"	"CASTER"
+			// 			"ModifierName"	"modifier_invisible"
+			// 		}
+			// 	}
+			// 	"States"
+			// 	{
+			// 		"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+			// 	}
+			// 	"OnDestroy"
+			// 	{
+			// 		"RemoveModifier"
+			// 		{
+			// 			"Target"	"CASTER"
+			// 			"ModifierName"	"modifier_invisible"
+			// 		}
+			// 	}
+			// 	"Properties"
+			// 	{
+			// 		"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%speed"
+			// 	}
+			// 	"IsHidden"	"1"
+			// }
 		}
 		// Special
 		// -------------------------------------------------------------------------------------------------------------
