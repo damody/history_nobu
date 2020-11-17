@@ -5,6 +5,9 @@ function OnEquip( keys )
     if caster.items == nil then
         caster.items = {}
     end
+    if caster.magical_resistance == nil then
+        caster.magical_resistance = 30
+    end
     if caster.items[ability:GetName()] == nil then
         caster.items[ability:GetName()] = 1
         caster.magical_resistance = caster.magical_resistance + magical_resistance

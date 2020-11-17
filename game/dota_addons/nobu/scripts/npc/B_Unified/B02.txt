@@ -279,7 +279,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"illusion_outgoing_damage"	"-20.0"
+				"illusion_outgoing_damage"	"80.0"
 			}
 			"05"
 			{

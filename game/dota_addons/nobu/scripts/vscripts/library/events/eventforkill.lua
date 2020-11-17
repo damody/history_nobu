@@ -544,7 +544,7 @@ end
 
 function CallExperience(value,scale) 
   if value:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-    if value.GetLevel() < _G.average_level[DOTA_TEAM_BADGUYS] then
+    if value:GetLevel() < _G.average_level[DOTA_TEAM_BADGUYS] then
       local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - _G.average_level[DOTA_TEAM_GOODGUYS])
       value:AddExperience(XP[new_name]*diff*0.15*scale, 0, false, false)
     end

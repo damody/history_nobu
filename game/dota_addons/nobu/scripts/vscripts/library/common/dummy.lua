@@ -325,7 +325,7 @@ function CP_Posistion( keys )
   local caster = keys.caster
   caster.origin_pos = caster:GetAbsOrigin()
   caster:AddNewModifier(caster, ability, "modifier_unit_armor", nil)
-	caster:FindModifierByName("modifier_unit_armor").caster = caster
+	caster:FindModifierByName("modifier_unit_armor").creep = creep
 	--donkey:AddAbility("majia_cp"):SetLevel(1)
 end
 
@@ -483,7 +483,7 @@ function modifier_unit_armor:GetModifierIncomingDamage_Percentage( keys )
   if string.match(keys.attacker:GetName(), "com_general") then 
     return 50
   elseif keys.attacker:IsBuilding() then
-    if self.caster then
+    if self.creep then
       return -100
     else
       return -75
