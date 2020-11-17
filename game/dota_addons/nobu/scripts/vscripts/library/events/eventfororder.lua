@@ -622,8 +622,6 @@ function Nobu:eventfororder( filterTable )
 					return false
 				end
 
-				end
-				return false
 			end
 		end
 		-- DeepPrintTable(filterTable)
