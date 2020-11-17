@@ -329,10 +329,9 @@ local function chat_of_test(keys)
 	
 			
 	local sump = 0
+	
 	for playerID = 0, 9 do
-		local id       = playerID
-  		local p        = PlayerResource:GetPlayer(id)
-    	if p ~= nil then
+    	if _G.IsExist[i] == true then
 		  sump = sump + 1
 		end
 	end
