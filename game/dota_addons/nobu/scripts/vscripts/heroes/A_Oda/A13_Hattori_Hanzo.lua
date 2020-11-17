@@ -212,7 +212,7 @@ function A13W( event )
 	local origin_pos = caster:GetOrigin()
 
 	local am = caster:FindAllModifiers()
-	ability:ApplyDataDrivenModifier(caster,caster,"modifier_invulnerable",{duration = 0.4})
+	caster:AddNewModifier(caster, ability, "modifier_invulnerable", { duration = 0.6 })
 	for _,v in pairs(am) do
 		if v:GetParent():GetTeamNumber() ~= caster:GetTeamNumber() or v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber() then
 			caster:RemoveModifierByName(v:GetName())
@@ -221,19 +221,12 @@ function A13W( event )
 	local lv = ability:GetLevel()
 	
 	caster.A13W = {}
-	Timers:CreateTimer(0, function()
+
+	
+	local i = 1
+	Timers:CreateTimer(0.05, function()
 		if IsValidEntity(caster) and caster:IsAlive() then
-			if (people ~= origin_go_index and IsValidEntity(caster.A13W[people])) or
-				people == origin_go_index and IsValidEntity(caster.A13W[people-1]) then
-				caster:RemoveAbility("A13W")
-				caster:AddAbility("A13W2"):SetLevel(1)
-				caster.timer = Timers:CreateTimer(6, function()
-					caster:RemoveAbility("A13W2")
-					caster:AddAbility("A13W"):SetLevel(lv)
-				end)
-				return nil
-			end
-			for i=1,people do
+			if i <= people then
 				if (i ~= origin_go_index) then
 					-- handle_UnitOwner needs to be nil, else it will crash the game.
 					illusion[i] = CreateUnitByName(unit_name, origin, true, caster, nil, caster:GetTeamNumber())
@@ -287,35 +280,38 @@ function A13W( event )
 						ability:ApplyDataDrivenModifier(illusion[i],illusion[i],"modifier_perceive_wine",nil)
 					end
 				end
+			else
+				return nil
 			end
 			
-			Timers:CreateTimer( 0.1, function()
-					if IsValidEntity(caster) and caster:IsAlive() then
-						for i=1,people do
-							target_pos[i] = Vector(math.sin(eachAngle*i+random_angle), math.cos(eachAngle*i+random_angle), 0) * radius
-							if (i ~= origin_go_index) then
-								if IsValidEntity(illusion[i]) then
-									ProjectileManager:ProjectileDodge(illusion[i])
-									ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, illusion[i])
-									illusion[i]:SetAbsOrigin(origin_pos+target_pos[i])
-									ParticleManager:CreateParticle("particles/items_fx/blink_dagger_end.vpcf", PATTACH_ABSORIGIN, illusion[i])
-									illusion[i]:SetForwardVector(target_pos[i]:Normalized())
-									illusion[i]:AddNewModifier(illusion[i],ability,"modifier_phased",{duration=0.1})
-								end
-							else
-								ProjectileManager:ProjectileDodge(caster)
-								ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, caster)
-								caster:SetAbsOrigin(origin_pos+target_pos[i])
-								ParticleManager:CreateParticle("particles/items_fx/blink_dagger_end.vpcf", PATTACH_ABSORIGIN, caster)
-								caster:SetForwardVector(target_pos[i]:Normalized())
-								caster:AddNewModifier(caster,ability,"modifier_phased",{duration=0.1})
-							end
-						end
-					end
-					return nil
-				end)
+			i = i + 1
 		end
-		return 0.1
+		return 0.05
+	end)
+	Timers:CreateTimer( 0.31, function()
+		if IsValidEntity(caster) and caster:IsAlive() then
+			for i=1,people do
+				target_pos[i] = Vector(math.sin(eachAngle*i+random_angle), math.cos(eachAngle*i+random_angle), 0) * radius
+				if (i ~= origin_go_index) then
+					if IsValidEntity(illusion[i]) then
+						ProjectileManager:ProjectileDodge(illusion[i])
+						ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, illusion[i])
+						illusion[i]:SetAbsOrigin(origin_pos+target_pos[i])
+						ParticleManager:CreateParticle("particles/items_fx/blink_dagger_end.vpcf", PATTACH_ABSORIGIN, illusion[i])
+						illusion[i]:SetForwardVector(target_pos[i]:Normalized())
+						illusion[i]:AddNewModifier(illusion[i],ability,"modifier_phased",{duration=0.1})
+					end
+				else
+					ProjectileManager:ProjectileDodge(caster)
+					ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, caster)
+					caster:SetAbsOrigin(origin_pos+target_pos[i])
+					ParticleManager:CreateParticle("particles/items_fx/blink_dagger_end.vpcf", PATTACH_ABSORIGIN, caster)
+					caster:SetForwardVector(target_pos[i]:Normalized())
+					caster:AddNewModifier(caster,ability,"modifier_phased",{duration=0.1})
+				end
+			end
+		end
+		return nil
 	end)
 	Timers:CreateTimer(0.25, function()
 		--AMHC:SetCamera(caster:GetPlayerOwnerID(), caster)
