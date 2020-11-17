@@ -675,11 +675,6 @@ local function chat_of_test(keys)
 			CustomGameEventManager:Send_ServerToAllClients("closeWindow", {url = string.sub(s, 5)})
 		end
 	end
-	if s == "-gg" then
-		if author[tostring(steamid)] or author[tostring(accountID)] then
-			_G.Oda_home:ForceKill(false)
-		end
-	end
 	if s == "aa" then
 		for playerID = 0, 9 do
 			local p        = PlayerResource:GetPlayer(playerID)
@@ -784,7 +779,10 @@ local function chat_of_test(keys)
         end
 	end
 
-	if sump <= 2 then
+	if sump <= 9 then
+		if s == "-gg" then
+			_G.Oda_home:ForceKill(false)
+		end
 		if string.match(s,"uion") then
 		local GameMode = GameRules:GetGameModeEntity()
 		GameMode:SetHUDVisible(0,  true) --Clock
