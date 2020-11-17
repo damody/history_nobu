@@ -292,7 +292,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"stun"		"0.8"
+				"stun"		"1.2"
 			}
 			"05"
 			{

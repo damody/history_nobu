@@ -255,17 +255,25 @@ function B19T_OnSpellStart( keys )
 	local duration = ability:GetSpecialValueFor( "duration")
 	local stun = ability:GetSpecialValueFor( "stun")
 	local wolfall = {}
-	for i=1,cavalry do
+	local i = 1
+	Timers:CreateTimer(0.05, function()
 		local pos = targetpos + RandomVector(RandomInt(10,radius*0.7))
 		local wolf = CreateUnitByName("B19T_old",pos ,false,caster,caster,caster:GetTeam())
 		wolf:AddNewModifier(wolf,nil,"equilibrium_constant",{})
 	 	wolf:SetControllableByPlayer(caster:GetPlayerOwnerID(), true)
 		wolf:AddNewModifier(wolf,ability,"modifier_phased",{duration=0.1})
-	 	ability:ApplyDataDrivenModifier(wolf,wolf,"modifier_kill",{duration = duration})
-	 	table.insert(wolfall, wolf)
-	end
-	for i,wolf in pairs(wolfall) do
+		ability:ApplyDataDrivenModifier(wolf,wolf,"modifier_kill",{duration = duration})
 		ability:ApplyDataDrivenModifier(wolf,wolf,"Passive_B19T",{duration = duration})
+		table.insert(wolfall, wolf)
+		if i <= cavalry then
+			i = i + 1
+			return  0.05
+		else
+			return nil
+		end
+	end)
+	for i,wolf in pairs(wolfall) do
+		
 	end
 	Timers:CreateTimer(duration, function() 
 		for i,wolf in pairs(wolfall) do
