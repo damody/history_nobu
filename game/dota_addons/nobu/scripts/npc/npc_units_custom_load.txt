@@ -3329,7 +3329,6 @@
  		"Ability9"					"for_magic_immune"
  		"Ability10"					"for_no_collision"
 		"Ability11"					"phased_dummy"
-		
 
  		// Bounds
  		//----------------------------------------------------------------

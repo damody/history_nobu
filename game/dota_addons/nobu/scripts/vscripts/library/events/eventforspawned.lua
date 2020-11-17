@@ -48,6 +48,9 @@ function Nobu:OnHeroIngame( keys )
           donkey:FindAbilityByName("courier_burst"):SetLevel(1)
           donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
           donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
+          if hero.donkey == nil then
+            hero.donkey = donkey
+          end
           -- donkey:FindAbilityByName("phased_dummy"):SetLevel(1)
           hero.init1 = true
           hero.assist_count = 0

@@ -52,7 +52,7 @@ function Shock( keys )
 					point = Vector(pointx2 ,pointy2 , pointz)
 					local spike = ParticleManager:CreateParticle("particles/item/item_the_great_sword_of_spike.vpcf", PATTACH_ABSORIGIN, keys.caster)
 					ParticleManager:SetParticleControl(spike, 0, point)
-					Timers:CreateTimer(2, function() 
+					Timers:CreateTimer(2, function()
 						ParticleManager:DestroyParticle(spike,true)
 					end)
 				end
@@ -68,7 +68,6 @@ function Shock( keys )
 								DOTA_UNIT_TARGET_FLAG_NONE,
 								FIND_ANY_ORDER,
 								false)
-
 		--effect:傷害+暈眩
 		for _,it in pairs(direUnits) do
 			if not(it:IsBuilding()) and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then

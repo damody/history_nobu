@@ -92,7 +92,7 @@
 	"item"      "item_mountain_scroll"			//山之卷
 	"item"      "item_thunderbolt_book"			//怒雷之書
 	"item"      "item_rockfall_book"			//落石之書
-	"item"      "item_flood_book"			//水計之書
+	// "item"      "item_flood_book"			//水計之書
 	"item"      "item_ignite_book"			//火計之書
 	"item"      "item_storm_book"			//狂風之書
 	"item"      "item_spell_book"			//法術書

@@ -957,7 +957,7 @@
 		"ItemCost"	"2000"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemShopTags"	"teleport"
 		"ItemAliases"	"blink dagger"
 		"ItemRequirements"	{}
@@ -1099,7 +1099,7 @@
 		"ItemCost"	"785"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 
 		"precache"
 		{
@@ -1169,7 +1169,7 @@
 		"ItemCost"	"500"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -1241,7 +1241,7 @@
 		"ItemCost"	"1900"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -1333,7 +1333,7 @@
 		"ItemCost"	"600"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"precache"
 		{
 			"particle"	"particles/item/d02/d02.vpcf"
@@ -1387,7 +1387,7 @@
 		"ItemCost"	"2300"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		
 		"precache"
 		{
@@ -1461,7 +1461,7 @@
 		"ItemCost"	"2350"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		
 		"precache"
 		{
@@ -1754,7 +1754,7 @@
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"10"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -1802,7 +1802,7 @@
 		"ItemCost"	"350"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -1848,7 +1848,7 @@
 		"ItemCost"	"650"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -1922,7 +1922,7 @@
 		"ItemCost"	"650"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -1994,7 +1994,7 @@
 		"ItemCost"	"300"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -2041,7 +2041,7 @@
 		"ItemCost"	"350"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -2088,7 +2088,7 @@
 		"ItemCost"	"900"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -2135,7 +2135,7 @@
 		"ItemCost"	"650"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -2182,7 +2182,7 @@
 		"ItemCost"	"650"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -2228,7 +2228,7 @@
 		"ItemCost"	"650"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -2275,7 +2275,7 @@
 		"ItemCost"	"300"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -2321,7 +2321,7 @@
 		"ItemCost"	"1900"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -2368,7 +2368,7 @@
 		"ItemCost"	"1120"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -2416,7 +2416,7 @@
 		"ItemCost"	"700"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -2464,7 +2464,7 @@
 		"ItemCost"	"700"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -2512,7 +2512,7 @@
 		"ItemCost"	"600"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemRequirements"	{}
 		"precache"
 		{
@@ -2559,7 +2559,7 @@
 		"ItemCost"	"1850"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemShopTags"		"damage"
 		"precache"
 		{
@@ -2606,7 +2606,7 @@
 		"ItemCost"	"700"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemShopTags"		"damage"
 		"ItemRequirements"	{}
 		"precache"
@@ -2654,7 +2654,7 @@
 		"ItemCost"	"500"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemShopTags"		"damage"
 		"ItemRequirements"	{}
 		"precache"
@@ -2695,7 +2695,7 @@
 		"ItemCost"	"700"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemShopTags"		"damage"
 		"ItemRequirements"	{}
 		"precache"
@@ -2736,7 +2736,7 @@
 		"ItemCost"	"1400"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemShopTags"		"damage"
 		"ItemRequirements"	{}
 		"precache"
@@ -2777,7 +2777,7 @@
 		"ItemCost"	"400"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemShopTags"		"damage"
 
 		"precache"
@@ -2853,7 +2853,7 @@
 		"ItemCost"	"900"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemShopTags"		"damage"
 		"AbilityCastRange"	"%aura_radius"
 		"AoERadius" "%aura_radius"
@@ -2951,7 +2951,7 @@
 		"ItemCost"	"250"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemShopTags"		"damage"
 		"ItemRequirements"	{}
 		"precache"
@@ -2992,7 +2992,7 @@
 		"ItemCost"	"550"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemShopTags"		"damage"
 		"ItemRequirements"	{}
 		"precache"
@@ -3424,7 +3424,7 @@
 		"ItemCost"	"1250"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemShopTags"		"damage"
 		"ItemRequirements"	{}
 		"AbilityCooldown"	"80"
@@ -3899,7 +3899,7 @@
 		"ItemCost"	"2600"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemShopTags"		"damage"
 		"ItemRequirements"	{}
 		"AbilityManaCost"	"0"
@@ -4647,7 +4647,7 @@
 		"ItemCost"	"900"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		
 		"Modifiers"
 		{
@@ -5558,7 +5558,7 @@
 		"ItemCost"	"7750"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		
 		"OnSpellStart"
 		{
@@ -5626,7 +5626,7 @@
 		"ItemCost"	"7200"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		
 		"OnEquip"
 		{
@@ -5882,7 +5882,7 @@
 		"ItemCost"	"8500"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -6044,7 +6044,7 @@
 		"ItemCost"	"7900"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"precache"
 		{
 			"particle"	"particles/great_sword_of_drain/great_sword_of_drain_ring.vpcf"
@@ -6165,7 +6165,7 @@
 		"ItemCost"	"1500"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		
 		"Modifiers"
 		{
@@ -7229,7 +7229,7 @@
 		"AbilityCastPoint"  "0.2"
 		"AbilityCastRange"	"600"
 		"AbilityCooldown"	"35"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
@@ -13133,7 +13133,7 @@
 		"ItemCost"	"1600"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"		"1"
+		"SideShop"		"0"
 		
 		"Modifiers"
 		{
@@ -13288,111 +13288,111 @@
 	}
 
 	// 水計之書
-	"item_flood_book"
-	{
-		// General
+	// "item_flood_book"
+	// {
+	// 	// General
 		
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/flood_book"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
-		"AbilitySharedCooldown" "share_item_flood_book"
-		"AbilityCooldown"	"20"
-		"AbilityCastPoint"	"0.2"
-		"AbilityManaCost"	"140"
-		"AbilityCastRange"	"700"
-		"AOERadius"		"400"
-		"ID"	"2512"
-		"ItemQuality"	"component"
-		"Model"	"models/props_gameplay/tpscroll01.vmdl"
-		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"1500"
-		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"precache"
-		{
-			"particle"	"particles/item/item_flood_book/item_flood_book_water_base.vpcf"
-		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_flood_book.lua"
-				"Function"	"Shock"
-				"Target"	"POINT"
-			}
-			"RunScript"
-			{
-			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
-				"Function"	"sound"
-				"sound"	"watersword_crit_01"
-			}
-		}
+	// 	"BaseClass"	"item_datadriven"
+	// 	"AbilityTextureName"	"item_custom/flood_book"
+	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+	// 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	// 	"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	// 	"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+	// 	"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+	// 	"FightRecapLevel"	"1"
+	// 	"AbilitySharedCooldown" "share_item_flood_book"
+	// 	"AbilityCooldown"	"20"
+	// 	"AbilityCastPoint"	"0.2"
+	// 	"AbilityManaCost"	"140"
+	// 	"AbilityCastRange"	"700"
+	// 	"AOERadius"		"400"
+	// 	"ID"	"2512"
+	// 	"ItemQuality"	"component"
+	// 	"Model"	"models/props_gameplay/tpscroll01.vmdl"
+	// 	"Effect"	"particles/q09_2/q09_2.vpcf"
+	// 	"ItemCost"	"1500"
+	// 	//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+	// 	"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+	// 	"precache"
+	// 	{
+	// 		"particle"	"particles/item/item_flood_book/item_flood_book_water_base.vpcf"
+	// 	}
+	// 	"OnSpellStart"
+	// 	{
+	// 		"RunScript"
+	// 		{
+	// 			"ScriptFile"	"items/Addon_Items/item_flood_book.lua"
+	// 			"Function"	"Shock"
+	// 			"Target"	"POINT"
+	// 		}
+	// 		"RunScript"
+	// 		{
+	// 		  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+	// 			"Function"	"sound"
+	// 			"sound"	"watersword_crit_01"
+	// 		}
+	// 	}
 		
-		"Modifiers"
-		{
-			"modifier_flood_book"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsPurgable"	"1"
-				"IsDebuff"		"1"
+	// 	"Modifiers"
+	// 	{
+	// 		"modifier_flood_book"
+	// 		{
+	// 			"Passive"			"0"
+	// 			"IsHidden"			"0"
+	// 			"IsPurgable"	"1"
+	// 			"IsDebuff"		"1"
 			
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Slow"
-						"name"	"flood_book"
-						"ms_slow" "-80"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"flood_book"
-					}
-				}
-			}
-			"modifier_flood_walk"
-			{
-				"States"
-				{
-					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"Passive_flood_book"
-			{
-				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Passive"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "10"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
-					"MODIFIER_PROPERTY_MANA_BONUS" "300"				//魔
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
-					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
-				}
-			}
-		}
-	}
+	// 			"OnCreated"
+	// 			{
+	// 				"RunScript"
+	// 				{
+	// 					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+	// 					"Function"	"Slow"
+	// 					"name"	"flood_book"
+	// 					"ms_slow" "-80"
+	// 				}
+	// 			}
+	// 			"OnDestroy"
+	// 			{
+	// 				"RunScript"
+	// 				{
+	// 					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+	// 					"Function"	"ReturnSpeed"
+	// 					"name"	"flood_book"
+	// 				}
+	// 			}
+	// 		}
+	// 		"modifier_flood_walk"
+	// 		{
+	// 			"States"
+	// 			{
+	// 				"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
+	// 			}
+	// 		}
+	// 		"Passive_flood_book"
+	// 		{
+	// 			"IsHidden"	"1"
+	// 			"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+	// 			"Passive"	"1"
+	// 			"Properties"
+	// 			{
+	// 				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+	// 				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
+	// 				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "10"	//智
+	// 				"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+	// 				"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+	// 				"MODIFIER_PROPERTY_MANA_BONUS" "300"				//魔
+	// 				"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
+	// 				"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
+	// 				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+	// 				"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
+	// 				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+	// 				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
+	// 				"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
+	// 			}
+	// 		}
+	// 	}
+	// }
 
 	// 火計之書
 	"item_ignite_book"
@@ -13637,7 +13637,7 @@
 		"ItemCost"	"750"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -13763,7 +13763,7 @@
 		"ItemCost"	"750"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"						"1"
+		"SideShop"						"0"
 
 		"OnSpellStart"
 		{
@@ -14119,8 +14119,8 @@
 		"ItemCost"	"1850"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop" "1"
-		
+		"SideShop" "0"
+	
 		"OnSpellStart"
 		{
 			"TrackingProjectile"
@@ -15155,7 +15155,7 @@
 		"ItemCost" "1950"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"ItemResult" "item_insight_gem"  //合成後物品
 		"ItemRequirements"
 		{
@@ -15187,7 +15187,7 @@
 		"ItemCost"	"5000"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"1"
+		"SideShop"	"0"
 		"ItemShopTags"	"teleport"
 		"ItemAliases"	"blink dagger"
 		"ItemRequirements"	{}
@@ -15563,7 +15563,7 @@
 		"ItemCost"	"3000"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"						"1"
+		"SideShop"						"0"
 
 		"OnSpellStart"
 		{
@@ -15640,7 +15640,7 @@
 		"ItemCost"	"9000"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"						"1"
+		"SideShop"						"0"
 
 		"OnSpellStart"
 		{
@@ -15757,7 +15757,7 @@
 		"ItemCost" "800"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"ItemResult" "item_spell_book"  //合成後物品
 		"ItemRequirements"
 		{
@@ -15772,7 +15772,7 @@
 		"ItemCost" "250"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"ItemResult" "item_flood_book"  //合成後物品
 		"ItemRequirements"
 		{
@@ -15787,7 +15787,7 @@
 		"ItemCost" "250"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"ItemResult" "item_earth_wall_book"  //合成後物品
 		"ItemRequirements"
 		{
@@ -15802,7 +15802,7 @@
 		"ItemCost" "500"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"ItemResult" "item_rockfall_book"  //合成後物品
 		"ItemRequirements"
 		{
@@ -15817,7 +15817,7 @@
 		"ItemCost" "1250"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"ItemResult" "item_ignite_book"  //合成後物品
 		"ItemRequirements"
 		{
@@ -15832,7 +15832,7 @@
 		"ItemCost" "400"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"ItemResult" "item_thunderstorms"  //合成後物品
 		"ItemRequirements"
 		{
@@ -15847,7 +15847,7 @@
 		"ItemCost" "800"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"ItemResult" "item_thunderbolt_book"  //合成後物品
 		"ItemRequirements"
 		{
@@ -15862,7 +15862,7 @@
 		"ItemCost" "600"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"ItemResult" "item_storm_book"  //合成後物品
 		"ItemRequirements"
 		{
@@ -15877,7 +15877,7 @@
 		"ItemCost" "250"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"ItemResult" "item_frozen_book"  //合成後物品
 		"ItemRequirements"
 		{
@@ -15893,7 +15893,7 @@
 		"ItemCost" "2800"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"ItemResult" "item_frozen_staff"  //合成後物品
 		"ItemRequirements"
 		{
@@ -15954,7 +15954,7 @@
 		"ItemCost" "1500"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"ItemResult" "item_the_dark_cross_spear"  //合成後物品
 		"ItemRequirements"
 		{
@@ -15969,7 +15969,7 @@
 		"ItemCost" "1500"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
-		"SideShop"						"1"
+		"SideShop"						"0"
 		"ItemResult" "item_the_shell_of_last_kappa"  //合成後物品
 		"ItemRequirements"
 		{

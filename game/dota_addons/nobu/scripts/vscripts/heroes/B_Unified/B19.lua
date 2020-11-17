@@ -264,11 +264,9 @@ function B19T_OnSpellStart( keys )
 	 	ability:ApplyDataDrivenModifier(wolf,wolf,"modifier_kill",{duration = duration})
 	 	table.insert(wolfall, wolf)
 	end
-	Timers:CreateTimer(1, function() 
-		for i,wolf in pairs(wolfall) do
-			ability:ApplyDataDrivenModifier(wolf,wolf,"Passive_B19T",{duration = duration})
-		end
-		end)
+	for i,wolf in pairs(wolfall) do
+		ability:ApplyDataDrivenModifier(wolf,wolf,"Passive_B19T",{duration = duration})
+	end
 	Timers:CreateTimer(duration, function() 
 		for i,wolf in pairs(wolfall) do
 			wolf:Destroy()

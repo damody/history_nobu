@@ -623,6 +623,7 @@ function Nobu:eventfororder( filterTable )
 				end
 
 				end
+				return false
 			end
 		end
 		-- DeepPrintTable(filterTable)

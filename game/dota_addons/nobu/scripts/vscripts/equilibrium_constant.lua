@@ -179,6 +179,9 @@ function equilibrium_constant:x_OnNPCSpawned(keys)
     if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("ManaRegen_self") then
         hSpawnedUnit:FindAbilityByName("ManaRegen_self"):SetLevel(1)
     end
+    if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("AtkSpeedBonus_self") then
+        hSpawnedUnit:FindAbilityByName("AtkSpeedBonus_self"):SetLevel(1)
+    end
     if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("for_cp_position") then
         hSpawnedUnit:FindAbilityByName("for_cp_position"):SetLevel(1)
     end

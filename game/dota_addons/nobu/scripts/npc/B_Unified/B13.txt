@@ -768,10 +768,25 @@
 			{
 				"IsDebuff"							"1"
 				"IsPurgable"						"0"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%B13T_old_atkspd"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%B13T_old_movespd"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"B13T"
+						"ms_slow"	"%B13T_old_movespd"
+						"as_slow"	"%B13T_old_atkspd"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"B13T"
+					}
 				}
 			}
 		}

@@ -2,6 +2,29 @@
 --[[Author: YOLOSPAGHETTI
 	Date: February 16, 2016
 	Creates the illusion on the target]]
+function B02D_End ( keys )
+	if not keys.target:IsUnselectable() or keys.target:IsUnselectable() then		-- This is to fail check if it is item. If it is item, error is expected
+		-- Variables
+		local caster = keys.caster
+		local target = keys.target
+		local ability = keys.ability
+		local abilityDamage = ability:GetLevelSpecialValueFor( "bonus_damage", ability:GetLevel() - 1 )
+		local abilityDamageType = ability:GetAbilityDamageType()
+		if (not target:IsBuilding()) then
+			-- Deal damage and show VFX
+			local fxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta.vpcf", PATTACH_CUSTOMORIGIN, caster )
+			ParticleManager:SetParticleControl( fxIndex, 0, caster:GetAbsOrigin() )
+			ParticleManager:SetParticleControl( fxIndex, 1, target:GetAbsOrigin() )
+			
+			StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", target )
+			PopupCriticalDamage(target, abilityDamage)
+			AMHC:Damage( caster,target,abilityDamage,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+		end	
+		keys.caster:RemoveModifierByName("modifier_B02D")
+		keys.caster:RemoveModifierByName("modifier_invisible")
+	end
+end
+
 function B02W( keys )
 	local caster = keys.caster
 	local target = keys.target
