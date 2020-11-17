@@ -2,8 +2,16 @@
 
 function B11D_OnKill( keys )
 	if keys.caster:IsAlive() and keys.unit:IsHero() and not keys.caster:IsSilenced() then
-		keys.caster:ModifyAgility( keys.bonus_agi )
-		keys.caster:CalculateStatBonus()
+		if keys.caster:IsIllusion() then
+			print("illusion")
+			local owner = keys.caster:GetOwner()
+			owner:ModifyAgility( keys.bonus_agi )
+			owner:CalculateStatBonus()
+		else
+			print("self")
+			keys.caster:ModifyAgility( keys.bonus_agi )
+			keys.caster:CalculateStatBonus()
+		end
 	end
 end
 
