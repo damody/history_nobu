@@ -85,42 +85,49 @@ function SendHTTPRequestGetPlayers(path, method, values, callback)
 			if table["0"] == tostring(PlayerResource:GetSteamID(i)) then
 				PlayerResource:SetCustomTeamAssignment(i, 2)
 				_G.selectHero[i] = table["hero1"]
+				_G.matchCount = _G.matchCount + 1
 			elseif table["1"] == tostring(PlayerResource:GetSteamID(i)) then
 				PlayerResource:SetCustomTeamAssignment(i, 2)
 				_G.selectHero[i] = table["hero2"]
+				_G.matchCount = _G.matchCount + 1
 			elseif table["2"] == tostring(PlayerResource:GetSteamID(i)) then
 				PlayerResource:SetCustomTeamAssignment(i, 2)
 				_G.selectHero[i] = table["hero3"]
+				_G.matchCount = _G.matchCount + 1
 			elseif table["3"] == tostring(PlayerResource:GetSteamID(i)) then
 				PlayerResource:SetCustomTeamAssignment(i, 2)
 				_G.selectHero[i] = table["hero4"]
+				_G.matchCount = _G.matchCount + 1
 			elseif table["4"] == tostring(PlayerResource:GetSteamID(i)) then
 				PlayerResource:SetCustomTeamAssignment(i, 2)
 				_G.selectHero[i] = table["hero5"]
+				_G.matchCount = _G.matchCount + 1
 			elseif table["5"] == tostring(PlayerResource:GetSteamID(i)) then
 				PlayerResource:SetCustomTeamAssignment(i, 3)
 				_G.selectHero[i] = table["hero6"]
+				_G.matchCount = _G.matchCount + 1
 			elseif table["6"] == tostring(PlayerResource:GetSteamID(i)) then
 				PlayerResource:SetCustomTeamAssignment(i, 3)
 				_G.selectHero[i] = table["hero7"]
+				_G.matchCount = _G.matchCount + 1
 			elseif table["7"] == tostring(PlayerResource:GetSteamID(i)) then
 				PlayerResource:SetCustomTeamAssignment(i, 3)
 				_G.selectHero[i] = table["hero8"]
+				_G.matchCount = _G.matchCount + 1
 			elseif table["8"] == tostring(PlayerResource:GetSteamID(i)) then
 				PlayerResource:SetCustomTeamAssignment(i, 3)
 				_G.selectHero[i] = table["hero9"]
+				_G.matchCount = _G.matchCount + 1
 			elseif table["9"] == tostring(PlayerResource:GetSteamID(i)) then
 				PlayerResource:SetCustomTeamAssignment(i, 3)
 				_G.selectHero[i] = table["hero10"]
+				_G.matchCount = _G.matchCount + 1
 			end
 		end
 		if table["mode"] then
 			_G.mode = table["mode"]
 			GameRules:FinishCustomGameSetup()
 		end
-		print("table")
-		print(_G.selectHero[0])
-		PrintTable(_G.selectHero)
 		callback(result.Body)
 	end)
 end
@@ -164,7 +171,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		--self.bSeenWaitForPlayers = true
 	elseif(newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) then
 		_G.matchCount = 0;
-		_G.recordCount = 0;
+		_G.recordCount = 10;
 		_G.bStopGetFromClient = false;
 		_G.selectHero = {};
 		-- 檢查這場遊戲是不是由client開的
@@ -285,12 +292,12 @@ function Nobu:OnGameRulesStateChange( keys )
 	end
 	--遊戲開始時間
 	--計算人數
-	for i=0,20 do
-		local player = PlayerResource:GetPlayer(i)
-		if player then
-			_G.matchCount = _G.matchCount + 1
-		end
-	end
+	-- for i=0,20 do
+	-- 	local player = PlayerResource:GetPlayer(i)
+	-- 	if player then
+	-- 		_G.matchCount = _G.matchCount + 1
+	-- 	end
+	-- end
 	--test zone
 	--test zone
 	-- print("close window")
@@ -346,7 +353,7 @@ function Nobu:OnGameRulesStateChange( keys )
 			local player = PlayerResource:GetPlayer(i)
 			if player then
 				-- 紀錄玩家
-				_G.matchCount = _G.matchCount + 1
+				-- _G.matchCount = _G.matchCount + 1
 				_G.IsExist[i] = true
 				-- 紀錄角色
 				_G.Hero[i] = player:GetAssignedHero()
