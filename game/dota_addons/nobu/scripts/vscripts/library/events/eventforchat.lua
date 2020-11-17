@@ -331,7 +331,9 @@ local function chat_of_test(keys)
 	local sump = 0
 	
 	for playerID = 0, 9 do
-    	if _G.IsExist[i] == true then
+		local id       = playerID
+  		local p        = PlayerResource:GetPlayer(id)
+    	if p ~= nil then
 		  sump = sump + 1
 		end
 	end
@@ -778,7 +780,7 @@ local function chat_of_test(keys)
         end
 	end
 
-	if sump <= 9 then
+	if sump <= 4 then
 		if s == "-gg" then
 			_G.Oda_home:ForceKill(false)
 		end
