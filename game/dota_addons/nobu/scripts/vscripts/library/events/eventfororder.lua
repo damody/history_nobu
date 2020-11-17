@@ -622,29 +622,6 @@ function Nobu:eventfororder( filterTable )
 					return false
 				end
 
-				if unit.reitem == nil then
-					unit.reitem = 1
-					Timers:CreateTimer(0.2, function()
-						-- 裝備重放
-						print("裝備重放")
-						for i = 0, 6 do
-							local item = unit:GetItemInSlot( i )
-							if item then
-							local item_name = item:GetName()
-							if item ~= nil then
-							
-							item:SetPurchaseTime(0)
-							end
-							if not item:IsStackable() then
-								item:Destroy()
-								local new_item = unit:AddItem(CreateItem(item_name, unit, unit))
-								unit:SwapItems(new_item:GetItemSlot(), i)
-								new_item:SetPurchaseTime(0)
-							end
-							end
-						end
-						unit.reitem = nil
-					end)
 				end
 			end
 		end
@@ -678,7 +655,7 @@ function Nobu:eventfororder( filterTable )
 				if unit:GetUnitName() == "B07E_UNIT" then
 					return false
 				end
-
+--[[
 				if unit.reitem == nil then
 					unit.reitem = 1
 					Timers:CreateTimer(0.2, function()
@@ -702,7 +679,7 @@ function Nobu:eventfororder( filterTable )
 						end
 						unit.reitem = nil
 					end)
-				end
+				end]]
 			end
 		end
 	elseif ordertype == DOTA_UNIT_ORDER_PICKUP_ITEM then --14
@@ -716,30 +693,7 @@ function Nobu:eventfororder( filterTable )
 					return false
 				end
 
-				if unit.reitem == nil then
-					unit.reitem = 1
-					Timers:CreateTimer(0.2, function()
-						-- 裝備重放
-						print("裝備重放")
-						for i = 0, 6 do
-							local item = unit:GetItemInSlot( i )
-							if item then
-							local item_name = item:GetName()
-							if item ~= nil then
-							
-							item:SetPurchaseTime(0)
-							end
-							if not item:IsStackable() then
-								item:Destroy()
-								local new_item = unit:AddItem(CreateItem(item_name, unit, unit))
-								unit:SwapItems(new_item:GetItemSlot(), i)
-								new_item:SetPurchaseTime(0)
-							end
-							end
-						end
-						unit.reitem = nil
-					end)
-				end
+				
 			end
 		end
 		
@@ -775,29 +729,7 @@ function Nobu:eventfororder( filterTable )
 					return false
 				end
 
-				if unit.reitem == nil then
-					unit.reitem = 1
-					Timers:CreateTimer(0.2, function()
-						print("裝備重放")
-						for i = 0, 6 do
-							local item = unit:GetItemInSlot( i )
-							if item then
-							local item_name = item:GetName()
-							if item ~= nil then
-							
-							item:SetPurchaseTime(0)
-							end
-							if not item:IsStackable() then
-								item:Destroy()
-								local new_item = unit:AddItem(CreateItem(item_name, unit, unit))
-								unit:SwapItems(new_item:GetItemSlot(), i)
-								new_item:SetPurchaseTime(0)
-							end
-							end
-						end
-						unit.reitem = nil
-					end)
-				end
+				
 			end
 		end
     	if filterTable.units ~= nil and filterTable.units["0"] ~= nil then
@@ -846,29 +778,7 @@ function Nobu:eventfororder( filterTable )
 					return false
 				end
 
-				if unit.reitem == nil then
-					unit.reitem = 1
-					Timers:CreateTimer(0.2, function()
-						print("裝備重放")
-						for i = 0, 6 do
-							local item = unit:GetItemInSlot( i )
-							if item then
-							local item_name = item:GetName()
-							if item ~= nil then
-							
-							item:SetPurchaseTime(0)
-							end
-							if not item:IsStackable() then
-								item:Destroy()
-								local new_item = unit:AddItem(CreateItem(item_name, unit, unit))
-								unit:SwapItems(new_item:GetItemSlot(), i)
-								new_item:SetPurchaseTime(0)
-							end
-							end
-						end
-						unit.reitem = nil
-					end)
-				end
+				
 			end
 		else
 			_G.SpentGold[player_id] = _G.SpentGold[player_id] - itemcost
