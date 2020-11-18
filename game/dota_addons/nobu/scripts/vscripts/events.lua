@@ -327,14 +327,23 @@ function Nobu:HealFilter(keys)
     else
       target.decrease_health = 0.5
     end
-
-  if target:IsHero() then
-  keys.heal = keys.heal * target.decrease_health
+    if target:IsHero() then
+    keys.heal = keys.heal * target.decrease_health
+    end
   end
-end
-
-
-
+    
+  if target:HasModifier("modifier_the_great_sword_of_toxic_DH") then
+    if target.decrease_health then
+      if target.decrease_health >= 0.8 then
+        target.decrease_health = 0.8
+      end
+    else
+      target.decrease_health = 0.8
+    end
+  if target:IsHero() then
+    keys.heal = keys.heal * target.decrease_health
+    end
+  end
 	return true
 end
 

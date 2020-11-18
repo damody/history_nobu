@@ -52,6 +52,7 @@ function Shock2( keys )
 	local ability = keys.ability
 	print(caster:GetBaseAttackRange())
 	if not target:IsBuilding() then
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_the_great_sword_of_toxic_DH",{})
 		if caster:GetBaseAttackRange() < 200 then
 			ability:ApplyDataDrivenModifier(target,target,"modifier_the_great_sword_of_toxic_melee",nil)
 		else

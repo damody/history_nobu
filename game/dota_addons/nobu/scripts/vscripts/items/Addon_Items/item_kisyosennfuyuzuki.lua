@@ -6,12 +6,14 @@ function OnEquip( keys )
         if caster:IsIllusion()then
             return 
         end
-        caster.kisyosennfuyuzuki_shield = ParticleManager:CreateParticle("particles/item_kisyosennfuyuzuki/item_kisyosennfuyuzuki.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-        ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 1, Vector(shield_size,0,shield_size))
-        ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 2, Vector(shield_size,0,shield_size))
-        ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 4, Vector(shield_size,0,shield_size))
-        ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 5, Vector(shield_size,0,0))
-        ParticleManager:SetParticleControlEnt(caster.kisyosennfuyuzuki_shield, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+        if caster:GetUnitName() ~= "npc_dota_courier2" then
+            caster.kisyosennfuyuzuki_shield = ParticleManager:CreateParticle("particles/item_kisyosennfuyuzuki/item_kisyosennfuyuzuki.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+            ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 1, Vector(shield_size,0,shield_size))
+            ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 2, Vector(shield_size,0,shield_size))
+            ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 4, Vector(shield_size,0,shield_size))
+            ParticleManager:SetParticleControl(caster.kisyosennfuyuzuki_shield, 5, Vector(shield_size,0,0))
+            ParticleManager:SetParticleControlEnt(caster.kisyosennfuyuzuki_shield, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
+        end
         ability:ApplyDataDrivenModifier(caster, caster, "modifier_shield", {})
         caster:AddNewModifier(caster, ability, "modifier_kisyosennfuyuzuki_shield", {})
         if caster:FindModifierByName("modifier_kisyosennfuyuzuki_shield") then
@@ -33,9 +35,11 @@ end
 function OnUnequip( keys )
     local caster = keys.caster
     local ability = keys.ability
-    caster:RemoveModifierByName("modifier_shield")
-    caster:RemoveModifierByName("modifier_kisyosennfuyuzuki_shield")
-    ParticleManager:DestroyParticle(caster.kisyosennfuyuzuki_shield, false)
+    if caster.kisyosennfuyuzuki_shield then
+        caster:RemoveModifierByName("modifier_shield")
+        caster:RemoveModifierByName("modifier_kisyosennfuyuzuki_shield")
+        ParticleManager:DestroyParticle(caster.kisyosennfuyuzuki_shield, false)    
+    end
 end
 
 function Take_mana_to_shield( keys )

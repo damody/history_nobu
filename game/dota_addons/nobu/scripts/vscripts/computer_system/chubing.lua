@@ -394,7 +394,7 @@ function ShuaGuai_Of_AB(num, team, pos)
 					local dmgmax = unit:GetBaseDamageMax() * intensify
 					local dmgmin = unit:GetBaseDamageMin() * intensify
 					unit:SetBaseDamageMax(dmgmax+A_count*2)
-					unit:SetBaseDamageMax(dmgmin+A_count*2)
+					unit:SetBaseDamageMin(dmgmin+A_count*2)
 					local armor = unit:GetPhysicalArmorBaseValue() * intensify
 					unit:SetPhysicalArmorBaseValue(armor+ _G.armor_bonus)
 					--creep:SetContextNum("isshibing",1,0)

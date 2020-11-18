@@ -359,8 +359,8 @@ function A04W_OnSpawn( keys )
 		unit:SetOwner(caster)
 		unit.name = "A04W_SUMMEND_UNIT"
 		unit.owner = caster
-		unit:SetMaximumGoldBounty(35)
-		unit:SetMaximumGoldBounty(35)
+		unit:SetMaximumGoldBounty(10)
+		unit:SetMaximumGoldBounty(10)
 		unit:AddNewModifier(unit,ability,"modifier_phased",{duration=0.1})
 		ability:ApplyDataDrivenModifier(unit,unit,"modifier_A04W_summend",{})
 		ability:ApplyDataDrivenModifier(unit,unit,"modifier_A04W_Tech",{})
@@ -377,7 +377,6 @@ function A04W_OnSpawn( keys )
 		-- Timers:CreateTimer(0.3 ,function()
 		-- 	unit:MoveToTargetToAttack(target)
 		-- end)
-		
 	end
 end
 

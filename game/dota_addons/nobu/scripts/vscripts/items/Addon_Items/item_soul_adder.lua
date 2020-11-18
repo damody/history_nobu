@@ -4,6 +4,7 @@ function Shock( keys )
 	local caster = keys.caster
 	local target = keys.target
     local ability = keys.ability
+    local targetTeam = target:GetTeamNumber()
     if target:GetTeamNumber() ~= caster:GetTeamNumber() then
         AMHC:Damage(caster,keys.target, 1,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
         if target:IsMagicImmune() then
@@ -11,12 +12,30 @@ function Shock( keys )
         else
             ability:ApplyDataDrivenModifier(caster,target,"modifier_soul_adder",{duration = 3})
         end
+    elseif target == caster then
+        if target:IsMagicImmune() then
+            ability:ApplyDataDrivenModifier(caster,target,"modifier_soul_adder",{duration = 3})
+        else
+            ability:ApplyDataDrivenModifier(caster,target,"modifier_soul_adder",{duration = 3})
+        end
     else
-        target:Stop()
-        ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = 1})
-        ability:ApplyDataDrivenModifier(caster,target,"modifier_soul_adderx",{duration = 3})
+        ability:RefundManaCost()
+        ability:EndCooldown()
+        return false
+        -- target:Stop()
+        -- ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = 1})
+        -- ability:ApplyDataDrivenModifier(caster,target,"modifier_soul_adderx",{duration = 3})
     end
     target:EmitSound("SleepBirth1")
+end
+
+function Shock_phase ( keys )
+    local caster = keys.caster
+	local target = keys.target
+    local ability = keys.ability
+    if target == caster then
+        ability:ApplyDataDrivenModifier(caster,target,"modifier_cast_self",{duration = 1})
+    end
 end
 
 function over( keys )

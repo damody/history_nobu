@@ -2968,6 +2968,48 @@
 		}
 	}
 
+	// 溫泉靈氣
+
+	"home_aura"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/icon_128x128_47"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"Modifiers"
+		{
+			"modifier_home_aura_interval"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"ThinkInterval"	"0.25"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"		"home_aura"
+					}
+				}
+			}
+			"modifier_home_aura"
+			{
+				"IsBuff"	"1"
+				"Duration"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "20" 
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "30"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "30"
+				}
+			}
+		}
+	}
+
 	// 召集戰法
 	"war_magic_gohome"
 	{
@@ -5983,12 +6025,12 @@
 		{
 			"passive_phased_dummy"
 			{
-				"IsHidden"	"0"
+				"IsHidden"	"1"
 				"Passive"	"1"
 				"Aura"	"modifier_phased_dummy"
 				"Aura_Radius"	"50"
 				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_BOTH"
-				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				// "ThinkInterval" "0.1"
 				// "OnIntervalThink"
@@ -6003,7 +6045,7 @@
 			"modifier_phased_dummy"
 			{
 				"Passive"			"0"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"IsDebuff"			"1"
 				"Duration"			"1"
 				"States"
@@ -6033,6 +6075,55 @@
 			// 		}
 			// 	}
 			// }
+		}
+	}
+	"courier_mute"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+
+			"modifier_courier_mute"
+			{
+				"Passive" "1"
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_MUTED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	"forest_truesight"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"passive_trusight"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"ThinkInterval"	"0.25"
+				"OnIntervalThink"
+	            {
+	                "ApplyModifier"
+	                {
+	                    "Target"
+	                    {
+	                        "Center"    "CASTER"
+	                        "Radius"    "700"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+	                    "ModifierName"      "modifier_truesight"
+	                    "Duration"      "0.50"
+	                }
+	            }
+			}
 		}
 	}
 }

@@ -4,7 +4,7 @@
 "DOTAAbilities"
 {
 	"Version"		"1"
-	// 真．赤雷卷
+	// 紫雷卷
 	"item_the_red_lightning_chapter_hyper"
 	{
 		// General
@@ -1476,7 +1476,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_forest_scroll.lua"
-				"Function"	"Shock"
+				"Function"	"Shock_new"
 			}
 		}
 		"Modifiers"
@@ -1535,6 +1535,16 @@
 			{
 				"var_type"	"FIELD_FLOAT"
 				"duration"	"2"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"infantry"	"2"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"unitduration"	"25"
 			}
 		}
 	}
@@ -3195,7 +3205,7 @@
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
-		"ItemCost"	"9500"
+		"ItemCost"	"8500"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SecretShop" "1"
@@ -3549,7 +3559,7 @@
 		"AbilityTextureName"	"item_custom/soul_adder"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
@@ -3566,6 +3576,15 @@
 		"ItemCost"	"2250"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+				"Function"	"Shock_phase"
+				"Target"	"TARGET"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -3728,6 +3747,16 @@
 						"Function"	"reduce_magical_resistance"
 					}
 				}
+			}
+			"modifier_cast_self"
+			{
+				"IsHidden"	"1"
+				"Passive"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "100"
+				}
+				
 			}
 		}
 		
@@ -4920,7 +4949,7 @@
 		"AbilityCooldown"	"45"
 		"AbilityManaCost"	"100"
 		"AbilityCastPoint"	"0.2"
-		"AbilityCastRange"	"300"
+		"AbilityCastRange"	"900"
 		"ID"	"2705"
 		"ItemQuality"	"component"
 		"Model"	"models/heroes/abaddon/weapon.vmdl"
@@ -5623,7 +5652,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"7200"
+		"ItemCost"	"5500"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"						"0"
@@ -5720,7 +5749,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "20"		//敏
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "25"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "50"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
@@ -5851,7 +5880,12 @@
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
 				"Passive"	"0"
-				"Duration"			"3"
+				"Duration"			"1.5"
+			}
+			"modifier_the_great_sword_of_toxic_DH"
+			{
+				"Duration"	"3"
+				"IsDebuff"	"1"
 			}
 		}
 	}
@@ -6035,13 +6069,13 @@
 		"AbilityCooldown"	"65"
 		
 		"AbilityManaCost"	"125"
-		"AbilityCastPoint"	"0.2"
+		"AbilityCastPoint"	"0"
 		"AbilityCastRange"	"700"
 		"ID"	"2714"
 		"ItemQuality"	"component"
 		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"7900"
+		"ItemCost"	"8200"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"						"0"
@@ -7808,7 +7842,7 @@
 	{
 	    "ID" "3000"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1300"
+		"ItemCost" "1400"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_spear_of_saddle"
@@ -7823,7 +7857,7 @@
 	{
 	    "ID" "3001"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1300"
+		"ItemCost" "1400"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_spear_of_saddle_1"
@@ -7838,7 +7872,7 @@
 	{
 	    "ID" "3002"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1300"
+		"ItemCost" "1400"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_spear_of_saddle_2"
@@ -11828,6 +11862,11 @@
 				"name"	"swiftness_boots"
 				"ms_unslow"	"40"
 			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_swiftness_boots.lua"
+				"Function"	"OnEquip"
+			}
 		}
 		"OnUnequip"
 		{
@@ -11837,6 +11876,11 @@
 				"Function"	"OnUnequip"
 				"name"	"swiftness_boots"
 				"ms_unslow"	"40"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_swiftness_boots.lua"
+				"Function"	"OnUnEquip"
 			}
 		}
 		"OnToggleOn"
@@ -11874,9 +11918,25 @@
 			}
 			"passive_swiftness_boots"
 				{
-					"IsHidden"	"0"
+					"IsHidden"	"1"
 					"Passive"	"1"
-					
+					"ThinkInterval" "1"
+					"OnIntervalThink"
+					{
+						"RunScript"
+						{
+							"ScriptFile"	"items/Addon_Items/item_swiftness_boots.lua"
+							"Function"	"OnEquip"
+						}
+					}
+					"OnTakeDamage"
+					{
+						"RunScript"
+						{
+							"ScriptFile"	"items/Addon_Items/item_swiftness_boots.lua"
+							"Function"	"OnTakeDamage"
+						}
+					}
 				}
 			"modifier_perceive_wine"
 			{
@@ -11888,6 +11948,13 @@
 				"EffectName"	"particles/item/item_perceive_wine.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"IsHidden"	"0"
+			}
+			"modifier_UntakeDamage"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -11914,7 +11981,7 @@
 		}
 	}
 	
-		// 破魔。流風捷履
+	// 破魔。流風捷履
 	"item_swiftness_boots_1"
 	{
 		// General
@@ -11994,7 +12061,22 @@
 				{
 					"IsHidden"	"0"
 					"Passive"	"1"
-					
+					"OnIntervalThink"
+					{
+						"RunScript"
+						{
+							"ScriptFile"	"items/Addon_Items/item_swiftness_boots.lua"
+							"Function"	"OnEquip"
+						}
+					}
+					"OnTakeDamage"
+					{
+						"RunScript"
+						{
+							"ScriptFile"	"items/Addon_Items/item_swiftness_boots.lua"
+							"Function"	"OnTakeDamage"
+						}
+					}
 				}
 			"modifier_perceive_wine"
 			{
@@ -12006,6 +12088,13 @@
 				"EffectName"	"particles/item/item_perceive_wine.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"IsHidden"	"0"
+			}
+			"modifier_UntakeDamage"
+			{
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "60"
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -12424,16 +12513,13 @@
 		
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/satsuma_gun"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		
-		"AbilityCooldown"	"6"
-		
-		"AbilityManaCost"	"50"
+		"AbilityCooldown"	"0"
 		//"AbilityCastPoint"	"0.35"
 		//"AbilityCastRange"	"750"
 		"ID"	"2819"
@@ -12443,10 +12529,30 @@
 		"ItemCost"	"3000"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
+			"particle"	"particles/b08w2/b08w2.vpcf"
+			"particle"	"particles/units/heroes/hero_sniper/sniper_assassinate.vpcf"
+			"particle"	"particles/units/heroes/hero_sniper/sniper_crosshair.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+			"particle"	"particles/a17w/a17w.vpcf"
+		}
 		"OnSpellStart"
 		{
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"A25W.vo1"
+			}
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"Ability.Assassinate"
+			}
 			"RunScript"
 			{
+				"TARGET"	"POINT"
 				"ScriptFile"	"items/Addon_Items/item_satsuma_gun.lua"
 				"Function"	"Shock"
 			}
@@ -12478,10 +12584,12 @@
 				{
 					"RunScript"
 					{
+						"TARGET"	"TARGET"
 						"ScriptFile"	"items/Addon_Items/item_satsuma_gun.lua"
 						"Function"	"OnAttackLanded"
 					}
 				}
+
 			}
 			"modifier_satsuma_gun_DH"
 			{
@@ -12507,6 +12615,16 @@
 				"IsDebuff"	"1"
 				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
 				"EffectAttachType"	"follow_overhead"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"TARGET"	"TARGET"
+				"ScriptFile"	"items/Addon_Items/item_satsuma_gun.lua"
+				"Function"	"OnProjectileHit"
 			}
 		}
 	}
@@ -12677,7 +12795,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_forest_scroll.lua"
-				"Function"	"Shock"
+				"Function"	"Shock_new"
 			}
 			"ActOnTargets"
 			{
@@ -12785,6 +12903,21 @@
 				"var_type"	"FIELD_FLOAT"
 				"duration"	"2.5"
 			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"infantry"	"3"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"archer"	"1"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"unitduration"	"30"
+			}
 		}
 	}
 
@@ -12792,7 +12925,6 @@
 	"item_the_lost_art_of_war_2"
 	{
 		// General
-		
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/the_lost_art_of_war_2"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
@@ -12948,7 +13080,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_forest_scroll.lua"
-				"Function"	"Shock"
+				"Function"	"Shock_new"
 			}
 			"ActOnTargets"
 			{
@@ -13108,6 +13240,21 @@
 			{
 				"var_type"	"FIELD_FLOAT"
 				"duration"	"3"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"infantry"	"4"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"archer"	"1"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"unitduration"	"35"
 			}
 		}
 	}
@@ -13288,111 +13435,111 @@
 	}
 
 	// 水計之書
-	// "item_flood_book"
-	// {
-	// 	// General
+	"item_flood_book"
+	{
+		// General
 		
-	// 	"BaseClass"	"item_datadriven"
-	// 	"AbilityTextureName"	"item_custom/flood_book"
-	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-	// 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	// 	"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	// 	"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-	// 	"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-	// 	"FightRecapLevel"	"1"
-	// 	"AbilitySharedCooldown" "share_item_flood_book"
-	// 	"AbilityCooldown"	"20"
-	// 	"AbilityCastPoint"	"0.2"
-	// 	"AbilityManaCost"	"140"
-	// 	"AbilityCastRange"	"700"
-	// 	"AOERadius"		"400"
-	// 	"ID"	"2512"
-	// 	"ItemQuality"	"component"
-	// 	"Model"	"models/props_gameplay/tpscroll01.vmdl"
-	// 	"Effect"	"particles/q09_2/q09_2.vpcf"
-	// 	"ItemCost"	"1500"
-	// 	//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-	// 	"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-	// 	"precache"
-	// 	{
-	// 		"particle"	"particles/item/item_flood_book/item_flood_book_water_base.vpcf"
-	// 	}
-	// 	"OnSpellStart"
-	// 	{
-	// 		"RunScript"
-	// 		{
-	// 			"ScriptFile"	"items/Addon_Items/item_flood_book.lua"
-	// 			"Function"	"Shock"
-	// 			"Target"	"POINT"
-	// 		}
-	// 		"RunScript"
-	// 		{
-	// 		  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
-	// 			"Function"	"sound"
-	// 			"sound"	"watersword_crit_01"
-	// 		}
-	// 	}
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/flood_book"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		"AbilitySharedCooldown" "share_item_flood_book"
+		"AbilityCooldown"	"20"
+		"AbilityCastPoint"	"0.2"
+		"AbilityManaCost"	"140"
+		"AbilityCastRange"	"700"
+		"AOERadius"		"400"
+		"ID"	"2512"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"1500"
+		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"precache"
+		{
+			"particle"	"particles/item/item_flood_book/item_flood_book_water_base.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_flood_book.lua"
+				"Function"	"Shock"
+				"Target"	"POINT"
+			}
+			"RunScript"
+			{
+			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+				"Function"	"sound"
+				"sound"	"watersword_crit_01"
+			}
+		}
 		
-	// 	"Modifiers"
-	// 	{
-	// 		"modifier_flood_book"
-	// 		{
-	// 			"Passive"			"0"
-	// 			"IsHidden"			"0"
-	// 			"IsPurgable"	"1"
-	// 			"IsDebuff"		"1"
+		"Modifiers"
+		{
+			"modifier_flood_book"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsPurgable"	"1"
+				"IsDebuff"		"1"
 			
-	// 			"OnCreated"
-	// 			{
-	// 				"RunScript"
-	// 				{
-	// 					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-	// 					"Function"	"Slow"
-	// 					"name"	"flood_book"
-	// 					"ms_slow" "-80"
-	// 				}
-	// 			}
-	// 			"OnDestroy"
-	// 			{
-	// 				"RunScript"
-	// 				{
-	// 					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-	// 					"Function"	"ReturnSpeed"
-	// 					"name"	"flood_book"
-	// 				}
-	// 			}
-	// 		}
-	// 		"modifier_flood_walk"
-	// 		{
-	// 			"States"
-	// 			{
-	// 				"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
-	// 			}
-	// 		}
-	// 		"Passive_flood_book"
-	// 		{
-	// 			"IsHidden"	"1"
-	// 			"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-	// 			"Passive"	"1"
-	// 			"Properties"
-	// 			{
-	// 				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-	// 				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
-	// 				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "10"	//智
-	// 				"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
-	// 				"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
-	// 				"MODIFIER_PROPERTY_MANA_BONUS" "300"				//魔
-	// 				"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
-	// 				"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
-	// 				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
-	// 				"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
-	// 				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
-	// 				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-	// 				"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
-	// 			}
-	// 		}
-	// 	}
-	// }
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"flood_book"
+						"ms_slow" "-60"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"flood_book"
+					}
+				}
+			}
+			"modifier_flood_walk"
+			{
+				"States"
+				{
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"Passive_flood_book"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "10"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "300"				//魔
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
+				}
+			}
+		}
+	}
 
 	// 火計之書
 	"item_ignite_book"
@@ -13643,7 +13790,7 @@
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_forest_scroll.lua"
-				"Function"	"Shock"
+				"Function"	"Shock_new"
 			}
 		}
 		
@@ -13692,6 +13839,16 @@
 			{
 				"var_type"	"FIELD_FLOAT"
 				"duration"	"1.5"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"infantry"	"2"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"unitduration"	"20"
 			}
 		}
 	}
@@ -14809,14 +14966,14 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"75"
+		"AbilityCooldown"	"60"
 		"AbilitySharedCooldown" "share_perceive_wine_hyper"
 		"SecretShop" "1"
 		"ID"	"2827"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"7500"
+		"ItemCost"	"8000"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequirements"	{}
@@ -16392,7 +16549,7 @@
 		"FightRecapLevel"	"1"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"30"
+		"AbilityCooldown"	"0"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"100"
@@ -16400,6 +16557,7 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"	"800"
 		"AbilityCastPoint"  "0.3"
+		"ItemInitialCharges"	"2"
 		"ID"	"7000"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -16437,6 +16595,21 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
+				}
+			}
+			"modifier_wallcharges"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"IsPurgable" "0"
+				"ThinkInterval" "1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_earth_wall_book.lua"
+						"Function"	"charges"
+					}
 				}
 			}
 		}

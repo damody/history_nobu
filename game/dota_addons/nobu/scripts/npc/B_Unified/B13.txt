@@ -411,12 +411,12 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"B13T_movespd"		"-100"
+				"B13T_movespd"		"-70"
 			}
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"B13T_atkspd"		"-150 -300 -450"
+				"B13T_atkspd"		"-100 -125 -150"
 			}
 			"03"
 			{

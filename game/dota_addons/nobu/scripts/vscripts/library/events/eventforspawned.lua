@@ -48,10 +48,12 @@ function Nobu:OnHeroIngame( keys )
           donkey:FindAbilityByName("courier_burst"):SetLevel(1)
           donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
           donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
+          donkey:FindAbilityByName("phased_dummy"):SetLevel(1)
+          donkey:FindAbilityByName("courier_mute"):SetLevel(1)
           if hero.donkey == nil then
             hero.donkey = donkey
           end
-          -- donkey:FindAbilityByName("phased_dummy"):SetLevel(1)
+          
           hero.init1 = true
           hero.assist_count = 0
           hero.kill_count = 0
@@ -127,6 +129,7 @@ function Nobu:OnHeroIngame( keys )
                 item:Destroy()
                 local new_item = hero:AddItem(CreateItem(item_name, hero, hero))
                 hero:SwapItems(new_item:GetItemSlot(), i)
+                new_item:SetPurchaseTime(0)
               end
             end
           end

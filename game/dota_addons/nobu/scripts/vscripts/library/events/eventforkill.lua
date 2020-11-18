@@ -225,7 +225,7 @@ function Nobu:OnUnitKill( keys )
       --Tutorial: AddQuest("quest_1",1,"破塔成功","ssssssssss")
 
     -- 足輕經驗
-    if string.match(name, "com_infantry")then
+    if string.match(name, "com_infantry") and not killedUnit:GetOwner() then
       local s,f = string.find(name,"com_infantry")
       local new_name = string.sub(name,s,f)
       local enemyHero = FindUnitsInRadius(killedUnit:GetTeamNumber(), killedUnit:GetAbsOrigin(),
@@ -251,7 +251,7 @@ function Nobu:OnUnitKill( keys )
       end
     end
     --弓箭手經驗
-    if string.match(name, "com_archer")then
+    if string.match(name, "com_archer") and not killedUnit:GetOwner()then
       local s,f = string.find(name,"com_archer")
       local new_name = string.sub(name,s,f)
       if AttackerUnit:IsHero()then

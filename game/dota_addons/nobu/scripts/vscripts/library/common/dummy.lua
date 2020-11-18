@@ -486,7 +486,7 @@ function modifier_unit_armor:GetModifierIncomingDamage_Percentage( keys )
     if self.creep then
       return -100
     else
-      return -75
+      return 75
     end
   end
 	return 0
@@ -516,6 +516,9 @@ function modifier_tower_armor:GetModifierIncomingDamage_Percentage( keys )
     return 0
   elseif keys.attacker:IsBuilding() then
     return 0
+  elseif keys.attacker:GetUnitName() == "B19T_old" then
+    print("B19T")
+    return -85
   else
     return -75
   end
@@ -620,9 +623,18 @@ end
 function def_home( keys )
   local caster = keys.caster
   local ability = keys.ability
-  local teammate = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), nil, 1300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+  local teammate = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), nil, 1200, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
   for i,v in pairs(teammate) do
     ability:ApplyDataDrivenModifier(caster,v,"modifier_speed_up",{})
+  end
+end
+
+function home_aura ( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  local teammate = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), nil, 1300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+  for i,v in pairs(teammate) do
+    ability:ApplyDataDrivenModifier(caster,v,"modifier_home_aura",{})
   end
 end
 
@@ -832,12 +844,14 @@ function phased_dummy( keys )
     caster:GetTeamNumber(),
     point,
     nil,
-    aura_radius,DOTA_UNIT_TARGET_TEAM_BOTH,
-    DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP,
+    aura_radius,
+    DOTA_UNIT_TARGET_TEAM_ENEMY + DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+    DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
     DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
     0,
     false)
   for i,v in ipairs(group) do
+    print(v)
     if not caster:HasModifier("modifier_phased") then
       ability:ApplyDataDrivenModifier(caster, caster, "modifier_phased",{duration = 1})
     end
@@ -857,7 +871,5 @@ function phased_dummy_destroy ( keys )
       caster:RemoveAbility(ability:GetName())
     end)
   end
-
 end
-
 

@@ -220,7 +220,7 @@
 			"03"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"damage"	"40 50 60 70"
+				"damage"	"30 40 50 60"
 			}
 		}
 	}

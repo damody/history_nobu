@@ -400,22 +400,24 @@ function Nobu:OnGameRulesStateChange( keys )
 	Timers:CreateTimer(600, function()
 		local oda_def_home = CreateUnitByName("hide_unit", Vector(7445.46,-7517.94,128) , true, nil, nil, DOTA_TEAM_GOODGUYS) 
 		oda_def_home:AddAbility("speed_up"):SetLevel(1)
+		oda_def_home:AddAbility("home_aura"):SetLevel(1)
 		local unified_def_home = CreateUnitByName("hide_unit", Vector(-7390.63,7203.02,128) , true, nil, nil, DOTA_TEAM_BADGUYS) 
 		unified_def_home:AddAbility("speed_up"):SetLevel(1)
+		unified_def_home:AddAbility("home_aura"):SetLevel(1)
 	end)
 	--平均等級1
 	_G.average_level = {}
 	_G.average_level[DOTA_TEAM_GOODGUYS] = 1
 	_G.average_level[DOTA_TEAM_BADGUYS] = 1
 	--檢查有沒有馬
-	-- Timers:CreateTimer(60, function()
+	-- Timers:CreateTimer(1, function()
 	-- 	for playerID = 0, 9 do
 	-- 		local id       = playerID
 	-- 		local p        = PlayerResource:GetPlayer(id)
 	-- 		if p ~= nil then
 	-- 			local hero	   = p:GetAssignedHero()
 	-- 			if hero.courier == nil then
-	-- 				local donkey = CreateUnitByName("npc_dota_courier2", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
+	-- 				local donkey = CreateUnitByName("npc_dota_courier", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
 	-- 				donkey:SetOwner(hero)
 	-- 				donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
 	-- 				donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
@@ -427,7 +429,12 @@ function Nobu:OnGameRulesStateChange( keys )
 	-- 				donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
 	-- 				donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
 	-- 				donkey:FindAbilityByName("phased_dummy"):SetLevel(1)
+	-- 				if hero.donkey == nil then
+	-- 					hero.donkey = donkey
+	-- 					print(hero.donkey)
+	-- 				end
 	-- 			end
+				
 	-- 		end
 	-- 	end
 	-- end)

@@ -128,6 +128,72 @@ function Shock( keys )
 	end
 end
 
+function Shock_new ( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local team = caster:GetTeamNumber()
+	local point = caster:GetAbsOrigin()
+	local A_count = _G.A_count
+	local unit_name = nil
+	local duration = ability:GetSpecialValueFor("unitduration")
+	local randomkey = RandomInt(1,8)
+	local infantry = ability:GetSpecialValueFor("infantry")
+	local archer = ability:GetSpecialValueFor("archer")
+	if team == 2 then
+		infantry_name = "oda_infantry_forest"
+		archer_name = "oda_archer_forest"
+	else
+		infantry_name = "unified_infantry_forest"
+		archer_name = "unified_archer_forest"
+	end
+	for i = 1 , infantry do 
+		local unit = CreateUnitByName(infantry_name, point , true, caster, caster, team)
+		unit:SetMaximumGoldBounty(5)
+		unit:SetMinimumGoldBounty(5)
+		unit:SetBaseMoveSpeed(375)
+		unit:SetDeathXP(0)
+		unit:AddAbility("set_level_1"):SetLevel(1)
+		local hp = (unit:GetMaxHealth() + 150)
+		unit:SetBaseMaxHealth(hp * 2 + A_count * 8)
+		local dmgmax = unit:GetBaseDamageMax()
+		local dmgmin = unit:GetBaseDamageMin()
+		unit:SetBaseDamageMax(dmgmax * 2 + A_count*1)
+		unit:SetBaseDamageMin(dmgmin * 2 + A_count*1)
+		local armor = unit:GetPhysicalArmorBaseValue()
+		unit:SetPhysicalArmorBaseValue(armor+_G.armor_bonus)
+		unit:SetOwner(caster)
+		unit:SetControllableByPlayer(caster:GetPlayerID(),true)
+		unit:AddNewModifier(unit,nil,"modifier_kill",{duration=duration})
+		caster:AddNewModifier(caster,nil,"modifier_phased",{duration=0.3})
+		unit:AddNewModifier(unit,nil,"modifier_phased",{duration=0.3})
+	end
+
+	if archer then
+		for i = 1 , archer do
+			local unit = CreateUnitByName(archer_name, point , true, caster, caster, team)
+			unit:SetMaximumGoldBounty(5)
+			unit:SetMinimumGoldBounty(5)
+			unit:SetDeathXP(0)
+			unit:AddAbility("set_level_1"):SetLevel(1)
+			unit:AddAbility("forest_truesight"):SetLevel(1)
+			local hp = unit:GetMaxHealth()
+			unit:SetBaseMaxHealth(hp * 2 + A_count * 8)
+			local dmgmax = unit:GetBaseDamageMax()
+			local dmgmin = unit:GetBaseDamageMin()
+			unit:SetBaseDamageMin(dmgmax * 2 + A_count*2)
+			unit:SetBaseDamageMin(dmgmin * 2 + A_count*2)
+			local armor = unit:GetPhysicalArmorBaseValue()
+			unit:SetPhysicalArmorBaseValue(armor+ _G.armor_bonus)
+			unit:SetOwner(caster)
+			unit:SetControllableByPlayer(caster:GetPlayerID(),true)
+			unit:AddNewModifier(unit,nil,"modifier_kill",{duration=duration})
+			caster:AddNewModifier(caster,nil,"modifier_phased",{duration=0.3})
+			unit:AddNewModifier(unit,nil,"modifier_phased",{duration=0.3})
+		end
+	end
+
+end
+
 function Shock_old( keys )
 	local caster = keys.caster
 	local ability = keys.ability

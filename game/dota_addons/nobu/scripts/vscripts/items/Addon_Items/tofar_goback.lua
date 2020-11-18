@@ -710,12 +710,20 @@ function afk_gogo(keys)
 		local id = hero:GetPlayerID()
 		local team = PlayerResource:GetTeam(id)
 		local state = PlayerResource:GetConnectionState(id)
+		local nobuafk = Vector(7714.519043,-5177.663086,257.197266)
+		local unitafk = Vector(-5596.307129,7738.742676,256.000000)
 		if hero.deathtime and hero.deathtime > 0 then
 			hero.deathtime = hero.deathtime - 1
 		end
 		if state == 3 then -- 2 = connected
 			hero.afk_time = hero.afk_time + 1
-			hero:MoveToPosition(hero.spawn_location)
+			if team == 2 then
+				hero:MoveToPosition(nobuafk)
+				hero.donkey:MoveToPosition(nobuafk)
+			else
+				hero:MoveToPosition(unitafk)
+				hero.donkey:MoveToPosition(unitafk)
+			end
 		end
 	end
 end

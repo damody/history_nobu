@@ -105,11 +105,11 @@ function B01E_CHECK(keys)
 	target = CreateUnitByName("B01W_UNIT", point, true, caster, caster, caster:GetTeamNumber())
 	target:AddNewModifier(unit,nil,"modifier_kill",{duration=180})
 	target:SetOwner(caster)
+	target:SetControllableByPlayer(caster:GetPlayerID(),true)
 	target.owner = caster
 	target.name = "B01W_UNIT"
     -- target:SetControllableByPlayer(caster:GetPlayerOwnerID(), false)
 	target:AddNewModifier(target,ability,"phased_dummy",{duration=1})
-	target:AddNewModifier(target,ability,"modifier_rooted",{})
 	if caster.great_sword_of_disease then
 		target:SetBaseMaxHealth(target:GetBaseMaxHealth()*1.5)
 	end
@@ -139,8 +139,8 @@ function B01E_CHECK(keys)
 	end
 	B01E_units[tmp] = target	
 	-- table.insert(caster.B01E, target)
-	target:SetBaseDamageMin(50+caster:GetLevel()*10)
-	target:SetBaseDamageMax(50+caster:GetLevel()*10)
+	target:SetBaseDamageMin(50+caster:GetLevel()*5)
+	target:SetBaseDamageMax(50+caster:GetLevel()*5)
 	local tem_point = target:GetAbsOrigin()
 	--【Particle】
 	local particle = ParticleManager:CreateParticle("particles/b01e2/b01e2.vpcf",PATTACH_POINT,target)

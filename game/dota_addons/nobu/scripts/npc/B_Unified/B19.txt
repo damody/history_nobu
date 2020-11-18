@@ -297,7 +297,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"add_damage"		"0 75 180"
+				"add_damage"		"0 75 150"
 			}
 		}
 	}

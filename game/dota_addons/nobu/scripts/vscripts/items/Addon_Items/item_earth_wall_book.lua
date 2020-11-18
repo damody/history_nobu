@@ -13,8 +13,19 @@ function Shock( keys )
 	local target_flags = ability:GetAbilityTargetFlags()
 	local damage_type = ability:GetAbilityDamageType()
 	local damage = ability:GetAbilityDamage()
-
+	local charges = ability:GetCurrentCharges()
+	print(charges)
 	-- 搜尋
+	if charges > 1 then
+		caster.earthwall_cooldown = 40
+		ability:SetCurrentCharges(charges - 1)
+		ability:EndCooldown()
+	elseif charges == 1 then
+		ability:SetCurrentCharges(0)
+		ability:EndCooldown()
+		ability:StartCooldown(caster.earthwall_cooldown)
+	end
+
 	local units = FindUnitsInRadius(iTeam,	-- 關係
                              center,			-- 搜尋的中心點
                              nil, 				-- 好像是優化用的參數不懂怎麼用
@@ -79,7 +90,7 @@ function Shock( keys )
 		end
 		local wall = CreateUnitByName("EARTH_WALL_hero",rock_center,false,nil,nil,caster:GetTeam())
 		wall:AddNewModifier(caster,nil,"modifier_kill",{duration=duration})
-		wall:RemoveModifierByName("modifier_invulnerable")
+		-- wall:RemoveModifierByName("modifier_invulnerable")
 		local units = FindUnitsInRadius(iTeam,	-- 關係
 						 rock_center,-- 搜尋的中心點
                             nil, 				-- 好像是優化用的參數不懂怎麼用
@@ -97,6 +108,25 @@ function Shock( keys )
 		end		
 		return 0.01
 	end)
+end
+
+function charges ( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local charges = ability:GetCurrentCharges()
+	if charges < 2 then
+		if caster.earthwall_cooldown > 0 then
+			caster.earthwall_cooldown = caster.earthwall_cooldown -1
+			caster:FindModifierByName("modifier_wallcharges"):SetStackCount(caster.earthwall_cooldown)
+		else 
+			caster.earthwall_cooldown = 40
+			caster:FindModifierByName("modifier_wallcharges"):SetStackCount(0)
+			ability:SetCurrentCharges(charges + 1)
+		end
+	else 
+		caster.earthwall_cooldown = 0
+		caster:FindModifierByName("modifier_wallcharges"):SetStackCount(0)
+	end
 end
 
 function Shock2( keys )

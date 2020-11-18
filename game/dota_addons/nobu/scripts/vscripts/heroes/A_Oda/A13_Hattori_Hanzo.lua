@@ -222,6 +222,12 @@ function A13W( event )
 	
 	caster.A13W = {}
 
+	caster:RemoveAbility("A13W")
+    caster:AddAbility("A13W2"):SetLevel(1)
+    caster.timer = Timers:CreateTimer(6, function()
+        caster:RemoveAbility("A13W2")
+        caster:AddAbility("A13W"):SetLevel(lv)
+    end)
 	
 	local i = 1
 	Timers:CreateTimer(0.05, function()

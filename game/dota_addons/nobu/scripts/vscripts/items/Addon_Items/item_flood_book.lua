@@ -12,7 +12,7 @@ function Shock( keys )
           SEARCH_RADIUS,
           DOTA_UNIT_TARGET_TEAM_ENEMY,
           DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-          DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+          DOTA_UNIT_TARGET_FLAG_NONE,
           0,
           false)
 	for _,target in pairs(direUnits) do
@@ -37,7 +37,7 @@ function Shock( keys )
 			SEARCH_RADIUS,
 			DOTA_UNIT_TARGET_TEAM_ENEMY,
 			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+			DOTA_UNIT_TARGET_FLAG_NONE,
 			0,
 			false)
 		for _,target in pairs(direUnits) do
