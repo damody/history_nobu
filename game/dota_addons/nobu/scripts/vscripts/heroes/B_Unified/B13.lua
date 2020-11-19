@@ -35,8 +35,19 @@ end
 
 --B 縮地
 function B13B( keys )
-	FindClearSpaceForUnit( keys.caster, keys.ability:GetCursorPosition() , true)
-	keys.caster:AddNewModifier(keys.caster,nil,"modifier_phased",{duration=0.1})
+	local caster = keys.caster
+	local origin_point = keys.caster:GetAbsOrigin()
+	local target_point = keys.target_points[1]
+	local difference_vector = target_point - origin_point
+	if difference_vector:Length2D() > keys.MaxBlinkRange then  --Clamp the target point to the BlinkRangeClamp range in the same direction.
+		target_point = origin_point + (target_point - origin_point):Normalized() * keys.MaxBlinkRange
+	end
+	keys.caster:AddNewModifier(keys.caster,keys.ability,"modifier_phased",{duration=0.1})
+	keys.caster:SetAbsOrigin(target_point)
+	FindClearSpaceForUnit(keys.caster, target_point, false)
+
+	-- FindClearSpaceForUnit( keys.caster, keys.ability:GetCursorPosition() , true)
+	-- keys.caster:AddNewModifier(keys.caster,nil,"modifier_phased",{duration=0.1})
 end
 
 function B13B_onCreated( keys )

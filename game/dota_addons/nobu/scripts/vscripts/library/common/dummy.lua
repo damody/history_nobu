@@ -486,7 +486,7 @@ function modifier_unit_armor:GetModifierIncomingDamage_Percentage( keys )
     if self.creep then
       return -100
     else
-      return 75
+      return -75
     end
   end
 	return 0

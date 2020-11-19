@@ -8724,13 +8724,13 @@
 	{
 	    "ID" "3062"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1050"
+		"ItemCost" "1430"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_satsuma_gun"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_gorgeous_tachi"  //合成所需物品
+			"01" "item_gorgeous_tachi;item_katana"  //合成所需物品
 		}
 	}
 
@@ -12013,6 +12013,11 @@
 				"name"	"swiftness_boots1"
 				"ms_unslow"	"40"
 			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_swiftness_boots.lua"
+				"Function"	"OnEquip"
+			}
 		}
 		"OnUnequip"
 		{
@@ -12022,6 +12027,11 @@
 				"Function"	"OnUnequip"
 				"name"	"swiftness_boots1"
 				"ms_unslow"	"40"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_swiftness_boots.lua"
+				"Function"	"OnUnEquip"
 			}
 		}
 		"OnToggleOn"
@@ -12059,8 +12069,9 @@
 			}
 			"passive_swiftness_boots"
 				{
-					"IsHidden"	"0"
+					"IsHidden"	"1"
 					"Passive"	"1"
+					"ThinkInterval" "1"
 					"OnIntervalThink"
 					{
 						"RunScript"
@@ -12526,7 +12537,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"3000"
+		"ItemCost"	"4500"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"precache"
@@ -12540,21 +12551,17 @@
 		}
 		"OnSpellStart"
 		{
-			"FireSound"
-			{
-				"Target"	"CASTER"
-				"EffectName"	"A25W.vo1"
-			}
-			"FireSound"
-			{
-				"Target"	"CASTER"
-				"EffectName"	"Ability.Assassinate"
-			}
+
 			"RunScript"
 			{
 				"TARGET"	"POINT"
 				"ScriptFile"	"items/Addon_Items/item_satsuma_gun.lua"
 				"Function"	"Shock"
+			}
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"Ability.Assassinate"
 			}
 		}
 		"Modifiers"
@@ -12569,17 +12576,23 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "5"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "15"	//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "5"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "7"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "21"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
 				}
+
+			}
+			"Passive_satsuma_gun"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
 				"OnAttackLanded"
 				{
 					"RunScript"
@@ -12587,34 +12600,13 @@
 						"TARGET"	"TARGET"
 						"ScriptFile"	"items/Addon_Items/item_satsuma_gun.lua"
 						"Function"	"OnAttackLanded"
-					}
+					} 
 				}
-
 			}
 			"modifier_satsuma_gun_DH"
 			{
 				"Duration"	"3"
 				"IsDebuff"	"1"
-			}
-			"modifier_satsuma_gun_hint"
-			{
-				"IsHidden"	"0"
-				"Passive"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS" "300"
-				}
-			}
-			"modifier_satsuma_gun"
-			{
-				"States"
-				{
-					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-				"Duration"	"0.01"
-				"IsDebuff"	"1"
-				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
-				"EffectAttachType"	"follow_overhead"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -12625,6 +12617,11 @@
 				"TARGET"	"TARGET"
 				"ScriptFile"	"items/Addon_Items/item_satsuma_gun.lua"
 				"Function"	"OnProjectileHit"
+			}
+			"FireSound"
+			{
+				"Target"	"TARGET"
+				"EffectName"	"Hero_Sniper.AssassinateDamage"
 			}
 		}
 	}
@@ -13244,12 +13241,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"infantry"	"4"
+				"infantry"	"2"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"archer"	"1"
+				"archer"	"2"
 			}
 			"02"
 			{

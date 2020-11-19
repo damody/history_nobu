@@ -131,7 +131,7 @@
 				"Aura_Radius"   	"%B17W_detectorRadius"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NO_INVIS"
 				"Aura_ApplyToCaster" "0"
 			}
 			"modifier_B17W_trigger"
@@ -185,7 +185,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"B17W_atk"	"100 150 200 250"
+				"B17W_atk"	"80 100 120 140"
 			}
 		}
 	}
@@ -254,9 +254,24 @@
 				"IsDebuff"			"1"
 				"EffectName" 						"particles/b17e/b17e.vpcf"
                 "EffectAttachType" 					"follow_overhead"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%B17E_passiveMoveSpeed"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"modifier_B17E_passiveDebuff"
+						"ms_slow" "%B17E_passiveMoveSpeed"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_B17E_passiveDebuff"
+					}
 				}
 			}
 			"modifier_B17E_debuff"
@@ -265,9 +280,24 @@
 				"Duration"							"%B17E_dotDuration"
 				"EffectName" 						"particles/b17e/b17e.vpcf"
                 "EffectAttachType" 					"follow_overhead"
-				"Properties"
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%B17E_dotMoveSpeed"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"modifier_B17E_debuff"
+						"ms_slow" "%B17E_dotMoveSpeed"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_B17E_debuff"
+					}
 				}
 				"ThinkInterval"  "1.0"
 				"OnIntervalThink"
@@ -452,7 +482,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"B17T_damage"		"1000 2000 3000"
+				"B17T_damage"		"800 1600 2400"
 			}
 			"02"
 			{

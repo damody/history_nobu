@@ -5,7 +5,7 @@
 	{
 		// General
 		// ----------------------------------------------------------------
-		"override_hero"	"npc_dota_hero_abyssal_underlord"
+		"override_hero"	"npc_dota_hero_abaddon"
 		"Skin"	"3"
 		"ModelScale"	"1"
 		// Abilities
@@ -14,8 +14,8 @@
 		"Ability2"	"B30E"
 		"Ability3"	"B30R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"B30T"
-		"Ability6"	"B30_precache"
+		"Ability5"	"B30_precache"
+		"Ability6"	"B30T"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""
