@@ -12606,7 +12606,7 @@
 			"FireSound"
 			{
 				"Target"	"TARGET"
-				"EffectName"	"Hero_Sniper.attack"
+				"EffectName"	"Hero_Sniper.AssassinateDamage"
 			}
 		}
 	}
