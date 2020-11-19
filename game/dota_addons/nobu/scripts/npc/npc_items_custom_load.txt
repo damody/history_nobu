@@ -12549,21 +12549,6 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
 			"particle"	"particles/a17w/a17w.vpcf"
 		}
-		"OnSpellStart"
-		{
-
-			"RunScript"
-			{
-				"TARGET"	"POINT"
-				"ScriptFile"	"items/Addon_Items/item_satsuma_gun.lua"
-				"Function"	"Shock"
-			}
-			"FireSound"
-			{
-				"Target"	"CASTER"
-				"EffectName"	"Ability.Assassinate"
-			}
-		}
 		"Modifiers"
 		{
 			"Passive_lightning_katana"
@@ -12621,7 +12606,7 @@
 			"FireSound"
 			{
 				"Target"	"TARGET"
-				"EffectName"	"Hero_Sniper.AssassinateDamage"
+				"EffectName"	"Hero_Sniper.attack"
 			}
 		}
 	}
