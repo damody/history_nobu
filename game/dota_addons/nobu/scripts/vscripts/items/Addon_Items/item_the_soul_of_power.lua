@@ -74,7 +74,7 @@ function MVP_OnTakeDamage( event )
 					--紀錄到 table:Finished_game
 					print("FinishedGame")
 					-- GameRules:SendCustomMessage("記錄遊戲場次...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-					RECORD:StoreToFinishedGame({createtime=_G.createtime, endtime=_G.endtime},
+					RECORD:StoreToFinishedGame({createtime=_G.createtime, endtime=_G.endtime, isClient=_G.bGameFromClient},
 						function(game_id)
 							print(game_id)
 							local playersData = {};
