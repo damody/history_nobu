@@ -1,6 +1,7 @@
 -- 伊達政宗
 
 function B04W_Start( keys )
+	ProjectileManager:ProjectileDodge(keys.caster)
 	local caster = keys.caster
 	local center = caster:GetAbsOrigin()
 	local point = keys.target_points[1]

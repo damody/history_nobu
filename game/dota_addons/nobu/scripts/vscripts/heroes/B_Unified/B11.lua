@@ -232,6 +232,7 @@ end
 
 
 function B11F_OnSpellStart( keys )
+	ProjectileManager:ProjectileDodge(keys.caster)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability

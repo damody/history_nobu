@@ -1,5 +1,6 @@
 --上杉謙信	
 function B32W( keys )
+	ProjectileManager:ProjectileDodge(keys.caster)
 	local caster = keys.caster
 	local target = keys.target
 	local point = caster:GetAbsOrigin()
@@ -176,6 +177,7 @@ function FireEffect_IcePath2( event )
 end
 
 function B32E( keys )
+	ProjectileManager:ProjectileDodge(keys.caster)
 	local caster = keys.caster
 	local target = keys.target
 	local point = caster:GetAbsOrigin()
