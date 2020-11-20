@@ -44,6 +44,7 @@ end
 
 
 function C08E_OnSpellStart( keys )
+	ProjectileManager:ProjectileDodge(keys.caster)
 	local caster = keys.caster
 	local ability = keys.ability
 	for i=1,5 do

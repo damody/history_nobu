@@ -154,6 +154,9 @@ function Shock_new ( keys )
 		unit:SetDeathXP(0)
 		unit:AddAbility("set_level_1"):SetLevel(1)
 		local hp = (unit:GetMaxHealth() + 150)
+		if caster.great_sword_of_disease then
+			hp = hp * 1.5
+		end
 		unit:SetBaseMaxHealth(hp * 2 + A_count * 8)
 		local dmgmax = unit:GetBaseDamageMax()
 		local dmgmin = unit:GetBaseDamageMin()
@@ -177,6 +180,9 @@ function Shock_new ( keys )
 			unit:AddAbility("set_level_1"):SetLevel(1)
 			unit:AddAbility("forest_truesight"):SetLevel(1)
 			local hp = unit:GetMaxHealth()
+			if caster.great_sword_of_disease then
+				hp = hp *1.5
+			end
 			unit:SetBaseMaxHealth(hp * 2 + A_count * 8)
 			local dmgmax = unit:GetBaseDamageMax()
 			local dmgmin = unit:GetBaseDamageMin()

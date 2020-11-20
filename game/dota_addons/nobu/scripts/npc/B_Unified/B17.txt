@@ -494,6 +494,11 @@
 				"var_type"			"FIELD_INTEGER"
 				"B17T_duration"		"30 45 60"
 			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"B17T_spelltimes"	"1 2 3"
+			}
 		}
 	}
 

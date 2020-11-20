@@ -1,4 +1,5 @@
 function C11W_start( keys )
+	ProjectileManager:ProjectileDodge(keys.caster)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability

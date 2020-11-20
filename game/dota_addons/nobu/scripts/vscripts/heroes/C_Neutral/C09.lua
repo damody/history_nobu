@@ -79,6 +79,7 @@ function C09E_OnSpellStart( keys )
 end
 
 function C09R_OnSpellStart( keys )
+	ProjectileManager:ProjectileDodge(keys.caster)
 	local caster = keys.caster
 	local ability = keys.ability
 	local point = ability:GetCursorPosition()

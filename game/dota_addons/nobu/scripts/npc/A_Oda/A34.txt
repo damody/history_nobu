@@ -58,6 +58,7 @@
 			}
 			"TrackingProjectile"
 			{
+				"Dodgeable"	"1"
 				"Target"	"TARGET"
 				"EffectName"	"particles/a34w/a34w.vpcf"
 				"MoveSpeed"	"2000"
@@ -602,6 +603,7 @@
 			}
 			"TrackingProjectile"
 			{
+				"Dodgeable"	"1"
 				"Target"	"TARGET"
 				"EffectName"	"particles/a34w/a34w.vpcf"
 				"MoveSpeed"	"1500"
@@ -1076,6 +1078,7 @@
 			}
 			"TrackingProjectile"
 			{
+				"Dodgeable"	"1"
 				"Target"	"TARGET"
 				"EffectName"	"particles/a34w/a34w.vpcf"
 				"MoveSpeed"	"2000"

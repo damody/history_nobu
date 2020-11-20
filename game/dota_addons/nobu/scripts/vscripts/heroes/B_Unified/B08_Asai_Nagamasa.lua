@@ -35,6 +35,7 @@ function B08D_Copy(u, u2, ability)
 end
 
 function B08D_old( keys )
+	ProjectileManager:ProjectileDodge(keys.caster)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
@@ -98,6 +99,7 @@ function B08D_old( keys )
 end
 
 function B08E_Action( keys )
+	ProjectileManager:ProjectileDodge(keys.caster)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability

@@ -304,6 +304,8 @@ end
 function B16MMD( keys )
 	local caster = keys.caster
 	local target = keys.ability.target -- 需要手動添加
+	ProjectileManager:ProjectileDodge(caster)
+	ProjectileManager:ProjectileDodge(target)
 	local posA = caster:GetAbsOrigin()
 	local posB = target:GetAbsOrigin()
 
