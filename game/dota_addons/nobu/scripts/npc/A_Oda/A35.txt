@@ -52,6 +52,7 @@
 			}
 			"TrackingProjectile"
 			{
+				"Dodgeable"	"1"
 				"Target"	"TARGET"
 				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite.vpcf"
 				"MoveSpeed"	"5000"
@@ -338,6 +339,7 @@
 			}
 			"TrackingProjectile"
 			{
+				"Dodgeable"	"1"
 				"Target"	"TARGET"
 				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite.vpcf"
 				"MoveSpeed"	"5000"

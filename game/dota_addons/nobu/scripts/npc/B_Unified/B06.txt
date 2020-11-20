@@ -193,6 +193,7 @@
 			}
 			"TrackingProjectile"
 			{
+				"Dodgeable"	"1"
 				"Target"	"TARGET"
 				"EffectName"	"particles/b06e2/b06e2.vpcf"
 				"MoveSpeed"	"900"
@@ -293,6 +294,7 @@
 			}
 			"TrackingProjectile"
 			{
+				"Dodgeable"	"1"
 				"Target"	"TARGET"
 				"EffectName"	"particles/b06e2/b06e2.vpcf"
 				"MoveSpeed"	"3000"

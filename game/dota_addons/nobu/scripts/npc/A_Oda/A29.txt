@@ -127,6 +127,7 @@
 				{
 					"TrackingProjectile"
 					{
+						"Dodgeable"	"1"
 						"Target"	"TARGET"
 						"EffectName"	"particles/units/heroes/hero_viper/viper_viper_strike.vpcf"
 						"MoveSpeed"	"%projectile_speed"
@@ -771,6 +772,7 @@
 			"TrackingProjectile"
 			{
 				"Target"	"TARGET"
+				"Dodgeable"	"1"
 				"EffectName"	"particles/units/heroes/hero_viper/viper_viper_strike.vpcf"
 				"MoveSpeed"	"%projectile_speed"
 				"SourceAttachment"	"DOTA_PROJECTILE_ATTACHMENT_ATTACK_1"

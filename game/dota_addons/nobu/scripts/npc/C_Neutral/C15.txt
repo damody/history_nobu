@@ -72,7 +72,7 @@
 					{
 						"Target"           	"TARGET"
 						"EffectName"		"particles/econ/items/drow/drow_bow_monarch/drow_frost_arrow_monarch.vpcf"
-						"Dodgeable"			"0"
+						"Dodgeable"			"1"
 						"ProvidesVision"	"0"
 						"VisionRadius"		"0"
 						"MoveSpeed"        	"1500"
