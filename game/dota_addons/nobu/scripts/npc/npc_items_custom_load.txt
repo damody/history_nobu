@@ -1457,7 +1457,7 @@
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q03_2/q03_2.vpcf"
 		// Item Info
-		
+		"AbilitySharedCooldown"	"share_forest_scroll"
 		"ItemCost"	"2350"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -12760,6 +12760,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilitySharedCooldown"	"share_forest_scroll"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"30"
@@ -13045,6 +13046,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilitySharedCooldown"	"share_forest_scroll"
 		"FightRecapLevel"	"1"		
 		"AbilityCooldown"	"60"		
 		"AbilityManaCost"	"350"
@@ -13758,6 +13760,7 @@
 		"FightRecapLevel"	"1"	
 		"AbilityCastRange"	"400"	
 		"AbilityCooldown"	"20"
+		"AbilitySharedCooldown"	"share_forest_scroll"
 		"AbilityManaCost"	"75"
 		"ID"	"2503"
 		"ItemQuality"	"component"

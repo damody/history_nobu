@@ -193,14 +193,16 @@ function B17T_OnSpellStart( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	caster.B17T_OnAbility = nil
+	local spelltimes = ability:GetSpecialValueFor("B17T_spelltimes")
+	caster.B17T_OnAbility = spelltimes
 end
 
 function B17T_OnAbilityExecuted( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	if caster.B17T_OnAbility ~= nil then
+
+	if caster.B17T_OnAbility <= 0 then
 		caster:RemoveModifierByName( "modifier_B17T" )
 		--caster:RemoveModifierByName( "modifier_invisible" )
 	else
@@ -213,7 +215,7 @@ function B17T_OnAbilityExecuted( keys )
 				end
 			end
 			end)
-		caster.B17T_OnAbility = 1
+		caster.B17T_OnAbility = caster.B17T_OnAbility - 1
 	end
 end
 
