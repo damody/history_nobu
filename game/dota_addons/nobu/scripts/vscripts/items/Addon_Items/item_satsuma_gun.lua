@@ -63,13 +63,8 @@ function OnProjectileHit ( keys )
     local ability = keys.ability
     local damage = caster:GetAverageTrueAttackDamage(target)
     if not target:IsMagicImmune() then
-        if caster:GetBaseAttackRange() < 200 then
             AMHC:Damage(caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
             caster:PerformAttack(target,true,true,true,false,false,true,true)
-        else
-            caster:PerformAttack(target,true,true,true,false,false,true,true)
-        end
-
     end
 end
 

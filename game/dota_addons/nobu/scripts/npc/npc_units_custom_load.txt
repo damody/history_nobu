@@ -3962,7 +3962,7 @@
 	{
 		// General
 		// ----------------------------------------------------------------
-		"BaseClass"	"npc_dota_creep_lane"
+		"BaseClass"	"npc_dota_creature"
 		// Add model
 		"Model"	"models/ashigaru/infantry_oda_1.vmdl"
 		"ModelScale"	"0.9"
@@ -4013,7 +4013,7 @@
 	{
 		// General
 		// ----------------------------------------------------------------
-		"BaseClass"	"npc_dota_creep_lane"
+		"BaseClass"	"npc_dota_creature"
 		// Add model
 		"Model"	"models/ashigaru/infantry_unified_1.vmdl"
 		"ModelScale"	"0.9"
@@ -4066,7 +4066,7 @@
 	{
 		// General
 		// ----------------------------------------------------------------
-		"BaseClass"	"npc_dota_creep_lane"
+		"BaseClass"	"npc_dota_creature"
 		// Add model
 		"Model"	"models/archer/archer_oda_1.vmdl"
 		"ModelScale"	"0.9"
@@ -4117,7 +4117,7 @@
 	{
 		// General
 		// ----------------------------------------------------------------
-		"BaseClass"	"npc_dota_creep_lane"
+		"BaseClass"	"npc_dota_creature"
 		// Add model
 		"Model"	"models/archer/archer_unified_2.vmdl"
 		"ModelScale"	"0.9"
