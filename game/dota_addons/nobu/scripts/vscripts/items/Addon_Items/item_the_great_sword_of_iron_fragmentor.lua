@@ -48,7 +48,7 @@ function DealDamage( keys )
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
 		damage_table.victim = unit
-		ApplyDamage(damage_table)
+		
 		local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_riki/riki_backstab_hit_blood.vpcf",PATTACH_POINT,unit)
 		ParticleManager:ReleaseParticleIndex(ifx)
 
@@ -57,6 +57,7 @@ function DealDamage( keys )
 		ParticleManager:ReleaseParticleIndex(ifx)
 
 		EmitSoundOn("Hero_Abaddon.Attack",unit)
+		ApplyDamage(damage_table)
 	end
 end
 

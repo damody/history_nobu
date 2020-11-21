@@ -371,8 +371,8 @@ function C01E_old_spell_start( keys )
 			}
 			-- 配合特效延遲傷害造成時間
 			Timers:CreateTimer(0.5, function()
-				ApplyDamage(damage_table)
 				ability:ApplyDataDrivenModifier(caster,unit,"modifier_C01E_old_debuff",{})
+				ApplyDamage(damage_table)
 			end)
 		end
 		-- 特效

@@ -61,11 +61,11 @@ function modifier_item_the_great_sword_of_sunflower_pattern_echizen_kang_followi
 		for i,unit in ipairs(link_table) do
 			if IsValidEntity(unit) then
 				damage_table.victim = unit
-				ApplyDamage(damage_table)
 				local ifx = ParticleManager:CreateParticle("particles/item/item_the_great_sword_of_sunflower_pattern_echizen_kang_following/item_the_great_sword_of_sunflower_pattern_echizen_kang_following_damage.vpcf",PATTACH_POINT_FOLLOW,caster)
 				ParticleManager:SetParticleControlEnt(ifx,0,caster,PATTACH_POINT_FOLLOW,"attach_hitloc",caster:GetAbsOrigin(),true)
 				ParticleManager:SetParticleControlEnt(ifx,1,unit,PATTACH_POINT_FOLLOW,"attach_hitloc",unit:GetAbsOrigin(),true)
 				ifx_table[i] = ifx
+				ApplyDamage(damage_table)
 			end
 		end
 

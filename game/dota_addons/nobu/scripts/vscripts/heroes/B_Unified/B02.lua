@@ -543,9 +543,8 @@ function B02T_old_fire_thunder( keys )
 				local center = target:GetAbsOrigin()
 				local start_pos = Vector(center.x+dx, center.y+dy, center.z+300) 
 				B02T_old_jump_init(keys, start_pos)
-
-				ApplyDamage({victim = target, attacker = caster, damage = base_damage, damage_type = ability:GetAbilityDamageType()})
 				ability:ApplyDataDrivenModifier(caster,target,"modifier_arc_lightning_datadriven",{})
+				ApplyDamage({victim = target, attacker = caster, damage = base_damage, damage_type = ability:GetAbilityDamageType()})
 			end
 		end)
 	end

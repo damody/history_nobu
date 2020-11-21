@@ -171,12 +171,13 @@ function B14W_old_OnSpellStart( keys )
 		damage_flags = DOTA_DAMAGE_FLAG_NONE,
 	}
 	ApplyDamage(damageTable)
-
-	ExecuteOrderFromTable({
-		UnitIndex = caster:entindex(),
-		OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-		TargetIndex = target:entindex()
-	})
+	if IsValidEntity(target) then
+		ExecuteOrderFromTable({
+			UnitIndex = caster:entindex(),
+			OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+			TargetIndex = target:entindex()
+		})
+	end
 end
 
 function B14E_old_OnSpellStart( keys )

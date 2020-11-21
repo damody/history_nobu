@@ -282,12 +282,6 @@ function B35T_old_OnSpellStart( keys )
 	local epos = target:GetAbsOrigin() + direction * 400
 	caster:Stop()
 	target:Stop()
-	ApplyDamage({
-		attacker=caster,
-		victim=target,
-		damage_type=damage_type,
-		damage=1
-	})
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_B35T_old_stunned",{duration=play_time2})
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_B35T_old_playing",{duration=play_time})
 	Timers:CreateTimer(0.15, function ()
@@ -365,17 +359,19 @@ function B35T_old_OnSpellStart( keys )
 	Timers:CreateTimer(play_time, function()
 		ParticleManager:DestroyParticle(arena,false)
 		-- 爆炸特效
-		local ifx = ParticleManager:CreateParticle("particles/econ/items/invoker/invoker_apex/invoker_sun_strike_immortal1.vpcf",PATTACH_ABSORIGIN,target)
-		ParticleManager:SetParticleControl(ifx,1,Vector(1))
-		ParticleManager:ReleaseParticleIndex(ifx)
-		target:RemoveModifierByNameAndCaster("modifier_B35T_old_playing",caster)
-		
-		ApplyDamage({
-			attacker=caster,
-			victim=target,
-			damage_type=damage_type,
-			damage=damage
-		})
+		if IsValidEntity(target) then
+			local ifx = ParticleManager:CreateParticle("particles/econ/items/invoker/invoker_apex/invoker_sun_strike_immortal1.vpcf",PATTACH_ABSORIGIN,target)
+			ParticleManager:SetParticleControl(ifx,1,Vector(1))
+			ParticleManager:ReleaseParticleIndex(ifx)
+			target:RemoveModifierByNameAndCaster("modifier_B35T_old_playing",caster)
+			
+			ApplyDamage({
+				attacker=caster,
+				victim=target,
+				damage_type=damage_type,
+				damage=damage
+			})
+		end
 		caster:EmitSound( "B35T.end")
 		
 
@@ -406,4 +402,10 @@ function B35T_old_OnSpellStart( keys )
 			B35T_Copy(caster, target, ability)
 		--	end)
 	end
+	ApplyDamage({
+		attacker=caster,
+		victim=target,
+		damage_type=damage_type,
+		damage=1
+	})
 end

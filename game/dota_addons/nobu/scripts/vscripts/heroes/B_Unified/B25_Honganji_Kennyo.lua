@@ -27,17 +27,6 @@ function mana_burn_function( keys )
 	if target:IsMagicImmune() then
 		mana_to_burn = 0
 	end
-	
-	-- Apply effect of ability
-	target:ReduceMana( mana_to_burn )
-	local damageTable = {
-		victim = target,
-		attacker = caster,
-		damage = mana_to_burn,
-		damage_type = damageType
-	}
-	ApplyDamage( damageTable )
-	
 	-- Show VFX
 	if mana_to_burn ~= 0 then
 		local numberIndex = ParticleManager:CreateParticle( number_particle_name, PATTACH_OVERHEAD_FOLLOW, target )
@@ -53,6 +42,15 @@ function mana_burn_function( keys )
 			end
 		)
 	end
+	-- Apply effect of ability
+	target:ReduceMana( mana_to_burn )
+	local damageTable = {
+		victim = target,
+		attacker = caster,
+		damage = mana_to_burn,
+		damage_type = damageType
+	}
+	ApplyDamage( damageTable )
 end
 
 function B25W_old_OnSpellStart( keys )

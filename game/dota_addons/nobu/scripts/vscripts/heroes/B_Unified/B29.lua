@@ -234,8 +234,8 @@ function B29E_old_OnSpellStart( keys )
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
 		damage_table.victim = unit
-		ApplyDamage(damage_table)
 		ability:ApplyDataDrivenModifier(caster,unit,"modifier_B29E_old_debuff", nil)
+		ApplyDamage(damage_table)
 	end
 end
 

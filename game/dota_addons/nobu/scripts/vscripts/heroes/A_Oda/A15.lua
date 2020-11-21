@@ -213,11 +213,11 @@ function A15R_bounceAttack(keys)
 		if _G.EXCLUDE_TARGET_NAME2[target:GetUnitName()] then
 			damage_table.damage = damage_table.damage * 0.5
 		end
-		ApplyDamage( damageTable )
 		if caster:HasModifier("modifier_A15T") then
 			local lifeSteal = caster:FindAbilityByName("A15T"):GetSpecialValueFor("A15T_lifeSteal")
 			A15_LifeSteal( caster, target, new_damage, lifeSteal )
 		end
+		ApplyDamage( damageTable )
 	end
 
 	-- Decrements our jump count for this instance

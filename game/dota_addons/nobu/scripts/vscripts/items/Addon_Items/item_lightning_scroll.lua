@@ -39,12 +39,6 @@ function Shock( keys )
 	ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControl(particle,0, point + vec * 100)
 	ParticleManager:SetParticleControl(particle,1, point2 + Vector(0,0,100))
-	--【DMG】
-	if not target:IsHero() and target:FindAbilityByName("for_cp_position") then
-		ApplyDamage({ victim = target, attacker = caster, damage = damage*0.7, damage_type = AbilityDamageType})
-	else
-		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = AbilityDamageType})
-	end
 	
 	target.has_D09 = true
 
@@ -80,9 +74,16 @@ function Shock( keys )
 	end
 
 	for _,unit in pairs(cone_units) do
-		unit.has_D09 = nil
+		if IsValidEntity(unit) then
+			unit.has_D09 = nil
+		end
 	end
-
+	--【DMG】
+	if not target:IsHero() and target:FindAbilityByName("for_cp_position") then
+		ApplyDamage({ victim = target, attacker = caster, damage = damage*0.7, damage_type = AbilityDamageType})
+	else
+		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = AbilityDamageType})
+	end
 	--【SOUND】
 	caster:EmitSound("ITEM_D09.sound")
 	Timers:CreateTimer(2,function()

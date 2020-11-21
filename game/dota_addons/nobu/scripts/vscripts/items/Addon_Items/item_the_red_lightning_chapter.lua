@@ -42,8 +42,7 @@ function Shock( keys )
 
 	-- ParticleManager:SetParticleControl(lightningBolt,0,Vector(point.x,point.y,caster:GetAbsOrigin().z + caster:GetBoundingMaxs().z ))	
 	-- ParticleManager:SetParticleControl(lightningBolt,1,Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
-	--【DMG】
-	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = AbilityDamageType})
+	
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_muted", {})
 	target.has_D09 = true
 	-- target:EmitSound("Hero_ShadowShaman.EtherShock.Target")
@@ -67,10 +66,10 @@ function Shock( keys )
 				particle = ParticleManager:CreateParticle(particleName,PATTACH_POINT,caster)
 				ParticleManager:SetParticleControl(particle,0, point + vec * 100)
 				ParticleManager:SetParticleControl(particle,1, tem_point)
-			
+				ability:ApplyDataDrivenModifier(caster, unit, "modifier_muted", {duration = 1})
 				--【DMG】
 				ApplyDamage({ victim = unit, attacker = caster, damage = damage, damage_type = AbilityDamageType})
-				ability:ApplyDataDrivenModifier(caster, unit, "modifier_muted", {duration = 1})
+				
 				-- Increment counter
 				targets_shocked = targets_shocked + 1
 			end
@@ -80,9 +79,12 @@ function Shock( keys )
 	end
 
 	for _,unit in pairs(cone_units) do
-		unit.has_D09 = nil
+		if IsValidEntity(unit) then
+			unit.has_D09 = nil
+		end
 	end
-
+	--【DMG】
+	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = AbilityDamageType})
 	--【SOUND】
 	caster:EmitSound("ITEM_D09.sound")
 	--target:EmitSound("ITEM_D09.sound")

@@ -337,22 +337,24 @@ function C08R_modifier:OnIntervalThink()
 					if target_filter[it:GetUnitName()] or (not string.match(it:GetUnitName(), "npc_dota_courier2") and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil and not it:HasAbility("majia")) then
 						ApplyDamage({ victim = it, attacker = self:GetCaster(), damage = self.hook_damage, 
 							damage_type = self.damage_type, ability = self:GetAbility()})
- 						it:AddNewModifier(self:GetCaster(),self:GetAbility(),"modifier_stunned",{duration = self:GetAbility():GetSpecialValueFor("stun_time")})
-						hashook = true
-						if (it:HasModifier("modifier_invisible")) then
-							it:RemoveModifierByName("modifier_invisible")
-						end
-						caster:AddNewModifier(caster, self:GetCaster(), "C08R_hook_back", { duration = 2}) 
-						caster:AddNewModifier(caster,nil,"modifier_phased",{duration=1})
-						local hModifier = caster:FindModifierByNameAndCaster("C08R_hook_back", caster)
-						if (hModifier ~= nil) then
-							self.path[self.interval_Count + 1] = it:GetAbsOrigin()
-							hModifier.path = self.path
-							hModifier.max_interval_Count = self.interval_Count + 1
-							hModifier.interval_Count = 1
-							hModifier.particle = self.particle
-							hModifier.target = it
-							break
+						if IsValidEntity(it) then
+							it:AddNewModifier(self:GetCaster(),self:GetAbility(),"modifier_stunned",{duration = self:GetAbility():GetSpecialValueFor("stun_time")})
+							hashook = true
+							if (it:HasModifier("modifier_invisible")) then
+								it:RemoveModifierByName("modifier_invisible")
+							end
+							caster:AddNewModifier(caster, self:GetCaster(), "C08R_hook_back", { duration = 2}) 
+							caster:AddNewModifier(caster,nil,"modifier_phased",{duration=1})
+							local hModifier = caster:FindModifierByNameAndCaster("C08R_hook_back", caster)
+							if (hModifier ~= nil) then
+								self.path[self.interval_Count + 1] = it:GetAbsOrigin()
+								hModifier.path = self.path
+								hModifier.max_interval_Count = self.interval_Count + 1
+								hModifier.interval_Count = 1
+								hModifier.particle = self.particle
+								hModifier.target = it
+								break
+							end
 						end
 					end
 				end
@@ -606,6 +608,7 @@ function C08W_old_OnSpellStart( keys )
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
 		if not unit:IsMagicImmune() and not unit:IsBuilding() then
+			ability:ApplyDataDrivenModifier(caster,unit,"modifier_C08W_old_aoe",nil)
 			ApplyDamage({
 				victim = unit,
 				attacker = caster,
@@ -614,7 +617,6 @@ function C08W_old_OnSpellStart( keys )
 				damage_type = ability:GetAbilityDamageType(),
 				damage_flags = DOTA_DAMAGE_FLAG_NONE,
 			})
-			ability:ApplyDataDrivenModifier(caster,unit,"modifier_C08W_old_aoe",nil)
 		end
 	end
 	caster:AddNewModifier(caster,ability,"modifier_invisible",{duration=20})

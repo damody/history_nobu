@@ -73,7 +73,7 @@ function B04W_OnProjectileHitUnit( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-
+	EmitSoundOn("Hero_Clinkz.SearingArrows",target)
 	ApplyDamage({
 		victim = target,
 		attacker = caster,
@@ -82,7 +82,7 @@ function B04W_OnProjectileHitUnit( keys )
 		damage_type = ability:GetAbilityDamageType(),
 		--damage_flags = DOTA_DAMAGE_FLAG_NONE
 	})
-	EmitSoundOn("Hero_Clinkz.SearingArrows",target)
+	
 end
 
 function B04E_OnSpellStart( keys )
@@ -116,11 +116,11 @@ function B04E_OnSpellStart( keys )
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
 		damage_table.victim = unit
-		ApplyDamage(damage_table)
 		ability:ApplyDataDrivenModifier(caster, unit, "modifier_stunned", {duration=stun_time})
 		local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_ember_spirit/emberspirit_flame_shield_aoe_impact.vpcf",PATTACH_ABSORIGIN_FOLLOW,unit)
 		ParticleManager:SetParticleControl(ifx,1,point)
 		ParticleManager:ReleaseParticleIndex(ifx)
+		ApplyDamage(damage_table)
 	end
 
 	local ifx = ParticleManager:CreateParticle("particles/econ/items/monkey_king/arcana/fire/monkey_king_spring_arcana_fire.vpcf",PATTACH_WORLDORIGIN,nil)

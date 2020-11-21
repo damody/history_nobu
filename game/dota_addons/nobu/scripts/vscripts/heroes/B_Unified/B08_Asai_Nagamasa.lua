@@ -134,13 +134,6 @@ function B08E_Action( keys )
 	
 	-- Apply effect of ability
 	target:ReduceMana( mana_to_burn )
-	local damageTable = {
-		victim = target,
-		attacker = caster,
-		damage = mana_to_burn,
-		damage_type = damageType
-	}
-	ApplyDamage( damageTable )
 	
 	-- Show VFX
 	if mana_to_burn ~= 0 then
@@ -157,6 +150,14 @@ function B08E_Action( keys )
 			end
 		)
 	end
+
+	local damageTable = {
+		victim = target,
+		attacker = caster,
+		damage = mana_to_burn,
+		damage_type = damageType
+	}
+	ApplyDamage( damageTable )
 end
 
 function B08E_Action2( keys )

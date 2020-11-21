@@ -301,6 +301,13 @@ function B22T_old_OnSpellStart( keys )
 
 			-- 處理搜尋結果
 			for _,unit in ipairs(units) do
+				if unit:IsHero() then
+					ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration = stun})
+				elseif unit:IsBuilding() then
+					ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration = stun})
+				else
+					ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration = stun2})
+				end
 				ApplyDamage({
 					victim = unit,
 					attacker = caster,
@@ -309,13 +316,6 @@ function B22T_old_OnSpellStart( keys )
 					damage_type = ability:GetAbilityDamageType(),
 					damage_flags = DOTA_DAMAGE_FLAG_NONE,
 				})
-				if unit:IsHero() then
-					ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration = stun})
-				elseif unit:IsBuilding() then
-					ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration = stun})
-				else
-					ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration = stun2})
-				end
 			end
 			end)
 end

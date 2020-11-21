@@ -76,8 +76,7 @@ function C11W_hit_unit( keys )
 		damage_type = ability_type,
 		damage = ability_damage
 	}
-	ApplyDamage(damage_table)
-
+	
 	-- 消去法力
 	local remove_mana = target:GetMana() * (remove_mana_percentage / 100.0)
 	target:ReduceMana(remove_mana)
@@ -143,6 +142,7 @@ function C11W_hit_unit( keys )
 	projectile_table["Target"] = next_target
 	projectile_table["Source"] = target
 	ProjectileManager:CreateTrackingProjectile( projectile_table )
+	ApplyDamage(damage_table)
 end
 
 -- 產生一個單位讓他打
@@ -187,9 +187,9 @@ function C11R_start( keys )
 			damage_type = ability_type,
 			damage = ability_damage
 		}
-		ApplyDamage(damage_table)
 		-- 螢幕特效
 		CreateScreenEffect(unit)
+		ApplyDamage(damage_table)
 	end
 
 	-- 打雷特效
