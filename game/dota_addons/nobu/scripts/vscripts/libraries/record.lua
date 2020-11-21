@@ -58,7 +58,8 @@ function RECORD:StoreToFinishedGame(keys, callback)
         "POST",
         {
             createtime = tostring(keys.createtime),
-            endtime = tostring(keys.endtime)
+            endtime = tostring(keys.endtime),
+            isClient = tostring(keys.isClient)
         },
         function(res)
             if (string.match(res, "error")) or (string.match(res, "ERROR")) then
