@@ -81,7 +81,9 @@ function C11W_hit_unit( keys )
 	-- 消去法力
 	local remove_mana = target:GetMana() * (remove_mana_percentage / 100.0)
 	target:ReduceMana(remove_mana)
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_LOSS,target,remove_mana,nil)
+	if IsValidEntity(target) then
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_LOSS,target,remove_mana,nil)
+	end
 
 	-- 特效
 	local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning_head.vpcf",PATTACH_OVERHEAD_FOLLOW,target)
@@ -238,8 +240,6 @@ function C11T_on_attack_landed( keys )
 	-- 消去魔力
 	local remove_mana = target:GetMana()*(remove_mana_percentage/100.0)
 	target:ReduceMana(remove_mana)
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_LOSS,target,remove_mana,nil)
-
 	-- 傷害參數
 	local damage_table = {
 		victim = target,
@@ -256,7 +256,10 @@ function C11T_on_attack_landed( keys )
 	else
 		damage_table["damage"] = damage
 	end
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,target,damage_table["damage"],nil)
+	if IsValidEntity(target) then
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_LOSS,target,remove_mana,nil)
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,target,damage_table["damage"],nil)
+	end
 	ApplyDamage(damage_table)
 	--if caster.C11T_count == nil then
 	--	caster.C11T_count = 0
@@ -287,58 +290,6 @@ function C11T_stun( keys )
 	if target:IsMagicImmune() then return end
 end
 
-function C11T_20_on_attack_landed( keys )
-	local caster = keys.caster
-	local target = keys.target
-	local ability = keys.ability
-
-	-- 直接離開
-	-----------------------------------------
-	if target:IsBuilding() or target:GetMaxMana() == 0 then return end
-	-----------------------------------------
-
-	local damage = ability:GetAbilityDamage()
-	local remove_mana_percentage = ability:GetSpecialValueFor("remove_mana_percentage")
-	local bouns70 = 1.2
-	local bouns40 = 1.5
-	local bouns15 = 2.0
-
-	-- 特效
-	--local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_antimage/antimage_loadout.vpcf",PATTACH_POINT,target)
-	--local ifx = ParticleManager:CreateParticle("particles/econ/items/antimage/antimage_weapon_basher_ti5_gold/am_manaburn_basher_ti_5_gold.vpcf",PATTACH_POINT,target)
-	--local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_antimage/antimage_spellshield_reflect.vpcf",PATTACH_POINT,target)
-	local ifx = ParticleManager:CreateParticle("particles/c11/c11t_ntimage_manavoid_ti_5.vpcf",PATTACH_POINT,target)
-	ParticleManager:ReleaseParticleIndex(ifx)
-
-	-- 消去魔力
-	local remove_mana = target:GetMana()*(remove_mana_percentage/100.0)
-	target:ReduceMana(remove_mana)
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_LOSS,target,remove_mana,nil)
-
-	-- 傷害參數
-	local damage_table = {
-		victim = target,
-		attacker = caster,
-		damage_type = DAMAGE_TYPE_PURE,
-		damage = damage
-	}
-	
-	local current_mana_percentage = target:GetManaPercent()
-	if current_mana_percentage <= 15 then
-		damage_table["damage"] = damage * bouns15
-		-- 螢幕特效
-		CreateScreenEffect(target)
-	elseif current_mana_percentage <= 40 then
-		damage_table["damage"] = damage * bouns40
-		CreateScreenEffect(target)
-	elseif current_mana_percentage <= 70 then
-		damage_table["damage"] = damage * bouns70
-	else
-		damage_table["damage"] = damage
-	end
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,target,damage_table["damage"],nil)
-	ApplyDamage(damage_table)
-end
 
 function CreateScreenEffect( target )
 	if IsValidEntity(target) and target:IsHero() then 
@@ -406,8 +357,6 @@ function C11T_old_on_attack_landed( keys )
 		ParticleManager:ReleaseParticleIndex(ifx)
 	end
 	target:ReduceMana(remove_mana)
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_LOSS,target,remove_mana,nil)
-
 	-- 傷害參數
 	local damage_table = {
 		victim = target,
@@ -421,7 +370,10 @@ function C11T_old_on_attack_landed( keys )
 	else
 		damage_table["damage"] = remove_mana * damage_adjust_for_creep
 	end
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,target,damage_table["damage"],nil)
+	if IsValidEntity(target) then
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_LOSS,target,remove_mana,nil)
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,target,damage_table["damage"],nil)
+	end
 	ApplyDamage(damage_table)
 end
 

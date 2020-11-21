@@ -52,6 +52,10 @@ function A02W_OnOrbImpact( keys )
 	local ability = keys.ability
 	local damage = ability:GetAbilityDamage()
 	if not target:IsBuilding() and not target:IsMagicImmune() then
+		if IsValidEntity(target) then
+			SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_POISON_DAMAGE,target,damage,nil)
+			ability:ApplyDataDrivenModifier(caster,target,"modifier_A02W_debuff",{})
+		end
 		ApplyDamage({
 			victim = target,
 			attacker = caster,
@@ -60,8 +64,7 @@ function A02W_OnOrbImpact( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			-- damage_flags = DOTA_DAMAGE_FLAG_NONE
 		})
-		ability:ApplyDataDrivenModifier(caster,target,"modifier_A02W_debuff",{})
-		SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_POISON_DAMAGE,target,damage,nil)
+		
 	end
 end
 
@@ -71,7 +74,9 @@ function A02E_OnSpellStart( keys )
 	local hp_recover = ability:GetSpecialValueFor("hp_recover")
 
 	caster:Heal(hp_recover,caster)
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_HEAL,caster,hp_recover,nil)
+	if IsValidEntity(caster) then
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_HEAL,caster,hp_recover,nil)
+	end
 
 	local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_borrowed_time_heal.vpcf",PATTACH_ABSORIGIN_FOLLOW,caster)
 	ParticleManager:SetParticleControlEnt(ifx,1,caster,PATTACH_POINT_FOLLOW,"attach_hitloc",caster:GetAbsOrigin(),true)
@@ -120,7 +125,9 @@ function A02W_old_apply_dot( keys )
 		damage_type = ability:GetAbilityDamageType(),
 		-- damage_flags = DOTA_DAMAGE_FLAG_NONE
 	})
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_POISON_DAMAGE,target,damage,nil)
+	if IsValidEntity(target) then
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_POISON_DAMAGE,target,damage,nil)
+	end
 end
 
 function A02R_old_OnSpellStart( keys )

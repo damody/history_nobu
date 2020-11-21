@@ -392,6 +392,11 @@ function C02T_OnSpellStart( keys )
 		SendOverheadEventMessage(nil,OVERHEAD_ALERT_DENY,target,0,nil)
 		-- 暈眩
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration=stun_time})
+		-- 處決失敗特效
+		local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_siren/naga_siren_siren_song_cast.vpcf",PATTACH_ABSORIGIN,target)
+		ParticleManager:ReleaseParticleIndex(ifx)
+		-- 擴散傷害修改器
+		ability:ApplyDataDrivenModifier(caster,caster,"modifier_C02T_aoe",nil)
 		-- 製造傷害
 		ApplyDamage({
 			attacker=caster,
@@ -399,11 +404,7 @@ function C02T_OnSpellStart( keys )
 			damage_type=DAMAGE_TYPE_MAGICAL,
 			damage=damage
 		})
-		-- 處決失敗特效
-		local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_siren/naga_siren_siren_song_cast.vpcf",PATTACH_ABSORIGIN,target)
-		ParticleManager:ReleaseParticleIndex(ifx)
-		-- 擴散傷害修改器
-		ability:ApplyDataDrivenModifier(caster,caster,"modifier_C02T_aoe",nil)
+		
 	end
 end
 
@@ -447,11 +448,13 @@ function C02T_OnAttack( keys )
 			damage = aoe_damage
 		})
 		-- 跳數字
-		SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,unit,aoe_damage,nil)
-		-- 特效
-		local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_siren/naga_siren_riptide.vpcf",PATTACH_POINT_FOLLOW,unit)
-		ParticleManager:SetParticleControl(ifx,1,Vector(200,200,200))
-		ParticleManager:ReleaseParticleIndex(ifx)
+		if IsValidEntity(unit) then
+			SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,unit,aoe_damage,nil)
+			-- 特效
+			local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_siren/naga_siren_riptide.vpcf",PATTACH_POINT_FOLLOW,unit)
+			ParticleManager:SetParticleControl(ifx,1,Vector(200,200,200))
+			ParticleManager:ReleaseParticleIndex(ifx)
+		end
 	end
 end
 
@@ -592,12 +595,16 @@ function C02E_old_steal( keys )
 	})
 
 	target:ReduceMana(steal_mp)
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,target,steal_hp,nil)
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_LOSS,target,steal_mp,nil)
+	if IsValidEntity(target) then
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,target,steal_hp,nil)
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_LOSS,target,steal_mp,nil)
+	end
 	caster:Heal(steal_hp,caster)
 	caster:SetMana(caster:GetMana()+steal_mp)
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_HEAL,caster,steal_hp,nil)
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_ADD,caster,steal_mp,nil)
+	if IsValidEntity(caster) then
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_HEAL,caster,steal_hp,nil)
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_ADD,caster,steal_mp,nil)
+	end
 end
 
 function C02E_old_OnUnitMoved( keys )
