@@ -270,6 +270,9 @@ function A13W( event )
 							illusion[i]:AddItem(newItem)
 						end
 					end
+					
+					illusion[i]:AddNewModifier(illusion[i], ability, "modifier_stunned", { duration = 0.5 })
+					illusion[i]:AddNewModifier(illusion[i], ability, "modifier_invulnerable", { duration = 0.8 })
 					-- Set the unit as an illusion
 					-- modifier_illusion controls many illusion properties like +Green damage not adding to the unit damage, not being able to cast spells and the team-only blue particle
 					illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, outgoing_damage = -1000, incoming_damage = incomingDamage })
@@ -278,7 +281,6 @@ function A13W( event )
 
 					illusion[i]:SetHealth(caster:GetHealth())
 					illusion[i].illusion_damage = 0.1
-					illusion[i]:AddNewModifier(illusion[i], ability, "modifier_stunned", { duration = 0.5 })
 					--分身不能用法球
 					--illusion[i].nobuorb1 = "illusion"
 					--illusion[i]:SetRenderColor(255,0,255)
@@ -659,7 +661,7 @@ function a13e_modifier:OnIntervalThink()
 			                          false)
 
 				for _,it in pairs(direUnits) do
-					if it ~= caster and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil and not it:HasAbility("majia") then
+					if  not string.match(it:GetUnitName(), "npc_dota_courier2") and it ~= caster and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil and not it:HasAbility("majia") then
 						hashook = true
 						it:AddNewModifier(it, self:GetCaster(), "a13e_hook_back", { duration = 2}) 
 						local hModifier = it:FindModifierByNameAndCaster("a13e_hook_back", it)
