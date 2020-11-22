@@ -35,7 +35,7 @@ end
 	FURION CAN YOU TP TOP? FURION CAN YOU TP TOP? CAN YOU TP TOP? FURION CAN YOU TP TOP? 
 ]]
 function Teleport( event )
-	ProjectileManager:ProjectileDodge(keys.caster)
+	-- ProjectileManager:ProjectileDodge(keys.caster)
 	local caster = event.caster
 	local ability = event.ability
 	--local point = event.target_points[1]
