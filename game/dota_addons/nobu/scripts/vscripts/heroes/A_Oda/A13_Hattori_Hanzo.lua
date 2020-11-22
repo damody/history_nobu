@@ -210,7 +210,6 @@ function A13W( event )
 	local origin_go_index = RandomInt(1, people)
 	local random_angle = RandomInt(-20, 20) * 0.1
 	local origin_pos = caster:GetOrigin()
-
 	local am = caster:FindAllModifiers()
 	caster:AddNewModifier(caster, ability, "modifier_stunned", { duration = 0.5 })
 	caster:AddNewModifier(caster, ability, "modifier_invulnerable", { duration = 0.8 })
@@ -251,10 +250,10 @@ function A13W( event )
 					-- Set the skill points to 0 and learn the skills of the caster
 					illusion[i]:SetAbilityPoints(0)
 					for abilitySlot=0,15 do
-						local ability = caster:GetAbilityByIndex(abilitySlot)
-						if ability ~= nil then 
-							local abilityLevel = ability:GetLevel()
-							local abilityName = ability:GetAbilityName()
+						local xability = caster:GetAbilityByIndex(abilitySlot)
+						if xability ~= nil then 
+							local abilityLevel = xability:GetLevel()
+							local abilityName = xability:GetAbilityName()
 							local illusionAbility = illusion[i]:FindAbilityByName(abilityName)
 							if (illusionAbility ~= nil) then
 								illusionAbility:SetLevel(abilityLevel)
@@ -271,7 +270,6 @@ function A13W( event )
 							illusion[i]:AddItem(newItem)
 						end
 					end
-
 					-- Set the unit as an illusion
 					-- modifier_illusion controls many illusion properties like +Green damage not adding to the unit damage, not being able to cast spells and the team-only blue particle
 					illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, outgoing_damage = -1000, incoming_damage = incomingDamage })
@@ -284,9 +282,7 @@ function A13W( event )
 					--分身不能用法球
 					--illusion[i].nobuorb1 = "illusion"
 					--illusion[i]:SetRenderColor(255,0,255)
-					if caster:HasModifier("modifier_perceive_wine") then
-						ability:ApplyDataDrivenModifier(illusion[i],illusion[i],"modifier_perceive_wine",nil)
-					end
+					
 				end
 			else
 				return nil
