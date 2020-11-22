@@ -7365,7 +7365,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
 				}
 			}
-						"modifier_spear_of_saddle2"
+			"modifier_spear_of_saddle2"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -9523,7 +9523,7 @@
 				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
-			"Passive_scream_of_spiders"
+			"Passive_scream_of_spiders2"
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
