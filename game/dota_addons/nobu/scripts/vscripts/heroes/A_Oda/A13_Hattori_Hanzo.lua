@@ -212,7 +212,8 @@ function A13W( event )
 	local origin_pos = caster:GetOrigin()
 
 	local am = caster:FindAllModifiers()
-	caster:AddNewModifier(caster, ability, "modifier_invulnerable", { duration = 0.6 })
+	caster:AddNewModifier(caster, ability, "modifier_stunned", { duration = 0.5 })
+	caster:AddNewModifier(caster, ability, "modifier_invulnerable", { duration = 0.8 })
 	for _,v in pairs(am) do
 		if v:GetParent():GetTeamNumber() ~= caster:GetTeamNumber() or v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber() then
 			caster:RemoveModifierByName(v:GetName())
@@ -279,6 +280,7 @@ function A13W( event )
 
 					illusion[i]:SetHealth(caster:GetHealth())
 					illusion[i].illusion_damage = 0.1
+					illusion[i]:AddNewModifier(illusion[i], ability, "modifier_stunned", { duration = 0.5 })
 					--分身不能用法球
 					--illusion[i].nobuorb1 = "illusion"
 					--illusion[i]:SetRenderColor(255,0,255)
