@@ -4,6 +4,12 @@
 	Date: April 4, 2015.
 	Finds targets to fire the ether shock effect and damage.
 ]]
+function quick_cooldown(ability, cd_reduce)
+	local cooldown = ability:GetCooldown(-1)
+	local current_cooldown = ability:GetCooldownTime()
+	ability:EndCooldown()
+	ability:StartCooldown(current_cooldown - cd_reduce)
+end
 function Shock( keys )
 	local caster = keys.caster
 	local target = keys.target
@@ -182,4 +188,8 @@ function tableContains(list, element)
         end
     end
     return false
+end
+
+function cd20( event )
+	quick_cooldown(event.ability, 20)
 end
