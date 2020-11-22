@@ -69,7 +69,8 @@ function MVP_OnTakeDamage( event )
 				for hh, mm, ss in string.gmatch(tostring(GetSystemTime()), "(%w+):(%w+):(%w+)") do
 					_G.endtime = string.format("%s%02d%02d%02d",_G.endtime, hh, mm, ss)
 				end
-				if _G.isRecord == false and _G.matchCount >= _G.recordCount then
+				-- if _G.isRecord == false and _G.matchCount >= _G.recordCount then
+				if _G.isRecord == false then
 					_G.isRecord = true;
 					--紀錄到 table:Finished_game
 					print("FinishedGame")
