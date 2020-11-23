@@ -716,8 +716,11 @@ function Nobu:eventfororder( filterTable )
 		
 	elseif ordertype == DOTA_UNIT_ORDER_PICKUP_RUNE then --15
 	elseif ordertype == DOTA_UNIT_ORDER_PURCHASE_ITEM then --16
+		PrintTable(filterTable)
 		local itemID = filterTable.entindex_ability
 		local itemName = Containers.itemIDs[itemID]
+		local item = EntIndexToHScript(filterTable.entindex_ability)
+		local item_cost = GetItemCost(itemName)
 		if itemName == nil then
 			return false
 		end
@@ -735,7 +738,10 @@ function Nobu:eventfororder( filterTable )
 			end
 		end
     	if filterTable.units ~= nil and filterTable.units["0"] ~= nil then
-	    	local unit = EntIndexToHScript(filterTable.units["0"])
+			local unit = EntIndexToHScript(filterTable.units["0"])
+			if _G.SpentGold[unit:GetPlayerOwnerID()] + item_cost > _G.PlayerEarnedGold[unit:GetPlayerOwnerID()] then
+				return false
+			end
 	    	local items_nosell = {
 		    	["item_reward6300"] = true,
 		    	["item_c06e"] = true,
