@@ -461,7 +461,6 @@
 				{
 					"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"Duration"	"%time"
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
 			}

@@ -197,7 +197,7 @@ function B02R(keys)
 		end
 	end)	
 	--【MODIFIER】
-	ability:ApplyDataDrivenModifier(dummy,target,"modifier_B02R",nil)--綑綁 
+	ability:ApplyDataDrivenModifier(dummy,target,"modifier_B02R",{duration=Time})--綑綁 
 
 	local sumt = 0
 	Timers:CreateTimer(0.1, function()
@@ -205,7 +205,7 @@ function B02R(keys)
 		if sumt < Time then
 			if (not target:HasModifier("modifier_B02R")) then
 				local tt = Time-sumt
-				--print("tt "..tt)
+				-- print("tt "..tt)
 				ability:ApplyDataDrivenModifier(caster, target,"modifier_B02R",{duration=tt})
 			end
 			return 0.1

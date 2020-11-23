@@ -917,7 +917,7 @@ local function chat_of_test(keys)
 			caster:SwapItems(1, 16)
 		end
 		if string.match(s,"gold") then
-			PlayerResource:SetGold(keys.playerid,99999,false)
+			AMHC:GivePlayerGold_UnReliable(keys.playerid, 99999)
 		end
 		if string.match(s,"money") then
 			local money = tonumber(string.match(s, '%d+'))
