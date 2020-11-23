@@ -22,7 +22,6 @@ function Shock( keys )
 		damage = mana_to_burn*0.5,
 		damage_type = damageType
 	}
-	ApplyDamage( damageTable )
 
 	if mana_to_burn ~= 0 then
 		local numberIndex = ParticleManager:CreateParticle( number_particle_name, PATTACH_OVERHEAD_FOLLOW, target )
@@ -43,6 +42,7 @@ function Shock( keys )
 				return nil
 			end)
 	end
+	ApplyDamage( damageTable )
 end
 
 function Shock3( keys )

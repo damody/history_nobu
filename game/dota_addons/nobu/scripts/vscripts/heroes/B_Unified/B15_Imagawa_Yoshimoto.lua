@@ -190,14 +190,14 @@ function B15D_SplitShotDamage( keys )
 	if _G.EXCLUDE_TARGET_NAME2[target:GetUnitName()] then
 		damage_table.damage = damage_table.damage * 0.5
 	end
-	ApplyDamage(damage_table)
-
 	local b15e = caster:FindAbilityByName("B15E_old")
 	if b15e ~= nil and b15e:GetLevel() > 0 and caster.nobuorb1 == "B15E_1" then
 		local dmg = b15e:GetLevelSpecialValueFor("damage_bonus", b15e:GetLevel() - 1 )
 		AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 	end
-	
+	if IsValidEntity(target) then
+		ApplyDamage(damage_table)
+	end
 end
 
 

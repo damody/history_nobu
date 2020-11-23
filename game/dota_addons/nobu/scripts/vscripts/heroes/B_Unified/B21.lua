@@ -127,6 +127,10 @@ function modifier_b21r_lua:OnTakeDamage( keys )
 		local attacker = keys.attacker
 		local ability = self:GetAbility()
 		if not attacker:IsBuilding() and not attacker:IsInvulnerable() then
+			local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_centaur/centaur_return.vpcf",PATTACH_POINT_FOLLOW,unit)
+			ParticleManager:SetParticleControlEnt(ifx,0,unit,PATTACH_POINT_FOLLOW,"attach_hitloc",unit:GetAbsOrigin(),true)
+			ParticleManager:SetParticleControlEnt(ifx,1,attacker,PATTACH_POINT_FOLLOW,"attach_hitloc",attacker:GetAbsOrigin(),true)
+			ParticleManager:ReleaseParticleIndex(ifx)
 			ApplyDamage({
 				victim = attacker,
 				attacker = unit,
@@ -135,10 +139,6 @@ function modifier_b21r_lua:OnTakeDamage( keys )
 				damage_type = ability:GetAbilityDamageType(),
 				damage_flags = DOTA_DAMAGE_FLAG_REFLECTION
 			})
-			local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_centaur/centaur_return.vpcf",PATTACH_POINT_FOLLOW,unit)
-			ParticleManager:SetParticleControlEnt(ifx,0,unit,PATTACH_POINT_FOLLOW,"attach_hitloc",unit:GetAbsOrigin(),true)
-			ParticleManager:SetParticleControlEnt(ifx,1,attacker,PATTACH_POINT_FOLLOW,"attach_hitloc",attacker:GetAbsOrigin(),true)
-			ParticleManager:ReleaseParticleIndex(ifx)
 		end
 	end
 end

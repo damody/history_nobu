@@ -177,7 +177,7 @@ function SearchArea(keys)
 	-- Checks if the target has been set yet
 	if target ~= nil then
 		-- Applies the ministun and the damage to the target
-		ApplyDamage({victim = target, attacker = caster, damage = ability:GetAbilityDamage()+caster:GetIntellect()*2, damage_type = ability:GetAbilityDamageType()})
+		
 		if target:HasModifier("modifier_thundergods_wrath_datadriven") then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_stunned", {duration = duration})
 		end
@@ -187,6 +187,7 @@ function SearchArea(keys)
 		ParticleManager:SetParticleControl(particle, 0, Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
 		ParticleManager:SetParticleControl(particle, 1, Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,1000 ))
 		ParticleManager:SetParticleControl(particle, 2, Vector(target:GetAbsOrigin().x,target:GetAbsOrigin().y,target:GetAbsOrigin().z + target:GetBoundingMaxs().z ))
+		ApplyDamage({victim = target, attacker = caster, damage = ability:GetAbilityDamage()+caster:GetIntellect()*2, damage_type = ability:GetAbilityDamageType()})
 	else
 		-- Renders the particle on the ground target
 		local particle = ParticleManager:CreateParticle(keys.particle, PATTACH_WORLDORIGIN, caster)
@@ -381,13 +382,13 @@ function B05T( event )
 	for _,it in pairs(direUnits) do
 		if it:IsHero() then
 			ParticleManager:CreateParticle("particles/shake2.vpcf", PATTACH_ABSORIGIN, it)
-			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
 			ability:ApplyDataDrivenModifier(caster, it, "modifier_B05T_stunned1", {duration = duration})
+			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
 		elseif it:IsBuilding() then
 			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage()*0.3, damage_type = ability:GetAbilityDamageType()})
 		else
-			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
 			ability:ApplyDataDrivenModifier(caster, it, "modifier_B05T_stunned1", {duration = duration})
+			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
 		end
 		--ability:ApplyDataDrivenModifier(caster, it,"modifier_B05T",nil)
 	end

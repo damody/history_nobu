@@ -325,7 +325,7 @@ function CP_Posistion( keys )
   local caster = keys.caster
   caster.origin_pos = caster:GetAbsOrigin()
   caster:AddNewModifier(caster, ability, "modifier_unit_armor", nil)
-	caster:FindModifierByName("modifier_unit_armor").creep = creep
+	caster:FindModifierByName("modifier_unit_armor").creep = caster
 	--donkey:AddAbility("majia_cp"):SetLevel(1)
 end
 

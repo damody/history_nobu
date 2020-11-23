@@ -56,14 +56,6 @@ function A26E_OnSpellStart( keys )
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
 		if _G.EXCLUDE_TARGET_NAME[unit:GetUnitName()] == nil then
-			ApplyDamage({
-				victim = unit,
-				attacker = caster,
-				ability = ability,
-				damage = ability:GetAbilityDamage(),
-				damage_type = ability:GetAbilityDamageType(),
-				damage_flags = DOTA_DAMAGE_FLAG_NONE,
-			})
 			ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration=duration})
 			Physics:Unit(unit)
 			local diff = unit:GetAbsOrigin()-center
@@ -82,6 +74,14 @@ function A26E_OnSpellStart( keys )
 			ParticleManager:SetParticleControl(ifx,15,Vector(255,255,255))
 			ParticleManager:SetParticleControl(ifx,16,Vector(1,0,0))
 			ParticleManager:ReleaseParticleIndex(ifx)
+			ApplyDamage({
+				victim = unit,
+				attacker = caster,
+				ability = ability,
+				damage = ability:GetAbilityDamage(),
+				damage_type = ability:GetAbilityDamageType(),
+				damage_flags = DOTA_DAMAGE_FLAG_NONE,
+			})
 		end
 	end
 end
@@ -396,7 +396,7 @@ function A26T_OnProjectileHitUnit( keys )
 
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
-		-- 製造傷害
+		ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration=stun_time})
 		ApplyDamage({
 			victim = unit,
 			attacker = caster,
@@ -405,10 +405,6 @@ function A26T_OnProjectileHitUnit( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DOTA_DAMAGE_FLAG_NONE
 		})
-		
-		-- if ability.need_stun then
-		ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration=stun_time})
-		-- end
 	end
 
 	GridNav:DestroyTreesAroundPoint(center, radius, false)
@@ -455,7 +451,9 @@ function A26W_old_OnSpellStart( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		})
-		caster:PerformAttack(unit, true, true, true, true, true, false, true)
+		if IsValidEntity(unit) then
+			caster:PerformAttack(unit, true, true, true, true, true, false, true)
+		end
 		if IsValidEntity(unit) then
 			local dir = (caster:GetAbsOrigin()-unit:GetAbsOrigin()):Normalized()
 			local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_base_attack_explosion_b.vpcf",PATTACH_POINT,unit)
@@ -500,7 +498,7 @@ function A26E_old_OnSpellStart( keys )
 	for _,unit in ipairs(units) do
 		if _G.EXCLUDE_TARGET_NAME[unit:GetUnitName()] == nil then
 			damage_table.victim = unit
-			ApplyDamage(damage_table)
+			
 			ability:ApplyDataDrivenModifier(caster,unit,"nobu_modifier_rooted",{duration=knockback_duration})
 			Physics:Unit(unit)
 			local diff = unit:GetAbsOrigin()-center
@@ -520,6 +518,7 @@ function A26E_old_OnSpellStart( keys )
 			ParticleManager:SetParticleControl(ifx,15,Vector(255,255,255))
 			ParticleManager:SetParticleControl(ifx,16,Vector(1,0,0))
 			ParticleManager:ReleaseParticleIndex(ifx)
+			ApplyDamage(damage_table)
 		end
 	end
 end
@@ -662,7 +661,9 @@ function A26T_20_OnProjectileHitUnit( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DOTA_DAMAGE_FLAG_NONE
 		})
-		
+		if ability.need_stun then
+			ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration=stun_time})
+		end
 		if ability.count == 2 and not unit:IsHero() then
 			ApplyDamage({
 				victim = unit,
@@ -673,9 +674,7 @@ function A26T_20_OnProjectileHitUnit( keys )
 				damage_flags = DOTA_DAMAGE_FLAG_NONE
 			})
 		end
-		if ability.need_stun then
-			ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration=stun_time})
-		end
+		
 	end
 
 	GridNav:DestroyTreesAroundPoint(center, radius, false)
@@ -723,7 +722,9 @@ function A26D_20_OnTrigger( keys )
 			damage_flags = DOTA_DAMAGE_FLAG_NONE
 		})
 		print("master",caster.master:GetUnitName())
-		caster.master:PerformAttack(unit, true, true, true, true, true, false, true)
+		if IsValidEntity(unit) then
+			caster.master:PerformAttack(unit, true, true, true, true, true, false, true)
+		end
 	end
 
 	local center = caster:GetAbsOrigin()

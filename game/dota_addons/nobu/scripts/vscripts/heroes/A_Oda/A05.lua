@@ -127,6 +127,7 @@ function A05R_OnSpellStart( keys )
 
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
+		ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration = 1})
 		ApplyDamage({
 			victim = unit,
 			attacker = caster,
@@ -135,7 +136,6 @@ function A05R_OnSpellStart( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		})
-		ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration = 1})
 	end
 
 	local ifx = ParticleManager:CreateParticle( "particles/a05/a05r.vpcf", PATTACH_CUSTOMORIGIN, caster)

@@ -215,7 +215,9 @@ function C10W_old_Jump(keys)
 
 	-- Applies damage to the current target
 	ApplyDamage({victim = target, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
-
+	if not IsValidEntity(target) then
+		return nil
+	end
 	-- Removes the hidden modifier
 	target:RemoveModifierByName("modifier_arc_lightning_datadriven")
 	local count = 0

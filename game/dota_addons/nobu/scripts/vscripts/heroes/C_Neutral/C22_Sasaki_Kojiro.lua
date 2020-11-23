@@ -340,10 +340,9 @@ function C22T_old( keys )
 			damage_table.victim = unit
   			damage_table.attacker = caster
  			damage_table.damage_type = damage_type
- 			damage_table.damage = ability_damage
-			ApplyDamage(damage_table)
-			-- 安裝修改器
+			damage_table.damage = ability_damage
 			ability:ApplyDataDrivenModifier(caster,unit,"modifier_C22T_old_apply_dot_damage",nil)
+			ApplyDamage(damage_table)			
 		end
 
 		-- 特效

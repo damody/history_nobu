@@ -41,8 +41,8 @@ function A19W_OnSpellStart( keys )
 			if unit:IsBuilding() then
 				tbl.damage = tbl.damage * 0.2
 			end
-			ApplyDamage(tbl)
 			ability:ApplyDataDrivenModifier( caster, unit, "modifier_A19W", {} )
+			ApplyDamage(tbl)
 		end		
 		return 1
 	end)

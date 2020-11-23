@@ -421,16 +421,18 @@ function C17R_old_on_trigger( keys )
 				if unit.c17r_old ~= target and unit.c17r_old ~= nil then
 					Timers:CreateTimer(0.1,function()
 						damage_table.victim = unit
-						ApplyDamage(damage_table)
 						unit:AddNewModifier(caster,ability,"modifier_stunned",{duration=duration_stun})
+						ApplyDamage(damage_table)
 					end)
 				else
 					damage_table.victim = unit
-					ApplyDamage(damage_table)
 					unit.c17r_old = target
 					unit:AddNewModifier(caster,ability,"modifier_stunned",{duration=duration_stun})
+					ApplyDamage(damage_table)
 					Timers:CreateTimer(1,function()
-						unit.c17r_old = nil
+						if IsValidEntity(unit) then
+							unit.c17r_old = nil
+						end
 						end)
 				end
 				-- 暈眩

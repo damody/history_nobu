@@ -36,8 +36,8 @@ function B36W_DelayedAction( keys )
 			damage=ability:GetSpecialValueFor("damage"),   
 			damage_type=ability:GetAbilityDamageType()} 
 		if not unit:IsMagicImmune() then
-			ApplyDamage(damageTable)   
 			ability:ApplyDataDrivenModifier(caster,unit,"modifier_B36W",nil)
+			ApplyDamage(damageTable)
 		end
 	end
 
@@ -156,7 +156,7 @@ function B36R_Dmage( event, target )
 			attacker=caster,         
 			damage=ability:GetSpecialValueFor("B36R_damage"),
 			damage_type=ability:GetAbilityDamageType()} 
-	ApplyDamage(damageTable)   
+	
 	local knockbackProperties =
 	{
 		center_x = point.x,
@@ -172,6 +172,7 @@ function B36R_Dmage( event, target )
 	caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK_EVENT,0.6)
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_brewmaster/brewmaster_thunder_clap_blast.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
+	ApplyDamage(damageTable)
 end
 
 function B36R_DelayedAction( keys )

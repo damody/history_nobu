@@ -23,8 +23,8 @@ function A18W_OnSpellStart( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		}
-		ApplyDamage(damageTable)
 		caster:Heal(regen,ability)
+		ApplyDamage(damageTable)
 	end
 end
 

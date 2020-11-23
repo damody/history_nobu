@@ -210,9 +210,9 @@ function A13W( event )
 	local origin_go_index = RandomInt(1, people)
 	local random_angle = RandomInt(-20, 20) * 0.1
 	local origin_pos = caster:GetOrigin()
-
 	local am = caster:FindAllModifiers()
-	caster:AddNewModifier(caster, ability, "modifier_invulnerable", { duration = 0.6 })
+	caster:AddNewModifier(caster, ability, "modifier_stunned", { duration = 0.5 })
+	caster:AddNewModifier(caster, ability, "modifier_invulnerable", { duration = 0.8 })
 	for _,v in pairs(am) do
 		if v:GetParent():GetTeamNumber() ~= caster:GetTeamNumber() or v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber() then
 			caster:RemoveModifierByName(v:GetName())
@@ -250,10 +250,10 @@ function A13W( event )
 					-- Set the skill points to 0 and learn the skills of the caster
 					illusion[i]:SetAbilityPoints(0)
 					for abilitySlot=0,15 do
-						local ability = caster:GetAbilityByIndex(abilitySlot)
-						if ability ~= nil then 
-							local abilityLevel = ability:GetLevel()
-							local abilityName = ability:GetAbilityName()
+						local xability = caster:GetAbilityByIndex(abilitySlot)
+						if xability ~= nil then 
+							local abilityLevel = xability:GetLevel()
+							local abilityName = xability:GetAbilityName()
 							local illusionAbility = illusion[i]:FindAbilityByName(abilityName)
 							if (illusionAbility ~= nil) then
 								illusionAbility:SetLevel(abilityLevel)
@@ -270,7 +270,9 @@ function A13W( event )
 							illusion[i]:AddItem(newItem)
 						end
 					end
-
+					
+					illusion[i]:AddNewModifier(illusion[i], ability, "modifier_stunned", { duration = 0.5 })
+					illusion[i]:AddNewModifier(illusion[i], ability, "modifier_invulnerable", { duration = 0.8 })
 					-- Set the unit as an illusion
 					-- modifier_illusion controls many illusion properties like +Green damage not adding to the unit damage, not being able to cast spells and the team-only blue particle
 					illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, outgoing_damage = -1000, incoming_damage = incomingDamage })
@@ -282,9 +284,7 @@ function A13W( event )
 					--分身不能用法球
 					--illusion[i].nobuorb1 = "illusion"
 					--illusion[i]:SetRenderColor(255,0,255)
-					if caster:HasModifier("modifier_perceive_wine") then
-						ability:ApplyDataDrivenModifier(illusion[i],illusion[i],"modifier_perceive_wine",nil)
-					end
+					
 				end
 			else
 				return nil
@@ -624,9 +624,6 @@ function a13e_modifier:OnIntervalThink()
 				local hashook = false
 				for _,it in pairs(direUnits) do
 					if not string.match(it:GetUnitName(), "npc_dota_courier2") and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil and not it:HasAbility("majia") then
-						local tbl = { victim = it, attacker = self:GetCaster(), damage = self.hook_damage, 
-							damage_type = self.damage_type, ability = self:GetAbility()}
-						ApplyDamage(tbl)
 						hashook = true
 						if (it:HasModifier("modifier_invisible")) then
 							it:RemoveModifierByName("modifier_invisible")
@@ -642,6 +639,9 @@ function a13e_modifier:OnIntervalThink()
 							hModifier.particle = self.particle
 							break
 						end
+						local tbl = { victim = it, attacker = self:GetCaster(), damage = self.hook_damage, 
+							damage_type = self.damage_type, ability = self:GetAbility()}
+						ApplyDamage(tbl)
 					end
 				end
 				if (hashook == true) then
@@ -661,7 +661,7 @@ function a13e_modifier:OnIntervalThink()
 			                          false)
 
 				for _,it in pairs(direUnits) do
-					if it ~= caster and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil and not it:HasAbility("majia") then
+					if  not string.match(it:GetUnitName(), "npc_dota_courier2") and it ~= caster and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil and not it:HasAbility("majia") then
 						hashook = true
 						it:AddNewModifier(it, self:GetCaster(), "a13e_hook_back", { duration = 2}) 
 						local hModifier = it:FindModifierByNameAndCaster("a13e_hook_back", it)
@@ -755,13 +755,12 @@ function A13T ( keys )
 						damage_type = ability:GetAbilityDamageType(),
 						damage_flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 					}
-					
+					ability:ApplyDataDrivenModifier(caster,unit,"modifier_A13T_Blind", {duration = 0.5})
 					if i == n then
 						caster:PerformAttack(unit, true, true, true, true, true, false, true)
 					else
 						ApplyDamage(damageTable)
 					end
-					ability:ApplyDataDrivenModifier(caster,unit,"modifier_A13T_Blind", {duration = 0.5})
 				end
 			end
 			return 0.3

@@ -43,7 +43,7 @@ function C05E_OnProjectileHitUnit( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-
+	EmitSoundOn("Hero_Zuus.ProjectileImpact",target)
 	-- 製造傷害
 	ApplyDamage({
 		victim = target,
@@ -53,8 +53,6 @@ function C05E_OnProjectileHitUnit( keys )
 		damage_type = ability:GetAbilityDamageType(),
 		-- damage_flags = DOTA_DAMAGE_FLAG_NONE
 	})
-
-	EmitSoundOn("Hero_Zuus.ProjectileImpact",target)
 end
 
 function C05R_OnAttackLanded( keys )
@@ -181,10 +179,10 @@ function C05T_OnChannelSucceeded( keys )
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
 		damage_table.victim = unit
-		ApplyDamage(damage_table)
 		unit:AddNewModifier(caster,ability,"modifier_stunned",{duration=stun_time})
 		local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_mana_loss.vpcf",PATTACH_ABSORIGIN_FOLLOW,unit)
 		ParticleManager:ReleaseParticleIndex(ifx)
+		ApplyDamage(damage_table)
 	end
 
 	local ifx = ParticleManager:CreateParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_blink_end.vpcf",PATTACH_ABSORIGIN,caster)
@@ -202,6 +200,8 @@ function C05E_old_OnProjectileHitUnit( keys )
 	local target = keys.target
 	local ability = keys.ability
 
+	ability:ApplyDataDrivenModifier(caster,target,"modifier_C05E_old_debuff",{})
+	EmitSoundOn("Hero_Zuus.ProjectileImpact",target)
 	-- 製造傷害
 	ApplyDamage({
 		victim = target,
@@ -211,10 +211,6 @@ function C05E_old_OnProjectileHitUnit( keys )
 		damage_type = ability:GetAbilityDamageType(),
 		-- damage_flags = DOTA_DAMAGE_FLAG_NONE
 	})
-
-	ability:ApplyDataDrivenModifier(caster,target,"modifier_C05E_old_debuff",{})
-
-	EmitSoundOn("Hero_Zuus.ProjectileImpact",target)
 end
 
 function CreateScreenEffect( target )
@@ -230,16 +226,6 @@ function C05R_old_OnSpellStart( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-
-	ApplyDamage({
-		victim = target,
-		attacker = caster,
-		ability = ability,
-		damage = ability:GetAbilityDamage(),
-		damage_type = ability:GetAbilityDamageType(),
-		--damage_flags = DOTA_DAMAGE_FLAG_NONE
-	})
-
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration=ability:GetSpecialValueFor("stun_time")})
 
 	CreateScreenEffect(target)
@@ -250,6 +236,15 @@ function C05R_old_OnSpellStart( keys )
 	ParticleManager:ReleaseParticleIndex(ifx)
 
 	EmitSoundOn("Hero_Zuus.GodsWrath",target)
+
+	ApplyDamage({
+		victim = target,
+		attacker = caster,
+		ability = ability,
+		damage = ability:GetAbilityDamage(),
+		damage_type = ability:GetAbilityDamageType(),
+		--damage_flags = DOTA_DAMAGE_FLAG_NONE
+	})
 end
 
 function C05T_old_OnAttackLanded( keys )
@@ -260,41 +255,12 @@ function C05T_old_OnAttackLanded( keys )
 	if target:IsHero() or target:IsCreep() then
 		ability:ApplyDataDrivenModifier(target,target,"modifier_C05T_old_debuff",{})
 		target:FindModifierByName("modifier_C05T_old_debuff").caster = caster
-
-		if target:IsMagicImmune() then
-			ApplyDamage({
-				victim = target,
-				attacker = caster,
-				ability = ability,
-				damage = ability:GetSpecialValueFor("damage_per_think")*0.5,
-				damage_type = ability:GetAbilityDamageType(),
-				--damage_flags = DOTA_DAMAGE_FLAG_NONE
-			})
-		else
-			ApplyDamage({
-				victim = target,
-				attacker = caster,
-				ability = ability,
-				damage = ability:GetSpecialValueFor("damage_per_think"),
-				damage_type = ability:GetAbilityDamageType(),
-				--damage_flags = DOTA_DAMAGE_FLAG_NONE
-			})
-		end
-
 		local ifx = ParticleManager:CreateParticle("particles/econ/items/zeus/lightning_weapon_fx/zuus_lightning_bolt_bodyarc_immortal_lightningyzuus_lightning_bolt_bodyarc_immortal_lightning.vpcf",PATTACH_ABSORIGIN_FOLLOW,target)
 		ParticleManager:SetParticleControlEnt(ifx,1,target,PATTACH_ABSORIGIN_FOLLOW,nil,target:GetAbsOrigin(),true)
 		ParticleManager:SetParticleControl(ifx,2,target:GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(ifx)
 
 		EmitSoundOn("Hero_Zuus.ArcLightning.Cast",target)
-	end
-end
-
-function C05T_old_OnIntervalThink( keys )
-	
-	local target = keys.target
-	local caster = target:FindModifierByName("modifier_C05T_old_debuff").caster
-	local ability = keys.ability
 		if target:IsMagicImmune() then
 			ApplyDamage({
 				victim = target,
@@ -314,11 +280,35 @@ function C05T_old_OnIntervalThink( keys )
 				--damage_flags = DOTA_DAMAGE_FLAG_NONE
 			})
 		end
+	end
+end
 
-		local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning_impact.vpcf",PATTACH_ABSORIGIN_FOLLOW,target)
-		ParticleManager:SetParticleControlEnt(ifx,1,target,PATTACH_ABSORIGIN_FOLLOW,nil,target:GetAbsOrigin(),true)
-		ParticleManager:ReleaseParticleIndex(ifx)
+function C05T_old_OnIntervalThink( keys )
+	local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning_impact.vpcf",PATTACH_ABSORIGIN_FOLLOW,target)
+	ParticleManager:SetParticleControlEnt(ifx,1,target,PATTACH_ABSORIGIN_FOLLOW,nil,target:GetAbsOrigin(),true)
+	ParticleManager:ReleaseParticleIndex(ifx)
 
-		EmitSoundOn("Hero_Zuus.ProjectileImpact",target)
-
+	EmitSoundOn("Hero_Zuus.ProjectileImpact",target)
+	local target = keys.target
+	local caster = target:FindModifierByName("modifier_C05T_old_debuff").caster
+	local ability = keys.ability
+	if target:IsMagicImmune() then
+		ApplyDamage({
+			victim = target,
+			attacker = caster,
+			ability = ability,
+			damage = ability:GetSpecialValueFor("damage_per_think")*0.5,
+			damage_type = ability:GetAbilityDamageType(),
+			--damage_flags = DOTA_DAMAGE_FLAG_NONE
+		})
+	else
+		ApplyDamage({
+			victim = target,
+			attacker = caster,
+			ability = ability,
+			damage = ability:GetSpecialValueFor("damage_per_think"),
+			damage_type = ability:GetAbilityDamageType(),
+			--damage_flags = DOTA_DAMAGE_FLAG_NONE
+		})
+	end
 end

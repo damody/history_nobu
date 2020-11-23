@@ -142,14 +142,11 @@ function A11T( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DAMAGE_TYPE_MAGICAL,
 		}
+		local particle = ParticleManager:CreateParticle("particles/a11t2/a11t5b.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControlEnt(particle, 0, unit, PATTACH_POINT_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true)
 		if not unit:IsMagicImmune() then
 			ApplyDamage(damageTable)
 		end
-		
-		local particle = ParticleManager:CreateParticle("particles/a11t2/a11t5b.vpcf", PATTACH_CUSTOMORIGIN, caster)
-		ParticleManager:SetParticleControlEnt(particle, 0, unit, PATTACH_POINT_FOLLOW, "attach_hitloc", unit:GetAbsOrigin(), true)
-
-		
 		if i==maxTarget then
 			break
 		end

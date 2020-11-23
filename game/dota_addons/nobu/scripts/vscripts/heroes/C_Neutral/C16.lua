@@ -377,7 +377,7 @@ function ExorcismPhysics( event )
 							damage_table.damage_type = abilityDamageType
 							damage_table.damage = spirit_damage
 
-							ApplyDamage(damage_table)
+							
 
 							-- Calculate how much physical damage was dealt
 							local targetArmor = unit.current_target:GetPhysicalArmorValue(true)
@@ -411,7 +411,7 @@ function ExorcismPhysics( event )
 							-- Update the attack time of the unit.
 							unit.last_attack_time = GameRules:GetGameTime()
 							--unit.enemy_collision = true
-
+							ApplyDamage(damage_table)
 						end
 
 					-- In other case, its a point, reacquire target or return to the caster (50/50)

@@ -348,8 +348,6 @@ function ExorcismPhysics( event )
 							damage_table.damage_type = abilityDamageType
 							damage_table.damage = spirit_damage
 
-							ApplyDamage(damage_table)
-							
 							local hModifier = unit.current_target:FindModifierByNameAndCaster("modifier_B10W_slow", caster)
 							if hModifier == nil then
 								--first blood
@@ -402,7 +400,7 @@ function ExorcismPhysics( event )
 							-- Update the attack time of the unit.
 							unit.last_attack_time = GameRules:GetGameTime()
 							--unit.enemy_collision = true
-
+							ApplyDamage(damage_table)
 						end
 
 					-- In other case, its a point, reacquire target or return to the caster (50/50)

@@ -108,6 +108,8 @@ function A35E_OnSpellStart( keys )
 	local pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN, caster )
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
+		ability:ApplyDataDrivenModifier(caster,unit,"modifier_A35E",{duration = 3})
+		ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration = 1})
 		ApplyDamage({
 			victim = unit,
 			attacker = caster,
@@ -116,8 +118,6 @@ function A35E_OnSpellStart( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		})
-		ability:ApplyDataDrivenModifier(caster,unit,"modifier_A35E",{duration = 3})
-		ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration = 1})
 	end
 end
 
@@ -142,6 +142,7 @@ function A35T_OnIntervalThink( keys )
 	for _,unit in ipairs(units) do
 		ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration = 0.1})
 		unit:Stop()
+		unit:ReduceMana(ability:GetAbilityDamage())
 		ApplyDamage({
 			victim = unit,
 			attacker = caster,
@@ -150,7 +151,6 @@ function A35T_OnIntervalThink( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		})
-		unit:ReduceMana(ability:GetAbilityDamage())
 	end
 end
 

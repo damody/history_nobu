@@ -299,32 +299,32 @@ function robber_death( keys )
 		return 
 	end
 	if kill_robber_count == 1 then
-		random_skill = 0
-		robber_buff = RandomInt(0,3)
+		random_skill = RandomInt(1,3)
+		robber_buff = RandomInt(1,3)
 		kill_robber_count = kill_robber_count + 1
 	else 
-		robber_buff = RandomInt(0,3)
+		robber_buff = RandomInt(1,3)
 		kill_robber_count = kill_robber_count + 1
 	end
 
 	--隨機buff
-	if random_skill == 0 then
-		if (keys.attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
-			GameRules: SendCustomMessage("<font color='#ffff00'>織田軍得到了強盜王的黃金</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-		else
-			GameRules: SendCustomMessage("<font color='#ffff00'>聯合軍得到了強盜王的黃金</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
-		end
-		for playerID=0,9 do
-			local player = PlayerResource:GetPlayer(playerID)
-			if player then
-				local hero = player:GetAssignedHero()
-				if hero:GetTeamNumber() == keys.attacker:GetTeamNumber() then
-					AMHC:GivePlayerGold_UnReliable(playerID, 450)
-					hero:AddExperience(200, 0, false, false)
-				end
+
+	-- if (keys.attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
+	-- 	GameRules: SendCustomMessage("<font color='#ffff00'>織田軍得到了強盜王的黃金</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+	-- else
+	-- 	GameRules: SendCustomMessage("<font color='#ffff00'>聯合軍得到了強盜王的黃金</font>", DOTA_TEAM_BADGUYS + DOTA_TEAM_GOODGUYS, 0)
+	-- end
+	for playerID=0,9 do
+		local player = PlayerResource:GetPlayer(playerID)
+		if player then
+			local hero = player:GetAssignedHero()
+			if hero:GetTeamNumber() == keys.attacker:GetTeamNumber() then
+				AMHC:GivePlayerGold_UnReliable(playerID, 300)
+				hero:AddExperience(200, 0, false, false)
 			end
 		end
-	elseif random_skill == 1 then
+	end
+	if random_skill == 1 then
 		if (keys.attacker:GetTeamNumber() == DOTA_TEAM_GOODGUYS) then
 			GameRules: SendCustomMessage("<font color='#ffff00'>織田軍得到了強盜王的武器</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 		else

@@ -47,24 +47,25 @@ function B11W_OnSpellStart( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		})
+		if IsValidEntity(unit) then
+			--真實傷害
+			ApplyDamage({
+				victim = unit,
+				attacker = caster,
+				ability = ability,
+				damage = caster:GetAgility()*keys.A11W_agiMul,
+				damage_type = DAMAGE_TYPE_PURE,
+				damage_flags = DOTA_DAMAGE_FLAG_NONE,
+			})
+		end
 
-		--真實傷害
-		ApplyDamage({
-			victim = unit,
-			attacker = caster,
-			ability = ability,
-			damage = caster:GetAgility()*keys.A11W_agiMul,
-			damage_type = DAMAGE_TYPE_PURE,
-			damage_flags = DOTA_DAMAGE_FLAG_NONE,
-		})
-
-
-
-		local dir = (caster:GetAbsOrigin()-unit:GetAbsOrigin()):Normalized()
-		local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_base_attack_explosion_b.vpcf",PATTACH_POINT,unit)
-		ParticleManager:SetParticleControlEnt(ifx,3,unit,PATTACH_POINT,"attach_hitloc",unit:GetAbsOrigin()+Vector(0,0,200),true)
-		ParticleManager:SetParticleControlForward(ifx,3,dir)
-		ParticleManager:ReleaseParticleIndex(ifx)
+		if IsValidEntity(unit) then
+			local dir = (caster:GetAbsOrigin()-unit:GetAbsOrigin()):Normalized()
+			local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_base_attack_explosion_b.vpcf",PATTACH_POINT,unit)
+			ParticleManager:SetParticleControlEnt(ifx,3,unit,PATTACH_POINT,"attach_hitloc",unit:GetAbsOrigin()+Vector(0,0,200),true)
+			ParticleManager:SetParticleControlForward(ifx,3,dir)
+			ParticleManager:ReleaseParticleIndex(ifx)
+		end
 	end
 end
 
@@ -279,7 +280,11 @@ function B11W_old_OnSpellStart( keys )
 
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
-
+		local dir = (caster:GetAbsOrigin()-unit:GetAbsOrigin()):Normalized()
+		local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_base_attack_explosion_b.vpcf",PATTACH_POINT,unit)
+		ParticleManager:SetParticleControlEnt(ifx,3,unit,PATTACH_POINT,"attach_hitloc",unit:GetAbsOrigin()+Vector(0,0,200),true)
+		ParticleManager:SetParticleControlForward(ifx,3,dir)
+		ParticleManager:ReleaseParticleIndex(ifx)
 		--基礎傷害
 		ApplyDamage({
 			victim = unit,
@@ -289,11 +294,6 @@ function B11W_old_OnSpellStart( keys )
 			damage_type = ability:GetAbilityDamageType(),
 			damage_flags = DOTA_DAMAGE_FLAG_NONE,
 		})
-		local dir = (caster:GetAbsOrigin()-unit:GetAbsOrigin()):Normalized()
-		local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_techies/techies_base_attack_explosion_b.vpcf",PATTACH_POINT,unit)
-		ParticleManager:SetParticleControlEnt(ifx,3,unit,PATTACH_POINT,"attach_hitloc",unit:GetAbsOrigin()+Vector(0,0,200),true)
-		ParticleManager:SetParticleControlForward(ifx,3,dir)
-		ParticleManager:ReleaseParticleIndex(ifx)
 	end
 end
 

@@ -51,7 +51,6 @@ function mana_burn_function( keys )
 		damage = mana_to_burn,
 		damage_type = damageType
 	}
-	ApplyDamage( damageTable )
 	
 	-- Show VFX
 	if mana_to_burn ~= 0 then
@@ -68,6 +67,7 @@ function mana_burn_function( keys )
 			end
 		)
 	end
+	ApplyDamage( damageTable )
 end
 
 function mana_burn_function2( keys )
@@ -98,7 +98,6 @@ function mana_burn_function2( keys )
 		damage = mana_to_burn,
 		damage_type = damageType
 	}
-	ApplyDamage( damageTable )
 	
 	-- Show VFX
 	if mana_to_burn ~= 0 then
@@ -115,6 +114,7 @@ function mana_burn_function2( keys )
 			end
 		)
 	end
+	ApplyDamage( damageTable )
 end
 
 
@@ -146,7 +146,6 @@ function mana_burn_function3( keys )
 		damage = mana_to_burn,
 		damage_type = damageType
 	}
-	ApplyDamage( damageTable )
 	
 	-- Show VFX
 	if mana_to_burn ~= 0 then
@@ -163,6 +162,7 @@ function mana_burn_function3( keys )
 			end
 		)
 	end
+	ApplyDamage( damageTable )
 end
 
 function Shock( keys )
@@ -194,7 +194,6 @@ function Shock( keys )
 			damage = mana_to_burn,
 			damage_type = damageType
 		}
-		ApplyDamage( damageTable )
 		
 		-- Show VFX
 		if mana_to_burn ~= 0 then
@@ -211,6 +210,7 @@ function Shock( keys )
 				end
 			)
 		end
+		ApplyDamage( damageTable )
 	end
 end
 
@@ -247,7 +247,6 @@ function Shock2( keys )
 			damage = mana_to_burn,
 			damage_type = damageType
 		}
-		ApplyDamage( damageTable )
 		
 		-- Show VFX
 		if mana_to_burn ~= 0 then
@@ -264,6 +263,7 @@ function Shock2( keys )
 				end
 			)
 		end
+		ApplyDamage( damageTable )
 	end
 end
 
@@ -301,7 +301,6 @@ function Shock3( keys )
 			damage = mana_to_burn,
 			damage_type = damageType
 		}
-		ApplyDamage( damageTable )
 		
 		-- Show VFX
 		if mana_to_burn ~= 0 then
@@ -318,5 +317,6 @@ function Shock3( keys )
 				end
 			)
 		end
+		ApplyDamage( damageTable )
 	end
 end

@@ -1117,7 +1117,7 @@ function Containers:Containers_OnSell(args)
   item:RemoveSelf()
   PlayerResource:ModifyGold(playerID, cost, false, DOTA_ModifyGold_SellItem)
   
-  if player then
+  if player and IsValidEntity(unit) then
     SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, unit, cost, player)
     EmitSoundOnClient("General.Sell", player)
   end
@@ -1560,7 +1560,7 @@ function Containers:OnDragWorld(playerID, container, unit, item, slot, position,
 
           local player = PlayerResource:GetPlayer(playerID)
 
-          if player then
+          if player and IsValidEntity(unit) then
             SendOverheadEventMessage(player, OVERHEAD_ALERT_GOLD, unit, cost, player)
             EmitSoundOnClient("General.Sell", player)
           end

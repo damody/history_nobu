@@ -298,8 +298,8 @@ function B17R_old_onIntervalThink( keys )
 		local fxIndex = ParticleManager:CreateParticle( "particles/a17/a17tecon/items/sniper/sniper_charlie/sniper_assassinate_impact_blood_charlie.vpcf", PATTACH_POINT, unit )
 		ParticleManager:SetParticleControl( fxIndex, 0, unit:GetAbsOrigin() )
 		ParticleManager:SetParticleControl( fxIndex, 1, unit:GetAbsOrigin() )
-		ApplyDamage(damageTable)
 		StartSoundEvent( "hero_bloodseeker.attack", unit)
+		ApplyDamage(damageTable)
 	end
 end
 

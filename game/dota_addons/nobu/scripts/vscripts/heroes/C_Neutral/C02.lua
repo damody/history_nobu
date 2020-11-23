@@ -371,13 +371,6 @@ function C02T_OnSpellStart( keys )
 	
 	if target:GetHealth() < force_kill_hp then
 		caster:EmitSound( "C02T.end")
-		-- 製造傷害
-		ApplyDamage({
-			attacker=caster,
-			victim=target,
-			damage_type=DAMAGE_TYPE_PURE,
-			damage=99999
-		})
 		-- 處決特效
 		local ifx = ParticleManager:CreateParticle("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova.vpcf",PATTACH_ABSORIGIN,target)
 		ParticleManager:ReleaseParticleIndex(ifx)
@@ -387,11 +380,23 @@ function C02T_OnSpellStart( keys )
 		ParticleManager:SetParticleControl(ifx,4,target:GetAbsOrigin())
 		ParticleManager:SetParticleControl(ifx,8,Vector(10,0,0))
 		ParticleManager:ReleaseParticleIndex(ifx)
+		-- 製造傷害
+		ApplyDamage({
+			attacker=caster,
+			victim=target,
+			damage_type=DAMAGE_TYPE_PURE,
+			damage=99999
+		})
 	else
 		-- 跳驚嘆號
 		SendOverheadEventMessage(nil,OVERHEAD_ALERT_DENY,target,0,nil)
 		-- 暈眩
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration=stun_time})
+		-- 處決失敗特效
+		local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_siren/naga_siren_siren_song_cast.vpcf",PATTACH_ABSORIGIN,target)
+		ParticleManager:ReleaseParticleIndex(ifx)
+		-- 擴散傷害修改器
+		ability:ApplyDataDrivenModifier(caster,caster,"modifier_C02T_aoe",nil)
 		-- 製造傷害
 		ApplyDamage({
 			attacker=caster,
@@ -399,11 +404,7 @@ function C02T_OnSpellStart( keys )
 			damage_type=DAMAGE_TYPE_MAGICAL,
 			damage=damage
 		})
-		-- 處決失敗特效
-		local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_siren/naga_siren_siren_song_cast.vpcf",PATTACH_ABSORIGIN,target)
-		ParticleManager:ReleaseParticleIndex(ifx)
-		-- 擴散傷害修改器
-		ability:ApplyDataDrivenModifier(caster,caster,"modifier_C02T_aoe",nil)
+		
 	end
 end
 
@@ -447,11 +448,13 @@ function C02T_OnAttack( keys )
 			damage = aoe_damage
 		})
 		-- 跳數字
-		SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,unit,aoe_damage,nil)
-		-- 特效
-		local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_siren/naga_siren_riptide.vpcf",PATTACH_POINT_FOLLOW,unit)
-		ParticleManager:SetParticleControl(ifx,1,Vector(200,200,200))
-		ParticleManager:ReleaseParticleIndex(ifx)
+		if IsValidEntity(unit) then
+			SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,unit,aoe_damage,nil)
+			-- 特效
+			local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_siren/naga_siren_riptide.vpcf",PATTACH_POINT_FOLLOW,unit)
+			ParticleManager:SetParticleControl(ifx,1,Vector(200,200,200))
+			ParticleManager:ReleaseParticleIndex(ifx)
+		end
 	end
 end
 
@@ -584,20 +587,24 @@ function C02E_old_steal( keys )
 	local steal_mp = ability:GetSpecialValueFor("steal_mp")
 	local hp = target:GetHealth()
 	local mp = target:GetMana()
+	
+	target:ReduceMana(steal_mp)
+	if IsValidEntity(target) then
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,target,steal_hp,nil)
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_LOSS,target,steal_mp,nil)
+	end
+	caster:Heal(steal_hp,caster)
+	caster:SetMana(caster:GetMana()+steal_mp)
+	if IsValidEntity(caster) then
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_HEAL,caster,steal_hp,nil)
+		SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_ADD,caster,steal_mp,nil)
+	end
 	ApplyDamage({
 		attacker=caster,
 		victim=target,
 		damage_type=DAMAGE_TYPE_PURE,
 		damage=steal_hp
 	})
-
-	target:ReduceMana(steal_mp)
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_BONUS_SPELL_DAMAGE,target,steal_hp,nil)
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_LOSS,target,steal_mp,nil)
-	caster:Heal(steal_hp,caster)
-	caster:SetMana(caster:GetMana()+steal_mp)
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_HEAL,caster,steal_hp,nil)
-	SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_ADD,caster,steal_mp,nil)
 end
 
 function C02E_old_OnUnitMoved( keys )
@@ -647,12 +654,6 @@ function C02T_old_OnSpellStart( keys )
 
 	caster:Stop()
 	target:Stop()
-	ApplyDamage({
-		attacker=caster,
-		victim=target,
-		damage_type=damage_type,
-		damage=1
-	})
 
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_C02T_old_aoe",{duration=play_time+duration})
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_C02T_old_stunned",{duration=play_time+1})
@@ -726,12 +727,6 @@ function C02T_old_OnSpellStart( keys )
 		ParticleManager:ReleaseParticleIndex(ifx)
 		target:RemoveModifierByNameAndCaster("modifier_C02T_old_playing",caster)
 		
-		ApplyDamage({
-			attacker=caster,
-			victim=target,
-			damage_type=damage_type,
-			damage=damage
-		})
 		-- 命令攻擊
 		ExecuteOrderFromTable({
 			UnitIndex = caster:entindex(),
@@ -739,12 +734,27 @@ function C02T_old_OnSpellStart( keys )
 			TargetIndex = target:entindex(),
 			Queue = false
 		})
+		if IsValidEntity(target) then
+			ApplyDamage({
+				attacker=caster,
+				victim=target,
+				damage_type=damage_type,
+				damage=damage
+			})
+		end
 		caster:EmitSound( "C02T.end")
 		-- 延遲一個frame在移除暈眩狀態
 		Timers:CreateTimer(0, function ()
 			if IsValidEntity(caster) then caster:RemoveModifierByNameAndCaster("modifier_C02T_old_stunned",caster) end
 		end)
 	end)
+	
+	ApplyDamage({
+		attacker=caster,
+		victim=target,
+		damage_type=damage_type,
+		damage=1
+	})
 end
 
 function C02T_old_OnAttackLanded( keys )
@@ -778,6 +788,8 @@ function C02T_old_OnAttackLanded( keys )
 
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
+		local ifx = ParticleManager:CreateParticle("particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_shadowraze.vpcf",PATTACH_ABSORIGIN_FOLLOW,unit)
+		ParticleManager:ReleaseParticleIndex(ifx)
 		-- 製造傷害
 		ApplyDamage({
 			victim = unit,
@@ -785,8 +797,6 @@ function C02T_old_OnAttackLanded( keys )
 			damage_type = DAMAGE_TYPE_PURE,
 			damage = aoe_damage,
 		})
-		local ifx = ParticleManager:CreateParticle("particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_shadowraze.vpcf",PATTACH_ABSORIGIN_FOLLOW,unit)
-		ParticleManager:ReleaseParticleIndex(ifx)
 	end
 end
 

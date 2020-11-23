@@ -60,8 +60,8 @@ function C03E_OnSpellStart( keys )
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
 		damage_table.victim = unit
-		ApplyDamage(damage_table)
 		ability:ApplyDataDrivenModifier(caster,unit,"modifier_C03E_debuff", nil)
+		ApplyDamage(damage_table)
 	end
 end
 
@@ -182,12 +182,12 @@ function C03T_OnSpellStart( keys )
 			-- 處理搜尋結果
 			for _,unit in ipairs(units) do
 				damage_table.victim = unit
-				ApplyDamage(damage_table)
 				if unit:IsMagicImmune() then
 					--ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned", {duration=stun_time2})
 				else
 					ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned", {duration=stun_time})
 				end
+				ApplyDamage(damage_table)
 			end
 			return check_time
 		end
@@ -270,8 +270,8 @@ function C03T_old_OnSpellStart( keys )
 			-- 處理搜尋結果
 			for _,unit in ipairs(units) do
 				damage_table.victim = unit
-				ApplyDamage(damage_table)
 				ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned", {duration=stun_time})
+				ApplyDamage(damage_table)
 			end
 			return check_time
 		end

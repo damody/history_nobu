@@ -185,9 +185,9 @@ function Shock2( keys )
 		if unit:GetTeamNumber() ~= iTeam then
 			local damage_table = {}
 			damage_table.victim = unit
- 				damage_table.attacker = caster					
-				damage_table.damage_type = damage_type
-				damage_table.damage = damage
+			damage_table.attacker = caster					
+			damage_table.damage_type = damage_type
+			damage_table.damage = damage
 			ApplyDamage(damage_table)
 		end
 

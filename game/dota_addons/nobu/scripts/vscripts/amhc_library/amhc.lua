@@ -534,7 +534,9 @@ end
 
 function AMHC:Damage( ... )
 	local attacker,victim,damage,damageType,scale,show = ...
-
+	if not IsValidEntity(victim) then
+		return nil
+	end
 	if self:IsAlive(attacker)~=true or self:IsAlive(victim)~=true then
 		return nil
 	end

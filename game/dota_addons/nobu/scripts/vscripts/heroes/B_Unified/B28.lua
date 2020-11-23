@@ -130,8 +130,8 @@ function B28T( keys )
 		if not unit:IsInvisible() or unit:HasModifier("modifier_truesight") then
 			count = count + 1
 			B28T_old_jump_init(keys, caster:GetAbsOrigin(), unit, count)
-			ApplyDamage({victim = unit, attacker = caster, damage = base_damage, damage_type = ability:GetAbilityDamageType()})
 			ability:ApplyDataDrivenModifier(caster,unit,"modifier_B28T_arc_lightning_datadriven",{})
+			ApplyDamage({victim = unit, attacker = caster, damage = base_damage, damage_type = ability:GetAbilityDamageType()})
 		end
 	end
 end

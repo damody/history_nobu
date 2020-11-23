@@ -771,6 +771,10 @@ function Nobu:eventfororder( filterTable )
 		local player_id = filterTable.issuer_player_id_const
 		if filterTable.units and filterTable.units["0"] then
 			local unit = EntIndexToHScript(filterTable.units["0"])
+			local hero = _G.Hero[playerID]
+			if not hero:IsAlive() then
+				return false
+			end
 			if GameRules:GetGameTime() - item:GetPurchaseTime() > 10 then
 				AMHC:GivePlayerGold_UnReliable(unit:GetPlayerOwnerID(), 0.35*itemcost)
 				_G.PlayerEarnedGold[unit:GetPlayerOwnerID()] = _G.PlayerEarnedGold[unit:GetPlayerOwnerID()] - 0.35*itemcost
@@ -785,8 +789,6 @@ function Nobu:eventfororder( filterTable )
 				if unit:GetUnitName() == "B07E_UNIT" then
 					return false
 				end
-
-				
 			end
 		else
 			_G.SpentGold[player_id] = _G.SpentGold[player_id] - itemcost

@@ -72,9 +72,9 @@ function A32W_stunAndDamage( keys )
 				damage=ability:GetSpecialValueFor("A32W_damage"),
 				damage_type=keys.ability:GetAbilityDamageType()}
 			if not unit:IsMagicImmune() then
-				ApplyDamage(damageTable)
 				--對目標暈眩
 				ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration = ability:GetSpecialValueFor("A32W_stunDuration")})
+				ApplyDamage(damageTable)
 			end
 		end
 	end
@@ -145,10 +145,8 @@ function A32W2_stunAndDamage( keys )
 			attacker=caster,         
 			damage=keys.ability:GetLevelSpecialValueFor("A32W2_damage", al),   
 			damage_type=keys.ability:GetAbilityDamageType()}   
-		--print(keys.ability:GetLevelSpecialValueFor("A32W2_damage", al))
-		ApplyDamage(damageTable)   
-		--print("applystun")
 		unit:AddNewModifier( unit, nil, "modifier_stunned", {duration = keys.ability:GetLevelSpecialValueFor("A32W2_stunDuration", al)} )
+		ApplyDamage(damageTable)   
 	end
 
 end

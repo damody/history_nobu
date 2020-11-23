@@ -44,7 +44,7 @@ function C24E_OnSpellStart( keys )
 	caster:RemoveGesture(ACT_DOTA_FLAIL)
 	--caster:SetAbsOrigin(point)
 	caster:AddNewModifier(caster,ability,"modifier_phased",{duration=duration+0.1})
-	Timers:CreateTimer(duration,function()
+	Timers:CreateTimer(duration+0.1,function()
 		-- 搜尋
 		local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
 			point,			-- 搜尋的中心點
@@ -221,12 +221,6 @@ function C24T_old_OnSpellStart( keys )
 
 	caster:Stop()
 	target:Stop()
-	ApplyDamage({
-		attacker=caster,
-		victim=target,
-		damage_type=damage_type,
-		damage=1
-	})
 
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_C24T_old_stunned",{duration=play_time+1})
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_C24T_old_playing",{duration=play_time})
@@ -307,13 +301,6 @@ function C24T_old_OnSpellStart( keys )
 		ParticleManager:SetParticleControl(ifx,1,Vector(1))
 		ParticleManager:ReleaseParticleIndex(ifx)
 		target:RemoveModifierByNameAndCaster("modifier_C24T_old_playing",caster)
-		
-		ApplyDamage({
-			attacker=caster,
-			victim=target,
-			damage_type=damage_type,
-			damage=damage
-		})
 		-- 命令攻擊
 		ExecuteOrderFromTable({
 			UnitIndex = caster:entindex(),
@@ -323,6 +310,12 @@ function C24T_old_OnSpellStart( keys )
 		})
 		caster:EmitSound( "C24T.end")
 		target:SetAbsOrigin(center_ori)
+		ApplyDamage({
+			attacker=caster,
+			victim=target,
+			damage_type=damage_type,
+			damage=damage
+		})
 		-- 延遲一個frame在移除暈眩狀態
 		Timers:CreateTimer(0, function ()
 			if IsValidEntity(caster) then caster:RemoveModifierByNameAndCaster("modifier_C24T_old_stunned",caster) end
@@ -339,4 +332,11 @@ function C24T_old_OnSpellStart( keys )
 			end)
 		end)
 	end)
+	
+	ApplyDamage({
+		attacker=caster,
+		victim=target,
+		damage_type=damage_type,
+		damage=1
+	})
 end

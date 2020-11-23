@@ -47,6 +47,20 @@
 		}
 		"Modifiers"
 		{
+			"modifier_the_red_lightning_chapter2"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+
+				"OnHeroKilled"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_red_lightning_chapter.lua"
+						"Function"		"cd20"
+					}
+				}
+			}
 			"Passive_the_red_lightning_chapter"
 			{
 				"IsHidden"	"1"
@@ -4895,6 +4909,20 @@
 
 		"Modifiers"
 		{
+			"modifier_the_great_sword_of_anger2"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+
+				"OnHeroKilled"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_anger.lua"
+						"Function"		"cd35"
+					}
+				}
+			}
 			"modifier_great_sword_of_anger"
 			{
 				"IsHidden"	"0"
@@ -5751,7 +5779,7 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "25"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "50"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "40"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
@@ -7337,7 +7365,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor_reduction"
 				}
 			}
-						"modifier_spear_of_saddle2"
+			"modifier_spear_of_saddle2"
 			{
 				"Passive"			"0"
 				"IsHidden"			"0"
@@ -9638,7 +9666,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"40"
+		"AbilityCooldown"	"45"
 		
 		"AbilityManaCost"	"100"
 		

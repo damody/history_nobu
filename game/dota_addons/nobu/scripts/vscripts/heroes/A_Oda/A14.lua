@@ -108,11 +108,6 @@ function A14W_OnSpellStart( event )
 		end)
 end
 
-
-
-
-
-
 function A14E_OnSpellStart(keys)
 	ProjectileManager:ProjectileDodge(keys.caster)  --Disjoints disjointable incoming projectiles.
 	local caster = keys.caster
@@ -227,7 +222,6 @@ function A14W_old_OnSpellStart( event )
 		cur_target_vec=Vector(x,y,0)
 		
 		if not target:IsMagicImmune() then
-			
 			ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = ability:GetSpecialValueFor("stun")})
 			ApplyDamage(damageTable)
 		end
@@ -256,21 +250,21 @@ function A14W_old_OnSpellStart( event )
 		false)
 		print("target:GetPhysicsVelocity():Length()", target:GetPhysicsVelocity():Length())
 		if (timecounter<80 and target:GetPhysicsVelocity():Length()<100) then
-			ApplyDamage(damageTable)
 			Physics:Unit(target)
 			target:SetPhysicsVelocity(Vector(0,0,0))
 			target:AddNewModifier(target,ability,"modifier_phased",{duration=0.1})
 			FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+			ApplyDamage(damageTable)
 			return nil
 		end
 		for _,unit in ipairs(units) do
 			if (unit~=target and CalcDistanceBetweenEntityOBB(unit,target)<=100) then
 				--target:RemoveModifierByName("modifier_stunned")
-				ApplyDamage(damageTable)
 				Physics:Unit(target)
 				target:SetPhysicsVelocity(Vector(0,0,0))
 				target:AddNewModifier(target,ability,"modifier_phased",{duration=0.1})
 				FindClearSpaceForUnit(target, target:GetAbsOrigin(), false)
+				ApplyDamage(damageTable)
 				return nil
 			else
 				timecounter=timecounter+1
@@ -300,7 +294,7 @@ function A14E_old_OnSpellStart( event )
 			attacker=caster,         
 			damage=ability:GetSpecialValueFor("damage"),   
 			damage_type=ability:GetAbilityDamageType()} 
-	ApplyDamage(damageTable)   
+	
 	local knockbackProperties =
 	{
 		center_x = point.x,
@@ -321,6 +315,7 @@ function A14E_old_OnSpellStart( event )
 		ExecuteOrderFromTable(order)
 		end)
 	target:AddNewModifier(caster,ability,"modifier_stunned",{duration=ability:GetSpecialValueFor("stun_Time")})
+	ApplyDamage(damageTable)
 end
 
 

@@ -1,10 +1,17 @@
 -- 鬼徹
+
+function quick_cooldown(ability, cd_reduce)
+	local cooldown = ability:GetCooldown(-1)
+	local current_cooldown = ability:GetCooldownTime()
+	ability:EndCooldown()
+	ability:StartCooldown(current_cooldown - cd_reduce)
+end
+
 function Shock( keys )
 	local caster = keys.caster
 	local point = keys.target_points[1] 
 	local ability = keys.ability
 	
-
 	local chaos_effect = ParticleManager:CreateParticle("particles/econ/items/clockwerk/clockwerk_paraflare/clockwerk_para_rocket_flare_explosion.vpcf", PATTACH_ABSORIGIN, keys.caster)
 	ParticleManager:SetParticleControl(chaos_effect, 3, point)
 	Timers:CreateTimer(0.1, function ()
@@ -32,10 +39,13 @@ function Shock( keys )
 	--effect:傷害+暈眩
 	for _,it in pairs(direUnits) do
 		if (not(it:IsBuilding())) then
-			AMHC:Damage(caster,it, 800,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			ability:ApplyDataDrivenModifier(caster, it,"modifier_great_sword_of_anger",nil)
+			AMHC:Damage(caster,it, 800,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		end
 	end
 end
 
+function cd35( event )
+	quick_cooldown(event.ability, 35)
+end
 
