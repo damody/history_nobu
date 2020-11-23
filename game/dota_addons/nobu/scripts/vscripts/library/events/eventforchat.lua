@@ -783,6 +783,7 @@ local function chat_of_test(keys)
 	end
 
 	if sump <= 4 then
+		
 		if s == "-gg" then
 			_G.Oda_home:ForceKill(false)
 		end
@@ -851,6 +852,7 @@ local function chat_of_test(keys)
 			unit:SetPhysicalArmorBaseValue(armor+A_count*0.05 )
 		end
 		if string.match(s,"-ss") then
+			GameRules: SendCustomMessage("該場有測試人員使用測試指令 如果遇到有人跑步超快、神裝、技能0CD請不要驚訝",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 			caster:AddAbility("for_move1500"):SetLevel(1)
 		end
 		if string.match(s,"-night") then
@@ -919,9 +921,11 @@ local function chat_of_test(keys)
 			caster:SwapItems(1, 16)
 		end
 		if string.match(s,"-gold") then
+			GameRules: SendCustomMessage("該場有測試人員使用測試指令 如果遇到有人跑步超快、神裝、技能0CD請不要驚訝",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 			AMHC:GivePlayerGold_UnReliable(keys.playerid, 99999)
 		end
 		if string.match(s,"-money") then
+			GameRules: SendCustomMessage("該場有測試人員使用測試指令 如果遇到有人跑步超快、神裝、技能0CD請不要驚訝",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 			local money = tonumber(string.match(s, '%d+'))
 			PlayerResource:SetGold(keys.playerid,PlayerResource:GetGold(keys.playerid) + money,false)
 		end
@@ -995,6 +999,7 @@ local function chat_of_test(keys)
 		end
 		
 		if string.match(s,"-lv") then
+			GameRules: SendCustomMessage("該場有測試人員使用測試指令 如果遇到有人跑步超快、神裝、技能0CD請不要驚訝",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 			local lvmax = tonumber(string.match(s, '%d+'))
 			if lvmax then
 				for i=1,lvmax do

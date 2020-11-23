@@ -624,6 +624,11 @@ function a13e_modifier:OnIntervalThink()
 				local hashook = false
 				for _,it in pairs(direUnits) do
 					if not string.match(it:GetUnitName(), "npc_dota_courier2") and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil and not it:HasAbility("majia") then
+						if IsValidEntity(it) then
+							local tbl = { victim = it, attacker = self:GetCaster(), damage = self.hook_damage, 
+							damage_type = self.damage_type, ability = self:GetAbility()}
+							ApplyDamage(tbl)
+						end
 						hashook = true
 						if (it:HasModifier("modifier_invisible")) then
 							it:RemoveModifierByName("modifier_invisible")
@@ -639,6 +644,7 @@ function a13e_modifier:OnIntervalThink()
 							hModifier.particle = self.particle
 							break
 						end
+						print(self.hook_damage)
 						local tbl = { victim = it, attacker = self:GetCaster(), damage = self.hook_damage, 
 							damage_type = self.damage_type, ability = self:GetAbility()}
 						ApplyDamage(tbl)

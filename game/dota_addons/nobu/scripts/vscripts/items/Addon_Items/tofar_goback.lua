@@ -247,7 +247,7 @@ function warrior_soul_buff_OnIntervalThink( keys )
 		DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 	for _,it in pairs(group) do
 		if it ~= caster then 
-			ability:ApplyDataDrivenModifier(caster, it, "modifeir_warrior_souls_buff", {duration = 7})
+			ability:ApplyDataDrivenModifier(caster, it, "modifier_warrior_souls_buff", {duration = 7})
 		end
 	end
 end
