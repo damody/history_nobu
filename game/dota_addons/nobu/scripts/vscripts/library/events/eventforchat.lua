@@ -312,20 +312,20 @@ local function chat_of_test(keys)
 		caster:SetModel("models/a31/a31.vmdl")
 		caster:SetOriginalModel("models/a31/a31.vmdl")
 	end
-	if (s == "-donkey" and caster.has_dota_donkey == nil and not _G.hardcore) then
-		caster.has_dota_donkey = 1
-		local donkey = CreateUnitByName("npc_dota_courier2", caster:GetAbsOrigin()+Vector(100, 100, 0), true, caster, caster, caster:GetTeam())
-		donkey:SetControllableByPlayer(caster:GetPlayerID(), true)
-        donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
-        donkey:FindAbilityByName("courier_go_to_secretshop"):SetLevel(1)
-        donkey:FindAbilityByName("courier_return_stash_items"):SetLevel(1)
-        donkey:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
-        donkey:FindAbilityByName("courier_transfer_items"):SetLevel(1)
-        donkey:FindAbilityByName("courier_burst"):SetLevel(1)
-        donkey:FindAbilityByName("courier_morph"):SetLevel(1)
-        donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
-        donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
-	end
+	-- if (s == "-donkey" and caster.has_dota_donkey == nil and not _G.hardcore) then
+	-- 	caster.has_dota_donkey = 1
+	-- 	local donkey = CreateUnitByName("npc_dota_courier2", caster:GetAbsOrigin()+Vector(100, 100, 0), true, caster, caster, caster:GetTeam())
+	-- 	donkey:SetControllableByPlayer(caster:GetPlayerID(), true)
+    --     donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
+    --     donkey:FindAbilityByName("courier_go_to_secretshop"):SetLevel(1)
+    --     donkey:FindAbilityByName("courier_return_stash_items"):SetLevel(1)
+    --     donkey:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
+    --     donkey:FindAbilityByName("courier_transfer_items"):SetLevel(1)
+    --     donkey:FindAbilityByName("courier_burst"):SetLevel(1)
+    --     donkey:FindAbilityByName("courier_morph"):SetLevel(1)
+    --     donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
+    --     donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
+	-- end
 	
 			
 	local sump = 0

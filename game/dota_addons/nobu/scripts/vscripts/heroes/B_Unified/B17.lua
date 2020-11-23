@@ -134,6 +134,7 @@ function B17W_triggered( keys )
 end
 
 function B17R( keys )
+	ProjectileManager:ProjectileDodge(keys.caster)
 	local caster = keys.caster
 	local ability = keys.ability
 	local radius = ability:GetSpecialValueFor("B17R_radius")
