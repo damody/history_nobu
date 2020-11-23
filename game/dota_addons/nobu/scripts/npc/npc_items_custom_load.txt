@@ -47,6 +47,20 @@
 		}
 		"Modifiers"
 		{
+			"modifier_the_red_lightning_chapter2"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+
+				"OnHeroKilled"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_red_lightning_chapter.lua"
+						"Function"		"cd20"
+					}
+				}
+			}
 			"Passive_the_red_lightning_chapter"
 			{
 				"IsHidden"	"1"
@@ -4895,6 +4909,20 @@
 
 		"Modifiers"
 		{
+			"modifier_the_great_sword_of_anger2"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+
+				"OnHeroKilled"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_anger.lua"
+						"Function"		"cd35"
+					}
+				}
+			}
 			"modifier_great_sword_of_anger"
 			{
 				"IsHidden"	"0"
