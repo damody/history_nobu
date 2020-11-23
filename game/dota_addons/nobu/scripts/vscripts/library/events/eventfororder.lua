@@ -724,7 +724,7 @@ function Nobu:eventfororder( filterTable )
 		if itemName == nil then
 			return false
 		end
-		if itemName == "item_S01" then
+		if itemName == "item_S01"then
 			return false
 		end
     	if filterTable.units and filterTable.units["0"] then
@@ -776,6 +776,9 @@ function Nobu:eventfororder( filterTable )
 			local unit = EntIndexToHScript(filterTable.units["0"])
 			local playerID = unit:GetPlayerID()
 			local hero = _G.Hero[playerID]
+			if item:GetName() == "item_logging" then
+				return false
+			end
 			if not hero:IsAlive() then
 				return false
 			end

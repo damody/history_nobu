@@ -94,7 +94,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"shock_speed"	"3000"
+				"shock_speed"	"3500"
 			}
 			"02"
 			{

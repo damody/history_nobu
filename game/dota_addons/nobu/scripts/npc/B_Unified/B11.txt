@@ -313,7 +313,14 @@
 		"AbilityManaCost"	"150"
 		// Precache
 		// -------------------------------------------------------------------------------------------------------------
-
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B11.lua"
+				"Function"		"B11T_OnUpgrade"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -386,6 +393,11 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"active_criticalstrike"		"200 250 300"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"B11R_rate"		"40 50 60"
 			}
 		}
 	}

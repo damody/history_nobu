@@ -108,6 +108,9 @@ function B11R_OnAttackLanded( keys )
 	if (caster.B11R == nil) then
 		caster.B11R = 0
 	end
+	if caster.B11R_rate == nil then
+		caster.B11R_rate = 30
+	end
 	if not target:IsBuilding() then
 		caster.B11R = caster.B11R + 1
 	end
@@ -133,7 +136,7 @@ function B11R_OnAttackLanded( keys )
 			illusion[i] = CreateUnitByName(unit_name, origin, true, caster, nil, caster:GetTeamNumber())
 			illusion[i]:SetOwner(caster)
 			illusion[i]:SetControllableByPlayer(player, true)
-			illusion[i].illusion_damage = 0.6
+			illusion[i].illusion_damage = caster.B11R_rate
 			illusion[i].magical_resistance = caster.magical_resistance
 			-- Level Up the unit to the casters level
 			local casterLevel = caster:GetLevel()
@@ -186,6 +189,17 @@ end
 
 --目前使用次數
 B11F_counter=0
+
+function B11T_OnUpgrade ( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local rate = ability:GetSpecialValueFor("B11R_rate")
+	if caster.B11R_rate then
+		caster.B11R_rate = rate
+	else
+		caster.B11R_rate = rate
+	end
+end
 
 function B11T_OnSpellStart( keys )
 	local caster = keys.caster
