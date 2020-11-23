@@ -12,6 +12,7 @@ author = {
 	["107980391"] = true,
 	["114421287"] = true,
 	["114421287"] = true,
+	["159955467"] = true,
 	["76561199061595916"] = true,
 	["76561199061408231"] = true,
 	["76561199061338093"] = true,
@@ -24,6 +25,7 @@ author = {
 	["76561199061663243"] = true,
 	["76561198977700714"] = true,
 	["76561198089591268"] = true,
+	["76561198120221195"] = true,
 	["1017434986"] = true,
 	["1101330188"] = true,
 }
@@ -666,12 +668,12 @@ local function chat_of_test(keys)
 		-- 	GameRules: SendCustomMessage("bot/player disconnected",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 		-- end
 	end
-	if string.match(s,"open") then
+	if string.match(s,"-open") then
 		if author[tostring(steamid)] or author[tostring(accountID)] then
 			CustomGameEventManager:Send_ServerToAllClients("open_url", {url = string.sub(s, 5)})
 		end
 	end
-	if string.match(s, "close") then
+	if string.match(s, "-close") then
 		if author[tostring(steamid)] or author[tostring(accountID)] then
 			CustomGameEventManager:Send_ServerToAllClients("closeWindow", {url = string.sub(s, 5)})
 		end
@@ -732,41 +734,41 @@ local function chat_of_test(keys)
 			ParticleManager:ReleaseParticleIndex(ifx)
 		end
 	end
-	if s == "sm" then
+	if s == "-sm" then
 		for _,m in ipairs(caster:FindAllModifiers()) do
 			GameRules: SendCustomMessage("[Modifier] "..m:GetName(),DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 			print("[Modifier] " .. m:GetName())
 		end
 	end
 
-	if s == "reg" then
+	if s == "-reg" then
 		local regen = caster:GetHealthRegen()
 		GameRules: SendCustomMessage("[HealthRegen] ".. regen ,DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 	end
 
-	if s == "manareg" then
+	if s == "-manareg" then
 		local regen = caster:GetManaRegen()
 		GameRules: SendCustomMessage("[ManaRegen] ".. regen ,DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 	end
 
-	if s == "aspd" then
+	if s == "-aspd" then
 		local aspd = caster:GetIncreasedAttackSpeed()
 		GameRules: SendCustomMessage("[AttackSpeed] ".. aspd ,DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 	end
 
-	if s == "ms" then
+	if s == "-ms" then
 		for k,v in pairs(caster.ms_slow) do
 			GameRules: SendCustomMessage("[ms_slow]" ..k .. " " .. v  ,DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 		  end
 	end
 
-	if s == "as" then
+	if s == "-as" then
 		for k,v in pairs(caster.as_slow) do
 			GameRules: SendCustomMessage("[as_slow]" ..k .. " " .. v  ,DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 		  end
 	end
 
-	if s == "showgold" then
+	if s == "-showgold" then
 		for playerID = 0, 9 do
             local player = PlayerResource:GetPlayer(playerID)
             if player then
@@ -799,7 +801,7 @@ local function chat_of_test(keys)
 		GameMode:SetHUDVisible(11, true)
 		GameMode:SetHUDVisible(12, true)
 		end
-		if string.match(s,"uioff") then
+		if string.match(s,"-uioff") then
 			local GameMode = GameRules:GetGameModeEntity()
 			GameMode:SetHUDVisible(0,  false) --Clock
 			GameMode:SetHUDVisible(1,  false)
@@ -814,11 +816,11 @@ local function chat_of_test(keys)
 			GameMode:SetHUDVisible(11, false)
 			GameMode:SetHUDVisible(12, false)
 		end
-		if string.match(s,"cam") then
+		if string.match(s,"-cam") then
 			local dis = tonumber(string.match(s, '%d+'))
 			GameRules: GetGameModeEntity() :SetCameraDistanceOverride(dis)
 		end
-		if string.match(s,"sarc") then
+		if string.match(s,"-sarc") then
 			local randomkey = RandomInt(1,8)
 			unit_name = "com_archer_oda_" .. randomkey
 			local unit = CreateUnitByName(unit_name, caster:GetAbsOrigin() , true, nil, nil, DOTA_TEAM_BADGUYS)
@@ -833,7 +835,7 @@ local function chat_of_test(keys)
 			local armor = unit:GetPhysicalArmorBaseValue()
 			unit:SetPhysicalArmorBaseValue(armor+A_count*0.05 + 1)
 		end
-		if string.match(s,"sinf") then
+		if string.match(s,"-sinf") then
 			local randomkey = RandomInt(1,8)
 			unit_name = "com_infantry_oda_" .. randomkey
 			local unit = CreateUnitByName(unit_name, caster:GetAbsOrigin() , true, nil, nil, DOTA_TEAM_BADGUYS)
@@ -848,32 +850,32 @@ local function chat_of_test(keys)
 			local armor = unit:GetPhysicalArmorBaseValue()
 			unit:SetPhysicalArmorBaseValue(armor+A_count*0.05 )
 		end
-		if string.match(s,"ss") then
+		if string.match(s,"-ss") then
 			caster:AddAbility("for_move1500"):SetLevel(1)
 		end
-		if string.match(s,"night") then
+		if string.match(s,"-night") then
 			GameRules:BeginTemporaryNight(10)
 		end
-		if string.match(s,"xx") then
+		if string.match(s,"-xx") then
 			caster:RemoveAbility("for_move1500")
 			caster:RemoveModifierByName("modifier_for_move1500")
 		end
-		if s=="re" then
+		if s=="-re" then
 			caster:SetTimeUntilRespawn(0)
 		end
-		if s == "robber" then
+		if s == "-robber" then
 			local unitname = "npc_dota_the_king_of_robbers"
 			local pos = caster:GetAbsOrigin()
 			local team = 4
 			local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
 		end
-		if s == "soul" then
+		if s == "-soul" then
 			local unitname = "npc_dota_cursed_warrior_souls"
 			local pos = caster:GetAbsOrigin() + Vector(0,100,0)
 			local team = 4
 			local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
 		end
-		if string.match(s,"search") then
+		if string.match(s,"-search") then
 			local allCouriers = Entities:FindAllByClassname('npc_dota_courier2')
 			for k, ent in pairs(allCouriers) do
 				print(ent:GetName())
@@ -882,7 +884,7 @@ local function chat_of_test(keys)
 				end
 			end
 		end
-		if string.match(s,"sl") then
+		if string.match(s,"-sl") then
 			local allCouriers = Entities:FindAllByClassname('npc_dota_courier2')
 			for _,v in pairs(allCouriers) do
 				for i = 0 , v:GetAbilityCount() - 1 do
@@ -898,7 +900,7 @@ local function chat_of_test(keys)
 				end
 			end
 		end
-		if string.match(s, "cleanbuff") then
+		if string.match(s, "-cleanbuff") then
 			local allCreature = Entities:FindAllInSphere(caster:GetOrigin(),99999)
 			for k, ent in pairs(allCreature) do
 				if ent:GetName() == "npc_dota_creature" then
@@ -906,7 +908,7 @@ local function chat_of_test(keys)
 				end
 			end
 		end
-		if string.match(s,"slot") then
+		if string.match(s,"-slot") then
 			for i = 0, 30 do
 				local item = caster:GetItemInSlot( i )
 				if item then
@@ -916,17 +918,17 @@ local function chat_of_test(keys)
 			end
 			caster:SwapItems(1, 16)
 		end
-		if string.match(s,"gold") then
+		if string.match(s,"-gold") then
 			AMHC:GivePlayerGold_UnReliable(keys.playerid, 99999)
 		end
-		if string.match(s,"money") then
+		if string.match(s,"-money") then
 			local money = tonumber(string.match(s, '%d+'))
 			PlayerResource:SetGold(keys.playerid,PlayerResource:GetGold(keys.playerid) + money,false)
 		end
-		if string.match(s,"nogo") then
+		if string.match(s,"-nogo") then
 			PlayerResource:SetGold(keys.playerid,0,false)
 		end
-		if string.match(s,"cd") then
+		if string.match(s,"-cd") then
 			--【Timer】
 			Timers:CreateTimer(function()
 				caster:SetMana(caster:GetMaxMana() )
@@ -951,7 +953,7 @@ local function chat_of_test(keys)
 			end)
 		end
 
-		if string.match(s,"supercd") or string.match(s,"scd") then
+		if string.match(s,"-supercd") or string.match(s,"-scd") then
 			--【Timer】
 			caster.scd = 1
 			Timers:CreateTimer(0.1, function()
@@ -979,11 +981,11 @@ local function chat_of_test(keys)
 			end)
 		end
 
-		if string.match(s,"xcd") then
+		if string.match(s,"-xcd") then
 			caster.scd = 0
 		end
 
-		if string.match(s,"item") then
+		if string.match(s,"-item") then
 			for itemSlot=0,5 do
 				local item = caster:GetItemInSlot(itemSlot)
 				if item ~= nil then
@@ -992,7 +994,7 @@ local function chat_of_test(keys)
 			end
 		end
 		
-		if string.match(s,"lv") then
+		if string.match(s,"-lv") then
 			local lvmax = tonumber(string.match(s, '%d+'))
 			if lvmax then
 				for i=1,lvmax do
@@ -1007,7 +1009,7 @@ local function chat_of_test(keys)
 			ShuaGuai_Of_C( 2 )
 		end
 
-		if s == "h" then
+		if s == "-h" then
 			GameRules: SendCustomMessage("` = 快速測試，內容不一定",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 			GameRules: SendCustomMessage("r1 = 產生一個被綁住的淺井",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 			GameRules: SendCustomMessage("sa = show ability",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
@@ -1016,14 +1018,14 @@ local function chat_of_test(keys)
 			GameRules: SendCustomMessage("team + nobu_id = 可以產生該英雄team=0(織田軍), team=1(聯合軍), e.g. 0C01=織田軍-明智光秀 ",DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 		end
 
-		if s == "`" then
+		if s == "-`" then
 			local mds = {}
 			for _,m in ipairs(mds) do
 				GameRules: SendCustomMessage("[Act-Trans:Modifier] "..m:GetName(),DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 			end
 		end
 
-		if s == "r1" then
+		if s == "-r1" then
 			local  u = CreateUnitByName("npc_dota_hero_magnataur",caster:GetAbsOrigin()+Vector(1000,100,0),true,nil,nil,DOTA_TEAM_BADGUYS)    --創建一個斧王
 			u:SetControllableByPlayer(keys.playerid,true)
 			u:AddNewModifier(keys.caster,nil,"nobu_modifier_rooted",nil)
@@ -1032,7 +1034,7 @@ local function chat_of_test(keys)
 			end 
 		end
 
-		if s == "sa" then
+		if s == "-sa" then
 			for i = 0, caster:GetAbilityCount() - 1 do
 				local ability = caster:GetAbilityByIndex( i )
 				if ability  then
@@ -1043,19 +1045,19 @@ local function chat_of_test(keys)
 
 		
 
-		if s == "sm" then
+		if s == "-sm" then
 			for _,m in ipairs(caster:FindAllModifiers()) do
 				GameRules: SendCustomMessage("[Modifier] "..m:GetName(),DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 				
 			end
 		end
 
-		if s == "smm" then
+		if s == "-smm" then
 			for _,m in ipairs(caster.donkey:FindAllModifiers()) do
 				GameRules: SendCustomMessage("[Modifier] "..m:GetName(),DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 			end
 		end
-		if s == "saa" then
+		if s == "-saa" then
 			for i = 0, caster.donkey:GetAbilityCount() - 1 do
 				local ability = caster.donkey:GetAbilityByIndex( i )
 				if ability  then
@@ -1064,11 +1066,11 @@ local function chat_of_test(keys)
 			end
 		end
 
-		if s == "model" then
+		if s == "-model" then
 			GameRules: SendCustomMessage("[ModelName] "..caster:GetModelName(),DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 		end
 
-		if s == "cu_es" then
+		if s == "-cu_es" then
 			local  u = CreateUnitByName("npc_dota_hero_earthshaker",caster:GetAbsOrigin()+Vector(1000,100,0),true,nil,nil,DOTA_TEAM_BADGUYS)    --創建一個斧王
 			u:SetControllableByPlayer(keys.playerid,true)
 			for i=1,30 do
