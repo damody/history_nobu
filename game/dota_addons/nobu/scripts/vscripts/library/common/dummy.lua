@@ -853,9 +853,9 @@ function phased_dummy( keys )
   for i,v in ipairs(group) do
     print(v)
     if not caster:HasModifier("modifier_phased") then
-      ability:ApplyDataDrivenModifier(caster, caster, "modifier_phased",{duration = 1})
+      ability:ApplyDataDrivenModifier(caster, caster, "modifier_phased",{duration = 0.3})
     end
-    ability:ApplyDataDrivenModifier(v, v, "modifier_phased",{duration = 1})
+    ability:ApplyDataDrivenModifier(v, v, "modifier_phased",{duration = 0.3})
   end
   -- if not caster:HasModifier("modifier_destroy_phase") and caster:GetUnitName() ~= "B33T_UNIT" then
   --   ability:ApplyDataDrivenModifier(caster,caster,"modifier_destroy_phase",{})

@@ -342,6 +342,7 @@ function B02E(keys)
 	local vec = caster:GetForwardVector()
 	--【Varible】
 	local life = ability:GetLevelSpecialValueFor("duration",level)	
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_phased",{duration = 1})
 	-- --【Particle】
 	-- local particle = ParticleManager:CreateParticle("particles/b02e2/b02e2.vpcf",PATTACH_POINT,caster)
 	-- ParticleManager:SetParticleControl(particle,0, point)	

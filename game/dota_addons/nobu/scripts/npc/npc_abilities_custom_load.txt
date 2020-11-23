@@ -6027,20 +6027,20 @@
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
-				"Aura"	"modifier_phased_dummy"
-				"Aura_Radius"	"50"
-				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_BOTH"
-				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				// "ThinkInterval" "0.1"
-				// "OnIntervalThink"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"phased_dummy"
-				// 	}
-				// }
+				// "Aura"	"modifier_phased_dummy"
+				// "Aura_Radius"	"50"
+				// "Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_BOTH"
+				// "Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				// "Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_NONE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+				"ThinkInterval" "0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"phased_dummy"
+					}
+				}
 			}
 			"modifier_phased_dummy"
 			{
