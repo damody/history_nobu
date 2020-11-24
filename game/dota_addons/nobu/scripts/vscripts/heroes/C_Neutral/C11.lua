@@ -93,7 +93,8 @@ function C11W_hit_unit( keys )
 	CreateScreenEffect(target)
 
 	-- 音效
-	EmitSoundOn("Hero_Zuus.GodsWrath.Target",target)
+	-- EmitSoundOn("Hero_Zuus.GodsWrath.Target",target)
+	caster:EmitSoundParams("Hero_Zuus.GodsWrath.Target", 1, 0.6, 0)
 
 	-- 搜尋參數
 	local center = target:GetAbsOrigin()

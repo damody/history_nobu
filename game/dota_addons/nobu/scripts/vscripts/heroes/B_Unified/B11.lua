@@ -109,7 +109,7 @@ function B11R_OnAttackLanded( keys )
 		caster.B11R = 0
 	end
 	if caster.B11R_rate == nil then
-		caster.B11R_rate = 30
+		caster.B11R_rate = 0.3
 	end
 	if not target:IsBuilding() then
 		caster.B11R = caster.B11R + 1
@@ -179,7 +179,7 @@ function B11R_OnAttackLanded( keys )
 					illusion[i]:AddItem(newItem)
 				end
 			end
-			illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = 5, outgoing_damage = 60, incoming_damage = 100 })
+			illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = 5, outgoing_damage = caster.B11R_rate * 100 , incoming_damage = 100 })
 			illusion[i]:MakeIllusion()
 			illusion[i]:SetHealth(caster:GetHealth())
 		end
@@ -194,11 +194,7 @@ function B11T_OnUpgrade ( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local rate = ability:GetSpecialValueFor("B11R_rate")
-	if caster.B11R_rate then
-		caster.B11R_rate = rate
-	else
-		caster.B11R_rate = rate
-	end
+	caster.B11R_rate = rate
 end
 
 function B11T_OnSpellStart( keys )
