@@ -719,8 +719,8 @@ function Nobu:eventfororder( filterTable )
 		-- PrintTable(filterTable)
 		local itemID = filterTable.entindex_ability
 		local itemName = Containers.itemIDs[itemID]
-		-- local item = EntIndexToHScript(filterTable.entindex_ability)
-		-- local item_cost = GetItemCost(itemName)
+		local item = EntIndexToHScript(filterTable.entindex_ability)
+		local item_cost = GetItemCost(itemName)
 		if itemName == nil then
 			return false
 		end
@@ -740,11 +740,13 @@ function Nobu:eventfororder( filterTable )
 				
 			end
 		end
-    	if filterTable.units ~= nil and filterTable.units["0"] ~= nil then
+		if filterTable.units ~= nil and filterTable.units["0"] ~= nil then
 			local unit = EntIndexToHScript(filterTable.units["0"])
-			-- if _G.SpentGold[unit:GetPlayerOwnerID()] + item_cost > _G.PlayerEarnedGold[unit:GetPlayerOwnerID()] then
-			-- 	return false
-			-- end
+			GameRules:SendCustomMessage("購買,已花費" .. _G.SpentGold[unit:GetPlayerOwnerID()] .. "裝備消耗" .. item_cost .. "賺取金錢" .. _G.PlayerEarnedGold[unit:GetPlayerOwnerID()] , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+			if _G.SpentGold[unit:GetPlayerOwnerID()] + item_cost > _G.PlayerEarnedGold[unit:GetPlayerOwnerID()] then
+				GameRules:SendCustomMessage("購買失敗,已花費" .. _G.SpentGold[unit:GetPlayerOwnerID()] .. "裝備消耗" .. item_cost .. "賺取金錢" .. _G.PlayerEarnedGold[unit:GetPlayerOwnerID()] , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+				return false
+			end
 	    	local items_nosell = {
 		    	["item_reward6300"] = true,
 		    	["item_c06e"] = true,
