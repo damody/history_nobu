@@ -479,21 +479,24 @@ function Nobu:OnUnitKill( keys )
         end
       end)
     elseif string.match(name, "courier") then
-      if killedUnit:GetTeamNumber() == 2 then
-        killedUnit:RespawnUnit()  
-        killedUnit:SetOrigin(Vector(6912,-7168,128))
-      else
-        killedUnit:RespawnUnit()
-        killedUnit:SetOrigin(Vector(-7168,6656,128))
-      end
-      Timers:CreateTimer(0.5,function() 
-        for i = 0 , killedUnit:GetAbilityCount()-1 do
-          if killedUnit:GetAbilityByIndex(i) then
-            killedUnit:GetAbilityByIndex(i):SetLevel(1)
-          end
+      local owner = killedUnit:GetOwner()
+      if owner.diconnect == false then
+        if killedUnit:GetTeamNumber() == 2 then
+          killedUnit:RespawnUnit()  
+          killedUnit:SetOrigin(Vector(6912,-7168,128))
+        else
+          killedUnit:RespawnUnit()
+          killedUnit:SetOrigin(Vector(-7168,6656,128))
         end
-        killedUnit:SetOriginalModel("models/props_gameplay/donkey.vmdl")
-      end)
+        Timers:CreateTimer(0.5,function() 
+          for i = 0 , killedUnit:GetAbilityCount()-1 do
+            if killedUnit:GetAbilityByIndex(i) then
+              killedUnit:GetAbilityByIndex(i):SetLevel(1)
+            end
+          end
+          killedUnit:SetOriginalModel("models/props_gameplay/donkey.vmdl")
+        end)
+      end
     -- end
     end
 
