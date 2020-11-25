@@ -717,12 +717,29 @@ function afk_gogo(keys)
 		end
 		if state == 3 then -- 2 = connected
 			hero.afk_time = hero.afk_time + 1
+			hero.donkey:ForceKill(true)
 			if team == 2 then
 				hero:MoveToPosition(nobuafk)
-				hero.donkey:MoveToPosition(nobuafk)
 			else
 				hero:MoveToPosition(unitafk)
-				hero.donkey:MoveToPosition(unitafk)
+			end
+		end
+		if state == 2 then
+			local donkey = CreateUnitByName("npc_dota_courier2", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
+			donkey:SetOwner(hero)
+			donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
+			donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
+			donkey:FindAbilityByName("courier_go_to_secretshop"):SetLevel(1)
+			donkey:FindAbilityByName("courier_return_stash_items"):SetLevel(1)
+			donkey:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
+			donkey:FindAbilityByName("courier_transfer_items"):SetLevel(1)
+			donkey:FindAbilityByName("courier_burst"):SetLevel(1)
+			donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
+			donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
+			donkey:FindAbilityByName("phased_dummy"):SetLevel(1)
+			donkey:FindAbilityByName("courier_mute"):SetLevel(1)
+			if hero.donkey == nil then
+			  hero.donkey = donkey
 			end
 		end
 	end
