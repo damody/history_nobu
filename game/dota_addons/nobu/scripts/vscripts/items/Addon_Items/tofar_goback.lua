@@ -716,9 +716,16 @@ function afk_gogo(keys)
 			hero.deathtime = hero.deathtime - 1
 		end
 		if state == 3 then -- 2 = connected
+			local position = hero.donkey:GetAbsOrigin()
+			for i = 0, 6 do 
+				local item = hero.donkey:GetItemInSlot(i)
+				hero.donkey:DropItemAtPositionImmediate(item, hero.spawn_location)
+			end
+			
 			hero.afk_time = hero.afk_time + 1
 			hero.disconnect = true
 			hero.donkey:ForceKill(true)
+			hero.donkey = nil
 			if team == 2 then
 				hero:MoveToPosition(nobuafk)
 			else
@@ -726,23 +733,25 @@ function afk_gogo(keys)
 			end
 		end
 		if state == 2 then
-			hero.disconnect = false
-			local donkey = CreateUnitByName("npc_dota_courier2", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
-			donkey:SetOwner(hero)
-			donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
-			donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
-			donkey:FindAbilityByName("courier_go_to_secretshop"):SetLevel(1)
-			donkey:FindAbilityByName("courier_return_stash_items"):SetLevel(1)
-			donkey:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
-			donkey:FindAbilityByName("courier_transfer_items"):SetLevel(1)
-			donkey:FindAbilityByName("courier_burst"):SetLevel(1)
-			donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
-			donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
-			donkey:FindAbilityByName("phased_dummy"):SetLevel(1)
-			donkey:FindAbilityByName("courier_mute"):SetLevel(1)
-			if hero.donkey == nil then
+			Timers:CreateTimer ( 3 , function ()
+				hero.disconnect = false
+				if hero.donkey == nil then
+				local donkey = CreateUnitByName("npc_dota_courier2", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
+				donkey:SetOwner(hero)
+				donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
+				donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
+				donkey:FindAbilityByName("courier_go_to_secretshop"):SetLevel(1)
+				donkey:FindAbilityByName("courier_return_stash_items"):SetLevel(1)
+				donkey:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
+				donkey:FindAbilityByName("courier_transfer_items"):SetLevel(1)
+				donkey:FindAbilityByName("courier_burst"):SetLevel(1)
+				donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
+				donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
+				donkey:FindAbilityByName("phased_dummy"):SetLevel(1)
+				donkey:FindAbilityByName("courier_mute"):SetLevel(1)
 				hero.donkey = donkey
-			end
+				end
+			end)
 		end
 	end
 end
