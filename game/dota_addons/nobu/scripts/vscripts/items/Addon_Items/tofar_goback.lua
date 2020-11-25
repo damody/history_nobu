@@ -725,6 +725,7 @@ function afk_gogo(keys)
 			end
 		end
 		if state == 2 then
+			if hero.donkey == nil then
 			local donkey = CreateUnitByName("npc_dota_courier2", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
 			donkey:SetOwner(hero)
 			donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
@@ -738,8 +739,7 @@ function afk_gogo(keys)
 			donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
 			donkey:FindAbilityByName("phased_dummy"):SetLevel(1)
 			donkey:FindAbilityByName("courier_mute"):SetLevel(1)
-			if hero.donkey == nil then
-			  hero.donkey = donkey
+			hero.donkey = donkey
 			end
 		end
 	end
