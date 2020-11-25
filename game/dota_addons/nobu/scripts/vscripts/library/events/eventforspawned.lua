@@ -37,22 +37,28 @@ function Nobu:OnHeroIngame( keys )
     Timers:CreateTimer ( 0.2, function ()
       if hero ~= nil and IsValidEntity(hero) and not hero:IsIllusion() and caster:GetTeamNumber() < 4 then
         if hero.init1 == nil then
-          local donkey = CreateUnitByName("npc_dota_courier2", caster:GetAbsOrigin()+Vector(100, 100, 0), true, caster, caster, caster:GetTeam())
-          donkey:SetOwner(caster)
-          donkey:SetControllableByPlayer(caster:GetPlayerID(), true)
-          donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
-          donkey:FindAbilityByName("courier_go_to_secretshop"):SetLevel(1)
-          donkey:FindAbilityByName("courier_return_stash_items"):SetLevel(1)
-          donkey:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
-          donkey:FindAbilityByName("courier_transfer_items"):SetLevel(1)
-          donkey:FindAbilityByName("courier_burst"):SetLevel(1)
-          donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
-          donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
-          donkey:FindAbilityByName("phased_dummy"):SetLevel(1)
-          donkey:FindAbilityByName("courier_mute"):SetLevel(1)
-          if hero.donkey == nil then
-            hero.donkey = donkey
+          if hero.disconnect == nil then
+            hero.disconnect = false
           end
+          if hero.disconnect == false then
+            local donkey = CreateUnitByName("npc_dota_courier2", caster:GetAbsOrigin()+Vector(100, 100, 0), true, caster, caster, caster:GetTeam())
+            donkey:SetOwner(caster)
+            donkey:SetControllableByPlayer(caster:GetPlayerID(), true)
+            donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
+            donkey:FindAbilityByName("courier_go_to_secretshop"):SetLevel(1)
+            donkey:FindAbilityByName("courier_return_stash_items"):SetLevel(1)
+            donkey:FindAbilityByName("courier_take_stash_items"):SetLevel(1)
+            donkey:FindAbilityByName("courier_transfer_items"):SetLevel(1)
+            donkey:FindAbilityByName("courier_burst"):SetLevel(1)
+            donkey:FindAbilityByName("courier_take_stash_and_transfer_items"):SetLevel(1)
+            donkey:FindAbilityByName("for_magic_immune"):SetLevel(1)
+            donkey:FindAbilityByName("phased_dummy"):SetLevel(1)
+            donkey:FindAbilityByName("courier_mute"):SetLevel(1)
+            if hero.donkey == nil then
+              hero.donkey = donkey
+            end
+          end
+
           
           hero.init1 = true
           hero.assist_count = 0
