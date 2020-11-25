@@ -373,26 +373,25 @@ local function chat_of_test(keys)
 	-- 	print(_G.CP_respawn_time)
 	-- 	GameRules:SendCustomMessage("設定CP重生時間"..rs, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	-- end
-	if s == "-record" then 
+	if string.match(s,"-record") then
+		local rmc = tonumber(string.match(s, '%d+'))
 		if author[tostring(steamid)] or author[tostring(accountID)] then
-			--紀錄到 table:Finished_game
 			print("FinishedGame")
-			print(_G.createtime)
 			for mm, dd, yy in string.gmatch(tostring(GetSystemDate()), "(%w+)/(%w+)/(%w+)") do
 				_G.endtime = string.format("20%d%02d%02d", yy, mm, dd)
 			end
 			for hh, mm, ss in string.gmatch(tostring(GetSystemTime()), "(%w+):(%w+):(%w+)") do
 				_G.endtime = string.format("%s%02d%02d%02d",_G.endtime, hh, mm, ss)
 			end
-			print(_G.endtime)
 			GameRules:SendCustomMessage("記錄遊戲場次...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-			RECORD:StoreToFinishedGame({createtime=_G.createtime, endtime=_G.endtime},
+			RECORD:StoreToFinishedGame({createtime=_G.createtime, endtime=_G.endtime, isClient=_G.bGameFromClient},
 				function(game_id)
 					print(game_id)
 					local playersData = {};
 					for playerID = 0, 9 do
+						local steam_id = PlayerResource:GetSteamID(playerID)
 						if _G.IsExist[playerID] then 
-							local steam_id = PlayerResource:GetSteamID(playerID)
+							-- GameRules: SendCustomMessage("player " .. steam_id, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 							local hero = _G.Hero[playerID]
 							local level = hero:GetLevel() or 0
 							local nobu_res = "L"
@@ -451,8 +450,8 @@ local function chat_of_test(keys)
 								steam_id = tostring(steam_id),
 								res = res,
 							}
-							GameRules: SendCustomMessage(playerID .. "記錄玩家勝敗...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 							print(json.encode(endGame))
+							GameRules: SendCustomMessage(playerID .. "記錄玩家勝敗...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 							-- RECORD:EndGame({steam_id=steam_id, res=res})
 							if res == "W" then
 								win = 1 
@@ -496,7 +495,7 @@ local function chat_of_test(keys)
 									equ[i] = item:GetName()
 								end
 							end
-							print("FinishedDetail")						
+							print("FinishedDetail")
 							print("game_id" .. tostring(game_id))
 							local finishedDetail = {
 								game_id=tostring(game_id),
@@ -625,7 +624,12 @@ local function chat_of_test(keys)
 							end
 							print(json.encode(equipment_purchased))
 							GameRules: SendCustomMessage(playerID .. "記錄道具購買時間...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+							local isValid = false;
+							if _G.matchCount >= rmc then
+								isValid = true;
+							end
 							playersData[playerID] = {
+								isValid = isValid,
 								endGame = endGame,
 								player = player,
 								finishedDetail = finishedDetail,
@@ -637,10 +641,41 @@ local function chat_of_test(keys)
 					end
 					local string = json.encode(playersData)
 					print("record data :" .. string)
-					RECORD:RecordAll(string, function(result) 
-							PrintTable(result)
+					RECORD:RecordAll(string, 
+						function(result)
 							if tostring(result.StatusCode) == "200" then
 								GameRules:SendCustomMessage("遊戲已成功記錄", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+								--destroy
+								local units = FindUnitsInRadius(caster:GetTeamNumber(), 
+								caster:GetAbsOrigin(), 
+								nil, 
+								5000,
+								DOTA_UNIT_TARGET_TEAM_FRIENDLY, 
+								DOTA_UNIT_TARGET_ALL, 
+								DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
+								FIND_ANY_ORDER, 
+								false 
+								)
+								-- if caster:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+								-- 	local homes = Entities:FindAllByName('dota_badguys_fort')
+								-- 	for k, ent in pairs(homes) do
+								-- 		print(ent:GetName())
+								-- 		ent:RemoveAbility("when_cp_first_spawn")
+								-- 		ent:RemoveModifierByName("modifier_stuck")
+								-- 		ent:AddNewModifier(unit, nil, "modifier_kill", {duration=0.2})
+								-- 		print("kill")
+								-- 	end
+								-- end
+								-- if caster:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+								-- 	local homes = Entities:FindAllByName('dota_goodguys_fort')
+								-- 	for k, ent in pairs(homes) do
+								-- 		print(ent:GetName())
+								-- 		ent:RemoveAbility("when_cp_first_spawn")
+								-- 		ent:RemoveModifierByName("modifier_stuck")
+								-- 		ent:AddNewModifier(unit, nil, "modifier_kill", {duration=0.2})
+								-- 		print("kill")
+								-- 	end
+								-- end
 							else
 								GameRules:SendCustomMessage("發生意外的錯誤，無法記錄遊戲", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 							end

@@ -123,6 +123,8 @@ function SendHTTPRequestGetPlayers(path, method, values, callback)
 				PlayerResource:SetCustomTeamAssignment(i, 3)
 				_G.selectHero[i] = table["hero10"]
 				_G.matchCount = _G.matchCount + 1
+			else 
+				_G.bGameFromClient = false
 			end
 		end
 		if table["mode"] then
@@ -258,20 +260,20 @@ function Nobu:OnGameRulesStateChange( keys )
 		end
 
 		-- 沒選好用內嵌的網頁選
-		-- Timers:CreateTimer(40, function()
-		-- 	for playerID = 0, 9 do
-		-- 		local steam_id = PlayerResource:GetSteamID(playerID)
-		-- 		local player   = PlayerResource:GetPlayer(playerID)
-		-- 		if (player and player:GetAssignedHero() == nil) then
-		-- 			SendHTTPRequestGetHero("", "POST",
-		-- 			{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
-		-- 				if (string.match(res, "error")) then
-		-- 					callback()
-		-- 				end
-		-- 			end)
-		-- 		end
-		-- 	end
-		-- end)
+		Timers:CreateTimer(40, function()
+			for playerID = 0, 9 do
+				local steam_id = PlayerResource:GetSteamID(playerID)
+				local player   = PlayerResource:GetPlayer(playerID)
+				if (player and player:GetAssignedHero() == nil) then
+					SendHTTPRequestGetHero("", "POST",
+					{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
+						if (string.match(res, "error")) then
+							callback()
+						end
+					end)
+				end
+			end
+		end)
 		for i=0,20 do
 			PlayerResource:SetGold(i,2000,false)--玩家ID需要減一
 		end
@@ -311,8 +313,7 @@ function Nobu:OnGameRulesStateChange( keys )
     GameRules:SendCustomMessage("15分鐘後可以打 -ff 投降" , DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("目前作者: Victor", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	GameRules:SendCustomMessage("響雨工作室", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
-	print(_G.matchCount)
-	if ( _G.matchCount < _G.recordCount ) then
+	if ( _G.matchCount < 10 ) then
 		GameRules:SendCustomMessage("此為練習模式 不計算分數", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 	end
 	elseif(newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS) then --遊戲開始 --7

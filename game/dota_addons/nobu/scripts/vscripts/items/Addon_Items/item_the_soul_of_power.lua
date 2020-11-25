@@ -315,7 +315,12 @@ function MVP_OnTakeDamage( event )
 									end
 									print(json.encode(equipment_purchased))
 									-- GameRules: SendCustomMessage(playerID .. "記錄道具購買時間...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
+									local isValid = false;
+									if _G.matchCount >= 10 then
+										isValid = true;
+									end
 									playersData[playerID] = {
+										isValid = isValid,
 										endGame = endGame,
 										player = player,
 										finishedDetail = finishedDetail,
