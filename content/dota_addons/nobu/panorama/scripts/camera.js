@@ -66,11 +66,11 @@ function UpdateDireScore(keys) {
   var LevelUpTab = level_stats_frame.FindChildTraverse('LevelUpTab')
   var LevelUpButton = LevelUpTab.FindChildTraverse('LevelUpButton')
   var LevelUpIcon = LevelUpTab.FindChildTraverse('LevelUpIcon')
-  var LevelUpGlow = LevelUpTab.FindChildTraverse('LevelUpGlow')
-  $.Msg(123123)
-  $.Msg(LevelUpGlow)
-  $.Msg(123123)
-  // LevelUpGlow.background-image = "";
+  // var LevelUpGlow = LevelUpTab.FindChildTraverse('LevelUpGlow')
+  // $.Msg(123123)
+  // $.Msg(LevelUpGlow)
+  // $.Msg(123123)
+  // // LevelUpGlow.background-image = "";
   LevelUpButton.visible = false
   LevelUpIcon.visible = false
   x = x.FindChildTraverse('AbilitiesAndStatBranch')
