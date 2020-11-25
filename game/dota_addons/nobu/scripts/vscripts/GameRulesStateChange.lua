@@ -15,7 +15,7 @@ gamestates =
 }
 
 function SendHTTPRequest(path, method, values, callback)
-	local req = CreateHTTPRequestScriptVM( method, "http://172.104.72.206/clientApi/"..path )
+	local req = CreateHTTPRequestScriptVM( method, "http://nobu.gg/clientApi/"..path )
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
 	end
@@ -25,7 +25,7 @@ function SendHTTPRequest(path, method, values, callback)
 end
 
 function SendHTTPRequestGetHero(path, method, values, callback)
-	local req = CreateHTTPRequestScriptVM( method, "http://172.104.72.206/clientApi/")
+	local req = CreateHTTPRequestScriptVM( method, "http://nobu.gg/clientApi/")
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
 	end 
@@ -54,7 +54,7 @@ function SendHTTPRequestGetHero(path, method, values, callback)
 end
 
 function SendHTTPRequestCheckSubscription(path, method, values, callback)
-	local req = CreateHTTPRequestScriptVM( method, "http://172.104.72.206/clientApi/"..path)
+	local req = CreateHTTPRequestScriptVM( method, "http://nobu.gg/clientApi/"..path)
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
 	end
@@ -65,7 +65,7 @@ function SendHTTPRequestCheckSubscription(path, method, values, callback)
 end
 
 function SendHTTPRequestGetPlayers(path, method, values, callback)
-	local req = CreateHTTPRequestScriptVM( method, "http://172.104.72.206/clientApi/"..path)
+	local req = CreateHTTPRequestScriptVM( method, "http://nobu.gg/clientApi/"..path)
 	for key, value in pairs(values) do
 		req:SetHTTPRequestGetOrPostParameter(key, value)
 	end
@@ -260,7 +260,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		end
 
 		-- 沒選好用內嵌的網頁選
-		Timers:CreateTimer(40, function()
+		Timers:CreateTimer(50, function()
 			for playerID = 0, 9 do
 				local steam_id = PlayerResource:GetSteamID(playerID)
 				local player   = PlayerResource:GetPlayer(playerID)

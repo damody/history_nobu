@@ -66,12 +66,32 @@ function UpdateDireScore(keys) {
   var LevelUpTab = level_stats_frame.FindChildTraverse('LevelUpTab')
   var LevelUpButton = LevelUpTab.FindChildTraverse('LevelUpButton')
   var LevelUpIcon = LevelUpTab.FindChildTraverse('LevelUpIcon')
+  var LevelUpGlow = LevelUpTab.FindChildTraverse('LevelUpGlow')
+  $.Msg(123123)
+  $.Msg(LevelUpGlow)
+  $.Msg(123123)
+  // LevelUpGlow.background-image = "";
   LevelUpButton.visible = false
   LevelUpIcon.visible = false
   x = x.FindChildTraverse('AbilitiesAndStatBranch')
   x = x.FindChildTraverse('StatBranch')
   x.hittest = false
   x.hittestchildren = false
+  // 暫時讓給控制權看不到也點不到
+  var y = $.GetContextPanel().GetParent().GetParent().GetParent();
+  y = y.FindChildTraverse('HUDElements')
+  y = y.FindChildTraverse('scoreboard')
+  y = y.FindChildTraverse('Background')
+  y = y.FindChildTraverse('NestedMenuButtons')
+  y = y.FindChildTraverse('NestContainer')
+  var sharedContentButton = y.FindChildTraverse('SharedContentButton')
+  var sharedUnitsButton = y.FindChildTraverse('SharedUnitsButton')
+  sharedContentButton.visible = false
+  sharedContentButton.hittest = false
+  sharedContentButton.hittestchildren = false
+  sharedUnitsButton.visible = false
+  sharedUnitsButton.hittest = false
+  sharedUnitsButton.hittestchildren = false
   $.Msg("testsetset")
   // 建立一個panel
   var item_height = "33px"
