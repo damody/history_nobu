@@ -851,7 +851,6 @@ function phased_dummy( keys )
     0,
     false)
   for i,v in ipairs(group) do
-    print(v)
     if not caster:HasModifier("modifier_phased") then
       ability:ApplyDataDrivenModifier(caster, caster, "modifier_phased",{duration = 0.3})
     end
