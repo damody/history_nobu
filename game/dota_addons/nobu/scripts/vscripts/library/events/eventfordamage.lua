@@ -55,6 +55,9 @@ function Nobu:DamageFilterEvent( filterTable )
 	if caster.modify_damage then
 		filterTable.damage = filterTable.damage*caster.modify_damage
 	end
+	if target:HasModifier("modifier_C08T_bleeding") then
+		
+	end
 	if caster.illusion_damage and filterTable.damagetype_const ~= DAMAGE_TYPE_PHYSICAL then
 		filterTable.damage = filterTable.damage*caster.illusion_damage
 	end

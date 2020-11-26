@@ -480,7 +480,7 @@ function Nobu:OnUnitKill( keys )
       end)
     elseif string.match(name, "courier") then
       local owner = killedUnit:GetOwner()
-      if owner.diconnect == false then
+      if owner.disconnect == false then
         if killedUnit:GetTeamNumber() == 2 then
           killedUnit:RespawnUnit()  
           killedUnit:SetOrigin(Vector(6912,-7168,128))

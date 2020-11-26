@@ -735,7 +735,7 @@ function afk_gogo(keys)
 		if state == 2 then
 			Timers:CreateTimer ( 3 , function ()
 				hero.disconnect = false
-				if hero.donkey == nil then
+				if hero.donkey == nil and not hero:IsIllusion() then
 				local donkey = CreateUnitByName("npc_dota_courier2", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
 				donkey:SetOwner(hero)
 				donkey:SetControllableByPlayer(hero:GetPlayerID(), true)
