@@ -123,8 +123,6 @@ function SendHTTPRequestGetPlayers(path, method, values, callback)
 				PlayerResource:SetCustomTeamAssignment(i, 3)
 				_G.selectHero[i] = table["hero10"]
 				_G.matchCount = _G.matchCount + 1
-			else 
-				_G.bGameFromClient = false
 			end
 		end
 		if table["mode"] then
