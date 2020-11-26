@@ -103,7 +103,7 @@ function Shock( keys )
 	                              FIND_ANY_ORDER,
 	                              false)
 		for _,it in pairs(direUnits) do
-			if (not(it:IsBuilding())) and IsValidEntity(it) then
+			if (not(it:IsBuilding())) and IsValidEntity(it) and not it:HasModifier("modifier_C08T_bleeding") then
 				ability:ApplyDataDrivenModifier(caster, it,"modifier_stunned", {duration = 0.1})
 				if caster:IsAlive() then
 					AMHC:Damage(caster,it,ability:GetLevelSpecialValueFor("damage", 0 ),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
