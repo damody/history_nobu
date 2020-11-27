@@ -169,9 +169,9 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"HotKeyOverride"	"E"
-		"AbilityCooldown"	"17 15 13 11"
+		"AbilityCooldown"	"17"
 		"AbilityManaCost"	"110"
-		"AbilityCastRange"	"700"
+		"AbilityCastRange"	"550"
 		"AbilityCastPoint" "0.25" //stun
 		"precache"
 		{
@@ -233,11 +233,12 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"	"3"
-					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"1.4"
+					
 				}
 				"States"
 				{
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 					//"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Duration"	"5"
@@ -322,7 +323,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"crit_persent"	"130 150 170 190"
+				"crit_persent"	"120 140 160 180"
 			}
 			"02"
 			{
@@ -397,7 +398,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"acount"	"13 20 29"
+				"acount"	"9 14 21"
 			}
 		}
 	}	

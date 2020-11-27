@@ -206,16 +206,24 @@ function C11R_start( keys )
 
 		local dummy = CreateUnitByName("hide_unit",point,false,nil,nil,caster:GetTeamNumber())
 		dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=2})
-		local ifx = ParticleManager:CreateParticle("particles/item/item_thunderstorms.vpcf",PATTACH_ABSORIGIN,dummy)
-		ParticleManager:SetParticleControl(ifx,1,point)
-		ParticleManager:ReleaseParticleIndex(ifx)
+		
+		Timers:CreateTimer(0.1, function()
+			local ifx = ParticleManager:CreateParticle("particles/item/item_thunderstorms.vpcf",PATTACH_ABSORIGIN,dummy)
+			ParticleManager:SetParticleControl(ifx,1,point)
+			ParticleManager:ReleaseParticleIndex(ifx)
+		end)
+		
+		
 	end
 
 	-- 打雷音效
 	local dummy = CreateUnitByName("hide_unit",center,false,nil,nil,caster:GetTeamNumber())
 	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=2})
-	EmitSoundOn("ITEM_D09.sound",dummy)
-	AddFOWViewer(caster:GetTeamNumber(), center, radius, 0.5, false)
+	Timers:CreateTimer(0.1 , function()
+		EmitSoundOn("Hero_Zuus.LightningBolt",dummy)
+		AddFOWViewer(caster:GetTeamNumber(), center, radius, 0.5, false)
+	end)
+
 end
 
 function C11T_on_attack_landed( keys )

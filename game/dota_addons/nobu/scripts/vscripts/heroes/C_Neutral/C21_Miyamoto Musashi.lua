@@ -52,7 +52,7 @@ function C21T_Effect(u,u2,i)
 	AMHC:Damage( u,u2,110,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 	AMHC:Damage( u,u2,u:GetAttackDamage(),AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 	if IsValidEntity(u2) then
-		u:PerformAttack(u2, true, true, true, true, true, false, true)
+		u:PerformAttack(u2,true,true,true,false,false,true,true)
 	end
 
     --播放動畫
@@ -170,20 +170,22 @@ function C21E_OnSpellStart(keys)
     	u:FindAbilityByName("C21W"):SetActivated(true)
     	end)
 	AMHC:Timer( "C21T_E1"..tostring(id),function( )
-
+			print(time)
 			if time == 0 or not IsValidEntity(u2) or not(u2:IsAlive()) or not(u:IsAlive()) then
 				--刪除無敵
-                u:RemoveModifierByName("modifier_C21E")
+				u:RemoveModifierByName("modifier_C21E")
+				-- keys.ability:AddNewModifier(u,u,"modifier_C21E",{duration = 0.5})
                 u:AddNewModifier(nil,nil,"modifier_phased",{duration=0.5})
 
-                local order_target = 
-				{
-					UnitIndex = u:entindex(),
-					OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-					TargetIndex = u2:entindex(), Queue = false
-				}
+                -- local order_target = 
+				-- {
+				-- 	UnitIndex = u:entindex(),
+				-- 	OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+				-- 	TargetIndex = u2:entindex(), Queue = false
+				-- }
 		 
-		        ExecuteOrderFromTable(order_target)
+				-- ExecuteOrderFromTable(order_target)
+				u:PerformAttack(u2,true,true,true,true,false,false,false)
 				return nil 
 			else
 				u:AddNewModifier(nil,nil,"modifier_phased",{duration=0.5})
@@ -206,15 +208,16 @@ function C21E_OnSpellStart(keys)
 				u:SetForwardVector((point-point2):Normalized())
 
 				--發動攻擊	 
-				local order_target = 
-				{
-					UnitIndex = u:entindex(),
-					OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-					TargetIndex = u2:entindex(), Queue = false
-				}
-		 		if IsValidEntity(u2) then
-		        	ExecuteOrderFromTable(order_target)
-		        end
+				-- local order_target = 
+				-- {
+				-- 	UnitIndex = u:entindex(),
+				-- 	OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+				-- 	TargetIndex = u2:entindex(), Queue = false
+				-- }
+		 		-- if IsValidEntity(u2) then
+		        -- 	ExecuteOrderFromTable(order_target)
+				-- end
+				u:PerformAttack(u2,true,true,true,true,false,false,false)
 
 				--紀錄次數
 				time = time - 1

@@ -17,9 +17,10 @@ function B28E( keys )
 
 	r = dis - 200
 	r1 = ( 600 - r ) / 600 * duration
-	duration = r1
-	if duration < 1 then
-		duration = 1
+	if r1 <= duration /2 then
+		duration = duration/2
+	else
+		duration = r1
 	end
 
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_B28E",{duration=duration})

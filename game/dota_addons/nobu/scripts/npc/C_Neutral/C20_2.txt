@@ -14,8 +14,8 @@
 		"Ability2"	"C20E"
 		"Ability3"	"C20R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"C20T"
-		"Ability6"	"C20_precache"
+		"Ability5"	"C20_precache"
+		"Ability6"	"C20T"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""
@@ -37,7 +37,7 @@
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"114"
-		"AttackDamageMax"	"132"
+		"AttackDamageMax"	"114"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.80"
 		"AttackAcquisitionRange"	"500.00"
@@ -53,7 +53,7 @@
 		"AttributeBaseAgility"	"32"
 		"AttributeAgilityGain"	"2.70"
 		"AttributeBaseIntelligence"	"26"
-		"AttributeIntelligenceGain"	"2.00"
+		"AttributeIntelligenceGain"	"1.70"
 
 		// Bounty
 		// ----------------------------------------------------------------

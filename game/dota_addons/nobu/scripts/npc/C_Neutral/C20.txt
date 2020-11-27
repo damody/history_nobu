@@ -121,7 +121,7 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		
-		"AbilityCooldown"				"18"
+		"AbilityCooldown"				"16 15 14 13"
 		"AbilityManaCost"				"80 100 120 140"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
 		"AbilitySpecial"
@@ -238,7 +238,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"150 145 140"
+		"AbilityCooldown"				"130 120 110"
 		"AbilityManaCost"				"185"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"OnSpellStart"
@@ -283,14 +283,9 @@
 					"RunScript"
 					{
 						"ScriptFile"	"scripts/vscripts/AON_Cleave.lua"
-						"Function"	"AON_Cleave_C20"
+						"Function"	"AON_Cleave_C14"
 						"dmg"	"%attack_damage"
 						"Target"	"TARGET"
-					}
-					"CleaveAttack"
-					{
-						"CleavePercent"	"0"
-						"CleaveRadius"	"%radius"
 					}
 				}
 				"OnDeath"
@@ -327,7 +322,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"During"	"40"
+				"During"	"30"
 			}
 			"04"
 			{
