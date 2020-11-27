@@ -169,7 +169,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"HotKeyOverride"	"E"
-		"AbilityCooldown"	"17"
+		"AbilityCooldown"	"17 15 13 11"
 		"AbilityManaCost"	"110"
 		"AbilityCastRange"	"550"
 		"AbilityCastPoint" "0.25" //stun
