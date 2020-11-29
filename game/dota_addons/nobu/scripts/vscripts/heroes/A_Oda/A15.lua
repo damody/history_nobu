@@ -114,7 +114,7 @@ end
 function A15R_OnAttackLanded( keys )
 	local caster = keys.caster
 	local target = keys.target
-	local ability = keys.ability
+	local ability = caster:FindAbilityByName("A15R")
 	A15R_bounce_init( keys )
 	ability:ApplyDataDrivenModifier( caster, target, "modifier_A15R_bounceAttack", nil)
 end
@@ -122,7 +122,7 @@ end
 function A15R_OnProjectileHitUnit( keys )
 	local caster = keys.caster
 	local target = keys.target
-	local ability = keys.ability
+	local ability = caster:FindAbilityByName("A15R")
 	if target then
 		ability:ApplyDataDrivenModifier( caster, target, "modifier_A15R_bounceAttack", nil)
 	end
@@ -131,7 +131,7 @@ end
 function A15R_bounce_init( keys )
 	local caster = keys.caster
 	local target = keys.target
-	local ability = keys.ability
+	local ability = caster:FindAbilityByName("A15R")
 	local damage = keys.Damage
 	local jump_max = ability:GetSpecialValueFor("jump_max")
 	-- Keeps track of the total number of instances of the ability (increments on cast)
@@ -159,7 +159,8 @@ function A15R_bounceAttack(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	local jump_radius = ability:GetSpecialValueFor("jump_radius")
+	local A15Tlv = caster:FindAbilityByName("A15T"):GetLevel()-1
+	local jump_radius = ability:GetSpecialValueFor("jump_radius") + A15Tlv*50
 	local bonus_damage = ability:GetSpecialValueFor("bonus_damage")
 	local jump_max = ability:GetSpecialValueFor("jump_max")
 	if caster:HasModifier("modifier_A15T2") then
@@ -201,6 +202,9 @@ function A15R_bounceAttack(keys)
 	if ability.jump_count[current] < jump_max then
 		local base_damage = ability.damage[current]
 		local new_damage = base_damage * math.pow( 1 + bonus_damage, jump_max-ability.jump_count[current] )
+		if new_damage < base_damage*0.2 then
+			base_damage = base_damage*0.2
+		end
 		local damageTable = {
 			victim = target, 
 			attacker = caster, 
@@ -408,3 +412,61 @@ function A15T_old_OnProjectileHitUnit( keys )
 		AMHC:Damage( caster,target,ability:GetSpecialValueFor("A15T_old_damage"),AMHC:DamageType("DAMAGE_TYPE_MAGICAL") )
 	end
 end
+
+function SplitShotLaunch( keys )
+	local caster = keys.caster
+	local caster_location = caster:GetAbsOrigin()
+	local ability = keys.ability
+	local ability_level = ability:GetLevel() - 1
+	-- Targeting variables
+	local target_type = ability:GetAbilityTargetType()
+	local target_team = ability:GetAbilityTargetTeam()
+	local target_flags = ability:GetAbilityTargetFlags()
+	local attack_target = caster:GetAttackTarget()
+
+	-- Ability variables
+	local radius = ability:GetLevelSpecialValueFor("range", ability_level)
+	local max_targets = ability:GetLevelSpecialValueFor("arrow_count", ability_level)
+	local projectile_speed = ability:GetLevelSpecialValueFor("projectile_speed", ability_level)
+	local split_shot_projectile = keys.split_shot_projectile
+
+	local split_shot_targets = FindUnitsInRadius(caster:GetTeam(), caster_location, nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, target_flags, FIND_CLOSEST, false)
+	-- Create projectiles for units that are not the casters current attack target
+	for _,v in pairs(split_shot_targets) do
+		if v ~= attack_target and caster:CanEntityBeSeenByMyTeam(v) and not v:HasModifier("modifier_invisible") then
+			local projectile_info = 
+			{--"particles/econ/items/luna/luna_lucent_rider/luna_attack_lucent_rider.vpcf"
+				EffectName = split_shot_projectile,
+				Ability = ability,
+				vSpawnOrigin = caster_location,
+				Target = v,
+				Source = caster,
+				bHasFrontalCone = false,
+				iMoveSpeed = projectile_speed,
+				bReplaceExisting = false,
+				bProvidesVision = false
+			}
+			ProjectileManager:CreateTrackingProjectile(projectile_info)
+			max_targets = max_targets - 1
+		end
+		-- If we reached the maximum amount of targets then break the loop
+		if max_targets == 0 then break end
+	end
+end
+
+function A15T_SplitShotDamage( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local damage_modifier = ability:GetSpecialValueFor("damage_modifier")
+
+	local damage_table = {}
+	damage_table.attacker = caster
+	damage_table.victim = target
+	damage_table.damage_type = ability:GetAbilityDamageType()
+	damage_table.damage = caster:GetAverageTrueAttackDamage(target) * 0.9 * 0.5
+	keys.Damage = damage_table.damage
+	A15R_OnAttackLanded(keys)
+	ApplyDamage(damage_table)
+end
+

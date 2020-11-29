@@ -407,7 +407,9 @@
 		"AbilityBehavior"           				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityType"  								"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityTextureName"                        "custom/A15/A15T"
-		
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityCooldown"           				"60"
 		"AbilityManaCost"           				"155"
 		
@@ -450,22 +452,59 @@
 				"Duration"			"%A15T_duration"
 				"EffectName"		"particles/a15t/a15t.vpcf"
 				"EffectAttachType"	"follow_origin"
+				"OnAttack"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A15.lua"
+						"Function"	"SplitShotLaunch"
+						"split_shot_projectile"	"particles/econ/items/luna/luna_lucent_rider/luna_attack_lucent_rider.vpcf"
+					}
+				}
 			}
 		}
-
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"FireSound"
+			{
+				"EffectName"	"Hero_Medusa.AttackSplit"
+				"Target"	"TARGET"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A15.lua"
+				"Function"	"A15T_SplitShotDamage"
+			}
+		}
 		"AbilitySpecial"
 		{
 			"01"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"A15T_attackBonus"	"85 115 145"
+				"var_type"	"FIELD_INTEGER"
+				"arrow_count"	"2 3 4"
 			}
 			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"total_arrow_count"	"3 4 5"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"range"	"800"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"projectile_speed"	"1200"
+			}
+			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"A15T_lifeSteal"	"10"
 			}
-			"03"
+			"06"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"A15T_duration"		"10 15 18"
