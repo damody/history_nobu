@@ -185,6 +185,7 @@ function C21E_OnSpellStart(keys)
 				-- }
 		 
 				-- ExecuteOrderFromTable(order_target)
+				u:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,2)
 				u:PerformAttack(u2,true,true,true,true,false,false,false)
 				return nil 
 			else
@@ -217,6 +218,7 @@ function C21E_OnSpellStart(keys)
 		 		-- if IsValidEntity(u2) then
 		        -- 	ExecuteOrderFromTable(order_target)
 				-- end
+				u:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,2)
 				u:PerformAttack(u2,true,true,true,true,false,false,false)
 
 				--紀錄次數
