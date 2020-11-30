@@ -107,6 +107,7 @@ function B11R_OnAttackLanded( keys )
 	target=keys.target
 	local root_duration = ability:GetSpecialValueFor("B11R_root_duration")
 	local illusion_incoming_damage = ability:GetSpecialValueFor("illusion_incoming_damage")
+	local ran =  RandomInt(0, 100)
 	if (caster.B11R == nil) then
 		caster.B11R = 0
 	end
@@ -116,7 +117,7 @@ function B11R_OnAttackLanded( keys )
 	if not target:IsBuilding() then
 		caster.B11R = caster.B11R + 1
 	end
-	if caster.B11R >= 5 then
+	if caster.B11R >= 5 or ran <= 25 then
 		caster.B11R = 0
 		target:AddNewModifier(caster,nil,"nobu_modifier_rooted", {duration=root_duration} )
 		local b11t = caster:FindAbilityByName("B11T")

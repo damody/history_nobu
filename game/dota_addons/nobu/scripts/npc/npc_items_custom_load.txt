@@ -1003,7 +1003,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MANA_BONUS" "200"				//魔
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "5"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "2.5"	//跑速
 				}
 			}
 		}
@@ -8050,7 +8050,7 @@
 	{
 	    "ID" "3015"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "150"
+		"ItemCost" "50"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_nagamaki"
@@ -9102,30 +9102,30 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
 			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
 		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
-				"Function"	"OnEquip"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
-				"Function"	"OnUnequip"
-			}
-		}
-		"OnHeroLevelUp"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
-				"Function"	"OnEquip"
-			}
-		}
+		// "OnEquip"
+		// {
+		// 	"RunScript"
+		// 	{
+		// 		"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
+		// 		"Function"	"OnEquip"
+		// 	}
+		// }
+		// "OnUnequip"
+		// {
+		// 	"RunScript"
+		// 	{
+		// 		"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
+		// 		"Function"	"OnUnequip"
+		// 	}
+		// }
+		// "OnHeroLevelUp"
+		// {
+		// 	"RunScript"
+		// 	{
+		// 		"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
+		// 		"Function"	"OnEquip"
+		// 	}
+		// }
 		"OnSpellStart"
 		{
 			"TrackingProjectile"
@@ -9203,25 +9203,25 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
 			}
-			"modifier_take_mana_to_shield"
-			{
-				"Passive"	"1"
-				"IsBuff"	"1"
-				"IsHidden"	"1"
-				"ThinkInterval"	"0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
-						"Function"	"Take_mana_to_shield"
-					}
-				}
-			}
-			"modifier_shield"
-			{
-				"IsBuff"	"1"
-			}
+			// "modifier_take_mana_to_shield"
+			// {
+			// 	"Passive"	"1"
+			// 	"IsBuff"	"1"
+			// 	"IsHidden"	"1"
+			// 	"ThinkInterval"	"0.1"
+			// 	"OnIntervalThink"
+			// 	{
+			// 		"RunScript"
+			// 		{
+			// 			"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
+			// 			"Function"	"Take_mana_to_shield"
+			// 		}
+			// 	}
+			// }
+			// "modifier_shield"
+			// {
+			// 	"IsBuff"	"1"
+			// }
 		}
 	}
 
@@ -9792,6 +9792,18 @@
 						"Function"	"item_raikiri"
 					}
 				}
+			}
+			"modifier_chance_cannot_miss"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+          		"Properties"
+           		{
+                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "101"
+           		}
 			}
 		}
 		"AbilitySpecial"
@@ -10701,15 +10713,38 @@
 				"sound"	"RestorationPotion"
 			}
 		}
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_contemporary_armor.lua"
+				"Function"	"OnEquip"
+			}
+		}
+		"OnUnequip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_contemporary_armor.lua"
+				"Function"	"OnUnEquip"
+			}
+		}
 		"Modifiers"
 		{
 			"Passive_contemporary_armor2"
 			{
 				"IsHidden"	"0"
-				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE" "-8"
+					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE" "-14"
+				}
+			}
+			"Passive_contemporary_armor3"
+			{
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_PERCENTAGE" "-7"
 				}
 			}
 			"Passive_lightning_katana"
@@ -11441,6 +11476,25 @@
 						"EffectAttachType"	"attach_origin"
 					}
 				}
+			}
+			"modifier_take_mana_to_shield"
+			{
+				"Passive"	"1"
+				"IsBuff"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"	"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_kisyosennfuyuzuki.lua"
+						"Function"	"Take_mana_to_shield"
+					}
+				}
+			}
+			"modifier_shield"
+			{
+				"IsBuff"	"1"
 			}
 		}
 		"AbilitySpecial"
@@ -15390,7 +15444,7 @@
 				{
 					"MODIFIER_PROPERTY_MANA_BONUS" "400"				//魔
 					//"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "3"	//防禦
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "15"	//跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "7.5"	//跑速
 				}
 			}
 		}

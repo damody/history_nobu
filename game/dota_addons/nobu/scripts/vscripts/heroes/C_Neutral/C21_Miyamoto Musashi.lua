@@ -161,16 +161,16 @@ function C21E_OnSpellStart(keys)
     local  id	 = u:GetPlayerID() --獲取玩家ID
     local  point = u:GetAbsOrigin() --獲取單位的座標
     local  point2 = u2:GetAbsOrigin() --獲取目標的座標
-    local  time = keys.ability:GetLevel()+1--獲取技能等級
+	local  time = keys.ability:GetLevel()+1--獲取技能等級
+	local  animation_time = 0.8 / time
     keys.ability:ApplyDataDrivenModifier(u,u2,"modifier_C21EStun",{duration = 0.5})
     AMHC:Damage(u,u2,1,AMHC:DamageType( "DAMAGE_TYPE_PURE" ))
     --timer2
     u:FindAbilityByName("C21W"):SetActivated(false)
-    Timers:CreateTimer(0.5*(time+1), function()
+    Timers:CreateTimer(animation_time*(time+1), function()
     	u:FindAbilityByName("C21W"):SetActivated(true)
     	end)
 	AMHC:Timer( "C21T_E1"..tostring(id),function( )
-			print(time)
 			if time == 0 or not IsValidEntity(u2) or not(u2:IsAlive()) or not(u:IsAlive()) then
 				--刪除無敵
 				u:RemoveModifierByName("modifier_C21E")
@@ -230,12 +230,12 @@ function C21E_OnSpellStart(keys)
 	    			ParticleManager:ReleaseParticleIndex(p1)
 	    		end
 
-				return 0.5
+				return animation_time
 			end	
 
 
 
-		end,0.50 )
+		end,animation_time )
 end
 
 

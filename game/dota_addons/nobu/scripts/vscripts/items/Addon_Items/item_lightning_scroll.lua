@@ -211,17 +211,24 @@ function item_raikiri( keys )
 	--local point2 = ability:GetCursorPosition()
 	local level = ability:GetLevel() - 1
 	local vec = (point2-point):Normalized() --caster:GetForwardVector():Normalized()
+	local rate = 1/caster:GetAttacksPerSecond()
 	if not target:IsBuilding() then
 		local ran =  RandomInt(0, 100)
+		local trigger = 25
+		local Guaranteed = 4
 		if (caster.raikiri == nil) then
 			caster.raikiri = 0
 		end
-		caster.raikiri = caster.raikiri + 1
-		local trigger = 4
 		if caster:GetBaseAttackRange() < 200 then
-			trigger = 3
+			trigger = 33
+			Guaranteed = 3
 		end
-		if caster.raikiri >= trigger then
+		if ( ran > trigger ) then
+			caster.raikiri = caster.raikiri +1
+		end
+		
+
+		if caster.raikiri >= Guaranteed or ran <= trigger then
 			caster.raikiri = 0
 			--【KV】
 			--caster:SetForwardVector(vec)
@@ -234,7 +241,7 @@ function item_raikiri( keys )
 			ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(particle,0, point + vec * 100)
 			ParticleManager:SetParticleControl(particle,1, point2)
-
+			ability:ApplyDataDrivenModifier(caster,caster,"modifier_chance_cannot_miss",{duration = rate})
 			local cone_units = FindUnitsInRadius(caster:GetTeamNumber(),
 		                              point2,
 		                              nil,

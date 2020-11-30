@@ -549,10 +549,10 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityCooldown"	"5 4 3"
+		"AbilityCooldown"	"6 3 0"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
-		"AbilityManaCost"	"100 150 200"
+		"AbilityManaCost"	"100 50 25"
 		"AbilityCastRange"	"1000 1150 1300"
 		"precache"
 		{

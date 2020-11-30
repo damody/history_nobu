@@ -22,7 +22,7 @@ function Shock0( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	if target:IsCourier() then
+	if target:GetUnitName() == "npc_dota_courier2" then
 		caster:Stop()
 		return 
 	end
