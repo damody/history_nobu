@@ -225,7 +225,7 @@
 			"TrackingProjectile"
 			{
 				"Target"	"TARGET"
-				"EffectName"	"particles/b33/b33r_old_orb.vpcf"
+				"EffectName"	"particles/a31/a31r.vpcf"
 				"Dodgeable"	"1"
 				"ProvidesVision"	"1"
 				"MoveSpeed"	"1200"
@@ -337,7 +337,7 @@
 		{
 			"particle"	"particles/a31t/a31t.vpcf"
 			"particle"	"particles/units/heroes/hero_medusa/medusa_base_attack.vpcf"
-			"particle"	"particles/units/heroes/hero_lina/lina_spell_laguna_blade_startpoint.vpcf"
+			"particle"	"particles/a31/lina_spell_laguna_blade_startpoint.vpcf"
 			"particle"	"particles/units/heroes/hero_lina/lina_spell_laguna_blade_startpoint.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
 		}
@@ -345,7 +345,7 @@
 		{
 			"FireEffect"
 			{
-				"EffectName"	"particles/units/heroes/hero_lina/lina_spell_laguna_blade_startpoint.vpcf"
+				"EffectName"	"particles/a31/lina_spell_laguna_blade_startpoint.vpcf"
 				"EffectAttachType"	"follow_origin"
 				"Target"	"CASTER"
 			}

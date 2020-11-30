@@ -15,17 +15,17 @@
 		"Ability2"	"C21E"
 		"Ability3"	"C21R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"C21T"
-		"Ability6"	"C21_precache"
+		"Ability5"	"C21_precache"
+		"Ability6"	"C21T"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"0"
+		"ArmorPhysical"	"5"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"	"117.0"
-		"AttackDamageMax"	"127.0"
+		"AttackDamageMin"	"107.0"
+		"AttackDamageMax"	"107.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.80"
 		"AttackAnimationPoint"	"0.33"

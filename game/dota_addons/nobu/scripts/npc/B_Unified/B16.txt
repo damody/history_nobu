@@ -312,6 +312,28 @@
 					}
 				}
 			}
+			"modifier_B16D_Interval"
+			{
+				"IsBuff"	"1"
+				"IsHidden"	"1"
+				"ThinkInterval"	"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B16_Mochidsuki_Chiyome.lua"
+						"Function"	"B16D_Interval"
+					}
+				}
+			}
+			"modifier_B16D_reduceDamage"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"-50"
+				}
+			}
 			"modifier_B16D_MoonMoon"
 			{
 				"OnCreated"

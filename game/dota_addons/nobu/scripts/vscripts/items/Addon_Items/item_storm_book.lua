@@ -99,14 +99,16 @@ function storm_break( keys )
 	                              false)
 	for _,it in pairs(direUnits) do
 		if _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then
-			if IsValidEntity(caster) and caster:IsAlive() then
-				AMHC:Damage(caster, it, dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
-			else
-				AMHC:Damage(caster.dummy, it, dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
-				caster.takedamage = caster.takedamage + dmg
-				
-				if (it:IsRealHero()) then
-					caster.herodamage = caster.herodamage + dmg
+			if not it:HasModifier("modifier_C08T_bleeding") then
+				if IsValidEntity(caster) and caster:IsAlive() then
+					AMHC:Damage(caster, it, dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				else
+					AMHC:Damage(caster.dummy, it, dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+					caster.takedamage = caster.takedamage + dmg
+					
+					if (it:IsRealHero()) then
+						caster.herodamage = caster.herodamage + dmg
+					end
 				end
 			end
 		end

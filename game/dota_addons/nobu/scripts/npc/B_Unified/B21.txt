@@ -302,7 +302,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"add_armor"			"6 10 14"
+				"add_armor"			"4 8 12"
 			}
 			"04"
 			{

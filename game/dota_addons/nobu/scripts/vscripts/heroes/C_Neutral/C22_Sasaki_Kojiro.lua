@@ -224,6 +224,7 @@ function C22T_Damage( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local ult_damage = keys.ult_damage/100
+	local addition_damage = ability:GetSpecialValueFor("addition_damage")
 	local abilitylevel = ability:GetLevel()
 	
 
@@ -243,6 +244,7 @@ function C22T_Damage( keys )
 			local damage = ult_damage*v:GetMaxHealth()
 			ability:ApplyDataDrivenModifier(caster,v,"modifier_C22T",nil)
 			AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+			AMHC:Damage( caster,v,addition_damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 		end
 	end
 

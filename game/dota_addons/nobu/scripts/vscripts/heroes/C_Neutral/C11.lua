@@ -38,6 +38,7 @@ function C11W_hit_unit( keys )
 	local target = keys.target
 	local next_target = nil
 	local ability = keys.ability
+	local damage = caster:GetAverageTrueAttackDamage(target)
 
 	if ability.ended == true then
 		-- 結束技能
@@ -83,6 +84,10 @@ function C11W_hit_unit( keys )
 	if IsValidEntity(target) then
 		SendOverheadEventMessage(nil,OVERHEAD_ALERT_MANA_LOSS,target,remove_mana,nil)
 	end
+
+	--附加命中
+
+
 
 	-- 特效
 	local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning_head.vpcf",PATTACH_OVERHEAD_FOLLOW,target)
@@ -144,6 +149,8 @@ function C11W_hit_unit( keys )
 	projectile_table["Source"] = target
 	ProjectileManager:CreateTrackingProjectile( projectile_table )
 	ApplyDamage(damage_table)
+	-- AMHC:Damage(caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+    caster:PerformAttack(target, true, true, true, true, true, false, true)
 end
 
 -- 產生一個單位讓他打
@@ -160,14 +167,14 @@ function C11R_start( keys )
 	local ability = keys.ability
 	local ability_damage = ability:GetAbilityDamage()
 	local ability_type = ability:GetAbilityDamageType()
-
 	local center = keys.target_points[1]
 	local target_team = ability:GetAbilityTargetTeam()
 	local target_type = ability:GetAbilityTargetType()
 	local target_flags = ability:GetAbilityTargetFlags()
 	local radius = ability:GetSpecialValueFor("radius")
-
+	print(center)
 	-- 搜尋
+	AddFOWViewer(caster:GetTeamNumber(), center, 600, 2, false)
 	local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
 		center,				-- 搜尋的中心點
 		nil, 				-- 好像是優化用的參數不懂怎麼用
@@ -206,16 +213,24 @@ function C11R_start( keys )
 
 		local dummy = CreateUnitByName("hide_unit",point,false,nil,nil,caster:GetTeamNumber())
 		dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=2})
-		local ifx = ParticleManager:CreateParticle("particles/item/item_thunderstorms.vpcf",PATTACH_ABSORIGIN,dummy)
-		ParticleManager:SetParticleControl(ifx,1,point)
-		ParticleManager:ReleaseParticleIndex(ifx)
+		
+		Timers:CreateTimer(0.1, function()
+			local ifx = ParticleManager:CreateParticle("particles/item/item_thunderstorms.vpcf",PATTACH_ABSORIGIN,dummy)
+			ParticleManager:SetParticleControl(ifx,1,point)
+			ParticleManager:ReleaseParticleIndex(ifx)
+		end)
+		
+		
 	end
 
 	-- 打雷音效
 	local dummy = CreateUnitByName("hide_unit",center,false,nil,nil,caster:GetTeamNumber())
 	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=2})
-	EmitSoundOn("ITEM_D09.sound",dummy)
-	AddFOWViewer(caster:GetTeamNumber(), center, radius, 0.5, false)
+	Timers:CreateTimer(0.1 , function()
+		EmitSoundOn("Hero_Zuus.LightningBolt",dummy)
+		AddFOWViewer(caster:GetTeamNumber(), center, radius, 0.5, false)
+	end)
+
 end
 
 function C11T_on_attack_landed( keys )

@@ -26,14 +26,17 @@ function Shock( keys )
 				local am = target:FindAllModifiers()
 				for _,v in pairs(am) do
 					if IsValidEntity(v:GetCaster()) and v:GetParent().GetTeamNumber ~= nil and v:GetDuration() > 0.5 then
-						local ab = v:GetAbility()
-						local abname = ab:GetName()
-						local len = string.len(abname)
-						local big_skill = false
-						if len == 4 and string.sub(abname, 4, 4) == "T" then
-							big_skill = true
+						
+						if target:IsHero() and target:GetLevel() >= 6 then
+							local ab = v:GetAbility()
+							local abname = ab:GetName()
+							local len = string.len(abname)
+							if len == 4 and string.sub(abname, 4, 4) == "T" then
+								big_skill = true
+							end
 						end
-						if big_skill==false and (v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber()) then
+						local big_skill = false
+						if v:GetName() ~= "modifier_kill" and big_skill == false and (v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber()) then
 							target:RemoveModifierByName(v:GetName())
 							print(v:GetName(), v:GetCaster():GetTeamNumber(), caster:GetTeamNumber())
 						end
@@ -46,8 +49,10 @@ function Shock( keys )
 				ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan2",{})
 			else
 				ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan3",{})
+				if target:GetName() == "npc_dota_creature" then
+					AMHC:Damage(caster,target,2000,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+				end
 			end
-			
 		end
 	end
 end

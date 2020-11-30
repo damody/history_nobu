@@ -380,7 +380,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"Damage"	"290 450 600"
+				"Damage"	"390 550 700"
 			}
 		}
 		"AbilityDamage"	"290 400 600"

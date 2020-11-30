@@ -854,7 +854,7 @@ function phased_dummy( keys )
     if not caster:HasModifier("modifier_phased") then
       ability:ApplyDataDrivenModifier(caster, caster, "modifier_phased",{duration = 0.3})
     end
-    ability:ApplyDataDrivenModifier(v, v, "modifier_phased",{duration = 0.3})
+    ability:ApplyDataDrivenModifier(v, v, "modifier_phased",{duration = 0.5})
   end
   -- if not caster:HasModifier("modifier_destroy_phase") and caster:GetUnitName() ~= "B33T_UNIT" then
   --   ability:ApplyDataDrivenModifier(caster,caster,"modifier_destroy_phase",{})

@@ -152,7 +152,7 @@
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"HotKeyOverride"	"W"
 		"MaxLevel"	"4"
-		"AbilityCastPoint"      "0.2"
+		"AbilityCastPoint"      "0.1"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate"	"2"
 		"LevelsBetweenUpgrades"	"2"
@@ -206,6 +206,12 @@
 				"ProvidesVision"	"1"
 				"VisionRadius"	"%shock_vision"
 			}
+			"RunScript"
+			{
+				"Target"	"TARGET"
+				"Function"	"B08W"
+				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B08_Asai_Nagamasa.lua"
+			}
 		}
 		"OnProjectileHitUnit"
 		{
@@ -243,6 +249,15 @@
 					}
 				}
 				"IsBuff"	"0"
+			}
+			"modifier_B08W"
+			{
+				"IsHidden"			"0"
+				"Duration"			"0.1"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -416,7 +431,7 @@
 		"HotKeyOverride"	"E"
 		"MaxLevel"	"4"
 		"RequiredLevel"	"1"
-		"AbilityCastPoint" "0.3" //stun
+		"AbilityCastPoint" "0.15" //stun
 		"AbilityCastAnimation"	"ACT_DOTA_ECHO_SLAM"
 		"AbilityCooldown"	"13"
 		"AbilityManaCost"	"100 120 140 160"
@@ -480,6 +495,15 @@
 					}
 				}
 				"IsBuff"	"0"
+			}
+			"modifier_B08E2"
+			{
+				"IsHidden"			"0"
+				"Duration"			"0.15"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
 		}
 		"AbilitySpecial"

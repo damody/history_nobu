@@ -171,7 +171,7 @@
 		"HotKeyOverride"	"E"
 		"AbilityCooldown"	"17 15 13 11"
 		"AbilityManaCost"	"110"
-		"AbilityCastRange"	"700"
+		"AbilityCastRange"	"550"
 		"AbilityCastPoint" "0.25" //stun
 		"precache"
 		{
@@ -233,11 +233,12 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"	"3"
-					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"1.4"
+					
 				}
 				"States"
 				{
 					"MODIFIER_STATE_INVULNERABLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 					//"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Duration"	"5"
@@ -322,7 +323,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"crit_persent"	"130 150 170 190"
+				"crit_persent"	"120 140 160 180"
 			}
 			"02"
 			{
@@ -346,9 +347,9 @@
 		"MaxLevel"	"3"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
-		"AbilityCooldown"	"100"
-		"AbilityManaCost"	"250 350 450"
-		"AbilityCastRange"	"600"
+		"AbilityCooldown"	"100 90 80"
+		"AbilityManaCost"	"250"
+		"AbilityCastRange"	"700"
 		"precache"
 		{
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
@@ -397,7 +398,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"acount"	"13 20 29"
+				"acount"	"7 11 15"
 			}
 		}
 	}	

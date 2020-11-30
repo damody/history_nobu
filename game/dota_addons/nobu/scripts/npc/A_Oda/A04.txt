@@ -221,7 +221,7 @@
 			"modifier_A04W_move"
 			{
 				"IsHidden"	"0"
-				"ThinkInterval"	"0.01"
+				"ThinkInterval"	"0.1"
 				"OnIntervalThink"
 				{
 					"RunScript"

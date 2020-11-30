@@ -250,8 +250,8 @@ function SplitShotDamage( keys )
 end
 
 function A31T_Levelup( keys )
-	keys.caster:ModifyAgility( 10 )
-	keys.caster:CalculateStatBonus()
+	-- keys.caster:ModifyAgility( 10 )
+	-- keys.caster:CalculateStatBonus()
 end
 
 -- Apply the auto attack damage to the hit unit

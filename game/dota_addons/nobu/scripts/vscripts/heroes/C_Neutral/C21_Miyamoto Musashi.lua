@@ -52,7 +52,7 @@ function C21T_Effect(u,u2,i)
 	AMHC:Damage( u,u2,110,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 	AMHC:Damage( u,u2,u:GetAttackDamage(),AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 	if IsValidEntity(u2) then
-		u:PerformAttack(u2, true, true, true, true, true, false, true)
+		u:PerformAttack(u2,true,true,true,false,false,true,true)
 	end
 
     --播放動畫
@@ -161,29 +161,32 @@ function C21E_OnSpellStart(keys)
     local  id	 = u:GetPlayerID() --獲取玩家ID
     local  point = u:GetAbsOrigin() --獲取單位的座標
     local  point2 = u2:GetAbsOrigin() --獲取目標的座標
-    local  time = keys.ability:GetLevel()+1--獲取技能等級
+	local  time = keys.ability:GetLevel()+1--獲取技能等級
+	local  animation_time = 0.8 / time
     keys.ability:ApplyDataDrivenModifier(u,u2,"modifier_C21EStun",{duration = 0.5})
     AMHC:Damage(u,u2,1,AMHC:DamageType( "DAMAGE_TYPE_PURE" ))
     --timer2
     u:FindAbilityByName("C21W"):SetActivated(false)
-    Timers:CreateTimer(0.5*(time+1), function()
+    Timers:CreateTimer(animation_time*(time+1), function()
     	u:FindAbilityByName("C21W"):SetActivated(true)
     	end)
 	AMHC:Timer( "C21T_E1"..tostring(id),function( )
-
 			if time == 0 or not IsValidEntity(u2) or not(u2:IsAlive()) or not(u:IsAlive()) then
 				--刪除無敵
-                u:RemoveModifierByName("modifier_C21E")
+				u:RemoveModifierByName("modifier_C21E")
+				-- keys.ability:AddNewModifier(u,u,"modifier_C21E",{duration = 0.5})
                 u:AddNewModifier(nil,nil,"modifier_phased",{duration=0.5})
 
-                local order_target = 
-				{
-					UnitIndex = u:entindex(),
-					OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-					TargetIndex = u2:entindex(), Queue = false
-				}
+                -- local order_target = 
+				-- {
+				-- 	UnitIndex = u:entindex(),
+				-- 	OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+				-- 	TargetIndex = u2:entindex(), Queue = false
+				-- }
 		 
-		        ExecuteOrderFromTable(order_target)
+				-- ExecuteOrderFromTable(order_target)
+				u:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,2)
+				u:PerformAttack(u2,true,true,true,true,false,false,false)
 				return nil 
 			else
 				u:AddNewModifier(nil,nil,"modifier_phased",{duration=0.5})
@@ -206,15 +209,17 @@ function C21E_OnSpellStart(keys)
 				u:SetForwardVector((point-point2):Normalized())
 
 				--發動攻擊	 
-				local order_target = 
-				{
-					UnitIndex = u:entindex(),
-					OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-					TargetIndex = u2:entindex(), Queue = false
-				}
-		 		if IsValidEntity(u2) then
-		        	ExecuteOrderFromTable(order_target)
-		        end
+				-- local order_target = 
+				-- {
+				-- 	UnitIndex = u:entindex(),
+				-- 	OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+				-- 	TargetIndex = u2:entindex(), Queue = false
+				-- }
+		 		-- if IsValidEntity(u2) then
+		        -- 	ExecuteOrderFromTable(order_target)
+				-- end
+				u:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,2)
+				u:PerformAttack(u2,true,true,true,true,false,false,false)
 
 				--紀錄次數
 				time = time - 1
@@ -225,12 +230,12 @@ function C21E_OnSpellStart(keys)
 	    			ParticleManager:ReleaseParticleIndex(p1)
 	    		end
 
-				return 0.5
+				return animation_time
 			end	
 
 
 
-		end,0.50 )
+		end,animation_time )
 end
 
 

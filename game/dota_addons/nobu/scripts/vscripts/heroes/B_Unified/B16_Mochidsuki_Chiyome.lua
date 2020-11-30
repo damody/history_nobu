@@ -11,6 +11,24 @@ function B16W_Lock( keys )
 	keys.caster:FindAbilityByName("B16W"):SetActivated(false)
 end
 
+function B16D_Interval ( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	if caster.moonMoon then
+		local moonMoon = caster.moonMoon
+		local dis = CalcDistanceBetweenEntityOBB(caster, moonMoon)
+		if caster:IsAlive() then
+			if dis > 600 then
+				ability:ApplyDataDrivenModifier(moonMoon, moonMoon , "modifier_B16D_reduceDamage", {})
+			else
+				moonMoon:RemoveModifierByName("modifier_B16D_reduceDamage")
+			end
+		else
+			moonMoon:ForceKill(true)
+		end
+	end
+end
+
 function B16D_OnCreated( keys )
 	local caster = keys.caster
 	local spell_hint_table = {
@@ -121,13 +139,14 @@ function B16D_SpawnMoonMoon( keys )
 	local spawnPosition = caster:GetAbsOrigin() + caster:GetForwardVector() * 100
 	caster.moonMoon = CreateUnitByName("B16D_SUMMEND_UNIT",spawnPosition,true,caster,caster,caster:GetTeam())
 	caster.moonMoon:SetForwardVector(caster:GetForwardVector())
-
+	ability:ApplyDataDrivenModifier(caster.moonMoon, caster.moonMoon , "modifier_B16D_Interval" , nil)
 	-- *重要* 設定月月的控制權
 	caster.moonMoon:SetControllableByPlayer(caster:GetPlayerID(),true)
 
 	-- 裝上修改器
 	ability:ApplyDataDrivenModifier(caster,caster.moonMoon,"modifier_B16D_MoonMoon",nil)
-
+	ability:ApplyDataDrivenModifier(caster,caster.moonMoon,"modifier_B16D_Interval",nil)
+	
 	-- 記住主人
 	caster.moonMoon.master = caster
 	-- 記住自己

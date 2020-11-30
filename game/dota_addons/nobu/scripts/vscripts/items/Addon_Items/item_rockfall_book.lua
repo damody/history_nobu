@@ -29,7 +29,7 @@ function Shock( keys )
 
 	--effect:傷害+暈眩
 	for _,it in pairs(direUnits) do
-		if (not(it:IsBuilding())) then
+		if (not(it:IsBuilding())) and not it:HasModifier("modifier_C08T_bleeding") then
 			AMHC:Damage(caster,it,ability:GetLevelSpecialValueFor("damage", 0 ),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			ability:ApplyDataDrivenModifier(caster, it,"modifier_stunned", {duration = 0.1})
 		end

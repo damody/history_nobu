@@ -22,7 +22,7 @@ function Shock2( keys )
 
 		--effect:傷害+暈眩
 		for _,it in pairs(direUnits) do
-			if (not(it:IsBuilding())) then
+			if (not(it:IsBuilding())) and not it:HasModifier("modifier_C08T_bleeding") then
 				local flame = ParticleManager:CreateParticle("particles/a07t2/a07t2.vpcf", PATTACH_ABSORIGIN, it)
 				AMHC:Damage(caster,it, 100,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				Timers:CreateTimer(0.5, function ()
