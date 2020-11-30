@@ -3,7 +3,8 @@ function C11W_start( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-
+	caster.isHit = {}
+	caster.hitTime = 1
 	Timers:CreateTimer(3, function ()
 		  caster:RemoveNoDraw()
 		end)
@@ -150,7 +151,19 @@ function C11W_hit_unit( keys )
 	ProjectileManager:CreateTrackingProjectile( projectile_table )
 	ApplyDamage(damage_table)
 	-- AMHC:Damage(caster,target,damage,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
-    caster:PerformAttack(target, true, true, true, true, true, false, true)
+	local isGotHit = false
+	for _, t in ipairs(caster.isHit) do
+		if t and target == t then
+			isGotHit = true
+		end
+	end
+	if isGotHit then
+	else
+		caster:PerformAttack(target, true, true, true, true, true, false, true)
+	end
+	print(caster.hitTime)
+	caster.isHit[caster.hitTime] = target
+	caster.hitTime = caster.hitTime + 1
 end
 
 -- 產生一個單位讓他打
