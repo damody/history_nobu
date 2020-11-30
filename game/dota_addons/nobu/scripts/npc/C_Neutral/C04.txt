@@ -85,7 +85,7 @@
 		"AbilityTextureName"                        "custom/icon_128x128_35"
 
 		"AbilityCastPoint"          	"0.1"
-		"AbilityCooldown"           	"2"
+		"AbilityCooldown"           	"0"
 		"AbilityManaCost"           	"0"
 		"AbilityCastRange"				"500"
 		"AOERadius"						"500"
@@ -215,7 +215,7 @@
 			"02"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"mana"	"12 16 20 25"
+				"mana"	"17 19 21 23"
 			}
 			"03"
 			{

@@ -344,6 +344,11 @@
 				"Target"	"CASTER"
 				"EffectName"	"C05T.vo1"
 			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_C05T"
+				"Target" 		"CASTER"
+			}
 		}
 
 		"OnSpellStart"
@@ -372,6 +377,18 @@
 				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C05.lua"
 				"Function"		"C05T_OnChannelSucceeded"
 				"Target"		"POINT"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_C05T"
+			{
+				"IsHidden"			"0"
+				"Duration"			"1.5"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
 		}
 	}

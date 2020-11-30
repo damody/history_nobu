@@ -244,12 +244,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"B11R_bonusMoveSpeed"	"3 6 9 12"
+				"B11R_bonusMoveSpeed"	"0 2 4 6"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"illusion_incoming_damage"	"150"
+				"illusion_incoming_damage"	"500 450 400 350"
 			}
 			"03"
 			{
@@ -260,6 +260,11 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"B11R_old_duration"	"35"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"B11R_root_duration"	"0.75"
 			}
 		}
 

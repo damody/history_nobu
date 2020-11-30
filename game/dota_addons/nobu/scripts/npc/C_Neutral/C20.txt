@@ -28,7 +28,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityCooldown"				"25"
-		"AbilityManaCost"				"200 220 240 260"
+		"AbilityManaCost"				"180"
 		"AOERadius" "300"
 		
 		"AbilitySpecial"
@@ -239,7 +239,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastPoint"				"0.1"
 		"AbilityCooldown"				"130 120 110"
-		"AbilityManaCost"				"185"
+		"AbilityManaCost"				"150"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"OnSpellStart"
 		{

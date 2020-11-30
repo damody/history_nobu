@@ -51,6 +51,9 @@ function B30W_OnDestroy( keys )
 	else
 		damage = caster.B30W
 	end
+	if damage < 200 then
+		damage = 200
+	end
 	damage = damage * B30W_a
 	local ifx = ParticleManager:CreateParticle("particles/b30w/b30w2fire/monkey_king_spring_arcana_fire.vpcf",PATTACH_ABSORIGIN,caster)
 	ParticleManager:SetParticleControl( ifx , 0 , caster:GetAbsOrigin() )
@@ -151,13 +154,41 @@ end
 function B30T_old_OnSpellStart( keys )
 	local caster = keys.caster
 	local ability = keys.ability
+	local duration = ability:GetSpecialValueFor("B30T_dotDuration")
 	Timers:CreateTimer( 0.1, function()
 		local ifx = ParticleManager:CreateParticle("particles/b30/b30t.vpcf",PATTACH_POINT,caster)
 		ParticleManager:SetParticleControl( ifx , 0 , caster:GetAbsOrigin()+Vector(0, 0, 100) )
 		ParticleManager:SetParticleControl( ifx , 1 , caster:GetForwardVector() )
 		ParticleManager:SetParticleControl( ifx , 2 , -caster:GetForwardVector()*1000 )
 		ParticleManager:ReleaseParticleIndex( ifx )
+	end)
+	group = FindUnitsInRadius(
+		caster:GetTeamNumber(),
+		caster:GetAbsOrigin(),
+		nil,
+		500,
+		ability:GetAbilityTargetTeam(),
+		ability:GetAbilityTargetType(),
+		ability:GetAbilityTargetFlags(),
+		0,
+		false)
+	tsum = 0.1
+	for _,v in ipairs(group) do
+		Timers:CreateTimer(0.1, function() 
+			if IsValidEntity(v) then
+				if not v:HasModifier("modifier_B30T_debuff") then
+					ability:ApplyDataDrivenModifier(caster,v,"modifier_B30T_debuff",{duration = duration-tsum})
+				end
+			end
+			if tsum < duration then
+				tsum = tsum + 0.1
+				return 0.1
+			else
+				return nil
+			end
 		end)
+
+	end
 end
 
 function B30T_OnProjectileHitUnit( keys )

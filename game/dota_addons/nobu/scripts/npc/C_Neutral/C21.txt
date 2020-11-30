@@ -347,9 +347,9 @@
 		"MaxLevel"	"3"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
-		"AbilityCooldown"	"100"
-		"AbilityManaCost"	"250 350 450"
-		"AbilityCastRange"	"600"
+		"AbilityCooldown"	"100 90 80"
+		"AbilityManaCost"	"250"
+		"AbilityCastRange"	"700"
 		"precache"
 		{
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_skeletonking.vsndevts"
@@ -398,7 +398,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"acount"	"9 14 21"
+				"acount"	"7 11 15"
 			}
 		}
 	}	

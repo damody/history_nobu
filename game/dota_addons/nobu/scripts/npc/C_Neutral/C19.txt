@@ -616,7 +616,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"C19T_duration"	"11"
+				"C19T_duration"	"11 14 17"
 			}
 		}
 	}

@@ -4,6 +4,12 @@ local mover = require('amhc_library/mover')
 	B08R_INT={}
 --ednglobal
 
+function B08W (keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	ability:ApplyDataDrivenModifier(caster, caster , "modifier_B08W" , {})
+end
+
 function B08D_Copy(u, u2, ability)
 	local  team  = u:GetTeamNumber()
 	local  point = u:GetAbsOrigin()
@@ -158,6 +164,7 @@ function B08E_Action( keys )
 		damage_type = damageType
 	}
 	ApplyDamage( damageTable )
+	ability:ApplyDataDrivenModifier(caster, caster , "modifier_B08E2" , {})
 end
 
 function B08E_Action2( keys )

@@ -105,6 +105,8 @@ function B11R_OnAttackLanded( keys )
     local caster=keys.caster
 	ability=keys.ability
 	target=keys.target
+	local root_duration = ability:GetSpecialValueFor("B11R_root_duration")
+	local illusion_incoming_damage = ability:GetSpecialValueFor("illusion_incoming_damage")
 	if (caster.B11R == nil) then
 		caster.B11R = 0
 	end
@@ -116,7 +118,7 @@ function B11R_OnAttackLanded( keys )
 	end
 	if caster.B11R >= 5 then
 		caster.B11R = 0
-		target:AddNewModifier(caster,nil,"nobu_modifier_rooted", {duration=1} )
+		target:AddNewModifier(caster,nil,"nobu_modifier_rooted", {duration=root_duration} )
 		local b11t = caster:FindAbilityByName("B11T")
 		if b11t:GetLevel() > 0 then
 			local rate = 1/caster:GetAttacksPerSecond()
@@ -179,7 +181,7 @@ function B11R_OnAttackLanded( keys )
 					illusion[i]:AddItem(newItem)
 				end
 			end
-			illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = 5, outgoing_damage = caster.B11R_rate * 100 , incoming_damage = 100 })
+			illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = 5, outgoing_damage = caster.B11R_rate * 100 , incoming_damage = illusion_incoming_damage })
 			illusion[i]:MakeIllusion()
 			illusion[i]:SetHealth(caster:GetHealth())
 		end

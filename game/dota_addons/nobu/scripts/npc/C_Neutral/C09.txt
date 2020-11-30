@@ -425,7 +425,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"C09T_passive"			"-9 -12 -15"
+				"C09T_passive"			"-7 -9 -11"
 			}
 		}
 	}

@@ -161,6 +161,34 @@ function modifier_C14T_effect_OnIntervalThink( keys )
 	end
 end
 
+function C14E ( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
+	local casterabs = caster:GetAbsOrigin()
+	projectile_table = {
+		Ability				= ability,
+		EffectName			= "particles/c14e/c14e.vpcf",
+		vSpawnOrigin		= "attach_origin",
+		fDistance			= 800,
+		fStartRadius		= 100,
+		fEndRadius			= 300,
+		Source				= caster,
+		bHasFrontalCone		= true,
+		bReplaceExisting	= false,
+		iUnitTargetTeam		= DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetFlags	= DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+		iUnitTargetType		= DOTA_UNIT_TARGET_FLAG_NONE,
+		fExpireTime			= GameRules:GetGameTime() + 2,
+		bDeleteOnHit		= false,
+		vVelocity			= 0,
+		bProvidesVision		= false,
+		iVisionRadius		= 0,
+		iVisionTeamNumber	= caster:GetTeamNumber(),
+	}
+	ProjectileManager:CreateLinearProjectile(projectile_table)
+end
+
 
 function C14E_OnProjectileHitUnit( event )
 	local caster = event.caster 
