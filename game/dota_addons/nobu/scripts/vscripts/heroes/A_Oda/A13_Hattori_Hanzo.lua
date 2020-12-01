@@ -185,6 +185,7 @@ function A13W2( event )
 	local ability = event.ability
 	local apos = caster:GetAbsOrigin()
 	if target.caster then
+		ProjectileManager:ProjectileDodge(caster)
 		local bpos = target:GetAbsOrigin()
 		target:SetAbsOrigin(apos)
 		caster:SetAbsOrigin(bpos)
