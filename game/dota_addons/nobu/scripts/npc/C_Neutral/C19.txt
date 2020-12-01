@@ -286,16 +286,28 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"death_prophet_exorcism"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastPoint" "0.2" 
+		"AbilityCooldown"	"17 15 13 11"
+		"AbilityManaCost"	"100"
+		"AbilityCastRange"	"525 750 975 1200"
 		// Precache
 		// -------------------------------------------------------------------------------------------------------------
 		"precache"
 		{
 			"particle"	"particles/c19r/c19r.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C19.lua"
+				"Function"	"C19R"
+			}
 		}
 		"Modifiers"
 		{
@@ -354,6 +366,15 @@
 				}
 				"ThinkInterval"	"1"
 			}
+			"modifier_C19R"
+			{
+				"IsHidden"			"0"
+				"Duration"			"0.1"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 		// Special
 		// -------------------------------------------------------------------------------------------------------------
@@ -373,6 +394,16 @@
 			{
 				"var_type"	"FIELD_FLOAT"
 				"damage"	"25 40 55 70"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"radius"	"525 750 975 1200"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"active_rate"	"0.25 0.4 0.55 0.7"
 			}
 		}
 	}

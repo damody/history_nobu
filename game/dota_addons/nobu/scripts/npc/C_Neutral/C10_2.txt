@@ -31,7 +31,7 @@
 		"Ability1"	"C10W"
 		"Ability2"	"C10E"
 		"Ability3"	"C10R"
-		"Ability4"	""
+		"Ability4"	"C10D"
 		"Ability5"	"magical_resistance"
 		"Ability6"	"C10T"
 		"Ability7"	"C10_precache"

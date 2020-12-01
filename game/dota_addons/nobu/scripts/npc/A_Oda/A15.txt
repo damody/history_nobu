@@ -502,7 +502,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"A15T_lifeSteal"	"10"
+				"A15T_lifeSteal"	"10 15 20"
 			}
 			"06"
 			{

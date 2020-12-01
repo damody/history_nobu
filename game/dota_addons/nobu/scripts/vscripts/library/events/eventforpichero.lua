@@ -168,6 +168,15 @@ function Nobu:PickHero( keys )
           end
           return 1
         end)
+      -- elseif nobu_id == "C10" then -- 香宗我部元親
+      --   Timers:CreateTimer(1, function ()
+      --     print(caster:FindAbilityByName("C10T"):GetLevel())
+      --       if caster:FindAbilityByName("C10T"):GetLevel() >= 1 then
+      --         caster:FindAbilityByName("C10D"):SetLevel(1)
+      --         return nil
+      --       end
+      --     return 1
+      --   end)
       elseif string.match(name, "silencer") then --立花道雪
         -- 這隻角色天生會帶一個modifier我們需要砍掉他
         Timers:CreateTimer(1, function ()

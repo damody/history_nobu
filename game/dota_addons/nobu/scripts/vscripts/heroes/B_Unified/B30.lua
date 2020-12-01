@@ -89,6 +89,7 @@ function B30R_OnSpellStart( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
+	ProjectileManager:ProjectileDodge(keys.caster)
 	FindClearSpaceForUnit( caster , target:GetAbsOrigin() , true )
 	caster:AddNewModifier( caster, ability, "modifier_phased", { duration = 0.1 } )
 	EmitSoundOn("Hero_Clinkz.WindWalk",caster)

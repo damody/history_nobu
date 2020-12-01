@@ -1,3 +1,20 @@
+function C10D ( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	if GameRules:IsDaytime() then
+		GameRules:SetTimeOfDay(1)
+		Timers:CreateTimer(10, function()
+			GameRules:SetTimeOfDay(0.3)
+		end)
+	else 
+		GameRules:SetTimeOfDay(0.3)
+		Timers:CreateTimer(10, function()
+			GameRules:SetTimeOfDay(1)
+		end)
+	end
+end
+
+
 function C10T_OnAbilityPhaseStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -80,6 +97,14 @@ end
 function C10T_OnUpgrade( keys )
 	local caster = keys.caster
 	local ability = keys.ability
+	local vision = caster:GetNightTimeVisionRange()
+	local C10D = caster:FindAbilityByName("C10D")
+	if C10D:GetLevel() < 1 then
+		C10D:SetLevel(1)
+	else
+		C10D:SetLevel(C10D:GetLevel() + 1)
+	end
+	caster:SetNightTimeVisionRange(vision + 150)
 	caster:RemoveModifierByName("modifier_C10T_2")
 	caster:RemoveModifierByName("modifier_C10T_1")
 	if GameRules:IsDaytime() and (caster:HasModifier("modifier_C10T_2") or not caster:HasModifier("modifier_C10T_1")) then

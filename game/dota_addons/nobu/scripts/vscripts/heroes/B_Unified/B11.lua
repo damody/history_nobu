@@ -117,7 +117,8 @@ function B11R_OnAttackLanded( keys )
 	if not target:IsBuilding() then
 		caster.B11R = caster.B11R + 1
 	end
-	if caster.B11R >= 5 or ran <= 25 then
+	
+	if caster.B11R >= 7 or ran <= 20 and not target:isBuilding() then
 		caster.B11R = 0
 		target:AddNewModifier(caster,nil,"nobu_modifier_rooted", {duration=root_duration} )
 		local b11t = caster:FindAbilityByName("B11T")
@@ -228,7 +229,7 @@ function B11T_OnAttackStart( keys )
 		caster.B11T_count = 0
 	end
 	caster.B11T_count = caster.B11T_count + 1
-	if 25 >= rnd or caster.B11T_count > 6 then
+	if 20 >= rnd or caster.B11T_count > 7 then
 		caster.B11T_count = 0
 		local rate = 1/caster:GetAttacksPerSecond()
 		if caster:HasModifier("modifier_B11T_Enable") then

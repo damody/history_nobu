@@ -228,7 +228,7 @@ function item_raikiri( keys )
 		end
 		
 
-		if caster.raikiri >= Guaranteed or ran <= trigger then
+		if caster.raikiri >= 6 or ran <= trigger then
 			caster.raikiri = 0
 			--【KV】
 			--caster:SetForwardVector(vec)

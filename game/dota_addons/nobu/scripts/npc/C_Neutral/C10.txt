@@ -19,12 +19,22 @@
 	//香宗我部親泰 晝夜轉換
 	"C10D"
 	{
-		"BaseClass"                 				"ability_datadriven"
-		"AbilityBehavior"           				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"  								"DOTA_ABILITY_TYPE_BASIC"
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"faceless_void_time_lock"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityCastPoint"                        	"0.1"
-		"AbilityCooldown"                        	"10 9 8 7"
-		"AbilityManaCost"                           "150 200 250 300"
+		"AbilityCooldown"                        	"45"
+		"AbilityManaCost"                           "0"
+		"MaxLevel" 				"3"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C10.lua"
+				"Function"	"C10D"
+			}
+		}
 	}
 	//香宗我部親泰 黑龍波
 	"C10W"

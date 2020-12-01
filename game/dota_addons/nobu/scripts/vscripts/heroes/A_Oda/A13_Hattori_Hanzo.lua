@@ -183,13 +183,19 @@ function A13W2( event )
 	local caster = event.caster
 	local target = event.target
 	local ability = event.ability
-	print(ability:GetAbilityIndex())
 	local apos = caster:GetAbsOrigin()
 	if target.caster then
 		local bpos = target:GetAbsOrigin()
 		target:SetAbsOrigin(apos)
 		caster:SetAbsOrigin(bpos)
 	end
+end
+
+function A13W_PhaseStart ( keys )
+	local caster = event.caster
+	local target = event.target
+	local ability = event.ability
+	caster:AddNewModifier(caster, ability, "modifier_invulnerable", { duration = 0.8 })
 end
 
 function A13W( event )
@@ -211,7 +217,6 @@ function A13W( event )
 	local random_angle = RandomInt(-20, 20) * 0.1
 	local origin_pos = caster:GetOrigin()
 	local am = caster:FindAllModifiers()
-	caster:AddNewModifier(caster, ability, "modifier_stunned", { duration = 0.5 })
 	caster:AddNewModifier(caster, ability, "modifier_invulnerable", { duration = 0.8 })
 	for _,v in pairs(am) do
 		if v:GetParent():GetTeamNumber() ~= caster:GetTeamNumber() or v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber() then
@@ -270,8 +275,6 @@ function A13W( event )
 							illusion[i]:AddItem(newItem)
 						end
 					end
-					
-					illusion[i]:AddNewModifier(illusion[i], ability, "modifier_stunned", { duration = 0.5 })
 					illusion[i]:AddNewModifier(illusion[i], ability, "modifier_invulnerable", { duration = 0.8 })
 					-- Set the unit as an illusion
 					-- modifier_illusion controls many illusion properties like +Green damage not adding to the unit damage, not being able to cast spells and the team-only blue particle

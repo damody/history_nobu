@@ -29,6 +29,43 @@ function C15E( keys )
 	end
 end
 
+function C19R ( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local point = target:GetAbsOrigin()
+	local radius = ability:GetSpecialValueFor("radius")
+	local rate = ability:GetSpecialValueFor("active_rate")
+	ability:ApplyDataDrivenModifier(caster, caster , "modifier_C19R" , {})
+	local dmg = caster:GetAverageTrueAttackDamage(target)
+	dmg = dmg * rate
+	AMHC:Damage(caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+	caster:PerformAttack(target,true,true,true,false,false,true,true)
+	group = FindUnitsInRadius(
+		caster:GetTeamNumber(),
+		point,
+		nil,
+		radius,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+		FIND_ANY_ORDER,
+		false)
+		PrintTable(group)
+	local n = 0
+	for _,v in ipairs(group) do
+		if n < 2 then
+			if IsValidEntity(v) and v:GetUnitName() ~= "npc_dota_courier2" and v ~= target then
+				dmg = caster:GetAverageTrueAttackDamage(v)
+				dmg = dmg * rate
+				AMHC:Damage(caster,v,dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				caster:PerformAttack(v,true,true,true,false,false,true,true)
+				n = n + 1
+			end
+		end
+	end
+end
+
 --[[
 	Author: Noya
 	Date: April 5, 2015.

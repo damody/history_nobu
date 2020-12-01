@@ -8200,7 +8200,7 @@
 	{
 	    "ID" "2848"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "130"
+		"ItemCost" "430"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_Shintogo_Kunimitsu"  //合成後物品
@@ -16398,7 +16398,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"3500"
+		"ItemCost"	"3800"
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequirements"	{}
@@ -16450,30 +16450,30 @@
 				}
 			}
 		}
-		"OnEquip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
-				"Function"	"OnEquip"
-			}
-		}
-		"OnUnequip"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
-				"Function"	"OnUnequip"
-			}
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"magical_resistance"	"10"
-			}
-		}
+		// "OnEquip"
+		// {
+		// 	"RunScript"
+		// 	{
+		// 		"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+		// 		"Function"	"OnEquip"
+		// 	}
+		// }
+		// "OnUnequip"
+		// {
+		// 	"RunScript"
+		// 	{
+		// 		"ScriptFile"	"items/Addon_Items/item_magical_resistance.lua"
+		// 		"Function"	"OnUnequip"
+		// 	}
+		// }
+		// "AbilitySpecial"
+		// {
+		// 	"01"
+		// 	{
+		// 		"var_type"	"FIELD_INTEGER"
+		// 		"magical_resistance"	"10"
+		// 	}
+		// }
 	}
 	// 般若鬼丸
 	"item_Hannya_Onimaru"
