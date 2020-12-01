@@ -49,7 +49,7 @@ function Shock( keys )
 				ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan2",{})
 			else
 				ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan3",{})
-				if target:GetName() == "npc_dota_creature" then
+				if target:GetName() == "npc_dota_creature" or target:IsIllusion() then
 					AMHC:Damage(caster,target,2000,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				end
 			end

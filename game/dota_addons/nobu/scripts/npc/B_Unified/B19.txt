@@ -214,7 +214,7 @@
 		"AbilityCastPoint"          				"0"
 		"AbilityCooldown"       "140 130 120"
 		"AbilityManaCost"       "300"
-		"AbilityCastRange"	"1300"
+		"AbilityCastRange"	"1100"
 		"AOERadius"	"800"
 		"AbilityChannelTime"	"0.7"
 
@@ -292,7 +292,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"stun"		"2"
+				"stun"		"1.2 1.6 2.0"
 			}
 			"05"
 			{
