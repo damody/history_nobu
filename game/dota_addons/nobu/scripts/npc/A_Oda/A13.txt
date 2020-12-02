@@ -281,19 +281,27 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/A13W"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"FightRecapLevel"	"0"
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"HotKeyOverride"	"W"
 		"MaxLevel"	"4"
-		"AbilityCastPoint"	"0"
+		"AbilityCastPoint"	"0.1"
 		"AbilityCooldown"	"15"
 		"AbilityManaCost"	"150"
 		"precache"
 		{
 			"soundfile"	"sounds/weapons/hero/riki/riki_blinkstrike.vsnd"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A13_Hattori_Hanzo.lua"
+				"Function"	"A13W_PhaseStart"
+			}
 		}
 		"OnSpellStart"
 		{
@@ -691,7 +699,7 @@
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
 		"LevelsBetweenUpgrades"	"6"
 		"RequiredLevel"	"6"
-		"AbilityCastPoint"	"0.1"
+		"AbilityCastPoint"	"0"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"	"130 120 110"
@@ -712,14 +720,7 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_tinker.vsndevts"
 		}
-		"OnAbilityPhaseStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A13_Hattori_Hanzo.lua"
-				"Function"	"A13W_PhaseStart"
-			}
-		}
+
 		"OnSpellStart"
 		{
 			"FireSound"

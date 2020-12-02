@@ -193,9 +193,9 @@ function A13W2( event )
 end
 
 function A13W_PhaseStart ( keys )
-	local caster = event.caster
-	local target = event.target
-	local ability = event.ability
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
 	caster:AddNewModifier(caster, ability, "modifier_invulnerable", { duration = 0.8 })
 end
 
@@ -228,75 +228,79 @@ function A13W( event )
 	
 	caster.A13W = {}
 
-	caster:RemoveAbility("A13W")
-    caster:AddAbility("A13W2"):SetLevel(1)
-    caster.timer = Timers:CreateTimer(6, function()
-        caster:RemoveAbility("A13W2")
-        caster:AddAbility("A13W"):SetLevel(lv)
-    end)
+	-- caster:RemoveAbility("A13W")
+    -- caster:AddAbility("A13W2"):SetLevel(1)
+    -- caster.timer = Timers:CreateTimer(6, function()
+    --     caster:RemoveAbility("A13W2")
+    --     caster:AddAbility("A13W"):SetLevel(lv)
+    -- end)
 	
 	local i = 1
 	Timers:CreateTimer(0.05, function()
-		if IsValidEntity(caster) and caster:IsAlive() then
-			if i <= people then
-				if (i ~= origin_go_index) then
-					-- handle_UnitOwner needs to be nil, else it will crash the game.
-					illusion[i] = CreateUnitByName(unit_name, origin, true, caster, nil, caster:GetTeamNumber())
-					illusion[i]:SetPlayerID(caster:GetPlayerID())
-					illusion[i].magical_resistance = caster.magical_resistance
-					illusion[i]:SetControllableByPlayer(player, true)
-					illusion[i].caster = caster
-					caster.A13W[i] = illusion[i]
-					-- Level Up the unit to the casters level
-					local casterLevel = caster:GetLevel()
-					for j=1,casterLevel-1 do
-						illusion[i]:HeroLevelUp(false)
-					end
-
-					-- Set the skill points to 0 and learn the skills of the caster
-					illusion[i]:SetAbilityPoints(0)
-					for abilitySlot=0,15 do
-						local xability = caster:GetAbilityByIndex(abilitySlot)
-						if xability ~= nil then 
-							local abilityLevel = xability:GetLevel()
-							local abilityName = xability:GetAbilityName()
-							local illusionAbility = illusion[i]:FindAbilityByName(abilityName)
-							if (illusionAbility ~= nil) then
-								illusionAbility:SetLevel(abilityLevel)
+		for n = 1 , people do 
+			if IsValidEntity(caster) and caster:IsAlive() then
+				if #caster.A13W < people then
+					print(#illusion .. 'and' .. people)
+					if (i ~= origin_go_index) then
+						-- handle_UnitOwner needs to be nil, else it will crash the game.
+						illusion[i] = CreateUnitByName(unit_name, origin, true, caster, nil, caster:GetTeamNumber())
+						illusion[i]:SetPlayerID(caster:GetPlayerID())
+						illusion[i].magical_resistance = caster.magical_resistance
+						illusion[i]:SetControllableByPlayer(player, true)
+						illusion[i].caster = caster
+						caster.A13W[i] = illusion[i]
+						-- Level Up the unit to the casters level
+						local casterLevel = caster:GetLevel()
+						for j=1,casterLevel-1 do
+							illusion[i]:HeroLevelUp(false)
+						end
+	
+						-- Set the skill points to 0 and learn the skills of the caster
+						illusion[i]:SetAbilityPoints(0)
+						for abilitySlot=0,15 do
+							local xability = caster:GetAbilityByIndex(abilitySlot)
+							if xability ~= nil then 
+								local abilityLevel = xability:GetLevel()
+								local abilityName = xability:GetAbilityName()
+								local illusionAbility = illusion[i]:FindAbilityByName(abilityName)
+								if (illusionAbility ~= nil) then
+									illusionAbility:SetLevel(abilityLevel)
+								end
 							end
 						end
-					end
-
-					-- Recreate the items of the caster
-					for itemSlot=0,5 do
-						local item = caster:GetItemInSlot(itemSlot)
-						if item ~= nil then
-							local itemName = item:GetName()
-							local newItem = CreateItem(itemName, illusion[i], illusion[i])
-							illusion[i]:AddItem(newItem)
+	
+						-- Recreate the items of the caster
+						for itemSlot=0,5 do
+							local item = caster:GetItemInSlot(itemSlot)
+							if item ~= nil then
+								local itemName = item:GetName()
+								local newItem = CreateItem(itemName, illusion[i], illusion[i])
+								illusion[i]:AddItem(newItem)
+							end
 						end
+						illusion[i]:AddNewModifier(illusion[i], ability, "modifier_invulnerable", { duration = 0.8 })
+						-- Set the unit as an illusion
+						-- modifier_illusion controls many illusion properties like +Green damage not adding to the unit damage, not being able to cast spells and the team-only blue particle
+						illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, outgoing_damage = -1000, incoming_damage = incomingDamage })
+						-- Without MakeIllusion the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.
+						illusion[i]:MakeIllusion()
+	
+						illusion[i]:SetHealth(caster:GetHealth())
+						illusion[i].illusion_damage = 0.1
+						--分身不能用法球
+						--illusion[i].nobuorb1 = "illusion"
+						--illusion[i]:SetRenderColor(255,0,255)
+						
 					end
-					illusion[i]:AddNewModifier(illusion[i], ability, "modifier_invulnerable", { duration = 0.8 })
-					-- Set the unit as an illusion
-					-- modifier_illusion controls many illusion properties like +Green damage not adding to the unit damage, not being able to cast spells and the team-only blue particle
-					illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, outgoing_damage = -1000, incoming_damage = incomingDamage })
-					-- Without MakeIllusion the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.
-					illusion[i]:MakeIllusion()
-
-					illusion[i]:SetHealth(caster:GetHealth())
-					illusion[i].illusion_damage = 0.1
-					--分身不能用法球
-					--illusion[i].nobuorb1 = "illusion"
-					--illusion[i]:SetRenderColor(255,0,255)
-					
+					i = i + 1
+				else
+					print("done")
+					return nil
 				end
-			else
-				return nil
 			end
-			
-			i = i + 1
 		end
-		return 0.05
+
+		return 0.5
 	end)
 	Timers:CreateTimer( 0.31, function()
 		if IsValidEntity(caster) and caster:IsAlive() then
