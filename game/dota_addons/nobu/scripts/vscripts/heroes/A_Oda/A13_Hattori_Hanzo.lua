@@ -237,7 +237,7 @@ function A13W( event )
 	
 	local i = 1
 	Timers:CreateTimer(0.05, function()
-		for n = 1 , people do 
+		for n = #illusion , people do 
 			if IsValidEntity(caster) and caster:IsAlive() then
 				if #caster.A13W < people then
 					print(#illusion .. 'and' .. people)
@@ -300,9 +300,9 @@ function A13W( event )
 			end
 		end
 
-		return 0.5
+		return 0.3
 	end)
-	Timers:CreateTimer( 0.31, function()
+	Timers:CreateTimer( 0.4, function()
 		if IsValidEntity(caster) and caster:IsAlive() then
 			for i=1,people do
 				target_pos[i] = Vector(math.sin(eachAngle*i+random_angle), math.cos(eachAngle*i+random_angle), 0) * radius
