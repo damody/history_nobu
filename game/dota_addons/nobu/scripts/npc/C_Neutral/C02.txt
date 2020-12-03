@@ -154,7 +154,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"bonus_attack_speed"	"50 75 100 125"
+				"bonus_attack_speed"	"50 60 70 80"
 			}
 			"05"
 			{
@@ -354,7 +354,7 @@
 		"AbilityCooldown"				"75"
 		"AbilityManaCost"				"200 250 300"
 		"AbilityDamage"					"450 600 750"
-
+		"AbilityCastAnimation"	"ACT_DOTA_ECHO_SLAM"
 		"AbilityCastRange"				"200"
 		"AbilityCastPoint"				"0.3"
 		"AnimationPlaybackRate"	"2"
@@ -368,7 +368,7 @@
 			"02"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"stun_time"		"2"
+				"stun_time"		"1 1.5 2"
 			}
 			"03"
 			{
@@ -383,7 +383,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"aoe_damage"		"180 230 280"
+				"aoe_damage"		"100 150 210"
 			}
 			"06"
 			{
@@ -435,7 +435,7 @@
 				"EffectName" "particles/units/heroes/hero_arc_warden/arc_warden_tempest_buff.vpcf"
 				"EffectAttachType" "follow_origin"
 
-				"OnAttack"
+				"OnAttackStart"
 				{
 					"RunScript"
 					{

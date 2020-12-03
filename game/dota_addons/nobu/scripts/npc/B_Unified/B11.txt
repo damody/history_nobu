@@ -517,6 +517,16 @@
 				"var_type"					"FIELD_INTEGER"
 				"B11F_buff_CritPercentage"	"15"
 			}
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"B11R_root_duration"	"0.75"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"illusion_incoming_damage"	"500 450 400 350"
+			}
 		}
 	}
 

@@ -7,10 +7,10 @@ function B35E_OnSpellStart( keys )
 	local dir=targetpoint-caster:GetAbsOrigin()
 	caster:SetForwardVector(dir:Normalized())
 	--local duration = ability:GetLevelSpecialValueFor( "duration", ability:GetLevel() - 1 )
-	local distance = 3000
+	local distance = 1500
 	local radius =  400
 	local collision_radius = 150
-	local projectile_speed = 2000
+	local projectile_speed = 1400
 	local projectileTable = {
 			Ability = ability,
 			EffectName =  "particles/b35/b35e.vpcf",

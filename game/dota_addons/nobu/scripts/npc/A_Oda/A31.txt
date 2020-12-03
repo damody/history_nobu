@@ -123,7 +123,7 @@
 		"AbilityCooldown"	"20 14 10 7"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"80 100 120 140"
+		"AbilityManaCost"	"120 140 160 180"
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
 
@@ -164,7 +164,7 @@
 				"IsDebuff"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "15"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "5"
 				}
 			}
 		}
@@ -425,7 +425,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage_modifier"	"-30 -20 -10"
+				"damage_modifier"	"-30"
 			}
 			"03"
 			{

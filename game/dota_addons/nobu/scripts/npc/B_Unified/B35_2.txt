@@ -17,17 +17,17 @@
 		"Ability2"	"B35E"
 		"Ability3"	"B35R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"B35T"
-		"Ability6"	"B35_precache"
+		"Ability5"	"B35_precache"
+		"Ability6"	"B35T"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"0"
+		"ArmorPhysical"	"5"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"118.0"
-		"AttackDamageMax"	"134.0"
+		"AttackDamageMax"	"118.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.80"
 		"AttackAnimationPoint"	"0.33"

@@ -3987,7 +3987,115 @@
 			}
 		}
 	}
+	// 洞察碎片
+	"item_insight_gem_Shard"
+	{
+		// General
+		
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/insight_gem_s"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		
+		"AbilityCooldown"	"30"
+		
+		"ID"	"2854"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"500"
+		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"						"1"
+		"AOERadius"	"1200"
 
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"	"TARGET"
+				"EffectName"	"RevealMap"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_insight_gem.lua"
+				"Function"	"Shock"
+			}
+			"ApplyModifier"
+            {
+                "Target"
+                {
+                    "Center"    "CASTER"
+                    "Radius"    "1200"
+                    "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+                    "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+                    "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                }
+                "ModifierName"      "modifier_truesight"
+                "Duration"      "10"
+            } 
+		}
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_insight_gem.lua"
+				"Function"		"OnEquipHero"
+			}
+		}
+		"OnOwnerDied"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_insight_gem.lua"
+				"Function"		"Death"
+			}
+		}
+		"Modifiers"
+		{
+			"Passive_insight_gem_shard"
+			{
+				"Passive"          "1"  
+	            "IsHidden"      "1"
+	            "ThinkInterval"     "0.25"
+	            "OnIntervalThink"
+	            {
+	                "ApplyModifier"
+	                {
+	                    "Target"
+	                    {
+	                        "Center"    "CASTER"
+	                        "Radius"    "600"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+	                    "ModifierName"      "modifier_truesight"
+	                    "Duration"      "0.50"
+	                }
+	            }
+			}
+			"modifier_lose_gem"
+			{
+				"IsHidden"	"1"
+				"IsPurgable"	"0"
+				"IsBuff"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_insight_gem.lua"
+						"Function"		"Death"
+					}	
+				}
+			}
+		}
+		
+	}
 	// 洞察寶石
 	"item_insight_gem"
 	{
@@ -7295,6 +7403,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"ItemDroppable" "1"
 		"ItemSellable" "1"
 		"ItemPurchasable" "1"
@@ -7340,6 +7449,11 @@
 			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
 				"Function"	"sound"
 				"sound"	"snake_shoot"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_the_spear_of_saddle.lua"
+				"Function"	"Shock1"
 			}
 		}
 	
@@ -7435,6 +7549,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"ItemDroppable" "1"
 		"ItemSellable" "1"
@@ -7481,6 +7596,11 @@
 			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
 				"Function"	"sound"
 				"sound"	"snake_shoot"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_the_spear_of_saddle.lua"
+				"Function"	"Shock1"
 			}
 		}
 	
@@ -7576,6 +7696,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"ItemDroppable" "1"
 		"ItemSellable" "1"
@@ -7622,6 +7743,11 @@
 			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
 				"Function"	"sound"
 				"sound"	"snake_shoot"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_the_spear_of_saddle.lua"
+				"Function"	"Shock1"
 			}
 		}
 	
@@ -8005,9 +8131,10 @@
 	{
 	    "ID" "3012"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "0"
+		"ItemCost" "5"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
+		"SideShop"						"0"
 		"ItemResult" "item_cross_spear"  //合成後物品
 		"ItemRequirements"
 		{
@@ -15381,6 +15508,22 @@
 		"ItemRecipe" "1"
 		"SideShop"						"0"
 		"ItemResult" "item_insight_gem"  //合成後物品
+		"ItemRequirements"
+		{
+			"01" "item_insight_gem_Shard"  //合成所需物品
+		}
+	}
+
+	// 洞寶碎片製作單
+	"item_recipe_insight_gem_Shard" 
+	{
+	    "ID" "2855"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "0"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"SideShop"						"0"
+		"ItemResult" "item_insight_gem_Shard"  //合成後物品
 		"ItemRequirements"
 		{
 			"01" "item_insight_gem_hero;item_insight_gem_ninja"  //合成所需物品

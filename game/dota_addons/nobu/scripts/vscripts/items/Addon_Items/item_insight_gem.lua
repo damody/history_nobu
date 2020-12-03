@@ -35,6 +35,9 @@ function Death( keys )
 			elseif (itemName == "item_insight_gem_ninja") then
 				caster:RemoveModifierByName("modifier_lose_gem")
 				item:Destroy()
+			elseif (itemName == "item_insight_gem_Shard") then
+				caster:RemoveModifierByName("modifier_lose_gem")
+				item:Destroy()
 			end
 		end
 	end

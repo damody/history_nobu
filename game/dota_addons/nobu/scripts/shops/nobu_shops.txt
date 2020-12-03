@@ -12,6 +12,7 @@
 	"item"      "item_shuriken"				//手裏劍
 	"item"      "item_insight_gem_hero"		//真視碎片
 	"item"      "item_insight_gem_ninja"	//真知碎片
+	"item"      "item_insight_gem_Shard"	//洞察碎片
 	"item"      "item_gold_to_prestige"		//兵力
 	"item"		"item_ninja1"				//下忍
 }

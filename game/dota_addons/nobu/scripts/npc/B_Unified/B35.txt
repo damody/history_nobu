@@ -33,7 +33,7 @@
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"HotKeyOverride"	"W"
 		"MaxLevel"	"4"
-		"AbilityCooldown"	"35 32 30 25"
+		"AbilityCooldown"	"36 32 28 24"
 		"AbilityManaCost"	"150 180 210 240"
 		// Stats
 		// -------------------------------------------------------------------------------------------------------------
@@ -269,7 +269,7 @@
 		"HotKeyOverride"	"T"
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"			"500"
+		"AbilityCastRange"			"300"
 		"AbilityCastPoint"			"0.1"
 		"AbilityCastAnimation"		"ACT_DOTA_ECHO_SLAM"
 		"AnimationPlayBackRate"		"2"

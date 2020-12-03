@@ -49,12 +49,16 @@ function C21T_Effect(u,u2,i)
 	u:SetForwardVector((point-point2):Normalized())
 
 	--傷害
-	AMHC:Damage( u,u2,110,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-	AMHC:Damage( u,u2,u:GetAttackDamage(),AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
-	if IsValidEntity(u2) then
-		u:PerformAttack(u2,true,true,true,false,false,true,true)
+	-- AMHC:Damage( u,u2,110,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+	-- AMHC:Damage( u,u2,u:GetAttackDamage(),AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+	-- if IsValidEntity(u2) then
+	-- 	u:PerformAttack(u2,true,true,true,false,false,true,true)
+	-- end
+	u:PerformAttack(u2, true, true, true, true, true, false, true)
+	local tt = u:FindAllModifiers()
+	for _,v in ipairs(tt) do
+		print(v:GetName())
 	end
-
     --播放動畫
     u:StartGesture( ACT_DOTA_CAST_ABILITY_4 )	
 

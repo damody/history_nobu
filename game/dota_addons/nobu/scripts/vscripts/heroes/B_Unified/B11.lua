@@ -102,9 +102,9 @@ B11R_trigger_counter=0
 B11R_trigger_in_CD=false
 
 function B11R_OnAttackLanded( keys )
-    local caster=keys.caster
-	ability=keys.ability
-	target=keys.target
+    local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
 	local root_duration = ability:GetSpecialValueFor("B11R_root_duration")
 	local illusion_incoming_damage = ability:GetSpecialValueFor("illusion_incoming_damage")
 	local ran =  RandomInt(0, 100)
@@ -117,8 +117,8 @@ function B11R_OnAttackLanded( keys )
 	if not target:IsBuilding() then
 		caster.B11R = caster.B11R + 1
 	end
-	
-	if caster.B11R >= 7 or ran <= 20 and not target:isBuilding() then
+	print(root_duration)
+	if caster.B11R >= 7 or ran <= 20 then
 		caster.B11R = 0
 		target:AddNewModifier(caster,nil,"nobu_modifier_rooted", {duration=root_duration} )
 		local b11t = caster:FindAbilityByName("B11T")

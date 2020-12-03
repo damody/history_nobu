@@ -81,6 +81,7 @@ function SplitShotLaunch( keys )
 		Ability = ability,
 		EffectName = split_shot_projectile,
 		bDodgeable = true,
+		bIsAttack = true,
 		bProvidesVision = false,
 		iMoveSpeed = tornado_speed,
         iVisionRadius = 0,

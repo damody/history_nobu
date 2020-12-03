@@ -35,6 +35,7 @@ function Shock( keys )
 	if (ran > 25) then
 		caster.great_sword_of_precision_count = caster.great_sword_of_precision_count + 1
 	end
+	caster:RemoveModifierByName("item_the_great_sword_of_precision_critical_strike_crit")
 	if (caster.great_sword_of_precision_count >= 4 or ran <= 25) then
 		caster.great_sword_of_precision_count = 0
 		-- StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )

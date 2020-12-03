@@ -301,9 +301,29 @@
 		"precache"
 		{
 			"particle"	"particles/c19r/c19r.vpcf"
+			"particle"	"particles/c19_projectile/c19_projectile.vpcf"
 		}
 		"OnSpellStart"
 		{
+			"TrackingProjectile"
+			{
+				"Target"	"TARGET"
+				"EffectName"	"particles/c19_projectile/c19_projectile.vpcf"
+				"MoveSpeed"	"1800"
+				"Dodgeable"	"1"
+				"StartPosition"	"attach_attack"
+				"ProvidesVision"	"1"
+				"VisionRadius"	"225"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C19.lua"
+				"Function"	"C19R2"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
 			"RunScript"
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C19.lua"

@@ -315,18 +315,6 @@
 
 		"Modifiers"
 		{
-			"modifier_A11T_1"
-			{
-				"Passive"			"1"
-				"IsHidden"			"0"
-				"IsDebuff"			"0"
-				"Aura"          	"modifier_A11T_debuff"
-				"Aura_Radius"   	"300"
-				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"    	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"    	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Aura_ApplyToCaster" "0"
-			}
 			"modifier_A11T"
 			{
 				"IsDebuff"			"0"

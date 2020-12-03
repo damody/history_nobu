@@ -35,6 +35,7 @@ function Shock( keys )
 	if (ran > 25) then
 		caster.kousetsusamonnji_count = caster.kousetsusamonnji_count + 1
 	end
+	caster:RemoveModifierByName("item_kousetsusamonnji_critical_strike_crit")
 	if (caster.kousetsusamonnji_count >= 4 or ran <= 25) then
 		caster.kousetsusamonnji_count = 0
 		-- StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )

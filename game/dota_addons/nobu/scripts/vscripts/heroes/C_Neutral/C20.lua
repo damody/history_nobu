@@ -138,7 +138,7 @@ function modifier_C20W_old_OnTakeDamage( event )
 			local caster =ability:GetCaster()
 			if not caster.c20w_lock then
 				if event.damage_flags ~= DOTA_DAMAGE_FLAG_REFLECTION then
-					caster:EmitSound( "Hero_Nevermore.Raze_Flames")
+					caster:EmitSoundParams("Hero_Nevermore.Raze_Flames", 1, 0.5, 0)
 					caster.c20w_lock=true
 					local ifx = ParticleManager:CreateParticle( "particles/c20w_real/c20w2.vpcf", PATTACH_CUSTOMORIGIN, caster)
 					ParticleManager:SetParticleControl( ifx, 0, caster:GetAbsOrigin())

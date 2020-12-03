@@ -352,13 +352,21 @@ require('libraries/animations')
 
 function C02T_OnAbilityPhaseStart( keys )
 	local caster = keys.caster
+	local rate = caster:GetAttackSpeed()
+	-- 搜尋
 
+	if rate < 1 then
+		caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,1)
+	else
+		caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,rate)
+	end
 	-- 跳砍動畫
 	StartAnimation(caster, {
 		duration=0.5,
 		activity=ACT_DOTA_ATTACK, 
 		translate="duel_kill"
 	})
+
 end
 
 function C02T_OnSpellStart( keys )
@@ -427,8 +435,14 @@ function C02T_OnAttack( keys )
 	local target_type = ability:GetAbilityTargetType()
 	local target_flags = ability:GetAbilityTargetFlags()
 	local center = caster:GetAbsOrigin()
-
+	local rate = caster:GetAttackSpeed()
 	-- 搜尋
+
+	if rate < 1 then
+		caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,1)
+	else
+		caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,rate)
+	end
 	local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
 		center,				-- 搜尋的中心點
 		nil, 				-- 好像是優化用的參數不懂怎麼用
@@ -439,12 +453,14 @@ function C02T_OnAttack( keys )
 		FIND_ANY_ORDER,		-- 結果的排列方式
 		false) 				-- 好像是優化用的參數不懂怎麼用
 
+
+
 	for _,unit in ipairs(units) do
 		-- 製造傷害
 		ApplyDamage({
 			victim = unit,
 			attacker = caster,
-			damage_type = ability_type,
+			damage_type = DAMAGE_TYPE_PURE,
 			damage = aoe_damage
 		})
 		-- 跳數字
@@ -765,7 +781,7 @@ function C02T_old_OnAttackLanded( keys )
 	local aoe_chance = ability:GetSpecialValueFor("aoe_chance")
 	local aoe_damage = ability:GetSpecialValueFor("aoe_damage")
 	local aoe_radius = ability:GetSpecialValueFor("aoe_radius")
-
+	
 	-- 機率不到
 	if aoe_chance < RandomInt(1,100) then return end
 
@@ -776,6 +792,7 @@ function C02T_old_OnAttackLanded( keys )
 	local target_flags = ability:GetAbilityTargetFlags()
 
 	-- 搜尋
+
 	local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
 		center,				-- 搜尋的中心點
 		nil, 				-- 好像是優化用的參數不懂怎麼用
