@@ -259,7 +259,7 @@ function C02E_OnSpellStart( keys )
 	local distance = ability:GetCastRange()
 	local spell_point = caster:GetAbsOrigin()
 	local target_point = spell_point+dir*distance
-
+	ProjectileManager:ProjectileDodge(keys.caster)
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_C02E_buff",nil)
 	FindClearSpaceForUnit(caster,target_point,false)
 

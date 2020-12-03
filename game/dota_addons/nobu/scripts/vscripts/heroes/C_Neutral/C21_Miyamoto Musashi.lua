@@ -54,11 +54,10 @@ function C21T_Effect(u,u2,i)
 	-- if IsValidEntity(u2) then
 	-- 	u:PerformAttack(u2,true,true,true,false,false,true,true)
 	-- end
-	u:PerformAttack(u2, true, true, true, true, true, false, true)
-	local tt = u:FindAllModifiers()
-	for _,v in ipairs(tt) do
-		print(v:GetName())
+	if IsValidEntity(u2) then
+		u:PerformAttack(u2, true, true, true, true, true, false, true)
 	end
+
     --播放動畫
     u:StartGesture( ACT_DOTA_CAST_ABILITY_4 )	
 
@@ -143,11 +142,13 @@ function Trig_C21TActions( keys )
         			end
         		end
         	end
-        	--call function
-			C21T_Copy(u,i, u2)
-			C21T_Effect(u,u2,i)
-			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
-			return 0.15
+			--call function
+			if u2:GetUnitName() ~=	"npc_dummy_unit" then
+				C21T_Copy(u,i, u2)
+				C21T_Effect(u,u2,i)
+				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+				return 0.15
+			end
 		else 
 			u:AddNewModifier(u,keys.ability,"modifier_phased",{duration=0.1})
             --刪除無敵

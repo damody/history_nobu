@@ -33,7 +33,7 @@
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"HotKeyOverride"	"W"
 		"MaxLevel"	"4"
-		"AbilityCooldown"	"36 32 28 24"
+		"AbilityCooldown"	"34 28 24 20"
 		"AbilityManaCost"	"150 180 210 240"
 		// Stats
 		// -------------------------------------------------------------------------------------------------------------
@@ -189,7 +189,7 @@
 
 		"AbilityCastPoint"          	"0.1"
 		"MaxLevel"						"4"
-		"AbilityDamage"					"200 225 250 275"
+		"AbilityDamage"					"100 125 150 175"
 		"AbilityCastRange"				"200"
 		"AOERadius"						"200"
 
@@ -217,7 +217,7 @@
 					
 				}
 				"EffectName" "particles/a04/a04d_old_casterribbons_arcana1.vpcf"
-				"OnAttacked"
+				"OnTakeDamage"
 				{
 					"RunScript"
 					{
@@ -245,7 +245,7 @@
 			"03"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"heal"		"20 30 40 50"
+				"heal"		"30 40 50 60"
 			}
 		}	
     }
@@ -269,7 +269,7 @@
 		"HotKeyOverride"	"T"
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"			"300"
+		"AbilityCastRange"			"450"
 		"AbilityCastPoint"			"0.1"
 		"AbilityCastAnimation"		"ACT_DOTA_ECHO_SLAM"
 		"AnimationPlayBackRate"		"2"
@@ -278,7 +278,7 @@
 		"AbilityCooldown"	"90 80 70"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"300 325 350"
+		"AbilityManaCost"	"100 150 200"
 		// Data driven
 		// -------------------------------------------------------------------------------------------------------------
 		"OnSpellStart"

@@ -118,7 +118,7 @@ function B11R_OnAttackLanded( keys )
 		caster.B11R = caster.B11R + 1
 	end
 	print(root_duration)
-	if caster.B11R >= 7 or ran <= 20 then
+	if caster.B11R >= 7 or ran <= 20 and not target:IsBuilding() then
 		caster.B11R = 0
 		target:AddNewModifier(caster,nil,"nobu_modifier_rooted", {duration=root_duration} )
 		local b11t = caster:FindAbilityByName("B11T")

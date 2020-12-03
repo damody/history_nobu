@@ -247,7 +247,7 @@
 		"AbilityManaCost"				"120 140 160 180"
 		"AbilityDamage"					"150 250 350 450"
 
-		"AbilityCastRange"				"700"
+		"AbilityCastRange"				"800"
 		"AbilityCastPoint" 				"0.3" //stun
 
 		"AoERadius"						"450"

@@ -398,7 +398,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"acount"	"10 16 23"
+				"acount"	"8 12 16"
 			}
 		}
 	}	
