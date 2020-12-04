@@ -8627,13 +8627,13 @@
 	{
 	    "ID" "3043"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "2000"
+		"ItemCost" "1450"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_nannbann_armor"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_the_hooate_of_ghost;item_the_hooate_of_ghost;item_protection_amulet"  //合成所需物品
+			"01" "item_the_hooate_of_ghost;item_the_hooate_of_ghost;item_protection_amulet;item_stable_shield"  //合成所需物品
 		}
 	}
 
@@ -10662,7 +10662,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "4"	//防禦
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "5"	//防禦
 				}
 			}
 			"modifier_nannbann_purge"
