@@ -36,11 +36,11 @@
 		"ProjectileSpeed"	"10000"
 		// Attributes
 		// ----------------------------------------------------------------
-		"AttributePrimary"	"DOTA_ATTRIBUTE_AGILITY"
-		"AttributeBaseStrength"	"31"
-		"AttributeStrengthGain"	"2.7"
+		"AttributePrimary"	"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"	"45"
+		"AttributeStrengthGain"	"3.1"
 		"AttributeBaseAgility"	"33"
-		"AttributeAgilityGain"	"3.1"
+		"AttributeAgilityGain"	"2.6"
 		"AttributeBaseIntelligence"	"23"
 		"AttributeIntelligenceGain"	"2"
 		// Bounty
