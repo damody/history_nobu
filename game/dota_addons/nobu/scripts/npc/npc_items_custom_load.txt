@@ -16560,6 +16560,14 @@
 						"Function"	"TakenDamage"
 					}
 				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items\Addon_Items\item_Shintogo_Kunimitsu.lua"
+						"Function"	"OnDeath"
+					}
+				}
 			}
 			"Passive_Shintogo_Kunimitsu"
 			{
