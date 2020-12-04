@@ -26,16 +26,7 @@ function A31E(keys)
 	FindClearSpaceForUnit(keys.caster, target_point, false)
 	
 	ParticleManager:CreateParticle("particles/items_fx/blink_dagger_end.vpcf", PATTACH_ABSORIGIN, keys.caster)
-	if caster:FindAbilityByName("A31T") then
-		local lv = caster:FindAbilityByName("A31T"):GetLevel()
-		if lv > 0 then
-			keys.ability:ApplyDataDrivenModifier(caster, caster,"modifier_A31E", {duration = 7})
-			local handle = caster:FindModifierByName("modifier_A31E")
-			if handle then
-				handle:SetStackCount(lv)
-			end
-		end
-	end
+
 end
 
 function OB(keys)
