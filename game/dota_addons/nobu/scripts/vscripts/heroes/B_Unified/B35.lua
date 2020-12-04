@@ -82,6 +82,9 @@ function B35R_OnAttacked( keys )
 	local ability = keys.ability
 	local silence_time = ability:GetSpecialValueFor("silence_time")
 	local heal = ability:GetSpecialValueFor("heal")
+	if caster.B35R_trigger == nil then
+		caster.B35R_trigger = true
+	end
 	if not caster:IsIllusion() then
 		local target = keys.target or keys.attacker
 		local skill = keys.ability
@@ -95,12 +98,17 @@ function B35R_OnAttacked( keys )
 		if (ran > 20) then
 			caster.B35R_count = caster.B35R_count + 1
 		end
-		if (caster.B35R_count > 5 or ran <= 20) then
+		if ((caster.B35R_count > 5 or ran <= 20) and caster.B35R_trigger) then
+			caster.B35R_trigger = false
+			Timers:CreateTimer(0.2, function ()
+				print("trigger")
+				caster.B35R_trigger = true
+			end)
 			caster.B35R_count = 0
 			caster:Heal(heal,ability)
 				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", target )
 				local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
-		                              target:GetAbsOrigin(),
+		                              caster:GetAbsOrigin(),
 		                              nil,
 		                              200,
 		                              DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -135,16 +143,25 @@ function B35R_OnAttacked2( keys )
 	local ability = keys.ability
 	local silence_time = ability:GetSpecialValueFor("silence_time")
 	local heal = ability:GetSpecialValueFor("heal")
+	if caster.B35R_trigger == nil then
+		caster.B35R_trigger = true
+	end
 	if not caster:IsIllusion() then
 		local target = keys.target or keys.attacker
 		local skill = keys.ability
 		local ran =  RandomInt(0, 100)
 		local dmg = keys.dmg
 		--local dmg = ability:GetSpecialValueFor("dmg")
+		if (caster.B35R_trigger) then
+			caster.B35R_trigger = false
+			Timers:CreateTimer(0.2, function ()
+				print("trigger")
+				caster.B35R_trigger = true
+			end)
 			caster:Heal(heal,ability)
 				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", target )
 				local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
-		                              target:GetAbsOrigin(),
+		                              caster:GetAbsOrigin(),
 		                              nil,
 		                              200,
 		                              DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -169,6 +186,7 @@ function B35R_OnAttacked2( keys )
 				end
 				local rate = caster:GetAttackSpeed()
 				caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,2)
+		end
 	end
 end
 
