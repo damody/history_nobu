@@ -2923,7 +2923,7 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					//"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "3"	//防禦
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "2"	//防禦
 				}
 			}
 			"modifier_flame_armor_aura"
