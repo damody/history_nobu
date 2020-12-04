@@ -88,6 +88,11 @@
 				"Type"	"DAMAGE_TYPE_MAGICAL"
 				"Damage"	"%A34W_Damage"
 			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/heroes/A_Oda/A34_Matsu.lua"
+				"Function"				"A34T_OnHit"
+			}
 		}
 		"Modifiers"
 		{
@@ -101,6 +106,22 @@
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Duration"	"%duration"
+			}
+			"modifier_A34T_debuff"
+			{
+				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"IsDebuff"	"1"
+				"IsPurgable"	"1"
+				"Duration"	"3"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"Target"	"CASTER"
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A34_Matsu.lua"
+						"Function"	"A34T_debuff_OnDestroy"
+					}
+				}
 			}
 		}
 		// Special
@@ -205,6 +226,11 @@
 						"Target"	"TARGET"
 						"Damage"	"%AbilityDamage"
 					}
+					"RunScript"
+					{
+						"ScriptFile"			"scripts/vscripts/heroes/A_Oda/A34_Matsu.lua"
+						"Function"				"A34T_OnHit"
+					}
 				}
 			}
 		}
@@ -239,6 +265,22 @@
 				"EffectName"	"particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_ice.vpcf"
 				"EffectAttachType"	"follow_hitloc"
 				"Duration"	"%duration"
+			}
+			"modifier_A34T_debuff"
+			{
+				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"IsDebuff"	"1"
+				"IsPurgable"	"1"
+				"Duration"	"3"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"Target"	"CASTER"
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A34_Matsu.lua"
+						"Function"	"A34T_debuff_OnDestroy"
+					}
+				}
 			}
 		}
 		// Special
@@ -368,6 +410,11 @@
 				"Type"	"DAMAGE_TYPE_MAGICAL"
 				"Damage"	"%AbilityDamage"
 			}
+			"RunScript"
+			{
+				"ScriptFile"			"scripts/vscripts/heroes/A_Oda/A34_Matsu.lua"
+				"Function"				"A34T_OnHit"
+			}
 		}
 		"Modifiers"
 		{
@@ -389,6 +436,22 @@
 					}
 				}
 				"EffectName"	"particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_ice.vpcf"
+			}
+			"modifier_A34T_debuff"
+			{
+				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"IsDebuff"	"1"
+				"IsPurgable"	"1"
+				"Duration"	"3"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"Target"	"CASTER"
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A34_Matsu.lua"
+						"Function"	"A34T_debuff_OnDestroy"
+					}
+				}
 			}
 		}
 		// Special
@@ -490,6 +553,15 @@
 			}
 			
 		}
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A34_Matsu.lua"
+				"Function"		"A34T_OnUpgrade"
+				"magical_resistence_reduce"			"%magical_resistence_reduce"
+			}
+		}
 		// Special
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilitySpecial"
@@ -513,6 +585,16 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"mana_bonus"	"300 400 500"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"mana_regen"	"100 150 200"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magical_resistence_reduce" "5 10 15"
 			}
 		}
 		"Modifiers"
@@ -545,6 +627,16 @@
 						"Function"	"A34T_OnIntervalThink"
 					}
 				}
+				"IsHidden"	"1"
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A34_Matsu.lua"
+						"Function"		"Mana_regen"
+						"mana"			"%mana_regen"
+					}
+				}
 			}
 			"modifier_A34T_Passive"
 			{
@@ -554,6 +646,13 @@
 				{
 					"MODIFIER_PROPERTY_MANA_BONUS"	"%mana_bonus"
 				}
+			}
+			"modifier_A34T_debuff"
+			{
+				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"IsDebuff"	"1"
+				"IsPurgable"	"1"
+				"Duration"	"3"
 			}
 		}
 	}
