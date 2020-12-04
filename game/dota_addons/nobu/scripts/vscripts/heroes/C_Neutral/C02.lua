@@ -388,12 +388,17 @@ function C02T_OnSpellStart( keys )
 		ParticleManager:SetParticleControl(ifx,4,target:GetAbsOrigin())
 		ParticleManager:SetParticleControl(ifx,8,Vector(10,0,0))
 		ParticleManager:ReleaseParticleIndex(ifx)
+		local modifier_zimbabwe = target:FindModifierByName("modifier_zimbabwe")
+		if modifier_zimbabwe then
+			target:RemoveModifierByName("modifier_zimbabwe")
+		end
+		target:SetHealth(1)
 		-- 製造傷害
 		ApplyDamage({
 			attacker=caster,
 			victim=target,
 			damage_type=DAMAGE_TYPE_PURE,
-			damage=99999
+			damage=force_kill_hp
 		})
 	else
 		-- 跳驚嘆號
