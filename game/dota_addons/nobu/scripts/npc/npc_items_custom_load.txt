@@ -11401,7 +11401,7 @@
 				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"  	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Aura_ApplyToCaster"	"0"
+				"Aura_ApplyToCaster"	"1"
 			}
 			"modifier_item_devil_supressor_armor"
 			{
@@ -16687,12 +16687,6 @@
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 				}
-			}
-			"modifier_Hannya_Onimaru"
-			{
-				"IsHidden"	"0"
-				"Passive"	"1"
-				"IsPurgable"	"0"
 				"ThinkInterval"	"1"
 				"OnIntervalThink"
 				{
@@ -16702,6 +16696,12 @@
 						"Function"	"speedup"
 				 	}
 				}
+			}
+			"modifier_Hannya_Onimaru"
+			{
+				"IsHidden"	"0"
+				"Passive"	"1"
+				"IsPurgable"	"0"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"7.5"
