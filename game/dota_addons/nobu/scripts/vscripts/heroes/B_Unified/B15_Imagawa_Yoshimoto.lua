@@ -44,7 +44,7 @@ function B15E_attack1( keys )
 	local level = ability:GetLevel() - 1
 	local dmg = keys.ability:GetLevelSpecialValueFor("damage_bonus", keys.ability:GetLevel() - 1 )
 	local target = keys.target
-	if (target:IsBuilding())
+	if (target:IsBuilding()) then
 		AMHC:Damage( caster,target,dmg*0.25,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 	else
 		AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
