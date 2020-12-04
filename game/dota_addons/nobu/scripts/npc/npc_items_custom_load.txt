@@ -10718,7 +10718,7 @@
             }
             "DelayedAction"
             {
-            	"Delay"     "0.1"
+            	"Delay"     "0.2"
             	"Action"    
             	{
             		"ApplyModifier"
@@ -10736,6 +10736,11 @@
                 "Target" "CASTER"
                 "ModifierName" "modifier_flame_armor_aura"
             }
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_flame_armor.lua"
+				"Function"	"OnUnequip"
+			}
 		}
 		"precache"
 		{
@@ -10783,6 +10788,15 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "3"	//防禦
+				}
+				"ThinkInterval"	"1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_flame_armor.lua"
+						"Function"	"OnEquip"
+					}
 				}
 			}
 		}
