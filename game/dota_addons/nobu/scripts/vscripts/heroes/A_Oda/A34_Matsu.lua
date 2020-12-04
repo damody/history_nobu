@@ -7,6 +7,48 @@
 --紀錄技能
 abilities = {"A34W","A34E","A34R"}
 
+function A34T_OnHit( keys )
+	local caster = keys.caster
+	if caster.inT then
+		local target = keys.target
+		local ability = keys.ability
+		local max_stack = 3;
+		local modifier = target:FindModifierByName("modifier_A34T_debuff")
+		if modifier == nil then
+			ability:ApplyDataDrivenModifier(caster,target,"modifier_A34T_debuff",{})
+			modifier = target:FindModifierByName("modifier_A34T_debuff")
+			modifier:SetStackCount(1)
+			target.A34T_debuff_stack = 1
+			target.magical_resistance = target.magical_resistance - caster.A34T_magical_resistance_reduce
+		else
+			local count = modifier:GetStackCount() + 1
+			if count >= max_stack then
+				count = max_stack
+			end
+			if target.A34T_debuff_stack < max_stack then
+				target.magical_resistance = target.magical_resistance - caster.A34T_magical_resistance_reduce
+				modifier:SetStackCount(count)
+				ability:ApplyDataDrivenModifier(caster,target,"modifier_A34T_debuff",nil)
+				target.A34T_debuff_stack = count
+			elseif target.Shintogo_Kunimitsu == max_stack then
+				modifier:SetStackCount(count)
+				ability:ApplyDataDrivenModifier(caster,target,"modifier_A34T_debuff",nil)
+				target.A34T_debuff_stack = count
+			end
+		end
+	end
+end
+
+function A34T_debuff_OnDestroy( keys )
+	local caster = keys.caster
+	local target = keys.target
+    local ability = keys.ability
+    if target.A34T_debuff_stack > 0 then
+        target.magical_resistance = target.magical_resistance + caster.A34T_magical_resistance_reduce * target.A34T_debuff_stack
+        target.A34T_debuff_stack = 0
+    end
+end
+
 function CD_reduce(keys)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -40,6 +82,7 @@ function A34T_OnCreated( keys )
 	local ability = keys.ability
 	local duration = ability:GetSpecialValueFor("duration")
 	local cd_recover = ability:GetSpecialValueFor("cd_recover")
+	caster.inT = true
 	local particle = ParticleManager:CreateParticle( "particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/cm_arcana_pup_lvlup_godray.vpcf", PATTACH_POINT, caster )
 	ParticleManager:SetParticleControl( particle, 0, caster:GetAbsOrigin() )
 	ParticleManager:SetParticleControl( particle, 1, caster:GetAbsOrigin() )
@@ -50,6 +93,7 @@ end
 
 function A34T_OnDestroy( keys )
 	local caster = keys.caster
+	caster.inT = false
 	caster.cd_recover = 0
 end
 
@@ -66,6 +110,16 @@ function A34T_OnIntervalThink( keys )
 			end
 		end
 	end
+end
+
+function A34T_OnUpgrade( keys ) 
+	local caster = keys.caster
+	caster.A34T_magical_resistance_reduce = keys.magical_resistence_reduce
+end
+
+function Mana_regen( keys ) 
+	local caster = keys.caster
+	caster:SetMana(caster:GetMana()+keys.mana)
 end
 
 function rearm_refresh_cooldown( keys )

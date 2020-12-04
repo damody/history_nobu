@@ -1578,7 +1578,7 @@
 		
 		"AbilityCooldown"	"20"
 		"AbilitySharedCooldown" "share_lightning_scroll"
-		"AbilityManaCost"	"60"
+		"AbilityManaCost"	"120"
 		"AbilityCastPoint"	"0.1"
 		"AbilityCastRange"	"500"
 		"ID"	"2502"
@@ -2923,7 +2923,7 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					//"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "3"	//防禦
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "2"	//防禦
 				}
 			}
 			"modifier_flame_armor_aura"
@@ -6011,7 +6011,7 @@
 			{
 				"States"
 				{
-					"MODIFIER_STATE_MUTED"    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"    "MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
@@ -6933,7 +6933,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"25"
-		"AbilityManaCost"	"75"
+		"AbilityManaCost"	"120"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"AbilityDamage"		"350"
@@ -10718,7 +10718,7 @@
             }
             "DelayedAction"
             {
-            	"Delay"     "0.1"
+            	"Delay"     "0.2"
             	"Action"    
             	{
             		"ApplyModifier"
@@ -10736,6 +10736,11 @@
                 "Target" "CASTER"
                 "ModifierName" "modifier_flame_armor_aura"
             }
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_flame_armor.lua"
+				"Function"	"OnUnequip"
+			}
 		}
 		"precache"
 		{
@@ -10783,6 +10788,15 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "3"	//防禦
+				}
+				"ThinkInterval"	"1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_flame_armor.lua"
+						"Function"	"OnEquip"
+					}
 				}
 			}
 		}
@@ -14104,7 +14118,7 @@
 		
 		"AbilityCooldown"	"15"
 		
-		"AbilityManaCost"	"70"
+		"AbilityManaCost"	"130"
 		"AbilityCastRange"	"375"
 		
 		"ID"	"2801"
@@ -16558,6 +16572,14 @@
 					{
 						"ScriptFile"	"items\Addon_Items\item_Shintogo_Kunimitsu.lua"
 						"Function"	"TakenDamage"
+					}
+				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items\Addon_Items\item_Shintogo_Kunimitsu.lua"
+						"Function"	"OnDeath"
 					}
 				}
 			}
