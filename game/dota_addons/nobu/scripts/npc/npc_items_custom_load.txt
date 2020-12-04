@@ -14118,7 +14118,7 @@
 		
 		"AbilityCooldown"	"15"
 		
-		"AbilityManaCost"	"70"
+		"AbilityManaCost"	"130"
 		"AbilityCastRange"	"375"
 		
 		"ID"	"2801"
