@@ -171,6 +171,7 @@ function FireEffect_IcePath2( event )
 		for _,it in pairs(direUnits) do
 			if (not(it:IsBuilding())) then
 				ability:ApplyDataDrivenModifier(caster, it,"modifier_B32E",nil)
+				print("this 1")
 			end
 		end		
 	end
@@ -195,7 +196,8 @@ function B32E( keys )
               FIND_ANY_ORDER,
               false)
 	for _,it in pairs(direUnits) do
-		ability:ApplyDataDrivenModifier(caster,it,"modifier_B32E", { duration = 2 } )
+		ability:ApplyDataDrivenModifier(caster,it,"modifier_B32E", nil )
+		print("this 2")
 	end
 end
 
