@@ -83,7 +83,7 @@ function B35R_OnAttacked( keys )
 	local silence_time = ability:GetSpecialValueFor("silence_time")
 	local heal = ability:GetSpecialValueFor("heal")
 	if not caster:IsIllusion() then
-		local target = keys.target
+		local target = keys.target or keys.attacker
 		local skill = keys.ability
 		local ran =  RandomInt(0, 100)
 		local dmg = keys.dmg
@@ -98,7 +98,7 @@ function B35R_OnAttacked( keys )
 		if (caster.B35R_count > 5 or ran <= 20) then
 			caster.B35R_count = 0
 			caster:Heal(heal,ability)
-				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", target )
 				local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
 		                              target:GetAbsOrigin(),
 		                              nil,
@@ -116,10 +116,10 @@ function B35R_OnAttacked( keys )
 						Timers:CreateTimer(0.3, function ()
 							ParticleManager:DestroyParticle(flame, false)
 						end)
-						ability:ApplyDataDrivenModifier(caster, it,"modifier_silence", {duration=silence_time})
 						if it:IsMagicImmune() then
 						else
-							AMHC:Damage(target,it,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+							ability:ApplyDataDrivenModifier(caster, it,"modifier_silence", {duration=silence_time})
+							AMHC:Damage(caster,it,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 						end
 					end
 				end
@@ -129,15 +129,54 @@ function B35R_OnAttacked( keys )
 	end
 end
 
+
+function B35R_OnAttacked2( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local silence_time = ability:GetSpecialValueFor("silence_time")
+	local heal = ability:GetSpecialValueFor("heal")
+	if not caster:IsIllusion() then
+		local target = keys.target or keys.attacker
+		local skill = keys.ability
+		local ran =  RandomInt(0, 100)
+		local dmg = keys.dmg
+		--local dmg = ability:GetSpecialValueFor("dmg")
+			caster:Heal(heal,ability)
+				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", target )
+				local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
+		                              target:GetAbsOrigin(),
+		                              nil,
+		                              200,
+		                              DOTA_UNIT_TARGET_TEAM_ENEMY,
+		                              DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		                              DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+		                              FIND_ANY_ORDER,
+		                              false)
+
+			
+				for _,it in pairs(direUnits) do
+					if (not(it:IsBuilding())) then
+						local flame = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_flames.vpcf", PATTACH_OVERHEAD_FOLLOW, it)
+						Timers:CreateTimer(0.3, function ()
+							ParticleManager:DestroyParticle(flame, false)
+						end)
+						if it:IsMagicImmune() then
+						else
+							ability:ApplyDataDrivenModifier(caster, it,"modifier_silence", {duration=silence_time})
+							AMHC:Damage(caster,it,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+						end
+					end
+				end
+				local rate = caster:GetAttackSpeed()
+				caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,2)
+	end
+end
+
 function B35T_OnSpellStart( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
-	if target:IsMagicImmune() then
-		AMHC:Damage(caster,target,ability:GetAbilityDamage()*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-	else
-		AMHC:Damage(caster,target,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-	end
+	AMHC:Damage(caster,target,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 	caster:SetAbsOrigin(target:GetAbsOrigin())
 	caster:AddNewModifier(caster,ability,"modifier_phased",{duration=0.1})
 	local order = {UnitIndex = caster:entindex(),
