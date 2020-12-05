@@ -60,7 +60,6 @@ function B35E_OnProjectileHitUnit( keys )
 	for _,it in pairs(direUnits) do
 		if _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then
 			if it:IsMagicImmune() then
-				ability:ApplyDataDrivenModifier(caster,it,"modifier_B35E", {})
 			else
 				ability:ApplyDataDrivenModifier(caster,it,"modifier_B35E", {})
 				AMHC:Damage(caster,it, ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
@@ -94,49 +93,58 @@ function B35R_OnAttacked( keys )
 		if (caster.B35R_count == nil) then
 			caster.B35R_count = 0
 		end
-		
-		if (ran > 20) then
-			caster.B35R_count = caster.B35R_count + 1
-		end
-		if ((caster.B35R_count > 5 or ran <= 20) and caster.B35R_trigger) then
+		if (caster.B35R_trigger) then
 			caster.B35R_trigger = false
-			Timers:CreateTimer(0.2, function ()
-				print("trigger")
+			Timers:CreateTimer(0.3, function ()
 				caster.B35R_trigger = true
 			end)
-			caster.B35R_count = 0
-			caster:Heal(heal,ability)
-				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", target )
-				local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
-		                              caster:GetAbsOrigin(),
-		                              nil,
-		                              200,
-		                              DOTA_UNIT_TARGET_TEAM_ENEMY,
-		                              DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		                              DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-		                              FIND_ANY_ORDER,
-		                              false)
-
-			
-				for _,it in pairs(direUnits) do
-					if (not(it:IsBuilding())) then
-						local flame = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_flames.vpcf", PATTACH_OVERHEAD_FOLLOW, it)
-						Timers:CreateTimer(0.3, function ()
-							ParticleManager:DestroyParticle(flame, false)
-						end)
-						if it:IsMagicImmune() then
-						else
-							ability:ApplyDataDrivenModifier(caster, it,"modifier_silence", {duration=silence_time})
-							AMHC:Damage(caster,it,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-						end
-					end
+			if (ran > 20) then
+				caster.B35R_count = caster.B35R_count + 1
+			end
+			if (caster.B35R_count > 5 or ran <= 20) then
+				caster.B35R_count = 0
+				caster:Heal(keys.dmg,ability)
+				if (caster:GetAbsOrigin()-target:GetAbsOrigin()):Length2D() < 250 then
+					StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", target )
+					caster:SetForwardVector(target:GetAbsOrigin()-caster:GetAbsOrigin())
+					ability:ApplyDataDrivenModifier(caster,caster,"modifier_B35R3", {})
+					caster:PerformAttack(target, true, true, true, true, true, false, true)
+					caster:RemoveModifierByName("modifier_B35R3")
+					local rate = caster:GetAttackSpeed()
+					caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,2)
 				end
-				local rate = caster:GetAttackSpeed()
-				caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,2)
+			end
 		end
 	end
 end
 
+function B35R_OnAttackLanded( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	if target.isvoid == nil then	
+		local lifeSteal = ability:GetSpecialValueFor("B35R_lifeSteal")
+		local damage = keys.Damage
+		B35_LifeSteal( caster, target, damage, lifeSteal )  
+	end
+end
+
+function B35_LifeSteal( caster, target, damage, lifeSteal )
+	if not target:IsBuilding() then
+		local damageAfterReduction = CalcDamageAfterReduction( target, damage )
+		caster:Heal( damageAfterReduction * lifeSteal/100 , caster )
+		ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW, caster)	
+	end
+end
+
+function CalcDamageAfterReduction( target, damage )
+	local armor = target:GetPhysicalArmorValue(true)
+	-- The damage multiplier for both positive and negative armor:
+	-- Damage multiplier = 1 - 0.06 × armor ÷ (1 + 0.06 × |armor|)
+	local multiplier = 1 - 0.06 * armor / ( 1 + 0.06 * math.abs(armor) )
+	local damageAfterReduction = damage * multiplier
+	return damageAfterReduction
+end
 
 function B35R_OnAttacked2( keys )
 	local caster = keys.caster
