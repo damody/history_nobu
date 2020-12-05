@@ -93,14 +93,14 @@ function B35R_OnAttacked( keys )
 		if (caster.B35R_count == nil) then
 			caster.B35R_count = 0
 		end
+		if (ran > 20) then
+			caster.B35R_count = caster.B35R_count + 1
+		end
 		if (caster.B35R_trigger) then
 			caster.B35R_trigger = false
-			Timers:CreateTimer(0.3, function ()
+			Timers:CreateTimer(0.2, function ()
 				caster.B35R_trigger = true
 			end)
-			if (ran > 20) then
-				caster.B35R_count = caster.B35R_count + 1
-			end
 			if (caster.B35R_count > 5 or ran <= 20) then
 				caster.B35R_count = 0
 				caster:Heal(keys.dmg,ability)
