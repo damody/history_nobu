@@ -183,7 +183,7 @@ function B11R_OnAttackLanded( keys )
 					illusion[i]:AddItem(newItem)
 				end
 			end
-			illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = 5, outgoing_damage = caster.B11R_rate * 100 , incoming_damage = illusion_incoming_damage })
+			illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = 5, outgoing_damage = (caster.B11R_rate-1) * 100 , incoming_damage = illusion_incoming_damage })
 			illusion[i]:MakeIllusion()
 			illusion[i]:SetHealth(caster:GetHealth())
 		end

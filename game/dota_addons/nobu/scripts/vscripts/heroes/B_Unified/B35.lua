@@ -76,6 +76,27 @@ function B35R_unlock( keys )
 	keys.ability:SetActivated(true)
 end
 
+function B35T_Kill( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local atk = ability:GetSpecialValueFor("atk")
+	if caster.B35Tatk == nil then
+		caster.B35Tatk = 0
+	end
+	caster.B35Tatk = caster.B35Tatk + atk
+	if caster.b35ttimer == nil then
+		caster.b35ttimer = true
+		Timers:CreateTimer(1, function ()
+			if caster:FindModifierByName("modifier_B35T2") == nil then
+				ability:ApplyDataDrivenModifier(caster,caster,"modifier_B35T2", {})
+				caster:FindModifierByName("modifier_B35T2"):SetStackCount(caster.B35Tatk)
+			end
+			return 1
+		end)
+	end
+	
+end
+
 function B35R_OnAttacked( keys )
 	local caster = keys.caster
 	local ability = keys.ability
@@ -93,14 +114,14 @@ function B35R_OnAttacked( keys )
 		if (caster.B35R_count == nil) then
 			caster.B35R_count = 0
 		end
-		if (ran > 20) then
-			caster.B35R_count = caster.B35R_count + 1
-		end
 		if (caster.B35R_trigger) then
 			caster.B35R_trigger = false
 			Timers:CreateTimer(0.2, function ()
 				caster.B35R_trigger = true
 			end)
+			if (ran > 20) then
+				caster.B35R_count = caster.B35R_count + 1
+			end
 			if (caster.B35R_count > 5 or ran <= 20) then
 				caster.B35R_count = 0
 				caster:Heal(keys.dmg,ability)
@@ -162,8 +183,7 @@ function B35R_OnAttacked2( keys )
 		--local dmg = ability:GetSpecialValueFor("dmg")
 		if (caster.B35R_trigger) then
 			caster.B35R_trigger = false
-			Timers:CreateTimer(0.2, function ()
-				print("trigger")
+			Timers:CreateTimer(0.3, function ()
 				caster.B35R_trigger = true
 			end)
 			caster:Heal(heal,ability)
