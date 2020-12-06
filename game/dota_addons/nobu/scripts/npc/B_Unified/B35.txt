@@ -12,11 +12,14 @@
 			"particle"  "particles/b35/b35e.vpcf"
 			"particle"  "particles/b35w2.vpcf"
 			"particle"  "particles/a04/a04d_old_casterribbons_arcana1.vpcf"
+			"particle"  "particles/a04/a04d_old_casterribbons2glow_arcana1.vpcf"
+			"particle"  "particles/a04/a04d_old_casterribbons__2glow_arcana1.vpcf"
 			"soundfile"	"soundevents/c01w.vsndevts"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_batrider.vsndevts"
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
 			"soundfile" "soundevents/game_sounds_heroes/game_sounds_clinkz.vsndevts"
+			"particle"	"particles/b35/b35w1.vpcf"
 			"particle"	"particles/title/b35t.vpcf"
 		}
 	}
@@ -33,16 +36,12 @@
 		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
 		"HotKeyOverride"	"W"
 		"MaxLevel"	"4"
-		"AbilityCooldown"	"34 28 24 20"
-		"AbilityManaCost"	"150 180 210 240"
+		"AbilityCooldown"	"32 28 24 20"
+		"AbilityManaCost"	"120 140 160 180"
 		// Stats
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"	"0"
 		"AbilityCastRangeBuffer"	"250"
-		"precache"
-		{
-			"particle"	"particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf"
-		}
 		"OnSpellStart"
 		{
 			"FireSound"
@@ -70,12 +69,13 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%hp"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%atk"					
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%atk"	
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_magic_def"				
 				}
 				"States"	{}
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"IsPurgable"	"1"
-				"EffectName" "particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf"
+				"EffectName" "particles/b35/b35w1.vpcf"
 			}
 		}
 		"AbilitySpecial"
@@ -99,7 +99,12 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"atk"	"25 35 45 55"
-			}			
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"bonus_magic_def"	"3 6 9 12"
+			}
 		}
 	}
 
@@ -119,9 +124,9 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		
-		"AbilityCastPoint"          				"0.35"
+		"AbilityCastPoint"          				"0.1"
 		"AbilityCooldown"	"10 9 8 7"
-		"AbilityManaCost"	"150 170 190 210"
+		"AbilityManaCost"	"100 120 140 160"
 		"AbilityCastRange"	"1500"
 		// Data driven
 		// -------------------------------------------------------------------------------------------------------------
@@ -181,17 +186,16 @@
 	"B35R"
 	{
 		"BaseClass"                 				"ability_datadriven"
-		"AbilityBehavior"           				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitTargetType"     				"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"     				"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetFlags"    				"DOTA_UNIT_TARGET_FLAG_NONE"
 		"AbilityTextureName"                        "dota2/c24_r"
-
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityCastPoint"          	"0.1"
 		"MaxLevel"						"4"
 		"AbilityDamage"					"100 125 150 175"
-		"AbilityCastRange"				"200"
-		"AOERadius"						"200"
+		"AbilityCastRange"				"250"
+		"AOERadius"						"250"
+
 
         "OnSpellStart"
 		{
@@ -202,20 +206,49 @@
 				    "Center" "CASTER"
 				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 				}
-				"ModifierName"	"modifier_B35R"
+				"ModifierName"	"modifier_B35R2"
 			}
 		}
 
         "Modifiers"
         {
+			"modifier_B35R3"
+			{
+				"Passive"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%atk"
+				}
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B35.lua"
+						"Function"		"B35R_OnAttackLanded"
+						"Damage"		"%attack_damage"
+					}
+				}
+			}
+			"modifier_B35R2"
+			{
+				"Passive"	"0"
+				"IsBuff"	"1"
+				"Duration"	"%time"
+				"EffectName" "particles/a04/a04d_old_casterribbons__2glow_arcana1.vpcf"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B35.lua"
+						"Function"	"B35R_OnAttacked2"
+						"dmg" "%attack_damage"
+					}
+				}
+			}
            "modifier_B35R"
 			{
 				"Passive"	"1"
 				"IsBuff"	"1"
-				"Properties"
-				{
-					
-				}
 				"EffectName" "particles/a04/a04d_old_casterribbons_arcana1.vpcf"
 				"OnTakeDamage"
 				{
@@ -235,17 +268,17 @@
 			"01"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"dmg"		"200 225 250 275"
+				"dmg"		"100 125 150 175"
 			}
 			"02"
 			{
-				"var_type"		"FIELD_FLOAT"
-				"silence_time"		"0.4 0.6 0.8 1.0"
+				"var_type"		"FIELD_INTEGER"
+				"atk"		"50 75 100 125"
 			}
 			"03"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"heal"		"30 40 50 60"
+				"B35R_lifeSteal"		"10 15 20 25"
 			}
 		}	
     }
@@ -258,7 +291,7 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/caoren_siyao"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetFlags""DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PURE"
@@ -278,11 +311,20 @@
 		"AbilityCooldown"	"90 80 70"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"100 150 200"
+		"AbilityManaCost"	"150"
 		// Data driven
 		// -------------------------------------------------------------------------------------------------------------
 		"OnSpellStart"
 		{
+			"ApplyModifier"
+			{
+				"Target"
+				{
+				    "Center" "CASTER"
+				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+				}
+				"ModifierName"	"modifier_B35T"
+			}
 			"FireSound"
 			{
 				"Target"	"CASTER"
@@ -303,15 +345,6 @@
 				"Target"	"TARGET"
 				"EffectName"	"Hero_Sven.StormBoltImpact"
 			}
-			"ApplyModifier"
-			{
-				"Target"
-				{
-				    "Center" "CASTER"
-				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-				}
-				"ModifierName"	"modifier_B35T"
-			}
 		}
 		"Modifiers"
 		{
@@ -324,10 +357,25 @@
 				}
 				"IsBuff"	"1"
 				"IsPurgable"	"1"
-				"StatusEffectName"	"particles/b34r/b34r.vpcf"
 				"StatusEffectPriority"	"10"
-				"EffectName"	"particles/units/heroes/hero_lycan/lycan_howl_cast.vpcf"
+				"EffectName"	"particles/a04/a04d_old_casterribbons2glow_arcana1.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"OnHeroKilled"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B35.lua"
+						"Function"		"B35T_Kill"
+					}
+				}
+			}
+			"modifier_B35T2"
+			{
+				"Passive"			"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "1"
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -335,15 +383,20 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"duration"	"4 6 8"
+				"duration"	"8"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"criticalstrike"	"250"
+				"criticalstrike"	"150 175 200"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"atk"	"10 15 20"
 			}
 		}
-		"AbilityDamage"				"500 700 900"
+		"AbilityDamage"				"500"
 	}	
 	
 	// 上泉信綱 劍聖

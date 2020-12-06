@@ -1578,7 +1578,7 @@
 		
 		"AbilityCooldown"	"20"
 		"AbilitySharedCooldown" "share_lightning_scroll"
-		"AbilityManaCost"	"60"
+		"AbilityManaCost"	"120"
 		"AbilityCastPoint"	"0.1"
 		"AbilityCastRange"	"500"
 		"ID"	"2502"
@@ -6011,7 +6011,7 @@
 			{
 				"States"
 				{
-					"MODIFIER_STATE_MUTED"    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"    "MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
@@ -6933,7 +6933,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		"AbilityCooldown"	"25"
-		"AbilityManaCost"	"75"
+		"AbilityManaCost"	"120"
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"700"
 		"AbilityDamage"		"350"
@@ -10718,7 +10718,7 @@
             }
             "DelayedAction"
             {
-            	"Delay"     "0.1"
+            	"Delay"     "0.2"
             	"Action"    
             	{
             		"ApplyModifier"
@@ -10736,6 +10736,11 @@
                 "Target" "CASTER"
                 "ModifierName" "modifier_flame_armor_aura"
             }
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_flame_armor.lua"
+				"Function"	"OnUnequip"
+			}
 		}
 		"precache"
 		{
@@ -10783,6 +10788,15 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "5"	//防禦
+				}
+				"ThinkInterval"	"1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_flame_armor.lua"
+						"Function"	"OnEquip"
+					}
 				}
 			}
 		}
@@ -11387,7 +11401,7 @@
 				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"Aura_Flags"  	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-				"Aura_ApplyToCaster"	"0"
+				"Aura_ApplyToCaster"	"1"
 			}
 			"modifier_item_devil_supressor_armor"
 			{
@@ -14104,7 +14118,7 @@
 		
 		"AbilityCooldown"	"15"
 		
-		"AbilityManaCost"	"70"
+		"AbilityManaCost"	"130"
 		"AbilityCastRange"	"375"
 		
 		"ID"	"2801"
@@ -16560,6 +16574,14 @@
 						"Function"	"TakenDamage"
 					}
 				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items\Addon_Items\item_Shintogo_Kunimitsu.lua"
+						"Function"	"OnDeath"
+					}
+				}
 			}
 			"Passive_Shintogo_Kunimitsu"
 			{
@@ -16665,12 +16687,6 @@
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 				}
-			}
-			"modifier_Hannya_Onimaru"
-			{
-				"IsHidden"	"0"
-				"Passive"	"1"
-				"IsPurgable"	"0"
 				"ThinkInterval"	"1"
 				"OnIntervalThink"
 				{
@@ -16680,6 +16696,12 @@
 						"Function"	"speedup"
 				 	}
 				}
+			}
+			"modifier_Hannya_Onimaru"
+			{
+				"IsHidden"	"0"
+				"Passive"	"1"
+				"IsPurgable"	"0"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"7.5"

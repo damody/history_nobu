@@ -839,6 +839,14 @@
 						"Function"		"A12T_OnToggleOff"
 					}
 				}
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A12.lua"
+						"Function"		"A12T_OnToggleOff"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"

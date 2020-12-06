@@ -60,7 +60,6 @@ function B35E_OnProjectileHitUnit( keys )
 	for _,it in pairs(direUnits) do
 		if _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then
 			if it:IsMagicImmune() then
-				ability:ApplyDataDrivenModifier(caster,it,"modifier_B35E", {})
 			else
 				ability:ApplyDataDrivenModifier(caster,it,"modifier_B35E", {})
 				AMHC:Damage(caster,it, ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
@@ -77,13 +76,37 @@ function B35R_unlock( keys )
 	keys.ability:SetActivated(true)
 end
 
+function B35T_Kill( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local atk = ability:GetSpecialValueFor("atk")
+	if caster.B35Tatk == nil then
+		caster.B35Tatk = 0
+	end
+	caster.B35Tatk = caster.B35Tatk + atk
+	if caster.b35ttimer == nil then
+		caster.b35ttimer = true
+		Timers:CreateTimer(1, function ()
+			if caster:FindModifierByName("modifier_B35T2") == nil then
+				ability:ApplyDataDrivenModifier(caster,caster,"modifier_B35T2", {})
+				caster:FindModifierByName("modifier_B35T2"):SetStackCount(caster.B35Tatk)
+			end
+			return 1
+		end)
+	end
+	
+end
+
 function B35R_OnAttacked( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local silence_time = ability:GetSpecialValueFor("silence_time")
 	local heal = ability:GetSpecialValueFor("heal")
+	if caster.B35R_trigger == nil then
+		caster.B35R_trigger = true
+	end
 	if not caster:IsIllusion() then
-		local target = keys.target
+		local target = keys.target or keys.attacker
 		local skill = keys.ability
 		local ran =  RandomInt(0, 100)
 		local dmg = keys.dmg
@@ -91,16 +114,82 @@ function B35R_OnAttacked( keys )
 		if (caster.B35R_count == nil) then
 			caster.B35R_count = 0
 		end
-		
-		if (ran > 20) then
-			caster.B35R_count = caster.B35R_count + 1
+		if (caster.B35R_trigger) then
+			caster.B35R_trigger = false
+			Timers:CreateTimer(0.2, function ()
+				caster.B35R_trigger = true
+			end)
+			if (ran > 20) then
+				caster.B35R_count = caster.B35R_count + 1
+			end
+			if (caster.B35R_count > 5 or ran <= 20) then
+				caster.B35R_count = 0
+				caster:Heal(keys.dmg,ability)
+				if (caster:GetAbsOrigin()-target:GetAbsOrigin()):Length2D() < 250 then
+					StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", target )
+					caster:SetForwardVector(target:GetAbsOrigin()-caster:GetAbsOrigin())
+					ability:ApplyDataDrivenModifier(caster,caster,"modifier_B35R3", {})
+					caster:PerformAttack(target, true, true, true, true, true, false, true)
+					caster:RemoveModifierByName("modifier_B35R3")
+					local rate = caster:GetAttackSpeed()
+					caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK,2)
+				end
+			end
 		end
-		if (caster.B35R_count > 5 or ran <= 20) then
-			caster.B35R_count = 0
+	end
+end
+
+function B35R_OnAttackLanded( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	if target.isvoid == nil then	
+		local lifeSteal = ability:GetSpecialValueFor("B35R_lifeSteal")
+		local damage = keys.Damage
+		B35_LifeSteal( caster, target, damage, lifeSteal )  
+	end
+end
+
+function B35_LifeSteal( caster, target, damage, lifeSteal )
+	if not target:IsBuilding() then
+		local damageAfterReduction = CalcDamageAfterReduction( target, damage )
+		caster:Heal( damageAfterReduction * lifeSteal/100 , caster )
+		ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW, caster)	
+	end
+end
+
+function CalcDamageAfterReduction( target, damage )
+	local armor = target:GetPhysicalArmorValue(true)
+	-- The damage multiplier for both positive and negative armor:
+	-- Damage multiplier = 1 - 0.06 × armor ÷ (1 + 0.06 × |armor|)
+	local multiplier = 1 - 0.06 * armor / ( 1 + 0.06 * math.abs(armor) )
+	local damageAfterReduction = damage * multiplier
+	return damageAfterReduction
+end
+
+function B35R_OnAttacked2( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local silence_time = ability:GetSpecialValueFor("silence_time")
+	local heal = ability:GetSpecialValueFor("heal")
+	if caster.B35R_trigger == nil then
+		caster.B35R_trigger = true
+	end
+	if not caster:IsIllusion() then
+		local target = keys.target or keys.attacker
+		local skill = keys.ability
+		local ran =  RandomInt(0, 100)
+		local dmg = keys.dmg
+		--local dmg = ability:GetSpecialValueFor("dmg")
+		if (caster.B35R_trigger) then
+			caster.B35R_trigger = false
+			Timers:CreateTimer(0.3, function ()
+				caster.B35R_trigger = true
+			end)
 			caster:Heal(heal,ability)
-				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", target )
 				local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
-		                              target:GetAbsOrigin(),
+		                              caster:GetAbsOrigin(),
 		                              nil,
 		                              200,
 		                              DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -116,10 +205,10 @@ function B35R_OnAttacked( keys )
 						Timers:CreateTimer(0.3, function ()
 							ParticleManager:DestroyParticle(flame, false)
 						end)
-						ability:ApplyDataDrivenModifier(caster, it,"modifier_silence", {duration=silence_time})
 						if it:IsMagicImmune() then
 						else
-							AMHC:Damage(target,it,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+							ability:ApplyDataDrivenModifier(caster, it,"modifier_silence", {duration=silence_time})
+							AMHC:Damage(caster,it,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 						end
 					end
 				end
@@ -133,11 +222,7 @@ function B35T_OnSpellStart( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
-	if target:IsMagicImmune() then
-		AMHC:Damage(caster,target,ability:GetAbilityDamage()*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-	else
-		AMHC:Damage(caster,target,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-	end
+	AMHC:Damage(caster,target,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 	caster:SetAbsOrigin(target:GetAbsOrigin())
 	caster:AddNewModifier(caster,ability,"modifier_phased",{duration=0.1})
 	local order = {UnitIndex = caster:entindex(),

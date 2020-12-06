@@ -13,8 +13,10 @@
 				m_bExpensiveTangents = false
 				m_bHighPrecisionTexCoords = false
 				m_bPerVertexCurvature = false
+				m_bBentNormals = false
 				m_bIgnoreCloth = false
 				m_bGetSkinningFromLod0 = false
+				m_bPreferHighDensityTrianglesInUvDensityCalculation = false
 				m_pMorphInfo = null
 			},
 		]
@@ -30,7 +32,7 @@
 		m_flMatchProxiesToMeshes = 1.0
 		m_flFallbackEnvelope = 1.0
 		m_nReservedInt = 0
-		m_bReservedBool1 = false
+		m_bSoftSkinAnimation = false
 		m_bReservedBool2 = false
 		m_bReservedBool3 = false
 		m_bReservedBool4 = false
@@ -63,6 +65,8 @@
 								m_sBoneName = "Bone_Hero"
 								m_vMinBounds = [ -51.553776, -41.904934, -2.0 ]
 								m_vMaxBounds = [ 66.936478, 40.389816, 125.838661 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
 								m_bTranslationOnly = false
 								m_cRenderColor = [ 0, 0, 0, 0 ]
 							},
@@ -168,10 +172,6 @@
 		m_pObject = 
 		{
 			m_Name = ""
-			m_pReferenceSkeleton = 
-			{
-				m_pObject = null
-			}
 			m_pBoneFlagList = 
 			{
 				m_pObject = null
@@ -585,7 +585,7 @@
 					m_Activities = 
 					[
 						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_1"
+							m_Name = "ACT_DOTA_CAST3_STATUE"
 							m_nWeight = 1
 						},
 					]
@@ -806,6 +806,10 @@
 			m_sScripts = [  ]
 			m_folderNames = [  ]
 			m_sCompileScripts = [  ]
+			m_pActivityWhiteList = 
+			{
+				m_pObject = null
+			}
 		}
 	}
 	m_pMaterialGroupList = 
@@ -852,6 +856,7 @@
 	m_flFbxScale = 1.0
 	m_flQCScale = 1.0
 	m_vOrigin = [ 0.0, 0.0, 0.0 ]
+	m_bEmbedAnimsInAnimGroup = false
 	m_pPsfList = null
 	m_keyValueText = ""
 	m_bStaticProp = false

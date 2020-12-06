@@ -37,7 +37,18 @@ function OnDestroy( keys )
         if target.Shintogo_Kunimitsu >= 1 then
             ability:ApplyDataDrivenModifier(target,target,"modifier_Shintogo_Kunimitsu",nil)
             local modifier = target:FindModifierByName("modifier_Shintogo_Kunimitsu")
-            modifier:SetStackCount(target.Shintogo_Kunimitsu)
+            if modifier then
+                modifier:SetStackCount(target.Shintogo_Kunimitsu)
+            end
         end
+    end
+end
+
+function OnDeath( keys )
+    local target = keys.caster
+    local ability = keys.ability
+    if target.Shintogo_Kunimitsu > 0 then
+        target.magical_resistance = target.magical_resistance - 3 * target.Shintogo_Kunimitsu
+        target.Shintogo_Kunimitsu = 0
     end
 end

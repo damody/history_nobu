@@ -99,6 +99,7 @@
 			_class = "C_OP_InterpolateRadius"
 			m_flBias = 0.6
 			m_flStartScale = 0.5
+			m_flEndScale = 0.5
 		},
 		{
 			_class = "C_OP_Decay"
@@ -153,7 +154,7 @@
 			{
 				m_nType = "PVEC_TYPE_LITERAL_COLOR"
 				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
-				m_LiteralColor = [ 255, 255, 255, 255 ]
+				m_LiteralColor = [ 241, 203, 51, 255 ]
 				m_nVectorAttribute = 6
 				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
 				m_nControlPoint = 0

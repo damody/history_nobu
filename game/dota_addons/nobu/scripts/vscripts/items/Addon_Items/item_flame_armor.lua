@@ -18,5 +18,17 @@ function Burn( keys )
 	end
 end
 
+function OnEquip( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local modifier = caster:FindModifierByName("modifier_flame_armor_aura")
+	if modifier == nil then 
+		ability:ApplyDataDrivenModifier(caster,caster,"modifier_flame_armor_aura",nil)
+	end
+end
+
+function OnUnequip( keys )
+	print("OnUnequip")
+end
 
 

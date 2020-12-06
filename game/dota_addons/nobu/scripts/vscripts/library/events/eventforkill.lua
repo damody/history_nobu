@@ -348,15 +348,17 @@ function Nobu:OnUnitKill( keys )
         GetOwner():AddExperience(XP[name],0,false,false)
       end
       --後追經驗
-      if AttackerUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-        if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_BADGUYS] then
-          local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - AttackerUnit:GetLevel())
-          AttackerUnit:AddExperience(XP[name]*diff*15/100, 0, false, false)
-        end
-      else
-        if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_GOODGUYS] then
-          local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - AttackerUnit:GetLevel())
-          AttackerUnit:AddExperience(XP[name]*diff*15/100, 0, false, false)
+      if AttackerUnit:IsHero() then
+        if AttackerUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+          if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_BADGUYS] then
+            local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - AttackerUnit:GetLevel())
+            AttackerUnit:AddExperience(XP[name]*diff*15/100, 0, false, false)
+          end
+        else
+          if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_GOODGUYS] then
+            local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - AttackerUnit:GetLevel())
+            AttackerUnit:AddExperience(XP[name]*diff*15/100, 0, false, false)
+          end
         end
       end
       local unitname = name
@@ -416,15 +418,17 @@ function Nobu:OnUnitKill( keys )
         AttackerUnit:AddExperience(XP[name],0,false,false)
       end
       --後追經驗
-      if AttackerUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
-        if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_BADGUYS] then
-          local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - AttackerUnit:GetLevel())
-          AttackerUnit:AddExperience(XP[name]*diff*15/100, 0, false, false)
-        end
-      else
-        if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_GOODGUYS] then
-          local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - AttackerUnit:GetLevel())
-          AttackerUnit:AddExperience(XP[name]*diff*15/100, 0, false, false)
+      if AttackerUnit:IsHero() then
+        if AttackerUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+          if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_BADGUYS] then
+            local diff = math.floor(_G.average_level[DOTA_TEAM_BADGUYS] - AttackerUnit:GetLevel())
+            AttackerUnit:AddExperience(XP[name]*diff*15/100, 0, false, false)
+          end
+        else
+          if AttackerUnit:GetLevel() < _G.average_level[DOTA_TEAM_GOODGUYS] then
+            local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - AttackerUnit:GetLevel())
+            AttackerUnit:AddExperience(XP[name]*diff*15/100, 0, false, false)
+          end
         end
       end
       local unitname = name
