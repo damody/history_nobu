@@ -69,8 +69,7 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%hp"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%atk"	
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_magic_def"				
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%atk"					
 				}
 				"States"	{}
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
@@ -99,12 +98,7 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"atk"	"25 35 45 55"
-			}
-			"05"
-			{
-				"var_type"	"FIELD_INTEGER"
-				"bonus_magic_def"	"3 6 9 12"
-			}
+			}			
 		}
 	}
 
@@ -315,15 +309,6 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"OnSpellStart"
 		{
-			"ApplyModifier"
-			{
-				"Target"
-				{
-				    "Center" "CASTER"
-				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-				}
-				"ModifierName"	"modifier_B35T"
-			}
 			"FireSound"
 			{
 				"Target"	"CASTER"
@@ -344,9 +329,26 @@
 				"Target"	"TARGET"
 				"EffectName"	"Hero_Sven.StormBoltImpact"
 			}
+			"ApplyModifier"
+			{
+				"Target"
+				{
+				    "Center" "CASTER"
+				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+				}
+				"ModifierName"	"modifier_B35T"
+			}
 		}
 		"Modifiers"
 		{
+			"modifier_B35T2"
+			{
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_magic_def"
+				}
+			}
 			"modifier_B35T"
 			{
 				"Duration"	"%duration"
@@ -359,22 +361,6 @@
 				"StatusEffectPriority"	"10"
 				"EffectName"	"particles/a04/a04d_old_casterribbons2glow_arcana1.vpcf"
 				"EffectAttachType"	"attach_origin"
-				"OnHeroKilled"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B35.lua"
-						"Function"		"B35T_Kill"
-					}
-				}
-			}
-			"modifier_B35T2"
-			{
-				"Passive"			"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "1"
-				}
 			}
 		}
 		"AbilitySpecial"
@@ -389,10 +375,10 @@
 				"var_type"	"FIELD_INTEGER"
 				"criticalstrike"	"150 175 200"
 			}
-			"03"
+			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"atk"	"10 15 20"
+				"bonus_magic_def"	"10 15 20"
 			}
 		}
 		"AbilityDamage"				"500"
