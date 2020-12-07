@@ -130,12 +130,17 @@ function Trig_C21TActions( keys )
 
         --獲取周圍的單位
         group = FindUnitsInRadius(u:GetTeamNumber(),point,nil,radius,teams,types,flags,FIND_ANY_ORDER,true)
-
-        --如果元素大於0個單位才隨機抓取
-        if #group > 0 and ti ~= 0 then
+		--過濾dummy
+		for _,xx in pairs(group) do
+			if xx:GetUnitName() ==	"npc_dummy_unit" then
+				group[_] = nil
+			end
+		end
+		--如果元素大於0個單位才隨機抓取
+		if #group > 0 and ti ~= 0 then
         	u2 = group[RandomInt(1,#group)]
         	if u2:HasModifier("modifier_majia") or _G.EXCLUDE_TARGET_NAME[u2:GetUnitName()] == true then
-        		for _,xx in pairs(group) do
+				for _,xx in pairs(group) do
         			if not xx:HasModifier("modifier_majia") and _G.EXCLUDE_TARGET_NAME[xx:GetUnitName()] == nil then
         				u2 = xx
         				break
@@ -147,9 +152,9 @@ function Trig_C21TActions( keys )
 				C21T_Copy(u,i, u2)
 				C21T_Effect(u,u2,i)
 				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
-				return 0.15
 			end
-		else 
+			return 0.15
+		else
 			u:AddNewModifier(u,keys.ability,"modifier_phased",{duration=0.1})
             --刪除無敵
             u:RemoveModifierByName("modifier_C21T")

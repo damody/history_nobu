@@ -217,9 +217,9 @@ function modifier_A20R_OnAttackLanded( event )
 						-- Spawn projectiles
 						local projectileTable = {
 							Ability = ability,
-							-- EffectName = "particles/a20r/a20r.vpcf",
+							EffectName = "particles/a20r/a20r.vpcf",
 						
-							EffectName = "particles/a20r/morphling_waveform.vpcf",
+							-- EffectName = "particles/a20r/morphling_waveform.vpcf",
 							vSpawnOrigin = spawn_location,
 							fDistance = distance-200,
 							fStartRadius = collision_radius,
@@ -315,8 +315,8 @@ function modifier_A20R_OnAttacked( event )
 						-- Spawn projectiles
 						local projectileTable = {
 							Ability = ability,
-							-- EffectName = "particles/a20r/a20r.vpcf",
-							EffectName = "particles/a20r/morphling_waveform.vpcf",
+							EffectName = "particles/a20r/a20r.vpcf",
+							-- EffectName = "particles/a20r/morphling_waveform.vpcf",
 							vSpawnOrigin = spawn_location,
 							fDistance = distance-200,
 							fStartRadius = collision_radius,
