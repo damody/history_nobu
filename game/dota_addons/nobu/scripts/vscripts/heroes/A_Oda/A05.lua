@@ -41,7 +41,11 @@ function A05W_RunScript( keys )
 		ability:GetAbilityTargetFlags(),-- 額外選擇或排除特定目標
 		FIND_ANY_ORDER,					-- 結果的排列方式
 		false)
-
+		for _,xx in pairs(units) do
+			if xx:HasAbility("majia") then
+				units[_] = nil
+			end
+		end
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
 		ApplyDamage({
@@ -124,7 +128,11 @@ function A05R_OnSpellStart( keys )
 		ability:GetAbilityTargetFlags(),-- 額外選擇或排除特定目標
 		FIND_ANY_ORDER,					-- 結果的排列方式
 		false)
-
+		for _,xx in pairs(units) do
+			if xx:HasAbility("majia") then
+				units[_] = nil
+			end
+		end
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
 		ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned",{duration = 1})

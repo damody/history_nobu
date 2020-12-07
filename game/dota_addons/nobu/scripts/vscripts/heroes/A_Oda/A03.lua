@@ -163,6 +163,11 @@ function A03TW_OnSpellStart( event )
 	ParticleManager:SetParticleControl( ifx, 0, caster:GetAbsOrigin())
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, 
 		ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
+		for _,xx in pairs(units) do
+			if xx:HasAbility("majia") then
+				units[_] = nil
+			end
+		end
 	for _,unit in ipairs(units) do
 		damageTable = {
 		victim = unit,
@@ -189,6 +194,11 @@ function A03T_old_OnIntervalThink( event )
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
 			nil,  1000 , DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 			DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
+			for _,xx in pairs(units) do
+				if xx:HasAbility("majia") then
+					units[_] = nil
+				end
+			end
 	for _,unit in ipairs(units) do
 		if unit:GetUnitName() == "A03W_old" then
 			ability:ApplyDataDrivenModifier(caster,unit,"modifier_A03T_armor",{duration = 2})

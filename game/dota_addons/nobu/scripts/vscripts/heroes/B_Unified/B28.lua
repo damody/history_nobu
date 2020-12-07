@@ -127,6 +127,11 @@ function B28T( keys )
 	local point = keys.target_points[1]
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), 0, FIND_ANY_ORDER, false )
 	local count = 0
+	for _,xx in pairs(units) do
+		if xx:HasAbility("majia") then
+			units[_] = nil
+		end
+	end
 	for i,unit in ipairs(units) do
 		if not unit:IsInvisible() or unit:HasModifier("modifier_truesight") then
 			count = count + 1

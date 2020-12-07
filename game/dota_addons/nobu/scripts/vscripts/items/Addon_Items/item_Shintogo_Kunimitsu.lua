@@ -14,7 +14,7 @@ function TakenDamage ( keys )
             count = 5
         end
         if target.Shintogo_Kunimitsu < 5 then
-            target.magical_resistance = count * 3
+            target.magical_resistance = target.magical_resistance + 3
             modifier:SetStackCount(count)
             ability:ApplyDataDrivenModifier(target,target,"modifier_Shintogo_Kunimitsu",nil)
             target.Shintogo_Kunimitsu = count

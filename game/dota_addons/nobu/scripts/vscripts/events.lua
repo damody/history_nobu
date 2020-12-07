@@ -297,11 +297,17 @@ function Nobu:HealFilter(keys)
 
   if target:HasModifier("modifier_spawn_spiderlings_datadriven") then
       if target.b33T == 1 then
-        keys.heal = keys.heal * target.decrease_health
+        if target.decrease_health >= 0.4 then
+          target.decrease_health = 0.4
+        end
       elseif target.b33T == 2 then
-        keys.heal = keys.heal * target.decrease_health
+        if target.decrease_health >= 0.2 then
+          target.decrease_health = 0.2
+        end
       elseif target.b33T == 3 then
-        keys.heal = keys.heal * target.decrease_health
+        if target.decrease_health >= 0.01 then
+          target.decrease_health = 0.01
+        end
       end
   end
 
@@ -313,6 +319,8 @@ function Nobu:HealFilter(keys)
     else
       target.decrease_health = 0.5
     end
+  else
+    target.decrease_health = 1
   end
   if target:HasModifier("modifier_satsuma_gun_DH") then
     if target.decrease_health then
@@ -341,6 +349,12 @@ function Nobu:HealFilter(keys)
       target.decrease_health = 0.8
     end
   end
+  
+  if not target:HasModifier("modifier_spawn_spiderlings_datadriven") or not target:HasModifier("modifier_decrease_HR") or not target:HasModifier("modifier_satsuma_gun_DH")
+   or not target:HasModifier("modifier_C07T_2") or not target:HasModifier("modifier_the_great_sword_of_toxic_DH") then
+    target.decrease_health = 1
+  end
+
   if target.decrease_health then
     keys.heal = keys.heal * target.decrease_health
   end

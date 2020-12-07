@@ -41,7 +41,11 @@ function C10T_Init( keys )
     local group = keys.caster.C10T_T
    	group = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, ability:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, 
    		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
-   	
+	for _,xx in pairs(group) do
+		if xx:HasAbility("majia") then
+			group[_] = nil
+		end
+	end
 	for i,v in ipairs(group) do
 		if _G.EXCLUDE_TARGET_NAME[v:GetUnitName()] == nil then
 			if v:IsHero() then

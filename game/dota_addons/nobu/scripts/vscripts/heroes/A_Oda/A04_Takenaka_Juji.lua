@@ -71,7 +71,11 @@ function FireEffect_IcePath( event )
                               DOTA_UNIT_TARGET_FLAG_NONE,
                               FIND_ANY_ORDER,
                               false)
-
+		for _,xx in pairs(direUnits) do
+			if xx:HasAbility("majia") then
+				direUnits[_] = nil
+			end
+		end
 		--effect:傷害+暈眩
 		for _,it in pairs(direUnits) do
 			if (not(it:IsBuilding())) then
@@ -506,7 +510,11 @@ function A04T( keys )
 	                              DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 	                              FIND_ANY_ORDER,
 	                              false)
-
+			for _,xx in pairs(direUnits) do
+				if xx:HasAbility("majia") then
+					direUnits[_] = nil
+				end
+			end
 			--effect:傷害+暈眩
 			for _,it in pairs(direUnits) do
 				if (not(it:IsBuilding())) then
@@ -596,7 +604,11 @@ function A04D_old_aoe_attack( keys )
 		ability:GetAbilityTargetFlags(),
 		0,
 		false)
-
+		for _,xx in pairs(units) do
+			if xx:HasAbility("majia") then
+				units[_] = nil
+			end
+		end
 	for _,unit in pairs(units) do
 		ability:ApplyDataDrivenModifier(caster,unit,"modifier_A04D_old_debuff",nil)
 		AMHC:Damage(caster,unit,attack_damage,AMHC:DamageType("DAMAGE_TYPE_MAGICAL"))

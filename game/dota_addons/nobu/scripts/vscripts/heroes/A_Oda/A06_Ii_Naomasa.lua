@@ -126,6 +126,11 @@ function A06T_old(keys)
 			local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
 			nil,  450 , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 			DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
+			for _,xx in pairs(group) do
+				if xx:HasAbility("majia") then
+					group[_] = nil
+				end
+			end
 			for _, it in pairs(group) do
 				AMHC:CreateParticle("particles/b06e4/b06e4_b.vpcf",PATTACH_ABSORIGIN,false,it,0.5,nil)
 				if it:IsMagicImmune() then

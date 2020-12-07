@@ -5,6 +5,7 @@ function modifier_B09W_OnCreated( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local B09W_counter=0
+	local test = 0
 	target.max_count=8
 	--local buff=target:FindModifierByName("modifier_B09W_counter")
 	--buff:SetStackCount(8)
@@ -14,22 +15,20 @@ function modifier_B09W_OnCreated( keys )
 	local count = 0
 	Timers:CreateTimer(0, function()
 		if target:HasModifier("modifier_B09W_counter") then
-			if math.mod(count, 10) == 0 then
-				AMHC:Damage( caster,target,ability:GetAbilityDamage()*B09W_counter,AMHC:DamageType("DAMAGE_TYPE_PURE") )
-			end
+			AMHC:Damage( caster,target,ability:GetAbilityDamage()*B09W_counter + 50,AMHC:DamageType("DAMAGE_TYPE_PURE") )
 		elseif target:IsMagicImmune() then
 			ability:ApplyDataDrivenModifier(caster,target,"modifier_B09W_counter", {duration=20-B09W_counter})
 		else
 			return nil
 		end
-		B09W_counter=B09W_counter+0.1
+		B09W_counter=B09W_counter+1
 		count = count + 1
 		if B09W_counter>=target.max_count then
 			target:RemoveModifierByName("modifier_B09W")
 			target:RemoveModifierByName("modifier_B09W_counter")
 			return nil
 		else
-			return 0.1
+			return 1
 		end
     end)
 end

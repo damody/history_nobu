@@ -233,7 +233,6 @@ function A15R_bounceAttack(keys)
 		local units = FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, jump_radius, ability:GetAbilityTargetTeam(), 
 										ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_CLOSEST, false)
 		local new_target
-
 		for i,unit in ipairs(units) do
 			if unit.hit == nil or unit.hit[current] == nil then
 				new_target = unit
@@ -431,6 +430,11 @@ function SplitShotLaunch( keys )
 	local split_shot_projectile = keys.split_shot_projectile
 
 	local split_shot_targets = FindUnitsInRadius(caster:GetTeam(), caster_location, nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, target_flags, FIND_CLOSEST, false)
+	for _,xx in pairs(split_shot_targets) do
+		if xx:HasAbility("majia") then
+			split_shot_targets[_] = nil
+		end
+	end
 	-- Create projectiles for units that are not the casters current attack target
 	for _,v in pairs(split_shot_targets) do
 		if v ~= attack_target and caster:CanEntityBeSeenByMyTeam(v) and not v:HasModifier("modifier_invisible") then

@@ -175,7 +175,12 @@ function A09R_OnSpellStart( keys )
 
 	local units = FindUnitsInRadius( caster:GetTeamNumber(), point, nil, radius, 
 		ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
-	for _,unit in ipairs(units) do
+	for _,xx in pairs(units) do
+		if xx:HasAbility("majia") then
+			units[_] = nil
+		end
+	end
+		for _,unit in ipairs(units) do
 		EmitSoundOn( "Hero_MonkeyKing.Spring.Target" , unit )
 		local damageTable = {
 			victim = unit,
@@ -254,7 +259,12 @@ function modifier_A09T_passive_OnAbilityExecuted( keys )
 	if not caster:HasModifier("modifier_A09T_passive_lock") and string.match(keys.event_ability:GetName(), "A09") then
 		local units = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, 
 			ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
-		for _,unit in ipairs(units) do
+		for _,xx in pairs(units) do
+			if xx:HasAbility("majia") then
+				units[_] = nil
+			end
+		end
+			for _,unit in ipairs(units) do
 			for i=1,count do
 				local tentacle = CreateUnitByName("A09T_tentacle", unit:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
 				tentacle:SetOwner(caster)

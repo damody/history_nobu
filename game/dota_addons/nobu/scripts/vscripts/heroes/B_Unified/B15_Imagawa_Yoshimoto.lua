@@ -146,7 +146,11 @@ function B15D_SplitShotLaunch( keys )
 	local split_shot_projectile = keys.split_shot_projectile
 
 	local split_shot_targets = FindUnitsInRadius(caster:GetTeam(), caster_location, nil, radius, target_team, target_type, target_flags, FIND_CLOSEST, false)
-
+	for _,xx in pairs(split_shot_targets) do
+		if xx:HasAbility("majia") then
+			split_shot_targets[_] = nil
+		end
+	end
 	local b15e = caster:FindAbilityByName("B15E_old")
 	if b15e ~= nil and b15e:GetLevel() > 0 and caster.nobuorb1 == "B15E_1" then
 		split_shot_projectile = "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"

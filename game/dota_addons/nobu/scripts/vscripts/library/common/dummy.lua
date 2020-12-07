@@ -633,8 +633,14 @@ function home_aura ( keys )
   local caster = keys.caster
   local ability = keys.ability
   local teammate = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), nil, 1300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, 0, false )
+  local findCourier = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetOrigin(), nil, 1300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC, 0, 0, false )
   for i,v in pairs(teammate) do
     ability:ApplyDataDrivenModifier(caster,v,"modifier_home_aura",{})
+  end
+  for i,v in pairs(findCourier) do 
+    if v:GetUnitName() == "npc_dota_courier2" then
+      ability:ApplyDataDrivenModifier(v, v, "modifier_phased",{duration = 0.5})
+    end
   end
 end
 
@@ -872,3 +878,10 @@ function phased_dummy_destroy ( keys )
   end
 end
 
+function returnHeal ( keys )
+  local caster = keys.caster
+  local ability = keys.ability
+  if caster.decrease_health then
+    caster.decrease_health = 1
+  end
+end

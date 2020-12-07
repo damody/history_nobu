@@ -197,7 +197,11 @@ function SplitShotLaunch( keys )
 	local split_shot_projectile = keys.split_shot_projectile
 
 	local split_shot_targets = FindUnitsInRadius(caster:GetTeam(), caster_location, nil, radius, target_team, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, target_flags, FIND_CLOSEST, false)
-
+	for _,xx in pairs(split_shot_targets) do
+		if xx:HasAbility("majia") then
+			split_shot_targets[_] = nil
+		end
+	end
 	-- Create projectiles for units that are not the casters current attack target
 	for _,v in pairs(split_shot_targets) do
 		if v ~= attack_target and caster:CanEntityBeSeenByMyTeam(v) and not v:HasModifier("modifier_invisible") then
@@ -308,6 +312,11 @@ function A31T( keys )
 			return nil 
 		end
 		units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
+		for _,xx in pairs(units) do
+			if xx:HasAbility("majia") then
+				units[_] = nil
+			end
+		end
 		local n = RandomInt(1,#units)
 		for i,unit in ipairs(units) do	
 			if not(unit:GetTeamNumber() == caster:GetTeamNumber()) then

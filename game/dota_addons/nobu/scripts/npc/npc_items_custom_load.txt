@@ -5872,7 +5872,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"debuff_damage"				"85"
+				"debuff_damage"				"65"
 			}
 		}
 		"Modifiers"

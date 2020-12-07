@@ -132,7 +132,7 @@ function Trig_C21TActions( keys )
         group = FindUnitsInRadius(u:GetTeamNumber(),point,nil,radius,teams,types,flags,FIND_ANY_ORDER,true)
 		--過濾dummy
 		for _,xx in pairs(group) do
-			if xx:GetUnitName() ==	"npc_dummy_unit" then
+			if xx:HasAbility("majia") then
 				group[_] = nil
 			end
 		end

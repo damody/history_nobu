@@ -99,19 +99,12 @@ function B33T( keys )
 	local num = 0
 	local Ult_Level = ability:GetSpecialValueFor("Ult_Level")
 	local decrease_health = ability:GetSpecialValueFor("decrease_health") / 100
-	print(Ult_Level)
-	print(decrease_health)
 
 	if target.b33T == nil then	
 		target.b33T = 0
 	end
-	if target.decrease_health == nil then
-		target.decrease_health = 0
-	end
 	target.b33T = Ult_Level
-	if target.decrease_health < decrease_health then
-		target.decrease_health = decrease_health
-	end
+
 
 	--dummy:AddAbility("majia"):SetLevel(1)
 	dummy:SetForwardVector(caster:GetForwardVector())

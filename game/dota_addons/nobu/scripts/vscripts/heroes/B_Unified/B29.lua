@@ -149,7 +149,6 @@ function B29T( keys )
 	--spell hint
 	local dummy2 = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
 	local aura_radius = ability:GetSpecialValueFor("B29T_Radius")
-	print(skill_duration)
 	local spell_hint_table = {
 		duration   = skill_duration + 0.5,		-- 持續時間
 		radius     = aura_radius * 0.5,		-- 半徑
