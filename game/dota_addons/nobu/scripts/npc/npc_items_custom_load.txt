@@ -5788,7 +5788,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"5500"
+		"ItemCost"	"5600"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"						"0"
@@ -5885,9 +5885,9 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "25"		//敏
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "20"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "40"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "35"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
@@ -5915,7 +5915,7 @@
 						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
 						"Function"	"Slow"
 						"name"	"the_great_sword_of_toxic_range"
-						"ms_slow" "-25"
+						"ms_slow" "-15"
 					}
 				}
 				"OnDestroy"
@@ -5944,7 +5944,7 @@
 						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
 						"Function"	"Slow"
 						"name"	"the_great_sword_of_toxic_melee"
-						"ms_slow" "-35"
+						"ms_slow" "-25"
 					}
 				}
 				"OnDestroy"
@@ -5978,7 +5978,7 @@
 					{
 						"Target"		"TARGET"
 						"Type"			"DAMAGE_TYPE_MAGICAL"
-						"Damage"		"85"
+						"Damage"		"65"
 					}
 				}
 				"EffectName"	"particles/b33/b33r_old_poison.vpcf"
@@ -7369,22 +7369,6 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
 				"Duration"			"1"
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"items/Addon_Items/item_commander_of_fan.lua"
-				// 		"Function"	"AuraHR"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"items/Addon_Items/item_commander_of_fan.lua"
-				// 		"Function"	"AuraHR2"
-				// 	}
-				// }
 			}
 		}
 	}

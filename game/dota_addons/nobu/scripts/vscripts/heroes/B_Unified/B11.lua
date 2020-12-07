@@ -117,7 +117,6 @@ function B11R_OnAttackLanded( keys )
 	if not target:IsBuilding() then
 		caster.B11R = caster.B11R + 1
 	end
-	print(root_duration)
 	if caster.B11R >= 7 or ran <= 20 and not target:IsBuilding() then
 		caster.B11R = 0
 		target:AddNewModifier(caster,nil,"nobu_modifier_rooted", {duration=root_duration} )
@@ -147,7 +146,7 @@ function B11R_OnAttackLanded( keys )
 			for j=1,casterLevel-1 do
 				illusion[i]:HeroLevelUp(false)
 			end
-
+			
 			-- Set the skill points to 0 and learn the skills of the caster
 			illusion[i]:SetAbilityPoints(0)
 			for abilitySlot=0,15 do
@@ -183,7 +182,7 @@ function B11R_OnAttackLanded( keys )
 					illusion[i]:AddItem(newItem)
 				end
 			end
-			illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = 5, outgoing_damage = (caster.B11R_rate-1) * 100 , incoming_damage = illusion_incoming_damage })
+			illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = 5, outgoing_damage =  (caster.B11R_rate-1) * 100 ,  incoming_damage = illusion_incoming_damage })
 			illusion[i]:MakeIllusion()
 			illusion[i]:SetHealth(caster:GetHealth())
 		end

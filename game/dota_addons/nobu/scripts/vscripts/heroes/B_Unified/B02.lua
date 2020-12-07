@@ -33,14 +33,12 @@ function B02W( keys )
 	local unit_name = target:GetUnitName()
 	local origin = target:GetAbsOrigin() + RandomVector(100)
 	local duration = ability:GetLevelSpecialValueFor( "illusion_duration", ability:GetLevel() - 1 )
-	local outgoingDamage = ability:GetLevelSpecialValueFor( "illusion_outgoing_damage", ability:GetLevel() - 1 )
+	local outgoingDamage =	ability:GetSpecialValueFor("illusion_outgoing_damage")
 	local incomingDamage = ability:GetLevelSpecialValueFor( "illusion_incoming_damage", ability:GetLevel() - 1 )
-
 	-- handle_UnitOwner needs to be nil, else it will crash the game.
 	local illusion = CreateUnitByName(unit_name, origin, true, caster, nil, caster:GetTeamNumber())
 	--分身不能用法球
 	--illusion.nobuorb1 = "illusion"
-	
 	if illusion:IsHero() then
 		illusion:SetPlayerID(caster:GetPlayerID())
 
@@ -89,7 +87,7 @@ function B02W( keys )
 	illusion:MakeIllusion()
 	-- Set the unit as an illusion
 	-- modifier_illusion controls many illusion properties like +Green damage not adding to the unit damage, not being able to cast spells and the team-only blue particle
-	illusion:AddNewModifier(target, ability, "modifier_illusion", { duration = duration, outgoing_damage = outgoingDamage, incoming_damage = incomingDamage })
+	illusion:AddNewModifier(target, ability, "modifier_illusion", { duration = duration, outgoing_damage =  (100 - outgoingDamage)*(-1), incoming_damage = incomingDamage })
 	
 	-- Without MakeIllusion the unit counts as a hero, e.g. if it dies to neutrals it says killed by neutrals, it respawns, etc.
 	--illusion:SetRenderColor(0,0,200)

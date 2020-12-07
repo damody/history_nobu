@@ -166,7 +166,7 @@ function C21E_OnSpellStart(keys)
     local  id	 = u:GetPlayerID() --獲取玩家ID
     local  point = u:GetAbsOrigin() --獲取單位的座標
     local  point2 = u2:GetAbsOrigin() --獲取目標的座標
-	local  time = keys.ability:GetLevel()+1--獲取技能等級
+	local  time = keys.ability:GetLevel()--獲取技能等級
 	local  animation_time = 0.8 / time
     keys.ability:ApplyDataDrivenModifier(u,u2,"modifier_C21EStun",{duration = 0.5})
     AMHC:Damage(u,u2,1,AMHC:DamageType( "DAMAGE_TYPE_PURE" ))

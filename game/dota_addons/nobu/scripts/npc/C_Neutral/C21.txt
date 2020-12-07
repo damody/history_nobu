@@ -24,7 +24,7 @@
 		"LevelsBetweenUpgrades"	"2"
 		"AbilityCastPoint"	"0"
 		"AbilityCooldown"	"22 17 12 7"
-		"AbilityManaCost"	"100"
+		"AbilityManaCost"	"150"
 		"AbilityCastRange"	"700"
 		"precache"
 		{
@@ -217,7 +217,7 @@
 				"IsDebuff"			"1"
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
-				"Duration"	"0.5"
+				"Duration"	"0"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -232,8 +232,8 @@
 				"IsHidden"	"0"
 				"Properties"
 				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "-25"
 					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"	"3"
-					
 				}
 				"States"
 				{
