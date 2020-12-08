@@ -26,11 +26,7 @@ function A12W( keys )
 	local group = {}
     local radius = 500
     group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false)
-    for _,xx in pairs(group) do
-		if xx:HasAbility("majia") then
-			group[_] = nil
-		end
-	end
+
 	for _,unit in ipairs(group) do
 		ParticleManager:CreateParticle("particles/a12w/a12w.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
 		Physics:Unit(unit)
@@ -63,11 +59,7 @@ function A12W_HIDE( keys )
 	local particle2=ParticleManager:CreateParticle("particles/a12w/a12w_hide_test.vpcf",PATTACH_WORLDORIGIN,nil)
 	ParticleManager:SetParticleControl(particle2,0,point)
     group = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false)
-    for _,xx in pairs(group) do
-		if xx:HasAbility("majia") then
-			group[_] = nil
-		end
-	end
+
 	for _,unit in ipairs(group) do
 		ParticleManager:CreateParticle("particles/a12w/a12w.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
 		Physics:Unit(unit)
@@ -166,11 +158,7 @@ function A12E_HIDE( keys )
 		end
 		local units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, range,DOTA_UNIT_TARGET_TEAM_FRIENDLY,
 				DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
-		for _,xx in pairs(units) do
-			if xx:HasAbility("majia") then
-				units[_] = nil
-			end
-		end
+
 				for _,unit in pairs(units) do
 			ability:ApplyDataDrivenModifier(caster,unit,"modifier_A12E_HIDE",{duration = 0.2})
 		end
@@ -179,11 +167,7 @@ function A12E_HIDE( keys )
 	if caster.A12D_B == true then
 		local units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, range, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
 				DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-		for _,xx in pairs(units) do
-			if xx:HasAbility("majia") then
-				units[_] = nil
-			end
-		end
+
 				for _,unit in pairs(units) do
 			ability:ApplyDataDrivenModifier(caster,unit,"modifier_A12E_HIDE_2_lv"..A12E_level, {duration = duration})
 		end
@@ -231,11 +215,7 @@ function A12R( keys )
 	    local radius = 500
 	    local damage = 0
 	    group = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false)
-		for _,xx in pairs(group) do
-			if xx:HasAbility("majia") then
-				group[_] = nil
-			end
-		end
+
 		for _,v in ipairs(group) do
 			damage = v:GetMaxHealth()*Special_damage/100
 			AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
@@ -259,11 +239,7 @@ function A12R_HIDE( keys )
 		ParticleManager:DestroyParticle(particle,true)
 	end )
 	local group = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, 500, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false)
-	for _,xx in pairs(group) do
-		if xx:HasAbility("majia") then
-			group[_] = nil
-		end
-	end
+
 	for _,v in ipairs(group) do
 		damage = A12R_damage
 		AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
@@ -274,11 +250,7 @@ function A12R_HIDE( keys )
 	    local radius = 500
 	    local damage = 0
 	    group = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), 0, false)
-		for _,xx in pairs(group) do
-			if xx:HasAbility("majia") then
-				group[_] = nil
-			end
-		end
+
 		for _,v in ipairs(group) do
 			damage = v:GetMaxHealth()*Special_damage/100
 			AMHC:Damage( caster,v,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )

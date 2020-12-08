@@ -34,11 +34,7 @@ function A11W( keys )
 		StartSoundEvent("Hero_Slark.Pounce.Impact",dummy)
 
 		local units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
-		for _,xx in pairs(units) do
-			if xx:HasAbility("majia") then
-				units[_] = nil
-			end
-		end
+
 		for _,unit in ipairs(units) do
 			damageTable = {
 				victim = unit,
@@ -138,11 +134,7 @@ function A11T( keys )
 	local heal_constant = ability:GetSpecialValueFor("A11T_heal_constant")
 	caster:Heal( A11T_damage * heal_constant, caster)
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetOrigin(), nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
-	for _,xx in pairs(units) do
-		if xx:HasAbility("majia") then
-			units[_] = nil
-		end
-	end
+
 	for i,unit in ipairs(units) do
 		damageTable = {
 			victim = unit,

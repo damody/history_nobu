@@ -31,11 +31,7 @@ function A01E(keys)
 										DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
 										FIND_ANY_ORDER,
 										false)
-	for _,xx in pairs(direUnits) do
-		if xx:HasAbility("majia") then
-			direUnits[_] = nil
-		end
-	end
+
 	for _,it in pairs(direUnits) do
 		for i = 0,3 do
 			local particle2 = ParticleManager:CreateParticle("particles/b02r3/b02r3.vpcf",PATTACH_POINT,it)
@@ -164,11 +160,7 @@ function A01R_OnSpellStart( keys )
 		ability:GetAbilityTargetFlags(),-- 額外選擇或排除特定目標
 		FIND_ANY_ORDER,					-- 結果的排列方式
 		false)
-		for _,xx in pairs(units) do
-			if xx:HasAbility("majia") then
-				untis[_] = nil
-			end
-		end
+
 	caster:EmitSound("ITEM_D09.sound")
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
@@ -208,11 +200,7 @@ function A01R_OnAttackLanded( keys )
 		ability:GetAbilityTargetFlags(),-- 額外選擇或排除特定目標
 		FIND_ANY_ORDER,					-- 結果的排列方式
 		false)
-		for _,xx in pairs(units) do
-			if xx:HasAbility("majia") then
-				untis[_] = nil
-			end
-		end
+
 	caster:EmitSound("ITEM_D09.sound")
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
@@ -266,11 +254,7 @@ function A01R_old_OnAttackLanded( keys )
 		ability:GetAbilityTargetFlags(),-- 額外選擇或排除特定目標
 		FIND_ANY_ORDER,					-- 結果的排列方式
 		false)
-		for _,xx in pairs(units) do
-			if xx:HasAbility("majia") then
-				untis[_] = nil
-			end
-		end
+
 	caster:EmitSound("ITEM_D09.sound")
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do

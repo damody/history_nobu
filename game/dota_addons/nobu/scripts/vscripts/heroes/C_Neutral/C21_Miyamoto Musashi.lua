@@ -130,25 +130,22 @@ function Trig_C21TActions( keys )
 
         --獲取周圍的單位
         group = FindUnitsInRadius(u:GetTeamNumber(),point,nil,radius,teams,types,flags,FIND_ANY_ORDER,true)
+		local newGroup = {}
 		--過濾dummy
 		for _,xx in pairs(group) do
-			if xx:HasAbility("majia") then
-				group[_] = nil
+			if xx:HasAbility("majia") or _G.EXCLUDE_TARGET_NAME[u2:GetUnitName()] == true then
+				
+			else
+				table.insert(newGroup,xx)
 			end
 		end
 		--如果元素大於0個單位才隨機抓取
-		if #group > 0 and ti ~= 0 then
-        	u2 = group[RandomInt(1,#group)]
-        	if u2:HasModifier("modifier_majia") or _G.EXCLUDE_TARGET_NAME[u2:GetUnitName()] == true then
-				for _,xx in pairs(group) do
-        			if not xx:HasModifier("modifier_majia") and _G.EXCLUDE_TARGET_NAME[xx:GetUnitName()] == nil then
-        				u2 = xx
-        				break
-        			end
-        		end
-        	end
+		if #newGroup > 0 and ti ~= 0 then
+			
+			u2 = newGroup[RandomInt(1,#newGroup)]
+			
 			--call function
-			if u2:GetUnitName() ~=	"npc_dummy_unit" then
+			if u2:GetUnitName() then
 				C21T_Copy(u,i, u2)
 				C21T_Effect(u,u2,i)
 				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )

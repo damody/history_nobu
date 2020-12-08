@@ -70,11 +70,7 @@ function A13R_OnAttackLanded( keys )
 							DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 							FIND_ANY_ORDER,
 							false)
-							for _,xx in pairs(direUnits) do
-								if xx:HasAbility("majia") then
-									direUnits[_] = nil
-								end
-							end
+						
 			local dmg = ability:GetSpecialValueFor("damage")
 			if not target:IsMagicImmune() then
 				AMHC:Damage(caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
@@ -630,11 +626,7 @@ function a13e_modifier:OnIntervalThink()
 		                              DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 		                              FIND_ANY_ORDER,
 									  false)
-									  for _,xx in pairs(direUnits) do
-										if xx:HasAbility("majia") then
-											direUnits[_] = nil
-										end
-									end
+									 
 				local hashook = false
 				for _,it in pairs(direUnits) do
 					if not string.match(it:GetUnitName(), "npc_dota_courier2") and _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil and not it:HasAbility("majia") then
@@ -753,9 +745,11 @@ function A13T ( keys )
 			units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
 			for _,xx in pairs(units) do
 				if xx:HasAbility("majia") then
-					units[_] = nil
+					table.remove(units,_)
 				end
 			end
+			print(#units)
+			PrintTable(units)
 			local n = RandomInt(1, #units)
 			local distance = nobu_distance(caster:GetAbsOrigin(), point)
 			if distance < radius then
@@ -998,7 +992,7 @@ function A13T_break( keys )
 								  false)
 								for _,xx in pairs(direUnits) do
 									if xx:HasAbility("majia") then
-										direUnits[_] = nil
+										table.remove(direUnits,_)
 									end
 								end
 	local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact_dagger.vpcf",PATTACH_POINT,target)

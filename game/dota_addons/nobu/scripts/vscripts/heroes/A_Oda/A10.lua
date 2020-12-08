@@ -221,11 +221,7 @@ function A10E_OnProjectileHitUnit( keys )
 	local ifx = ParticleManager:CreateParticle( "particles/a10e/a10e_hitalliance_explosion.vpcf", PATTACH_ABSORIGIN, target )
 	local direUnits = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, splash_radius, DOTA_UNIT_TARGET_TEAM_ENEMY,
 										 DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-	for _,xx in pairs(direUnits) do
-		if xx:HasAbility("majia") then
-			direUnits[_] = nil
-		end
-	end
+
 	for _,unit in pairs(direUnits) do
 		if unit:IsMagicImmune() then
 			if caster:GetLevel() >= 12 then
@@ -545,11 +541,7 @@ function A10E_old_OnProjectileHitUnit( keys )
 	local splash_radius = ability:GetSpecialValueFor("splash_radius")
 	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, splash_radius, DOTA_UNIT_TARGET_TEAM_ENEMY,
 	                              DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-	for _,xx in pairs(direUnits) do
-		if xx:HasAbility("majia") then
-			direUnits[_] = nil
-		end
-	end
+
 	for _,it in pairs(direUnits) do
 		if it:IsMagicImmune() then
 			--AMHC:Damage(caster,it, ability:GetSpecialValueFor("damage")*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
@@ -576,11 +568,7 @@ function modifier_A10R_old_passive_OnDeath( keys )
 	local units = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY,
 										 DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 
 										 FIND_ANY_ORDER, false)
-	for _,xx in pairs(units) do
-		if xx:HasAbility("majia") then
-			units[_] = nil
-		end
-	end
+
 	for _,unit in pairs(units) do
 		ability:ApplyDataDrivenModifier( caster , unit , "modifier_A10R_old" , { duration = duration } )
 	end
@@ -594,11 +582,7 @@ function modifier_A10R_old_passive_OnIntervalThink( keys )
 	local units = FindUnitsInRadius( caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY,
 										 DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 
 										 FIND_ANY_ORDER, false)
-										for _,xx in pairs(units) do
-											if xx:HasAbility("majia") then
-												units[_] = nil
-											end
-										end
+										
 	for _,unit in pairs(units) do
 		ability:ApplyDataDrivenModifier( caster , unit , "modifier_A10R_old" , { duration = duration } )
 	end

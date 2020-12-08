@@ -14,11 +14,7 @@ function A08E_OnSpellStart( event )
 	local ifx = ParticleManager:CreateParticle( "particles/c20r_real/c20r.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl( ifx, 0, caster:GetAbsOrigin())
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 550, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
-	for _,xx in pairs(units) do
-		if xx:HasAbility("majia") then
-			units[_] = nil
-		end
-	end
+
 	for _,unit in ipairs(units) do
 		damageTable = {
 		victim = unit,
@@ -65,11 +61,7 @@ function modifier_A08T2:GetModifierIncomingDamage_Percentage( keys )
 	b = self.caster:GetForwardVector()
 	local angle = math.acos(dot(a,b) / (a:Length() * b:Length()))
 	local enemies = FindUnitsInRadius( self.caster:GetTeamNumber(), self.caster:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
-	for _,xx in pairs(enemies) do
-		if xx:HasAbility("majia") then
-			enemies[_] = nil
-		end
-	end
+
 	local enemies_reduce = #enemies * 3 * -1 * 2
 	if math.deg(angle) > 90 then
 		return enemies_reduce
@@ -96,11 +88,7 @@ function modifier_A08T:GetModifierIncomingDamage_Percentage( keys )
 	b = self.caster:GetForwardVector()
 	local angle = math.acos(dot(a,b) / (a:Length() * b:Length()))
 	local enemies = FindUnitsInRadius( self.caster:GetTeamNumber(), self.caster:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
-	for _,xx in pairs(enemies) do
-		if xx:HasAbility("majia") then
-			enemies[_] = nil
-		end
-	end
+
 	local enemies_reduce = #enemies * 3 * -1
 	if math.deg(angle) > 90 then
 		return enemies_reduce

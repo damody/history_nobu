@@ -102,6 +102,11 @@
 				"var_type"	"FIELD_INTEGER"
 				"max_count"	"20"
 			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"basicDMG"	"20 30 40 50"
+			}
 		}
 	}
 

@@ -36,6 +36,9 @@ function Shock_phase ( keys )
     if target == caster then
         ability:ApplyDataDrivenModifier(caster,target,"modifier_cast_self",{duration = 1})
     end
+    if target:GetTeamNumber() == caster:GetTeamNumber() and target ~= caster then
+        caster:Stop()
+    end
 end
 
 function over( keys )

@@ -315,7 +315,7 @@ function B25T_start( keys )
 	local dummyCount = 0
 	caster.allparticle = {}
 	local handcount = 0
-	tradius = 10
+	local tradius = 10
 	local disstep = 80
 	local loopnum = 5
 	local particle=ParticleManager:CreateParticle("particles/b25t/b25t_fineds_ground_test.vpcf",PATTACH_WORLDORIGIN,nil)

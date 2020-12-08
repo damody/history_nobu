@@ -148,7 +148,7 @@ function B15D_SplitShotLaunch( keys )
 	local split_shot_targets = FindUnitsInRadius(caster:GetTeam(), caster_location, nil, radius, target_team, target_type, target_flags, FIND_CLOSEST, false)
 	for _,xx in pairs(split_shot_targets) do
 		if xx:HasAbility("majia") then
-			split_shot_targets[_] = nil
+			table.remove(split_shot_targets,_)
 		end
 	end
 	local b15e = caster:FindAbilityByName("B15E_old")

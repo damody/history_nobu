@@ -103,7 +103,7 @@ function B35R_OnAttacked( keys )
 			end)
 			if (caster.B35R_count > 5 or ran <= 20) then
 				caster.B35R_count = 0
-				caster:Heal(keys.dmg,ability)
+				caster:Heal(dmg,ability)
 				if (caster:GetAbsOrigin()-target:GetAbsOrigin()):Length2D() < 250 then
 					StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", target )
 					caster:SetForwardVector(target:GetAbsOrigin()-caster:GetAbsOrigin())
