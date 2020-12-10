@@ -265,17 +265,27 @@ function A28R( keys )
 				return nil
 			end
 		end)
+		
+	-- local particleName = "particles/a28r/a28r.vpcf"
+	local particleName = "particles/a28r/a28r_new.vpcf"
+	local i = 0
+	Timers:CreateTimer(0 , function()
+		if i < 4 then
+			local fxIndex = ParticleManager:CreateParticle( particleName, PATTACH_WORLDORIGIN, caster )
+			ParticleManager:SetParticleControl( fxIndex, 3, casterLocation )
+			i = i + 1
+			return 1 
+		else
+			i = 0
+			return nil
+		end
+	end)
 
-	local particleName = "particles/a28r/a28r.vpcf"
-	
-	local fxIndex = ParticleManager:CreateParticle( particleName, PATTACH_CUSTOMORIGIN, caster )
-	ParticleManager:SetParticleControl( fxIndex, 0, casterLocation )
-	
-	Timers:CreateTimer( 4, 
-		function ()
-			ParticleManager:DestroyParticle(fxIndex, false)
-			
-		end)
+
+	-- Timers:CreateTimer( 4, 
+	-- 	function ()
+	-- 		ParticleManager:DestroyParticle(fxIndex, false)
+	-- 	end)
 
 end
 
@@ -398,10 +408,11 @@ function A28TE( keys )
 
 			--effect:傷害+暈眩
 			for _,it in pairs(direUnits) do
+				local health = it:GetMaxHealth() * 0.02
 				if it:IsBuilding() then
-					AMHC:Damage(caster,it,100*level,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+					AMHC:Damage(caster,it,health,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				else
-					AMHC:Damage(caster,it,100*level,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+					AMHC:Damage(caster,it,health,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				end
 			end
 			end)
