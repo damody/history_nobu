@@ -2,25 +2,25 @@ function OnEquip( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	-- 力量 0 敏捷1 智力2
-	if caster:GetPrimaryAttribute() == 0 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_add_strength", nil)
-	elseif caster:GetPrimaryAttribute() == 1 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_add_agility", nil)
-	elseif caster:GetPrimaryAttribute() == 2 then
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_add_intellect", nil)
-	end
+	-- if caster:GetPrimaryAttribute() == 0 then
+	-- 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_add_strength", nil)
+	-- elseif caster:GetPrimaryAttribute() == 1 then
+	-- 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_add_agility", nil)
+	-- elseif caster:GetPrimaryAttribute() == 2 then
+	-- 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_add_intellect", nil)
+	-- end
 end
 
 function OnUnequip( keys )
 	local caster = keys.caster
 	-- 力量 0 敏捷1 智力2
-	if caster:GetPrimaryAttribute() == 0 then
-		caster:RemoveModifierByName("modifier_add_strength")
-	elseif caster:GetPrimaryAttribute() == 1 then
-		caster:RemoveModifierByName("modifier_add_agility")
-	elseif caster:GetPrimaryAttribute() == 2 then
-		caster:RemoveModifierByName("modifier_add_intellect")
-	end
+	-- if caster:GetPrimaryAttribute() == 0 then
+	-- 	caster:RemoveModifierByName("modifier_add_strength")
+	-- elseif caster:GetPrimaryAttribute() == 1 then
+	-- 	caster:RemoveModifierByName("modifier_add_agility")
+	-- elseif caster:GetPrimaryAttribute() == 2 then
+	-- 	caster:RemoveModifierByName("modifier_add_intellect")
+	-- end
 end
 
 function mana_burn_function( keys )
