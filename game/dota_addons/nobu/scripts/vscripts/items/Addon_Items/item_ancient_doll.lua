@@ -75,7 +75,7 @@ function Shock( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	caster:AddNewModifier(caster, ability, "modifier_zimbabwe", {duration = 4.5})
+	caster:AddNewModifier(caster, ability, "modifier_zimbabwe", {duration = 3.5})
 	local hModifier = caster:FindModifierByName("modifier_zimbabwe")
 	hModifier.caster = caster
 	local shield_size = 1000
