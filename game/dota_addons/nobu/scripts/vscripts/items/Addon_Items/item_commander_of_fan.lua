@@ -36,7 +36,7 @@ function Shock( keys )
 								big_skill = true
 							end
 						end
-						if v:GetName() ~= "modifier_kill" and v:GetName() ~= "modifier_illusion" and big_skill == false and (v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber()) then
+						if v:GetName() ~= "modifier_A28T" and v:GetName() ~= "modifier_kill" and v:GetName() ~= "modifier_illusion" and big_skill == false and (v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber()) then
 							target:RemoveModifierByName(v:GetName())
 							print(v:GetName(), v:GetCaster():GetTeamNumber(), caster:GetTeamNumber())
 						end
