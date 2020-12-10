@@ -541,6 +541,9 @@ function Nobu:eventfororder( filterTable )
 		if filterTable.units and filterTable.units["0"] then
 			local caster = EntIndexToHScript(filterTable.units["0"])
 			local target = EntIndexToHScript(filterTable.entindex_target)
+			if target == nil then
+				return true
+			end
 			if caster:HasModifier("modifier_knockback") then
 				return true
 			end
