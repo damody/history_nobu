@@ -384,6 +384,7 @@ function Nobu:OnUnitKill( keys )
           local dmgmin = unit:GetBaseDamageMin()
           unit:SetBaseDamageMax(dmgmax+CP_Monster*12)
           unit:SetBaseDamageMax(dmgmin+CP_Monster*12)
+          unit:AddNewModifier(nil, nil, 'modifier_phased', {duration = 1})
         else
           print("neutral_130 fail")
         end

@@ -191,6 +191,9 @@ function C22D_SE_END( keys )
 	local caster = keys.caster
 	ParticleManager:DestroyParticle(caster.c20D_SE,false)
 	caster.c20D_SE = nil
+	if caster:HasModifier("C22R_critical") then
+		caster:RemoveModifierByName("C22R_critical")
+	end
 end
 
 --[[

@@ -86,8 +86,13 @@ function Shock( keys )
 	ParticleManager:SetParticleControl(zimbabwe, 5, Vector(shield_size,0,0))
 	-- Proper Particle attachment courtesy of BMD. Only PATTACH_POINT_FOLLOW will give the proper shield position
 	ParticleManager:SetParticleControlEnt(zimbabwe, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
-	Timers:CreateTimer(4.5, function()
-		ParticleManager:DestroyParticle(zimbabwe,false)
+	Timers:CreateTimer(0.1, function()
+		if caster:HasModifier("modifier_zimbabwe") then
+			return 0.1
+		else
+			ParticleManager:DestroyParticle(zimbabwe,false)
+			return false
+		end
 	end)
 end
 

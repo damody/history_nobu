@@ -22,9 +22,6 @@ function Shock( keys )
         ability:RefundManaCost()
         ability:EndCooldown()
         return false
-        -- target:Stop()
-        -- ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = 1})
-        -- ability:ApplyDataDrivenModifier(caster,target,"modifier_soul_adderx",{duration = 3})
     end
     target:EmitSound("SleepBirth1")
 end
@@ -34,6 +31,10 @@ function Shock_phase ( keys )
 	local target = keys.target
     local ability = keys.ability
     if target == caster then
+        if caster:HasModifier("modifier_wantgohome") then
+            caster:RemoveModifierByName("modifier_wantgohome")
+            caster:RemoveModifierByName("modifier_gohomelua")
+        end
         ability:ApplyDataDrivenModifier(caster,target,"modifier_cast_self",{duration = 1})
     end
     if target:GetTeamNumber() == caster:GetTeamNumber() and target ~= caster then

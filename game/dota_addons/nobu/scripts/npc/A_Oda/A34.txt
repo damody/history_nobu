@@ -627,7 +627,7 @@
 						"Function"	"A34T_OnIntervalThink"
 					}
 				}
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 				"OnAbilityExecuted"
 				{
 					"RunScript"

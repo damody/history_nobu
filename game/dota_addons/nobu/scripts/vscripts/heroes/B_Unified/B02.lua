@@ -401,6 +401,7 @@ function B02E_Cast(keys)
 		caster.B02E_Location = point
 		local dummy = CreateUnitByName("npc_dummy_unit",point,false,caster,caster,caster:GetTeam())	--"npc_dummy_unit_Ver2"
 		dummy:FindAbilityByName("majia"):SetLevel(1)
+		dummy:AddNewModifier(nil, nil, 'modifier_phased', {duration = 1})
 		--【MODIFIER】
 		ability:ApplyDataDrivenModifier(caster,dummy,"modifier_B02E_2",nil) 	
 		Timers:CreateTimer(10, function()

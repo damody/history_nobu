@@ -711,7 +711,7 @@
 			"08"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"lock"	"5 4 3"
+				"lock"	"6 3 0"
 			}
 		}
 	}
