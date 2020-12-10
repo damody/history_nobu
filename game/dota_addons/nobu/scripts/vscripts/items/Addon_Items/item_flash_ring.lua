@@ -24,20 +24,20 @@ function item_blink_datadriven_on_spell_start(keys)
 		target_point = origin_point + (target_point - origin_point):Normalized() * keys.MaxBlinkRange
     end
 	
-	if difference_vector:Length2D() < 200 then
-		ability:EndCooldown()
-	else
-		keys.caster:SetAbsOrigin(target_point)
-		FindClearSpaceForUnit(keys.caster, target_point, false)
-		
-		--【Timer】
-		Timers:CreateTimer(0.1,function()
-			--【Particle】
-			local particle = ParticleManager:CreateParticle("particles/item/c05/c05.vpcf",PATTACH_POINT,caster)
-			ParticleManager:SetParticleControl(particle,0, target_point)
-			ParticleManager:SetParticleControl(particle,1, target_point)		
-		end)
-	end
+	-- if difference_vector:Length2D() < 200 then
+	-- 	ability:EndCooldown()
+	-- else
+	keys.caster:SetAbsOrigin(target_point)
+	FindClearSpaceForUnit(keys.caster, target_point, false)
+	
+	--【Timer】
+	Timers:CreateTimer(0.1,function()
+		--【Particle】
+		local particle = ParticleManager:CreateParticle("particles/item/c05/c05.vpcf",PATTACH_POINT,caster)
+		ParticleManager:SetParticleControl(particle,0, target_point)
+		ParticleManager:SetParticleControl(particle,1, target_point)		
+	end)
+	-- end
 end
 
 function flash_ring_OnAbilityPhaseStart( keys )
