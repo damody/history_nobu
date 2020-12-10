@@ -20,7 +20,9 @@ function B08D_Copy(u, u2, ability)
 	-- call SetUnitTimeScale(u,3)
 	-- call SetUnitAnimation(u,"Attack Slam")
 	-- --紀錄特效單位在群組
-	tu:SetForwardVector((u2:GetAbsOrigin()-point):Normalized())
+	if IsValidEntity(u2) then
+		tu:SetForwardVector((u2:GetAbsOrigin()-point):Normalized())
+	end
 	--tu:SetPlaybackRate(3)
     --播放動畫
     local count = 0
@@ -44,6 +46,7 @@ function B08D_old( keys )
 	ProjectileManager:ProjectileDodge(keys.caster)
 	local caster = keys.caster
 	local target = keys.target
+	local endLocation = target:GetAbsOrigin()
 	local ability = keys.ability
 	local level  = keys.ability:GetLevel()
 	local opoint = target:GetAbsOrigin()
@@ -99,7 +102,7 @@ function B08D_old( keys )
 		--dummy:EmitSound("Creep_Siege_Dire.Destruction") 
 	end
 	Timers:CreateTimer(1.9, function()
-			caster:SetAbsOrigin(target:GetAbsOrigin())
+			caster:SetAbsOrigin(endLocation)
 			caster:AddNewModifier(caster,ability,"modifier_phased",{duration=0.1})
 			end)
 end
@@ -235,10 +238,12 @@ end
 -- Destroys the particle when the modifier is destroyed. Also plays the sound
 function EndB08R_SEParticle( event )
 	local target = event.target
-	target:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
-	ParticleManager:DestroyParticle(target.ShieldParticle,false)
-	ParticleManager:DestroyParticle(target.ShieldParticle1,false)
-	ParticleManager:DestroyParticle(target.ShieldParticle2,false)
+	if target.ShieldParticle and target.ShieldParticle1 and target.ShieldParticle2 then
+		target:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
+		ParticleManager:DestroyParticle(target.ShieldParticle,false)
+		ParticleManager:DestroyParticle(target.ShieldParticle1,false)
+		ParticleManager:DestroyParticle(target.ShieldParticle2,false)
+	end
 end
 
 

@@ -106,7 +106,7 @@ function B35R_OnAttacked( keys )
 				caster:Heal(dmg,ability)
 				if (caster:GetAbsOrigin()-target:GetAbsOrigin()):Length2D() < 250 then
 					StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", target )
-					caster:SetForwardVector(target:GetAbsOrigin()-caster:GetAbsOrigin())
+					-- caster:SetForwardVector(target:GetAbsOrigin()-caster:GetAbsOrigin())
 					ability:ApplyDataDrivenModifier(caster,caster,"modifier_B35R3", {})
 					caster:PerformAttack(target, true, true, true, true, true, false, true)
 					caster:RemoveModifierByName("modifier_B35R3")

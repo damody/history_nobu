@@ -186,7 +186,6 @@
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityCastPoint"          	"0.1"
 		"MaxLevel"						"4"
-		"AbilityDamage"					"100 125 150 175"
 		"AbilityCastRange"				"250"
 		"AOERadius"						"250"
 
@@ -244,7 +243,7 @@
 				"Passive"	"1"
 				"IsBuff"	"1"
 				"EffectName" "particles/a04/a04d_old_casterribbons_arcana1.vpcf"
-				"OnTakeDamage"
+				"OnAttacked"
 				{
 					"RunScript"
 					{

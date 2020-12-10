@@ -33,8 +33,8 @@ function modifier_zimbabwe:OnTakeDamage(event)
 	    local damage_flags = event.damage_flags
 		local ability = self:GetAbility()
 		local caster = self.caster
-	    if (caster ~= nil) and IsValidEntity(caster) then
-			if victim:GetTeam() ~= attacker:GetTeam() and attacker == self.caster and not event.attacker:IsBuilding() then
+		if (caster ~= nil) and IsValidEntity(caster) then
+			if victim:GetTeam() ~= attacker:GetTeam() and attacker == self.caster and not (event.attacker:GetUnitName() == "dota_fountain") then
 				caster:Heal(event.damage*0.3, caster)
 		        if damage_flags ~= DOTA_DAMAGE_FLAG_REFLECTION then
 	            	if (IsValidEntity(caster) and caster:IsAlive()) then
@@ -75,7 +75,7 @@ function Shock( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	caster:AddNewModifier(caster, ability, "modifier_zimbabwe", {duration = 4.5})
+	caster:AddNewModifier(caster, ability, "modifier_zimbabwe", {duration = 3.5})
 	local hModifier = caster:FindModifierByName("modifier_zimbabwe")
 	hModifier.caster = caster
 	local shield_size = 1000
