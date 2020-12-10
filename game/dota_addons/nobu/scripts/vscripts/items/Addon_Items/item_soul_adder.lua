@@ -111,10 +111,15 @@ end
 
 function OnCreated( keys )
     local target = keys.target
-    target.magical_resistance = target.magical_resistance - 20
+    if target:IsHero() and IsValidEntity(target) then
+        target.magical_resistance = target.magical_resistance - 20
+    end
+
 end
 
 function OnDestroy( keys )
     local target = keys.target
-    target.magical_resistance = target.magical_resistance + 20
+    if target:IsHero() and IsValidEntity(target) then
+        target.magical_resistance = target.magical_resistance + 20
+    end
 end

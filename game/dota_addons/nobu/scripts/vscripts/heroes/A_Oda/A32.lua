@@ -64,6 +64,11 @@ function A32W_stunAndDamage( keys )
 		   		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
 		   		FIND_ANY_ORDER, 
 				false) 
+				for _,xx in pairs(targets) do
+					if xx:HasAbility("majia") then
+						table.remove(targets,_)
+					end
+				end
 	local count=0
 	print(ability:GetAbilityName())
 	--對所有範圍內的敵人執行動作
@@ -87,14 +92,17 @@ function A32W_stunAndDamage( keys )
 	--有敵人在範圍內造成傷害則開啟第二次跳躍
 	if count > 0 then
 		--caster:AddAbility("skill2")
-		caster:RemoveAbility("A32W")
-		caster:AddAbility("A32D"):SetLevel(lv)
-		caster.timer = Timers:CreateTimer(5, function()
-			if caster:HasAbility("A32D") then
-				caster:RemoveAbility("A32D")
-				caster:AddAbility("A32W"):SetLevel(lv)
-			end
+		Timers:CreateTimer(0.1 , function() 
+			caster:RemoveAbility("A32W")
+			caster:AddAbility("A32D"):SetLevel(lv)
+			caster.timer = Timers:CreateTimer(5, function()
+				if caster:HasAbility("A32D") then
+					caster:RemoveAbility("A32D")
+					caster:AddAbility("A32W"):SetLevel(lv)
+				end
+			end)
 		end)
+
 		--設定第二次跳躍等級為目前W等級 並把技能設為啟動狀態
 		-- caster:FindAbilityByName("A32D"):SetLevel(keys.ability:GetLevel())
 		-- caster:FindAbilityByName("A32D"):SetActivated(true)
