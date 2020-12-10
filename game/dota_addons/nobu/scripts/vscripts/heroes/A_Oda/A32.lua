@@ -349,7 +349,11 @@ function A32F_OnAttackLanded( event )
 	local dmg = caster:GetAverageTrueAttackDamage(target)
 	local health = target:GetHealth()
 	if caster.next_attack ~= nil then
-		AMHC:Damage(caster,target,dmg,AMHC:DamageType("DAMAGE_TYPE_MAGICAL"))
+		if not target:IsBuilding() then
+			AMHC:Damage(caster,target,dmg,AMHC:DamageType("DAMAGE_TYPE_MAGICAL"))
+		else
+			AMHC:Damage(caster,target,dmg*0.5,AMHC:DamageType("DAMAGE_TYPE_MAGICAL"))
+		end
 	end
 	
 	-- if IsValidEntity(target) then

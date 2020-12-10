@@ -5111,7 +5111,7 @@
 		"BaseClass"	"npc_dota_creature"
 		"Ability1"	"majia"
 		"Ability2"	"for_no_collision"
-		"Ability3"	"phased_dmmy"
+		"Ability3"	"phased_dummy"
 		"Ability4"	""
 		"Ability5"	""
 		"Ability6"	""
