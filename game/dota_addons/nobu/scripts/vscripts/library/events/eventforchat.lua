@@ -302,8 +302,8 @@ local function chat_of_test(keys)
 	end
 	if (s == "-uskin" and nobu_id == "C19" and skin) then
 		-- caster.skin = "school"
-		caster:SetModel("models/c19/c19_model.vmdl")
-		caster:SetOriginalModel("models/c19/c19_model.vmdl")
+		caster:SetModel("models/new/c19/c19_model.vmdl")
+		caster:SetOriginalModel("models/new/c19/c19_model.vmdl")
 		caster:RemoveAbility("C19_school")
 	end
 	if (s == "-long" and nobu_id == "A31") then
