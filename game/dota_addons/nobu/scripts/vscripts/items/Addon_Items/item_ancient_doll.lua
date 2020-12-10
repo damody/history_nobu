@@ -33,8 +33,8 @@ function modifier_zimbabwe:OnTakeDamage(event)
 	    local damage_flags = event.damage_flags
 		local ability = self:GetAbility()
 		local caster = self.caster
-	    if (caster ~= nil) and IsValidEntity(caster) then
-			if victim:GetTeam() ~= attacker:GetTeam() and attacker == self.caster and not event.attacker:IsBuilding() then
+		if (caster ~= nil) and IsValidEntity(caster) then
+			if victim:GetTeam() ~= attacker:GetTeam() and attacker == self.caster and not (event.attacker:GetUnitName() == "dota_fountain") then
 				caster:Heal(event.damage*0.3, caster)
 		        if damage_flags ~= DOTA_DAMAGE_FLAG_REFLECTION then
 	            	if (IsValidEntity(caster) and caster:IsAlive()) then
