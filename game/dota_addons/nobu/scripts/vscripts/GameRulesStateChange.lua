@@ -350,6 +350,9 @@ function Nobu:OnGameRulesStateChange( keys )
 			_G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + 5
 			return 2
 		end)
+		-- 換skin
+		local steamid = PlayerResource:GetSteamID(i)
+		local accountID = PlayerResource:GetSteamAccountID(i)
 		Timers:CreateTimer(0, function ()
 			local player = PlayerResource:GetPlayer(i)
 			if player then
@@ -358,9 +361,33 @@ function Nobu:OnGameRulesStateChange( keys )
 				_G.IsExist[i] = true
 				-- 紀錄角色
 				_G.Hero[i] = player:GetAssignedHero()
-				PrintTable(player)
-				print(player:GetAssignedHero())
-				print(_G.Hero[i])
+				if _G.Hero[i] ~= nil then
+					if _G.skin_table[tostring(steamid)] == true or _G.skin_table[tostring(accountID)] == true then
+						local caster = player:GetAssignedHero()
+						local nobu_id = _G.heromap[caster:GetName()]
+						if (nobu_id == "C17") then
+							caster.skin = "school"
+							caster:SetModel("models/c17/c17_school.vmdl")
+							caster:SetOriginalModel("models/c17/c17_school.vmdl")
+						end
+						if (nobu_id == "A26") then
+							caster.skin = "school"
+							caster:SetModel("models/a26/a26_school.vmdl")
+							caster:SetOriginalModel("models/a26/a26_school.vmdl")
+						end
+						if (nobu_id == "B16") then
+							caster.skin = "school"
+							caster:SetModel("models/b16/b16_school.vmdl")
+							caster:SetOriginalModel("models/b16/b16_school.vmdl")
+						end
+						if (nobu_id == "C19") then
+							caster.skin = "school"
+							caster:SetModel("models/c19/c19_school.vmdl")
+							caster:SetOriginalModel("models/c19/c19_school.vmdl")
+							caster:AddAbility("C19_school"):SetLevel(1)
+						end
+					end
+				end
 				if (_G.Hero[i] == nil) then
 					-- GameRules: SendCustomMessage(i .. "獲取英雄失敗", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 					-- print("hero nil")
