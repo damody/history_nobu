@@ -235,10 +235,12 @@ end
 -- Destroys the particle when the modifier is destroyed. Also plays the sound
 function EndB08R_SEParticle( event )
 	local target = event.target
-	target:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
-	ParticleManager:DestroyParticle(target.ShieldParticle,false)
-	ParticleManager:DestroyParticle(target.ShieldParticle1,false)
-	ParticleManager:DestroyParticle(target.ShieldParticle2,false)
+	if target.ShieldParticle and target.ShieldParticle1 and target.ShieldParticle2 then
+		target:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
+		ParticleManager:DestroyParticle(target.ShieldParticle,false)
+		ParticleManager:DestroyParticle(target.ShieldParticle1,false)
+		ParticleManager:DestroyParticle(target.ShieldParticle2,false)
+	end
 end
 
 
