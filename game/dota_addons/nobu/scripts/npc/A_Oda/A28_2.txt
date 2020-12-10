@@ -15,11 +15,11 @@
 		"Ability2"	"A28E"
 		"Ability3"	"A28R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"A28T"
-		"Ability6"	"A28_precache"
+		"Ability5"	"A28_precache"
+		"Ability6"	"A28T"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"0"
+		"ArmorPhysical"	"3"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------

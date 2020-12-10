@@ -748,8 +748,6 @@ function A13T ( keys )
 					table.remove(units,_)
 				end
 			end
-			print(#units)
-			PrintTable(units)
 			local n = RandomInt(1, #units)
 			local distance = nobu_distance(caster:GetAbsOrigin(), point)
 			if distance < radius then

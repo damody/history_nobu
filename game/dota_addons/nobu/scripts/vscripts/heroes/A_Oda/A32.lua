@@ -14,9 +14,10 @@ A32T_castPoistion= Vector(0,0,0)--瀧川大絕紀錄點
 function A32W_knockBack( event )
 	local caster = event.caster 
 	local point =event.target_points[1]
+	local ability = event.ability
 	local vec = caster:GetOrigin()
+	local lv = ability:GetLevel()
 	--local distance =math.sqrt(math.pow(vec.x-point.x,2)+math.pow(vec.y-point.y,2))
-
 	local distance =(point - vec):Length()--目標點跟施法者的距離
 	local knockbackProperties =
 	{
@@ -29,6 +30,7 @@ function A32W_knockBack( event )
 		knockback_height = 300,
 		should_stun = 0
 	}
+
 	caster:AddNewModifier( caster, nil, "modifier_knockback", knockbackProperties )
 	caster:RemoveGesture(ACT_DOTA_FLAIL)
 	caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK_EVENT,0.6)
@@ -47,6 +49,7 @@ function A32W_stunAndDamage( keys )
 
 	local caster = keys.caster             
 	local ability = keys.ability
+	local lv = ability:GetLevel()
 	local radius = ability:GetSpecialValueFor("A32W_Radius")
 	--第二次跳躍有效時間
 	local A32W2_duration=5
@@ -54,7 +57,7 @@ function A32W_stunAndDamage( keys )
 	local particle = ParticleManager:CreateParticle("particles/econ/items/sand_king/sandking_barren_crown/sandking_rubyspire_cracks.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
-
+	print(lv)
 	local targets = FindUnitsInRadius(caster:GetTeamNumber(),	
 				caster:GetAbsOrigin(),nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY, 
 		   		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
@@ -62,6 +65,7 @@ function A32W_stunAndDamage( keys )
 		   		FIND_ANY_ORDER, 
 				false) 
 	local count=0
+	print(ability:GetAbilityName())
 	--對所有範圍內的敵人執行動作
 	for i,unit in pairs(targets) do
 		--對目標傷害
@@ -83,21 +87,27 @@ function A32W_stunAndDamage( keys )
 	--有敵人在範圍內造成傷害則開啟第二次跳躍
 	if count > 0 then
 		--caster:AddAbility("skill2")
-
+		caster:RemoveAbility("A32W")
+		caster:AddAbility("A32D"):SetLevel(lv)
+		caster.timer = Timers:CreateTimer(5, function()
+			if caster:HasAbility("A32D") then
+				caster:RemoveAbility("A32D")
+				caster:AddAbility("A32W"):SetLevel(lv)
+			end
+		end)
 		--設定第二次跳躍等級為目前W等級 並把技能設為啟動狀態
-		caster:FindAbilityByName("A32D"):SetLevel(keys.ability:GetLevel())
-		caster:FindAbilityByName("A32D"):SetActivated(true)
+		-- caster:FindAbilityByName("A32D"):SetLevel(keys.ability:GetLevel())
+		-- caster:FindAbilityByName("A32D"):SetActivated(true)
 		--skill2:SetLevel(keys.ability:GetLevel())
 		--print(caster:FindAbilityByName("skill2"):GetLevel())
 
 		--設定秒數後關閉第二次跳躍技能
-		GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("A32W1_timer"), 
-			function( )
-				caster:FindAbilityByName("A32D"):SetActivated(false)
-				return nil
-		end, A32W2_duration)
+		-- GameRules:GetGameModeEntity():SetContextThink(DoUniqueString("A32W1_timer"), 
+		-- 	function( )
+		-- 		caster:FindAbilityByName("A32D"):SetActivated(false)
+		-- 		return nil
+		-- end, A32W2_duration)
 	end
-
 end
 
 function A32T_old_OnIntervalThink( keys )
@@ -315,7 +325,6 @@ function A32F_OnToggleOn( event )
 			local targetArmor = caster.next_attack.victim:GetPhysicalArmorValue(true)
 			local damageReduction = ((0.06 * targetArmor) / (1 + 0.06* targetArmor))
 			caster.next_attack.damage = caster.next_attack.damage/(1-damageReduction)
-
 			ApplyDamage(caster.next_attack)
 			caster.next_attack = nil
 

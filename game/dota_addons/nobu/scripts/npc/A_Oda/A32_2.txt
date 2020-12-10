@@ -13,7 +13,7 @@
 		"Ability1"	"A32W"
 		"Ability2"	"A32E"
 		"Ability3"	"A32R"
-		"Ability4"	"A32D"
+		"Ability4"	""
 		"Ability5"	"A32F"
 		"Ability6"	"A32T"
 		"Ability7"	""
