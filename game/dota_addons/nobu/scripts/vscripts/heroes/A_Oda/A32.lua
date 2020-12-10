@@ -318,19 +318,20 @@ function A32F_OnToggleOn( event )
 	local caster = event.caster
 	caster.attackvoid = 1
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_A32F",nil)
-	Timers:CreateTimer(0.1,function()
-		if caster.next_attack ~= nil then
-			caster.next_attack.ability = ability
+	
+	-- Timers:CreateTimer(0.1,function()
+	-- 	if caster.next_attack ~= nil then
+	-- 		caster.next_attack.ability = ability
 
-			local targetArmor = caster.next_attack.victim:GetPhysicalArmorValue(true)
-			local damageReduction = ((0.06 * targetArmor) / (1 + 0.06* targetArmor))
-			caster.next_attack.damage = caster.next_attack.damage/(1-damageReduction)
-			ApplyDamage(caster.next_attack)
-			caster.next_attack = nil
+	-- 		local targetArmor = caster.next_attack.victim:GetPhysicalArmorValue(true)
+	-- 		local damageReduction = ((0.06 * targetArmor) / (1 + 0.06* targetArmor))
+	-- 		caster.next_attack.damage = caster.next_attack.damage/(1-damageReduction)
+	-- 		ApplyDamage(caster.next_attack)
+	-- 		caster.next_attack = nil
 
-		end
-		return 0.1
-		end)
+	-- 	end
+	-- 	return 0.1
+	-- 	end)
 end
 
 function A32F_OnToggleOff( event )
@@ -345,7 +346,16 @@ function A32F_OnAttackLanded( event )
 	local ability = event.ability
 	local target = event.target
 	local caster = event.caster
+	local dmg = caster:GetAverageTrueAttackDamage(target)
+	local health = target:GetHealth()
+	if caster.next_attack ~= nil then
+		AMHC:Damage(caster,target,dmg,AMHC:DamageType("DAMAGE_TYPE_MAGICAL"))
+	end
 	
+	-- if IsValidEntity(target) then
+	-- 	-- target:SetHealth(health + heal) 	
+	-- end
+
 end
 
 

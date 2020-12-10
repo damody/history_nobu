@@ -202,8 +202,9 @@ function B35T_OnSpellStart( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
+	local position = target:GetAbsOrigin()
 	AMHC:Damage(caster,target,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-	caster:SetAbsOrigin(target:GetAbsOrigin())
+	caster:SetAbsOrigin(position)
 	caster:AddNewModifier(caster,ability,"modifier_phased",{duration=0.1})
 	local order = {UnitIndex = caster:entindex(),
 					OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
