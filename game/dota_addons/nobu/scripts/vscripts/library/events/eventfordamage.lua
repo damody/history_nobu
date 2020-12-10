@@ -42,7 +42,7 @@ function Nobu:DamageFilterEvent( filterTable )
 	if target.isvoid == 1 and caster.attackvoid == nil and filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
 		return false
 	end
-	if caster.attackvoid == 1 and filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL and not target:IsBuilding() then
+	if caster.attackvoid == 1 and filterTable.damagetype_const == DAMAGE_TYPE_PHYSICAL then
 		caster.next_attack = {
 			victim = target,
 			attacker = caster,
