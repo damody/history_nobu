@@ -378,7 +378,7 @@ function C21W_old_apply_damage( keys )
 	end
 
 	if #units > 0 then
-		EmitSoundOn("Hero_Juggernaut.BladeFury.Impact",caster)
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Juggernaut.BladeFury.Impact",caster)
 	end
 end
 

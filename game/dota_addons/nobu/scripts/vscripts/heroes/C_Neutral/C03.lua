@@ -93,7 +93,7 @@ function C03R_OnAttackLanded( keys )
 	if not target:IsBuilding() then
 		if caster.C03E_go == 1 then
 			caster.C03E_go = 0
-			caster:EmitSound("ITEM_D09.sound")
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"ITEM_D09.sound",caster)
 			local ifx = ParticleManager:CreateParticle("particles/a07t2/a07t2.vpcf",PATTACH_ABSORIGIN_FOLLOW,target)
 			ParticleManager:SetParticleControl(ifx,0,target:GetAbsOrigin())
 			
@@ -156,7 +156,7 @@ function C03T_OnSpellStart( keys )
 	caster:RemoveGesture(ACT_DOTA_FLAIL)
 	Timers:CreateTimer(0,function()
 		if IsValidEntity(robon) then
-			robon:EmitSound("A07T.attack")
+			EmitSoundOnLocationWithCaster(robon:GetAbsOrigin(),"A07T.attack",robon)
 			local pos = robon:GetAbsOrigin()
 			pos = pos + dir * 300
 			-- 搜尋
@@ -244,7 +244,7 @@ function C03T_old_OnSpellStart( keys )
 	caster:RemoveGesture(ACT_DOTA_FLAIL)
 	Timers:CreateTimer(0,function()
 		if IsValidEntity(robon) then
-			robon:EmitSound("A07T.attack")
+			EmitSoundOnLocationWithCaster(robon:GetAbsOrigin(),"A07T.attack",robon)
 			local pos = robon:GetAbsOrigin()
 			pos = pos + dir * 300
 			-- 搜尋

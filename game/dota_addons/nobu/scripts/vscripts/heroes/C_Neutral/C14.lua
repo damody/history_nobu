@@ -86,7 +86,7 @@ function C14T_OnSpellStart( event )
 	local ability = event.ability
 	local caster = event.caster
 	local duration = ability:GetSpecialValueFor("During")
-	caster:EmitSound( "Hero_Nevermore.ROS_Flames")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Nevermore.ROS_Flames",caster)
 	caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
 	--local ifx = ParticleManager:CreateParticle( "particles/c20r_real/c20r.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	--ParticleManager:SetParticleControl( ifx, 0, caster:GetAbsOrigin())

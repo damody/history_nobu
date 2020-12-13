@@ -99,7 +99,7 @@ function C11W_hit_unit( keys )
 	CreateScreenEffect(target)
 
 	-- 音效
-	-- EmitSoundOn("Hero_Zuus.GodsWrath.Target",target)
+	-- EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Zuus.GodsWrath.Target",target)
 	caster:EmitSoundParams("Hero_Zuus.GodsWrath.Target", 1, 0.6, 0)
 
 	-- 搜尋參數
@@ -240,7 +240,7 @@ function C11R_start( keys )
 	local dummy = CreateUnitByName("hide_unit",center,false,nil,nil,caster:GetTeamNumber())
 	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=2})
 	Timers:CreateTimer(0.1 , function()
-		EmitSoundOn("Hero_Zuus.LightningBolt",dummy)
+		EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(),"Hero_Zuus.LightningBolt",dummy)
 		AddFOWViewer(caster:GetTeamNumber(), center, radius, 0.5, false)
 	end)
 
@@ -492,7 +492,7 @@ function C11W_20_hit_unit( keys )
 	CreateScreenEffect(target)
 
 	-- 音效
-	EmitSoundOn("Hero_Zuus.GodsWrath.Target",target)
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Zuus.GodsWrath.Target",target)
 
 	-- 搜尋參數
 	local center = target:GetAbsOrigin()

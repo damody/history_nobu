@@ -561,7 +561,7 @@ function A28R_old_start( keys )
 			enemy.A28R_old = nil
 		end
 	end
-	caster:EmitSound("A28R.sound")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"A28R.sound",caster)
 end
 
 function A28T_old( keys )

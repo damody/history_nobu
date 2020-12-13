@@ -232,7 +232,7 @@ function item_blink_datadriven_on_spell_start(keys)
 	ProjectileManager:ProjectileDodge(keys.caster)  --Disjoints disjointable incoming projectiles.
 
 	ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, keys.caster)
-	keys.caster:EmitSound("DOTA_Item.BlinkDagger.Activate")
+	keys.EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"DOTA_Item.BlinkDagger.Activate",caster)
 
 	local origin_point = keys.caster:GetAbsOrigin()
 	local target_point = keys.target_points[1]

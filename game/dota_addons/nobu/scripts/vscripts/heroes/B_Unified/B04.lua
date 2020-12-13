@@ -46,7 +46,7 @@ function B04W_Start( keys )
 		ParticleManager:DestroyParticle(ifx,false)
 	end)
 
-	EmitSoundOn("Hero_Clinkz.WindWalk",caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Clinkz.WindWalk",caster)
 end
 
 function B04W_OnTrigger( keys )
@@ -73,7 +73,7 @@ function B04W_OnProjectileHitUnit( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	EmitSoundOn("Hero_Clinkz.SearingArrows",target)
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Clinkz.SearingArrows",target)
 	ApplyDamage({
 		victim = target,
 		attacker = caster,
@@ -165,7 +165,7 @@ function B04T_OnAttack( keys )
 			ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration=stun_time})
 		end
 	end
-	EmitSoundOn("Hero_Clinkz.SearingArrows.Impact",target)
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Clinkz.SearingArrows.Impact",target)
 end
 
 -- 伊達政宗 11.2B

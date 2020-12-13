@@ -77,7 +77,7 @@ function B16W( keys )
 		ParticleManager:SetParticleControl(pEnd2, 1, newPos-dir*200)
 		ParticleManager:SetParticleControlForward(pEnd2,1,dir)
 
-		moonMoon:EmitSound("DOTA_Item.BlinkDagger.Activate")
+		EmitSoundOnLocationWithCaster(moonMoon:GetAbsOrigin(),"DOTA_Item.BlinkDagger.Activate",moonMoon)
 
 		-- 命令月月攻擊目標
 		local order = {
@@ -339,7 +339,7 @@ function B16MMD( keys )
 	-- 特效
 	ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, target)
 	ParticleManager:CreateParticle("particles/items_fx/blink_dagger_end.vpcf", PATTACH_ABSORIGIN, caster)
-	target:EmitSound("DOTA_Item.BlinkDagger.Activate")
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"DOTA_Item.BlinkDagger.Activate",target)
 
 	-- 當英雄施放時移除月月的隱身
 	if caster:IsRealHero() then

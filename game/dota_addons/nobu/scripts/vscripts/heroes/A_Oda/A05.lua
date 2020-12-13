@@ -140,7 +140,7 @@ function A05R_OnSpellStart( keys )
 
 	local ifx = ParticleManager:CreateParticle( "particles/a05/a05r.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl( ifx, 0, caster:GetAbsOrigin())
-	caster:EmitSound( "Hero_Nevermore.ROS_Flames")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Nevermore.ROS_Flames",caster)
 	ability:SetActivated(false)
 end
 
@@ -184,7 +184,7 @@ function A05R_old_OnAttackLanded( keys )
 		end
 		if caster.A05R_go == 1 then
 			caster.A05R_go = 0
-			caster:EmitSound("ITEM_D09.sound")
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"ITEM_D09.sound",caster)
 			local ifx = ParticleManager:CreateParticle("particles/a07t2/a07t2.vpcf",PATTACH_ABSORIGIN_FOLLOW,target)
 			ParticleManager:SetParticleControl(ifx,0,target:GetAbsOrigin())
 			

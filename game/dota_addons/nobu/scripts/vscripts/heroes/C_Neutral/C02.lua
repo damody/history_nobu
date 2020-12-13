@@ -378,7 +378,7 @@ function C02T_OnSpellStart( keys )
 	local damage = ability:GetAbilityDamage()
 	
 	if target:GetHealth() < force_kill_hp then
-		caster:EmitSound( "C02T.end")
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"C02T.end",caster)
 		-- 處決特效
 		local ifx = ParticleManager:CreateParticle("particles/econ/items/lich/frozen_chains_ti6/lich_frozenchains_frostnova.vpcf",PATTACH_ABSORIGIN,target)
 		ParticleManager:ReleaseParticleIndex(ifx)
@@ -703,7 +703,7 @@ function C02T_old_OnSpellStart( keys )
 			caster:SetAbsOrigin(cast_point)
 			caster:SetForwardVector(dir)
 			-- 失能動畫
-			caster:EmitSound( "C01W.sound"..RandomInt(1, 3))
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"C01W.sound"..RandomInt(1, 3),caster)
 			StartAnimation(target, {
 				duration=hit_delay-0.1,
 				activity=ACT_DOTA_IDLE,
@@ -763,7 +763,7 @@ function C02T_old_OnSpellStart( keys )
 				damage=damage
 			})
 		end
-		caster:EmitSound( "C02T.end")
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"C02T.end",caster)
 		-- 延遲一個frame在移除暈眩狀態
 		Timers:CreateTimer(0, function ()
 			if IsValidEntity(caster) then caster:RemoveModifierByNameAndCaster("modifier_C02T_old_stunned",caster) end

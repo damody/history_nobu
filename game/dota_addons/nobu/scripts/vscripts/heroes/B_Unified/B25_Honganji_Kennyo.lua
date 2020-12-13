@@ -344,7 +344,7 @@ function B25T_start( keys )
 
 	Timers:CreateTimer(0,  function()
 			local dummy = CreateUnitByName( "npc_dummy", target + RandomVector(500), false, caster, caster, caster:GetTeamNumber() )
-			dummy:EmitSound( "B25T.sound"..RandomInt(1, 4) )
+			EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(),"B25T.sound"..RandomInt(1, 4),dummy)
 			Timers:CreateTimer( 1, function()
 							dummy:ForceKill( true )
 							return nil

@@ -288,7 +288,7 @@ function B22T_old_OnSpellStart( keys )
 		end
 		end)
 	Timers:CreateTimer(duration, function() 
-			dummy:EmitSound("B22T.sound1")
+			EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(),"B22T.sound1",dummy)
 			local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
 				point,			-- 搜尋的中心點
 				nil,
@@ -328,7 +328,7 @@ function forest_caster_T_OnAbilityPhaseStart( keys )
 	ParticleManager:SetParticleControl(spike1, 0, target:GetAbsOrigin())
 	local particle = ParticleManager:CreateParticle("particles/a04e/a04e_f.vpcf", PATTACH_ABSORIGIN, target)
 	ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin()+Vector(0, 0, 100))
-	caster:EmitSound("MassTeleportTarget")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"MassTeleportTarget",caster)
 	Timers:CreateTimer(2, function()
 		ParticleManager:DestroyParticle(spike1,false)
 		ParticleManager:DestroyParticle(particle,false)

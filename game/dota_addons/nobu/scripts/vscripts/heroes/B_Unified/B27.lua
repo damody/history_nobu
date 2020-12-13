@@ -72,7 +72,7 @@ function modifier_protection_b27r_old:OnTakeDamage(event)
 							AmpDamageParticle = ParticleManager:CreateParticle("particles/econ/items/puck/puck_merry_wanderer/puck_illusory_orb_explode_merry_wanderer.vpcf", PATTACH_POINT_FOLLOW, self.caster)
 							ParticleManager:SetParticleControlEnt(AmpDamageParticle,3,self.caster,PATTACH_POINT_FOLLOW,"attach_hitloc",self.caster:GetAbsOrigin(),true)
 							ParticleManager:ReleaseParticleIndex(AmpDamageParticle)
-							EmitSoundOn("DOTA_Item.VeilofDiscord.Activate",self.caster)
+							EmitSoundOnLocationWithCaster(self.caster:GetAbsOrigin(),"DOTA_Item.VeilofDiscord.Activate",self.caster)
 						end
 		            end 
 		        end 

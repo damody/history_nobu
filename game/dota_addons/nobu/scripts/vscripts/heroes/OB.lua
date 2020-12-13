@@ -12,7 +12,7 @@ function A31E(keys)
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=5})
 	local ifx = ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, dummy)
 	ParticleManager:ReleaseParticleIndex(ifx)
-	EmitSoundOn("DOTA_Item.BlinkDagger.Activate", dummy)
+	EmitSoundOnLocationWithCaster( dummy:GetAbsOrigin(),"DOTA_Item.BlinkDagger.Activate", dummy)
 	
 	local origin_point = keys.caster:GetAbsOrigin()
 	local target_point = keys.target_points[1]

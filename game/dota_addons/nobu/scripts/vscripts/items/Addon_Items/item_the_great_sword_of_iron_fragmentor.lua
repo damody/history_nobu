@@ -15,7 +15,7 @@ function Spell( keys )
 	Timers:CreateTimer(duration, function()
 		ParticleManager:DestroyParticle(ifx,false)
 	end)
-	EmitSoundOn("Item.Iron_Fragmentor.Tornado",dummy)
+	EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(),"Item.Iron_Fragmentor.Tornado",dummy)
 end
 
 function DealDamage( keys )
@@ -56,7 +56,7 @@ function DealDamage( keys )
 		ParticleManager:SetParticleControlForward(ifx,0,RandomVector(1))
 		ParticleManager:ReleaseParticleIndex(ifx)
 
-		EmitSoundOn("Hero_Abaddon.Attack",unit)
+		EmitSoundOnLocationWithCaster(unit:GetAbsOrigin(),"Hero_Abaddon.Attack",unit)
 		ApplyDamage(damage_table)
 	end
 end

@@ -23,13 +23,13 @@ function Shock( keys )
 	                              DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 	                              FIND_ANY_ORDER,
 	                              false)
-	caster:EmitSound("A17T.sound1")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"A17T.sound1",caster)
 	local dmg = 300
 	--effect:傷害+暈眩
 	for _,it in pairs(direUnits) do
 		if (not(it:IsBuilding())) then
 			AMHC:Damage(caster,it,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-			it:EmitSound("A17T.sound1")
+			EmitSoundOnLocationWithCaster(it:GetAbsOrigin(),"A17T.sound1",it)
 		end
 	end
 end

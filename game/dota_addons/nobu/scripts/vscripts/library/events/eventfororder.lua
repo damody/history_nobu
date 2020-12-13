@@ -175,7 +175,7 @@ function spell_ability ( filterTable )
 				end
 			end
 			if pro then
-				EmitSoundOn("DOTA_Item.VeilofDiscord.Activate",target)
+				EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"DOTA_Item.VeilofDiscord.Activate",target)
 				ability:StartCooldown(ability:GetCooldown(-1))
 				for itemSlot=0,5 do
 					local item = target:GetItemInSlot(itemSlot)

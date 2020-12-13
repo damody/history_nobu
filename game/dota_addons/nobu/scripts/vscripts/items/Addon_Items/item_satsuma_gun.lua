@@ -41,7 +41,7 @@ function OnAttackLanded( keys )
                     iVisionTeamNumber	= caster:GetTeamNumber(),
                 }
                 projectile_table.vVelocity = dir*2000
-                caster:EmitSound( "Hero_Sniper.Attack" )
+                EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Sniper.Attack",caster)
                 
                 caster.satsuma = 0
                 ProjectileManager:CreateLinearProjectile(projectile_table)

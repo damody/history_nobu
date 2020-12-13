@@ -158,7 +158,7 @@ function A03TW_OnSpellStart( event )
 	local damage = ability:GetSpecialValueFor("damage")
 	local duration = ability:GetSpecialValueFor("stun")
 	local caster = event.caster
-	caster:EmitSound( "Hero_Nevermore.ROS_Flames")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Nevermore.ROS_Flames",caster)
 	local ifx = ParticleManager:CreateParticle( "particles/a03t_old.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl( ifx, 0, caster:GetAbsOrigin())
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 400, 

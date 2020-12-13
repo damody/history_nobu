@@ -240,7 +240,7 @@ function B35E_old_OnSpellStart( keys )
 	}
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_knockback",knockbackProperties)
 
-	EmitSoundOn("Hero_Clinkz.WindWalk",caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Clinkz.WindWalk",caster)
 
 	local projectileTable =
 	{
@@ -380,7 +380,7 @@ function B35T_old_OnSpellStart( keys )
 			local tar_pos = center
 			target:SetAbsOrigin(tar_pos)
 			-- 失能動畫
-			caster:EmitSound( "C01W.sound"..RandomInt(1, 3))
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"C01W.sound"..RandomInt(1, 3),caster)
 			StartAnimation(target, {
 				duration=hit_delay-0.1,
 				activity=ACT_DOTA_IDLE,
@@ -438,7 +438,7 @@ function B35T_old_OnSpellStart( keys )
 				damage=damage
 			})
 		end
-		caster:EmitSound( "B35T.end")
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"B35T.end",caster)
 		
 
 		-- 延遲一個frame在移除暈眩狀態

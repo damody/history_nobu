@@ -49,7 +49,7 @@ function B18W_OnSpellStart( keys )
 			end
 		end)
 	local dummy = CreateUnitByName( "npc_dummy", casterLocation, false, caster, caster, caster:GetTeamNumber() )
-	dummy:EmitSound( "B18W.spiked_carapace" )
+	EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(),"B18W.spiked_carapace",dummy)
 	Timers:CreateTimer( 0.5, function()
 			dummy:ForceKill( true )
 			return nil
@@ -157,7 +157,7 @@ function B18T_OnAttackLanded( keys )
 			AMHC:Damage(caster, unit, dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 		end
 	end
-	caster:EmitSound("B18T.sound1")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"B18T.sound1",caster)
 end
 
 function B18T_OnIntervalThink( keys )

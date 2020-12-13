@@ -343,7 +343,7 @@ function A22T_old_OnSpellStart( keys )
 	robon:SetOwner(caster)
 	robon:FindAbilityByName("majia_vison"):SetLevel(1)
 	robon:AddNoDraw()
-	robon:EmitSound("batrider_firefly_loop")
+	EmitSoundOnLocationWithCaster(robon:GetAbsOrigin(),"batrider_firefly_loop",robon)
 
 	local rp = robon:GetAbsOrigin()
 	rp.z = rp.z + 300

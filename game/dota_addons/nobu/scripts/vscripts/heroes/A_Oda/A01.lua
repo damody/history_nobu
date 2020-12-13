@@ -142,7 +142,7 @@ function A01E_MOVE(keys)
 	}
 	ProjectileManager:CreateTrackingProjectile( info )	
 	-- Play the sound on Bristleback.
-	EmitSoundOn("Hero_BountyHunter.Shuriken.Impact", target)	
+	EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_BountyHunter.Shuriken.Impact", target)	
 end
 
 
@@ -161,7 +161,7 @@ function A01R_OnSpellStart( keys )
 		FIND_ANY_ORDER,					-- 結果的排列方式
 		false)
 
-	caster:EmitSound("ITEM_D09.sound")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"ITEM_D09.sound",caster)
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
 		if IsValidEntity(unit) then
@@ -201,7 +201,7 @@ function A01R_OnAttackLanded( keys )
 		FIND_ANY_ORDER,					-- 結果的排列方式
 		false)
 
-	caster:EmitSound("ITEM_D09.sound")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"ITEM_D09.sound",caster)
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
 		if IsValidEntity(unit) then
@@ -255,7 +255,7 @@ function A01R_old_OnAttackLanded( keys )
 		FIND_ANY_ORDER,					-- 結果的排列方式
 		false)
 
-	caster:EmitSound("ITEM_D09.sound")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"ITEM_D09.sound",caster)
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
 		if IsValidEntity(unit) then
@@ -336,5 +336,5 @@ function A01E_old_OnSpellStart(keys)
 	}
 	ProjectileManager:CreateTrackingProjectile( info )	
 	-- Play the sound on Bristleback.
-	EmitSoundOn("Hero_BountyHunter.Shuriken.Impact", target)	
+	EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_BountyHunter.Shuriken.Impact", target)	
 end
