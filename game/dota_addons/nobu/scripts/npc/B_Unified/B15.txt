@@ -254,6 +254,14 @@
 					"CastAttack"	"0"
 					"ProjectileName"	"particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
 				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B15_Imagawa_Yoshimoto.lua"
+						"Function"	"B15E"
+					}
+				}
 				"States"	{}
 				"OnAttackLanded"
 				{

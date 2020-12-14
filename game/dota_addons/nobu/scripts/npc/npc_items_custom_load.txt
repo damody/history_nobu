@@ -3855,7 +3855,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 				}
 			}
-			"Passive_insight_gem"
+			"Passive_cross_spear"
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"
@@ -6121,7 +6121,7 @@
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
 			}
-			"Passive_insight_gem"
+			"Passive_the_great_sword_of_teleport"
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"
@@ -11053,7 +11053,7 @@
 					// "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20"	//魔抗
 				}
 			}
-			"Passive_insight_gem"
+			"Passive_prophet_armor_insight"
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"
@@ -11217,7 +11217,7 @@
 					// "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20"	//魔抗
 				}
 			}
-			"Passive_insight_gem"
+			"Passive_prophet_Akazonae_armor"
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"

@@ -45,10 +45,12 @@ function B15E_attack1( keys )
 	local level = ability:GetLevel() - 1
 	local dmg = keys.ability:GetLevelSpecialValueFor("damage_bonus", keys.ability:GetLevel() - 1 )
 	local target = keys.target
-	if (target:IsBuilding()) then
-		AMHC:Damage( caster,target,dmg*0.25,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-	else
-		AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+	if (caster.nobuorb1 == "B15E_1") then
+		if target:IsBuilding() then
+			AMHC:Damage( caster,target,dmg*0.25,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		else
+			AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		end
 	end
 end
 
@@ -74,9 +76,10 @@ function B15E_attack2( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local level = ability:GetLevel() - 1
+	local owner = caster.owner
 	local dmg = keys.ability:GetLevelSpecialValueFor("damage_bonus2", keys.ability:GetLevel() - 1 )
 	local target = keys.target
-	if (caster.nobuorb1 == "B15E_1") then
+	if (owner.nobuorb1 == "B15E_1") then
 		AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 	end
 end
@@ -218,6 +221,7 @@ function B15T_create_illusion(keys, illusion_origin, illusion_incoming_damage, i
 	illusion:SetControllableByPlayer(player_id, true)
 	illusion.magical_resistance = caster.magical_resistance
 	illusion.illusion_damage = 0.3
+	illusion.owner = caster
 	--Level up the illusion to the caster's level.
 	local caster_level = keys.caster:GetLevel()
 	for i = 1, caster_level - 1 do
@@ -255,7 +259,6 @@ function B15T_create_illusion(keys, illusion_origin, illusion_incoming_damage, i
 		--分身不能用法球
 		--illusion.nobuorb1 = "illusion"
 	end
-	
 	-- modifier_illusion controls many illusion properties like +Green damage not adding to the unit damage, not being able to cast spells and the team-only blue particle 
 	illusion:AddNewModifier(keys.caster, keys.ability, "modifier_illusion", {duration = 10, outgoing_damage = -70, incoming_damage = 75})
 	
