@@ -29,7 +29,7 @@ end
 function C01W2( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	caster:EmitSound( "C01W.sound"..RandomInt(1, 3) )
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"C01W.sound"..RandomInt(1, 3),caster)
 	local level = ability:GetLevel()-1
 	local damage	= ability:GetLevelSpecialValueFor("C01W_DMG",level)
 	local caster = keys.caster
@@ -217,7 +217,7 @@ function C01T_Mitsuhide_Akechi_Effect( keys, point )
 
 	Timers:CreateTimer(0.45, function()
 		local dummy = CreateUnitByName( "npc_dummy", point, false, caster, caster, caster:GetTeamNumber() )
-		dummy:EmitSound( "C01T.sound" )
+		EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(),"C01T.sound",dummy)
 		Timers:CreateTimer( 0.5, function()
 						dummy:ForceKill( true )
 						return nil
@@ -309,7 +309,7 @@ end
 function C01W_old_action_on_target( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	caster:EmitSound( "C01W.sound"..RandomInt(1, 3) )
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"C01W.sound"..RandomInt(1, 3),caster)
 	local level = ability:GetLevel()-1
 	local damage	= ability:GetLevelSpecialValueFor("aoe_damage",level)
 	local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
@@ -371,6 +371,7 @@ function C01E_old_spell_start( keys )
 			}
 			-- 配合特效延遲傷害造成時間
 			Timers:CreateTimer(0.5, function()
+				EmitSoundOnLocationWithCaster(unit:GetAbsOrigin(),"Hero_Nevermore.ROS_Flames",unit)
 				ability:ApplyDataDrivenModifier(caster,unit,"modifier_C01E_old_debuff",{})
 				ApplyDamage(damage_table)
 			end)

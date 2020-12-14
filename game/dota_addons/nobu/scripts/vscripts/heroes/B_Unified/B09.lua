@@ -112,7 +112,7 @@ function B09E_OnSpellStart( keys )
 	local caster = keys.caster
 	local target = keys.target
 	caster.B09E_target = target
-	caster:EmitSound("static_attack_loop")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"static_attack_loop",caster)
 	local particle3 = ParticleManager:CreateParticle("particles/b09e/b09e.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControlEnt(particle3, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(particle3, 4, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)

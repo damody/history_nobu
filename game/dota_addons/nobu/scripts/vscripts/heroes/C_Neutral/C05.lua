@@ -36,14 +36,14 @@ function C05E_OnSpellStart( keys )
 		ProjectileManager:CreateTrackingProjectile( projectile_table )
 	end
 
-	EmitSoundOn("Hero_Zuus.ArcLightning.Cast",caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Zuus.ArcLightning.Cast",caster)
 end
 
 function C05E_OnProjectileHitUnit( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	EmitSoundOn("Hero_Zuus.ProjectileImpact",target)
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Zuus.ProjectileImpact",target)
 	-- 製造傷害
 	ApplyDamage({
 		victim = target,
@@ -67,7 +67,7 @@ function C05R_OnAttackLanded( keys )
 		ParticleManager:ReleaseParticleIndex(ifx)
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_C05R_debuff",{})
 
-		EmitSoundOn("Hero_Zuus.ArcLightning.Cast",target)
+		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Zuus.ArcLightning.Cast",target)
 	end
 end
 
@@ -111,7 +111,7 @@ function C05T_OnSpellStart( keys )
 			local ifx = ParticleManager:CreateParticle("particles/econ/items/zeus/arcana_chariot/zeus_arcana_blink_start.vpcf",PATTACH_ABSORIGIN,dummy)
 			ParticleManager:ReleaseParticleIndex(ifx)
 
-			EmitSoundOn("Hero_Zuus.GodsWrath.PreCast",dummy)
+			EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(),"Hero_Zuus.GodsWrath.PreCast",dummy)
 		end
 	end)
 end
@@ -190,7 +190,7 @@ function C05T_OnChannelSucceeded( keys )
 
 	caster:StartGestureWithPlaybackRate(ACT_DOTA_SPAWN,2.0)
 
-	EmitSoundOn("Hero_Zuus.GodsWrath",caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Zuus.GodsWrath",caster)
 end
 
 -- 11.2B
@@ -201,7 +201,7 @@ function C05E_old_OnProjectileHitUnit( keys )
 	local ability = keys.ability
 
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_C05E_old_debuff",{})
-	EmitSoundOn("Hero_Zuus.ProjectileImpact",target)
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Zuus.ProjectileImpact",target)
 	-- 製造傷害
 	ApplyDamage({
 		victim = target,
@@ -235,7 +235,7 @@ function C05R_old_OnSpellStart( keys )
 	ParticleManager:SetParticleControlEnt(ifx,1,target,PATTACH_POINT_FOLLOW,"attach_hitloc",target:GetAbsOrigin(),true)
 	ParticleManager:ReleaseParticleIndex(ifx)
 
-	EmitSoundOn("Hero_Zuus.GodsWrath",target)
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Zuus.GodsWrath",target)
 
 	ApplyDamage({
 		victim = target,
@@ -260,7 +260,7 @@ function C05T_old_OnAttackLanded( keys )
 		ParticleManager:SetParticleControl(ifx,2,target:GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(ifx)
 
-		EmitSoundOn("Hero_Zuus.ArcLightning.Cast",target)
+		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Zuus.ArcLightning.Cast",target)
 		if target:IsMagicImmune() then
 			ApplyDamage({
 				victim = target,
@@ -288,7 +288,7 @@ function C05T_old_OnIntervalThink( keys )
 	ParticleManager:SetParticleControlEnt(ifx,1,target,PATTACH_ABSORIGIN_FOLLOW,nil,target:GetAbsOrigin(),true)
 	ParticleManager:ReleaseParticleIndex(ifx)
 
-	EmitSoundOn("Hero_Zuus.ProjectileImpact",target)
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Zuus.ProjectileImpact",target)
 	local target = keys.target
 	local caster = target:FindModifierByName("modifier_C05T_old_debuff").caster
 	local ability = keys.ability

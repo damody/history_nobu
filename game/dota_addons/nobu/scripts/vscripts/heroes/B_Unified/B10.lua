@@ -390,7 +390,7 @@ function ExorcismPhysics( event )
 							unit.numberOfHits = unit.numberOfHits + 1 
 
 							-- Fire Sound on the target unit
-							unit.current_target:EmitSound("Hero_DeathProphet.Exorcism.Damage")
+							unit.EmitSoundOnLocationWithCaster(current_target:GetAbsOrigin(),"Hero_DeathProphet.Exorcism.Damage",current_target)
 							
 							-- Set to return
 							unit.state = "returning"
@@ -438,7 +438,7 @@ function ExorcismPhysics( event )
 					-- Heal is calculated as: a percentage of the units average attack damage multiplied by the amount of attacks the spirit did.
 					-- local heal_done =  unit.numberOfHits * average_damage* heal_percent
 					-- caster:Heal(heal_done, ability)
-					-- caster:EmitSound("Hero_DeathProphet.Exorcism.Heal")
+					-- EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_DeathProphet.Exorcism.Heal",caster)
 					--print("Healed ",heal_done)
 
 					unit:SetPhysicsVelocity(Vector(0,0,0))

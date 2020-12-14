@@ -18,7 +18,7 @@ function B07W_OnSpellStart( keys )
 	caster:StartGesture( ACT_DOTA_OVERRIDE_ABILITY_2 )
 	Timers:CreateTimer( 0.5, function()
 			if caster:IsChanneling() then
-				caster:EmitSound("starstorm_impact01")
+				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"starstorm_impact01",caster)
 				caster:StartGesture( ACT_DOTA_OVERRIDE_ABILITY_2 )
 				second = second + 1
 				local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考

@@ -10,7 +10,7 @@ function A08E_OnSpellStart( event )
 	local duration = ability:GetSpecialValueFor("stun")
 	local caster = event.caster
 	caster:Heal(caster:GetMaxHealth()*0.2,caster)	
-	caster:EmitSound( "Hero_Nevermore.ROS_Flames")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Nevermore.ROS_Flames",caster)
 	local ifx = ParticleManager:CreateParticle( "particles/c20r_real/c20r.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl( ifx, 0, caster:GetAbsOrigin())
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 550, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )

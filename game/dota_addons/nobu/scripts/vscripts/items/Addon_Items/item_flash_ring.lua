@@ -14,9 +14,9 @@ function item_blink_datadriven_on_spell_start(keys)
 	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=1})
 
 	ParticleManager:CreateParticle("particles/item/c05/c05.vpcf", PATTACH_ABSORIGIN, dummy)
-	--keys.caster:EmitSound("Greevil.Strike.Start")	
-	keys.caster:EmitSound("DOTA_Item.BlinkDagger.Activate")
-	--keys.caster:EmitSound("Hero_QueenOfPain.Pick")	
+	--keys.EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Greevil.Strike.Start",caster)	
+	keys.EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"DOTA_Item.BlinkDagger.Activate",caster)
+	--keys.EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_QueenOfPain.Pick",caster)	
 	local origin_point = keys.caster:GetAbsOrigin()
 	local target_point = keys.target_points[1]
 	local difference_vector = target_point - origin_point

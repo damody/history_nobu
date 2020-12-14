@@ -85,7 +85,7 @@ function Shock( keys )
 		ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = AbilityDamageType})
 	end
 	--【SOUND】
-	caster:EmitSound("ITEM_D09.sound")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"ITEM_D09.sound",caster)
 	Timers:CreateTimer(2,function()
 		caster:StopSound("ITEM_D09.sound")
 	end)
@@ -291,7 +291,7 @@ function item_raikiri( keys )
 
 			--【SOUND】
 			-- local dummy = CreateUnitByName( "npc_dummy", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber() )
-			-- caster:EmitSound("ITEM_D09.sound")
+			-- EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"ITEM_D09.sound",caster)
 			-- Timers:CreateTimer(2,function()
 			-- 	caster:StopSound("ITEM_D09.sound")
 				-- if IsValidEntity(dummy) then

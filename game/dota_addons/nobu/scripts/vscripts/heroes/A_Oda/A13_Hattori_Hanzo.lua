@@ -473,7 +473,7 @@ function A13E:OnVectorCastStart(vStartLocation, vDirection)
 		end)
 	--caster:AddNewModifier(caster, self, "a13e_modifier", { duration = 2}) 
 	caster:AddNewModifier(caster, self, "a13e_followthrough", { duration = 0.3 } )
-	caster:EmitSound("hook_throw")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"hook_throw",caster)
 	Timers:CreateTimer(1,function()
                 caster:StopSound("hook_throw")
             end)
@@ -877,7 +877,7 @@ function A13T_16( keys )
 				return 0.125
 			end
 		end)
-	caster:EmitSound( "C01W.sound"..RandomInt(1, 3) )
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"C01W.sound"..RandomInt(1, 3),caster)
 end
 
 
@@ -965,7 +965,7 @@ function A13T_old( keys )
 				return 0.125
 			end
 		end)
-	caster:EmitSound( "C01W.sound"..RandomInt(1, 3) )
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"C01W.sound"..RandomInt(1, 3),caster)
 end
 
 

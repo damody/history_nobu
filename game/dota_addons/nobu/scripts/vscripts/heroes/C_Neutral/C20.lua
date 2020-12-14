@@ -8,7 +8,7 @@ function C20W_OnTakeDamage( event )
 			local caster =ability:GetCaster()
 			if event.damage_flags ~= DOTA_DAMAGE_FLAG_REFLECTION then
 				if not caster.c20w_lock then
-					caster:EmitSound( "Hero_Nevermore.Raze_Flames")
+					EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Nevermore.Raze_Flames",caster)
 					caster.c20w_lock=true
 					local ifx = ParticleManager:CreateParticle( "particles/c20w_real/c20w2.vpcf", PATTACH_CUSTOMORIGIN, caster)
 					ParticleManager:SetParticleControl( ifx, 0, caster:GetAbsOrigin())
@@ -44,7 +44,7 @@ function C20R_OnSpellStart( event )
 	local damage = ability:GetSpecialValueFor("damage")
 	local duration = ability:GetSpecialValueFor("stun")
 	local caster = event.caster
-	caster:EmitSound( "Hero_Nevermore.ROS_Flames")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Nevermore.ROS_Flames",caster)
 	local ifx = ParticleManager:CreateParticle( "particles/c20r_real/c20r.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl( ifx, 0, caster:GetAbsOrigin())
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 550, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
@@ -107,7 +107,7 @@ function C20T_OnSpellStart( event )
 	local caster = event.caster
 	local duration = ability:GetSpecialValueFor("During")
 	caster:SetAttackCapability(DOTA_UNIT_CAP_RANGED_ATTACK)
-	caster:EmitSound( "Hero_Nevermore.ROS_Flames")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Nevermore.ROS_Flames",caster)
 	--local ifx = ParticleManager:CreateParticle( "particles/c20r_real/c20r.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	--ParticleManager:SetParticleControl( ifx, 0, caster:GetAbsOrigin())
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_C20T_model", {duration=duration})

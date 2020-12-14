@@ -43,7 +43,7 @@ function modifier_soul:OnTakeDamage(event)
         if damage_type == DAMAGE_TYPE_PHYSICAL and caster:GetHealth() < 5000 then
           if caster.big == nil then
             caster.big = 1
-            caster:EmitSound("berserkercaster")
+            EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"berserkercaster",caster)
             Timers:CreateTimer(30, function()
               caster.big = nil
             end)

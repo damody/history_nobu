@@ -257,7 +257,7 @@ function B02R_MOVE(keys)
 	}
 	ProjectileManager:CreateTrackingProjectile( info )	
 	-- Play the sound on Bristleback.
-	EmitSoundOn("Hero_BountyHunter.Shuriken.Impact", target)	
+	EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_BountyHunter.Shuriken.Impact", target)	
 end
 
 function B02T(keys)
@@ -304,8 +304,8 @@ function B02T(keys)
 				AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 			end
 			--【SOUND】
-			-- EmitSoundOn("Hero_Leshrac.Lightning_Storm", target)
-			-- EmitSoundOn("Hero_Leshrac.Lightning_Storm", caster)
+			-- EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_Leshrac.Lightning_Storm", target)
+			-- EmitSoundOnLocationWithCaster( caster:GetAbsOrigin(),"Hero_Leshrac.Lightning_Storm", caster)
 			--【MOVE】
 			tem_Deg = tem_Deg +RandomInt(25,75)
 			point2 = target:GetAbsOrigin()

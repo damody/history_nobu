@@ -44,7 +44,7 @@ end
 
 function C04E_sound_start( keys )
 	local caster = keys.caster
-	caster:EmitSound("ball_lightning_loop")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"ball_lightning_loop",caster)
 end
 function C04E_sound_end( keys )
 	local caster = keys.caster
@@ -140,7 +140,7 @@ function C04T( keys )
 	local ability = keys.ability
 	local point  = keys.caster:GetAbsOrigin()
 
-	caster:EmitSound("dsadowski_01.laning_02_layer_01")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"dsadowski_01.laning_02_layer_01",caster)
 	--se2
 	local particle = ParticleManager:CreateParticle("particles/c04/c04tshield.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
 	ParticleManager:SetParticleControl(particle,0,target:GetAbsOrigin()+Vector(0,0,220))

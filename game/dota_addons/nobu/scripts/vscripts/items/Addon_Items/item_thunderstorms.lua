@@ -75,7 +75,7 @@ function Shock( keys )
 					ParticleManager:SetParticleControl(ifx,0,unit:GetAbsOrigin())
 					ParticleManager:SetParticleControl(ifx,1,unit:GetAbsOrigin())
 					if count < 3 then
-						unit:EmitSound("lightningbolt")
+						EmitSoundOnLocationWithCaster(unit:GetAbsOrigin(),"lightningbolt",unit)
 					end
 				end
 			end

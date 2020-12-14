@@ -54,7 +54,7 @@ function Shock( keys )
 	local sumtime = 0
 	Timers:CreateTimer(0.2, function ()
 		if math.mod(count, 3) == 0 then
-			dummy:EmitSound("lightningbolt")
+			EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(),"lightningbolt",dummy)
 		end
 		count = count + 1
 		sumtime = sumtime + 0.2

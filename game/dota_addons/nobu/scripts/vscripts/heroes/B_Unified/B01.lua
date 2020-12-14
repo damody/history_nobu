@@ -410,7 +410,7 @@ end
 
 function C01W_sound( keys )
 	local caster = keys.caster
-	caster:EmitSound( "B01W.sound"..1)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"B01W.sound"..1,caster)
 end
 
 function B01W_lock( keys )

@@ -16,7 +16,7 @@ function Shock( keys )
 	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
 	for i=0,3 do
 		Timers:CreateTimer( i*2.5, function()
-				dummy:EmitSound( "war.sound1" )
+				EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(),"war.sound1",dummy)
 				local id1 = idx
 				Timers:CreateTimer(math.random(0, 5) * 0.1, function ()
 					chaos[id1] = ParticleManager:CreateParticle("particles/item/item_the_overflame_art_of_war.vpcf", PATTACH_ABSORIGIN, dummy)

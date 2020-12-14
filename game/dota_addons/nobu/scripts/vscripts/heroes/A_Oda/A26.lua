@@ -144,7 +144,7 @@ function A26D_OnSpellStart( keys )
 		CreateMine(ability, center+Vector(dx,dy,0), duration)
 	end
 
-	EmitSoundOn("Hero_Techies.StasisTrap.Plant",caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Techies.StasisTrap.Plant",caster)
 end
 
 function CreateMine( ability, position, duration )
@@ -220,7 +220,7 @@ function A26D_OnTrigger( keys )
 	ParticleManager:SetParticleControl(ifx,2,Vector(1,0,0))
 	ParticleManager:ReleaseParticleIndex(ifx)
 
-	EmitSoundOn("Hero_Techies.LandMine.Detonate",caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Techies.LandMine.Detonate",caster)
 	caster:RemoveModifierByName("modifier_A26D_mine_aura")
 	for _,unit in ipairs(units) do
 		unit:RemoveModifierByName("modifier_A26D_mine_trigger")
@@ -309,7 +309,7 @@ function A26T_small_bomb_OnHit( keys )
 	local ifx = ParticleManager:CreateParticle("particles/econ/courier/courier_snapjaw/courier_snapjaw_ambient_rocket_explosion.vpcf",PATTACH_ABSORIGIN,target)
 	ParticleManager:SetParticleControl(ifx,3,target:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(ifx)
-	EmitSoundOn("Hero_Techies.RemoteMine.Detonate",target)
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Techies.RemoteMine.Detonate",target)
 end
 function A26T_OnSpellStart( keys )
 	local caster = keys.caster
@@ -421,7 +421,7 @@ function A26T_OnProjectileHitUnit( keys )
 
 	-- ability.need_stun = false
 
-	EmitSoundOn("Hero_Techies.RemoteMine.Detonate",target)
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Techies.RemoteMine.Detonate",target)
 end
 
 -- 濃姬 11.2B
@@ -628,7 +628,7 @@ function A26T_old_OnProjectileHitUnit( keys )
 	ParticleManager:SetParticleControl(ifx,3,target:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(ifx)
 
-	EmitSoundOn("Hero_Techies.RemoteMine.Detonate",target)
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Techies.RemoteMine.Detonate",target)
 end
 
 function A26T_20_OnProjectileHitUnit( keys )
@@ -691,7 +691,7 @@ function A26T_20_OnProjectileHitUnit( keys )
 
 	ability.need_stun = false
 
-	EmitSoundOn("Hero_Techies.RemoteMine.Detonate",target)
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Techies.RemoteMine.Detonate",target)
 end
 
 function A26D_20_OnTrigger( keys )
@@ -734,7 +734,7 @@ function A26D_20_OnTrigger( keys )
 	ParticleManager:SetParticleControl(ifx,2,Vector(1,0,0))
 	ParticleManager:ReleaseParticleIndex(ifx)
 
-	EmitSoundOn("Hero_Techies.LandMine.Detonate",caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Techies.LandMine.Detonate",caster)
 	caster:RemoveModifierByName("modifier_A26D_mine_aura")
 	for _,unit in ipairs(units) do
 		unit:RemoveModifierByName("modifier_A26D_mine_trigger")

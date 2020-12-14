@@ -23,7 +23,7 @@ function Shock( keys )
         ability:EndCooldown()
         return false
     end
-    target:EmitSound("SleepBirth1")
+    EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"SleepBirth1",target)
 end
 
 function Shock_phase ( keys )
@@ -80,17 +80,17 @@ function sound( keys )
             end)
     end
     if unit then
-        unit:EmitSound(keys.sound)
+        EmitSoundOnLocationWithCaster(unit:GetAbsOrigin(),"keys.sound",unit)
     else
-        caster:EmitSound(keys.sound)
+        EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"keys.sound",caster)
     end
     if target then
-       target:EmitSound(keys.sound) 
+       EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"keys.sound",target) 
     end
     if keys.all then
         local allHeroes = HeroList:GetAllHeroes()
         for k, v in pairs( allHeroes ) do
-            v:EmitSound(keys.sound) 
+            EmitSoundOnLocationWithCaster(v:GetAbsOrigin(),"keys.sound",v) 
         end
     end
     if tpoint then
@@ -98,7 +98,7 @@ function sound( keys )
         dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=3})
         dummy:SetOwner(caster)
         dummy:AddAbility("majia"):SetLevel(1)
-        dummy:EmitSound(keys.sound)
+        EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(),"keys.sound",dummy)
     end
 end
 

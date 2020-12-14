@@ -92,7 +92,7 @@ function B30R_OnSpellStart( keys )
 	ProjectileManager:ProjectileDodge(keys.caster)
 	FindClearSpaceForUnit( caster , target:GetAbsOrigin() , true )
 	caster:AddNewModifier( caster, ability, "modifier_phased", { duration = 0.1 } )
-	EmitSoundOn("Hero_Clinkz.WindWalk",caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Clinkz.WindWalk",caster)
 	if target:GetTeamNumber() ~= caster:GetTeamNumber() then
 		if target:GetHealthPercent() < 60 then
 			local hpmpRegen = ability:GetSpecialValueFor("B30R_hpmpRegen")
@@ -142,7 +142,7 @@ function B30W_old_OnSpellStart( keys )
 	}
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_knockback",knockbackProperties)
 
-	EmitSoundOn("Hero_Clinkz.WindWalk",caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Clinkz.WindWalk",caster)
 end
 
 function B30R_old_OnSpellStart( keys )

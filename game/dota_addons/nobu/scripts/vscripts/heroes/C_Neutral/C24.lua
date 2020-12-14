@@ -255,7 +255,7 @@ function C24T_old_OnSpellStart( keys )
 			tar_pos.z = center_ori.z + i*10
 			target:SetAbsOrigin(tar_pos)
 			-- 失能動畫
-			caster:EmitSound( "C01W.sound"..RandomInt(1, 3))
+			EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"C01W.sound"..RandomInt(1, 3),caster)
 			StartAnimation(target, {
 				duration=hit_delay-0.1,
 				activity=ACT_DOTA_IDLE,
@@ -308,7 +308,7 @@ function C24T_old_OnSpellStart( keys )
 			TargetIndex = target:entindex(),
 			Queue = false
 		})
-		caster:EmitSound( "C24T.end")
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"C24T.end",caster)
 		target:SetAbsOrigin(center_ori)
 		ApplyDamage({
 			attacker=caster,

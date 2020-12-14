@@ -196,7 +196,7 @@ function A17T_Succes_Attack( keys )
    	local group = FindUnitsInRadius(caster:GetTeamNumber(), point2, nil, radius ,ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
    	local eff1 = ParticleManager:CreateParticle("particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_calldown_explosion_flash_c.vpcf", PATTACH_ABSORIGIN, keys.caster)
 	ParticleManager:SetParticleControl(eff1, 3, point2)
-	target:EmitSound("A17T.sound1")
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"A17T.sound1",target)
 	for i,v in ipairs(group) do
 		if v:IsHero() then
 			ParticleManager:CreateParticle("particles/shake1.vpcf", PATTACH_ABSORIGIN, v)
@@ -220,7 +220,7 @@ function A17T_Succes_Attack_old( keys )
    	local group = FindUnitsInRadius(caster:GetTeamNumber(), point2, nil, radius ,ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false)
    	local eff1 = ParticleManager:CreateParticle("particles/econ/items/gyrocopter/hero_gyrocopter_gyrotechnics/gyro_calldown_explosion_flash_c.vpcf", PATTACH_ABSORIGIN, keys.caster)
 	ParticleManager:SetParticleControl(eff1, 3, point2)
-	target:EmitSound("A17T.sound1")
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"A17T.sound1",target)
 	for i,v in ipairs(group) do
 		if v:IsHero() then
 			ParticleManager:CreateParticle("particles/shake1.vpcf", PATTACH_ABSORIGIN, v)

@@ -149,7 +149,7 @@ function B34E( keys )
 			--modifier
 			ability:ApplyDataDrivenModifier(caster,dummy,"modifier_B34E_2",nil)
 			--sound
-			dummy:EmitSound("Hero_Alchemist.Attack")
+			EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(),"Hero_Alchemist.Attack",dummy)
 
 			particle = ParticleManager:CreateParticle("particles/b34e/b34e2.vpcf",PATTACH_POINT,dummy)
 			ParticleManager:SetParticleControl(particle,0,Vector(x2,y2))
@@ -167,7 +167,7 @@ function B34E( keys )
 		--modifier
 		ability:ApplyDataDrivenModifier(caster,dummy,"modifier_B34E_2",nil)
 		--sound
-		dummy:EmitSound("Hero_Alchemist.Attack")
+		EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(),"Hero_Alchemist.Attack",dummy)
 
 		particle = ParticleManager:CreateParticle("particles/b34e/b34e2.vpcf",PATTACH_POINT,dummy)
 		ParticleManager:SetParticleControl(particle,0,Vector(x3,y3))

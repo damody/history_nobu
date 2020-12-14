@@ -51,7 +51,7 @@ function Shock( keys )
 	
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_muted", {})
 	target.has_D09 = true
-	-- target:EmitSound("Hero_ShadowShaman.EtherShock.Target")
+	-- EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_ShadowShaman.EtherShock.Target",target)
 
 	--【Varible Of Tem】
 	--local tem_point = nil
@@ -92,8 +92,8 @@ function Shock( keys )
 	--【DMG】
 	ApplyDamage({ victim = target, attacker = caster, damage = damage, damage_type = AbilityDamageType})
 	--【SOUND】
-	caster:EmitSound("ITEM_D09.sound")
-	--target:EmitSound("ITEM_D09.sound")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"ITEM_D09.sound",caster)
+	--EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"ITEM_D09.sound",target)
 	Timers:CreateTimer(2,function()
 		caster:StopSound("ITEM_D09.sound")
 		--target:StopSound("ITEM_D09.sound")

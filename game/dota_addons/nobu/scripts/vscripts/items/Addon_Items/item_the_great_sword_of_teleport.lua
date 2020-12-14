@@ -6,7 +6,7 @@ function Shock( keys )
 	caster:SetAbsOrigin(target:GetAbsOrigin())
 	caster:AddNewModifier(caster,ability,"modifier_phased",{duration=0.1})
 	Timers:CreateTimer(0.2, function()
-		caster:EmitSound("MassTeleportTarget")
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"MassTeleportTarget",caster)
 		local particle = ParticleManager:CreateParticle("particles/a04e/a04e_f.vpcf", PATTACH_ABSORIGIN, target)
 		ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin()+Vector(0, 0, 100))
 		local particle2 = ParticleManager:CreateParticle("particles/a04e/a04e_f.vpcf", PATTACH_ABSORIGIN, caster)
@@ -26,7 +26,7 @@ function Shock0( keys )
 		caster:Stop()
 		return 
 	end
-	caster:EmitSound("MassTeleportTarget")
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"MassTeleportTarget",caster)
 	local count = 0
 	Timers:CreateTimer(1, function()
 		local particle = ParticleManager:CreateParticle("particles/a04e/a04e_f.vpcf", PATTACH_ABSORIGIN, target)

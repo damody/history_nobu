@@ -116,7 +116,7 @@ end
 function is_spell_blocked(target)
 	if target:HasModifier("modifier_item_sphere_target") then
 		target:RemoveModifierByName("modifier_item_sphere_target")  --The particle effect is played automatically when this modifier is removed (but the sound isn't).
-		target:EmitSound("DOTA_Item.LinkensSphere.Activate")
+		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"DOTA_Item.LinkensSphere.Activate",target)
 		return true
 	end
 	return false

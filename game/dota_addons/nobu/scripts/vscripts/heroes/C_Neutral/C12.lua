@@ -32,7 +32,7 @@ function C12W_OnProjectileHitUnit( keys )
 	if target.C12D_count then
 		AMHC:Damage(caster,target,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ))
 	end
-	target:EmitSound("A17T.sound1")
+	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"A17T.sound1",target)
 end
 
 function C12W_OnSpellStart( keys )
@@ -103,7 +103,7 @@ function C12E_OnSpellStart(keys)
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=5})
 	local ifx = ParticleManager:CreateParticle("particles/items_fx/blink_dagger_start.vpcf", PATTACH_ABSORIGIN, dummy)
 	ParticleManager:ReleaseParticleIndex(ifx)
-	EmitSoundOn("DOTA_Item.BlinkDagger.Activate", dummy)
+	EmitSoundOnLocationWithCaster( dummy:GetAbsOrigin(),"DOTA_Item.BlinkDagger.Activate", dummy)
 	
 	local origin_point = keys.caster:GetAbsOrigin()
 	local target_point = caster:GetAbsOrigin() + caster:GetForwardVector()*600
@@ -246,7 +246,7 @@ function C12T_OnSpellStart( keys )
 		ProjectileManager:CreateLinearProjectile(projectileTable)
 		projectileTable.vVelocity = vec4 * 2000
 		ProjectileManager:CreateLinearProjectile(projectileTable)
-		caster:EmitSound("art_barrage_fire")
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"art_barrage_fire",caster)
 		if count < 5 and caster:IsAlive() then
 			count = count + 1
 			return 0.2
@@ -258,7 +258,7 @@ function C12T_OnSpellStart( keys )
 		projectileTable.vVelocity = vec * 2000
 		ProjectileManager:CreateLinearProjectile(projectileTable)
 		ProjectileManager:CreateLinearProjectile(projectileTable)
-		caster:EmitSound("art_barrage_fire")
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"art_barrage_fire",caster)
 		if count < 29 and caster:IsAlive() then
 			count = count + 1
 			return 0.33

@@ -99,7 +99,7 @@ function B08D_old( keys )
 			ProjectileManager:CreateLinearProjectile(projectileTable)
 			end)
 
-		--dummy:EmitSound("Creep_Siege_Dire.Destruction") 
+		--EmitSoundOnLocationWithCaster(dummy:GetAbsOrigin(),"Creep_Siege_Dire.Destruction",dummy) 
 	end
 	Timers:CreateTimer(1.9, function()
 			caster:SetAbsOrigin(endLocation)
@@ -239,7 +239,7 @@ end
 function EndB08R_SEParticle( event )
 	local target = event.target
 	if target.ShieldParticle and target.ShieldParticle1 and target.ShieldParticle2 then
-		target:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
+		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Abaddon.AphoticShield.Destroy",target)
 		ParticleManager:DestroyParticle(target.ShieldParticle,false)
 		ParticleManager:DestroyParticle(target.ShieldParticle1,false)
 		ParticleManager:DestroyParticle(target.ShieldParticle2,false)

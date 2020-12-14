@@ -34,7 +34,7 @@ function B21W_OnSpellStart( keys )
 		iVisionTeamNumber	= caster:GetTeamNumber(),
 	})
 
-	EmitSoundOn("Hero_DragonKnight.BreathFire",caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_DragonKnight.BreathFire",caster)
 
 	-- 儲存投射物方向給命中特效使用
 	ability.dir = dir
@@ -89,7 +89,7 @@ function B21E_OnSpellStart( keys )
 		end
 	end
 
-	EmitSoundOn("Hero_ChaosKnight.ChaosStrike",caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_ChaosKnight.ChaosStrike",caster)
 end
 
 LinkLuaModifier("modifier_b21r_lua","heroes/B_Unified/B21.lua",LUA_MODIFIER_MOTION_NONE)
@@ -251,7 +251,7 @@ function B21W_old_OnSpellStart( keys )
 		Timers:CreateTimer(fire_delay*i,function()
 			if caster:IsChanneling() then
 				ProjectileManager:CreateLinearProjectile(projectile_table)
-				EmitSoundOn("Hero_DragonKnight.BreathFire",caster)
+				EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_DragonKnight.BreathFire",caster)
 			end
 		end)
 	end
@@ -301,7 +301,7 @@ function B21E_old_OnSpellStart( keys )
 		Queue = false
 	})
 
-	EmitSoundOn("Hero_ChaosKnight.ChaosStrike",caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_ChaosKnight.ChaosStrike",caster)
 end
 
 function B21R_old_buff_OnCreated( keys )
