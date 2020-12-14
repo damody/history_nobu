@@ -197,6 +197,7 @@ end
 
 function A25R( keys )
 	local caster = keys.caster
+	local target = keys.target
 	local skill = keys.ability
 	local ran =  RandomInt(0, 100)
 	caster:RemoveModifierByName("A25R_critical")
@@ -227,6 +228,9 @@ function A25R( keys )
 
 			if (hModifier ~= nil) then
 				hModifier.A25R_level = keys.ability:GetLevel()
+				if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * ((hModifier.A25R_level*50 +150) / 100) then
+					caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * ((hModifier.A25R_level*50 +150) / 100)
+				end
 			end
 		end
 	end

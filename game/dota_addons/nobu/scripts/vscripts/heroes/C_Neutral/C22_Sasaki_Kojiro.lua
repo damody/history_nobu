@@ -95,6 +95,7 @@ end
 function C22R( keys )
 	local caster = keys.caster
 	local skill = keys.ability
+	local target = keys.target
 	local id  = caster:GetPlayerID()
 	local ran =  RandomInt(0, 100)
 	local crit_percent = 25
@@ -113,6 +114,9 @@ function C22R( keys )
 				local hModifier = caster:FindModifierByNameAndCaster("C22R_critical", caster)
 				if (hModifier ~= nil) then
 					hModifier.C22R_level = caster.C22R_level
+					if caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * ((hModifier.C22R_level*50 +100) / 100) then
+						caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * ((hModifier.C22R_level*50 +100) / 100)
+					end
 				end
 			end
 		end

@@ -232,8 +232,14 @@ function B11T_OnAttackStart( keys )
 		caster.B11T_count = 0
 		local rate = 1/caster:GetAttacksPerSecond()
 		if caster:HasModifier("modifier_B11T_Enable") then
+			if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * (ability:GetLevelSpecialValueFor("active_criticalstrike",ability:GetLevel() - 1) / 100) then
+				caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * (ability:GetLevelSpecialValueFor("active_criticalstrike",ability:GetLevel() - 1) / 100)
+			end
 			ability:ApplyDataDrivenModifier(caster,caster,"modifier_B11T_Crit3",{duration = rate})
 		else
+			if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * (ability:GetLevelSpecialValueFor("passiv_criticalstrike",ability:GetLevel() - 1) / 100) then
+				caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * (ability:GetLevelSpecialValueFor("passiv_criticalstrike",ability:GetLevel() - 1) / 100)
+			end
 			ability:ApplyDataDrivenModifier(caster,caster,"modifier_B11T_Crit2",{duration = rate})
 		end
 		if rate < 1 then

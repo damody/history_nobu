@@ -320,6 +320,9 @@ function C21R( keys )
 
 			if (hModifier ~= nil) then
 				hModifier.C21R_level = keys.ability:GetLevel()
+				if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * ((hModifier.C21R_level*20 + 130) / 100) then
+					caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * ((hModifier.C21R_level*20 + 130) / 100)
+				end
 			end
 		end
 	end

@@ -27,6 +27,7 @@ end
 function Shock( keys )
     local caster = keys.caster
     local skill = keys.ability
+    local target = keys.target
     local ran =  RandomInt(0, 100)
 
     if (caster.big_tachi_count == nil) then
@@ -38,6 +39,9 @@ function Shock( keys )
     caster:RemoveModifierByName("item_big_tachi_critical_strike_crit")
     if (caster.big_tachi_count >= 5 or ran <= 20) then
         caster.big_tachi_count = 0
+        if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * 1.85 then
+            caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * 1.85
+        end
         skill:ApplyDataDrivenModifier(caster, caster, "item_big_tachi_critical_strike_crit", {} )
     end
 end
