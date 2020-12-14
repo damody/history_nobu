@@ -57,7 +57,6 @@ function A32W_stunAndDamage( keys )
 	local particle = ParticleManager:CreateParticle("particles/econ/items/sand_king/sandking_barren_crown/sandking_rubyspire_cracks.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
-	print(lv)
 	local targets = FindUnitsInRadius(caster:GetTeamNumber(),	
 				caster:GetAbsOrigin(),nil,radius,DOTA_UNIT_TARGET_TEAM_ENEMY, 
 		   		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
@@ -70,7 +69,6 @@ function A32W_stunAndDamage( keys )
 					end
 				end
 	local count=0
-	print(ability:GetAbilityName())
 	--對所有範圍內的敵人執行動作
 	for i,unit in pairs(targets) do
 		--對目標傷害
