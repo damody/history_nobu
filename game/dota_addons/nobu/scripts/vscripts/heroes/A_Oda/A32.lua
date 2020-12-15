@@ -354,9 +354,23 @@ function A32F_OnAttackLanded( event )
 	local caster = event.caster
 	local dmg = caster:GetAverageTrueAttackDamage(target)
 	local health = target:GetHealth()
+	local rate = 1
+	if caster:HasAbility("A32R") then
+		local A32Rlv = caster:FindAbilityByName("A32R"):GetLevel()
+		if A32Rlv == 1 then
+			rate = 2
+		elseif A32Rlv == 2 then
+			rate = 2.3
+		elseif A32Rlv == 3 then
+			rate = 2.6
+		elseif A32Rlv == 4 then
+			rate = 2.9
+		end
+	end
 	if caster.next_attack ~= nil then
+		PrintTable(caster.next_attack)
 		if not target:IsBuilding() then
-			AMHC:Damage(caster,target,dmg,AMHC:DamageType("DAMAGE_TYPE_MAGICAL"))
+				AMHC:Damage(caster,target,dmg,AMHC:DamageType("DAMAGE_TYPE_MAGICAL"))
 		else
 			AMHC:Damage(caster,target,dmg*0.5,AMHC:DamageType("DAMAGE_TYPE_MAGICAL"))
 		end

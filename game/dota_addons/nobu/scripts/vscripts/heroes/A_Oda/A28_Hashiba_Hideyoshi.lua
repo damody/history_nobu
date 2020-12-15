@@ -317,8 +317,13 @@ function A28T(keys)
  	--phoenix:SetPlayerID(player)
 	phoenix:SetControllableByPlayer(player, true)
 	phoenix:AddNewModifier(phoenix,ability,"modifier_phased",{duration=0.1})
-	phoenix:SetBaseMaxHealth(2000+level*1000)
-	phoenix:SetHealth(phoenix:GetMaxHealth())
+	
+	if caster.great_sword_of_disease then
+		phoenix:SetBaseMaxHealth((2000+level*1000) * 1.5)
+	else
+		phoenix:SetBaseMaxHealth(2000+level*1000)
+	end
+	phoenix:SetHealth(phoenix:GetMaxHealth()) 
 	phoenix:SetBaseDamageMax(250+level*100)
 	phoenix:SetBaseDamageMin(200+level*110)
  	ability:ApplyDataDrivenModifier(phoenix,phoenix,"modifier_A28T",{duration = 60})
