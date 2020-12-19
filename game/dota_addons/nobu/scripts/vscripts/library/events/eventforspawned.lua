@@ -37,6 +37,7 @@ function Nobu:OnHeroIngame( keys )
     Timers:CreateTimer ( 0.2, function ()
       if hero ~= nil and IsValidEntity(hero) and not hero:IsIllusion() and caster:GetTeamNumber() < 4 then
         if hero.init1 == nil then
+          --[[
           local donkey = CreateUnitByName("npc_dota_courier2", caster:GetAbsOrigin()+Vector(100, 100, 0), true, caster, caster, caster:GetTeam())
           donkey:SetOwner(caster)
           donkey:SetControllableByPlayer(caster:GetPlayerID(), true)
@@ -53,7 +54,7 @@ function Nobu:OnHeroIngame( keys )
           if hero.donkey == nil then
             hero.donkey = donkey
           end
-        
+        ]]
 
           
           hero.init1 = true
