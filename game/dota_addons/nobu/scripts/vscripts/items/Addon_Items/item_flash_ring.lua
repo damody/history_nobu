@@ -15,7 +15,7 @@ function item_blink_datadriven_on_spell_start(keys)
 
 	ParticleManager:CreateParticle("particles/item/c05/c05.vpcf", PATTACH_ABSORIGIN, dummy)
 	--keys.EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Greevil.Strike.Start",caster)	
-	keys.EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"DOTA_Item.BlinkDagger.Activate",caster)
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"DOTA_Item.BlinkDagger.Activate",caster)
 	--keys.EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_QueenOfPain.Pick",caster)	
 	local origin_point = keys.caster:GetAbsOrigin()
 	local target_point = keys.target_points[1]

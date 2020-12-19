@@ -190,6 +190,7 @@ function B30T_old_OnSpellStart( keys )
 		end)
 
 	end
+	ability:ApplyDataDrivenModifier(caster, caster , "modifier_B30T" , {})
 end
 
 function B30T_OnProjectileHitUnit( keys )
