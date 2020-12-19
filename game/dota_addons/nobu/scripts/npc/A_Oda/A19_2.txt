@@ -19,17 +19,17 @@
 		"Ability2"	"A19E"
 		"Ability3"	"A19R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"A19T"
-		"Ability6"	"A19_precache"
+		"Ability5"	"A19_precache"
+		"Ability6"	"A19T"
 		"Ability7"	""
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"0"
+		"ArmorPhysical"	"3"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"	"77.0"
+		"AttackDamageMin"	"88.0"
 		"AttackDamageMax"	"88.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.80"

@@ -398,7 +398,7 @@ function A04W_move ( keys )
 	if dif > 1000 then
 		-- ability:ApplyDataDrivenModifier(caster,caster,"modifier_A04W_inmoveable",{})
 		caster.inmoveable = 1
-		caster:MoveToNPC(owner)	
+		caster:MoveToNPC(owner)
 	end
 	-- if caster:HasModifier("modifier_A04W_inmoveable") then
 	-- 	print("yes")
@@ -408,7 +408,6 @@ function A04W_move ( keys )
 		caster.inmoveable = nil
 		-- caster:RemoveModifierByName("modifier_A04W_inmoveable")
 	end
-
 			-- caster:SetAbsOrigin(point)
 		-- caster:AddNewModifier(caster,ability,"modifier_phased",{duration=0.1})
 

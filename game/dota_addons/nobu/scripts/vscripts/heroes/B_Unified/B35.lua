@@ -85,7 +85,7 @@ function B35R_OnAttacked( keys )
 		caster.B35R_trigger = true
 	end
 	if not caster:IsIllusion() then
-		local target = keys.target or keys.attacker
+		local target = keys.attacker
 		local skill = keys.ability
 		local ran =  RandomInt(0, 100)
 		local dmg = keys.dmg
@@ -155,7 +155,7 @@ function B35R_OnAttacked2( keys )
 		caster.B35R_trigger = true
 	end
 	if not caster:IsIllusion() then
-		local target = keys.target or keys.attacker
+		local target = keys.attacker
 		local skill = keys.ability
 		local ran =  RandomInt(0, 100)
 		local dmg = keys.dmg

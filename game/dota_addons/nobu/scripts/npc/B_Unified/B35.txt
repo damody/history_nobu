@@ -212,7 +212,7 @@
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%atk"
 				}
-				"OnAttacked"
+				"OnAttackLanded"
 				{
 					"RunScript"
 					{

@@ -517,7 +517,7 @@ function modifier_tower_armor:GetModifierIncomingDamage_Percentage( keys )
   elseif keys.attacker:GetUnitName() == "B19T_old" then
     return -85
   elseif keys.attacker:GetName() == "npc_dota_creature" then
-    return 0
+    return -50
   else
     return -25
   end

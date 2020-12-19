@@ -38,7 +38,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
-		"AbilityCooldown"				"18"
+		"AbilityCooldown"				"18 16 14 12"
 		"AbilityManaCost"				"120 140 160 180"
 		"AbilityDamage"					"200 300 400 500"
 		"AnimationPlaybackRate"	"3"
@@ -51,7 +51,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"illusion_duration"	"8"
+				"illusion_duration"	"4"
 			}
 			"02"
 			{
