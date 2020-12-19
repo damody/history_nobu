@@ -706,6 +706,7 @@ function warrior_souls_OnAttackLanded(keys)
 end
 
 function afk_gogo(keys)
+	--[[
 	for _,hero in ipairs(HeroList:GetAllHeroes()) do
 		local id = hero:GetPlayerID()
 		local team = PlayerResource:GetTeam(id)
@@ -758,6 +759,7 @@ function afk_gogo(keys)
 
 		end
 	end
+	]]
 end
 
 

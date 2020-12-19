@@ -26,6 +26,7 @@ end
 
 function Shock( keys )
 	local caster = keys.caster
+	local target = keys.target
 	local skill = keys.ability
 	local ran =  RandomInt(0, 100)
 	--caster:RemoveModifierByName("kousetsusamonnji")
@@ -40,6 +41,9 @@ function Shock( keys )
 		caster.kousetsusamonnji_count = 0
 		-- StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
 		-- local rate = caster:GetAttackSpeed()
+		if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * 2.2 then
+			caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * 2.2
+		end
 		skill:ApplyDataDrivenModifier(caster, caster, "item_kousetsusamonnji_critical_strike_crit", {} )
 		--SE
 		-- local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf", PATTACH_POINT, keys.target)

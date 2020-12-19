@@ -1,6 +1,7 @@
 local function loadModule(name)
     local status, err = pcall(function()
         -- Load the module
+        print('loadModule: '..name)
         require(name)
     end)
 

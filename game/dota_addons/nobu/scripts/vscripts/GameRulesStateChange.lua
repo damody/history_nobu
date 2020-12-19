@@ -133,28 +133,6 @@ function SendHTTPRequestGetPlayers(path, method, values, callback)
 	end)
 end
 
--- 測試模式送裝
-function for_test_equiment()
-  Timers:CreateTimer ( 1, function ()
-		for ii=0,9 do
-			local test_ent = PlayerResource:GetPlayer(ii):GetAssignedHero()
-			if (test_ent == nil) then
-			  return 1
-			end
-			local item_point = test_ent:GetAbsOrigin()
-			Test_ITEM ={
-			  "item_flash_ring"
-			}
-			for i,v in ipairs(Test_ITEM) do
-			  local item = CreateItem(v,nil, nil)
-			  print(v)
-			  CreateItemOnPositionSync(item_point+Vector(i*100,0), item)
-			end
-			return nil
-		end
-      end)
-end
-
 --[[
 [Nobu-lua] GameRules State Changed: 	DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP
 think:
@@ -642,47 +620,6 @@ function Nobu:OnGameRulesStateChange( keys )
 			_G.war_magic_mana = 0
 		end)
     local start = 0
-    --[[]
-    for playerID = 0, 9 do
-		local id       = playerID
-  		local p        = PlayerResource:GetPlayer(id)
-  		local steamid = PlayerResource:GetSteamAccountID(id)
-  		if tostring(steamid) == "19350721" then
-  			Timers:CreateTimer(start, function()
-	  			CustomUI:DynamicHud_Create(-1,"mainWin1","file://{resources}/layout/custom_game/game_info_dowdow.xml",nil)
-				Timers:CreateTimer(6, function()
-					CustomUI:DynamicHud_Destroy(-1,"mainWin1")
-			        end)
-				end)
-  			start = start + 7
-  		elseif tostring(steamid) == "55017646" then
-  			Timers:CreateTimer(start, function()
-	  			CustomUI:DynamicHud_Create(-1,"mainWin2","file://{resources}/layout/custom_game/game_info_night.xml",nil)
-				Timers:CreateTimer(6, function()
-					CustomUI:DynamicHud_Destroy(-1,"mainWin2")
-			        end)
-				end)
-  			start = start + 7
-  		elseif tostring(steamid) == "423877076" then
-  			Timers:CreateTimer(start, function()
-	  			CustomUI:DynamicHud_Create(-1,"mainWin3","file://{resources}/layout/custom_game/game_info_father.xml",nil)
-				Timers:CreateTimer(6, function()
-					CustomUI:DynamicHud_Destroy(-1,"mainWin3")
-			        end)
-				end)
-  			start = start + 7
-  		elseif tostring(steamid) == "128732954" then
-  			Timers:CreateTimer(start, function()
-	  			CustomUI:DynamicHud_Create(-1,"mainWin4","file://{resources}/layout/custom_game/game_info.xml",nil)
-				Timers:CreateTimer(6, function()
-					CustomUI:DynamicHud_Destroy(-1,"mainWin4")
-			        end)
-				end)
-  			start = start + 7
-  		
-  		end
-	  end
-	  ]]
 
 	elseif(newState == DOTA_GAMERULES_STATE_POST_GAME) then
 	if _G.nobu_server_b then

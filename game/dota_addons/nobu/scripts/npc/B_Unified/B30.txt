@@ -335,6 +335,16 @@
 					}
 				}
 			}
+			
+			"modifier_B30T"
+			{
+				"IsHidden"			"0"
+				"Duration"			"0.15"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 
 		"AbilitySpecial"

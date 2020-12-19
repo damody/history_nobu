@@ -80,6 +80,7 @@ end
 
 function A07R_old( keys )
 	local caster = keys.caster
+	local target = keys.target
 	local skill = keys.ability
 	local ability = keys.ability
 	local ran =  RandomInt(0, 100)
@@ -111,6 +112,9 @@ function A07R_old( keys )
 
 			if (hModifier ~= nil) then
 				hModifier.A07R_level = ability:GetLevelSpecialValueFor("crit_persent",ability:GetLevel() - 1) 
+				if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * (hModifier.A07R_level / 100) then 
+					caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * (hModifier.A07R_level / 100)
+				end
 			end
 		end
 	end

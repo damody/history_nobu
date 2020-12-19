@@ -451,6 +451,9 @@ function C01R_old_on_attack_start( keys )
 
 			if (hModifier ~= nil) then
 				hModifier.C01R_crit = damage_bonus
+				if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * (hModifier.C01R_crit / 100) then
+					caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * (hModifier.C01R_crit / 100)
+				end
 			end
 		end
 	end
