@@ -145,7 +145,7 @@ function B14D_old_End( keys )
 			ParticleManager:SetParticleControl( fxIndex, 0, caster:GetAbsOrigin() )
 			ParticleManager:SetParticleControl( fxIndex, 1, target:GetAbsOrigin() )
 			
-			StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", target )
+			EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_NyxAssassin.Vendetta.Crit", target)
 			PopupCriticalDamage(target, abilityDamage)
 			AMHC:Damage( caster, target, abilityDamage, AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 		end	

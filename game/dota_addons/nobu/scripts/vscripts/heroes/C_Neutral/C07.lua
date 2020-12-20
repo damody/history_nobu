@@ -227,8 +227,8 @@ function C07T_Effect( keys )
 	local dmg = ability:GetSpecialValueFor("abilityDamage")
 	if target ~= nil and target:FindModifierByName("modifier_C07E3") then
 		point2 = target:GetAbsOrigin()
-		StartSoundEvent( "Hero_Leshrac.Lightning_Storm", dummy )
-		StartSoundEvent( "Hero_Leshrac.Lightning_Storm", target )
+		EmitSoundOnLocationWithCaster( dummy:GetAbsOrigin(),"Hero_Leshrac.Lightning_Storm", dummy)
+		EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_Leshrac.Lightning_Storm", target)
 		local particle = ParticleManager:CreateParticle("particles/b05e/b05e.vpcf", PATTACH_ABSORIGIN , target)
 		-- Raise 1000 if you increase the camera height above 1000
 		ParticleManager:SetParticleControl(particle, 0, point + Vector(0,0,height))
@@ -300,8 +300,8 @@ function C07_Effect( keys )
 	if dis<radius and caster.C07E_target ~= nil then
 		local v = caster.C07E_target
 		ii = 1
-		StartSoundEvent( "Hero_Leshrac.Lightning_Storm", dummy )
-		StartSoundEvent( "Hero_Leshrac.Lightning_Storm", v )
+		EmitSoundOnLocationWithCaster( dummy:GetAbsOrigin(),"Hero_Leshrac.Lightning_Storm", dummy)
+		EmitSoundOnLocationWithCaster( v:GetAbsOrigin(),"Hero_Leshrac.Lightning_Storm", v)
 
 		point2 = v:GetAbsOrigin()
 		local particle = ParticleManager:CreateParticle("particles/b05e/b05e.vpcf", PATTACH_ABSORIGIN , v)
@@ -346,8 +346,8 @@ function C07_Effect( keys )
 		if ii == 0 then
 			if dummyx:CanEntityBeSeenByMyTeam(v) and not v:HasModifier("modifier_majia") and not string.match(v:GetUnitName(),"dummy") then
 				ii = 1
-				StartSoundEvent( "Hero_Leshrac.Lightning_Storm", dummy )
-				StartSoundEvent( "Hero_Leshrac.Lightning_Storm", v )
+				EmitSoundOnLocationWithCaster( dummy:GetAbsOrigin(),"Hero_Leshrac.Lightning_Storm", dummy)
+				EmitSoundOnLocationWithCaster( v:GetAbsOrigin(),"Hero_Leshrac.Lightning_Storm", v)
 
 				point2 = v:GetAbsOrigin()
 				local particle = ParticleManager:CreateParticle("particles/b05e/b05e.vpcf", PATTACH_ABSORIGIN , v)
@@ -439,7 +439,7 @@ function C07W_DMG(keys)
 	local radius = ability:GetLevelSpecialValueFor("radius",ability:GetLevel() - 1)
 	--print(dmg)
 	--print(dummy:GetUnitName())
-	StartSoundEvent( "Hero_StormSpirit.Attack", dummy )
+	EmitSoundOnLocationWithCaster( dummy:GetAbsOrigin(),"Hero_StormSpirit.Attack", dummy)
 	local group = {}
    	group = FindUnitsInRadius(dummy:GetTeamNumber(), point, nil, radius ,ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_CLOSEST, false)
 	for i,v in ipairs(group) do

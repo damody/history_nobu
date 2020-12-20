@@ -39,7 +39,7 @@ function Shock( keys )
 	caster:RemoveModifierByName("item_the_great_sword_of_precision_critical_strike_crit")
 	if (caster.great_sword_of_precision_count >= 4 or ran <= 25) then
 		caster.great_sword_of_precision_count = 0
-		-- StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+		-- EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 		-- local rate = caster:GetAttackSpeed()
 		if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * 3 then
 			caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * 3

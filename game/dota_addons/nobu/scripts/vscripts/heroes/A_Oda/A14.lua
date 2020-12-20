@@ -32,7 +32,7 @@ function A14W_OnSpellStart( event )
 		--print(cur_target_vec2)
 		--print(cur_target_vec2==cur_target_vec)
 		if not (cur_target_vec==cur_target_vec2) then
-			StartSoundEvent( "A07T.attack", target )
+			EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"A07T.attack", target)
 				target:RemoveModifierByName("modifier_stunned")
 				Physics:Unit(target)
 				target:SetPhysicsVelocity(Vector(0,0,0))
@@ -71,7 +71,7 @@ function A14W_OnSpellStart( event )
 		false)
 		for _,unit in ipairs(units) do
 			if (unit~=target and CalcDistanceBetweenEntityOBB(unit,target)<=100)or timecounter==80 or target:GetPhysicsVelocity():Length()<100 then
-				StartSoundEvent( "A07T.attack", target )
+				EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"A07T.attack", target)
 				target:RemoveModifierByName("modifier_stunned")
 				Physics:Unit(target)
 				target:SetPhysicsVelocity(Vector(0,0,0))

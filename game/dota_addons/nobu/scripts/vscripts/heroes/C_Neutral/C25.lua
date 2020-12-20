@@ -95,7 +95,7 @@ function C25T_OnSpellStart( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", target )
+	EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_NyxAssassin.Vendetta.Crit", target)
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_C25T_bleeding",{duration = 12})
 	--ability:ApplyDataDrivenModifier(caster,target,"modifier_C25T_slience",{})
 	local fxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta.vpcf", PATTACH_CUSTOMORIGIN, caster )
@@ -125,7 +125,7 @@ function modifier_C25T_bleeding_OnIntervalThink( keys )
 	local fxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta.vpcf", PATTACH_CUSTOMORIGIN, caster )
 	ParticleManager:SetParticleControl( fxIndex, 0, target:GetAbsOrigin() )
 	ParticleManager:SetParticleControl( fxIndex, 1, target:GetAbsOrigin() )	
-	StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", target )	
+	EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_NyxAssassin.Vendetta.Crit", target)	
 	if(not target:IsMagicImmune()) then
 		if IsValidEntity(caster) and caster:IsAlive() then
 			AMHC:Damage( caster,target,abilityDamage,ability:GetAbilityDamageType() )

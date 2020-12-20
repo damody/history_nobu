@@ -39,7 +39,7 @@ function forest_crit_Shock( keys )
 	end
 	if (caster.forest_crit_count > 1 or ran <= 50) then
 		caster.forest_crit_count = 0
-		StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+		EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 		local rate = caster:GetAttackSpeed()
 		caster:AddNewModifier(caster, skill, "forest_crit", { duration = rate+0.1 } )
 		--SE

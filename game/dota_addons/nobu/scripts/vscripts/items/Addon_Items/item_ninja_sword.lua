@@ -20,7 +20,7 @@ function Shock2( keys )
 			ParticleManager:SetParticleControl( fxIndex, 0, caster:GetAbsOrigin() )
 			ParticleManager:SetParticleControl( fxIndex, 1, target:GetAbsOrigin() )
 			
-			StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", target )
+			EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_NyxAssassin.Vendetta.Crit", target)
 			-- PopupCriticalDamage(target, 350)
 			-- AMHC:Damage( caster,target,350,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 		end	

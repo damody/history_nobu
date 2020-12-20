@@ -21,7 +21,7 @@ function Shock( keys )
 		end
 		if (caster.great_sword_of_tiger_count >= 4) and not ability.IsTrigger then
 			caster.great_sword_of_tiger_count = 0
-			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+			EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 			if (not(target:IsBuilding())) then
 				if (caster.great_sword_of_tiger == nil) then					
 					if IsValidEntity(target) then

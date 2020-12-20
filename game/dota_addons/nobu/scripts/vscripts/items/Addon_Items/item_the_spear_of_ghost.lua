@@ -25,7 +25,7 @@ function Shock( keys )
 			if caster.spear_of_ghost >= trigger then
 	
 				caster.spear_of_ghost = 0
-				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+				EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 	
 				local dmg = keys.target:GetMaxHealth() * keys.dmg * 0.01
 				if not target:IsHero() then
@@ -69,7 +69,7 @@ function Shock( keys )
 			if caster.scream_of_spiders >= trigger then
 	
 				caster.scream_of_spiders = 0
-				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+				EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 	
 				local dmg = keys.target:GetMaxHealth() * keys.dmg * 0.01
 				if not target:IsHero() then

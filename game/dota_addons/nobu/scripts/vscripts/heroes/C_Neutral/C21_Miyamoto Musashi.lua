@@ -148,7 +148,7 @@ function Trig_C21TActions( keys )
 			if u2:GetUnitName() then
 				C21T_Copy(u,i, u2)
 				C21T_Effect(u,u2,i)
-				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+				EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 			end
 			return 0.15
 		else
@@ -299,7 +299,7 @@ function C21R( keys )
 		end
 		if (caster.C21R_noncrit_count > 2 or ran <= 40) then
 			caster.C21R_noncrit_count = 0
-			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+			EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 			local rate = caster:GetAttackSpeed()
 			caster:AddNewModifier(caster, skill, "C21R_critical", { duration = rate+0.1 } )
 			local hModifier = caster:FindModifierByNameAndCaster("C21R_critical", caster)

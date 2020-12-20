@@ -32,7 +32,7 @@ function C08D_OnAttack( keys )
 			ParticleManager:SetParticleControl( fxIndex, 0, caster:GetAbsOrigin() )
 			ParticleManager:SetParticleControl( fxIndex, 1, target:GetAbsOrigin() )
 			
-			StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", target )
+			EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_NyxAssassin.Vendetta.Crit", target)
 			PopupCriticalDamage(target, abilityDamage)
 			AMHC:Damage( caster,target,abilityDamage,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 		end	
@@ -106,7 +106,7 @@ function C08W_OnSpellStart( keys )
 	local target = keys.target
 	local ability = keys.ability
 	bleedingDamage = ability:GetSpecialValueFor("damage")
-	StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", target )
+	EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_NyxAssassin.Vendetta.Crit", target)
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_C08W_bleeding",{})
 	ability:ApplyDataDrivenModifier(caster,target,"modifier_C08W_slience",{})
 	local fxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta.vpcf", PATTACH_CUSTOMORIGIN, caster )
@@ -127,7 +127,7 @@ function modifier_C08W_bleeding_OnIntervalThink( keys )
 	local fxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta.vpcf", PATTACH_CUSTOMORIGIN, caster )
 	ParticleManager:SetParticleControl( fxIndex, 0, target:GetAbsOrigin() )
 	ParticleManager:SetParticleControl( fxIndex, 1, target:GetAbsOrigin() )	
-	StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", target )	
+	EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_NyxAssassin.Vendetta.Crit", target)	
 	if(not target:IsMagicImmune()) then
 		if IsValidEntity(caster) and caster:IsAlive() then
 			AMHC:Damage( caster,target,abilityDamage,ability:GetAbilityDamageType() )
@@ -443,7 +443,7 @@ function C08T_OnSpellStart( keys )
 	local duration = ability:GetSpecialValueFor("duration")
 	if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
 		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"lion_manadrain",caster)
-		StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", target )
+		EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_NyxAssassin.Vendetta.Crit", target)
 		
 		local fxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta.vpcf", PATTACH_CUSTOMORIGIN, caster )
 		ParticleManager:SetParticleControl( fxIndex, 0, caster:GetAbsOrigin() )
@@ -513,7 +513,7 @@ function modifier_C08T_bleeding_OnIntervalThink( keys )
 	local abilityDamage = ability:GetSpecialValueFor("damage")
 	local abilityDamageType = ability:GetAbilityDamageType()
 	caster:Heal(abilityDamage,caster)
-	--StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", caster )	
+	--EmitSoundOnLocationWithCaster( caster:GetAbsOrigin(),"Hero_NyxAssassin.Vendetta.Crit", caster)	
 	if (caster:GetAbsOrigin()-caster.last_pos):Length2D() > 2000 or not caster:IsAlive() then
 		target:RemoveModifierByName("modifier_C08T_bleeding")
 		target:RemoveModifierByName("modifier_in_belly")
@@ -642,7 +642,7 @@ function modifier_C08W_old_OnAttack( keys )
 			local fxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta.vpcf", PATTACH_CUSTOMORIGIN, caster )
 			ParticleManager:SetParticleControl( fxIndex, 0, caster:GetAbsOrigin() )
 			ParticleManager:SetParticleControl( fxIndex, 1, target:GetAbsOrigin() )
-			StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", target )
+			EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_NyxAssassin.Vendetta.Crit", target)
 			PopupCriticalDamage(target, abilityDamage)
 			AMHC:Damage( caster,target,abilityDamage,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 		end	
@@ -657,7 +657,7 @@ function C08E_old_OnSpellStart( keys )
 	local target = keys.target
 	local ability = keys.ability
 	local fxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta.vpcf", PATTACH_CUSTOMORIGIN, caster )
-	StartSoundEvent( "Hero_NyxAssassin.Vendetta.Crit", target )
+	EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_NyxAssassin.Vendetta.Crit", target)
 	ParticleManager:SetParticleControl( fxIndex, 0, target:GetAbsOrigin() )
 	ParticleManager:SetParticleControl( fxIndex, 1, target:GetAbsOrigin() )		
 	--暈眩
@@ -702,7 +702,7 @@ function C08E_old_OnSpellStart( keys )
 				})
 			end
 		end
-		StartSoundEvent( "A07T.attack", target )
+		EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"A07T.attack", target)
 		counter=counter+1
 		target:Stop()
 		if(counter==3)then

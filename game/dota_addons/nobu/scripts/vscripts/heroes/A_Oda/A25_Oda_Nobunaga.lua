@@ -207,7 +207,7 @@ function A25R( keys )
 		end
 		if (caster.A25R_noncrit_count > 5 or ran <= 20) then
 			caster.A25R_noncrit_count = 0
-			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+			EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 			local rate = caster:GetAttackSpeed()
 			caster:AddNewModifier(caster, skill, "A25R_critical", { duration = rate+0.1 } )
 			local hModifier = caster:FindModifierByNameAndCaster("A25R_critical", caster)

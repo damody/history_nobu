@@ -59,7 +59,7 @@ function A05W_OnAttackLanded( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
-	StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+	EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 
 	if (not(target:IsBuilding())) then
 		if IsValidEntity(target) then

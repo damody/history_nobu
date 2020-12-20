@@ -39,7 +39,7 @@ function Shock( keys )
 				Timers:CreateTimer(0.1, function() 
 						caster.great_spear_of_dragonfly = nil
 					end)
-				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+				EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 				local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
 		                              target:GetAbsOrigin(),
 		                              nil,

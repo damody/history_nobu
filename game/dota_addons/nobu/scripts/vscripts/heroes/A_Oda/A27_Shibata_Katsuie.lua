@@ -233,7 +233,7 @@ function A27R( keys )
 		end
 		if (caster.A27R_noncrit_count > (100/crit) or ran <= crit) then
 			caster.A27R_noncrit_count = 0
-			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+			EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 			caster:AddNewModifier(caster, ability, "A27R_critical", { duration = 0.1 } )
 			local hModifier = caster:FindModifierByNameAndCaster("A27R_critical", caster)
 			--SE

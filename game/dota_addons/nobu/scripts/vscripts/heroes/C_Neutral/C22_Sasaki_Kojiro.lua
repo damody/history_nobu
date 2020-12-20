@@ -108,7 +108,7 @@ function C22R( keys )
 			end
 			if (caster.C22R_noncrit_count > attack_time or ran <= crit_percent) then
 				caster.C22R_noncrit_count = 0
-				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+				EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 				local rate = caster:GetAttackSpeed()
 				caster:AddNewModifier(caster, skill, "C22R_critical", { duration = rate+0.1 } )
 				local hModifier = caster:FindModifierByNameAndCaster("C22R_critical", caster)

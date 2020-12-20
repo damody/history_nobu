@@ -37,7 +37,7 @@ function Shock( keys )
 	end
 	if (caster.brave_ring_count > 7 or ran <= 15) then
 		caster.brave_ring_count = 0
-		StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+		EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 		local rate = caster:GetAttackSpeed()
 		caster:AddNewModifier(caster, skill, "brave_ring", { duration = rate+0.1 } )
 		--SE

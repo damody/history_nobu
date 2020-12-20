@@ -555,7 +555,7 @@ function B16W_old( keys )
 		end
 		if (caster.B16W_old_noncrit_count > 4 or ran <= 25) then
 			caster.B16W_old_noncrit_count = 0
-			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+			EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 			local rate = caster:GetAttackSpeed()
 			caster:AddNewModifier(caster, skill, "B16W_old_critical", { duration = rate+0.1 } )
 			--SE

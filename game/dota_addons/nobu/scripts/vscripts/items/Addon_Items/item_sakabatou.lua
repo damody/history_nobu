@@ -18,7 +18,7 @@ function Shock( keys )
 			end
 			if (caster.sakabatou_count > 11 or ran <= 9) then
 				caster.sakabatou_count = 0
-				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+				EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 
 				if (not(target:IsBuilding())) then
 					if target:IsMagicImmune() then

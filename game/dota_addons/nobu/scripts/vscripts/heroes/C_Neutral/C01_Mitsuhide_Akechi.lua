@@ -433,7 +433,7 @@ function C01R_old_on_attack_start( keys )
 		end
 		if (caster.C01R_noncrit_count > 5 or ran <= chance) then
 			caster.C01R_noncrit_count = 0
-			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+			EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 			caster:AddNewModifier(caster, ability, "C01R_critical", { duration = 0.1 } )
 			local hModifier = caster:FindModifierByNameAndCaster("C01R_critical", caster)
 			ParticleManager:CreateParticle("particles/c01/c01r_old_basher_cast.vpcf",PATTACH_POINT_FOLLOW,target)
@@ -479,7 +479,7 @@ function C01R_on_attack_start( keys )
 		end
 		if (caster.C01R_noncrit_count > 5 or ran <= chance) then
 			caster.C01R_noncrit_count = 0
-			StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+			EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 			caster:AddNewModifier(caster, ability, "C01R_critical", { duration = 0.1 } )
 			local hModifier = caster:FindModifierByNameAndCaster("C01R_critical", caster)
 			--動作

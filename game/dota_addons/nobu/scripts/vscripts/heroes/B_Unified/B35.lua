@@ -105,7 +105,7 @@ function B35R_OnAttacked( keys )
 				caster.B35R_count = 0
 				caster:Heal(dmg,ability)
 				if (caster:GetAbsOrigin()-target:GetAbsOrigin()):Length2D() < 250 then
-					StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", target )
+					EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", target)
 					-- caster:SetForwardVector(target:GetAbsOrigin()-caster:GetAbsOrigin())
 					ability:ApplyDataDrivenModifier(caster,caster,"modifier_B35R3", {})
 					caster:PerformAttack(target, true, true, true, true, true, false, true)
@@ -167,7 +167,7 @@ function B35R_OnAttacked2( keys )
 				caster.B35R_trigger = true
 			end)
 			caster:Heal(heal,ability)
-				StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", target )
+				EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", target)
 				local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
 		                              caster:GetAbsOrigin(),
 		                              nil,

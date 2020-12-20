@@ -266,8 +266,8 @@ end
 function A24E_OnSpellStart( keys )
 	local caster = keys.caster
 	local target = keys.target
-	StartSoundEvent( "Hero_Batrider.StickyNapalm.Impact", target )
-	--StartSoundEvent( "Hero_Clinkz.SearingArrows.Impact", caster )
+	EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_Batrider.StickyNapalm.Impact", target)
+	--EmitSoundOnLocationWithCaster( caster:GetAbsOrigin(),"Hero_Clinkz.SearingArrows.Impact", caster)
 	local ability = keys.ability
 	local unit=caster
 	for i=1,10 do

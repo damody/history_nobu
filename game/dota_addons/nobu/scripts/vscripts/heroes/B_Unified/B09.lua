@@ -275,8 +275,8 @@ function B09W_old_OnSpellStart( keys )
 	local ability = keys.ability
 	local point = keys.target_points[1] 
 	local point2
-	StartSoundEvent( "Hero_Leshrac.Lightning_Storm", dummy )
-	StartSoundEvent( "Hero_Leshrac.Lightning_Storm", v )
+	EmitSoundOnLocationWithCaster( dummy:GetAbsOrigin(),"Hero_Leshrac.Lightning_Storm", dummy)
+	EmitSoundOnLocationWithCaster( v:GetAbsOrigin(),"Hero_Leshrac.Lightning_Storm", v)
 	point2 = point
 	local particle = ParticleManager:CreateParticle("particles/b05e/b05e.vpcf", PATTACH_ABSORIGIN , caster)
 	local particle2 = ParticleManager:CreateParticle("particles/b09w_old/b09w_old.vpcf", PATTACH_ABSORIGIN , caster)

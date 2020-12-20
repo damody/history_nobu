@@ -39,7 +39,7 @@ function Shock( keys )
 	caster:RemoveModifierByName("item_kousetsusamonnji_critical_strike_crit")
 	if (caster.kousetsusamonnji_count >= 4 or ran <= 25) then
 		caster.kousetsusamonnji_count = 0
-		-- StartSoundEvent( "Hero_SkeletonKing.CriticalStrike", keys.target )
+		-- EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 		-- local rate = caster:GetAttackSpeed()
 		if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * 2.2 then
 			caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * 2.2

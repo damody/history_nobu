@@ -38,7 +38,7 @@ function B26D( keys )
 		return
 	end
 	if caster:FindAbilityByName("B26D"):GetLevel() == 1 then
-		StartSoundEvent( "Hero_Brewmaster.ThunderClap", caster )
+		EmitSoundOnLocationWithCaster( caster:GetAbsOrigin(),"Hero_Brewmaster.ThunderClap", caster)
 		caster:FindAbilityByName("B26D"):SetLevel(0)
 		local group = FindUnitsInRadius(
 	   		caster:GetTeamNumber(), 
