@@ -164,7 +164,7 @@ function B29T( keys )
 		AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 100, 0.5, false)
 		AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 100, 0.5, false)
 		AddFOWViewer(caster:GetTeamNumber(), point, sk_radius+100, 0.5, false)
-		B29T_Effect(keys, point + RandomVector(RandomInt(10, sk_radius)), 60, duration)
+		B29T_Effect(keys, point + RandomVector(RandomInt(10, sk_radius)), 45, duration)
 
 		if  ( (skillcount < skillmax) and caster:IsChanneling() ) then
 			skillcount = skillcount + 1
