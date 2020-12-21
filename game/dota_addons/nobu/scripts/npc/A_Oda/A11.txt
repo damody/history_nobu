@@ -57,7 +57,7 @@
 			"02"
 			{
 				"var_type"					"FIELD_INTEGER"
-				"A11W_damage"				"50 100 150 200"
+				"A11W_damage"				"100 150 200 250"
 			}
 			"03"
 			{
