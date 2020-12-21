@@ -3308,8 +3308,10 @@
  		// General
  		//----------------------------------------------------------------
  		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
- 		"Model"						"models/props_gameplay/donkey." //"models/props_gameplay/donkey.vmdl"	// Model.
- 		"SoundSet"					""					// Name of sound set.
+ 		//"Model"						"models/props_gameplay/donkey." //"models/props_gameplay/donkey.vmdl"	// Model.
+ 		"Model"	"models/items/courier/white_the_crystal_courier/white_the_crystal_courier.vmdl"
+		 
+		"SoundSet"					""					// Name of sound set.
  		"Level"						"0"
  		"IsAncient"					"1"
  		"ModelScale"				"1"
