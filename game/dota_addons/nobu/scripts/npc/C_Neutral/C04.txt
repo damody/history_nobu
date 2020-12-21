@@ -284,7 +284,7 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/icon_128x128_91"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -294,7 +294,7 @@
 		"AbilityCooldown"	"105"
 		"AbilityManaCost"	"200"
 		"AbilityCastRange"	"600"
-		"AbilityChannelTime"	"5"
+		"AbilityChannelTime"	"4 5 6"
 		"precache"
 		{
 			"particle"	"particles/C04T3/C04T3.vpcf"
@@ -402,7 +402,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"duration"	"5"
+				"duration"	"4 5 6"
 			}
 		}
 		"AbilityDamage"	"175 270 375"
