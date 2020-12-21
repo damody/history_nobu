@@ -183,7 +183,7 @@ function Nobu:OnGameRulesStateChange( keys )
 			local steam_id = PlayerResource:GetSteamID(playerID)
 			SendHTTPRequest("check_subscription/", "POST", {steam_id = tostring(steam_id)}, function(res)
 				if (string.match(res, "error")) then
-					callback()
+					print("error : " .. res)
 				else
 					print(res);
 					print(string.len(res));
