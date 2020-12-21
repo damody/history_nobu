@@ -275,6 +275,7 @@ function C17T_OnAbilityPhaseStart(keys)
 	}
 	dummy:AddNewModifier(dummy,nil,"nobu_modifier_spell_hint",spell_hint_table)
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=1})
+	caster:StartGesture( ACT_DOTA_ABILITY_4 )
 end
 
 function C17T(keys)

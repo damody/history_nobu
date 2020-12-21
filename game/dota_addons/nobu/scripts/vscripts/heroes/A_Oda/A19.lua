@@ -96,6 +96,7 @@ end
 function A19R_OnAbilityExecuted( keys )
 	local caster = keys.caster
 	local ability = keys.ability
+	local point = ability:GetCursorPosition()
 	local dmg = ability:GetSpecialValueFor("dmg")
 	if keys.event_ability:IsItem() then
 		dmg = dmg * 0.5
@@ -103,8 +104,12 @@ function A19R_OnAbilityExecuted( keys )
 	-- 搜尋
 	if keys.event_ability:IsToggle() then return end
 	if keys.event_ability:GetName() == "attribute_bonusx" then return end
+	if keys.event_ability:GetName() == "item_logging" then return end
+	if keys.event_ability:GetName() == "item_tpscroll" then return end
+	if keys.event_ability:GetName() == "item_flash_shoes" then return end
+	if keys.event_ability:GetName() == "item_flash_ring" then return end
 	local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
-		caster:GetAbsOrigin(),							-- 搜尋的中心點
+		point,							-- 搜尋的中心點
 		nil,
 		ability:GetCastRange(),			-- 搜尋半徑
 		ability:GetAbilityTargetTeam(),	-- 目標隊伍
@@ -115,7 +120,11 @@ function A19R_OnAbilityExecuted( keys )
 	local dmgx = caster:GetIntellect() * dmg
 	-- 處理搜尋結果
 	for _,unit in ipairs(units) do
-		AMHC:Damage(caster,unit, dmgx,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+		if IsValidEntity(unit) and unit:IsMagicImmune() then
+			AMHC:Damage(caster,unit, dmgx * 0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ))
+		else
+			AMHC:Damage(caster,unit, dmgx,AMHC:DamageType( "DAMAGE_TYPE_PURE" ))
+		end
 	end
 end
 

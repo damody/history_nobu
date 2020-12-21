@@ -50,10 +50,8 @@ function Shock( keys )
 		-- ParticleManager:SetParticleControlEnt(particle, 0, keys.target, PATTACH_POINT, "attach_hitloc", Vector(0,0,0), true)
 		--動作
 		-- local rate = caster:GetAttackSpeed()
-		--print(tostring(rate))
-
-		--播放動畫
-	    --caster:StartGesture( ACT_SLAM_TRIPMINE_ATTACH )
+		
+		-- --播放動畫
 		-- if rate < 1 then
 		--     caster:StartGestureWithPlaybackRate(ACT_DOTA_ECHO_SLAM,1)
 		-- else

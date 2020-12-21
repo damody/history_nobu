@@ -288,6 +288,7 @@ local function chat_of_test(keys)
 	if (s == "-skin" and nobu_id == "C17" and skin) then
 		caster.skin = "school"
 		caster:SetModel("models/c17/c17_school.vmdl")
+		caster:SetModelScale(1.3)
 		caster:SetOriginalModel("models/c17/c17_school.vmdl")
 	end
 	if (s == "-skin" and nobu_id == "A26" and skin) then
@@ -309,8 +310,9 @@ local function chat_of_test(keys)
 
 	if (s == "-uskin" and nobu_id == "C17" and skin) then
 		-- caster.skin = "school"
-		caster:SetModel("models/c17/c17.vmdl")
-		caster:SetOriginalModel("models/c17/c17.vmdl")
+		caster:SetModel("models/c17/oichi_yukata.vmdl")
+		caster:SetModelScale(0.5)
+		caster:SetOriginalModel("models/c17/oichi_yukata.vmdl")
 	end
 	if (s == "-uskin" and nobu_id == "A26" and skin) then
 		-- caster.skin = "school"

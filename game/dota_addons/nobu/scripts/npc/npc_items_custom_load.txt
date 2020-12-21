@@ -4262,11 +4262,6 @@
 				}
 				"OnAttackLanded"
 				{							
-					"FireSound"
-					{
-						"EffectName"	"Hero_SkeletonKing.CriticalStrike"
-						"Target"	"CASTER"
-					}
 					"FireEffect"
 					{
 						"EffectName"	"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
@@ -9118,11 +9113,6 @@
 				}
 				"OnAttackLanded"
 				{							
-					"FireSound"
-					{
-						"EffectName"	"Hero_SkeletonKing.CriticalStrike"
-						"Target"	"CASTER"
-					}
 					"FireEffect"
 					{
 						"EffectName"	"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"

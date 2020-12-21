@@ -346,6 +346,7 @@ function Nobu:OnGameRulesStateChange( keys )
 						if (nobu_id == "C17") then
 							caster.skin = "school"
 							caster:SetModel("models/c17/c17_school.vmdl")
+							caster:SetModelScale(1.3)
 							caster:SetOriginalModel("models/c17/c17_school.vmdl")
 						end
 						if (nobu_id == "A26") then
