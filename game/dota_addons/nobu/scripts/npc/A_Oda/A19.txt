@@ -28,11 +28,8 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
 		"AbilityCooldown"				"14 12 10 8"
 		"AbilityManaCost"				"105 135 165 195"
-		"AbilityDamage"					"200 300 400 500"
-
 		"AbilityCastRange"				"1000"
 		"AOERadius"						"450"
 		"AbilityCastPoint"				"0.1"
@@ -43,7 +40,7 @@
 			"01"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"dmg"		"100 150 200 250"
+				"dmg"		"75 150 225 300"
 			}
 			"02"
 			{
@@ -129,7 +126,7 @@
 			"02"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"armor"	"-8 -12 -16 -20"
+				"armor"	"-4 -6 -8 -10"
 			}
 			"03"
 			{
@@ -247,7 +244,7 @@
 			"02"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"dmg"		"0.4 0.7 1.0 1.4"
+				"dmg"		"0.4 0.6 0.8 1.0"
 			}
 		}
 

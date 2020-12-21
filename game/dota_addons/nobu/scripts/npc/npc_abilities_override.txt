@@ -274,6 +274,9 @@
 	"item_ring_of_tarrasque" "REMOVE"
 	"item_meteor_hammer" "REMOVE"
 	"item_holy_locket" "REMOVE"
+	"item_fluffy_hat" "REMOVE"
+	"item_orb_of_corrosion" "REMOVE"
+	"item_falcon_blade"	"REMOVE"
 
 	"item_headling_totem" "REMOVE"
 
