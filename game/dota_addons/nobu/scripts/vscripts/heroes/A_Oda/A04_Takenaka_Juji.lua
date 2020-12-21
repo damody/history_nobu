@@ -369,7 +369,7 @@ function A04W_OnSpawn( keys )
 		if not caster:HasModifier("nobu_modifier_spell_hint_self") then
 			local spell_hint_table = {
 				duration   = 9999,		-- 持續時間
-				radius     = 1000,		-- 半徑
+				radius     = 2000,		-- 半徑
 				caster     = caster,	-- 角色
 			}
 			caster:AddNewModifier(caster,nil,"nobu_modifier_spell_hint_self",spell_hint_table)
@@ -395,7 +395,7 @@ function A04W_move ( keys )
 	local point = owner:GetAbsOrigin()
 	local dif = CalcDistanceBetweenEntityOBB(caster,owner)
 
-	if dif > 1000 then
+	if dif > 2000 then
 		-- ability:ApplyDataDrivenModifier(caster,caster,"modifier_A04W_inmoveable",{})
 		caster.inmoveable = 1
 		caster:MoveToNPC(owner)
