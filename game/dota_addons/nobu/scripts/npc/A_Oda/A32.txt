@@ -119,7 +119,7 @@
 			"02"
 			{
 				"var_type"                			"FIELD_FLOAT"
-				"A32W_stunDuration"                	"0.5 0.8 1.1 1.4"
+				"A32W_stunDuration"                	"0.6 0.8 1.0 1.2"
 			}
 			"03"
 			{
@@ -200,7 +200,7 @@
 			"02"
 			{
 				"var_type"                			"FIELD_FLOAT"
-				"A32W2_stunDuration"                "0.5 0.8 1.1 1.4"
+				"A32W2_stunDuration"                "0.3 0.4 0.5 0.6"
 			}
 			"03"
 			{
@@ -439,6 +439,36 @@
 			    "TargetFlags"   					"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			    "HasFrontalCone"    				"1"
 			    "ProvidesVision" 					"1"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_A32T"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsPurgable"	"1"
+				"IsDebuff"		"1"
+			
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"A32T"
+						"ms_slow" "-80"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A32T"
+					}
+				}
 			}
 		}
 		"OnProjectileHitUnit"
