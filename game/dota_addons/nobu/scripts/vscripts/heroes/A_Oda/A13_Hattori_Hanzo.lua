@@ -226,7 +226,7 @@ function A13W( event )
 		end
 	end
 	local lv = ability:GetLevel()
-	
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_A13D2",nil)
 	caster.A13W = {}
 
 	caster:RemoveAbility("A13W")
