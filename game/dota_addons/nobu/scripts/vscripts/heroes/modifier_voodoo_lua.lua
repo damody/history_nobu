@@ -13,7 +13,7 @@ function modifier_voodoo_lua:DeclareFunctions()
 end
 
 function modifier_voodoo_lua:GetModifierModelChange()
-	local res = math.random(1,10)
+	local res = 1
 	if res == 1 then
 		return "models/props_gameplay/frog.vmdl"
 	elseif res == 2 then

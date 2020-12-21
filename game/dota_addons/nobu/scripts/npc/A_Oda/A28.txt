@@ -284,6 +284,8 @@
 		{
 			"modifier_A28R"
 			{
+				"Duration"	"1"
+				"IsDebuff"	"1"
 				"OnCreated"
 				{
 					"RunScript"
