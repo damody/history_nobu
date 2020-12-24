@@ -8590,7 +8590,7 @@
 	{
 	    "ID" "3043"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1450"
+		"ItemCost" "1000"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_nannbann_armor"  //合成後物品
