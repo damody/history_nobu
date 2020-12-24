@@ -647,13 +647,12 @@
 	{
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/thunderbolt_book"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"FightRecapLevel"	"1"
-		"AbilityChannelTime" "10"
-		"AbilityDamage"		"1800" //打滿的傷害
+		"AbilityDamage"		"250" //打滿的傷害
 		"AbilityCooldown"	"40"
 		"AbilityManaCost"	"190"
 		"AoERadius"			"600"
@@ -703,7 +702,7 @@
 			"01"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"duration"		"10.0"
+				"duration"		"4.0"
 			}
 			"02"
 			{
@@ -718,7 +717,12 @@
 			"04"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"aoe_damage"	"108"
+				"aoe_damage"	"100"
+			}
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"start_damage"	"250"
 			}
 		}
 	}
