@@ -959,7 +959,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"150"
+		"AbilityCooldown"	"120"
 		"AbilityManaCost"	"100"
 		"AOERadius"	"300"
 		"AbilityCastPoint"	"0"
