@@ -76,7 +76,7 @@
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "3.5" //技能傷害
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "6" //技能傷害
 				}
 			}
 			"modifier_muted"
@@ -256,7 +256,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/generic_gameplay/move_slow.vpc"
-		"ItemCost"	"9050"
+		"ItemCost"	"8600"
 		
 		"OnToggleOn"
 		{
@@ -340,7 +340,7 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
 					"MODIFIER_PROPERTY_CASTTIME_PERCENTAGE" "35" //減前搖
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "3.5" //技能傷害
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "6" //技能傷害
 				}
 			}
 			
@@ -694,7 +694,7 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "20"
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "3.5" //技能傷害
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "6" //技能傷害
 				}
 			}
 		}
@@ -742,7 +742,7 @@
 		"AbilityManaCost"	"60"
 		"AbilityCastPoint"	"0.2"
 		"AOERadius"	"300"
-		"AbilityDamage"		"400"
+		"AbilityDamage"		"500"
 		"AbilityCastRange"	"800"
 		"ID"	"2511"
 		"ItemQuality"	"component"
@@ -786,7 +786,7 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "20"
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "3.5" //技能傷害
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "6" //技能傷害
 				}
 			}
 			"modifier_rockfall"
@@ -811,7 +811,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"400"
+				"damage"	"500"
 			}
 		}
 	}
@@ -1746,7 +1746,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "3.5" //技能傷害
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "6" //技能傷害
 				}
 			}		
 		}
@@ -13512,7 +13512,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"3950"
+		"ItemCost"	"3500"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"AOERadius"	"500"
@@ -13598,7 +13598,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "3.5" //技能傷害
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "6" //技能傷害
 				}
 				
 			}
@@ -13806,7 +13806,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "3.5" //技能傷害
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "6" //技能傷害
 				}
 			}
 		}
@@ -13878,7 +13878,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "3.5" //技能傷害
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "6" //技能傷害
 				}
 			}
 		}
@@ -15963,7 +15963,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "3.5" //技能傷害
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "6" //技能傷害
 				}
 			}
 		}
@@ -16198,7 +16198,7 @@
 	{
 	    "ID" "2837"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "800"
+		"ItemCost" "350"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"SideShop"						"0"
@@ -16495,7 +16495,7 @@
 				"IsPurgable"	"0"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"20"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"10"
 				}
 			}
 		}
