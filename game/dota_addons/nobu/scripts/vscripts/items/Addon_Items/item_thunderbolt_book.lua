@@ -35,7 +35,7 @@ function Shock1( keys )
 		for _,it in pairs(direUnits) do
 			if (not(it:IsBuilding())) then
 				local flame = ParticleManager:CreateParticle("particles/a07t2/a07t2.vpcf", PATTACH_ABSORIGIN, it)
-				AMHC:Damage(caster,it, 130,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+				AMHC:Damage(caster,it, 100,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				Timers:CreateTimer(0.5, function ()
 					ParticleManager:DestroyParticle(flame, false)
 				end)
@@ -76,7 +76,7 @@ function Shock2( keys )
 				ParticleManager:SetParticleControl(particle, 0, Vector(pp.x,pp.y,1000 ))
 				ParticleManager:SetParticleControl(particle, 1, Vector(pp.x,pp.y,pp.z + 10 ))
 				ParticleManager:SetParticleControl(particle, 2, Vector(pp.x,pp.y,pp.z + 10 ))
-				AMHC:Damage(caster,it, 130,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+				AMHC:Damage(caster,it, 100,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				
 				local ran1 =  RandomInt(0, 100)
 				local ran2 =  RandomInt(0, 100)
