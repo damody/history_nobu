@@ -160,12 +160,64 @@ function B04T_OnAttack( keys )
 	local ability = keys.ability
 	local stun_time = ability:GetSpecialValueFor("stun_time")
 	local stun_chance = ability:GetSpecialValueFor("stun_chance")
+	local casterabs = caster:GetAbsOrigin()
+    local targetabs = target:GetAbsOrigin()
+    local angle = VectorToAngles(targetabs-casterabs).y
+	local dx = math.cos(angle*(3.14/180))
+	local dy = math.sin(angle*(3.14/180))
+	local dir = Vector(dx,dy,0)
+	local ran = RandomInt(0 , 100)
+	local ran1 = RandomInt(0 , 100)
 	if stun_chance >= RandomInt(1,100) then
 		if target:IsHero() or target:IsCreep() then
 			ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration=stun_time})
 		end
 	end
 	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"Hero_Clinkz.SearingArrows.Impact",target)
+	projectile_table = {
+		Ability				= ability,
+		EffectName			= "particles/a17w/a17w.vpcf",
+		vSpawnOrigin		= casterabs+Vector(0,0,100),
+		fDistance			= 1200,
+		fStartRadius		= 100,
+		fEndRadius			= 100,
+		Source				= caster,
+		bHasFrontalCone		= true,
+		bReplaceExisting	= false,
+		iUnitTargetTeam		= DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetType		= DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		fExpireTime			= GameRules:GetGameTime() + 5,
+		bDeleteOnHit		= false,
+		vVelocity			= 0,
+		bProvidesVision		= false,
+		iVisionRadius		= 0,
+		iVisionTeamNumber	= caster:GetTeamNumber(),
+	}
+	projectile_table.vVelocity = dir*2000
+    EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Sniper.Attack",caster)
+	ProjectileManager:CreateLinearProjectile(projectile_table)
+	if ran <= 25 then
+		Timers:CreateTimer(0.05 , function()
+			ProjectileManager:CreateLinearProjectile(projectile_table)
+		end)
+		
+	end
+	if ran1 <= 25 then
+		Timers:CreateTimer(0.1 , function()
+			ProjectileManager:CreateLinearProjectile(projectile_table)
+		end)
+		
+	end
+end
+
+function B04T_OnHit ( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local dmg = ability:GetSpecialValueFor("damage")
+	if not target:IsMagicImmune() then
+		AMHC:Damage(caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+	end
 end
 
 -- 伊達政宗 11.2B
