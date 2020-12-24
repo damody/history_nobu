@@ -841,11 +841,11 @@
 		
 		"AOERadius"	"350"
 		"AbilityCastRange"	"600"
-		"AbilityDamage"		"350"
+		"AbilityDamage"		"500"
 		"ID"	"2524"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
-		"ItemCost"	"4250"
+		"ItemCost"	"3500"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -865,31 +865,12 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "30"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "14"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "300" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "5"
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔
-				}
-			}
-			"modifier_item_great_dragon"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/Addon_Items/item_great_dragon.lua"
-						"Function"	"OnAttackLanded"
-						"dmg"	"%attack_damage"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"items/Addon_Items/item_great_dragon.lua"
-						"Function"	"Extra_damage"
-					}
 				}
 			}
 		}
@@ -8474,7 +8455,7 @@
 	{
 	    "ID" "3034"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1500"
+		"ItemCost" "750"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_great_dragon"  //合成後物品
