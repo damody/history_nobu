@@ -209,9 +209,10 @@ function C01T_OnAbilityPhaseStart( keys )
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=0.5})
 end
 
-function C01T_Mitsuhide_Akechi_Effect( keys, point )
-	local dmg = 84
-	local SEARCH_RADIUS = 240
+function C01T_Mitsuhide_Akechi_Effect( keys, point , center )
+	local dmg = keys.ability:GetSpecialValueFor("C01T_Damage")
+	local radius = keys.ability:GetSpecialValueFor("C01T_Radius")
+	local SEARCH_RADIUS = 340
 	local caster = keys.caster
 	local level = keys.ability:GetLevel()
 
@@ -234,18 +235,34 @@ function C01T_Mitsuhide_Akechi_Effect( keys, point )
 	                              DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 	                              FIND_ANY_ORDER,
 	                              false)
-
+		local centerUnits = FindUnitsInRadius(caster:GetTeamNumber(),
+		center,
+		nil,
+		radius,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_ALL,
+		DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+		FIND_ANY_ORDER,
+		false)
 		--effect:傷害+暈眩
 		for _,it in pairs(direUnits) do
-			if (not(it:IsBuilding())) then
-				if it:IsHero() then
-					ParticleManager:CreateParticle("particles/shake1.vpcf", PATTACH_ABSORIGIN, it)
+			local a = it:GetAbsOrigin()
+			local b = center
+			local dir = (a-b):Length2D()
+			print(dir)
+			print(radius)
+			if dir <= ((radius+100)/2) then
+				if (not(it:IsBuilding())) then
+					if it:IsHero() then
+						ParticleManager:CreateParticle("particles/shake1.vpcf", PATTACH_ABSORIGIN, it)
+					end
+					AMHC:Damage(caster,it,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+					keys.ability:ApplyDataDrivenModifier(caster, it,"modifier_C01T",nil)
+				else
+					AMHC:Damage(caster,it,dmg*0.3,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				end
-				AMHC:Damage(caster,it,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-				keys.ability:ApplyDataDrivenModifier(caster, it,"modifier_C01T",nil)
-			else
-				AMHC:Damage(caster,it,dmg*0.3,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			end
+
 		end
 		return nil
 	end)
@@ -258,6 +275,7 @@ function C01T_Mitsuhide_Akechi_Effect( keys, point )
 	ParticleManager:SetParticleControl(chaos_meteor_fly_particle_effect, 2, Vector(0.5, 0, 0))
 
 end
+
 
 
 function C01T_Mitsuhide_Akechi( keys )
@@ -287,9 +305,9 @@ function C01T_Mitsuhide_Akechi( keys )
 		AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 100, 0.5, false)
 		AddFOWViewer(caster:GetTeamNumber(), point, sk_radius+100, 0.5, false)
 		if ( RandomInt(1, 10) > 3) then
-			C01T_Mitsuhide_Akechi_Effect(keys, point + RandomVector(RandomInt(sk_radius*0.7, sk_radius)))
+			C01T_Mitsuhide_Akechi_Effect(keys, point + RandomVector(RandomInt(sk_radius*0.7, sk_radius)), point)
 		else
-			C01T_Mitsuhide_Akechi_Effect(keys, point + RandomVector(RandomInt(1, sk_radius*0.5)))
+			C01T_Mitsuhide_Akechi_Effect(keys, point + RandomVector(RandomInt(1, sk_radius*0.5)) , point)
 		end
 
 		if  ( (skillcount < skillmax) and caster:IsChanneling() ) then

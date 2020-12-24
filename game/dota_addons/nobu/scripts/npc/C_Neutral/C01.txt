@@ -378,7 +378,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"C01T_Radius"	"700 800 900"
+				"C01T_Radius"	"1100 1200 1300"
 			}
 			"02"
 			{
@@ -394,6 +394,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"C01T_Amount"	"45 52 59"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"C01T_Damage"	"84 94 104"
 			}
 		}
 	}	

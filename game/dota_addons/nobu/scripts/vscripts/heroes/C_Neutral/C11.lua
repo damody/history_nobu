@@ -12,7 +12,7 @@ function C11W_start( keys )
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_C11W",nil)
 	
 	caster:AddNoDraw()
-
+	caster.orb = 0.6
 	local projectile_table = {
 		Target = target,
 		Source = caster,
@@ -44,6 +44,7 @@ function C11W_hit_unit( keys )
 	if ability.ended == true then
 		-- 結束技能
 		caster:RemoveNoDraw()
+		caster.orb = nil
 		caster:RemoveModifierByName("modifier_C11W")
 		local first_target = ability.first_target
 		-- 如果一開始選的目標還活著則出現在目標周圍，並且命令攻擊他
@@ -268,6 +269,10 @@ function C11T_on_attack_landed( keys )
 
 	-- 消去魔力
 	local remove_mana = target:GetMana()*(remove_mana_percentage/100.0)
+	if caster.orb then
+		remove_mana = remove_mana * caster.orb
+		damage = damage * caster.orb
+	end
 	target:ReduceMana(remove_mana)
 	-- 傷害參數
 	local damage_table = {
