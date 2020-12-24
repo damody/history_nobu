@@ -68,7 +68,7 @@ function B33R(keys)
 				iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION
 				}
 				ProjectileManager:CreateTrackingProjectile( info )
-				AMHC:Damage( caster,unit,damage,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+				AMHC:Damage( caster,unit,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			-- new_target = true
 			-- end
 		end
