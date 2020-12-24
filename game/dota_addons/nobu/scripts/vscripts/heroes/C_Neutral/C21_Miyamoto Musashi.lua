@@ -134,8 +134,10 @@ function Trig_C21TActions( keys )
 		--過濾dummy
 		for _,xx in pairs(group) do
 			if xx:HasAbility("majia") or _G.EXCLUDE_TARGET_NAME[u2:GetUnitName()] == true then
-				
 			else
+				table.insert(newGroup,xx)
+			end
+			if u2:GetUnitName() == "npc_dota_the_king_of_robbers" or u2:GetUnitName() == "npc_dota_cursed_warrior_souls" then
 				table.insert(newGroup,xx)
 			end
 		end
@@ -154,7 +156,8 @@ function Trig_C21TActions( keys )
 		else
 			u:AddNewModifier(u,keys.ability,"modifier_phased",{duration=0.1})
             --刪除無敵
-            u:RemoveModifierByName("modifier_C21T")
+			u:RemoveModifierByName("modifier_C21T")
+			print("here")
 			return nil 	
         end	
 
