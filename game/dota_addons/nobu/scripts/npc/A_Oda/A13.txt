@@ -844,6 +844,14 @@
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"-2000"
 				}
 			}
+			"modifier_A13T_reduce"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"-50"
+				}
+			}
 		}
 		// Special
 		// -------------------------------------------------------------------------------------------------------------
@@ -892,7 +900,7 @@
 			"09"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"100 200 300"
+				"damage"	"70 90 110"
 			}
 		}
 	}

@@ -39,6 +39,9 @@ function Shock( keys )
 						end
 					end
 				end
+				if caster.orb then
+					dmg = dmg * caster.orb
+				end
 				AMHC:Damage(caster,keys.target, dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 				AMHC:CreateNumberEffect(keys.target,dmg,1,AMHC.MSG_DAMAGE,'blue')
 				--動作
