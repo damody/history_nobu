@@ -742,7 +742,7 @@
 		"AbilityManaCost"	"60"
 		"AbilityCastPoint"	"0.2"
 		"AOERadius"	"300"
-		"AbilityDamage"		"400"
+		"AbilityDamage"		"500"
 		"AbilityCastRange"	"800"
 		"ID"	"2511"
 		"ItemQuality"	"component"
@@ -811,7 +811,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"400"
+				"damage"	"500"
 			}
 		}
 	}
