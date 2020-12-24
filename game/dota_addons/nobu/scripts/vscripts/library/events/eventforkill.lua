@@ -5,7 +5,7 @@ local warrior_soul_respawn_count = 1
 local robbers_king_respawn_count = 1
 XP = {
 
-com_infantry = 20,com_archer = 20,com_gunner = 40,com_cavalry = 40,
+com_infantry = 30,com_archer = 30,com_gunner = 50,com_cavalry = 50,
 
 npc_dota_neutral_160_douchebag = 37,npc_dota_neutral_160_bandit = 37,npc_dota_neutral_160_assassin = 37,npc_dota_neutral_160_executor = 60,npc_dota_neutral_160_bandit_military_adviser = 60,
 

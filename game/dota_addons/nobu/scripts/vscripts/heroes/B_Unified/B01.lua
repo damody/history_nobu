@@ -208,12 +208,12 @@ function B01R3(keys)
 		elseif  target:IsBuilding() then
 			per_atk = ability:GetLevelSpecialValueFor("atk_building",level)
 		else
-			per_atk = ability:GetLevelSpecialValueFor("atk_unit",level)
-			local particle = ParticleManager:CreateParticle("particles/b01r/b01r.vpcf", PATTACH_ABSORIGIN, target)
-			ParticleManager:SetParticleControl(particle, 3, target:GetAbsOrigin()+Vector(0, 0, 100))
-			Timers:CreateTimer(1, function()
-				ParticleManager:DestroyParticle(particle,false)
-			end)
+			-- per_atk = ability:GetLevelSpecialValueFor("atk_unit",level)
+			-- local particle = ParticleManager:CreateParticle("particles/b01r/b01r.vpcf", PATTACH_ABSORIGIN, target)
+			-- ParticleManager:SetParticleControl(particle, 3, target:GetAbsOrigin()+Vector(0, 0, 100))
+			-- Timers:CreateTimer(1, function()
+			-- 	ParticleManager:DestroyParticle(particle,false)
+			-- end)
 		end
 		local dmgori = dmg
 		dmg = dmg * per_atk  / 100
