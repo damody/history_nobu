@@ -2316,8 +2316,8 @@
 		"MovementTurnRate"	"2"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"700"
-		"StatusHealthRegen"	"3"
+		"StatusHealth"	"4"
+		"StatusHealthRegen"	"0"
 		"StatusMana"	"200"
 		"StatusStartingMana"	"200"
 		// Vision
@@ -2336,7 +2336,7 @@
 		"Ability4"	"update_buy_ninja1"
 		"Ability5"	"flash"
 		"Ability6"	"phased_dummy"
-		"Ability7"	""
+		"Ability7"	"ninja_takedamage"
 		"Ability8"	""
 		"Ability9"	""
 		"Ability10"	""

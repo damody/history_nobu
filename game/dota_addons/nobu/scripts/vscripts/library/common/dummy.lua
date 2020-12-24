@@ -925,3 +925,10 @@ function returnHeal ( keys )
     caster.decrease_health = 1
   end
 end
+
+function ninja_takedamage ( keys )
+	local ability = keys.ability
+  local caster = keys.caster
+  local health = caster:GetHealth()
+  caster:SetHealth(health - 1)
+end
