@@ -39,7 +39,7 @@ function B33R(keys)
 	
 	-- Calculates the position of each found unit in relation to the last target
 	for i,unit in ipairs(units) do
-		if unit ~= target then
+		if unit then
 			-- local target_origin_difference = target:GetAbsOrigin() - unit:GetAbsOrigin()
 			
 			-- -- Get the radian of the origin difference between the last target and the unit. We use this to figure out at what angle the unit is at relative to the the target.
