@@ -23,25 +23,6 @@ function Shock( keys )
 		AMHC:Damage(caster,target, 1,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 		if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
 			if not (target:IsMagicImmune()) then
-				local am = target:FindAllModifiers()
-				for _,v in pairs(am) do
-					if IsValidEntity(v:GetCaster()) and v:GetParent().GetTeamNumber ~= nil and v:GetDuration() > 0.5 then
-						local big_skill = false
-						if target:IsHero() and target:GetLevel() >= 6 then
-							local ab = v:GetAbility()
-							local abname = ab:GetName()
-							local len = string.len(abname)
-							print(abname)
-							if len == 4 and string.sub(abname, 4, 4) == "T" then
-								big_skill = true
-							end
-						end
-						if v:GetName() ~= "modifier_A28T" and v:GetName() ~= "modifier_kill" and v:GetName() ~= "modifier_illusion" and big_skill == false and (v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber()) then
-							target:RemoveModifierByName(v:GetName())
-							print(v:GetName(), v:GetCaster():GetTeamNumber(), caster:GetTeamNumber())
-						end
-					end
-				end
 				if target:IsHero() then
 					ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan2",{})
 					if target:IsIllusion() then
