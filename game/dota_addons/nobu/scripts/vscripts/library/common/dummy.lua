@@ -482,6 +482,8 @@ end
 function modifier_unit_armor:GetModifierIncomingDamage_Percentage( keys )
   if string.match(keys.attacker:GetName(), "npc_dota_creep_lane") then 
     return 50
+  elseif string.match(keys.attacker:GetUnitName(), "com_general") then
+    return 50
   elseif keys.attacker:IsBuilding() then
     if self.creep then
       return -100

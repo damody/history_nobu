@@ -423,20 +423,7 @@
 				"Duration"	"3"
 				"IsDebuff"	"1"
 			}
-			"modifier_C07T_3"
-			{
-				"Passive"	"1"
-				"IsHidden"	"1"
-				"ThinkInterval"	"0.1"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C07.lua"
-						"Function"	"C07T_Effect"
-					}
-				}
-			}
+			
 		}
 		"AbilitySpecial"
 		{
@@ -471,6 +458,23 @@
 				"abilityDamage"	"250 370 500"
 			}
 
+		}
+	}
+	"C07T2"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"razor_eye_of_the_storm"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityManaCost"                           "0"
+		"MaxLevel" 				"3"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C07.lua"
+				"Function"	"C07T2"
+			}
 		}
 	}
 	// 立花道雪 禦魔之盾

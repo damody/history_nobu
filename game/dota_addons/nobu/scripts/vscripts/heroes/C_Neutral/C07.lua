@@ -155,6 +155,19 @@ function C07R( keys )
 	group = nil
 end
 
+function C07T2 ( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local point = caster:GetAbsOrigin()
+	local radius = ability:GetSpecialValueFor("radius")
+	local dmg = ability:GetSpecialValueFor("abilityDamage")
+	local tick = ability:GetSpecialValueFor("tick")
+	print(radius .. "+" .. dmg .. "+" .. tick)
+	if caster.C07T_dummy then
+		caster.C07T_dummy:MoveToPosition(point)
+	end
+end
+
 function C07T( keys )
 	local caster = keys.caster
 	local ability = keys.ability
@@ -167,7 +180,7 @@ function C07T( keys )
 	AddFOWViewer(caster:GetTeamNumber(), point, radius, life_time, false)
 	local dummy = CreateUnitByName("Dummy_Ver1",point ,false,nil,nil,caster:GetTeam())
 	ability:ApplyDataDrivenModifier(caster,dummy,"modifier_C07T",nil)
-	dummy:FindAbilityByName("majia"):SetLevel(1)
+	-- dummy:FindAbilityByName("majia"):SetLevel(1)
 	dummy:SetOwner(caster)
 	caster.C07T_dummy = dummy
 	AddFOWViewer(DOTA_TEAM_GOODGUYS, dummy:GetAbsOrigin(), 100, life_time, false)
@@ -183,9 +196,11 @@ function C07T( keys )
 	local spell_hint_table = {
 		duration   = life_time,		-- 持續時間
 		radius     = radius,		-- 半徑
+		show = true,
+		caster = dummy
 	}
-	dummy2:AddNewModifier(dummy2,nil,"nobu_modifier_spell_hint",spell_hint_table)
-	dummy2:AddNewModifier(nil,nil,"modifier_kill",{duration=life_time})
+	dummy:AddNewModifier(dummy2,nil,"nobu_modifier_spell_hint_self",spell_hint_table)
+	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=life_time})
 	
 	local point2 = 4000
 	--print("@@@@")
@@ -199,7 +214,12 @@ function C07T( keys )
 	ParticleManager:SetParticleControlEnt(particle2,0, dummy, PATTACH_POINT_FOLLOW,"attach_hitloc",point+Vector(point2 ,point2,height), true)
 	ParticleManager:SetParticleControlEnt(particle2,1, dummy, PATTACH_POINT_FOLLOW,"attach_hitloc",point+Vector(point2,point2,height), true)
 	ParticleManager:SetParticleControlEnt(particle2,2, dummy, PATTACH_POINT_FOLLOW,"attach_hitloc",point+Vector(point2,point2,height), true)
-
+	-- caster:RemoveAbility("C07T")
+	caster:FindAbilityByName("C07T2"):SetLevel( level + 1)
+    caster.timer = Timers:CreateTimer(life_time, function()
+       -- caster:RemoveAbility("C07T2")
+		caster:FindAbilityByName("C07T2"):SetLevel(0)
+    end)
 	Timers:CreateTimer(life_time,function()
 		ParticleManager:DestroyParticle(particle,false)
 		ParticleManager:DestroyParticle(particle2,true)
