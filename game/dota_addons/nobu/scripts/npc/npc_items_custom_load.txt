@@ -15494,7 +15494,7 @@
 	{
 	    "ID" "2830"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1950"
+		"ItemCost" "1600"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"SideShop"						"0"
