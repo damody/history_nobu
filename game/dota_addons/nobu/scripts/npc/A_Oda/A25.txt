@@ -25,7 +25,7 @@
 		"HotKeyOverride"	"W"
 		"MaxLevel"	"4"
 		"LevelsBetweenUpgrades"	"2"
-		"AbilityCastPoint"          				"0.2"
+		"AbilityCastPoint"          				"0.1"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityCooldown"	"9 7 5 3"
 		"AbilityManaCost"	"100 120 140 160"
@@ -77,6 +77,12 @@
 		"OnProjectileHitUnit"
 		{
 			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A25_Oda_Nobunaga.lua"
+				"Function"	"A25W_OnProjectileHitUnit"
+				"Target"	"TARGET"
+			}
 			"Damage"
 			{
 				"Target"	"TARGET"
@@ -112,7 +118,7 @@
 				"shock_vision"	"100"
 			}
 		}
-		"AbilityDamage"	"200 275 350 425"
+		"AbilityDamage"	"100 150 200 250"
 	}
 
 	// 織田信長 厄災之棘
@@ -370,7 +376,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"bladestorm_radius"	"400"
+				"bladestorm_radius"	"500"
 			}
 			"03"
 			{

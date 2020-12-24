@@ -380,6 +380,7 @@ function A28TE( keys )
 	local skillmax = 3
 	--大絕直徑
 	local radius = keys.ability:GetLevelSpecialValueFor( "A28T_Radius", ( keys.ability:GetLevel() - 1 ) )
+	local dmg = keys.ability:GetLevelSpecialValueFor( "A28T_dmg", ( keys.ability:GetLevel() - 1 ) )
 	sk_radius = radius + 100
 	
 	--轉半徑
@@ -414,7 +415,7 @@ function A28TE( keys )
 
 			--effect:傷害+暈眩
 			for _,it in pairs(direUnits) do
-				local health = it:GetMaxHealth() * 0.02
+				local health = it:GetMaxHealth() * 0.01 * dmg
 				if it:IsBuilding() then
 					AMHC:Damage(caster,it,health,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				else

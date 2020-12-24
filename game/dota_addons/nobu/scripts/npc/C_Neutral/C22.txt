@@ -21,7 +21,7 @@
 		"HotKeyOverride"	"D"
 		"MaxLevel"	"4"
 		"AbilityCooldown"	"6"
-		"AbilityManaCost"	"135"
+		"AbilityManaCost"	"70"
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -76,7 +76,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"atkspd"	"175 200 225 250"
+				"atkspd"	"40 75 110 175"
 			}
 		}
 	}
@@ -202,7 +202,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"duration"	"2 3 4 5"
+				"duration"	"1 2 3 4"
 			}
 		}
 		"AbilityDamage"	"200 300 400 500"

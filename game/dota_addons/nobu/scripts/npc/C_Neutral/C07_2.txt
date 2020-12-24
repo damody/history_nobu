@@ -30,10 +30,11 @@
 		"Ability1"	"C07W"
 		"Ability2"	"C07E"
 		"Ability3"	"C07R"
-		"Ability4"	"magical_resistance"
+		"Ability4"	"C07T2"
 		"Ability5"	"C07D"
 		"Ability6"	"C07T"
-		"Ability7"	"C07_precache"
+		"Ability7"	"magical_resistance"
+		"Ability8"	"C07_precache"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"3"

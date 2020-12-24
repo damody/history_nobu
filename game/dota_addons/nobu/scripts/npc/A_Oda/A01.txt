@@ -468,6 +468,12 @@
 								"Target" 		"TARGET"
 								"Duration"		"1"
 							}
+							"ApplyModifier"
+							{
+								"ModifierName"	"modifier_A01T3"
+								"Target" 		"TARGET"
+								"Duration"		"1"
+							}
 						}
 					}
 				}
@@ -482,7 +488,15 @@
 					// "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
 					// "MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "%regen2" //回血%
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%regen2"
-					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"		"550"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%movespeedBonus"
+				}
+			}
+			"modifier_A01T3"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%armor"
 				}
 			}
 		}
@@ -496,7 +510,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"armor"	"10 15 20"
+				"armor"	"5 7.5 10"
 			}
 			"03"
 			{
@@ -512,6 +526,11 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"duration"	"7"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"movespeedBonus"	"20 25 30"
 			}
 		}
 	}

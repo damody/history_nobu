@@ -299,9 +299,9 @@ function B02T(keys)
 		else
 			--【DMG】
 			if target:IsMagicImmune() then
-				AMHC:Damage( caster,target,dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+				
 			else
-				AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+				AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			end
 			--【SOUND】
 			-- EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_Leshrac.Lightning_Storm", target)

@@ -303,7 +303,7 @@ function A32T_OnProjectileHit( event )
 
 	target:AddNewModifier( target, nil, "modifier_knockback", knockbackProperties )
 
-
+	ability:ApplyDataDrivenModifier(caster,target,"modifier_A32T",{duration = 2.5})
 	--傷害為當前血量設定百分比
 	local Damage=target:GetHealth()*event.Damage/100
 

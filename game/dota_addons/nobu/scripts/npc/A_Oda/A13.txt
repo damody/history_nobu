@@ -214,6 +214,15 @@
 		}
 		"Modifiers"
 		{
+			"modifier_A13D2"
+			{
+				"IsHidden"			"0"
+				"Duration"			"0.1"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"modifier_A13D"
 			{
 				"Duration"	"%duration"

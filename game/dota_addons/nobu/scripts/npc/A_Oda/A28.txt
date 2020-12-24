@@ -491,6 +491,11 @@
 				"var_type"	"FIELD_FLOAT"
 				"A28T_Skill_Duration"	"10 15 20"
 			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"A28T_dmg"	"3 4 5"
+			}
 		}
 	}
 	// 鳳凰 自動攻擊

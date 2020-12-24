@@ -19,7 +19,7 @@
 		"AbilityTextureName"	"ogre_magi_frost_armor"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityCooldown"	"19"
+		"AbilityCooldown"	"24"
 		"AbilityManaCost"	"120 140 160 180"
 		"precache"
 		{
