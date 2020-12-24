@@ -190,8 +190,6 @@ function B33T( keys )
 end
 
 function B33R_Levelup( keys )
-	keys.caster:ModifyAgility( 5 )
-	keys.caster:CalculateStatBonus()
 end
 
 -- 11.2B
