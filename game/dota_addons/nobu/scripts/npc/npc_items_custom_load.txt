@@ -13741,7 +13741,7 @@
 		"AbilityCastRange"	"1000"
 		"AOERadius"		"800"
 		
-		"AbilityDamage"		"400"
+		"AbilityDamage"		"550"
 		"ID"	"2513"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
