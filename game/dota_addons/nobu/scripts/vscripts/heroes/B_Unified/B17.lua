@@ -62,6 +62,12 @@ function B17W_onAttackLanded( keys )
 	]]
 end
 
+function B17W_onDeath( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	caster:ForceKill()
+end
+
 function B17W_onTakeDamage( keys )
 	if IsServer() then
 		local damage = keys.DamageTaken

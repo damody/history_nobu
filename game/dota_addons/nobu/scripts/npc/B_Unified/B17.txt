@@ -71,6 +71,14 @@
 						"dmg" "%attack_damage"
 					}
 				}
+				// "OnDeath"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"         			"scripts/vscripts/heroes/B_Unified/B17.lua"
+				// 		"Function"                		"B17W_onDeath"
+				// 	}
+				// }
 			}
 			"modifier_B17W_notActivate"
 			{
@@ -83,15 +91,15 @@
                 	"MODIFIER_STATE_DISARMED"				"MODIFIER_STATE_VALUE_ENABLED"
                 	"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
                 }
-                "OnTakeDamage" //1
-                {
-                	"RunScript"
-                	{
-                		"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B17.lua"
-                		"Function"		"B17W_onTakeDamage"
-                		"DamageTaken"	"%attack_damage"
-                	}
-                }
+                // "OnTakeDamage" //1
+                // {
+                // 	"RunScript"
+                // 	{
+                // 		"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B17.lua"
+                // 		"Function"		"B17W_onTakeDamage"
+                // 		"DamageTaken"	"%attack_damage"
+                // 	}
+                // }
                 "OnDestroy"
                 {
                 	"ApplyModifier"
@@ -482,7 +490,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"B17T_damage"		"800 1600 2400"
+				"B17T_damage"		"800 1400 2000"
 			}
 			"02"
 			{
