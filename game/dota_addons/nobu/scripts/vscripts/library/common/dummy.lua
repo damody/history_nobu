@@ -88,6 +88,12 @@ function top_broken( keys )
         ShuaGuai_Of_C(2,3,6)
         return 60
       end)
+      local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+      for k, ent in pairs(allBuildings) do
+        if string.match(ent:GetUnitName(),"com_general_oda") then
+          ent:RemoveModifierByName("modifier_intensify")
+        end
+      end
     end
   elseif team == 3 then
     if _G.team_broken[team]["top"] == 1 then
@@ -109,6 +115,12 @@ function top_broken( keys )
         ShuaGuai_Of_C(2,2,3)
         return 60
       end)
+    end
+    local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+    for k, ent in pairs(allBuildings) do
+      if string.match(ent:GetUnitName(),"com_general_unified") then
+        ent:RemoveModifierByName("modifier_intensify")
+      end
     end
   end
 end
@@ -137,6 +149,12 @@ function mid_broken( keys )
         ShuaGuai_Of_C(2,3,5)
         return 60
       end)
+      local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+      for k, ent in pairs(allBuildings) do
+        if string.match(ent:GetUnitName(),"com_general_oda") then
+          ent:RemoveModifierByName("modifier_intensify")
+        end
+      end
     end
   elseif team == 3 then
     if _G.team_broken[team]["mid"] == 1 then
@@ -158,6 +176,12 @@ function mid_broken( keys )
         ShuaGuai_Of_C(2,2,2)
         return 60
       end)
+      local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+      for k, ent in pairs(allBuildings) do
+        if string.match(ent:GetUnitName(),"com_general_unified") then
+          ent:RemoveModifierByName("modifier_intensify")
+        end
+      end
     end
   end
 end
@@ -186,6 +210,12 @@ function down_broken( keys )
         ShuaGuai_Of_C(2,3,4)
         return 60
       end)
+      local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+      for k, ent in pairs(allBuildings) do
+        if string.match(ent:GetUnitName(),"com_general_oda") then
+          ent:RemoveModifierByName("modifier_intensify")
+        end
+      end
     end
   elseif team == 3 then
     if _G.team_broken[team]["down"] == 1 then
@@ -207,6 +237,12 @@ function down_broken( keys )
         ShuaGuai_Of_C(2,2,1)
         return 60
       end)
+      local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+      for k, ent in pairs(allBuildings) do
+        if string.match(ent:GetUnitName(),"com_general_unified") then
+          ent:RemoveModifierByName("modifier_intensify")
+        end
+      end
     end
   end
 end

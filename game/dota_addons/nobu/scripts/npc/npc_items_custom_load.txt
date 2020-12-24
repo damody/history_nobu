@@ -841,11 +841,11 @@
 		
 		"AOERadius"	"350"
 		"AbilityCastRange"	"600"
-		"AbilityDamage"		"350"
+		"AbilityDamage"		"500"
 		"ID"	"2524"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
-		"ItemCost"	"4250"
+		"ItemCost"	"3500"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 
@@ -865,31 +865,12 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "30"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "14"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "300" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "5"
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔
-				}
-			}
-			"modifier_item_great_dragon"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"OnAttackLanded"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items/Addon_Items/item_great_dragon.lua"
-						"Function"	"OnAttackLanded"
-						"dmg"	"%attack_damage"
-					}
-					"RunScript"
-					{
-						"ScriptFile"	"items/Addon_Items/item_great_dragon.lua"
-						"Function"	"Extra_damage"
-					}
 				}
 			}
 		}
@@ -959,7 +940,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"150"
+		"AbilityCooldown"	"120"
 		"AbilityManaCost"	"100"
 		"AOERadius"	"300"
 		"AbilityCastPoint"	"0"
@@ -3063,7 +3044,7 @@
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
-		"ItemCost"	"9000"
+		"ItemCost"	"8500"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SecretShop" "1"
@@ -3111,7 +3092,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "17"	//敏
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"	//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "70"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
@@ -8474,7 +8455,7 @@
 	{
 	    "ID" "3034"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1500"
+		"ItemCost" "750"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_great_dragon"  //合成後物品
@@ -8609,7 +8590,7 @@
 	{
 	    "ID" "3043"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1450"
+		"ItemCost" "1000"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_nannbann_armor"  //合成後物品
@@ -13379,8 +13360,10 @@
 						
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "40" //攻速
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "7"	//防禦
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50" //攻速
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "10"	//防禦
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "10"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"20"
 				}
 			}
 			"Passive_art_of_war"
@@ -15401,7 +15384,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"250"
+		"ItemCost"	"150"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"						"1"
@@ -15494,7 +15477,7 @@
 	{
 	    "ID" "2830"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1950"
+		"ItemCost" "1600"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"SideShop"						"0"
@@ -16513,85 +16496,85 @@
 		}
 	}
 	// 新藤五國光
-	"item_Shintogo_Kunimitsu"
-	{
-		// General
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/Shintogo_Kunimitsu"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-		"FightRecapLevel"	"1"
+	// "item_Shintogo_Kunimitsu"
+	// {
+	// 	// General
+	// 	"BaseClass"	"item_datadriven"
+	// 	"AbilityTextureName"	"item_custom/Shintogo_Kunimitsu"
+	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	// 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	// 	"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	// 	"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+	// 	"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+	// 	"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"0"
+	// 	"AbilityCooldown"	"0"
 		
-		"AbilityManaCost"	"0"
-		"ID"	"2847"
-		"ItemQuality"	"component"
-		"Model"	"models/heroes/abaddon/weapon.vmdl"
-		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"3800"
-		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemRequirements"	{}
-		"Modifiers"
-		{
+	// 	"AbilityManaCost"	"0"
+	// 	"ID"	"2847"
+	// 	"ItemQuality"	"component"
+	// 	"Model"	"models/heroes/abaddon/weapon.vmdl"
+	// 	"Effect"	"particles/q09_2/q09_2.vpcf"
+	// 	"ItemCost"	"3800"
+	// 	////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+	// 	"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+	// 	"ItemRequirements"	{}
+	// 	"Modifiers"
+	// 	{
 			
-			"Passive_item_Shintogo_Kunimitsu"
-			{
-				"IsHidden"	"1"
-				"Passive"	"1"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items\Addon_Items\item_Shintogo_Kunimitsu.lua"
-						"Function"	"TakenDamage"
-					}
-				}
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"items\Addon_Items\item_Shintogo_Kunimitsu.lua"
-						"Function"	"OnDeath"
-					}
-				}
-			}
-			"Passive_Shintogo_Kunimitsu"
-			{
-				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Passive"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "10"	//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "20"	//攻
-					"MODIFIER_PROPERTY_HEALTH_BONUS" "400" 			//血
-					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15" //攻速
-				}
-			}
-			"modifier_Shintogo_Kunimitsu"
-			{
-				"IsHidden"	"0"
-				"Passive"	"0"
-				"Duration"	"2"
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"Target"	"CASTER"
-						"ScriptFile"	"items\Addon_Items\item_Shintogo_Kunimitsu.lua"
-						"Function"	"OnDestroy"
-					}
-				}
-			}
-		}
+	// 		"Passive_item_Shintogo_Kunimitsu"
+	// 		{
+	// 			"IsHidden"	"1"
+	// 			"Passive"	"1"
+	// 			"OnTakeDamage"
+	// 			{
+	// 				"RunScript"
+	// 				{
+	// 					"ScriptFile"	"items\Addon_Items\item_Shintogo_Kunimitsu.lua"
+	// 					"Function"	"TakenDamage"
+	// 				}
+	// 			}
+	// 			"OnDeath"
+	// 			{
+	// 				"RunScript"
+	// 				{
+	// 					"ScriptFile"	"items\Addon_Items\item_Shintogo_Kunimitsu.lua"
+	// 					"Function"	"OnDeath"
+	// 				}
+	// 			}
+	// 		}
+	// 		"Passive_Shintogo_Kunimitsu"
+	// 		{
+	// 			"IsHidden"	"1"
+	// 			"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+	// 			"Passive"	"1"
+	// 			"Properties"
+	// 			{
+	// 				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+	// 				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "10"	//敏
+	// 				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
+	// 				"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "20"	//攻
+	// 				"MODIFIER_PROPERTY_HEALTH_BONUS" "400" 			//血
+	// 				"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+	// 				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "15" //攻速
+	// 			}
+	// 		}
+	// 		"modifier_Shintogo_Kunimitsu"
+	// 		{
+	// 			"IsHidden"	"0"
+	// 			"Passive"	"0"
+	// 			"Duration"	"2"
+	// 			"OnDestroy"
+	// 			{
+	// 				"RunScript"
+	// 				{
+	// 					"Target"	"CASTER"
+	// 					"ScriptFile"	"items\Addon_Items\item_Shintogo_Kunimitsu.lua"
+	// 					"Function"	"OnDestroy"
+	// 				}
+	// 			}
+	// 		}
+	// 	}
 		// "OnEquip"
 		// {
 		// 	"RunScript"
@@ -16616,7 +16599,7 @@
 		// 		"magical_resistance"	"10"
 		// 	}
 		// }
-	}
+	// }
 	// 般若鬼丸
 	"item_Hannya_Onimaru"
 	{
