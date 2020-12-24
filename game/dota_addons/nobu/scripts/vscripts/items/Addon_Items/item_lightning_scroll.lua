@@ -269,6 +269,9 @@ function item_raikiri( keys )
 						
 						--【DMG】
 						local dmg = 200
+						if caster.orb then
+							dmg = dmg * caster.orb
+						end
 						if not unit:IsMagicImmune() then
 							if unit:IsHero() then
 								AMHC:Damage(caster,unit,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )

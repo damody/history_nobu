@@ -88,13 +88,16 @@ function item_kokumo( keys )
 								FIND_ANY_ORDER,
 								false)
 			local dmg = 200
+			if caster.orb then
+				dmg = dmg * caster.orb
+			end
 			if not target:IsMagicImmune() then
 				AMHC:Damage(caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			end
 			for _,it in pairs(direUnits) do
 				ability:ApplyDataDrivenModifier(caster, it,"modifier_frozen_ring",{duration=3})
 				if it ~= target and not it:IsMagicImmune() then
-					AMHC:Damage(caster,it,100,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+					AMHC:Damage(caster,it,(dmg/2),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				end
 			end
 			local particle = ParticleManager:CreateParticle("particles/a34e2/a34e2.vpcf", PATTACH_ABSORIGIN, target)
