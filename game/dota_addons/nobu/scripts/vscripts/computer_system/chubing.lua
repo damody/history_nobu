@@ -115,6 +115,14 @@ function ShuaGuai( )
 	for k, ent in pairs(allBuildings) do
 		ent:AddNewModifier(caster, ability, "modifier_unit_armor", nil)
 		ent:FindModifierByName("modifier_unit_armor").caster = caster
+		if string.match(ent:GetUnitName(),"general") then
+			--1300 加技能
+			for i = 0 , ent:GetAbilityCount() - 1 do
+				if ent:GetAbilityByIndex(i) then
+					ent:GetAbilityByIndex(i):SetLevel(1)
+				end
+			end
+		end
 	end
 	Timers:CreateTimer(10, function()
 		local allBuildings = Entities:FindAllByClassname('npc_dota_tower')

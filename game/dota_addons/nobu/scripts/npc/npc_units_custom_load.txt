@@ -6191,7 +6191,7 @@
 		// Reference: Amim
 		"Ability2"	"com_bigattack"
 		// Reference: Aoar
-		"Ability3"	""
+		"Ability3"	"com_intensify"
 		// Reference: A0BN
 		"Ability4"	""
 		// Armor
@@ -6270,7 +6270,7 @@
 		// Reference: Amim
 		"Ability2"	"com_bigattack"
 		// Reference: Aoar
-		"Ability3"	""
+		"Ability3"	"com_intensify"
 		// Reference: A0BN
 		"Ability4"	""
 		// Armor
