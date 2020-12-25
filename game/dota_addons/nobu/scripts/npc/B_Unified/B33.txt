@@ -428,6 +428,15 @@
 		}
 		"Modifiers"
 		{
+			"modifier_B33R_passive"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%agility_bonus"
+				}
+			}
 			"modifier_psi_blades"
 			{
 				"Passive"	"0"
