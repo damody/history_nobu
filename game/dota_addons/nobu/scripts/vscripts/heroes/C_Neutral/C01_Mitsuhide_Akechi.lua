@@ -249,8 +249,6 @@ function C01T_Mitsuhide_Akechi_Effect( keys, point , center )
 			local a = it:GetAbsOrigin()
 			local b = center
 			local dir = (a-b):Length2D()
-			print(dir)
-			print(radius)
 			if dir <= ((radius+100)/2) then
 				if (not(it:IsBuilding())) then
 					if it:IsHero() then
