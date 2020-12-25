@@ -75,9 +75,9 @@ function B17W_onTakeDamage( keys )
 		if ability then
 			local unit = keys.unit
 			if damage > unit:GetHealth() then
-				local newHealth = unit:GetMaxHealth() + damage
-				unit:SetHealth(newHealth)
-				unit:RemoveModifierByName("modifier_B17W_notActivate")
+				-- local newHealth = unit:GetMaxHealth() + damage
+				-- unit:SetHealth(newHealth)
+				-- unit:RemoveModifierByName("modifier_B17W_notActivate")
 			end
 		end
 	end
