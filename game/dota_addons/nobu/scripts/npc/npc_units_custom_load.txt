@@ -8732,7 +8732,7 @@
 		// ----------------------------------------------------------------
 		"BountyGoldMin"	"25.0"
 		"BountyGoldMax"	"27.0"
-		"BountyXP"	"20"
+		"BountyXP"	"0"
 		// Movement
 		// ----------------------------------------------------------------
 		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"

@@ -251,7 +251,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"per_mov_spd"		"9 17 25 33"
+				"per_mov_spd"		"4 8 12 16"
 			}
 		}
 	}

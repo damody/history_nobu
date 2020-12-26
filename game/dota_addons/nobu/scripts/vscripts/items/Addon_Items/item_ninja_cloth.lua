@@ -19,18 +19,19 @@ function OnUnequip( keys )
 end
 
 function OnCreated( keys )
-	local caster = keys.caster
+	
+	local caster = keys.target
 	caster.shield_effect = ParticleManager:CreateParticle("particles/item/item_ronin_jitte_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(caster.shield_effect, 1,caster:GetAbsOrigin()+Vector(0, 0, 0))
 end
 
 function OnDestroy( keys )
-	local caster = keys.caster
+	local caster = keys.target
 	ParticleManager:DestroyParticle(caster.shield_effect, false)
 end
 
 function Reckoning( keys )
-	local caster = keys.caster
+	local caster = keys.unit
 	local target = keys.attacker
 	if not target:IsHero() then return nil end
 	local ability = keys.ability

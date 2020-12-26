@@ -356,13 +356,32 @@
 			}
 			"modifier_A17W_2"
 			{
-				"States"
+				// "States"
+				// {
+				// 	"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				// }
+				// "EffectName"	"particles/generic_gameplay/move_slow.vpcf"
+				// "EffectAttachType"	"follow_overhead"
+				// "Duration"	"%stun_duration"
+				"OnCreated"
 				{
-					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"A17W_2"
+						"ms_slow" "-30"
+					}
 				}
-				"EffectName"	"particles/generic_gameplay/move_slow.vpcf"
-				"EffectAttachType"	"follow_overhead"
-				"Duration"	"%stun_duration"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A17W_2"
+					}
+				}
 			}
 		}
 		// Special
