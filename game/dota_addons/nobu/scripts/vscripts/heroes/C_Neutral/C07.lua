@@ -162,7 +162,6 @@ function C07T2 ( keys )
 	local radius = ability:GetSpecialValueFor("radius")
 	local dmg = ability:GetSpecialValueFor("abilityDamage")
 	local tick = ability:GetSpecialValueFor("tick")
-	print(radius .. "+" .. dmg .. "+" .. tick)
 	if caster.C07T_dummy then
 		caster.C07T_dummy:MoveToPosition(point)
 	end
