@@ -571,6 +571,17 @@ end
 
 function modifier_tower_armor:GetModifierIncomingDamage_Percentage( keys )
 
+  if keys.attacker.abilityName == "A19T" then
+    local a = keys.attacker:GetAbsOrigin()
+    local b = keys.target:GetAbsOrigin()
+    local dir = (a-b):Length2D()
+    if dir >= 2500 then
+      return -50
+    else
+      return 0
+    end
+  end
+
   if keys.attacker:IsHero() then 
     return 0
   elseif keys.attacker:IsBuilding() then

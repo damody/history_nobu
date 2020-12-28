@@ -360,9 +360,9 @@
 				// {
 				// 	"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
 				// }
-				// "EffectName"	"particles/generic_gameplay/move_slow.vpcf"
-				// "EffectAttachType"	"follow_overhead"
-				// "Duration"	"%stun_duration"
+				"EffectName"	"particles/generic_gameplay/move_slow.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Duration"	"%stun_duration"
 				"OnCreated"
 				{
 					"RunScript"
@@ -704,7 +704,7 @@
 			"06"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"attack_speed_bonus"	"-75"
+				"attack_speed_bonus"	"-75 -50 -25"
 			}
 			"07"
 			{

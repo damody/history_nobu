@@ -489,6 +489,11 @@
 				"var_type"                "FIELD_INTEGER"
 				"A32T_DAMAGE"                "20 25 30"
 			}
+			"02"
+			{
+				"var_type"                "FIELD_FLOAT"
+				"A32T_Duration"                "2.5"
+			}
 		}
 	}
 

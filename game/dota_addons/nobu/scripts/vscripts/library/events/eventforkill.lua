@@ -499,7 +499,7 @@ function Nobu:OnUnitKill( keys )
               killedUnit:GetAbilityByIndex(i):SetLevel(1)
             end
           end
-          killedUnit:SetOriginalModel("models/props_gameplay/donkey.vmdl")
+          killedUnit:SetOriginalModel("models/items/courier/white_the_crystal_courier/white_the_crystal_courier.vmdl")
         end)
       end
     -- end
