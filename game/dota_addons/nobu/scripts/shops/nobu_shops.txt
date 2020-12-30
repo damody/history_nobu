@@ -73,6 +73,7 @@
 	"item"      "item_magic_ring"			//法術戒指
 	"item"      "item_flash_ring"			//閃光輪
 	"item"		"item_toughness_ingot"		//韌性鋼
+	"item"		"item_attack_speed_ingot"	//攻速鋼
 	"item"		"item_magic_resistance_ingot"//禦魔鋼
 	"item"      "item_strength_ingot"		//蠻力鋼
 	"item"      "item_agility_ingot"		//迅捷鋼
@@ -125,7 +126,7 @@
 	"item"      "item_moon_spear"			//斬月槍
 	"item"      "item_ronin_jitte"			//浪人十手
 	"item"      "item_sakabatou"			//逆刃刀
-
+	"item"		"item_Sukezane"				//銘助真
 	"item"      "item_the_dark_yellow_teeth_and_zimbabwe"			//闇牙黃泉津
 	"item"		"item_Shintogo_Kunimitsu"	//新藤五國光
 	"item"		"item_Hannya_Onimaru"	//般若鬼丸

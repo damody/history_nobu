@@ -69,6 +69,7 @@
 	"item"      "item_strength_ingot"			//蠻力鋼
 	"item"      "item_agility_ingot"			//迅捷鋼
 	"item"		"item_toughness_ingot"		//韌性鋼
+	"item"		"item_attack_speed_ingot"	//攻速鋼
 	"item"		"item_magic_resistance_ingot"		//禦魔鋼
 	"item"      "item_intelligence_ingot"			//技巧鋼
 	"item"      "item_power_ingot"			//強化鋼

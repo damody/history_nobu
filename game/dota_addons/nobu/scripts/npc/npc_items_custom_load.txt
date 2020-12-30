@@ -1845,7 +1845,7 @@
 		// General
 		
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/toughness_ingot"
+		"AbilityTextureName"	"item_custom/toughness_amulet"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"FightRecapLevel"	"1"
 		"ID"	"2845"
@@ -1913,6 +1913,35 @@
 			}
 		}
 	}
+	//攻速鋼
+	"item_attack_speed_ingot"
+	{
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/attack_speed_ingot"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"FightRecapLevel"	"1"
+		"ID"	"2861"
+		"ItemQuality"	"component"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SideShop"	"0"
+		"ItemCost"	"650"
+		"Modifiers"
+		{
+			"Passive_attack_speed_ingot"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"15"
+				}
+			}
+		}
+	}
+
 	// 禦魔鋼	
 	"item_magic_resistance_ingot"
 	{
@@ -16600,6 +16629,88 @@
 		// 	}
 		// }
 	// }
+	"item_recipe_Sukezane"
+	{
+		"ID" "2863"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "0"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"ItemResult" "item_Sukezane"
+		"ItemRequirements"
+		{
+			"01" "item_staff;item_stable_shield;item_stable_shield;item_attack_speed_ingot;item_attack_speed_ingot;item_intelligence_ingot"
+		}
+	}
+
+	// 銘助真
+	"item_Sukezane"
+	{
+		// General
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/Sukezane"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		
+		"AbilityCooldown"	"0"
+		
+		"AbilityManaCost"	"0"
+		"ID"	"2862"
+		"ItemQuality"	"component"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"3500"
+		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequirements"	{}
+		"Modifiers"
+		{
+			"Passive_Sukezane"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"	//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "15"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" ""	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "30" //攻速
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "8"	//防禦
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items\Addon_Items\item_Sukezane.lua"
+						"Function"	"Sukezans_AttackLanded"
+				 	}
+				}
+			}
+			"modifier_Sukezane"
+			{
+				"IsDebuff"		"1"
+				"Duration"	"2"
+				"ThinkInterval"	"1"
+				"IsHidden"	"0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items\Addon_Items\item_Sukezane.lua"
+						"Function"	"Sukezans_Damage"
+					}
+				}
+			}
+		}
+	}
 	// 般若鬼丸
 	"item_Hannya_Onimaru"
 	{
