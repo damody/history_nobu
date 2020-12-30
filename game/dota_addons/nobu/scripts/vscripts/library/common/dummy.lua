@@ -578,7 +578,11 @@ function modifier_tower_armor:GetModifierIncomingDamage_Percentage( keys )
     if dir >= 2500 then
       return -50
     else
-      return 0
+      if keys.attacker:IsAlive() then
+        return 0
+      else
+        return -50
+      end
     end
   end
 
