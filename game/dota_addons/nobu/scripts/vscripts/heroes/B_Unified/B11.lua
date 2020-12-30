@@ -6,11 +6,11 @@ function B11D_OnKill( keys )
 			print("illusion")
 			local owner = keys.caster:GetOwner()
 			owner:ModifyAgility( keys.bonus_agi )
-			owner:CalculateStatBonus()
+			-- owner:CalculateStatBonus()
 		else
 			print("self")
 			keys.caster:ModifyAgility( keys.bonus_agi )
-			keys.caster:CalculateStatBonus()
+			-- keys.caster:CalculateStatBonus()
 		end
 	end
 end
@@ -226,12 +226,12 @@ function B11T_OnAttackStart( keys )
 		caster.B11T_count = 0
 		local rate = 1/caster:GetAttacksPerSecond()
 		if caster:HasModifier("modifier_B11T_Enable") then
-			if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * (ability:GetLevelSpecialValueFor("active_criticalstrike",ability:GetLevel() - 1) / 100) then
+			if caster.maximum_critical_damage and caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * (ability:GetLevelSpecialValueFor("active_criticalstrike",ability:GetLevel() - 1) / 100) then
 				caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * (ability:GetLevelSpecialValueFor("active_criticalstrike",ability:GetLevel() - 1) / 100)
 			end
 			ability:ApplyDataDrivenModifier(caster,caster,"modifier_B11T_Crit3",{duration = rate})
 		else
-			if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * (ability:GetLevelSpecialValueFor("passiv_criticalstrike",ability:GetLevel() - 1) / 100) then
+			if caster.maximum_critical_damage and caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * (ability:GetLevelSpecialValueFor("passiv_criticalstrike",ability:GetLevel() - 1) / 100) then
 				caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * (ability:GetLevelSpecialValueFor("passiv_criticalstrike",ability:GetLevel() - 1) / 100)
 			end
 			ability:ApplyDataDrivenModifier(caster,caster,"modifier_B11T_Crit2",{duration = rate})

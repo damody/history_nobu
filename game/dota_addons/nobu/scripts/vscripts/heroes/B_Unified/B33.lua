@@ -39,7 +39,7 @@ function B33R(keys)
 	
 	-- Calculates the position of each found unit in relation to the last target
 	for i,unit in ipairs(units) do
-		if unit ~= target then
+		if unit then
 			-- local target_origin_difference = target:GetAbsOrigin() - unit:GetAbsOrigin()
 			
 			-- -- Get the radian of the origin difference between the last target and the unit. We use this to figure out at what angle the unit is at relative to the the target.
@@ -68,7 +68,7 @@ function B33R(keys)
 				iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION
 				}
 				ProjectileManager:CreateTrackingProjectile( info )
-				AMHC:Damage( caster,unit,damage,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+				AMHC:Damage( caster,unit,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			-- new_target = true
 			-- end
 		end
@@ -190,8 +190,6 @@ function B33T( keys )
 end
 
 function B33R_Levelup( keys )
-	keys.caster:ModifyAgility( 5 )
-	keys.caster:CalculateStatBonus()
 end
 
 -- 11.2B

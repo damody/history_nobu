@@ -6,7 +6,6 @@ function modifier_B09W_OnCreated( keys )
 	local target = keys.target
 	local B09W_counter=0
 	local test = 0
-	local B09W_base = ability:GetSpecialValueFor("basicDMG")
 	target.max_count=8
 	--local buff=target:FindModifierByName("modifier_B09W_counter")
 	--buff:SetStackCount(8)
@@ -16,7 +15,7 @@ function modifier_B09W_OnCreated( keys )
 	local count = 0
 	Timers:CreateTimer(0, function()
 		if target:HasModifier("modifier_B09W_counter") then
-			AMHC:Damage( caster,target,ability:GetAbilityDamage()*B09W_counter + B09W_base,AMHC:DamageType("DAMAGE_TYPE_PURE") )
+			AMHC:Damage( caster,target,ability:GetAbilityDamage()*B09W_counter + 50,AMHC:DamageType("DAMAGE_TYPE_PURE") )
 		elseif target:IsMagicImmune() then
 			ability:ApplyDataDrivenModifier(caster,target,"modifier_B09W_counter", {duration=20-B09W_counter})
 		else
@@ -112,7 +111,7 @@ function B09E_OnSpellStart( keys )
 	local caster = keys.caster
 	local target = keys.target
 	caster.B09E_target = target
-	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"static_attack_loop",caster)
+	caster:EmitSound("static_attack_loop")
 	local particle3 = ParticleManager:CreateParticle("particles/b09e/b09e.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControlEnt(particle3, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(particle3, 4, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -275,8 +274,8 @@ function B09W_old_OnSpellStart( keys )
 	local ability = keys.ability
 	local point = keys.target_points[1] 
 	local point2
-	EmitSoundOnLocationWithCaster( dummy:GetAbsOrigin(),"Hero_Leshrac.Lightning_Storm", dummy)
-	EmitSoundOnLocationWithCaster( v:GetAbsOrigin(),"Hero_Leshrac.Lightning_Storm", v)
+	StartSoundEvent( "Hero_Leshrac.Lightning_Storm", dummy )
+	StartSoundEvent( "Hero_Leshrac.Lightning_Storm", v )
 	point2 = point
 	local particle = ParticleManager:CreateParticle("particles/b05e/b05e.vpcf", PATTACH_ABSORIGIN , caster)
 	local particle2 = ParticleManager:CreateParticle("particles/b09w_old/b09w_old.vpcf", PATTACH_ABSORIGIN , caster)
