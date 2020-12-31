@@ -6,7 +6,7 @@
 		// General
 		// ----------------------------------------------------------------
 		"override_hero"	"npc_dota_hero_razor"
-		"ModelScale"	"1.4"
+		"ModelScale"	"1.3"
 		"Model"	"models/b12/b12.vmdl"
 		//"Level"	"5"
 		"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
@@ -18,9 +18,9 @@
 		"Ability2"	"B12E"
 		"Ability3"	"B12R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"B12T"
-		"Ability6"	""
-		"Ability7"	"B12_precache"
+		"Ability5"	"B12_precache"
+		"Ability6"	"B12T"
+		"Ability7"	""
 
 		// Armor
 		// ----------------------------------------------------------------
