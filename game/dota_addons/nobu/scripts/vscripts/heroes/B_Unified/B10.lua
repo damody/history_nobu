@@ -352,7 +352,9 @@ function ExorcismPhysics( event )
 								--first blood
 								ability:ApplyDataDrivenModifier(caster,unit.current_target,"modifier_B10W_slow",{})
 								hModifier = unit.current_target:FindModifierByNameAndCaster("modifier_B10W_slow", caster)
-								hModifier:SetStackCount(1)
+								if hModifer then
+									hModifier:SetStackCount(1)
+								end
 							else
 								-- double kill
 								local scount = hModifier:GetStackCount()
