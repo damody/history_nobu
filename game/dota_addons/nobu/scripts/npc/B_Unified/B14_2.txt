@@ -6,7 +6,7 @@
 		// General
 		// ----------------------------------------------------------------
 		"override_hero"	"npc_dota_hero_meepo"
-		"ModelScale"	"1.4"
+		"ModelScale"	"1.3"
 		"Model"	"models/b14/b14.vmdl"
 		"SoundSet"	"Hero_Axe"
 		"VoiceFile" "soundevents/voscripts/game_sounds_vo_axe.vsndevts"
@@ -17,8 +17,8 @@
 		"Ability2"	"B14E"
 		"Ability3"	"B14R"
 		"Ability4"	"B14D"
-		"Ability5"	"B14T"
-		"Ability6"	"B14_precache"
+		"Ability5"	"B14_precache"
+		"Ability6"	"B14T"
 		"Ability7"	"magical_resistance"
 		"Ability8"	""
 		"Ability9"	""
