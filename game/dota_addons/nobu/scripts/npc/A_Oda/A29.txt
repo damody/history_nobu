@@ -575,8 +575,8 @@
 			{
 				"IsHidden"	"0"
 				"IsPurgable"	"0"
-				"EffectAttachType"	"follow_overhead"
-				"EffectName"	"particles/title/a29t2.vpcf"
+				// "EffectAttachType"	"follow_overhead"
+				// "EffectName"	"particles/title/a29t2.vpcf"
 				"OnCreated"
 				{
 					

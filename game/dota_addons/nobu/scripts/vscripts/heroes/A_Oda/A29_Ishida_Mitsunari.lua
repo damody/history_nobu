@@ -360,7 +360,7 @@ function ExorcismPhysics( event )
 							unit.numberOfHits = unit.numberOfHits + 1 
 
 							-- Fire Sound on the target unit
-							unit.EmitSoundOnLocationWithCaster(current_target:GetAbsOrigin(),"Hero_DeathProphet.Exorcism.Damage",current_target)
+							EmitSoundOnLocationWithCaster(unit.current_target:GetAbsOrigin(),"Hero_DeathProphet.Exorcism.Damage",unit.current_target)
 							
 							-- Set to return
 							unit.state = "returning"

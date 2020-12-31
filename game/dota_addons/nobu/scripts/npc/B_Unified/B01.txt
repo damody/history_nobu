@@ -485,7 +485,7 @@
 				    "Center" "CASTER"
 				    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 				}
-				"ModifierName"	"modifier_B26T"
+				"ModifierName"	"modifier_B01T"
 			}
 			"FireSound"
 			{
@@ -506,7 +506,7 @@
 		}
 		"Modifiers"
 		{
-			"modifier_B26T"
+			"modifier_B01T"
 			{
 				"Properties"
 				{

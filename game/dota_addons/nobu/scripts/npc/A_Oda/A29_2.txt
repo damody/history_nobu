@@ -3,7 +3,7 @@
 	// 石田三成
 	"A29"
 	{
-		"ModelScale"	"1.3"
+		"ModelScale"	"1.0"
 		//"Model"	"models/a29/a29.vmdl"
 		//"DisableWearables"	"1"
 		//"Level"	"1"
@@ -15,8 +15,8 @@
 		"Ability2"	"A29E"
 		"Ability3"	"A29R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"A29T"
-		"Ability6"	"A29_precache"
+		"Ability5"	"A29_precache"
+		"Ability6"	"A29T"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
