@@ -1,6 +1,7 @@
 LinkLuaModifier( "modifier_unit_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_tower_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_record", "items/Addon_Items/record.lua",LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_tower_debuff", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 --print ('[Nobu-lua] chubing lua script Starting..' )
 --if _G.nobu_chubing_b then --"Nobu" then
 print("[Nobu-lua] _G.nobu_chubing_b")
@@ -103,11 +104,11 @@ function ShuaGuai( )
 		_G.armor_bonus = _G.armor_bonus + 1
 		return 300
 	end)
-	Timers:CreateTimer(1200, function()
-		ShuaGuai_Of_Cavalry_num = ShuaGuai_Of_Cavalry_num + 1
-		ShuaGuai_Of_Gunner_num = ShuaGuai_Of_Gunner_num + 1
-		return 1200
-	end)
+	-- Timers:CreateTimer(1200, function()
+	-- 	ShuaGuai_Of_Cavalry_num = ShuaGuai_Of_Cavalry_num + 1
+	-- 	ShuaGuai_Of_Gunner_num = ShuaGuai_Of_Gunner_num + 1
+	-- 	return 1200
+	-- end)
 	Timers:CreateTimer(1800, function()
 		_G.bigminions = 70
 	end)
@@ -171,10 +172,10 @@ function ShuaGuai( )
 	-- 出足輕   
  	Timers:CreateTimer(start_time, function()
 		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,2,1)
-		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,2,2)
+		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num + 1,2,2)
 		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,2,3)
 		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,3,4)
-		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,3,5)
+		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num + 1,3,5)
 		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,3,6)
 		_G.A_count = _G.A_count + 1
   		return _G.minions
@@ -182,24 +183,24 @@ function ShuaGuai( )
 	 -- 出弓箭手
 	 Timers:CreateTimer(start_time+2, function()--50
 		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,2,1)
-		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,2,2) 
+		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num + 1,2,2) 
 		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,2,3)
 		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,3,4)
-		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,3,5)
+		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num + 1,3,5)
 		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,3,6)
 		 return _G.minions
 	end)
 	-- 出鐵炮跟騎兵
 	Timers:CreateTimer(180,function()
 		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,2,1)
-		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,2,2)
+		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num + 1,2,2)
 		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,2,1)
 		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,2,2)  
 		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,2,3)
 		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,3,4)
 		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,2,3)
 		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,4)
-		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,3,5)
+		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num + 1,3,5)
 		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,3,6)
 		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,5)
 		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,6)

@@ -108,77 +108,85 @@ function B11R_OnAttackLanded( keys )
 	local root_duration = ability:GetSpecialValueFor("B11R_root_duration")
 	local illusion_incoming_damage = ability:GetSpecialValueFor("illusion_incoming_damage")
 	local ran =  RandomInt(0, 100)
-	if (caster.B11R == nil) then
-		caster.B11R = 0
-	end
-	if caster.B11R_rate == nil then
-		caster.B11R_rate = 0.3
-	end
-	if not target:IsBuilding() then
-		caster.B11R = caster.B11R + 1
-	end
-	if caster.B11R >= 7 or ran <= 20 and not target:IsBuilding() then
-		caster.B11R = 0
-		target:AddNewModifier(caster,nil,"nobu_modifier_rooted", {duration=root_duration} )
-		local b11t = caster:FindAbilityByName("B11T")
-		local illusion = {}
-		local unit_name = caster:GetUnitName()
-		local player = caster:GetPlayerID()
-		local origin = target:GetAbsOrigin() - target:GetForwardVector() * 100
-		for i=1,1 do
-			-- handle_UnitOwner needs to be nil, else it will crash the game.
-			illusion[i] = CreateUnitByName(unit_name, origin, true, caster, nil, caster:GetTeamNumber())
-			illusion[i]:SetOwner(caster)
-			illusion[i]:SetControllableByPlayer(player, true)
-			illusion[i].illusion_damage = caster.B11R_rate
-			illusion[i].magical_resistance = caster.magical_resistance
-			-- Level Up the unit to the casters level
-			local casterLevel = caster:GetLevel()
-			for j=1,casterLevel-1 do
-				illusion[i]:HeroLevelUp(false)
-			end
-			
-			-- Set the skill points to 0 and learn the skills of the caster
-			illusion[i]:SetAbilityPoints(0)
-			for abilitySlot=0,15 do
-				local ability = illusion[i]:GetAbilityByIndex(abilitySlot)
-				if ability ~= nil then 
-					local abilityLevel = ability:GetLevel()
-					local abilityName = ability:GetAbilityName()
-					local illusionAbility = illusion[i]:FindAbilityByName(abilityName)
-					if (illusionAbility ~= nil) then
-						illusion[i]:RemoveAbility(abilityName)
-					end
-				end
-			end
-			for abilitySlot=0,15 do
-				local ability = caster:GetAbilityByIndex(abilitySlot)
-				if ability ~= nil then 
-					local abilityLevel = ability:GetLevel()
-					local abilityName = ability:GetAbilityName()
-					if abilityName ~= "B11R" then
-						illusion[i]:AddAbility(abilityName):SetLevel(abilityLevel)
-					end
-					if abilityName == "B11T" and caster:HasModifier("modifier_B11T_Enable") then
-						b11t:ApplyDataDrivenModifier(illusion[i],illusion[i],"modifier_B11T_Enable",{duration = rate})
-					end
-				end
-			end
-			-- Recreate the items of the caster
-			for itemSlot=0,5 do
-				local item = caster:GetItemInSlot(itemSlot)
-				if item ~= nil then
-					local itemName = item:GetName()
-					local newItem = CreateItem(itemName, illusion[i], illusion[i])
-					illusion[i]:AddItem(newItem)
-				end
-			end
-			illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = 5, outgoing_damage =  (caster.B11R_rate-1) * 100 ,  incoming_damage = illusion_incoming_damage })
-			illusion[i]:MakeIllusion()
-			illusion[i]:SetHealth(caster:GetHealth())
+	if caster.B11R_trigger == nil then
+		if (caster.B11R == nil) then
+			caster.B11R = 0
 		end
-		caster:AddNewModifier(caster,ability,"modifier_phased",{duration=0.1})
+		if caster.B11R_rate == nil then
+			caster.B11R_rate = 0.3
+		end
+		if not target:IsBuilding() then
+			caster.B11R = caster.B11R + 1
+		end
+		if caster.B11R >= 7 or ran <= 20 and not target:IsBuilding() then
+			caster.B11R = 0
+			target:AddNewModifier(caster,nil,"nobu_modifier_rooted", {duration=root_duration} )
+			local b11t = caster:FindAbilityByName("B11T")
+			local illusion = {}
+			local unit_name = caster:GetUnitName()
+			local player = caster:GetPlayerID()
+			local origin = target:GetAbsOrigin() - target:GetForwardVector() * 100
+			for i=1,1 do
+				-- handle_UnitOwner needs to be nil, else it will crash the game.
+				illusion[i] = CreateUnitByName(unit_name, origin, true, caster, nil, caster:GetTeamNumber())
+				illusion[i]:SetOwner(caster)
+				illusion[i]:SetControllableByPlayer(player, true)
+				illusion[i].illusion_damage = caster.B11R_rate
+				illusion[i].magical_resistance = caster.magical_resistance
+				-- Level Up the unit to the casters level
+				local casterLevel = caster:GetLevel()
+				for j=1,casterLevel-1 do
+					illusion[i]:HeroLevelUp(false)
+				end
+				
+				-- Set the skill points to 0 and learn the skills of the caster
+				illusion[i]:SetAbilityPoints(0)
+				for abilitySlot=0,15 do
+					local ability = illusion[i]:GetAbilityByIndex(abilitySlot)
+					if ability ~= nil then 
+						local abilityLevel = ability:GetLevel()
+						local abilityName = ability:GetAbilityName()
+						local illusionAbility = illusion[i]:FindAbilityByName(abilityName)
+						if (illusionAbility ~= nil) then
+							illusion[i]:RemoveAbility(abilityName)
+						end
+					end
+				end
+				for abilitySlot=0,15 do
+					local ability = caster:GetAbilityByIndex(abilitySlot)
+					if ability ~= nil then 
+						local abilityLevel = ability:GetLevel()
+						local abilityName = ability:GetAbilityName()
+						if abilityName ~= "B11R" then
+							illusion[i]:AddAbility(abilityName):SetLevel(abilityLevel)
+						end
+						if abilityName == "B11T" and caster:HasModifier("modifier_B11T_Enable") then
+							b11t:ApplyDataDrivenModifier(illusion[i],illusion[i],"modifier_B11T_Enable",{duration = rate})
+						end
+					end
+				end
+				-- Recreate the items of the caster
+				for itemSlot=0,5 do
+					local item = caster:GetItemInSlot(itemSlot)
+					if item ~= nil then
+						local itemName = item:GetName()
+						local newItem = CreateItem(itemName, illusion[i], illusion[i])
+						illusion[i]:AddItem(newItem)
+					end
+				end
+				illusion[i]:AddNewModifier(caster, ability, "modifier_illusion", { duration = 5, outgoing_damage =  (caster.B11R_rate-1) * 100 ,  incoming_damage = illusion_incoming_damage })
+				illusion[i]:MakeIllusion()
+				illusion[i]:SetHealth(caster:GetHealth())
+			end
+			caster:AddNewModifier(caster,ability,"modifier_phased",{duration=0.1})
+			target:AddNewModifier(caster,ability,"modifier_phased",{duration=0.1})
+			caster.B11R_trigger = true
+			Timers:CreateTimer(0.3, function()
+				caster.B11R_trigger = nil
+			end)
+		end
 	end
+
 end
 
 --目前使用次數

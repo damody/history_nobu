@@ -146,6 +146,7 @@ function modifier_A14R_OnAttackLanded(keys)
 	local target_point = keys.target:GetAbsOrigin()
 	local ability=keys.ability
 	local caster = keys.caster
+	
 	if A14R_current_time < A14T_stack then
 		A14R_current_time = A14T_stack
 	end
@@ -195,13 +196,15 @@ function A14T_OnDestroy( keys )
 	A14T_stack = 0
 end
 
+A14T_attack_target={}
+
 function A14T_OnAttackLanded ( keys )
 	local ability = keys.ability
 	local caster = keys.caster
 	local max = ability:GetSpecialValueFor("a14t_max_count")
 	local ASPD = ability:GetSpecialValueFor("a14_ASPD")
-	if attack_target == keys.target then
-		attack_target = keys.target
+	if A14T_attack_target == keys.target then
+		A14T_attack_target = keys.target
 		A14T_current_time = A14T_current_time+1
 		modifier = caster:FindModifierByName("modifier_A14T_ASPD_bonus")
 		if A14T_current_time>= ability:GetSpecialValueFor("a14t_max_count") then
@@ -210,7 +213,7 @@ function A14T_OnAttackLanded ( keys )
 		modifier:SetStackCount(A14T_current_time)
 	else
 		modifier=caster:FindModifierByName("modifier_A14T_ASPD_bonus")
-		attack_target = keys.target
+		A14T_attack_target = keys.target
 		A14T_current_time = 1
 		modifier:SetStackCount(A14T_current_time)
 	end

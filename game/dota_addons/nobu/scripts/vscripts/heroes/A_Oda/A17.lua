@@ -5,8 +5,14 @@ function A17R( keys )
 	local level = ability:GetLevel()
 	local dmg = keys.dmg
 	if not target:IsBuilding() then
-		ability:ApplyDataDrivenModifier(caster,target,"modifier_A17R",nil)
-		AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+		if target:IsHero() then
+			ability:ApplyDataDrivenModifier(caster,target,"modifier_A17R",nil)
+			AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+		else
+			ability:ApplyDataDrivenModifier(caster,target,"modifier_A17R",nil)
+			AMHC:Damage( caster,target,dmg * 1.5,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+		end
+	
 	end
 end
 
@@ -34,7 +40,7 @@ function shrapnel_fire( keys )
 	local damage_delay = ability:GetLevelSpecialValueFor( "damage_delay", ( ability:GetLevel() - 1 ) ) + 0.1
 	local launch_particle_name = "particles/units/heroes/hero_sniper/sniper_shrapnel_launch.vpcf"
 	local launch_sound_name = "Hero_Sniper.ShrapnelShoot"
-
+	AddFOWViewer(caster:GetTeamNumber(), target, radius, 10, false)
 	local dummy = CreateUnitByName("hide_unit", target , true, nil, caster, caster:GetTeamNumber())
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=0.3})
 	-- Create particle at caster
@@ -124,26 +130,26 @@ end
 
 function A17T_OnToggleOn( keys )
 	local caster = keys.caster
-	local A17W = caster:FindAbilityByName("A17W")
-	local cooldown = A17W:GetCooldownTime()
-	local A17W_level = A17W:GetLevel()
-	caster:RemoveAbilityByHandle(A17W)
-	caster:AddAbility("A17W_HIDE")
-	local ability = caster:FindAbilityByName("A17W_HIDE")
-	ability:SetLevel(A17W_level)
-	ability:StartCooldown(cooldown)
+	-- local A17W = caster:FindAbilityByName("A17W")
+	-- local cooldown = A17W:GetCooldownTime()
+	-- local A17W_level = A17W:GetLevel()
+	-- caster:RemoveAbilityByHandle(A17W)
+	-- caster:AddAbility("A17W_HIDE")
+	-- local ability = caster:FindAbilityByName("A17W_HIDE")
+	-- ability:SetLevel(A17W_level)
+	-- ability:StartCooldown(cooldown)
 end
 
 function A17T_OnToggleOff( keys )
 	local caster = keys.caster
-	local A17W_HIDE = caster:FindAbilityByName("A17W_HIDE")
-	local cooldown = A17W_HIDE:GetCooldownTime()
-	local A17W_level = A17W_HIDE:GetLevel()
-	caster:RemoveAbilityByHandle(A17W_HIDE)
-	caster:AddAbility("A17W")
-	local ability = caster:FindAbilityByName("A17W")
-	ability:SetLevel(A17W_level)
-	ability:StartCooldown(cooldown)
+	-- local A17W_HIDE = caster:FindAbilityByName("A17W_HIDE")
+	-- local cooldown = A17W_HIDE:GetCooldownTime()
+	-- local A17W_level = A17W_HIDE:GetLevel()
+	-- caster:RemoveAbilityByHandle(A17W_HIDE)
+	-- caster:AddAbility("A17W")
+	-- local ability = caster:FindAbilityByName("A17W")
+	-- ability:SetLevel(A17W_level)
+	-- ability:StartCooldown(cooldown)
 end
 
 function A17T( event )

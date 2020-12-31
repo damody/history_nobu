@@ -347,7 +347,6 @@ function ExorcismPhysics( event )
 							damage_table.attacker = caster					
 							damage_table.damage_type = abilityDamageType
 							damage_table.damage = spirit_damage
-
 							local hModifier = unit.current_target:FindModifierByNameAndCaster("modifier_B10W_slow", caster)
 							if hModifier == nil then
 								--first blood
@@ -390,7 +389,7 @@ function ExorcismPhysics( event )
 							unit.numberOfHits = unit.numberOfHits + 1 
 
 							-- Fire Sound on the target unit
-							unit.EmitSoundOnLocationWithCaster(current_target:GetAbsOrigin(),"Hero_DeathProphet.Exorcism.Damage",current_target)
+							-- unit.EmitSoundOnLocationWithCaster(current_target:GetAbsOrigin(),"Hero_DeathProphet.Exorcism.Damage",current_target)
 							
 							-- Set to return
 							unit.state = "returning"

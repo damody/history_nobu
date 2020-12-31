@@ -26,7 +26,7 @@ function Nobu:DamageFilterEvent( filterTable )
 	-- 	--attacker.damagetype = damagetype_const 
 	-- 	victim.damagetype = damagetype_const 
 	-- 	--print(victim:GetUnitName())
-	-- end 
+	-- end
 	if filterTable.damagetype_const == DAMAGE_TYPE_MAGICAL and target:IsMagicImmune() then
 		return false
 	end

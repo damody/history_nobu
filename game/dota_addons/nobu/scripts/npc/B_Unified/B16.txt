@@ -246,12 +246,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"per_atk_spd"		"10 15 20 25"
+				"per_atk_spd"		"20 30 40 50"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"per_mov_spd"		"9 17 25 33"
+				"per_mov_spd"		"4 8 12 16"
 			}
 		}
 	}
@@ -368,7 +368,7 @@
 				{
 					// Todo: 調整月月能力(按照望月等級疊加)
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"1"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"8" 
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"2" 
 				    "MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"		"8"
 				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"1"
 				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"2"

@@ -1,5 +1,6 @@
 LinkLuaModifier( "modifier_unit_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_tower_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_tower_debuff", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_soul", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 modifier_soul = class({})
 
@@ -490,9 +491,11 @@ function debuff_tower( keys )
     end
   end
   if enemyCounter > 3 and heroCounter > 0 then
-    ability:ApplyDataDrivenModifier(caster, caster, "debuff_tower", {duration = 2})
+    caster:AddNewModifier(caster, ability, "modifier_tower_debuff", nil)
+    -- ability:ApplyDataDrivenModifier(caster, caster, "debuff_tower", {duration = 2})
   else
-    caster:RemoveModifierByName("debuff_tower")
+    caster:RemoveModifierByName("modifier_tower_debuff")
+    -- caster:RemoveModifierByName("debuff_tower")
   end
 end
 
@@ -517,7 +520,7 @@ end
 
 function modifier_unit_armor:GetModifierIncomingDamage_Percentage( keys )
   if string.match(keys.attacker:GetName(), "npc_dota_creep_lane") then 
-    return 50
+    return 30
   elseif string.match(keys.attacker:GetUnitName(), "com_general") then
     return 50
   elseif keys.attacker:IsBuilding() then
@@ -536,6 +539,26 @@ function Unit_armor( keys )
 
 end
 
+--modifier_tower_debuff
+--------------------------------------------
+modifier_tower_debuff = class{}
+
+function modifier_tower_debuff:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+  }
+  return funcs
+end
+
+function modifier_tower_debuff:GetModifierIncomingDamage_Percentage( keys )
+  if keys.attacker:IsHero() then 
+    return 40
+  else
+    return 0
+  end
+end
+--------------------------------------------
+
 --modifier_tower_armor
 --------------------------------------------
 modifier_tower_armor = class{}
@@ -548,6 +571,21 @@ end
 
 function modifier_tower_armor:GetModifierIncomingDamage_Percentage( keys )
 
+  if keys.attacker.abilityName == "A19T" then
+    local a = keys.attacker:GetAbsOrigin()
+    local b = keys.target:GetAbsOrigin()
+    local dir = (a-b):Length2D()
+    if dir >= 2500 then
+      return -50
+    else
+      if keys.attacker:IsAlive() then
+        return 0
+      else
+        return -50
+      end
+    end
+  end
+
   if keys.attacker:IsHero() then 
     return 0
   elseif keys.attacker:IsBuilding() then
@@ -557,7 +595,7 @@ function modifier_tower_armor:GetModifierIncomingDamage_Percentage( keys )
   elseif keys.attacker:GetName() == "npc_dota_creature" then
     return -50
   else
-    return -25
+    return -60
   end
   if keys.attacker.name ~= nil then
     return 0

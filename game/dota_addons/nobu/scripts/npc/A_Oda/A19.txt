@@ -28,7 +28,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityCooldown"				"14 12 10 8"
+		"AbilityCooldown"				"9 8 7 6"
 		"AbilityManaCost"				"105 135 165 195"
 		"AbilityCastRange"				"1000"
 		"AOERadius"						"450"
@@ -51,6 +51,11 @@
 			{
 				"var_type"		"FIELD_FLOAT"
 				"dmg2"		"10 20 30 40"
+			}
+			"04"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"dmg3"		"0.5 1 1.5 2"
 			}
 		}
 
@@ -78,7 +83,7 @@
 			"modifier_A19W"
 			{
 				"IsDebuff"	"1"
-				"Duration"	"5"
+				"Duration"	"1"
 				"EffectName" "particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf"
 
 				"ThinkInterval"	"0.99"
@@ -89,6 +94,23 @@
 						"Target"		"TARGET"
 						"Type"			"DAMAGE_TYPE_MAGICAL"
 						"Damage"		"%dmg2"
+					}
+				}
+			}
+			"modifier_A19W2"
+			{
+				"IsDebuff"	"1"
+				"Duration"	"1"
+				"EffectName" "particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf"
+
+				"ThinkInterval"	"0.99"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"		"TARGET"
+						"Type"			"DAMAGE_TYPE_MAGICAL"
+						"Damage"		"%dmg3"
 					}
 				}
 			}
@@ -466,7 +488,7 @@
 			"07"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"dmg2"	"16 24 32"
+				"dmg2"	"4 6 8"
 			}
 		}
 	}

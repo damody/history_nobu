@@ -73,7 +73,7 @@ function item_kokumo( keys )
 		end
 		caster.kokumo = caster.kokumo + 1
 		local trigger = 5
-		if caster:GetBaseAttackRange() < 200 then
+		if caster:GetBaseAttackRange() < 200 and caster.name ~= "B04" then
 			trigger = 4
 		end
 		if caster.kokumo >= trigger then

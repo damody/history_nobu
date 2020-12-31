@@ -19,7 +19,7 @@ function Shock( keys )
 			end
 			caster.spear_of_ghost = caster.spear_of_ghost + 1
 			local trigger = 4
-			if caster:GetBaseAttackRange() < 200 then
+			if caster:GetBaseAttackRange() < 200 and caster.name ~= "B04" then
 				trigger = 3
 			end
 			if caster.spear_of_ghost >= trigger then

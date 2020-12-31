@@ -30,7 +30,7 @@ function Shock( keys )
 		end
 		caster.great_spear_of_dragonfly_count = caster.great_spear_of_dragonfly_count + 1
 		local trigger = 4
-		if caster:GetBaseAttackRange() < 200 then
+		if caster:GetBaseAttackRange() < 200 and caster.name ~= "B04" then
 			trigger = 3
 		end
 		if (caster.great_spear_of_dragonfly_count >= trigger) then

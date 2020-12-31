@@ -73,16 +73,16 @@
 					}
 				}
 			}
-			"debuff_tower"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"70"
-				}
-			}
+			// "debuff_tower"
+			// {
+			// 	"Passive"	"0"
+			// 	"IsHidden"	"0"
+			// 	"IsDebuff"	"1"
+			// 	"Properties"
+			// 	{
+			// 		"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"70"
+			// 	}
+			// }
 		}
 	}
 	//  附近的敵人愈多 受到的傷害愈高
@@ -1604,6 +1604,15 @@
 
 	//塔被小兵打75%減傷
 	"tower_armor"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			//modifier 在dummy.lua裡 由chubing.lua加上去
+		}
+	}
+	"tower_debuff"
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"

@@ -35,6 +35,9 @@ function A12W( keys )
 		local dir = diff:Normalized()
 		unit:SetVelocity(Vector(0,0,-9.8))
 		unit:AddPhysicsVelocity(dir*800)
+		Timers:CreateTimer(2.5,function()
+			ability:ApplyDataDrivenModifier(caster,unit,"modifier_A12W_phase",{})
+		end)
 	end
 	if caster.A12D_B == true then
 		ability:ApplyDataDrivenModifier(caster,v,"modifier_A12W",nil)
