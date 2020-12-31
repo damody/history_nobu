@@ -12,7 +12,7 @@ local MANA_PER_INT = 18
 local MANA_REGEN_PER_INT = 0.15
 local ARMOR_PER_AGI = 0.2
 local ATKSPD_PER_AGI = 1.5
-local MAX_MS = 1500
+local MAX_MS = 700
 local movespeed = 0
 
 
@@ -49,6 +49,7 @@ function equilibrium_constant:DeclareFunctions()
         MODIFIER_PROPERTY_MOVESPEED_MIN,
         MODIFIER_PROPERTY_MOVESPEED_MAX,
         MODIFIER_PROPERTY_MOVESPEED_LIMIT,
+        MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT
     }
     return funcs
 end
@@ -63,6 +64,10 @@ function equilibrium_constant:GetModifierHealthBonus( params )
         end
         return 0
     end
+end
+
+function equilibrium_constant:GetModifierIgnoreMovespeedLimit( params )
+    return MAX_MS
 end
 
 function equilibrium_constant:GetModifierManaBonus( params )

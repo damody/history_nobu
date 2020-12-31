@@ -127,6 +127,8 @@
 	"item"      "item_ronin_jitte"			//浪人十手
 	"item"      "item_sakabatou"			//逆刃刀
 	"item"		"item_Sukezane"				//銘助真
+	"item"		"item_Sukemune"				//銘助宗
+	"item"		"item_chidori"					
 	"item"      "item_the_dark_yellow_teeth_and_zimbabwe"			//闇牙黃泉津
 	"item"		"item_Shintogo_Kunimitsu"	//新藤五國光
 	"item"		"item_Hannya_Onimaru"	//般若鬼丸
