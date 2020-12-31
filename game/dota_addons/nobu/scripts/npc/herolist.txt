@@ -70,7 +70,7 @@
 	"npc_dota_hero_spectre" "1" // 黑田孝高
 	"npc_dota_hero_ogre_magi" "1" // 島津義弘
 	"npc_dota_hero_ember_spirit" "1" // 仙石秀久
-	//"npc_dota_hero_visage" "1" //直江兼續
+	"npc_dota_hero_visage" "1" //直江兼續
 	//"npc_dota_hero_enchantress" "1" // 伊勢姬
 	"npc_dota_hero_riki" "1" // 百地三太夫
 	//"npc_dota_hero_rubick" "1" //果心居士	
