@@ -68,7 +68,7 @@
 	"npc_dota_hero_juggernaut" "1" // 瀧川一益
 	"npc_dota_hero_obsidian_destroyer" "1" // 前田慶次
 	"npc_dota_hero_spectre" "1" // 黑田孝高
-	//"npc_dota_hero_ogre_magi" "1" // 島津義弘
+	"npc_dota_hero_ogre_magi" "1" // 島津義弘
 	//"npc_dota_hero_ember_spirit" "1" // 仙石秀久
 	//"npc_dota_hero_visage" "1" //直江兼續
 	//"npc_dota_hero_enchantress" "1" // 伊勢姬
