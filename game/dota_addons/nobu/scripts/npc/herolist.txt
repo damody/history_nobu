@@ -55,7 +55,7 @@
 	"npc_dota_hero_puck" "1" //阿市
 
 	"npc_dota_hero_earthshaker" "1" //秋山信友
-	// "npc_dota_hero_brewmaster" "1" //大熊朝秀
+	"npc_dota_hero_brewmaster" "1" //大熊朝秀
 	//"npc_dota_hero_beastmaster" "1"//武田勝賴
 	//"npc_dota_hero_huskar" "1" //鳥居元忠
 	"npc_dota_hero_invoker" "1" //羽柴秀吉
