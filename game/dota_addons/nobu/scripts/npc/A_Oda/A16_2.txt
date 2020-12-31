@@ -33,8 +33,8 @@
 		"Ability2"	"A16E"
 		"Ability3"	"A16R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"A16T"
-		"Ability6"	"A16_precache"
+		"Ability5"	"A16_precache"
+		"Ability6"	"A16T"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
