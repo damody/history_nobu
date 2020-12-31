@@ -3757,6 +3757,7 @@
 					{
 						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
 						"Function"	"OnCreated"
+						"value"	"20"
 					}
 				}
 				"OnDestroy"
@@ -3765,6 +3766,7 @@
 					{
 						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
 						"Function"	"OnDestroy"
+						"value"	"20"
 					}
 				}
 				"OnIntervalThink"
@@ -16629,6 +16631,228 @@
 		// 	}
 		// }
 	// }
+	"item_recipe_chidori"
+	{
+		"ID" "2867"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "100"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"ItemResult" "item_chidori"
+		"ItemRequirements"
+		{
+			"01" "item_Sukemune;item_Sukezane"
+		}
+	}
+	//千鳥一文字
+	"item_chidori"
+	{
+		// General
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/chidori"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		
+		"AbilityCooldown"	"0"
+		
+		"AbilityManaCost"	"0"
+		"ID"	"2866"
+		"ItemQuality"	"component"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"3500"
+		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequirements"	{}
+		"Modifiers"
+		{
+			"Passive_Chidori"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "5"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "20"	//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "25"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "20"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "7.5" 	//回魔
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "40" //攻速
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "8"	//防禦
+				}
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"Target"	"TARGET"
+						"ModifierName"	"modifier_Chidori1"
+					}
+					"ApplyModifier"
+					{
+						"Target"	"TARGET"
+						"ModifierName"	"modifier_Chidori2"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"items\Addon_Items\item_Chidori.lua"
+						"Function"	"Chidori_Steal"
+					}
+				}
+			}
+			"modifier_Chidori1"
+			{
+				"IsDebuff"		"1"
+				"Duration"	"2"
+				"ThinkInterval"	"1"
+				"IsHidden"	"0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items\Addon_Items\item_Chidori.lua"
+						"Function"	"Chidori_Damage"
+					}
+				}
+			}
+			"modifier_Chidori2"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"			
+				"Duration"			"4"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+						"Function"	"OnCreated"
+						"value"	"30"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+						"Function"	"OnDestroy"
+						"value"	"30"
+					}
+				}
+			}
+			"modifier_Chidori3"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"1"	
+				"IsPurgable"	"1"
+			}
+			"modifier_Chidori4"
+			{
+				"IsHidden"			"0"
+				"IsPurgable"	"1"
+			}
+		}
+	}
+
+	"item_recipe_Sukemune"
+	{
+		"ID" "2865"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "100"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"ItemResult" "item_Sukemune"
+		"ItemRequirements"
+		{
+			"01" "item_gorgeous_tachi;item_spirit_ingot"
+		}
+	}
+
+	//謙信助宗
+	"item_Sukemune"
+	{
+		// General
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/Sukemune"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		
+		"AbilityCooldown"	"0"
+		
+		"AbilityManaCost"	"0"
+		"ID"	"2864"
+		"ItemQuality"	"component"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"3500"
+		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequirements"	{}
+		"Modifiers"
+		{
+			"Passive_Sukemune"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "5"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "15"	//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "5"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "7"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "8"	//防禦
+				}
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"Target"	"TARGET"
+						"ModifierName"	"modifier_Sukemune"
+					}
+				}
+			}
+			"modifier_Sukemune"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"			
+				"Duration"			"4"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+						"Function"	"OnCreated"
+						"value"	"30"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+						"Function"	"OnDestroy"
+						"value"	"30"
+					}
+				}
+			}
+		}
+	}
+
 	"item_recipe_Sukezane"
 	{
 		"ID" "2863"
@@ -16643,7 +16867,7 @@
 		}
 	}
 
-	// 銘助真
+	// 日光助真
 	"item_Sukezane"
 	{
 		// General
