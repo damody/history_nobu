@@ -110,16 +110,18 @@ function Heal_target(keys)
 end
 
 function OnCreated( keys )
+    local value = keys.value
     local target = keys.target
     if target:IsHero() and IsValidEntity(target) then
-        target.magical_resistance = target.magical_resistance - 20
+        target.magical_resistance = target.magical_resistance - value
     end
 
 end
 
 function OnDestroy( keys )
+    local value = keys.value
     local target = keys.target
     if target:IsHero() and IsValidEntity(target) then
-        target.magical_resistance = target.magical_resistance + 20
+        target.magical_resistance = target.magical_resistance + value
     end
 end
