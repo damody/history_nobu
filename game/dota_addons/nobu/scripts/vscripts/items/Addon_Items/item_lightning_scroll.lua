@@ -269,15 +269,28 @@ function item_raikiri( keys )
 						ParticleManager:SetParticleControl(particle,1, tem_point)
 						
 						--【DMG】
-						local dmg = 375
-						if caster.orb then
-							dmg = dmg * caster.orb
+						if ability:GetName() == "item_raikiri" then
+							local dmg = 375
+							if caster.orb then
+								dmg = dmg * caster.orb
+							end
+							if not unit:IsMagicImmune() then
+								if unit:IsHero() then
+									AMHC:Damage(caster,unit,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+								else
+									AMHC:Damage(caster,unit,dmg*1.75,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+								end
+							end
 						end
-						if not unit:IsMagicImmune() then
-							if unit:IsHero() then
-								AMHC:Damage(caster,unit,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
-							else
-								AMHC:Damage(caster,unit,dmg-100,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+						if ability:GetName() == "item_lightning_katana" then
+							local dmg = 350
+							if caster.orb then
+								dmg = dmg * caster.orb
+							end
+							if not unit:IsMagicImmune() then
+								if unit:IsHero() then
+									AMHC:Damage(caster,unit,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+								end
 							end
 						end
 
