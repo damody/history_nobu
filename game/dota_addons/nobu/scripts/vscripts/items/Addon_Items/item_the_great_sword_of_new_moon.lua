@@ -66,11 +66,93 @@ end
 function OnEquip( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	caster.magic_damage = 1.2
+	-- 力量 0 敏捷1 智力2
+	if caster:GetPrimaryAttribute() == 0 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_add_strength", nil)
+	elseif caster:GetPrimaryAttribute() == 1 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_add_agility", nil)
+	elseif caster:GetPrimaryAttribute() == 2 then
+		ability:ApplyDataDrivenModifier(caster, caster, "modifier_add_intellect", nil)
+	end
 end
 
-function OnUnequip( keys )
+function OnUnEquip( keys )
 	local caster = keys.caster
+	-- 力量 0 敏捷1 智力2
+	if caster:GetPrimaryAttribute() == 0 then
+		caster:RemoveModifierByName("modifier_add_strength")
+	elseif caster:GetPrimaryAttribute() == 1 then
+		caster:RemoveModifierByName("modifier_add_agility")
+	elseif caster:GetPrimaryAttribute() == 2 then
+		caster:RemoveModifierByName("modifier_add_intellect")
+	end
+end
+
+function Shock_new ( keys )
+	local caster = keys.caster
+	local target = keys.target
 	local ability = keys.ability
-	caster.magic_damage = nil
+	local targets = ability:GetSpecialValueFor("targets")
+	local number_particle_name = "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_msg.vpcf"
+	local burn_particle_name = "particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf"
+	local group = FindUnitsInRadius(caster:GetTeamNumber(),
+    target:GetAbsOrigin(),
+    nil,
+    500,
+    DOTA_UNIT_TARGET_TEAM_ENEMY,
+    DOTA_UNIT_TARGET_HERO,
+    DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,
+    FIND_CLOSEST,
+	false)
+	local n = 0
+	local current_mana = 0
+	local mana_to_burn = 0
+
+	for i,unit in ipairs(group) do 
+		if n < targets then
+			if IsValidEntity(unit) and unit:IsHero() then
+				local life_time = 2.0
+				local fow_left_time = 0
+				Timers:CreateTimer(0.5,function()
+					if fow_left_time < 10 then
+						AddFOWViewer(caster:GetTeamNumber(),unit:GetAbsOrigin(),700,0.5,false)
+						fow_left_time = fow_left_time + 0.5
+						return 0.5
+					else
+						return nil
+					end
+				end)
+				
+				ability:ApplyDataDrivenModifier(caster,unit,"modifier_reduce_resistance",nil)
+				local a = 0
+				Timers:CreateTimer(0.3, function()
+					if a < 3 then
+						current_mana = unit:GetMana()
+						mana_to_burn = math.min( current_mana , 250)
+						unit:ReduceMana(mana_to_burn)
+						AMHC:Damage( caster,unit,mana_to_burn,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+						if mana_to_burn ~= 0 then
+							local numberIndex = ParticleManager:CreateParticle( number_particle_name, PATTACH_OVERHEAD_FOLLOW, unit )
+							ParticleManager:SetParticleControl( numberIndex, 1, Vector( 1, mana_to_burn, 0 ) )
+							ParticleManager:SetParticleControl( numberIndex, 2, Vector( life_time, digits, 0 ) )
+							local burnIndex = ParticleManager:CreateParticle( burn_particle_name, PATTACH_ABSORIGIN, unit )
+							
+							-- Create timer to properly destroy particles
+							Timers:CreateTimer( life_time, function()
+									ParticleManager:DestroyParticle( numberIndex, false )
+									ParticleManager:DestroyParticle( burnIndex, false)
+									return nil
+								end
+							)
+						end
+						a = a + 1
+						return 0.3
+					else
+						return nil
+					end
+				end)
+				n = n + 1
+			end
+		end
+	end
 end

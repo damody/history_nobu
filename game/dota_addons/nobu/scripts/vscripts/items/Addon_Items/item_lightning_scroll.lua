@@ -282,7 +282,7 @@ function item_raikiri( keys )
 								end
 							end
 						end
-						if ability:GetName() == "item_lightning_katana" then
+						if ability:GetName() == "item_lightning_katana" or ability:GetName() == "item_Oochidorijuumonnjiyari" then
 							local dmg = 350
 							if caster.orb then
 								dmg = dmg * caster.orb

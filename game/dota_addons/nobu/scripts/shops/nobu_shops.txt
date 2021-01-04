@@ -215,6 +215,7 @@
 	"item"		"item_kat_steel" //吉鋼鐵
 	"item"		"item_death_of_scepter" // 逝者之笏
 	"item"		"item_wayumi" //和弓
+	"item"		"item_Oochidorijuumonnjiyari"
 }
 
 
@@ -252,7 +253,6 @@
 // 路邊名刀舖
 "sideshop"
 {
-	// "item"      "item_the_great_sword_of_xnew_moon"			//三日月宗近．銘刀
 	"item"      "item_the_great_sword_of_weakness"			//天之叢雲．銘刀
 	"item"      "item_the_great_sword_of_banish"			//大典太光世．銘刀
 	"item"      "item_the_great_sword_of_berserker"			//數珠丸恆次．銘刀
@@ -267,6 +267,7 @@
 //名刀舖
 "secretshop"
 {
+	"item"      "item_the_great_sword_of_xnew_moon"			//三日月宗近．銘刀
 	"item"      "item_the_great_sword_of_soul_hyper"			//菊一文字則．太刀
 	"item"      "item_the_great_sword_of_disease"		//池田鬼神丸國重．銘刀
 	"item"      "item_the_great_sword_of_precision"		//長船．太刀
