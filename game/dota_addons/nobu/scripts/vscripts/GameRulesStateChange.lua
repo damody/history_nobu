@@ -24,34 +24,34 @@ function SendHTTPRequest(path, method, values, callback)
 	end)
 end
 
-function SendHTTPRequestGetHero(path, method, values, callback)
-	local req = CreateHTTPRequestScriptVM( method, "http://nobu.gg/clientApi/")
-	for key, value in pairs(values) do
-		req:SetHTTPRequestGetOrPostParameter(key, value)
-	end 
-	req:Send(function(result)
-		print(result)
-		local count = 0
-		local table = {}
-		for key, value in string.gmatch(tostring(result.Body), "(%w+)=(%w+)") do 
-			table[key] = value
-		end
-		if (table["hero"] ~= "X") then
-			local player = PlayerResource:GetPlayer(tonumber(table["id"]))
-			local hero = ""
-			for k, v in pairs(_G.heromap) do
-				if table["hero"] == v then
-					hero = k;
-					break
-				end
-			end
-			if (hero ~= "") then
-				player:SetSelectedHero(hero)
-			end
-		end
-		callback(result.Body)
-	end)
-end
+-- function SendHTTPRequestGetHero(path, method, values, callback)
+-- 	local req = CreateHTTPRequestScriptVM( method, "http://nobu.gg/clientApi/")
+-- 	for key, value in pairs(values) do
+-- 		req:SetHTTPRequestGetOrPostParameter(key, value)
+-- 	end 
+-- 	req:Send(function(result)
+-- 		print(result)
+-- 		local count = 0
+-- 		local table = {}
+-- 		for key, value in string.gmatch(tostring(result.Body), "(%w+)=(%w+)") do 
+-- 			table[key] = value
+-- 		end
+-- 		if (table["hero"] ~= "X") then
+-- 			local player = PlayerResource:GetPlayer(tonumber(table["id"]))
+-- 			local hero = ""
+-- 			for k, v in pairs(_G.heromap) do
+-- 				if table["hero"] == v then
+-- 					hero = k;
+-- 					break
+-- 				end
+-- 			end
+-- 			if (hero ~= "") then
+-- 				player:SetSelectedHero(hero)
+-- 			end
+-- 		end
+-- 		callback(result.Body)
+-- 	end)
+-- end
 
 function SendHTTPRequestCheckSubscription(path, method, values, callback)
 	local req = CreateHTTPRequestScriptVM( method, "http://nobu.gg/clientApi/"..path)
@@ -236,20 +236,20 @@ function Nobu:OnGameRulesStateChange( keys )
 		end
 
 		-- 沒選好用內嵌的網頁選
-		Timers:CreateTimer(50, function()
-			for playerID = 0, 9 do
-				local steam_id = PlayerResource:GetSteamID(playerID)
-				local player   = PlayerResource:GetPlayer(playerID)
-				if (player and player:GetAssignedHero() == nil) then
-					SendHTTPRequestGetHero("", "POST",
-					{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
-						if (string.match(res, "error")) then
-							callback()
-						end
-					end)
-				end
-			end
-		end)
+		-- Timers:CreateTimer(50, function()
+		-- 	for playerID = 0, 9 do
+		-- 		local steam_id = PlayerResource:GetSteamID(playerID)
+		-- 		local player   = PlayerResource:GetPlayer(playerID)
+		-- 		if (player and player:GetAssignedHero() == nil) then
+		-- 			SendHTTPRequestGetHero("", "POST",
+		-- 			{id = tostring(playerID), steam_id = tostring(steam_id)}, function(res)
+		-- 				if (string.match(res, "error")) then
+		-- 					callback()
+		-- 				end
+		-- 			end)
+		-- 		end
+		-- 	end
+		-- end)
 		for i=0,20 do
 			PlayerResource:SetGold(i,2000,false)--玩家ID需要減一
 		end
