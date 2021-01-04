@@ -94,8 +94,8 @@ function UpdateDireScore(keys) {
   sharedUnitsButton.hittestchildren = false
   $.Msg("testsetset")
   // 建立一個panel
-  var item_height = "37px"
-  var item_width = "37px"
+  var item_height = "34px"
+  var item_width = "34px"
   var HUDElements = $.GetContextPanel().GetParent().GetParent().GetParent()
   HUDElements = HUDElements.FindChildTraverse('HUDElements')
   this.panel = $.CreatePanel("Panel", $("#DotaHud_trasform"), "")
