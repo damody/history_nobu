@@ -470,6 +470,8 @@ function Nobu:OnGameRulesStateChange( keys )
 		local team = 4
 		local CP_Monster = 0
 		local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
+		local particle1 = ParticleManager:CreateParticle("particles/b06t/b06t.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, unit)
+		
 		unit.origin_pos = pos
 		local hp = unit:GetMaxHealth()
 		unit:SetBaseMaxHealth(hp+CP_Monster * 50)
@@ -477,6 +479,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		local dmgmin = unit:GetBaseDamageMin()
 		unit:SetBaseDamageMax(dmgmax+CP_Monster*12)
 		unit:SetBaseDamageMax(dmgmin+CP_Monster*12)
+		
 	end)
 	Timers:CreateTimer(0, function()
 		local allUnits = Entities:FindAllByClassname('npc_dota_creep_lane')

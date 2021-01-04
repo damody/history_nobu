@@ -935,6 +935,12 @@ local function chat_of_test(keys)
 			local pos = caster:GetAbsOrigin() + Vector(0,100,0)
 			local team = 4
 			local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
+			local particle1 = ParticleManager:CreateParticle("particles/b06t/b06t.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, unit)
+
+			Timers:CreateTimer(10.1, function()
+				ParticleManager:CreateParticle("particles/b06t/b06t.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, unit)
+				return 10
+			end)
 		end
 		if string.match(s,"-search") then
 			local allCouriers = Entities:FindAllByClassname('npc_dota_courier2')
