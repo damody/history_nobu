@@ -372,7 +372,7 @@
 		// ----------------------------------------------------------------
 		"BaseClass"	"npc_dota_building"
 		// Add model
-		"Model"	"models/stone.vmdl"
+		"Model"	"models/props_rock/riveredge_rock004a.vmdl"
 		"ModelScale"	"2"
 		"Level"	"0"
 		"BoundsHullName"	"DOTA_HULL_SIZE_FILLER"

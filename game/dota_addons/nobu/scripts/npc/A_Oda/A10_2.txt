@@ -6,16 +6,16 @@
 		// General
 		// ----------------------------------------------------------------
 		"override_hero"	"npc_dota_hero_warlock"
-		"ModelScale"	"1.4"
+		"ModelScale"	"1.0"
 		// Abilities
 		// ----------------------------------------------------------------
 		"Ability1"	"A10W"
 		"Ability2"	"A10E"
 		"Ability3"	"A10R"
-		"Ability4"	"A10D"
-		"Ability5"	"A10T"
-		"Ability6"	"A10_precache"
-		"Ability7"	"magical_resistance"
+		"Ability4"	"magical_resistance"
+		"Ability5"	"A10D"
+		"Ability6"	"A10T"
+		"Ability7"	"A10_precache"
 		"Ability8"	""
 		"Ability9"	""
 		"Ability10"	""

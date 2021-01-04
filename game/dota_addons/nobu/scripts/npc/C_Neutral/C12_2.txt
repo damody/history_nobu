@@ -6,7 +6,7 @@
 		// General
 		// ----------------------------------------------------------------
 		"override_hero"	"npc_dota_hero_rattletrap"
-		"ModelScale"	"1.4"
+		"ModelScale"	"1.2"
 		"Model"	"models/c12/c12.vmdl"
 		"DisableWearables"	"1"
 		// Abilities
@@ -14,8 +14,8 @@
 		"Ability1"	"C12W"
 		"Ability2"	"C12E"
 		"Ability3"	"C12R"
-		"Ability4"	"C12D"
-		"Ability5"	"magical_resistance"
+		"Ability4"	"magical_resistance"
+		"Ability5"	"C12D"
 		"Ability6"	"C12T"
 		"Ability7"	"C12_precache"
 		// Armor

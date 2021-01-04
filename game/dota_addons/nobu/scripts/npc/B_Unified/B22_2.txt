@@ -6,18 +6,18 @@
 		// General
 		// ----------------------------------------------------------------
 		"override_hero"	"npc_dota_hero_leshrac"
-		"ModelScale"	"1.4"
+		"ModelScale"	"1.2"
 		"Model"	"models/b22/b22.vmdl"
 		// Abilities
 		// ----------------------------------------------------------------
 		"Ability1"	"B22W"
 		"Ability2"	"B22E"
 		"Ability3"	"B22R"
-		"Ability4"	"B22D"
-		"Ability5"	"B22T"
-		"Ability6"	""
-		"Ability7"	"magical_resistance"
-		"Ability8"	"B22_precache"
+		"Ability4"	"magical_resistance"
+		"Ability5"	"B22D"
+		"Ability6"	"B22T"
+		"Ability7"	"B22_precache"
+		"Ability8"	""
 		"Ability9"	""
 		"Ability10"	""
 		"Ability11"	""
