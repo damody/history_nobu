@@ -117,7 +117,7 @@
 		"AbilityCastRange"	"800"
 		"precache"
 		{
-			"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf" 
+			"particle"	"particles/a28/dazzle_shadow_wave.vpcf" 
 			"particle"	"particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf"
 			"particle"	"particles/units/heroes/hero_zuus/zuus_arc_lightning_head.vpcf"
 			"soundfile"	"sounds/weapons/hero/zuus/arc_lightning.vsnd"
@@ -139,7 +139,7 @@
 			{
 				"ScriptFile"	"items/Addon_Items/item_reito_lantern.lua"
 				"Function"	"reito_lantern"
-				"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf" 
+				"particle"	"particles/a28/dazzle_shadow_wave.vpcf" 
 			}
 			"ApplyModifier"
 			{
@@ -155,12 +155,12 @@
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A28_Hashiba_Hideyoshi.lua"
 				"Function"	"A28E_OnSpellStart"
-				"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf" 
+				"particle"	"particles/a28/dazzle_shadow_wave.vpcf" 
 			}
 			"AttachEffect"
 			{
 				"Target"	"CASTER"
-				"EffectName"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf" 
+				"EffectName"	"particles/a28/dazzle_shadow_wave.vpcf" 
 				"EffectAttachType"	"start_at_customorigin"
 				"ControlPointEntities"
 				{
@@ -180,7 +180,7 @@
 					{
 						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A28_Hashiba_Hideyoshi.lua"
 						"Function"	"A28E_Jump_heal"
-						"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+						"particle"	"particles/a28/dazzle_shadow_wave.vpcf"
 					}
 					"Heal"
 		            {
@@ -198,7 +198,7 @@
 					{
 						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A28_Hashiba_Hideyoshi.lua"
 						"Function"	"A28E_Jump_dmg"
-						"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+						"particle"	"particles/a28/dazzle_shadow_wave.vpcf"
 					}
 					"Damage"
 					{
@@ -711,7 +711,7 @@
 		"AbilityCastRange"	"800"
 		"precache"
 		{
-			"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf" 
+			"particle"	"particles/a28/dazzle_shadow_wave.vpcf" 
 			"particle"	"particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf"
 			"particle"	"particles/units/heroes/hero_zuus/zuus_arc_lightning_head.vpcf"
 			"soundfile"	"sounds/weapons/hero/zuus/arc_lightning.vsnd"
@@ -733,7 +733,7 @@
 			{
 				"ScriptFile"	"items/Addon_Items/item_reito_lantern.lua"
 				"Function"	"reito_lantern"
-				"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf" 
+				"particle"	"particles/a28/dazzle_shadow_wave.vpcf" 
 			}
 			"ApplyModifier"
 			{
@@ -749,12 +749,12 @@
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A28_Hashiba_Hideyoshi.lua"
 				"Function"	"A28E_old"
-				"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf" 
+				"particle"	"particles/a28/dazzle_shadow_wave.vpcf" 
 			}
 			"AttachEffect"
 			{
 				"Target"	"CASTER"
-				"EffectName"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf" 
+				"EffectName"	"particles/a28/dazzle_shadow_wave.vpcf" 
 				"EffectAttachType"	"start_at_customorigin"
 				"ControlPointEntities"
 				{
@@ -774,7 +774,7 @@
 					{
 						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A28_Hashiba_Hideyoshi.lua"
 						"Function"	"A28E_Jump"
-						"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+						"particle"	"particles/a28/dazzle_shadow_wave.vpcf"
 					}
 					"Heal"
 		            {
@@ -1299,7 +1299,7 @@
 		"AbilityCastRange"	"800"
 		"precache"
 		{
-			"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf" 
+			"particle"	"particles/a28/dazzle_shadow_wave.vpcf" 
 			"particle"	"particles/units/heroes/hero_zuus/zuus_arc_lightning_.vpcf"
 			"particle"	"particles/units/heroes/hero_zuus/zuus_arc_lightning_head.vpcf"
 			"soundfile"	"sounds/weapons/hero/zuus/arc_lightning.vsnd"
@@ -1321,7 +1321,7 @@
 			{
 				"ScriptFile"	"items/Addon_Items/item_reito_lantern.lua"
 				"Function"	"reito_lantern"
-				"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf" 
+				"particle"	"particles/a28/dazzle_shadow_wave.vpcf" 
 			}
 			"ApplyModifier"
 			{
@@ -1337,12 +1337,12 @@
 			{
 				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A28_Hashiba_Hideyoshi.lua"
 				"Function"	"A28E_OnSpellStart"
-				"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf" 
+				"particle"	"particles/a28/dazzle_shadow_wave.vpcf" 
 			}
 			"AttachEffect"
 			{
 				"Target"	"CASTER"
-				"EffectName"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf" 
+				"EffectName"	"particles/a28/dazzle_shadow_wave.vpcf" 
 				"EffectAttachType"	"start_at_customorigin"
 				"ControlPointEntities"
 				{
@@ -1362,7 +1362,7 @@
 					{
 						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A28_Hashiba_Hideyoshi.lua"
 						"Function"	"A28E_Jump_heal"
-						"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+						"particle"	"particles/a28/dazzle_shadow_wave.vpcf"
 					}
 					"Heal"
 		            {
@@ -1380,7 +1380,7 @@
 					{
 						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A28_Hashiba_Hideyoshi.lua"
 						"Function"	"A28E_Jump_dmg"
-						"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
+						"particle"	"particles/a28/dazzle_shadow_wave.vpcf"
 					}
 					"Damage"
 					{
