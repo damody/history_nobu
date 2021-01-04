@@ -281,25 +281,29 @@
 		{
 			"modifier_A20E"
 			{
-				"OnCreated"
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Slow"
-						"name"	"A20E"
-						"ms_slow" "%speed_bonus"
-					}
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%speed_bonus"	//跑速
 				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"A20E"
-					}
-				}
+				// "OnCreated"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"Slow"
+				// 		"name"	"A20E"
+				// 		"ms_slow" "%speed_bonus"
+				// 	}
+				// }
+				// "OnDestroy"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"ReturnSpeed"
+				// 		"name"	"A20E"
+				// 	}
+				// }
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"EffectName"	"particles/generic_gameplay/move_slow.vpcf"
 				"EffectAttachType"	"follow_overhead"

@@ -120,25 +120,29 @@
 				"EffectName"	"particles/c10w3/c10w3.vpcf"
 				"EffectAttachType"	"follow_hitloc"
 				"Duration"	"%reduction_duration"
-				"OnCreated"
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Slow"
-						"name"	"C10W"
-						"ms_slow" "%slow"
-					}
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow"	//跑速
 				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"C10W"
-					}
-				}
+				// "OnCreated"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"Slow"
+				// 		"name"	"C10W"
+				// 		"ms_slow" "%slow"
+				// 	}
+				// }
+				// "OnDestroy"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"ReturnSpeed"
+				// 		"name"	"C10W"
+				// 	}
+				// }
 				"IsDebuff"	"1"
 				"IsPurgable"	"1"
 			}

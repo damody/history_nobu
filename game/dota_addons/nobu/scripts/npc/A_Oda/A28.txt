@@ -286,25 +286,29 @@
 			{
 				"Duration"	"1"
 				"IsDebuff"	"1"
-				"OnCreated"
+				"Properties"
 				{
-					"RunScript"
-					{
-					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-					"Function"	"Slow"
-					"name"	"A28R"
-					"ms_slow"	"-25"
-					}
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-25"	//跑速
 				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"A28R"
-					}
-				}
+				// "OnCreated"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 	"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 	"Function"	"Slow"
+				// 	"name"	"A28R"
+				// 	"ms_slow"	"-25"
+				// 	}
+				// }
+				// "OnDestroy"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"ReturnSpeed"
+				// 		"name"	"A28R"
+				// 	}
+				// }
 			}
 		}
 		// Special

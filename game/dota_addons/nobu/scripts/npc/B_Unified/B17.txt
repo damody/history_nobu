@@ -262,25 +262,29 @@
 				"IsDebuff"			"1"
 				"EffectName" 						"particles/b17e/b17e.vpcf"
                 "EffectAttachType" 					"follow_overhead"
-				"OnCreated"
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Slow"
-						"name"	"modifier_B17E_passiveDebuff"
-						"ms_slow" "%B17E_passiveMoveSpeed"
-					}
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%B17E_passiveMoveSpeed"	//跑速
 				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"modifier_B17E_passiveDebuff"
-					}
-				}
+				// "OnCreated"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"Slow"
+				// 		"name"	"modifier_B17E_passiveDebuff"
+				// 		"ms_slow" "%B17E_passiveMoveSpeed"
+				// 	}
+				// }
+				// "OnDestroy"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"ReturnSpeed"
+				// 		"name"	"modifier_B17E_passiveDebuff"
+				// 	}
+				// }
 			}
 			"modifier_B17E_debuff"
 			{
@@ -288,25 +292,29 @@
 				"Duration"							"%B17E_dotDuration"
 				"EffectName" 						"particles/b17e/b17e.vpcf"
                 "EffectAttachType" 					"follow_overhead"
-				"OnCreated"
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Slow"
-						"name"	"modifier_B17E_debuff"
-						"ms_slow" "%B17E_dotMoveSpeed"
-					}
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%B17E_dotMoveSpeed"	//跑速
 				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"modifier_B17E_debuff"
-					}
-				}
+				// "OnCreated"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"Slow"
+				// 		"name"	"modifier_B17E_debuff"
+				// 		"ms_slow" "%B17E_dotMoveSpeed"
+				// 	}
+				// }
+				// "OnDestroy"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"ReturnSpeed"
+				// 		"name"	"modifier_B17E_debuff"
+				// 	}
+				// }
 				"ThinkInterval"  "1.0"
 				"OnIntervalThink"
 				{

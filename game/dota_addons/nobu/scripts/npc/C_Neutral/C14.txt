@@ -56,25 +56,29 @@
 				{
 					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-				"OnCreated"
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Slow"
-						"name"	"C14W"
-						"ms_slow" "%speed_bonus"
-					}
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%speed_bonus"	//跑速
 				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"C14W"
-					}
-				}
+				// "OnCreated"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"Slow"
+				// 		"name"	"C14W"
+				// 		"ms_slow" "%speed_bonus"
+				// 	}
+				// }
+				// "OnDestroy"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"ReturnSpeed"
+				// 		"name"	"C14W"
+				// 	}
+				// }
 			}
 
 		}

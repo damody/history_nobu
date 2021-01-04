@@ -144,7 +144,11 @@
 				"StatusEffectName"		"particles/status_fx/status_effect_poison_viper.vpcf"
 				"StatusEffectPriority"	"15"
 
-				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%debuff_movement_speed"	//跑速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%debuff_attack_speed"
+				}
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -153,24 +157,24 @@
 						"EffectAttachType"	"attach_hitloc"	
 						"Target"			"TARGET"
 					}
-					"RunScript"
-					{
-					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-					"Function"	"Slow"
-					"name"	"A02W_debuff"
-					"ms_slow"	"%debuff_movement_speed"
-					"as_slow"	"%debuff_attack_speed"
-					}
+					// "RunScript"
+					// {
+					// "ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					// "Function"	"Slow"
+					// "name"	"A02W_debuff"
+					// "ms_slow"	"%debuff_movement_speed"
+					// "as_slow"	"%debuff_attack_speed"
+					// }
 				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"A02W_debuff"
-					}
-				}
+				// "OnDestroy"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"ReturnSpeed"
+				// 		"name"	"A02W_debuff"
+				// 	}
+				// }
 			}
 		}
 	}

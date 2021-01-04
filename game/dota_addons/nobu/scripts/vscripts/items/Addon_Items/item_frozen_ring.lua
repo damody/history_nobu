@@ -87,7 +87,7 @@ function item_kokumo( keys )
 								DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 								FIND_ANY_ORDER,
 								false)
-			local dmg = 200
+			local dmg = 375
 			if caster.orb then
 				dmg = dmg * caster.orb
 			end
@@ -97,7 +97,7 @@ function item_kokumo( keys )
 			for _,it in pairs(direUnits) do
 				ability:ApplyDataDrivenModifier(caster, it,"modifier_frozen_ring",{duration=3})
 				if it ~= target and not it:IsMagicImmune() then
-					AMHC:Damage(caster,it,(dmg/2),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+					AMHC:Damage(caster,it,275,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 				end
 			end
 			local particle = ParticleManager:CreateParticle("particles/a34e2/a34e2.vpcf", PATTACH_ABSORIGIN, target)

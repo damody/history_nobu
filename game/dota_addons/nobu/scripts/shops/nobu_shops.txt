@@ -122,13 +122,11 @@
 	"item"      "item_nagamaki"				//長捲
 	"item"      "item_logs_big_tachi"		//戒杖刀
 	"item"      "item_red_spear"			//皆朱槍
-	"item"      "item_mana_thief"			//禦神法輪
 	"item"      "item_moon_spear"			//斬月槍
-	"item"      "item_ronin_jitte"			//浪人十手
 	"item"      "item_sakabatou"			//逆刃刀
 	"item"		"item_Sukezane"				//銘助真
 	"item"		"item_Sukemune"				//銘助宗
-	"item"		"item_chidori"					
+	"item"		"item_chidori"					//千鳥一文字
 	"item"      "item_the_dark_yellow_teeth_and_zimbabwe"			//闇牙黃泉津
 	"item"		"item_Shintogo_Kunimitsu"	//新藤五國光
 	"item"		"item_Hannya_Onimaru"	//般若鬼丸
@@ -174,6 +172,8 @@
 	"item"      "item_yubashiri"			//雪走
 	"item"      "item_kokumo"			//凍雲
 	"item"      "item_great_dragon"			//巨龍
+	"item"      "item_mana_thief"			//禦神法輪
+	"item"      "item_ronin_jitte"			//浪人十手
 }
 
 //高階防具

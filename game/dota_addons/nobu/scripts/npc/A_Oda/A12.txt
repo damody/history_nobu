@@ -525,25 +525,29 @@
 				"EffectName"	"particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex_owner.vpcf"
 				"EffectAttachType"	"follow_hitloc"
 			}
-			"OnCreated"
+			"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Slow"
-						"name"	"A12R"
-						"ms_slow" "%slow"
-					}
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow"	//跑速
 				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"A12R"
-					}
-				}
+			// "OnCreated"
+			// {
+			// 	"RunScript"
+			// 	{
+			// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+			// 		"Function"	"Slow"
+			// 		"name"	"A12R"
+			// 		"ms_slow" "%slow"
+			// 	}
+			// }
+			// "OnDestroy"
+			// {
+			// 	"RunScript"
+			// 	{
+			// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+			// 		"Function"	"ReturnSpeed"
+			// 		"name"	"A12R"
+			// 	}
+			// }
 		}
 		"AbilitySpecial"
 		{
@@ -643,25 +647,29 @@
 			"modifier_A12R"
 			{
 				"IsDebuff"	"1"
-				"OnCreated"
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Slow"
-						"name"	"A12R_2"
-						"ms_slow" "%slow"
-					}
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow"	//跑速
 				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"A12R_2"
-					}
-				}
+				// "OnCreated"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"Slow"
+				// 		"name"	"A12R_2"
+				// 		"ms_slow" "%slow"
+				// 	}
+				// }
+				// "OnDestroy"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"ReturnSpeed"
+				// 		"name"	"A12R_2"
+				// 	}
+				// }
 				"EffectName"	"particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex_owner.vpcf"
 				"EffectAttachType"	"follow_hitloc"
 			}

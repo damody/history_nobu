@@ -356,26 +356,31 @@
 				"Duration"	"%duration"
 				"EffectName"	"particles/c19r/c19r.vpcf"
 				"EffectAttachType"	"follow_origin"
-				"OnCreated"
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Slow"
-						"name"	"C19R"
-						"ms_slow" "%bonus_moveandattackspeed"
-						"as_slow" "%bonus_moveandattackspeed"
-					}
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_moveandattackspeed"	//跑速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_moveandattackspeed"
 				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"C19R"
-					}
-				}
+				// "OnCreated"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"Slow"
+				// 		"name"	"C19R"
+				// 		"ms_slow" "%bonus_moveandattackspeed"
+				// 		"as_slow" "%bonus_moveandattackspeed"
+				// 	}
+				// }
+				// "OnDestroy"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"ReturnSpeed"
+				// 		"name"	"C19R"
+				// 	}
+				// }
 				"OnIntervalThink"
 				{
 					"Damage"

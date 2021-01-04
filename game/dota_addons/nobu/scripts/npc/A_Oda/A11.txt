@@ -371,25 +371,29 @@
 				"IsPurgable"		"0"
 				"EffectName"		"particles/a11t2/a11t2.vpcf"
 				"EffectAttachType"	"follow_origin"
-				"OnCreated"
+				"Properties"
 				{
-					"RunScript"
-					{
-					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-					"Function"	"Slow"
-					"name"	"A11T"
-					"ms_slow"	"-10"
-					}
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-10"	//跑速
 				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"A11T"
-					}
-				}
+				// "OnCreated"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 	"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 	"Function"	"Slow"
+				// 	"name"	"A11T"
+				// 	"ms_slow"	"-10"
+				// 	}
+				// }
+				// "OnDestroy"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"ReturnSpeed"
+				// 		"name"	"A11T"
+				// 	}
+				// }
 			}
 			"modifier_A11T_slow2"
 			{
@@ -417,6 +421,7 @@
 						"name"	"A11T_2"
 					}
 				}
+				
 			}
 			"modifier_A11T_slow3"
 			{
@@ -425,25 +430,29 @@
 				"IsPurgable"		"0"
 				"EffectName"		"particles/a11t2/a11t2.vpcf"
 				"EffectAttachType"	"follow_origin"
-				"OnCreated"
+				"Properties"
 				{
-					"RunScript"
-					{
-					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-					"Function"	"Slow"
-					"name"	"A11T_3"
-					"ms_slow"	"-30"
-					}
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
 				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"A11T_3"
-					}
-				}
+				// "OnCreated"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 	"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 	"Function"	"Slow"
+				// 	"name"	"A11T_3"
+				// 	"ms_slow"	"-30"
+				// 	}
+				// }
+				// "OnDestroy"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"ReturnSpeed"
+				// 		"name"	"A11T_3"
+				// 	}
+				// }
 			}
 		}
 

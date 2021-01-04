@@ -73,27 +73,29 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE" "%nerf"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%nerf"	//跑速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%nerf"
 				}
-				"OnCreated"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Slow"
-						"name"	"B32D"
-						"ms_slow" "%nerf"
-						"as_slow" "%nerf"
-					}
-				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"B32D"
-					}
-				}
+				// "OnCreated"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"Slow"
+				// 		"name"	"B32D"
+				// 		"ms_slow" "%nerf"
+				// 		"as_slow" "%nerf"
+				// 	}
+				// }
+				// "OnDestroy"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"ReturnSpeed"
+				// 		"name"	"B32D"
+				// 	}
+				// }
 				"Duration"	"%duration"
 				"ThinkInterval"	"1"
 				"OnIntervalThink"

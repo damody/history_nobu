@@ -93,7 +93,11 @@
 				"Duration"	"%debuff_duration"
 				"StatusEffectPriority"	"15"
 
-				
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%debuff_movement_speed"	//跑速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%debuff_attack_speed"
+				}
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -102,24 +106,24 @@
 						"EffectAttachType"	"follow_hitloc"
 						"Target"			"TARGET"
 					}
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Slow"
-						"name"	"C09W"
-						"ms_slow" "%debuff_movement_speed"
-						"as_slow" "%debuff_attack_speed"
-					}
+					// "RunScript"
+					// {
+					// 	"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					// 	"Function"	"Slow"
+					// 	"name"	"C09W"
+					// 	"ms_slow" "%debuff_movement_speed"
+					// 	"as_slow" "%debuff_attack_speed"
+					// }
 				}
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"C09W"
-					}
-				}
+				// "OnDestroy"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"ReturnSpeed"
+				// 		"name"	"C09W"
+				// 	}
+				// }
 			}
 		}
 		"AbilitySpecial"
@@ -244,17 +248,22 @@
 				"IsPurgable"	"0"
 				"EffectName"		"particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_ice.vpcf"
 				"EffectAttachType"	"follow_hitloc"
-				"OnCreated"
+				"Properties"
 				{
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"Slow"
-						"name"	"C09R"
-						"ms_slow" "%C09R_debuffAsMs"
-						"as_slow" "%C09R_debuffAsMs"
-					}
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%C09R_debuffAsMs"	//跑速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%C09R_debuffAsMs"
 				}
+				// "OnCreated"
+				// {
+				// 	"RunScript"
+				// 	{
+				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+				// 		"Function"	"Slow"
+				// 		"name"	"C09R"
+				// 		"ms_slow" "%C09R_debuffAsMs"
+				// 		"as_slow" "%C09R_debuffAsMs"
+				// 	}
+				// }
 				"OnDestroy"
 				{
 					"RunScript"
@@ -262,12 +271,12 @@
 						"ScriptFile"						"scripts/vscripts/heroes/C_Neutral/C09.lua"
 						"Function"							"C09R_debuff_OnDestroy"
 					}
-					"RunScript"
-					{
-						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-						"Function"	"ReturnSpeed"
-						"name"	"C09R"
-					}
+					// "RunScript"
+					// {
+					// 	"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					// 	"Function"	"ReturnSpeed"
+					// 	"name"	"C09R"
+					// }
 				}
 			}
 		}
