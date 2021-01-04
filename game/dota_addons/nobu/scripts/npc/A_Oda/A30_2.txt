@@ -3,7 +3,7 @@
 	// 丹羽長秀
 	"A30"
 	{
-		"ModelScale"	"1.5"
+		"ModelScale"	"1.3"
 		"Model"	"models/a30/a30.vmdl"
 		"DisableWearables"	"1"
 		//"Level"	"5"
@@ -23,9 +23,9 @@
 		// Reference: A00G
 		"Ability5"	"magical_resistance"
 		// Reference: A0GM
-		"Ability6"	"A30T"
+		"Ability6"	"A30_precache"
 		// Reference: A00I
-		"Ability7"	"A30_precache"
+		"Ability7"	"A30T"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
