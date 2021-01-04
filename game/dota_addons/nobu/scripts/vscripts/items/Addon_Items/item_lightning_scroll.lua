@@ -269,7 +269,7 @@ function item_raikiri( keys )
 						ParticleManager:SetParticleControl(particle,1, tem_point)
 						
 						--【DMG】
-						local dmg = 200
+						local dmg = 375
 						if caster.orb then
 							dmg = dmg * caster.orb
 						end
@@ -277,7 +277,7 @@ function item_raikiri( keys )
 							if unit:IsHero() then
 								AMHC:Damage(caster,unit,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 							else
-								AMHC:Damage(caster,unit,dmg*1.75,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+								AMHC:Damage(caster,unit,dmg-100,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 							end
 						end
 
