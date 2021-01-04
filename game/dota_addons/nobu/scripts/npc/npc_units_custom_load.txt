@@ -493,8 +493,8 @@
 		// ----------------------------------------------------------------
 		"BaseClass"	"npc_dota_creature"
 		// Add model
-		"Model"	"models/cavalry/cavalry_01.vmdl"
-		"ModelScale"	"0.01"
+		"Model"	"particles/models/items/shadow_demon/ti7_immortal_head/sd_ti7_immortal_hand.vmdl"
+		"ModelScale"	"1.5"
 		"Level"	"3"
 		"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
 		"HealthBarOffset"	"180"

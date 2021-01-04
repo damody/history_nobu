@@ -124,7 +124,7 @@ function Nobu:OnHeroIngame( keys )
           -- 裝備重放
           for i = 0, 6 do
             local item = caster:GetItemInSlot( i )
-            if item then
+            if item and item:GetName()~= "item_c06e" then
               local item_name = item:GetName()
               if item ~= nil then
               item:SetPurchaseTime(0)
