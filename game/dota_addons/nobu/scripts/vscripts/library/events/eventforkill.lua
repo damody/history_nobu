@@ -400,6 +400,7 @@ function Nobu:OnUnitKill( keys )
         GameRules: SendCustomMessage("<font color='#ffff00'>受詛咒的武士亡靈出現了</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
         if (killedUnit.origin_pos) then
           local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
+          local particle1 = ParticleManager:CreateParticle("particles/b06t/b06t.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, unit)
           unit.origin_pos = pos
           local CP_Monster = warrior_soul_respawn_count
           warrior_soul_respawn_count = warrior_soul_respawn_count + 1
@@ -409,6 +410,7 @@ function Nobu:OnUnitKill( keys )
           local dmgmin = unit:GetBaseDamageMin()
           unit:SetBaseDamageMax(dmgmax+CP_Monster*75)
           unit:SetBaseDamageMax(dmgmin+CP_Monster*75)
+          
         else
           print("cursed_warrior_souls")
         end
