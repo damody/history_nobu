@@ -373,7 +373,7 @@
 		"BaseClass"	"npc_dota_building"
 		// Add model
 		"Model"	"models/props_rock/riveredge_rock004a.vmdl"
-		"ModelScale"	"2"
+		"ModelScale"	"1"
 		"Level"	"0"
 		"BoundsHullName"	"DOTA_HULL_SIZE_FILLER"
 		"HealthBarOffset"	"180"

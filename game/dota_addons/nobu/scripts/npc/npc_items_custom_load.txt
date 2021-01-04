@@ -16811,7 +16811,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"0"
+		"AbilityCooldown"	"40"
 		"AbilityManaCost"	"0"
 		"AbilityCastRange"	"1200"
 		"ID"	"2870"

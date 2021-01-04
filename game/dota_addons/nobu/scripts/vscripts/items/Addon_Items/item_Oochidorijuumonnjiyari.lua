@@ -13,7 +13,7 @@ function Shock ( keys )
     FIND_ANY_ORDER,
     false)
     for i,unit in ipairs(group) do
-        if unit:IsHero() then
+        if IsValidEntity(unit) then
             local info = {
                 Target = unit,
                 Source = caster,
