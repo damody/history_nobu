@@ -6,8 +6,8 @@
 		// General
 		// ----------------------------------------------------------------
 		"override_hero"	"npc_dota_hero_rubick"
-		"ModelScale"	"1.2"
-		"Model"	"models/c16/c16.vmdl"
+		"ModelScale"	"1.0"
+		// "Model"	"models/c16/c16.vmdl"
 		"DisableWearables"	"1"
 		"HealthBarOffset"	"180"
 		// Abilities
