@@ -13,8 +13,8 @@
 		"Ability2"	"B18E"
 		"Ability3"	"B18R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"B18T"
-		"Ability6"	"B18_precache"
+		"Ability5"	"B18_precache"
+		"Ability6"	"B18T"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""
@@ -28,7 +28,7 @@
 
 		// Armor
 		// ----------------------------------------------------------------
-				"0"
+		"ArmorPhysical"	"3"
 		"MagicalResistance"	"0"
 
 		// Attack
