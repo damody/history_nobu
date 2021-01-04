@@ -12,7 +12,7 @@ function C12D_OnUnitMoved( keys )
 	local caster = ability:GetCaster()
 	local heroPosition = keys.unit:GetOrigin()
 	if ability then
-		local len = (caster:GetOrigin() - heroPosition):Length()
+		local len = (caster:GetOrigin() - heroPosition):Length2D()
 		if len > 1000 then
 			keys.unit:RemoveModifierByName("modifier_C12D_debuff")
 			caster.C12D_target = nil
