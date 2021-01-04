@@ -8023,6 +8023,14 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
+				"OnAttackLanded"
+				{
+					"Heal"
+					{
+						"Target"	"CASTER"
+						"HealAmount"	"25"
+					}
+				}
 				"Aura"	"modifier_spear_of_spiders"
 				"Aura_Radius"	"500"
 				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -9706,7 +9714,12 @@
 						"Function"	"Shock"
 						"dmg"	"8"
 					}
-				}	
+					"Heal"
+					{
+						"Target"	"CASTER"
+						"HealAmount"	"45"
+					}
+				}
 			}
 		}
 	}
