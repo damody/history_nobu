@@ -5,7 +5,7 @@
 	{
 	 //General
 	 //--------------------------------------------------------------
-		"ModelScale"	"1.2"
+		"ModelScale"	"1"
 		//"Model"	"models/c03/c03.vmdl"
 		//"DisableWearables"	"1"
 		//"Level"	"1"
@@ -20,8 +20,8 @@
 		"Ability3"	"C03R"
 		"Ability4"	"C03D"
 		"Ability5"	"magical_resistance"
-		"Ability6"	"C03T"
-		"Ability7"	"C03_precache"
+		"Ability6"	"C03_precache"
+		"Ability7"	"C03T"
 		//Armor
 		// --------------------------------------------------------------
 		"ArmorPhysical"	"0"

@@ -68,26 +68,26 @@
 	"npc_dota_hero_juggernaut" "1" // 瀧川一益
 	"npc_dota_hero_obsidian_destroyer" "1" // 前田慶次
 	"npc_dota_hero_spectre" "1" // 黑田孝高
-	//"npc_dota_hero_ogre_magi" "1" // 島津義弘
-	//"npc_dota_hero_ember_spirit" "1" // 仙石秀久
-	//"npc_dota_hero_visage" "1" //直江兼續
-	//"npc_dota_hero_enchantress" "1" // 伊勢姬
+	"npc_dota_hero_ogre_magi" "1" // 島津義弘
+	"npc_dota_hero_ember_spirit" "1" // 仙石秀久
+	"npc_dota_hero_visage" "1" //直江兼續
+	"npc_dota_hero_enchantress" "1" // 伊勢姬
 	"npc_dota_hero_riki" "1" // 百地三太夫
-	//"npc_dota_hero_rubick" "1" //果心居士	
-	//"npc_dota_hero_razor" "1" //山本勘助
-	//"npc_dota_hero_witch_doctor" "1" //宇喜多秀家
-	//"npc_dota_hero_shadow_demon" "1" //武田信玄
-	//"npc_dota_hero_earth_spirit" "1" //山縣昌景
+	"npc_dota_hero_rubick" "1" //果心居士	
+	"npc_dota_hero_razor" "1" //山本勘助
+	"npc_dota_hero_witch_doctor" "1" //宇喜多秀家
+	"npc_dota_hero_shadow_demon" "1" //武田信玄
+	"npc_dota_hero_earth_spirit" "1" //山縣昌景
 	"npc_dota_hero_slark" "1" //霧隱才藏
 	"npc_dota_hero_terrorblade" "1" //長宗我部元親
-	//"npc_dota_hero_shadow_shaman" "1" // 本多正信
-	//"npc_dota_hero_undying" "1" //加藤清正
-	//"npc_dota_hero_elder_titan" "1" //齋藤朝信
-	//"npc_dota_hero_ursa" "1" // 石川五右衛門
+	"npc_dota_hero_shadow_shaman" "1" // 本多正信
+	"npc_dota_hero_undying" "1" //加藤清正
+	"npc_dota_hero_elder_titan" "1" //齋藤朝信
+	"npc_dota_hero_ursa" "1" // 石川五右衛門
 	"npc_dota_hero_abaddon" "1" //柿崎景家
 	"npc_dota_hero_skeleton_king" "1" //九鬼嘉隆
-	//"npc_dota_hero_doom_bringer" "1" //佐久間盛政
-	//"npc_dota_hero_meepo" "1" //片倉景綱
+	"npc_dota_hero_doom_bringer" "1" //佐久間盛政
+	"npc_dota_hero_meepo" "1" //片倉景綱
 	//"npc_dota_hero_monkey_king" "1" //蜂須賀政勝
 	//"npc_dota_hero_warlock"	"1" //平手政秀
 	//"npc_dota_hero_luna" "1"	//瑞龍院日秀

@@ -11,12 +11,12 @@ function B31W_OnSpellStart( keys )
 	--caster:FindAbilityByName("B31W"):SetActivated(false)
 
 	caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK_EVENT,0.6)
-	Timers:CreateTimer(0.2,function()
-		local order = {UnitIndex = caster:entindex(),
-		OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-		TargetIndex = target:entindex()}
-		ExecuteOrderFromTable(order)
-		end)
+	-- Timers:CreateTimer(0.2,function()
+	-- 	local order = {UnitIndex = caster:entindex(),
+	-- 	OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+	-- 	TargetIndex = target:entindex()}
+	-- 	ExecuteOrderFromTable(order)
+	-- 	end)
 	local ifx = ParticleManager:CreateParticle("particles/a12r/a12r.vpcf",PATTACH_ABSORIGIN,caster)
 	ParticleManager:SetParticleControl(ifx,0,caster:GetAbsOrigin())
 	if (caster:FindModifierByName("modifier_B31W_aura")) then
@@ -180,16 +180,17 @@ end
 function B31R_OnSpellStart( keys )
 	local caster = keys.caster
 	local ability= keys.ability
+	local target = keys.target
 	if (caster:FindModifierByName("modifier_B31R_aura")) then
 		caster:RemoveModifierByName("modifier_B31R_aura")
 	end
 	caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK_EVENT,0.6)
-	Timers:CreateTimer(0.2,function()
-		local order = {UnitIndex = caster:entindex(),
-		OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
-		TargetIndex = target:entindex()}
-		ExecuteOrderFromTable(order)
-		end)
+	-- Timers:CreateTimer(0.2,function()
+	-- 	local order = {UnitIndex = caster:entindex(),
+	-- 	OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+	-- 	TargetIndex = target:entindex()}
+	-- 	ExecuteOrderFromTable(order)
+	-- 	end)
 	local ifx = ParticleManager:CreateParticle("particles/a19/a19_wfire/monkey_king_spring_arcana_fire.vpcf",PATTACH_ABSORIGIN,caster)
 	ParticleManager:SetParticleControl(ifx,0,caster:GetAbsOrigin())
 	ParticleManager:ReleaseParticleIndex(ifx)

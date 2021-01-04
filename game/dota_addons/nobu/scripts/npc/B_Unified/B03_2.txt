@@ -6,7 +6,7 @@
 		// General
 		// ----------------------------------------------------------------
 		"override_hero"	"npc_dota_hero_elder_titan"
-		"ModelScale"	"1.4"
+		"ModelScale"	"1.2"
 		"Model"	"models/b03/b03.vmdl"
 		// Abilities
 		// ----------------------------------------------------------------
@@ -14,8 +14,8 @@
 		"Ability2"	"B03E"
 		"Ability3"	"B03R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"B03T"
-		"Ability6"	"B03_precache"
+		"Ability5"	"B03_precache"
+		"Ability6"	"B03T"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""

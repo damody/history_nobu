@@ -4,7 +4,7 @@
 	"B20"
 	{
 		"override_hero"	"npc_dota_hero_earth_spirit"
-		"ModelScale"	"1.5"
+		"ModelScale"	"1.0"
 		"Model"	"models/b20/b20.vmdl"
 		"DisableWearables"	"1"
 		// Abilities
@@ -13,8 +13,8 @@
 		"Ability2"	"B20E"
 		"Ability3"	"B20R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"B20T"
-		"Ability6"	"B20_precache"
+		"Ability5"	"B20_precache"
+		"Ability6"	"B20T"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""

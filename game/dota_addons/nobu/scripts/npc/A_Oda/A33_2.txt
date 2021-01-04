@@ -6,7 +6,7 @@
 		// General
 		// ----------------------------------------------------------------
 		"override_hero"	"npc_dota_hero_shadow_shaman"
-		"ModelScale"	"1.3"
+		"ModelScale"	"1.0"
 		"ProjectileModel"			"particles/units/heroes/hero_shadowshaman/shadow_shaman_ward_base_attack.vpcf"	// Particle system model for projectile.
 		"ProjectileSpeed"			"1500"
 		// Abilities
@@ -15,8 +15,8 @@
 		"Ability2"	"A33E"
 		"Ability3"	"A33R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"A33T"
-		"Ability6"	"A33_precache"
+		"Ability5"	"A33_precache"
+		"Ability6"	"A33T"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""

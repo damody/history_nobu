@@ -217,7 +217,7 @@
 			"TrackingProjectile"
 			{
 				"Target"	"TARGET"
-				"EffectName"	"particles/A22/A22eshot_projectile_trail_b.vpcf"
+				// "EffectName"	"particles/A22/A22eshot_projectile_trail_b.vpcf"
 				"Dodgeable"	"1"
 				"ProvidesVision"	"1"
 				"MoveSpeed"	"3500"
