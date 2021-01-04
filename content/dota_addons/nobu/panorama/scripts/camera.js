@@ -94,13 +94,14 @@ function UpdateDireScore(keys) {
   sharedUnitsButton.hittestchildren = false
   $.Msg("testsetset")
   // 建立一個panel
-  var item_height = "33px"
-  var item_width = "33px"
+  var item_height = "37px"
+  var item_width = "37px"
   var HUDElements = $.GetContextPanel().GetParent().GetParent().GetParent()
   HUDElements = HUDElements.FindChildTraverse('HUDElements')
   this.panel = $.CreatePanel("Panel", $("#DotaHud_trasform"), "")
   this.panel.BLoadLayoutSnippet("Shop")
   var largeMainPanelWidth = '450px'
+  var largeMainPanelHeight = '1200px'
   var shop = $.GetContextPanel().GetParent().GetParent().GetParent()
   shop = shop.FindChildTraverse('HUDElements')
   shop = shop.FindChildTraverse('shop')
@@ -116,9 +117,11 @@ function UpdateDireScore(keys) {
   $.Msg(shop_combines.GetChildCount())
   var combines_items = shop_combines.FindChildTraverse("ItemsContainer")
   shop.FindChildTraverse("GuideFlyout").visible = false
-  shop.style.width = largeMainPanelWidth
+  shop.style.width = largeMainPanelWidth  
+  shop.style.height = largeMainPanelHeight
   shop.style.marginBottom = "0px"
   shop_main.style.width = largeMainPanelWidth
+
   // 調整商店物品大小
   for (var i = 0; i < shop_grid.GetChildCount(); i++) {
     var shoptype = shop_grid.GetChild(i)
