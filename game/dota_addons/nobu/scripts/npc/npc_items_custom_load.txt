@@ -3512,7 +3512,6 @@
 		"AbilityCooldown"	"25"
 		"AbilityCastPoint"	"0.2"
 		"AbilitySharedCooldown" "share_lightning_scroll"
-		"AbilityCastRange"	"500"
 		"ID"	"2570"
 		"ItemQuality"	"component"
 		"Model"	"models/heroes/abaddon/weapon.vmdl"
@@ -3596,7 +3595,7 @@
 			"05"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"targets"	"8"
+				"targets"	"6"
 			}
 			"06"
 			{
@@ -5740,73 +5739,148 @@
 	}
 
 	// 三日月宗近．銘刀
-	// "item_the_great_sword_of_xnew_moon"
-	// {
-	// 	// General
+	"item_the_great_sword_of_xnew_moon"
+	{
+		// General
 		
-	// 	"BaseClass"	"item_datadriven"
-	// 	"AbilityTextureName"	"item_custom/the_great_sword_of_new_moon"
-	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-	// 	"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	// 	"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	// 	"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-	// 	"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
-	// 	"FightRecapLevel"	"1"
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/the_great_sword_of_new_moon"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
 		
-	// 	"AbilityCooldown"	"80"
+		"AbilityCooldown"	"80"
 		
-	// 	"AbilityManaCost"	"130"
-	// 	"AbilityCastPoint"	"0.2"
-	// 	"AbilityCastRange"	"1000"
-	// 	"ID"	"2711"
-	// 	"ItemQuality"	"component"
-	// 	"Model"	"models/heroes/abaddon/weapon.vmdl"
-	// 	"Effect"	"particles/q09_2/q09_2.vpcf"
-	// 	"ItemCost"	"7750"
-	// 	////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-	// 	"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-	// 	"SideShop"						"0"
+		"AbilityManaCost"	"130"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastRange"	"1000"
+		"ID"	"2711"
+		"ItemQuality"	"component"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"6000"
+		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SecretShop"						"1"
 		
-	// 	"OnSpellStart"
-	// 	{
-	// 		"RunScript"
-	// 		{
-	// 			"ScriptFile"			"items/Addon_Items/item_the_great_sword_of_new_moon.lua"
-	// 			"Function"				"Shock"
-	// 		}
-	// 		"RunScript"
-	// 		{
-	// 		  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
-	// 			"Function"	"sound"
-	// 			"sound"	"edict_cast"
-	// 		}
-	// 	}
-		
-	// 	"Modifiers"
-	// 	{
-	// 		"Passive_lightning_katana"
-	// 		{
-	// 			"IsHidden"	"1"
-	// 			"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-	// 			"Passive"	"1"
-	// 			"Properties"
-	// 			{
-	// 				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
-	// 				"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
-	// 				"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "40"	//智
-	// 				"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "50"	//攻
-	// 				"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
-	// 				"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
-	// 				"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
-	// 				"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
-	// 				"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
-	// 				"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
-	// 				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
-	// 				"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
-	// 			}
-	// 		}
-	// 	}
-	// }
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"items/Addon_Items/item_the_great_sword_of_new_moon.lua"
+				"Function"				"Shock_new"
+			}
+			"RunScript"
+			{
+			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+				"Function"	"sound"
+				"sound"	"edict_cast"
+			}
+		}
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"items/Addon_Items/item_the_great_sword_of_new_moon.lua"
+				"Function"				"OnEquip"
+			}
+		}
+		"OnUnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"items/Addon_Items/item_the_great_sword_of_new_moon.lua"
+				"Function"				"OnUnEquip"
+			}
+		}
+		"Modifiers"
+		{
+			"Passive_lightning_katana"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "20"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "0" //回血%
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
+				}
+			}
+			"modifier_add_strength"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"20"
+				}
+			}
+			"modifier_add_agility"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"20"
+				}
+			}
+			"modifier_add_intellect"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"20"
+				}
+			}
+			"modifier_reduce_resistance"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"			
+				"Duration"			"10"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+						"Function"	"OnCreated"
+						"value"	"30"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
+						"Function"	"OnDestroy"
+						"value"	"30"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"targets"	"3"
+			}
+		}
+	}
 
 	// 梅鶯毒．妖刀
 	"item_the_great_sword_of_toxic"
@@ -6681,7 +6755,6 @@
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"15"
 				}
-				
 			}
 		}
 	}
@@ -16713,6 +16786,146 @@
 		// 	}
 		// }
 	// }
+	"item_recipe_Oochidorijuumonnjiyari"
+	{
+		"ID" "2871"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "30"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"ItemResult" "item_Oochidorijuumonnjiyari"
+		"ItemRequirements"
+		{
+			"01" "item_kisyosennfuyuzuki;item_lightning_katana"
+		}
+	}
+	//大千鳥十文字槍
+	"item_Oochidorijuumonnjiyari"
+	{
+		// General
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/Oochidorijuumonnjiyari"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		"AbilityCooldown"	"0"
+		"AbilityManaCost"	"0"
+		"AbilityCastRange"	"1200"
+		"ID"	"2870"
+		"ItemQuality"	"component"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"5400"
+		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequirements"	{}
+		"precache"
+		{
+			"particle"	"particles/a34w/a34w.vpcf"
+			"particle"	"particles/a34w/a34w.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
+			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items\Addon_Items\item_Oochidorijuumonnjiyari.lua"
+				"Function"	"Shock"
+			}
+		}
+		"Modifiers"
+		{
+			"passive_Oochidorijuumonnjiyari"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"	//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "20"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "38"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "300"				//魔
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "36" //攻速
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦	
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_lightning_scroll.lua"
+						"Function"	"item_raikiri"
+					}
+				}
+			}
+			"modifier_frost_bite_root_datadriven"
+			{
+				"IsPurgable"	"1"
+				"IsDebuff"	"1"
+				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"OverrideAnimation"	"ACT_DOTA_DISABLED"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Duration"	"2.1"
+				"ThinkInterval"	"0.5"
+				"OnIntervalThink"
+				{
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"	"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"50"
+					}
+				}
+			}
+			"modifier_chance_cannot_miss"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+          		"Properties"
+           		{
+                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "101"
+           		}
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"1"
+			"ApplyModifier"
+			{
+				"Target"	"TARGET"
+				"ModifierName"	"modifier_frost_bite_root_datadriven"
+			}
+			"Damage"
+			{
+				"Target"	"TARGET"
+				"Type"	"DAMAGE_TYPE_MAGICAL"
+				"Damage"	"1"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"targets"	"6"
+			}
+		}
+	}
 	"item_recipe_wayumi"
 	{
 		"ID" "2869"
@@ -16726,6 +16939,7 @@
 			"01" "item_spear;item_naginata;item_agility_ingot;item_agility_ingot"
 		}
 	}
+	//和弓
 	"item_wayumi"
 	{
 		// General
