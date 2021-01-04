@@ -6,7 +6,7 @@
 		// General
 		// ----------------------------------------------------------------
 		"override_hero"	"npc_dota_hero_lone_druid"
-		"ModelScale"	"1.0"
+		"ModelScale"	"1.2"
 		"Model"	"models/a03/a03.vmdl"
 		"DisableWearables"	"1"
         "HealthBarOffset"	"180"
@@ -22,8 +22,8 @@
 		"Ability2"	"A03E"
 		"Ability3"	"A03R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"A03T"
-		"Ability6"	"A03_precache"
+		"Ability5"	"A03_precache"
+		"Ability6"	"A03T"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""
