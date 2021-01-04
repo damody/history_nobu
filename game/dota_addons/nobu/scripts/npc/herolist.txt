@@ -89,7 +89,7 @@
 	"npc_dota_hero_doom_bringer" "1" //佐久間盛政
 	"npc_dota_hero_meepo" "1" //片倉景綱
 	"npc_dota_hero_monkey_king" "1" //蜂須賀政勝
-	//"npc_dota_hero_warlock"	"1" //平手政秀
+	"npc_dota_hero_warlock"	"1" //平手政秀
 	//"npc_dota_hero_luna" "1"	//瑞龍院日秀
 	//"npc_dota_hero_sand_king"		"1"	//丹羽長秀
 	"npc_dota_hero_lina" "1" //阿國
