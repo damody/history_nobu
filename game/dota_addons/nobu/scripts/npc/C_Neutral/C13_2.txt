@@ -6,7 +6,7 @@
 		// General
 		// ----------------------------------------------------------------
 		"override_hero"	"npc_dota_hero_night_stalker"
-		"ModelScale"	"1.3"
+		"ModelScale"	"1.0"
 		
 		"HealthBarOffset"	"200"
 		// Abilities
@@ -15,8 +15,8 @@
 		"Ability2"	"C13E"
 		"Ability3"	"C13R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"C13T"
-		"Ability6"	"C13_precache"
+		"Ability5"	"C13_precache"
+		"Ability6"	"C13T"
 		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""
