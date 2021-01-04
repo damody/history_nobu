@@ -378,7 +378,7 @@ function A21R_Sound( keys )
 		--caster.A21R_unit:PerformAttack(target, true, true, true, true, true, false, true)
 	end
 	if ability.A21R == nil then
-		EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"A21R.vo1",target)
+		-- EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"A21R.vo1",target)
 		ability.A21R = 1
 		Timers:CreateTimer(0.4-RandomFloat(0, 0.3), function()
 			ability.A21R = nil
