@@ -5752,7 +5752,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"80"
+		"AbilityCooldown"	"40"
 		
 		"AbilityManaCost"	"130"
 		"AbilityCastPoint"	"0.2"

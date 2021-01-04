@@ -9,7 +9,14 @@ function C22W_Damage( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local damage = ability:GetAbilityDamage()
-
+	local D = caster:FindAbilityByName("C22D")
+	local remaining = D:GetCooldownTimeRemaining()
+	if remaining > 2 then
+		D:EndCooldown()
+		D:StartCooldown(remaining - 2)
+	else
+		D:EndCooldown()
+	end
 	-- Finds all the enemies in a radius around the target and then deals damage to each of them
     --獲取攻擊範圍
     local group = {}
