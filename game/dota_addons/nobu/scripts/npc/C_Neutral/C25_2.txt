@@ -3,7 +3,7 @@
 	// 茶茶
 	"C25"
 	{
-		"ModelScale"	"1.2"
+		"ModelScale"	"1.0"
 		//"Model"	"models/c25/c25.vmdl"
 		//"DisableWearables"	"1"
 		"override_hero"	"npc_dota_hero_templar_assassin"
@@ -19,9 +19,9 @@
 		"Ability2"	"C25E"
 		"Ability3"	"C25R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"C25T"
-		"Ability6"	"C25_precache"
-		"Ability7"	"C25D"
+		"Ability5"	"C25D"
+		"Ability6"	"C25T"
+		"Ability7"	"C25_precache"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"
