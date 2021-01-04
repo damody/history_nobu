@@ -72,22 +72,23 @@ function modifier_A09E:DeclareFunctions()
 end
 
 function modifier_A09E:GetModifierModelChange()
-	local res = math.random(1,7)
-	if res == 1 then
-		return "models/items/furion/treant_flower_1.vmdl"
-	elseif res == 2 then
-		return "models/items/furion/treant_stump.vmdl"
-	elseif res == 3 then
-		return "models/items/furion/treant/furion_treant_nelum_red/furion_treant_nelum_red.vmdl"
-	elseif res == 4 then
-		return "models/items/furion/treant/hallowed_horde/hallowed_horde.vmdl"
-	elseif res == 5 then
-		return "models/items/furion/treant/primeval_treant/primeval_treant.vmdl"
-	elseif res == 6 then
-		return "models/items/furion/treant/ravenous_woodfang/ravenous_woodfang.vmdl"
-	elseif res == 7 then
-		return "models/items/furion/treant/shroomling_treant/shroomling_treant.vmdl"
-	end
+	-- local res = math.random(1,7)
+	-- if res == 1 then
+	-- 	return "models/items/furion/treant_flower_1.vmdl"
+	-- elseif res == 2 then
+	-- 	return "models/items/furion/treant_stump.vmdl"
+	-- elseif res == 3 then
+	-- 	return "models/items/furion/treant/furion_treant_nelum_red/furion_treant_nelum_red.vmdl"
+	-- elseif res == 4 then
+	-- 	return "models/items/furion/treant/hallowed_horde/hallowed_horde.vmdl"
+	-- elseif res == 5 then
+	-- 	return "models/items/furion/treant/primeval_treant/primeval_treant.vmdl"
+	-- elseif res == 6 then
+	-- 	return "models/items/furion/treant/ravenous_woodfang/ravenous_woodfang.vmdl"
+	-- elseif res == 7 then
+	-- 	return "models/items/furion/treant/shroomling_treant/shroomling_treant.vmdl"
+	-- end
+	return "models/items/furion/treant_flower_1.vmdl"
 end
 
 function modifier_A09E:GetModifierMoveSpeedOverride()
