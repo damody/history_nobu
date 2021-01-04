@@ -3502,7 +3502,7 @@
 		
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/lightning_katana"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -3511,7 +3511,6 @@
 		
 		"AbilityCooldown"	"25"
 		"AbilityCastPoint"	"0.2"
-		"AbilityManaCost"	"60"
 		"AbilitySharedCooldown" "share_lightning_scroll"
 		"AbilityCastRange"	"500"
 		"ID"	"2570"
@@ -3528,14 +3527,14 @@
 			"soundfile"	"sounds/weapons/hero/shadowshaman/shock01.vsnd"
 			"soundfile"	"soundevents/ITEMS/D09.vsndevts"
 		}
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_lightning_scroll.lua"
-				"Function"	"Shock"
-			}
-		}
+		// "OnSpellStart"
+		// {
+		// 	"RunScript"
+		// 	{
+		// 		"ScriptFile"	"items/Addon_Items/item_lightning_scroll.lua"
+		// 		"Function"	"Shock"
+		// 	}
+		// }
 		"Modifiers"
 		{
 			"Passive_lightning_katana"
@@ -3548,6 +3547,26 @@
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "19"	//攻
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "18" //攻速
 				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_lightning_scroll.lua"
+						"Function"	"item_raikiri"
+					}
+				}
+			}
+			"modifier_chance_cannot_miss"
+			{
+				"IsHidden"	"1"
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+          		"Properties"
+           		{
+                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "101"
+           		}
 			}
 		}
 		// Special
@@ -16187,35 +16206,35 @@
 		}
 	}
 	// 水計之書製作單
-	"item_recipe_flood_book" 
-	{
-	    "ID" "2832"
-	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "250"
-		"ItemShopTags" ""
-		"ItemRecipe" "1"
-		"SideShop"						"0"
-		"ItemResult" "item_flood_book"  //合成後物品
-		"ItemRequirements"
-		{
-			"01" "item_staff;item_mana_ingot"  //合成所需物品
-		}
-	}
+	// "item_recipe_flood_book" 
+	// {
+	//     "ID" "2832"
+	//     "BaseClass" "item_recipe_arcane_boots"
+	// 	"ItemCost" "250"
+	// 	"ItemShopTags" ""
+	// 	"ItemRecipe" "1"
+	// 	"SideShop"						"0"
+	// 	"ItemResult" "item_flood_book"  //合成後物品
+	// 	"ItemRequirements"
+	// 	{
+	// 		"01" "item_staff;item_mana_ingot"  //合成所需物品
+	// 	}
+	// }
 	// 土遁製作單
-	"item_recipe_earth_wall_book" 
-	{
-	    "ID" "2833"
-	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "250"
-		"ItemShopTags" ""
-		"ItemRecipe" "1"
-		"SideShop"						"0"
-		"ItemResult" "item_earth_wall_book"  //合成後物品
-		"ItemRequirements"
-		{
-			"01" "item_staff;item_spirit_ingot"  //合成所需物品
-		}
-	}
+	// "item_recipe_earth_wall_book" 
+	// {
+	//     "ID" "2833"
+	//     "BaseClass" "item_recipe_arcane_boots"
+	// 	"ItemCost" "250"
+	// 	"ItemShopTags" ""
+	// 	"ItemRecipe" "1"
+	// 	"SideShop"						"0"
+	// 	"ItemResult" "item_earth_wall_book"  //合成後物品
+	// 	"ItemRequirements"
+	// 	{
+	// 		"01" "item_staff;item_spirit_ingot"  //合成所需物品
+	// 	}
+	// }
 	// 落石之書製作單
 	"item_recipe_rockfall_book" 
 	{
