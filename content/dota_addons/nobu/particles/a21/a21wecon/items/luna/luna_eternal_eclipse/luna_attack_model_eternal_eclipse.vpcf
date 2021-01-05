@@ -114,6 +114,8 @@
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
+			m_flStartScale = 1.7
+			m_flEndScale = 1.7
 		},
 	]
 	m_ForceGenerators = 
