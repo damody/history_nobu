@@ -16834,10 +16834,9 @@
 		"ItemRequirements"	{}
 		"precache"
 		{
-			"particle"	"particles/a34w/a34w.vpcf"
-			"particle"	"particles/a34w/a34w.vpcf"
-			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_crystalmaiden.vsndevts"
-			"particle"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+			"soundfile"	"soundevents/game_sounds_items.vsndevts"
+			"particle"	"particles/items3_fx/gleipnir_projectile.vpcf"
+			"particle"	"particles/items3_fx/gleipnir_root.vpcf"
 		}
 		"OnSpellStart"
 		{
@@ -16845,6 +16844,11 @@
 			{
 				"ScriptFile"	"items\Addon_Items\item_Oochidorijuumonnjiyari.lua"
 				"Function"	"Shock"
+			}
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"Item.Gleipnir.Cast"
 			}
 		}
 		"Modifiers"
@@ -16879,7 +16883,8 @@
 			{
 				"IsPurgable"	"1"
 				"IsDebuff"	"1"
-				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				// "EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectName"	"particles\items3_fx\gleipnir_root.vpcf"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 				"States"
 				{
@@ -16925,6 +16930,11 @@
 				"Target"	"TARGET"
 				"Type"	"DAMAGE_TYPE_MAGICAL"
 				"Damage"	"1"
+			}
+			"FireSound"
+			{
+				"Target"	"TARGET"
+				"EffectName"	"Item.Gleipnir.Target"
 			}
 		}
 		"AbilitySpecial"

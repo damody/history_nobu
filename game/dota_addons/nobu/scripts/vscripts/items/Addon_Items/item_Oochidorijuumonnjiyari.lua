@@ -17,7 +17,8 @@ function Shock ( keys )
             local info = {
                 Target = unit,
                 Source = caster,
-                EffectName = "particles/a34w/a34w.vpcf",
+                -- EffectName = "particles/a34w/a34w.vpcf",
+                EffectName = "particles/items3_fx/gleipnir_projectile.vpcf",
                 Ability = ability,
                 iMoveSpeed = 2000,
                 vSpawnOrigin = caster:GetAbsOrigin()
