@@ -55,8 +55,8 @@
 		// ----------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_RANGED_ATTACK"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
-		"AttackDamageMin"	"99"
-		"AttackDamageMax"	"111"
+		"AttackDamageMin"	"105"
+		"AttackDamageMax"	"105"
 		"AttackRate"	"1.80"
 		// "AttackAnimationPoint"	"0.75"
 		"AttackAcquisitionRange"	"500"	// Range within a target can be acquired.

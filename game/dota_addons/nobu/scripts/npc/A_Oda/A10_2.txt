@@ -49,7 +49,7 @@
 		"AttributeStrengthGain"		"1.85"
 		"AttributeBaseAgility"		"27"
 		"AttributeAgilityGain"		"2.00"
-		"AttributeBaseIntelligence"	"33"
+		"AttributeBaseIntelligence"	"36"
 		"AttributeIntelligenceGain"	"3.20"
 
 		// Bounty

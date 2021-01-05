@@ -36,8 +36,8 @@
 		// Attack
 		// ----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
-		"AttackDamageMin"			"97"
-		"AttackDamageMax"			"113"
+		"AttackDamageMin"			"85"
+		"AttackDamageMax"			"85"
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"				"1.8"
 		"AttackAnimationPoint"		"0.2"
@@ -47,7 +47,7 @@
 		// Attributes
 		// ----------------------------------------------------------------
 		"AttributePrimary"			"DOTA_ATTRIBUTE_AGILITY"
-		"AttributeBaseStrength"		"35"
+		"AttributeBaseStrength"		"30"
 		"AttributeStrengthGain"		"2.1"
 		"AttributeBaseAgility"		"31"
 		"AttributeAgilityGain"		"2.7"
