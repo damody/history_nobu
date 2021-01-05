@@ -30,7 +30,7 @@
 		// --------------------------------------------------------------
 		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
 		"AttackDamageMin"	"115.0"
-		"AttackDamageMax"	"133.0"
+		"AttackDamageMax"	"115.0"
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"1.8"
 		"AttackAnimationPoint"	"0.3"
@@ -39,7 +39,7 @@
 		//Attributes
 		// --------------------------------------------------------------
 		"AttributePrimary"	"DOTA_ATTRIBUTE_STRENGTH"
-		"AttributeBaseStrength"	"46"
+		"AttributeBaseStrength"	"37"
 		"AttributeStrengthGain"	"2.7"
 		"AttributeBaseAgility"	"26"
 		"AttributeAgilityGain"	"2.6"
