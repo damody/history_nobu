@@ -5711,6 +5711,11 @@
 				"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_spike.lua"
 				"Function"	"Channeling"
 			}
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_precast"
+			}
 		}
 		"Modifiers"
 		{
@@ -5734,6 +5739,11 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
+			}
+			"modifier_precast"
+			{
+				"IsHidden"	"0"
+				"Duration"	"1"
 			}
 		}
 	}
