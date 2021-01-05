@@ -283,7 +283,7 @@ function item_raikiri( keys )
 							end
 						end
 						if ability:GetName() == "item_lightning_katana" or ability:GetName() == "item_Oochidorijuumonnjiyari" then
-							local dmg = 350
+							local dmg = 250
 							if ability:GetName() == "item_lightning_katana" then					
 								dmg = 200
 							end

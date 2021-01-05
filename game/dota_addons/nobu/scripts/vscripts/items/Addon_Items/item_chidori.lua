@@ -2,9 +2,7 @@ function Chidori_Damage ( keys )
     local caster = keys.caster
     local ability = keys.ability
     local target = keys.target
-    if not caster:IsIllusion() then
-        local int = caster:GetIntellect()
-    end
+    local int = caster:GetIntellect()
     if not target:IsBuilding() then
         AMHC:Damage(caster,target,int * 1.25,AMHC:DamageType("DAMAGE_TYPE_MAGICAL"))
         AMHC:CreateNumberEffect(target,int,2,AMHC.MSG_POISION,{90,0,173},5)
