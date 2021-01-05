@@ -5547,7 +5547,7 @@
 		// Reference: A0GD
 		"Ability1"	"majia"
 		// Reference: A0GW
-		"Ability2"	""
+		"Ability2"	"phased_dummy"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"0"

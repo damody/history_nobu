@@ -111,17 +111,7 @@ function Shock_new ( keys )
 	for i,unit in ipairs(group) do 
 		if n < targets then
 			if IsValidEntity(unit) and unit:IsHero() then
-				local life_time = 2.0
-				local fow_left_time = 0
-				Timers:CreateTimer(0.5,function()
-					if fow_left_time < 10 then
-						AddFOWViewer(caster:GetTeamNumber(),unit:GetAbsOrigin(),700,0.5,false)
-						fow_left_time = fow_left_time + 0.5
-						return 0.5
-					else
-						return nil
-					end
-				end)
+				ability:ApplyDataDrivenModifier(caster,unit,"modifier_provide_vision",nil)
 				
 				ability:ApplyDataDrivenModifier(caster,unit,"modifier_reduce_resistance",nil)
 				local a = 0

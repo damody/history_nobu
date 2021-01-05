@@ -124,6 +124,14 @@
 				"Function"		"C12W_OnSpellStart"
 			}
 		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"intRate"			"1.2 1.7 2.2 2.7"
+			}
+		}
 	}
 
 	// 空間撕裂裝置	  只有+智慧 跟指定位置順移  沒有面向目標順 跟撞到目標傷害.護頓 

@@ -73,17 +73,18 @@ function modifier_B12R_onattack_OnAttackLanded( event )
 	--print(target:GetMagicalArmorValue())
 	--print(event.caster:GetMagicalArmorValue())
 	--print(100-target:GetMagicalArmorValue())
+	local ability = event.ability
+	local caster = event.caster
+	local int = caster:GetIntellect()
+	local mr = target:GetBaseMagicalResistanceValue()
+	local damage = ability:GetSpecialValueFor("damage")
+	local dmg = (damage / 100) * int * (1- (mr / 100))
 	if not target:IsBuilding() then
-		local ability = event.ability
-		local caster =ability:GetCaster()
-		local damageTable = {victim=target,   
-			attacker=caster,         
-			damage=ability:GetSpecialValueFor("damage")/100*caster:GetIntellect(),
-			damage_type=ability:GetAbilityDamageType()}
-			if target:IsMagicImmune() then
-				ApplyDamage(damageTable)
-			else
-				ApplyDamage(damageTable)
-			end
+		print(dmg)
+		if target:IsMagicImmune() then
+			AMHC:Damage(caster,target,dmg,AMHC:DamageType("DAMAGE_TYPE_PURE"))
+		else
+			AMHC:Damage(caster,target,dmg,AMHC:DamageType("DAMAGE_TYPE_PURE"))
+		end
 	end
 end

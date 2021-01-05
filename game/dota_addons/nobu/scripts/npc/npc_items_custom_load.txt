@@ -1922,33 +1922,33 @@
 		}
 	}
 	//攻速鋼
-	"item_attack_speed_ingot"
-	{
-		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/attack_speed_ingot"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"FightRecapLevel"	"1"
-		"ID"	"2861"
-		"ItemQuality"	"component"
-		"Model"	"models/props_gameplay/tpscroll01.vmdl"
-		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
-		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SideShop"	"0"
-		"ItemCost"	"650"
-		"Modifiers"
-		{
-			"Passive_attack_speed_ingot"
-			{
-				"IsHidden"	"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Passive"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"15"
-				}
-			}
-		}
-	}
+	// "item_attack_speed_ingot"
+	// {
+	// 	"BaseClass"	"item_datadriven"
+	// 	"AbilityTextureName"	"item_custom/attack_speed_ingot"
+	// 	"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	// 	"FightRecapLevel"	"1"
+	// 	"ID"	"2861"
+	// 	"ItemQuality"	"component"
+	// 	"Model"	"models/props_gameplay/tpscroll01.vmdl"
+	// 	"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
+	// 	"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+	// 	"SideShop"	"0"
+	// 	"ItemCost"	"650"
+	// 	"Modifiers"
+	// 	{
+	// 		"Passive_attack_speed_ingot"
+	// 		{
+	// 			"IsHidden"	"1"
+	// 			"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+	// 			"Passive"	"1"
+	// 			"Properties"
+	// 			{
+	// 				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"15"
+	// 			}
+	// 		}
+	// 	}
+	// }
 
 	// 禦魔鋼	
 	"item_magic_resistance_ingot"
@@ -5856,9 +5856,18 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"20"
 				}
 			}
+			"modifier_provide_vision"
+			{
+				"IsHidden"			"1"
+				"IsDebuff"			"1"			
+				"Duration"			"10"
+				"States"
+				{
+					"MODIFIER_STATE_PROVIDES_VISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"modifier_reduce_resistance"
 			{
-				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"			
 				"Duration"			"10"
@@ -17259,7 +17268,7 @@
 		"ItemResult" "item_Sukezane"
 		"ItemRequirements"
 		{
-			"01" "item_staff;item_stable_shield;item_stable_shield;item_attack_speed_ingot;item_attack_speed_ingot;item_intelligence_ingot"
+			"01" "item_staff;item_stable_shield;item_stable_shield;item_speed_clothes;item_attack_speed_ingot;item_intelligence_ingot"
 		}
 	}
 

@@ -319,7 +319,7 @@
 				"target_count"	"6"
 			}
 		}
-		"AbilityDamage"	"150 250 350 450"
+		"AbilityDamage"	"180 320 460 600"
 	}
 	// 立花道雪 雷神之怒
 	"C07T"

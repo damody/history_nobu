@@ -116,6 +116,7 @@ function spell_ability ( filterTable )
 	local caster = EntIndexToHScript(f.units["0"])
 	local ability = EntIndexToHScript(f.entindex_ability)
 	local target = EntIndexToHScript(f.entindex_target)
+	print(ability:GetCastRange())
 	if ability == nil then
 		return true
 	end
@@ -132,15 +133,19 @@ function spell_ability ( filterTable )
 		big_skill = true
 	end
 	if target and target:GetTeamNumber() ~= caster:GetTeamNumber() and target.B06R_Buff then
-		target.B06R_Buff = false
-		Timers:CreateTimer(ability:GetCastPoint()+0.05, function()
-			target:FindAbilityByName("B06R"):ApplyDataDrivenModifier(target, target, "modifier_B06R", {duration = 3.0})
-			ParticleManager:CreateParticle("particles/a07w4/a07w4_c.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-			local part = ParticleManager:CreateParticle("particles/b06r3/b06r4.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-			Timers:CreateTimer(3, function()
-				ParticleManager:DestroyParticle(part, true)
+		local range = ability:GetCastRange()
+		local dif = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
+		if dif <= range then
+			target.B06R_Buff = false
+			Timers:CreateTimer(ability:GetCastPoint()+0.05, function()
+				target:FindAbilityByName("B06R"):ApplyDataDrivenModifier(target, target, "modifier_B06R", {duration = 3.0})
+				ParticleManager:CreateParticle("particles/a07w4/a07w4_c.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+				local part = ParticleManager:CreateParticle("particles/b06r3/b06r4.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+				Timers:CreateTimer(3, function()
+					ParticleManager:DestroyParticle(part, true)
+				end)
 			end)
-		end)
+		end
 	end
 	if target and target:GetTeamNumber() ~= caster:GetTeamNumber() and not big_skill and Special_skill[abname] == nil then
 		local dis = (caster:GetAbsOrigin()-target:GetAbsOrigin()):Length2D()

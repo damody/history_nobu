@@ -25,12 +25,14 @@ function C12W_OnProjectileHitUnit( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
+	local int = caster:GetIntellect()
+	local rate = ability:GetSpecialValueFor("intRate")
 	AMHC:Damage(caster,target,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ))
 	if target.C12D_count and math.mod(target.C12D_count, 2) == 0 then
 		ability:ApplyDataDrivenModifier(caster,target,"modifier_stunned",{duration = 1.5})
 	end
 	if target.C12D_count then
-		AMHC:Damage(caster,target,ability:GetAbilityDamage(),AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ))
+		AMHC:Damage(caster,target,int*rate,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ))
 	end
 	EmitSoundOnLocationWithCaster(target:GetAbsOrigin(),"A17T.sound1",target)
 end

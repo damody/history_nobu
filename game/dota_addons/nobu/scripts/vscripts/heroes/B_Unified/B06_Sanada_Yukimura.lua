@@ -117,6 +117,10 @@ function B06R_OnIntervalThink( keys )
 	end
 end
 
+function B06R_OntakeDamage ( keys ) 
+	print( keys.ability:GetAbility() )
+end
+
 function B06R_OnOnCreated( keys )
 	local caster = keys.caster
 	local ability = keys.ability
