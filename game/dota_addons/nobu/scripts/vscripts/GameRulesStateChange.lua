@@ -342,6 +342,7 @@ function Nobu:OnGameRulesStateChange( keys )
 				if _G.Hero[i] ~= nil then
 					if _G.skin_table[tostring(steamid)] == true or _G.skin_table[tostring(accountID)] == true then
 						local caster = player:GetAssignedHero()
+						caster.use_skin = true
 						local nobu_id = _G.heromap[caster:GetName()]
 						if (nobu_id == "C17") then
 							caster.skin = "school"
