@@ -54,6 +54,8 @@ function B31E_OnProjectileHitUnit( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
+	local mr = target:GetBaseMagicalResistanceValue()
+	local damage = ability:GetSpecialValueFor("damage")
 	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
 	                              target:GetAbsOrigin(),
 	                              nil,
@@ -66,9 +68,9 @@ function B31E_OnProjectileHitUnit( keys )
 	for _,it in pairs(direUnits) do
 		if (not(it:IsBuilding())) then
 			if it:IsMagicImmune() then
-				AMHC:Damage(caster,it, ability:GetSpecialValueFor( "damage")*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+				AMHC:Damage(caster,it, damage * (1-(mr/100)) ,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 			else
-				AMHC:Damage(caster,it, ability:GetSpecialValueFor( "damage"),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+				AMHC:Damage(caster,it, damage * (1-(mr/100)) ,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 			end
 			
 		end

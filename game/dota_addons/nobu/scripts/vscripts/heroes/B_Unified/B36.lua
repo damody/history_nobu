@@ -194,17 +194,12 @@ end
 
 function modifier_B36T_OnAttackLanded( event )
 	local target = event.target
+	local ability = event.ability
+	local caster = event.caster
+	local mr = target:GetBaseMagicalResistanceValue()
+	local damage = ability:GetSpecialValueFor("damage")
 	if not target:IsBuilding() then
-		local ability = event.ability
-		local caster =ability:GetCaster()
-		local damageTable = {victim=target,   
-			attacker=caster,         
-			damage=ability:GetSpecialValueFor("damage"),
-			damage_type=ability:GetAbilityDamageType()}
-		if target:IsMagicImmune() then
-			damageTable.damage = damageTable.damage*0.5
-		end
-		ApplyDamage(damageTable)   
+		AMHC:Damage( caster,target,damage * (1-(mr/100)),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 	end
 end
 

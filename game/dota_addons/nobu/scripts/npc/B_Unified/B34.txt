@@ -514,37 +514,37 @@
 						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B34.lua"
 						"Function"	"B34T"
 					}
-					"FireSound"
-					{
-						"Target"	"CASTER"
-						"EffectName"	"Roshan.Slam"
-					}
-					"ActOnTargets"
-					{
-						"Target"
-						{
-							"Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-							"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-							"Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-							"Center"	"CASTER"
-							"Radius"	"%radius"
-						}
-						"Action"
-						{
-							"Damage"
-							{
-								"Target"	"TARGET"
-								"Type"	"DAMAGE_TYPE_MAGICAL"
-								"Damage"	"%AbilityDamage"
-							}
-						}
-					}
-					"AttachEffect"
-					{
-						"Target"	"CASTER"
-						"EffectName"	"particles/b34t/b34t.vpcf"
-						"EffectAttachType"	"attach_origin"
-					}
+					// "FireSound"
+					// {
+					// 	"Target"	"CASTER"
+					// 	"EffectName"	"Roshan.Slam"
+					// }
+					// "ActOnTargets"
+					// {
+					// 	"Target"
+					// 	{
+					// 		"Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+					// 		"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					// 		"Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+					// 		"Center"	"CASTER"
+					// 		"Radius"	"%radius"
+					// 	}
+					// 	"Action"
+					// 	{
+					// 		"Damage"
+					// 		{
+					// 			"Target"	"TARGET"
+					// 			"Type"	"DAMAGE_TYPE_MAGICAL"
+					// 			"Damage"	"%AbilityDamage"
+					// 		}
+					// 	}
+					// }
+					// "AttachEffect"
+					// {
+					// 	"Target"	"CASTER"
+					// 	"EffectName"	"particles/b34t/b34t.vpcf"
+					// 	"EffectAttachType"	"attach_origin"
+					// }
 				}
 			}
 		}

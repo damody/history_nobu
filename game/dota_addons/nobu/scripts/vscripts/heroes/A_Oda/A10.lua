@@ -215,22 +215,19 @@ function A10E_OnProjectileHitUnit( keys )
 	local target = keys.target
 	local splash_radius = A10E:GetSpecialValueFor("splash_radius")
 	local damageMultiplier = 1
+	local mr = target:GetBaseMagicalResistanceValue()
+	local damage = ability:GetSpecialValueFor("damage")
 	if ability:GetAbilityName() ~= "A10E" then
 		damageMultiplier = 0.4
 	end
+	
 	local ifx = ParticleManager:CreateParticle( "particles/a10e/a10e_hitalliance_explosion.vpcf", PATTACH_ABSORIGIN, target )
 	local direUnits = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, splash_radius, DOTA_UNIT_TARGET_TEAM_ENEMY,
 										 DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
 	for _,unit in pairs(direUnits) do
-		if unit:IsMagicImmune() then
-			if caster:GetLevel() >= 12 then
-				AMHC:Damage( caster, unit, A10E:GetSpecialValueFor("damage") * damageMultiplier , AMHC:DamageType("DAMAGE_TYPE_PURE"))
-			else
-				AMHC:Damage( caster, unit, A10E:GetSpecialValueFor("damage") * 0.5 * damageMultiplier , AMHC:DamageType("DAMAGE_TYPE_PURE"))
-			end
-		else
-			AMHC:Damage( caster, unit, A10E:GetSpecialValueFor("damage") * damageMultiplier, AMHC:DamageType("DAMAGE_TYPE_PURE"))
+		if not unit:IsBuilding() then
+			AMHC:Damage( caster, unit, damage * damageMultiplier * (1-(mr / 100)) , AMHC:DamageType("DAMAGE_TYPE_PURE"))
 		end
 	end
 end

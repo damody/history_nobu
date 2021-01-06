@@ -71,10 +71,15 @@ function B34T( keys )
 	local ability = keys.ability
 	local level = ability:GetLevel() - 1
 	local radius = ability:GetLevelSpecialValueFor("radius",level)
+	local damage = ability:GetAbilityDamage()
 	local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
 		nil,  500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
-	for _, it in pairs(group) do
+		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Roshan.Slam",caster)
+		ParticleManager:CreateParticle("particles/b34t/b34t.vpcf", PATTACH_ABSORIGIN, caster)
+		for _, it in pairs(group) do
+		AMHC:Damage( caster,it,damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		
 		if it:IsHero() then
 			ParticleManager:CreateParticle("particles/shake1.vpcf", PATTACH_ABSORIGIN, it)
 		end

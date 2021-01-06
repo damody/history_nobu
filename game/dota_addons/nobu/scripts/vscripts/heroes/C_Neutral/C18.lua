@@ -2,6 +2,10 @@ function C18D_OnAbilityExecuted( keys )
 	-- 開關型技能不能用
 	if keys.event_ability:IsToggle() then return end
 	if keys.event_ability:GetName() == "attribute_bonusx" then return end
+	if keys.event_ability:GetName() == "item_logging" then return end
+	if keys.event_ability:GetName() == "item_tpscroll" then return end
+	if keys.event_ability:GetName() == "item_flash_shoes" then return end
+	if keys.event_ability:GetName() == "item_flash_ring" then return end
 	local caster = keys.caster
 	local ability = keys.ability
 	if caster:HasModifier("modifier_C18D") then
@@ -11,7 +15,7 @@ function C18D_OnAbilityExecuted( keys )
 			if keys.event_ability:IsItem() then
 				c = c + 1
 			else
-				c = c + 2
+				c = c + 1
 			end
 			ability:ApplyDataDrivenModifier(caster,caster,"modifier_C18D",nil)
 			handle:SetStackCount(c)

@@ -303,7 +303,7 @@
 		"TeamName"				"DOTA_TEAM_NEUTRALS"
 		"CombatClassAttack"		"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"		"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"Ability1"	""
+		"Ability1"	"for_magic_immune"
 		"ProjectileModel"	"particles/b22/b22e.vpcf"
 		"ProjectileSpeed"	"600"
 	}

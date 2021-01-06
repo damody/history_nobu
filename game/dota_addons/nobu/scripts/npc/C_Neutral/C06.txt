@@ -184,7 +184,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"money"	"23 32 41 50"
+				"money"	"14 18 24 28"
 			}
 		}
 	}
@@ -295,18 +295,18 @@
 			//吸收盾 額外護盾=魔力百分比 自身範圍找隊友半徑 額外護甲值
 			"01"
 			{
-				"var_type"							"FIELD_FLOAT"
-				"damage_absorb"						"0"
+				"var_type"							"FIELD_INTEGER"
+				"damage_absorb"						"200 300 400 500"
 			}
 			"02"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"maxdamage"						"600 900 1200 1500"
+				"maxdamage"						"60 90 120 150"
 			}
 			"03"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"shield"						"0.02 0.03 0.04 0.05"
+				"shield"						"0.05 0.05 0.05 0.05"
 			}
 		}
 	}

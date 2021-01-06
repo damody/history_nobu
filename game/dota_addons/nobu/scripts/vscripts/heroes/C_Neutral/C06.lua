@@ -210,7 +210,7 @@ function modifier_C06R_onattack_OnAttackLanded( event )
 	if not target:IsBuilding() and _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
 		local ability = event.ability
 		local caster = ability:GetCaster()
-		local damage = caster:GetGold()*0.04
+		local damage = caster:GetGold()*0.05
 		local maxdamage = ability:GetSpecialValueFor("maxdamage")
 		if damage > maxdamage then
 			damage = maxdamage
@@ -226,7 +226,6 @@ function modifier_C06R_onattack_OnAttackLanded( event )
 			damageTable.damage=damageTable.damage+50
 		end
 		if target:IsMagicImmune() then
-			damageTable.damage=damageTable.damage*0.25
 			ApplyDamage(damageTable)
 		else
 			ApplyDamage(damageTable)

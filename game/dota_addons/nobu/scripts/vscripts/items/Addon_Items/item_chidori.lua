@@ -19,8 +19,8 @@ function Chidori_Steal ( keys )
         local tint = target:GetIntellect()
     end
     if target:IsHero() and not target:IsIllusion() and not caster:IsIllusion() and target:IsAlive() then
-        target:ModifyIntellect(-2)
-        caster:ModifyIntellect(2)
+        -- target:ModifyIntellect(-2)
+        -- caster:ModifyIntellect(2)
         ability:ApplyDataDrivenModifier(caster,caster,"modifier_Chidori4",nil)
         ability:ApplyDataDrivenModifier(caster,target,"modifier_Chidori3",nil)
         local stack_self = caster:FindModifierByName("modifier_Chidori4")
@@ -33,12 +33,12 @@ function Chidori_Steal ( keys )
             local stack = target:FindModifierByName("modifier_Chidori3")
             if stack:GetStackCount() == 1 then
                 target:RemoveModifierByName("modifier_Chidori3")
-                target:ModifyIntellect(2)
-                caster:ModifyIntellect(-2)
+                -- target:ModifyIntellect(2)
+                -- caster:ModifyIntellect(-2)
             else
                 stack:SetStackCount(stack:GetStackCount() -1)
-                target:ModifyIntellect(2)
-                caster:ModifyIntellect(-2)
+                -- target:ModifyIntellect(2)
+                -- caster:ModifyIntellect(-2)
             end
         end
         if IsValidEntity(caster) and caster:FindModifierByName("modifier_Chidori4") then
