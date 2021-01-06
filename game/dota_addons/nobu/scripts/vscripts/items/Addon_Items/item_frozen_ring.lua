@@ -21,6 +21,7 @@ function Shock( keys )
 		end
 		ability:ApplyDataDrivenModifier(caster, it,"modifier_frozen_ring",{duration=3.5})
 	end
+	
 	local particle = ParticleManager:CreateParticle("particles/a34e2/a34e2.vpcf", PATTACH_ABSORIGIN, caster)
 	Timers:CreateTimer(2, function ()
 		ParticleManager:DestroyParticle(particle, true)

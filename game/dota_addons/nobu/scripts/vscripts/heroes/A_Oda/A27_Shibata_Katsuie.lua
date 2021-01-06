@@ -254,6 +254,9 @@ function A27R( keys )
 			if (hModifier ~= nil) then
 				hModifier.A27R_level = keys.ability:GetLevel()
 			end
+			if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * ((hModifier.A25R_level*50 +150) / 100) then
+				caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * ((hModifier.A25R_level*50 +150) / 100)
+			end
 		end
 	end
 end
