@@ -90,6 +90,7 @@ function C03R_OnAttackLanded( keys )
 	local target = keys.target
 	local ability = keys.ability
 	local dmg = ability:GetSpecialValueFor("dmg")
+	local mr = target:GetBaseMagicalResistanceValue()
 	if not target:IsBuilding() then
 		if caster.C03E_go == 1 then
 			caster.C03E_go = 0
@@ -102,9 +103,9 @@ function C03R_OnAttackLanded( keys )
 			end)
 			if not target:IsMagicImmune() then
 				ability:ApplyDataDrivenModifier( caster, target, "modifier_stunned", {duration=0.4} )
-				AMHC:Damage(caster,target, dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+				AMHC:Damage(caster,target, dmg * (1-(mr/100)),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 			else
-				AMHC:Damage(caster,target, dmg*0.5,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+				AMHC:Damage(caster,target, dmg* (1-(mr/100)),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 			end
 		end
 	end

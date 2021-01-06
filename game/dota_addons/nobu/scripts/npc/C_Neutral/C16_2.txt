@@ -30,9 +30,9 @@
 		"Ability15"	""
 		"Ability16"	""
 
-		// Armor
+		// Armor	
 		// ----------------------------------------------------------------
-		"ArmorPhysical"		"0"
+		"ArmorPhysical"		"3"
 		"MagicalResistance"	"0"
 
 		// Attack

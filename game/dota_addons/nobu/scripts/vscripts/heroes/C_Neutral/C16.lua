@@ -541,16 +541,12 @@ function C16T_onAttackLanded( keys )
 	local attacker = keys.attacker
 	local target = keys.target
 	local ability = keys.ability
+	local mr = target:GetBaseMagicalResistanceValue()
+	local damage = ability:GetSpecialValueFor("C16T_damage")
+	if IsValidEntity(target) then
+		AMHC:Damage(attacker,target, damage * (1-(mr/100)),AMHC:DamageType( "DAMAGE_TYPE_PURE" ))
+	end
 
-	local dmgt = {
-				victim = target,
-				attacker = attacker,
-				ability = ability,
-				damage = ability:GetSpecialValueFor("C16T_damage") ,
-				damage_type = ability:GetAbilityDamageType(),
-				damage_flags = DOTA_DAMAGE_FLAG_NONE,
-	}
-	ApplyDamage(dmgt)
 end
 
 function C16D_old( keys )

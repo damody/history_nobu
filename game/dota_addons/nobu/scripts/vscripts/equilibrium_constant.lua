@@ -130,7 +130,7 @@ function equilibrium_constant:GetModifierConstantHealthRegen( params )
             local str = owner:GetStrength()
             local HealthRegenBonus = HP_REGEN_PER_STR_DIFF * str
             if owner:GetBaseAttackRange() < 200 then
-                HealthRegenBonus = HealthRegenBonus + str * HP_REGEN_PER_STR
+                HealthRegenBonus = HealthRegenBonus + str * HP_REGEN_PER_STR_DIFF
             end
             owner.HealthRegen = HealthRegenBonus
             HealthRegenBonus = 0

@@ -265,7 +265,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"speed"				"1500"
+				"speed"				"900"
 			}
 			"05"
 			{
@@ -280,7 +280,7 @@
 			"07"
 			{
 				"var_type" 			"FIELD_INTEGER"
-				"mount_persec" 		"6 7 8 9"
+				"mount_persec" 		"5 5 5 5"
 			}
 			"08"
 			{

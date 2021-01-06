@@ -286,11 +286,12 @@ function A13W( event )
 
 					illusion[i]:SetHealth(caster:GetHealth())
 					illusion[i].illusion_damage = 0.1
+					i = i + 1
 					--分身不能用法球
 					--illusion[i].nobuorb1 = "illusion"
 					--illusion[i]:SetRenderColor(255,0,255)
 				end
-				i = i + 1
+				
 			else
 				return nil
 			end

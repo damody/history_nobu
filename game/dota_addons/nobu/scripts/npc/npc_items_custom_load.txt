@@ -8242,7 +8242,7 @@
 	{
 	    "ID" "3010"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "0"
+		"ItemCost" "300"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_lightning_katana"  //合成後物品
@@ -8678,7 +8678,7 @@
 	{
 	    "ID" "3037"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1150"
+		"ItemCost" "850"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_raikiri"  //合成後物品
@@ -17138,7 +17138,7 @@
 					{
 						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
 						"Function"	"OnCreated"
-						"value"	"30"
+						"value"	"15"
 					}
 				}
 				"OnDestroy"
@@ -17147,7 +17147,7 @@
 					{
 						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
 						"Function"	"OnDestroy"
-						"value"	"30"
+						"value"	"15"
 					}
 				}
 			}
@@ -17250,7 +17250,7 @@
 					{
 						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
 						"Function"	"OnCreated"
-						"value"	"30"
+						"value"	"15"
 					}
 				}
 				"OnDestroy"
@@ -17259,7 +17259,7 @@
 					{
 						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
 						"Function"	"OnDestroy"
-						"value"	"30"
+						"value"	"15"
 					}
 				}
 			}

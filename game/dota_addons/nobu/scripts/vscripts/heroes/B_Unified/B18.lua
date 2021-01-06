@@ -146,7 +146,7 @@ function B18T_OnAttackLanded( keys )
 				Timers:CreateTimer(2, function() 
 						ParticleManager:DestroyParticle(spike,true)
 					end)
-				AMHC:Damage(caster, unit, dmg*0.2,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				AMHC:Damage(caster, unit, dmg*0.1,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 			end
 		else
 			local spike = ParticleManager:CreateParticle("particles/b18/b18tikes.vpcf", PATTACH_ABSORIGIN, unit)

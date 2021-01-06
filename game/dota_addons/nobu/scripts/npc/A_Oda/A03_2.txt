@@ -48,7 +48,7 @@
 
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"	"0"
+		"ArmorPhysical"	"3"
 		"MagicalResistance"	"0"
 
 		// Attack

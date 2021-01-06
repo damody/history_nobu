@@ -215,21 +215,27 @@ function item_raikiri( keys )
 	if not target:IsBuilding() then
 		local ran =  RandomInt(0, 100)
 		local trigger = 25
-		local Guaranteed = 4
+		local Guaranteed = 6
+		if ability:GetName() == "item_lightning_katana" then
+			trigger = 15
+			Guaranteed = 7
+		end
 		if (caster.raikiri == nil) then
 			caster.raikiri = 0
 		end
 		if caster:GetBaseAttackRange() < 200 and caster.name ~= "B04" then
 			trigger = 33
-			Guaranteed = 3
+			Guaranteed = 5
+			if ability:GetName() == "item_lightning_katana" then
+				trigger = 23
+				Guaranteed = 6
+			end
 		end
 
 		if ( ran > trigger ) then
 			caster.raikiri = caster.raikiri +1
 		end
-		
-
-		if caster.raikiri >= 6 or ran <= trigger then
+		if caster.raikiri >= Guaranteed or ran <= trigger then
 			caster.raikiri = 0
 			--【KV】
 			--caster:SetForwardVector(vec)
