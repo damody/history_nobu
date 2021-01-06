@@ -89,6 +89,19 @@
 				}
 				"Duration"	"%life_duration"
 			}
+			"modifier_B24W_unit_attack"
+			{
+				"IsHidden"	"1"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"Target"	"TARGET"
+						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B24.lua"
+						"Function"	"B24W_Attack"
+					}
+				}
+			}
 		}
 		"AbilitySpecial"
 		{

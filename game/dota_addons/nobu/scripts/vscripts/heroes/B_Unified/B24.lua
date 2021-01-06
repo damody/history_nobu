@@ -103,6 +103,7 @@ function B24W( keys )
 	local dummy	= CreateUnitByName("B24W_dummy_hero", mouse, true, nil, nil, caster:GetTeamNumber())
 	dummy:RemoveModifierByName("modifier_invulnerable")
 	dummy:SetOwner(caster)
+	ability:ApplyDataDrivenModifier(caster,dummy,"modifier_B24W_unit_attack",{})
 	ability:ApplyDataDrivenModifier(caster,dummy,"modifier_kill",{duration=12})
 	--local player = caster:GetPlayerID()
 	local point = caster:GetAbsOrigin()
@@ -214,6 +215,20 @@ function B24W( keys )
 			v:AddNewModifier(nil,nil,"modifier_phased",{duration=0.1})
 		end
 	end		
+end
+
+function B24W_Attack( keys )
+	local target = keys.target
+	local caster = keys.attacker
+	if keys.target:IsHero() then
+		caster:Stop()
+		local group = FindUnitsInRadius(caster:GetTeam(),caster:GetAbsOrigin(),nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, true)	
+		for i,v in ipairs(group) do
+			if v ~= dummy then
+				caster:MoveToTargetToAttack(v)
+			end
+		end
+	end
 end
 
 function B24W2( keys )
