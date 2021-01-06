@@ -72,7 +72,6 @@ function B31E_OnProjectileHitUnit( keys )
 			else
 				AMHC:Damage(caster,it, damage * (1-(mr/100)) ,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 			end
-			
 		end
 	end
 end
