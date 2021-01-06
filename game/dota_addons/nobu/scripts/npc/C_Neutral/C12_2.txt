@@ -20,7 +20,7 @@
 		"Ability7"	"C12_precache"
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"		"0"
+		"ArmorPhysical"		"3"
 		"MagicalResistance"	"0"
 
 		// Attack
