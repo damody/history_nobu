@@ -554,6 +554,9 @@ function modifier_unit_armor:GetModifierIncomingDamage_Percentage( keys )
     return 50
   elseif keys.attacker:IsBuilding() then
     if self.creep then
+      if keys.attacker:GetUnitName() == "B24W_dummy_hero" then
+        return 0
+      end
       return -100
     else
       return -75
