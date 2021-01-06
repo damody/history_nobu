@@ -153,7 +153,11 @@ function B25E( keys )
 	end
 	local cooldown = ability:GetCooldownTime()
 	ability:EndCooldown()
-	ability:StartCooldown(cooldown - hero_count)
+	local cd = cooldown - hero_count
+	if cd < 1 then
+		cd = 1
+	end
+	ability:StartCooldown(cd)
 end
 
 function B25E_old_break( keys )

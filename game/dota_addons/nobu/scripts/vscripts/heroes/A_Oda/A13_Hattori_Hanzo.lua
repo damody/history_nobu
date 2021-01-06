@@ -226,7 +226,7 @@ function A13W( event )
 		end
 	end
 	local lv = ability:GetLevel()
-	
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_A13D2",nil)
 	caster.A13W = {}
 
 	caster:RemoveAbility("A13W")
@@ -719,7 +719,7 @@ function A13T ( keys )
 	local duration = ability:GetSpecialValueFor("duration")
 	local radius = ability:GetSpecialValueFor("radius")
 	local point = caster:GetCursorPosition()
-	local damage = ability:GetSpecialValueFor("damage")
+	local dmg = ability:GetSpecialValueFor("damage")
 	local dummy = CreateUnitByName("hide_unit", point , true, nil, caster, caster:GetTeamNumber()) 
 	local spell_hint_table = {
 		duration   = duration,		-- 持續時間
@@ -740,6 +740,7 @@ function A13T ( keys )
 			counter = counter + 0.3
 			if counter > duration then
 				caster:RemoveModifierByName("modifier_A13T_invisible")
+				caster.orb = nil
 				return nil
 			end
 			units = FindUnitsInRadius(caster:GetTeamNumber(), point, nil, radius, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
@@ -752,8 +753,12 @@ function A13T ( keys )
 			local distance = nobu_distance(caster:GetAbsOrigin(), point)
 			if distance < radius then
 				ability:ApplyDataDrivenModifier(caster,caster,"modifier_A13T_invisible",{duration = 0.5})
+				ability:ApplyDataDrivenModifier(caster,caster,"modifier_A13T_reduce",{duration = 0.5})
+				caster.orb = 0.5
 			else
+				caster.orb = nil
 				caster:RemoveModifierByName("modifier_A13T_invisible")
+				caster:RemoveModifierByName("modifier_A13T_reduce")
 			end	
 			for i,unit in ipairs(units) do
 							
@@ -773,6 +778,7 @@ function A13T ( keys )
 						damage_flags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 					}
 					ability:ApplyDataDrivenModifier(caster,unit,"modifier_A13T_Blind", {duration = 0.5})
+					AMHC:Damage( caster,unit,dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )	
 					if i == n then
 						caster:PerformAttack(unit, true, true, true, true, true, false, true)
 					else

@@ -392,6 +392,29 @@
 				}
 				"ThinkInterval"	"1"
 			}
+			"modifier_A14T2"
+			{
+				"Passive"	"1"
+				"IsPurgable"	"0"
+				"IsHidden"	"1"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A14.lua"
+						"Function"	"A14T_OnAttackLanded"
+					}
+				}
+			}
+			"modifier_A14T_ASPD_bonus"
+			{
+				"Passive"	"1"
+				"IsPurgable"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%a14t_ASPD"
+				}
+			}
 		}
 		// Special
 		// -------------------------------------------------------------------------------------------------------------
@@ -400,7 +423,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"duration"	"16 18 20"
+				"duration"	"8 14 20"
 			}
 			"02"
 			{
@@ -411,6 +434,16 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"a14r_bouns_count"	"5 8 10"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"a14t_max_count"	"10"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"a14t_ASPD"	"10 15 20"
 			}
 		}
 		// Stats

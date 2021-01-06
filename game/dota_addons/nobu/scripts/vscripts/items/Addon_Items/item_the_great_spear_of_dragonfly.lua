@@ -17,6 +17,7 @@ end
 
 function Shock( keys )
 	local caster = keys.caster
+	local dmg = 150
 	if not caster:IsIllusion() then
 		local target = keys.target
 		local skill = keys.ability
@@ -29,7 +30,7 @@ function Shock( keys )
 		end
 		caster.great_spear_of_dragonfly_count = caster.great_spear_of_dragonfly_count + 1
 		local trigger = 4
-		if caster:GetBaseAttackRange() < 200 then
+		if caster:GetBaseAttackRange() < 200 and caster.name ~= "B04" then
 			trigger = 3
 		end
 		if (caster.great_spear_of_dragonfly_count >= trigger) then
@@ -51,13 +52,16 @@ function Shock( keys )
 		                              false)
 
 				--effect:傷害+暈眩
+				if caster.orb then
+					dmg = dmg * caster.orb 
+				end
 				for _,it in pairs(direUnits) do
 					if (not(it:IsBuilding())) then
 						local flame = ParticleManager:CreateParticle("particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn_flames.vpcf", PATTACH_OVERHEAD_FOLLOW, it)
 						Timers:CreateTimer(0.3, function ()
 							ParticleManager:DestroyParticle(flame, false)
 						end)
-						AMHC:Damage(caster,it,150,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+						AMHC:Damage(caster,it,dmg,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 					end
 				end
 				--SE

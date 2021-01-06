@@ -315,6 +315,11 @@
 				"var_type"		"FIELD_FLOAT"
 				"stun_time"		"0.2"
 			}
+			"06"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"damage"		"35 50 65"
+			}
 		}
 
 		"precache"
@@ -322,6 +327,12 @@
 			"soundfile"	"soundevents/b01.vsndevts"
 			"particle"  "particles/units/heroes/hero_clinkz/clinkz_loadout.vpcf"
 			"particle"  "particles/units/heroes/hero_clinkz/clinkz_strafe.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+			"particle"	"particles/a17w/a17w.vpcf"
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
+			"particle"	"particles/b08w2/b08w2.vpcf"
+			"particle"	"particles/units/heroes/hero_sniper/sniper_assassinate.vpcf"
+			"particle"	"particles/units/heroes/hero_sniper/sniper_crosshair.vpcf"
 		}
 
 		"OnAbilityPhaseStart"
@@ -409,6 +420,21 @@
 				}
 				"EffectName" "particles/units/heroes/hero_clinkz/clinkz_strafe.vpcf"
 				"EffectAttachType"  "follow_origin"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"TARGET"	"TARGET"
+				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B04.lua"
+				"Function"		"B04T_OnHit"
+			}
+			"FireSound"
+			{
+				"Target"	"TARGET"
+				"EffectName"	"Hero_Sniper.AssassinateDamage"
 			}
 		}
 	}

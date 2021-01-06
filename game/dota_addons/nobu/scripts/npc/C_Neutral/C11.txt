@@ -351,7 +351,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"attack_speed_percentage"	"100 150 200"	
+				"attack_speed_percentage"	"75 125 175"	
 			}
 			"05"
 			{

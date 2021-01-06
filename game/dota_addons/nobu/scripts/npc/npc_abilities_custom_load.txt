@@ -73,16 +73,16 @@
 					}
 				}
 			}
-			"debuff_tower"
-			{
-				"Passive"	"0"
-				"IsHidden"	"0"
-				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"70"
-				}
-			}
+			// "debuff_tower"
+			// {
+			// 	"Passive"	"0"
+			// 	"IsHidden"	"0"
+			// 	"IsDebuff"	"1"
+			// 	"Properties"
+			// 	{
+			// 		"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"70"
+			// 	}
+			// }
 		}
 	}
 	//  附近的敵人愈多 受到的傷害愈高
@@ -1604,6 +1604,15 @@
 
 	//塔被小兵打75%減傷
 	"tower_armor"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			//modifier 在dummy.lua裡 由chubing.lua加上去
+		}
+	}
+	"tower_debuff"
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -4525,6 +4534,42 @@
 			}
 		}
 	}
+	"com_intensify"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"gyrocopter_skyhigh_flak_cannon"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"precache"
+		{
+			"particle"	"particles/units/heroes/hero_tinker/tinker_missile.vpcf"
+		}
+		"Modifiers"
+		{
+			"modifier_intensify"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "300"	//攻
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "30"
+				}
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"debuff_tower"
+					}
+				}
+			}
+		}
+	}
 
 	// 技能的名字
 	"ability_sample_ability"
@@ -6123,6 +6168,31 @@
 	                    "Duration"      "0.50"
 	                }
 	            }
+			}
+		}
+	}
+	"ninja_takedamage"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"passive_ninja_takedamage"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ninja_takedamage"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
+				}
 			}
 		}
 	}

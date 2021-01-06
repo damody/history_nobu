@@ -16,7 +16,7 @@ function Shock( keys )
 		end
 		caster.great_sword_of_tiger_count = caster.great_sword_of_tiger_count + 1
 		local trigger = 5
-		if caster:GetBaseAttackRange() < 200 then
+		if caster:GetBaseAttackRange() < 200 and caster.name ~= "B04" then
 			trigger = 4
 		end
 		if (caster.great_sword_of_tiger_count >= 4) and not ability.IsTrigger then

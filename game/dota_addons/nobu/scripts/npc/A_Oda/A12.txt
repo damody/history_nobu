@@ -89,9 +89,17 @@
 				"IsDebuff"	"0"
 				"IsPurgable"	"0"
 				"Duration"	"%wufadongdan"
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 				"EffectName"	"particles/a12w2/a12w2.vpcf"
 				"EffectAttachType"	"follow_origin"
+			}
+			"modifier_A12W_phase"
+			{
+				"Duration"	"0.1"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
 			}
 		}
 		"AbilitySpecial"

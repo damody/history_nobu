@@ -21,6 +21,24 @@ function A25W( keys )
 		)
 end
 
+
+function A25W_OnProjectileHitUnit(keys)
+	--【Basic】
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local point = caster:GetAbsOrigin()
+	local point2 = target:GetAbsOrigin()
+	local A25R = caster:FindAbilityByName("A25R")
+	local crit_persent = A25R:GetSpecialValueFor("crit_persent")*0.01
+	if crit_persent < 1 then 
+		crit_persent = 1
+	end
+	local dmg = caster:GetAverageTrueAttackDamage(target) * 0.4 * crit_persent
+	AMHC:CreateNumberEffect(target,dmg, 2,AMHC.MSG_DAMAGE ,{255,0,0})
+	AMHC:Damage(caster,target, dmg, AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+end
+
 function BladeFuryStop( event )
 	local caster = event.caster
 	
@@ -246,6 +264,7 @@ function A25T( keys )
 	local small_tornado_count = 0
 	local AbilityDamage = ability:GetAbilityDamage()
 	local duration = ability:GetSpecialValueFor("duration")
+	local bladestorm_radius = ability:GetSpecialValueFor("bladestorm_radius")
 	AMHC:AddModelScale(caster, 1.3, duration)
 	local am = caster:FindAllModifiers()
 	for _,v in pairs(am) do
@@ -263,7 +282,7 @@ function A25T( keys )
 		local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
                               caster:GetAbsOrigin(),
                               nil,
-                              400,
+                              bladestorm_radius,
                               DOTA_UNIT_TARGET_TEAM_ENEMY,
                               DOTA_UNIT_TARGET_ALL,
                               DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,

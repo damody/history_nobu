@@ -171,9 +171,6 @@ function C09T_OnSpellStart( keys )
 	for _,unit in ipairs(units) do
 		if _G.EXCLUDE_TARGET_NAME[unit:GetUnitName()] == nil then
 			ability:ApplyDataDrivenModifier( caster , unit , "modifier_C09T_debuff" , { duration = debuffDuration } )
-			if unit:FindModifierByName("modifier_C09W_debuff") then
-				ability:ApplyDataDrivenModifier( caster , unit , "modifier_C09T_debuff2" , { duration = stunDuration })
-			end
 		end 
 	end
 end

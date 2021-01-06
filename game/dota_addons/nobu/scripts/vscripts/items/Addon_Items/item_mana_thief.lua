@@ -185,6 +185,9 @@ function Shock( keys )
 		if caster.illusion_damage ~= nil then
 			mana_to_burn = mana_to_burn * caster.illusion_damage
 		end
+		if caster.orb then
+			mana_to_burn = mana_to_burn * caster.orb 
+		end
 
 		-- Apply effect of ability
 		target:ReduceMana( mana_to_burn )

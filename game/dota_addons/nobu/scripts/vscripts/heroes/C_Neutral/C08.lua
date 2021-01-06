@@ -51,7 +51,7 @@ function C08E_OnSpellStart( keys )
 		local particle = ParticleManager:CreateParticle("particles/econ/items/bristleback/bristle_spikey_spray/bristle_spikey_quill_spray_sparks.vpcf", PATTACH_ABSORIGIN, caster)
 		ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
 	end
-
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_C08E",nil)
 	-- 搜尋
 	local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
 		caster:GetAbsOrigin(),			-- 搜尋的中心點

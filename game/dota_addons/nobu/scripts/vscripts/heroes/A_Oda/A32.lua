@@ -285,7 +285,7 @@ function A32T_OnProjectileHit( event )
 	local point=target:GetOrigin()
 	--施法點
 	local vec = A32T_castPoistion
-
+	local duration = ability:GetSpecialValueFor("A32T_Duration")
 	--計算目標與施法點距離
 	local distance =300
 
@@ -300,10 +300,21 @@ function A32T_OnProjectileHit( event )
 		knockback_height = 0,
 		should_stun = 0
 	}
-
+	
 	target:AddNewModifier( target, nil, "modifier_knockback", knockbackProperties )
-
-
+	local tsum = 0.1
+	Timers:CreateTimer(0.1, function()
+		if not target:HasModifier("modifier_A32T") then
+			ability:ApplyDataDrivenModifier(caster,target,"modifier_A32T",{duration = 2.5})
+		end
+		if tsum < duration then
+			tsum = tsum + 0.1
+			return 0.1
+		else
+			return nil
+		end
+	end)
+	
 	--傷害為當前血量設定百分比
 	local Damage=target:GetHealth()*event.Damage/100
 

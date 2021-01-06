@@ -314,7 +314,7 @@ function Nobu:OnGameRulesStateChange( keys )
 	     local building = allBuildings[i]
 	     if building:HasModifier('modifier_invulnerable') then
 	        building:RemoveModifierByName('modifier_invulnerable')
-	     end
+		 end
 	  end
     --出兵觸發
     if _G.nobu_chubing_b then

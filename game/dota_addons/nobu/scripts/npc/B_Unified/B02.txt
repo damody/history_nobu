@@ -279,7 +279,7 @@
 			"04"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"illusion_outgoing_damage"	"80"
+				"illusion_outgoing_damage"	"50 60 70 80"
 			}
 			"05"
 			{
@@ -536,6 +536,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastPoint"	"0.15"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_4"
 		"AnimationPlaybackRate"	"5"

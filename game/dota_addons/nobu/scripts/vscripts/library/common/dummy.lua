@@ -1,5 +1,6 @@
 LinkLuaModifier( "modifier_unit_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_tower_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_tower_debuff", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_soul", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 modifier_soul = class({})
 
@@ -88,6 +89,12 @@ function top_broken( keys )
         ShuaGuai_Of_C(2,3,6)
         return 60
       end)
+      local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+      for k, ent in pairs(allBuildings) do
+        if string.match(ent:GetUnitName(),"com_general_oda") then
+          ent:RemoveModifierByName("modifier_intensify")
+        end
+      end
     end
   elseif team == 3 then
     if _G.team_broken[team]["top"] == 1 then
@@ -109,6 +116,12 @@ function top_broken( keys )
         ShuaGuai_Of_C(2,2,3)
         return 60
       end)
+    end
+    local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+    for k, ent in pairs(allBuildings) do
+      if string.match(ent:GetUnitName(),"com_general_unified") then
+        ent:RemoveModifierByName("modifier_intensify")
+      end
     end
   end
 end
@@ -137,6 +150,12 @@ function mid_broken( keys )
         ShuaGuai_Of_C(2,3,5)
         return 60
       end)
+      local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+      for k, ent in pairs(allBuildings) do
+        if string.match(ent:GetUnitName(),"com_general_oda") then
+          ent:RemoveModifierByName("modifier_intensify")
+        end
+      end
     end
   elseif team == 3 then
     if _G.team_broken[team]["mid"] == 1 then
@@ -158,6 +177,12 @@ function mid_broken( keys )
         ShuaGuai_Of_C(2,2,2)
         return 60
       end)
+      local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+      for k, ent in pairs(allBuildings) do
+        if string.match(ent:GetUnitName(),"com_general_unified") then
+          ent:RemoveModifierByName("modifier_intensify")
+        end
+      end
     end
   end
 end
@@ -186,6 +211,12 @@ function down_broken( keys )
         ShuaGuai_Of_C(2,3,4)
         return 60
       end)
+      local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+      for k, ent in pairs(allBuildings) do
+        if string.match(ent:GetUnitName(),"com_general_oda") then
+          ent:RemoveModifierByName("modifier_intensify")
+        end
+      end
     end
   elseif team == 3 then
     if _G.team_broken[team]["down"] == 1 then
@@ -207,6 +238,12 @@ function down_broken( keys )
         ShuaGuai_Of_C(2,2,1)
         return 60
       end)
+      local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+      for k, ent in pairs(allBuildings) do
+        if string.match(ent:GetUnitName(),"com_general_unified") then
+          ent:RemoveModifierByName("modifier_intensify")
+        end
+      end
     end
   end
 end
@@ -454,9 +491,11 @@ function debuff_tower( keys )
     end
   end
   if enemyCounter > 3 and heroCounter > 0 then
-    ability:ApplyDataDrivenModifier(caster, caster, "debuff_tower", {duration = 2})
+    caster:AddNewModifier(caster, ability, "modifier_tower_debuff", nil)
+    -- ability:ApplyDataDrivenModifier(caster, caster, "debuff_tower", {duration = 2})
   else
-    caster:RemoveModifierByName("debuff_tower")
+    caster:RemoveModifierByName("modifier_tower_debuff")
+    -- caster:RemoveModifierByName("debuff_tower")
   end
 end
 
@@ -480,7 +519,9 @@ function modifier_unit_armor:DeclareFunctions()
 end
 
 function modifier_unit_armor:GetModifierIncomingDamage_Percentage( keys )
-  if string.match(keys.attacker:GetName(), "com_general") then 
+  if string.match(keys.attacker:GetName(), "npc_dota_creep_lane") then 
+    return 30
+  elseif string.match(keys.attacker:GetUnitName(), "com_general") then
     return 50
   elseif keys.attacker:IsBuilding() then
     if self.creep then
@@ -498,6 +539,26 @@ function Unit_armor( keys )
 
 end
 
+--modifier_tower_debuff
+--------------------------------------------
+modifier_tower_debuff = class{}
+
+function modifier_tower_debuff:DeclareFunctions()
+  local funcs = {
+    MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
+  }
+  return funcs
+end
+
+function modifier_tower_debuff:GetModifierIncomingDamage_Percentage( keys )
+  if keys.attacker:IsHero() then 
+    return 40
+  else
+    return 0
+  end
+end
+--------------------------------------------
+
 --modifier_tower_armor
 --------------------------------------------
 modifier_tower_armor = class{}
@@ -510,6 +571,21 @@ end
 
 function modifier_tower_armor:GetModifierIncomingDamage_Percentage( keys )
 
+  if keys.attacker.abilityName == "A19T" then
+    local a = keys.attacker:GetAbsOrigin()
+    local b = keys.target:GetAbsOrigin()
+    local dir = (a-b):Length2D()
+    if dir >= 2500 then
+      return -50
+    else
+      if keys.attacker:IsAlive() then
+        return 0
+      else
+        return -50
+      end
+    end
+  end
+
   if keys.attacker:IsHero() then 
     return 0
   elseif keys.attacker:IsBuilding() then
@@ -519,7 +595,7 @@ function modifier_tower_armor:GetModifierIncomingDamage_Percentage( keys )
   elseif keys.attacker:GetName() == "npc_dota_creature" then
     return -50
   else
-    return -25
+    return -60
   end
   if keys.attacker.name ~= nil then
     return 0
@@ -886,4 +962,11 @@ function returnHeal ( keys )
   if caster.decrease_health then
     caster.decrease_health = 1
   end
+end
+
+function ninja_takedamage ( keys )
+	local ability = keys.ability
+  local caster = keys.caster
+  local health = caster:GetHealth()
+  caster:SetHealth(health - 1)
 end

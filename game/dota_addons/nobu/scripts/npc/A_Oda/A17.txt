@@ -205,7 +205,7 @@
 			"05"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"0.1"
+				"stun_duration"	"0.2"
 			}
 		}
 		// Damage.
@@ -356,7 +356,13 @@
 			}
 			"modifier_A17W_2"
 			{
-				"Duration"	"%duration"
+				// "States"
+				// {
+				// 	"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+				// }
+				"EffectName"	"particles/generic_gameplay/move_slow.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Duration"	"%stun_duration"
 				"OnCreated"
 				{
 					"RunScript"
@@ -376,9 +382,6 @@
 						"name"	"A17W_2"
 					}
 				}
-				"EffectName"	"particles/generic_gameplay/move_slow.vpcf"
-				"EffectAttachType"	"follow_overhead"
-				"Duration"	"%stun_duration"
 			}
 		}
 		// Special
@@ -409,7 +412,7 @@
 			"05"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"stun_duration"	"0.1"
+				"stun_duration"	"0.2"
 			}
 		}
 		// Damage.
@@ -422,7 +425,7 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"gyrocopter_flak_cannon"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityCooldown"	"31 29 27 25"
+		"AbilityCooldown"	"25 22 19 16"
 		"AbilityManaCost"	"80 100 120 140"
 		"OnSpellStart"
 		{
@@ -549,7 +552,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityCooldown"	"6 3 0"
+		"AbilityCooldown"	"0.5"
 		"RequiredLevel"	"6"
 		"LevelsBetweenUpgrades"	"6"
 		"AbilityManaCost"	"100 50 25"
@@ -701,7 +704,7 @@
 			"06"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"attack_speed_bonus"	"-75"
+				"attack_speed_bonus"	"-75 -50 -25"
 			}
 			"07"
 			{
@@ -711,7 +714,7 @@
 			"08"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"lock"	"6 3 0"
+				"lock"	"0"
 			}
 		}
 	}

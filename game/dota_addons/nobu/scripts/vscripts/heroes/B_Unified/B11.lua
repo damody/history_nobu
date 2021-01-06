@@ -121,15 +121,6 @@ function B11R_OnAttackLanded( keys )
 		caster.B11R = 0
 		target:AddNewModifier(caster,nil,"nobu_modifier_rooted", {duration=root_duration} )
 		local b11t = caster:FindAbilityByName("B11T")
-		if b11t:GetLevel() > 0 then
-			local rate = 1/caster:GetAttacksPerSecond()
-			if caster:HasModifier("modifier_B11T_Enable") then
-				b11t:ApplyDataDrivenModifier(caster,caster,"modifier_B11T_Crit3",{duration = rate})
-			else
-				b11t:ApplyDataDrivenModifier(caster,caster,"modifier_B11T_Crit2",{duration = rate})
-			end
-		end
-
 		local illusion = {}
 		local unit_name = caster:GetUnitName()
 		local player = caster:GetPlayerID()
@@ -191,7 +182,7 @@ function B11R_OnAttackLanded( keys )
 end
 
 --目前使用次數
-B11F_counter=0
+
 
 function B11T_OnUpgrade ( keys )
 	local caster = keys.caster
@@ -204,7 +195,7 @@ function B11T_OnSpellStart( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local B11F_ability = caster:FindAbilityByName("B11F")
-
+	caster.B11F_counter=0
 	B11F_ability:SetLevel(keys.ability:GetLevel())
 	B11F_ability:SetActivated(true)
 	--print(B11F_ability)
@@ -229,6 +220,9 @@ function B11T_OnAttackStart( keys )
 	end
 	caster.B11T_count = caster.B11T_count + 1
 	if 20 >= rnd or caster.B11T_count > 7 then
+		if caster.maximum_critical_damage == nil then
+			caster.maximum_critical_damage = 0
+		end
 		caster.B11T_count = 0
 		local rate = 1/caster:GetAttacksPerSecond()
 		if caster:HasModifier("modifier_B11T_Enable") then
@@ -260,6 +254,7 @@ function B11F_OnSpellStart( keys )
 	
 	--瞬移
 	caster:AddNewModifier(nil,nil,"modifier_phased",{duration=0.1})--添加0.1秒的相位状态避免卡位
+	target:AddNewModifier(nil,nil,"modifier_phased",{duration=0.1})
 	caster:SetAbsOrigin(target:GetAbsOrigin())
 
 	--傷害
@@ -271,12 +266,12 @@ function B11F_OnSpellStart( keys )
 
 	ExecuteOrderFromTable(order)
 	--計算刺數
-	B11F_counter=B11F_counter+1
+	caster.B11F_counter=caster.B11F_counter+1
 
 	--次數到了關掉技能 爆擊BUFF
-	if B11F_counter >= ability:GetSpecialValueFor("B11F_useable_times") then
-		--ability:SetActivated(false)
-		B11F_counter=0
+	if caster.B11F_counter >= ability:GetSpecialValueFor("B11F_useable_times") then
+		ability:SetActivated(false)
+		caster.B11F_counter=0
 	end
 end
 

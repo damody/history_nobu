@@ -15,7 +15,7 @@ function OnAttackLanded( keys )
             end
             caster.satsuma = caster.satsuma + 1
             local trigger = 5
-            if caster:GetBaseAttackRange() < 200 then
+            if caster:GetBaseAttackRange() < 200 and caster.name ~= "B04" then
                 trigger = 4
             end
             if caster.satsuma >= trigger then

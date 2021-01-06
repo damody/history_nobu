@@ -214,6 +214,15 @@
 		}
 		"Modifiers"
 		{
+			"modifier_A13D2"
+			{
+				"IsHidden"			"0"
+				"Duration"			"0.1"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"modifier_A13D"
 			{
 				"Duration"	"%duration"
@@ -835,6 +844,14 @@
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"-2000"
 				}
 			}
+			"modifier_A13T_reduce"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE"	"-50"
+				}
+			}
 		}
 		// Special
 		// -------------------------------------------------------------------------------------------------------------
@@ -883,7 +900,7 @@
 			"09"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"100 200 300"
+				"damage"	"70 90 110"
 			}
 		}
 	}

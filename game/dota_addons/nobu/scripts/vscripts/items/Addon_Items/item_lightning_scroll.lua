@@ -219,10 +219,11 @@ function item_raikiri( keys )
 		if (caster.raikiri == nil) then
 			caster.raikiri = 0
 		end
-		if caster:GetBaseAttackRange() < 200 then
+		if caster:GetBaseAttackRange() < 200 and caster.name ~= "B04" then
 			trigger = 33
 			Guaranteed = 3
 		end
+
 		if ( ran > trigger ) then
 			caster.raikiri = caster.raikiri +1
 		end
@@ -269,6 +270,9 @@ function item_raikiri( keys )
 						
 						--【DMG】
 						local dmg = 200
+						if caster.orb then
+							dmg = dmg * caster.orb
+						end
 						if not unit:IsMagicImmune() then
 							if unit:IsHero() then
 								AMHC:Damage(caster,unit,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )

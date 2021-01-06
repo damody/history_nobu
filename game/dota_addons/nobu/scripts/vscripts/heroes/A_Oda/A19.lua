@@ -41,7 +41,6 @@ function A19W_OnSpellStart( keys )
 			if unit:IsBuilding() then
 				tbl.damage = tbl.damage * 0.2
 			end
-			ability:ApplyDataDrivenModifier( caster, unit, "modifier_A19W", {} )
 			ApplyDamage(tbl)
 		end		
 		return 1
@@ -63,7 +62,11 @@ function A19W_OnSpellStart( keys )
 			FIND_ANY_ORDER,					-- 結果的排列方式
 			false)
 		for _,unit in ipairs(units) do
-			ability:ApplyDataDrivenModifier( caster, unit, "modifier_A19W", {} )
+			if unit:IsBuilding() then
+				ability:ApplyDataDrivenModifier( caster, unit, "modifier_A19W2", {} )
+			else
+				ability:ApplyDataDrivenModifier( caster, unit, "modifier_A19W", {} )
+			end
 		end		
 		return 1
 	end)
