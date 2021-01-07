@@ -261,6 +261,16 @@
 				"var_type"	"FIELD_INTEGER"
 				"A27EE_cd"	"10 7 4 1"
 			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"A27_hp"	"4 5 6 7"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"A27_heal"	"1.25 1.5 1.75 2"
+			}
 		}
 	}
 
@@ -328,7 +338,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"addmove"	"25 31 37 43"
+				"addmove"	"8 16 24 32"
 			}
 		}
 	}

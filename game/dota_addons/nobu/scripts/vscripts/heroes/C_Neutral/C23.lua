@@ -53,7 +53,7 @@ function C23E_OnSpellStart( keys )
  		local targets = FindUnitsInRadius(caster:GetTeamNumber(),	
 					point3,nil,200,DOTA_UNIT_TARGET_TEAM_BOTH, 
 			   		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-			   		0, 
+			   		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 
 			   		FIND_ANY_ORDER, 
 					false) 
 		--對所有範圍內的敵人執行動作
