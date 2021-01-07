@@ -108,12 +108,29 @@
 						"EffectAttachType"	"follow_origin"
 						"Target"            "TARGET"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"modifier_B27W_buff"
+						"ms_slow"	"%bonus_movement_speed"
+						"as_slow"	"%bonus_attack_speed"
+					}
 				}
 
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
+				//     "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed" 
+				// }
+				"OnDestroy"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%bonus_attack_speed"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed" 
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_B27W_buff"
+					}
 				}
 			}
 		}
@@ -360,10 +377,30 @@
 		{
 			"modifier_B27T"
 			{
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%speed_bonus"
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%attack_bonus"				   	
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%speed_bonus"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%attack_bonus"				   	
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"modifier_B27T"
+						"ms_slow"	"%speed_bonus"
+						"as_slow"	"%attack_bonus"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_B27T"
+					}
 				}
 				"EffectName"	"particles/generic_gameplay/move_slow.vpcf"
 				"EffectAttachType"	"follow_overhead"

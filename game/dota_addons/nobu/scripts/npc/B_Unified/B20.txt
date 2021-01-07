@@ -213,9 +213,29 @@
 				"IsDebuff"	"1"
 				"EffectName"		"particles/generic_gameplay/move_slow.vpcf"
 				"EffectAttachType"	"follow_overhead"
-				"Properties"
+				// "Properties"
+				// {
+				//     "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%B20T_msDebuff" 
+				// }
+				"OnCreated"
 				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%B20T_msDebuff" 
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"modifier_B28T_debuff"
+						"ms_slow"	"%B20T_msDebuff"
+						
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_B28T_debuff"
+					}
 				}
 			}
 		}

@@ -449,29 +449,29 @@
 				"IsHidden"			"0"
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-80"	//跑速
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"A32T"
+						"ms_slow" "-80"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"A32T"
-				// 		"ms_slow" "-80"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"A32T"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A32T"
+					}
+				}
 			}
 		}
 		"OnProjectileHitUnit"

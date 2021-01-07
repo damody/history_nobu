@@ -227,11 +227,30 @@
 				}
 				"ThinkInterval"	"1"
 				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%move_speed"
-				}
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%move_speed"
+				// }
 				"IsPurgable"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					"Function"	"Slow"
+					"name"	"modifier_B34E_3"
+					"ms_slow"	"%move_speed"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_B34E_3"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -492,10 +511,30 @@
 		{
 			"modifier_B34T"
 			{
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%speed_bonus"
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%attack_bonus"
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%speed_bonus"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%attack_bonus"
+					"RunScript"
+					{
+					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					"Function"	"Slow"
+					"name"	"modifier_B34T"
+					"ms_slow"	"%speed_bonus"
+					"as_slow"	"%attack_bonus"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_B34T"
+					}
 				}
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"EffectName"	"particles/generic_gameplay/move_slow.vpcf"

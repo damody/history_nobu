@@ -430,29 +430,29 @@
 				"IsPurgable"		"0"
 				"EffectName"		"particles/a11t2/a11t2.vpcf"
 				"EffectAttachType"	"follow_origin"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+					"RunScript"
+					{
+					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					"Function"	"Slow"
+					"name"	"A11T_3"
+					"ms_slow"	"-30"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 	"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 	"Function"	"Slow"
-				// 	"name"	"A11T_3"
-				// 	"ms_slow"	"-30"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"A11T_3"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A11T_3"
+					}
+				}
 			}
 		}
 

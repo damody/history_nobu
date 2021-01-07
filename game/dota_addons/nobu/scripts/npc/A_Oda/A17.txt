@@ -177,29 +177,29 @@
 				// "EffectName"	"particles/units/heroes/hero_ancient_apparition/ancient_apparition_generic_stunned.vpcf"
 				// "EffectAttachType"	"follow_overhead"
 				"Duration"	"1"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%ms_slow"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%ms_slow"	//跑速
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"A17W_2"
+						"ms_slow" "%ms_slow"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"A17W_2"
-				// 		"ms_slow" "%ms_slow"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"A17W_2"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A17W_2"
+					}
+				}
 			}
 		}
 		// Special
@@ -398,29 +398,29 @@
 				// "EffectName"	"particles/generic_gameplay/move_slow.vpcf"
 				// "EffectAttachType"	"follow_overhead"
 				"Duration"	"%stun_duration"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"A17W_2"
+						"ms_slow" "-30"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"A17W_2"
-				// 		"ms_slow" "-30"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"A17W_2"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A17W_2"
+					}
+				}
 			}
 		}
 		// Special
@@ -686,31 +686,31 @@
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"%attack_range_bonus"
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%attack_bonus"
 				}
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_speed_bonus"	//跑速
+				// 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus"
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_speed_bonus"	//跑速
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed_bonus"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"A17T"
+						"ms_slow"	"%move_speed_bonus"
+						"as_slow"	"%attack_speed_bonus"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"A17T"
-				// 		"ms_slow"	"%move_speed_bonus"
-				// 		"as_slow"	"%attack_speed_bonus"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"A17T"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A17T"
+					}
+				}
 				"IsBuff"	"1"
 				"OnAttackLanded"
 				{

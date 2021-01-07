@@ -143,31 +143,31 @@
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed_small"	//跑速
+				// 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed_small"
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%bonus_movement_speed_small"	//跑速
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed_small"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"B33W"
+						"ms_slow" "%bonus_movement_speed_small"
+						"as_slow" "%bonus_attack_speed_small"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"B33W"
-				// 		"ms_slow" "%bonus_movement_speed_small"
-				// 		"as_slow" "%bonus_attack_speed_small"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"B33W"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"B33W"
+					}
+				}
 				"Duration"	"%duration"			}
 		}
 		// Special
@@ -606,29 +606,29 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE"	"%Decrease_Health"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_speed"	//跑速
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed"
+					// "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%move_speed"	//跑速
+					// "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed"
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"B33T"
-				// 		"as_slow" "%attack_speed"
-				// 		"ms_slow" "%move_speed"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"B33T"
-				// 	}
-				// }
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"B33T"
+						"as_slow" "%attack_speed"
+						"ms_slow" "%move_speed"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"B33T"
+					}
+				}
 			}
 		}
 		// Special

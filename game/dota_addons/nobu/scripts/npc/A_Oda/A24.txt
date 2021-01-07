@@ -152,9 +152,29 @@
 				"IsDebuff"		"1"
 				"Duration"		"3"
 
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"modifier_A24W"
+						"ms_slow"	"-30"
+						
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_A24W"
+					}
 				}
 				"EffectName"		"particles/a24w_slow/a24w_slow.vpcf"
 				"EffectAttachType"	"follow_overhead"

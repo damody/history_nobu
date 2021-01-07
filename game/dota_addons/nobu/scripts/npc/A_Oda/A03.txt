@@ -467,6 +467,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%attack_speed"
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%attack_speed"
 				}
+				
 				"OnCreated"
 				{
 					"AttachEffect"

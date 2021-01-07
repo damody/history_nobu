@@ -525,29 +525,29 @@
 				"EffectName"	"particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex_owner.vpcf"
 				"EffectAttachType"	"follow_hitloc"
 			}
-			"Properties"
+			// "Properties"
+			// 	{
+			// 		"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow"	//跑速
+			// 	}
+			"OnCreated"
+			{
+				"RunScript"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow"	//跑速
+					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					"Function"	"Slow"
+					"name"	"A12R"
+					"ms_slow" "%slow"
 				}
-			// "OnCreated"
-			// {
-			// 	"RunScript"
-			// 	{
-			// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-			// 		"Function"	"Slow"
-			// 		"name"	"A12R"
-			// 		"ms_slow" "%slow"
-			// 	}
-			// }
-			// "OnDestroy"
-			// {
-			// 	"RunScript"
-			// 	{
-			// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-			// 		"Function"	"ReturnSpeed"
-			// 		"name"	"A12R"
-			// 	}
-			// }
+			}
+			"OnDestroy"
+			{
+				"RunScript"
+				{
+					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					"Function"	"ReturnSpeed"
+					"name"	"A12R"
+				}
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -647,29 +647,29 @@
 			"modifier_A12R"
 			{
 				"IsDebuff"	"1"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow"	//跑速
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"A12R_2"
+						"ms_slow" "%slow"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"A12R_2"
-				// 		"ms_slow" "%slow"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"A12R_2"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A12R_2"
+					}
+				}
 				"EffectName"	"particles/units/heroes/hero_stormspirit/stormspirit_electric_vortex_owner.vpcf"
 				"EffectAttachType"	"follow_hitloc"
 			}

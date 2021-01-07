@@ -305,7 +305,7 @@
 		"AbilityTextureName"                        "custom/B03/B03T"
 		"AbilityCastRange"							"700"
 		"AbilityCooldown"           				"155 145 135"
-		"AbilityManaCost"           				"400 550 700"
+		"AbilityManaCost"           				"250 250 250"
 		
 		"OnSpellStart"
 		{

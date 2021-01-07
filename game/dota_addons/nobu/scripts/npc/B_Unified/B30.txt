@@ -136,29 +136,29 @@
 				"Properties"
 				{
 				    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" 		"%B30E_armorBonus"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%B30E_msBonus"	//跑速
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%B30E_asBonus"
+					// "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%B30E_msBonus"	//跑速
+					// "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%B30E_asBonus"
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"modifier_B30E_debuff"
-				// 		"ms_slow" "%B30E_msBonus"
-				// 		"as_slow" "%B30E_asBonus"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"modifier_B30E_debuff"
-				// 	}
-				// }
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"modifier_B30E_debuff"
+						"ms_slow" "%B30E_msBonus"
+						"as_slow" "%B30E_asBonus"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_B30E_debuff"
+					}
+				}
 				"ThinkInterval"  "1.0"
 				"OnIntervalThink"
 				{

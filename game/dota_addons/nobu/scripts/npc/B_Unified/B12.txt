@@ -163,9 +163,29 @@
 			{
 				"IsDebuff"							"1"
 				"IsPurgable"						"0"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movespd"
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movespd"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"modifier_B12R_veryslow"
+						"ms_slow"	"%movespd"
+						
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_B12R_veryslow"
+					}
 				}
 				"EffectName"		"particles/b12/b12r.vpcf"
 			}

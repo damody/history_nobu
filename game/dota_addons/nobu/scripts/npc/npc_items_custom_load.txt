@@ -478,10 +478,10 @@
 			"modifier_the_overflame_art_of_war"
 			{
 				"IsHidden"	"0"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40"
-				}
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-40"
+				// }
 				"EffectName"	"particles/generic_gameplay/move_slow.vpcf"
 				"EffectAttachType"	"follow_overhead"
 				"IsDebuff"	"1"
@@ -496,25 +496,25 @@
 						"Damage"		"80"
 					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 	"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 	"Function"	"Slow"
-				// 	"name"	"the_overflame_art_of_war_hyper"
-				// 	"ms_slow"	"-40"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"the_overflame_art_of_war_hyper"
-				// 	}
-				// }
+				"OnCreated"
+				{
+					"RunScript"
+					{
+					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					"Function"	"Slow"
+					"name"	"the_overflame_art_of_war_hyper"
+					"ms_slow"	"-40"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"the_overflame_art_of_war_hyper"
+					}
+				}
 			}
 				
 			
@@ -611,29 +611,29 @@
 						"Damage"		"80"
 					}
 				}
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-20"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-20"	//跑速
+					"RunScript"
+					{
+					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					"Function"	"Slow"
+					"name"	"the_overflame_art_of_war_hyper"
+					"ms_slow"	"-20"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 	"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 	"Function"	"Slow"
-				// 	"name"	"the_overflame_art_of_war_hyper"
-				// 	"ms_slow"	"-20"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"the_overflame_art_of_war_hyper"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"the_overflame_art_of_war_hyper"
+					}
+				}
 			}
 		}
 		"AbilitySpecial"
@@ -1671,29 +1671,29 @@
 				"Duration"			"4"
 				"EffectName"	"particles/units/heroes/hero_sniper/sniper_headshot_slow.vpcf"
 				"EffectAttachType"	"follow_overhead"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+					"RunScript"
+					{
+					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					"Function"	"Slow"
+					"name"	"spell_book_enemy"
+					"ms_slow"	"-30"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 	"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 	"Function"	"Slow"
-				// 	"name"	"spell_book_enemy"
-				// 	"ms_slow"	"-30"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"spell_book_enemy"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"spell_book_enemy"
+					}
+				}
 			}
 		}
 		"OnSpellStart"
@@ -4416,35 +4416,35 @@
 				"Duration"			"4"
 				"EffectName"	"particles/units/heroes/hero_sniper/sniper_headshot_slow.vpcf"
 				"EffectAttachType"	"follow_overhead"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+					"Damage"
+					{
+						"Target"	"TARGET"
+						"Type"	"DAMAGE_TYPE_MAGICAL"
+						"Damage"	"1"
+					}
+					"RunScript"
+					{
+					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					"Function"	"Slow"
+					"name"	"big_tachi"
+					"ms_slow"	"-30"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"Damage"
-				// 	{
-				// 		"Target"	"TARGET"
-				// 		"Type"	"DAMAGE_TYPE_MAGICAL"
-				// 		"Damage"	"1"
-				// 	}
-				// 	"RunScript"
-				// 	{
-				// 	"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 	"Function"	"Slow"
-				// 	"name"	"big_tachi"
-				// 	"ms_slow"	"-30"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"big_tachi"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"big_tachi"
+					}
+				}
 			}
 			"Passive_lightning_katana"
 			{
@@ -6043,29 +6043,29 @@
 			}
 			"modifier_the_great_sword_of_toxic_range"
 			{
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-15"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-15"	//跑速
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"the_great_sword_of_toxic_range"
+						"ms_slow" "-15"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"the_great_sword_of_toxic_range"
-				// 		"ms_slow" "-15"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"the_great_sword_of_toxic_range"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"the_great_sword_of_toxic_range"
+					}
+				}
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
 				"Passive"	"0"
@@ -6075,29 +6075,29 @@
 			}
 			"modifier_the_great_sword_of_toxic_melee"
 			{
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-25"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-25"	//跑速
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"the_great_sword_of_toxic_melee"
+						"ms_slow" "-25"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"the_great_sword_of_toxic_melee"
-				// 		"ms_slow" "-25"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"the_great_sword_of_toxic_melee"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"the_great_sword_of_toxic_melee"
+					}
+				}
 				
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
@@ -7344,29 +7344,29 @@
 				"IsDebuff"		"1"
 				"EffectName"	"particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_ice.vpcf"
 				"EffectAttachType"	"follow_hitloc"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"yubashiri"
+						"ms_slow" "-30"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"yubashiri"
-				// 		"ms_slow" "-30"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"yubashiri"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"yubashiri"
+					}
+				}
 			}
 			"Passive_lightning_katana"
 			{
@@ -8069,31 +8069,31 @@
 				"IsDebuff"			"1"
 				"Duration"			"1"
 				"Priority" "MODIFIER_PRIORITY_ULTRA"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-15"	//跑速
+				// 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-15"
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-15"	//跑速
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-15"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"the_spear_of_spider"
+						"ms_slow" "-15"
+						"as_slow" "-15"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"the_spear_of_spider"
-				// 		"ms_slow" "-15"
-				// 		"as_slow" "-15"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"the_spear_of_spider"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"the_spear_of_spider"
+					}
+				}
 			}
 			"Passive_spear_of_spiders"
 			{
@@ -9668,29 +9668,29 @@
 				"IsDebuff"	"1"
 				"Duration"	"4"
 				"EffectName"	"particles/generic_gameplay/generic_slowed_cold.vpcf"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-15"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-15"	//跑速
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"bizennosafunekanemitsu"
+						"ms_slow" "-15"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"bizennosafunekanemitsu"
-				// 		"ms_slow" "-15"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"bizennosafunekanemitsu"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"bizennosafunekanemitsu"
+					}
+				}
 			}
 		}
 	}
@@ -9742,31 +9742,31 @@
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
 				"Duration"			"1"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-15"	//跑速
+				// 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-15"
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-15"	//跑速
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-15"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"spear_of_spiders"
+						"ms_slow" "-15"
+						"as_slow" "-15"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"spear_of_spiders"
-				// 		"ms_slow" "-15"
-				// 		"as_slow" "-15"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"spear_of_spiders"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"spear_of_spiders"
+					}
+				}
 			}
 			"Passive_scream_of_spiders"
 			{
@@ -9870,29 +9870,29 @@
 				"IsDebuff"		"1"
 				"EffectName"	"particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_ice.vpcf"
 				"EffectAttachType"	"follow_hitloc"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-35"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-35"	//跑速
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"kokumo"
+						"ms_slow" "-35"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"kokumo"
-				// 		"ms_slow" "-35"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"kokumo"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"kokumo"
+					}
+				}
 			}
 			"Passive_kokumo1"
 			{
@@ -11689,29 +11689,29 @@
 				"IsDebuff"	"1"
 				"Duration"	"1"
 				"EffectName"	"particles/generic_gameplay/generic_slowed_cold.vpcf"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-15"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-15"	//跑速
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"fubuki_shoulders"
+						"ms_slow" "-15"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"fubuki_shoulders"
-				// 		"ms_slow" "-15"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"fubuki_shoulders"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"fubuki_shoulders"
+					}
+				}
 			}
 			"modifier_slow_move_speed2"
 			{
@@ -11719,29 +11719,29 @@
 				"Passive"	"0"
 				"IsDebuff"	"1"
 				"EffectName"	"particles/generic_gameplay/generic_slowed_cold.vpcf"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"fubuki_shoulders"
+						"ms_slow" "-30"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"fubuki_shoulders"
-				// 		"ms_slow" "-30"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"fubuki_shoulders"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"fubuki_shoulders"
+					}
+				}
 			}
 			"modifier_A04R_Boom"
 			{
@@ -13858,29 +13858,29 @@
 				"IsHidden"			"0"
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-60"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-60"	//跑速
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"flood_book"
+						"ms_slow" "-60"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"flood_book"
-				// 		"ms_slow" "-60"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"flood_book"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"flood_book"
+					}
+				}
 			}
 			"modifier_flood_walk"
 			{
@@ -14319,29 +14319,29 @@
 				"IsDebuff"		"1"
 				"EffectName"	"particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_ice.vpcf"
 				"EffectAttachType"	"follow_hitloc"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-30"	//跑速
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"frozen_ring"
+						"ms_slow" "-30"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"Slow"
-				// 		"name"	"frozen_ring"
-				// 		"ms_slow" "-30"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"frozen_ring"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"frozen_ring"
+					}
+				}
 			}
 			"Passive_lightning_katana"
 			{

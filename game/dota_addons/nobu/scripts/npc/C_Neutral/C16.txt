@@ -190,9 +190,29 @@
 				"Duration"							"5"
 				"EffectName" 						"particles/units/heroes/hero_ogre_magi/ogre_magi_ignite_debuff_b.vpcf"
                 "EffectAttachType" 					"follow_overhead"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%C16E_moveSlow"
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%C16E_moveSlow"
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"modifier_C16E_dot"
+						"ms_slow"	"%C16E_moveSlow"
+						
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_C16E_dot"
+					}
 				}
 				"ThinkInterval"						"1"
 				"OnIntervalThink"

@@ -561,29 +561,29 @@
 			{
 				"IsDebuff"	"1"
 				"Duration"	"%slow_duration"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-75"	//跑速
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "-75"	//跑速
+					"RunScript"
+					{
+					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					"Function"	"Slow"
+					"name"	"A07E"
+					"ms_slow"	"-75"
+					}
 				}
-				// "OnCreated"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 	"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 	"Function"	"Slow"
-				// 	"name"	"A07E"
-				// 	"ms_slow"	"-75"
-				// 	}
-				// }
-				// "OnDestroy"
-				// {
-				// 	"RunScript"
-				// 	{
-				// 		"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
-				// 		"Function"	"ReturnSpeed"
-				// 		"name"	"A07E"
-				// 	}
-				// }
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A07E"
+					}
+				}
 			}
 		}
 		// Special

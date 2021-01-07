@@ -180,12 +180,21 @@
 				"StatusEffectName"		"particles/status_fx/status_effect_poison_viper.vpcf"
 				"StatusEffectPriority"	"15"
 
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_movement_speed"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
-				}
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_movement_speed"
+				// 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+				// }
 
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_viper_strike_debuff_datadriven"
+					}
+				}
 				"OnCreated"
 				{
 					"AttachEffect"
@@ -194,7 +203,14 @@
 						"EffectAttachType"	"attach_hitloc"	
 						"Target"			"TARGET"
 					}
-
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"modifier_viper_strike_debuff_datadriven"
+						"ms_slow"	"%bonus_movement_speed"
+						"as_slow"	"%bonus_attack_speed"
+					}
 				}		
 
 				"ThinkInterval"	"1.0"
@@ -413,9 +429,28 @@
 				"StatusEffectPriority"	"10"
 				"Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 				"Priority" "MODIFIER_PRIORITY_ULTRA"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-18"
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-18"
+					"RunScript"
+					{
+					"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+					"Function"	"Slow"
+					"name"	"modifier_A29R_3"
+					"ms_slow"	"-18"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_A29R_3"
+					}
 				}
 			}
 		}

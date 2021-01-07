@@ -149,10 +149,19 @@
 				"IsStunDebuff"		"0"
 				"EffectName"		"particles/a15w/a15w.vpcf"
 				"EffectAttachType"	"follow_origin"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" 	"%B14E_atkmsBonus"
+				//     "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" 		"%B14E_atkmsBonus" 
+				// }
+				"OnDestroy"
 				{
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE" 	"%B14E_atkmsBonus"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" 		"%B14E_atkmsBonus" 
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_B14E"
+					}
 				}
 				"States"
 				{
@@ -165,6 +174,14 @@
 						"Target"	"TARGET"
 						"Type"	"DAMAGE_TYPE_MAGICAL"
 						"Damage"	"1"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"modifier_B14E"
+						"ms_slow"	"%B14E_atkmsBonus"
+						"as_slow"	"%B14E_atkmsBonus"
 					}
 				}
 			}

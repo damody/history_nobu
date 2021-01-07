@@ -23,18 +23,21 @@ function modifier_A09W_treant_OnIntervalThink( keys )
 	local treant2Duration = ability:GetSpecialValueFor("A09W_treant2Duration")
 
 	local unit = CreateUnitByName("A09W_treant2", point, false, caster, caster, caster:GetTeamNumber())
-	unit:SetOwner(caster)
-	ability:ApplyDataDrivenModifier( caster , unit , "modifier_A09W_treant2" , { duration = treant2Duration } )	
+	if unit then
+		unit:SetOwner(caster)
+		ability:ApplyDataDrivenModifier( caster , unit , "modifier_A09W_treant2" , { duration = treant2Duration } )	
+	
+		EmitSoundOn( "Tree.GrowBack" , unit )
+	
+		Timers:CreateTimer(0.06, function ()
+			ExecuteOrderFromTable( { UnitIndex = unit:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = unit:GetAbsOrigin() })
+		end)
+	
+		Timers:CreateTimer( treant2Duration , function ()
+			EmitSoundOn( "Hero_Treant.Death" , unit )
+		end)
+	end
 
-	EmitSoundOn( "Tree.GrowBack" , unit )
-
-	Timers:CreateTimer(0.06, function ()
-		ExecuteOrderFromTable( { UnitIndex = unit:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = unit:GetAbsOrigin() })
-	end)
-
-	Timers:CreateTimer( treant2Duration , function ()
-		EmitSoundOn( "Hero_Treant.Death" , unit )
-	end)
 
 end
 
@@ -212,7 +215,6 @@ function A09T_OnSpellStart( keys )
 		ability:ApplyDataDrivenModifier( caster , unit , "modifier_A09T_tentacle" , { duration = duration } )
 		EmitSoundOn( "Hero_ShadowShaman.SerpentWard" , unit )
 		ExecuteOrderFromTable( { UnitIndex = unit:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = unit:GetAbsOrigin() })
-	
 	end
 end
 

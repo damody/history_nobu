@@ -1162,7 +1162,7 @@
 
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"		"6"
+		"ArmorPhysical"		"2"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -1187,7 +1187,7 @@
 		"MovementTurnRate"		"1.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"			"1000"
+		"StatusHealth"			"750"
 		"StatusHealthRegen"		"0"
 		"StatusMana"			"0"
 		"StatusStartingMana"	"0"
@@ -1200,7 +1200,7 @@
 		"TeamName"				"DOTA_TEAM_NEUTRALS"
 		"CombatClassAttack"		"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"		"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"Ability1"	"barrier_unit"
+		"Ability1"	""
 		"Ability2"	""
 		"Ability3"	""
 		"Ability4"	""
@@ -1222,7 +1222,7 @@
 	{
 		// General
 		// ----------------------------------------------------------------
-		"BaseClass"		"npc_dota_mechanical"
+		"BaseClass"		"npc_dota_creature"
 		// Add model
 		"Model"			"models/heroes/furion/treant.vmdl"
 		"ModelScale"	"0.8"
@@ -1233,7 +1233,7 @@
 
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"		"2"
+		"ArmorPhysical"		"6"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -1258,7 +1258,7 @@
 		"MovementTurnRate"		"1.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"			"750"
+		"StatusHealth"			"1500"
 		"StatusHealthRegen"		"0"
 		"StatusMana"			"0"
 		"StatusStartingMana"	"0"

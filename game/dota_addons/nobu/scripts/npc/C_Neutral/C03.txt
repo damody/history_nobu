@@ -175,10 +175,30 @@
 			{
 				"IsDebuff"	"1"
 				"Duration"	"6"
-				"Properties"
+				// "Properties"
+				// {
+				// 	"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%debuff_attack_speed"
+				//     "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%debuff_movement_speed" 
+				// }
+				"OnCreated"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%debuff_attack_speed"
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%debuff_movement_speed" 
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"modifier_C03E_debuff"
+						"ms_slow"	"%debuff_movement_speed"
+						"as_slow"	"%debuff_attack_speed"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"modifier_C03E_debuff"
+					}
 				}
 				"EffectName"	"particles/generic_gameplay/move_slow.vpcf"
 				"EffectAttachType"	"follow_overhead"
