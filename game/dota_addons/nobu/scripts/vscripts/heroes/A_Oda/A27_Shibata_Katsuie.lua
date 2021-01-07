@@ -120,21 +120,24 @@ function A27E(keys)
 	local point = caster:GetAbsOrigin()
 	local cd = ability:GetLevelSpecialValueFor( "A27EE_cd", level - 1 )
 	local radius = ability:GetLevelSpecialValueFor( "radius", level - 1 )
-
+	local heal = ability:GetLevelSpecialValueFor( "A27_heal", level - 1 )
+	local hp = ability:GetLevelSpecialValueFor( "A27_hp", level - 1 )
  	local player = caster:GetPlayerID()
  	local roubang = CreateUnitByName("a27_weapon",targetLoc ,false,caster,caster,caster:GetTeam())
- 	AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 300, 3, true)
- 	AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 300, 3, true)
+ 	-- AddFOWViewer(DOTA_TEAM_GOODGUYS, caster:GetAbsOrigin(), 300, 3, true)
+ 	-- AddFOWViewer(DOTA_TEAM_BADGUYS, caster:GetAbsOrigin(), 300, 3, true)
 	roubang:SetControllableByPlayer(player, true)
-	roubang:SetBaseMaxHealth(600+level*300)
+	roubang:SetBaseMaxHealth(hp)
 	roubang:SetHealth(roubang:GetMaxHealth())
 	roubang:AddNewModifier(roubang,ability,"modifier_phased",{duration=0.1})
  	ability:ApplyDataDrivenModifier(roubang,roubang,"modifier_A27E",{duration = 20})
  	ability:ApplyDataDrivenModifier(caster,caster,"modifier_A27EE",{duration = 20})
  	Timers:CreateTimer(0, function()
  		local units = FindUnitsInRadius(caster:GetTeamNumber(), targetLoc, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, FIND_ANY_ORDER, 0, false)
- 		for i,unit in ipairs(units) do
-			unit:SetHealth(unit:GetMaxHealth()*0.01*level + unit:GetHealth())
+		 for i,unit in ipairs(units) do
+			if unit:GetUnitName() ~= "a27_weapon" then
+				unit:SetHealth(unit:GetMaxHealth()*0.01*heal + unit:GetHealth())
+			end
 		end
 		if roubang:IsAlive() then
 			--print("roubang:IsAlive()"..radius)

@@ -3714,15 +3714,15 @@
 		// ----------------------------------------------------------------
 		"BaseClass"	"npc_dota_creature"
 		// Add model
-		"Model"	"models/items/obsidian_destroyer/weapon_arcane_obliva/weapon_arcane_obliva.vmdl"
-		"ModelScale"	"1.7"
+		"Model"	"models/particle/legion_duel_banner.vmdl"
+		"ModelScale"	"1.0"
 		"Level"	"2"
 		"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
 		"HealthBarOffset"	"180"
 		// Abilities
 		// ----------------------------------------------------------------
 		// Reference: Amnb
-		"Ability1"	""
+		"Ability1"	"ninja_takedamage"
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"20"
@@ -3754,8 +3754,8 @@
 		"MovementTurnRate"	"0"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"	"600"
-		"StatusHealthRegen"	"1"
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
 		// Vision
 		// ----------------------------------------------------------------
 		"VisionDaytimeRange"	"1400"
