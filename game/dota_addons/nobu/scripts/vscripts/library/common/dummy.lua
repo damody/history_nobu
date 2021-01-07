@@ -855,7 +855,6 @@ function slow_self_passive( keys )
   local ability = keys.ability
   -- slow movespeed
   local sum_ms_slow = 0
-  local ms_unslow = 100 - caster.ms_unslow
   if not caster.ms_slow then
     hSpawnedUnit.ms_slow = {}
   end
@@ -865,9 +864,9 @@ function slow_self_passive( keys )
       --   sum_ms_slow = v
       -- end
       if sum_ms_slow == 0 then
-        sum_ms_slow = 100 * (v/100) * (ms_unslow/100)
+        sum_ms_slow = 100 * (v/100)
       else
-        sum_ms_slow = sum_ms_slow + (100 - sum_ms_slow * (v/100) * (ms_unslow/100))
+        sum_ms_slow = sum_ms_slow + (100 - sum_ms_slow * (v/100))
       end
     end
   end
