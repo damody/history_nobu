@@ -353,12 +353,12 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"250 425 600"
+				"damage"	"125 300 475"
 			}
 			"03"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"add_atk"	"30 40 50"
+				"add_atk"	"40 50 60"
 			}
 			"04"
 			{

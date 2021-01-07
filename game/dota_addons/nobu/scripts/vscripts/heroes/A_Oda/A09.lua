@@ -212,6 +212,7 @@ function A09T_OnSpellStart( keys )
 		ability:ApplyDataDrivenModifier( caster , unit , "modifier_A09T_tentacle" , { duration = duration } )
 		EmitSoundOn( "Hero_ShadowShaman.SerpentWard" , unit )
 		ExecuteOrderFromTable( { UnitIndex = unit:GetEntityIndex(), OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE , Position = unit:GetAbsOrigin() })
+	
 	end
 end
 

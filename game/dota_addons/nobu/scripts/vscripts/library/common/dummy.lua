@@ -1002,3 +1002,16 @@ function ninja_takedamage ( keys )
   local health = caster:GetHealth()
   caster:SetHealth(health - 1)
 end
+
+function barrier_interval ( keys )
+  local ability = keys.ability
+  local caster = keys.caster
+  local modifier = caster:FindAllModifiers()
+
+  for _,v in ipairs(modifier) do
+    
+    if v:GetName() ~= "modifier_A09T_tentacle" and v:GetName() ~= "modifier_barrier" and v:GetName() ~= "modifier_record" and v:GetName() ~= "modifier_for_magic_immune" and v:GetName() ~= "modifier_kill" then
+      caster:RemoveModifierByName(v:GetName())
+    end
+  end
+end

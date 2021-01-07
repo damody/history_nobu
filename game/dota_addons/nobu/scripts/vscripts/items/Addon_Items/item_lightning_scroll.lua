@@ -217,8 +217,8 @@ function item_raikiri( keys )
 		local trigger = 25
 		local Guaranteed = 6
 		if ability:GetName() == "item_lightning_katana" then
-			trigger = 15
-			Guaranteed = 7
+			trigger = 10
+			Guaranteed = 8
 		end
 		if (caster.raikiri == nil) then
 			caster.raikiri = 0
@@ -227,8 +227,8 @@ function item_raikiri( keys )
 			trigger = 33
 			Guaranteed = 5
 			if ability:GetName() == "item_lightning_katana" then
-				trigger = 23
-				Guaranteed = 6
+				trigger = 18
+				Guaranteed = 7
 			end
 		end
 

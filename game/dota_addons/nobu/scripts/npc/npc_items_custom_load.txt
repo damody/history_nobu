@@ -3516,7 +3516,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/heroes/abaddon/weapon.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"2170"
+		"ItemCost"	"2470"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequirements"	{}
@@ -3783,7 +3783,7 @@
 					{
 						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
 						"Function"	"OnCreated"
-						"value"	"20"
+						"value"	"10"
 					}
 				}
 				"OnDestroy"
@@ -3792,7 +3792,7 @@
 					{
 						"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
 						"Function"	"OnDestroy"
-						"value"	"20"
+						"value"	"10"
 					}
 				}
 				"OnIntervalThink"
@@ -16809,7 +16809,7 @@
 	{
 		"ID" "2871"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "30"
+		"ItemCost" "1030"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_Oochidorijuumonnjiyari"

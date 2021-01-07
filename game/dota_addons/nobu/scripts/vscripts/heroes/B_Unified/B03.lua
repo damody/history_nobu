@@ -4,8 +4,17 @@
 function B03W_OnUpgrade( keys )
 	local caster = keys.caster
 	local abilityLevel = keys.ability:GetLevel()
-	-- caster:FindAbilityByName("B03D"):SetLevel(abilityLevel)
-	-- caster:FindAbilityByName("B03F"):SetLevel(abilityLevel)
+	local B03D = caster:FindAbilityByName("B03D")
+	local B03F = caster:FindAbilityByName("B03F")
+	if B03D:GetLevel() < 1 then
+		B03D:SetLevel(1)
+		B03F:SetLevel(1)
+	else
+		if B03D:GetLevel() < 4 then
+			B03D:SetLevel(B03D:GetLevel() + 1 )
+			B03F:SetLevel(B03F:GetLevel() + 1)
+		end
+	end
 end
 
 function B03W_OnSpellStart( keys )

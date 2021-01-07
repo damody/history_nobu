@@ -294,6 +294,10 @@
 		"StatusHealthRegen"		"0"
 		"StatusMana"			"0"
 		"StatusStartingMana"	"0"
+		//ability
+		//-----------------------------------------------------------------
+		"Ability1"	"for_magic_immune"
+		"Ability2"	"barrier_unit"
 		// Vision
 		// ----------------------------------------------------------------
 		"VisionDaytimeRange"	"1400"
@@ -303,7 +307,7 @@
 		"TeamName"				"DOTA_TEAM_NEUTRALS"
 		"CombatClassAttack"		"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"		"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"Ability1"	"for_magic_immune"
+		
 		"ProjectileModel"	"particles/b22/b22e.vpcf"
 		"ProjectileSpeed"	"600"
 	}
@@ -1196,7 +1200,7 @@
 		"TeamName"				"DOTA_TEAM_NEUTRALS"
 		"CombatClassAttack"		"DOTA_COMBAT_CLASS_ATTACK_HERO"
 		"CombatClassDefend"		"DOTA_COMBAT_CLASS_DEFEND_HERO"
-		"Ability1"	""
+		"Ability1"	"barrier_unit"
 		"Ability2"	""
 		"Ability3"	""
 		"Ability4"	""
@@ -1218,7 +1222,7 @@
 	{
 		// General
 		// ----------------------------------------------------------------
-		"BaseClass"		"npc_dota_creature"
+		"BaseClass"		"npc_dota_mechanical"
 		// Add model
 		"Model"			"models/heroes/furion/treant.vmdl"
 		"ModelScale"	"0.8"
@@ -1229,7 +1233,7 @@
 
 		// Armor
 		// ----------------------------------------------------------------
-		"ArmorPhysical"		"6"
+		"ArmorPhysical"		"2"
 		"MagicalResistance"	"0"
 		// Attack
 		// ----------------------------------------------------------------
@@ -1254,7 +1258,7 @@
 		"MovementTurnRate"		"1.5"
 		// Status
 		// ----------------------------------------------------------------
-		"StatusHealth"			"1500"
+		"StatusHealth"			"750"
 		"StatusHealthRegen"		"0"
 		"StatusMana"			"0"
 		"StatusStartingMana"	"0"

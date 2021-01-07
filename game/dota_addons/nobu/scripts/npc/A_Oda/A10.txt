@@ -260,12 +260,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"splash_radius"		"200"
+				"splash_radius"		"125"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"speed"				"900"
+				"speed"				"1000"
 			}
 			"05"
 			{
@@ -280,12 +280,12 @@
 			"07"
 			{
 				"var_type" 			"FIELD_INTEGER"
-				"mount_persec" 		"5 5 5 5"
+				"mount_persec" 		"10 11 12 13"
 			}
 			"08"
 			{
 				"var_type" 			"FIELD_INTEGER"
-				"duration" 			"2"
+				"duration" 			"1"
 			}
 		}
 	}

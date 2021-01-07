@@ -198,6 +198,7 @@ function modifier_B36T_OnAttackLanded( event )
 	local caster = event.caster
 	local mr = target:GetBaseMagicalResistanceValue()
 	local damage = ability:GetSpecialValueFor("damage")
+	local health = target:GetMaxHealth() * 0.05
 	if not target:IsBuilding() then
 		AMHC:Damage( caster,target,damage * (1-(mr/100)),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 	end

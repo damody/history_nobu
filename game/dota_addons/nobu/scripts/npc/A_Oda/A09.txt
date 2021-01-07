@@ -352,10 +352,10 @@
 				"IsDebuff"			"1"
 				"EffectName"		"particles/units/heroes/hero_viper/viper_poison_debuff.vpcf"
 				"EffectAttachType"	"follow_hitloc"
-				"Properties"
-				{
-				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%A09T_dotMsBonus" 
-				}
+				// "Properties"
+				// {
+				//     "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%A09T_dotMsBonus" 
+				// }
 				"ThinkInterval"  	"1.0"
 				"OnIntervalThink"
 				{

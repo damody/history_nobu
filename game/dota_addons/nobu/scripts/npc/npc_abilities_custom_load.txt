@@ -6134,10 +6134,32 @@
 			{
 				"Passive" "1"
 				"IsHidden"	"1"
-				"IsDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_MUTED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	"barrier_unit"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+
+			"modifier_barrier"
+			{
+				"Passive" "1"
+				"IsHidden"	"1"
+				"ThinkInterval"	"0.01"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"barrier_interval"
+					}
 				}
 			}
 		}

@@ -4,7 +4,7 @@
 	// 稻葉一鐵
 	"A18"
 	{
-		"ModelScale"	"1.0"
+		"ModelScale"	"1.2"
 		"Model"	"models/a18/a18.vmdl"
 		"DisableWearables"	"1"
 		//"Level"	"1"

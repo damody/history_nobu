@@ -61,7 +61,7 @@ end
 
 function A21W_OnAttackLanded( keys )
 	--【Basic】
-	local caster = keys.caster
+	local caster = keys.attacker
 	local target = keys.target
 	local ability = keys.ability
 	local dmg = ability:GetSpecialValueFor("dmg")
@@ -74,13 +74,13 @@ function A21W_OnAttackLanded( keys )
 			radius,			-- 搜尋半徑
 			ability:GetAbilityTargetTeam(),	-- 目標隊伍
 			ability:GetAbilityTargetType(),	-- 目標類型
-			ability:GetAbilityTargetFlags(),-- 額外選擇或排除特定目標
+			DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,-- 額外選擇或排除特定目標
 			FIND_ANY_ORDER,					-- 結果的排列方式
 			false)
 		for _,unit in pairs(units) do
 			if unit:IsBuilding() then
 				AMHC:Damage( caster,unit,dmg*0.35,ability:GetAbilityDamageType() )
-			elseif target ~= unit then
+			else
 				AMHC:Damage( caster,unit,dmg,ability:GetAbilityDamageType() )
 			end
 		end

@@ -11,6 +11,7 @@ end
 function modifier_C23W_OnIntervalThink( keys )
 	local caster = keys.caster             
 	local ability = keys.ability
+	local health = caster:GetMaxHealth() *0.026
 	local targets = FindUnitsInRadius(caster:GetTeamNumber(),	
 					caster:GetAbsOrigin(),nil,400,DOTA_UNIT_TARGET_TEAM_ENEMY, 
 			   		DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
@@ -25,8 +26,8 @@ function modifier_C23W_OnIntervalThink( keys )
 			ParticleManager:SetParticleControl(ifx,0,unit:GetAbsOrigin())
 			ParticleManager:SetParticleControl(ifx,1,unit:GetAbsOrigin())
 		end
-		damage=ability:GetSpecialValueFor("damage")
-		AMHC:Damage(caster,unit, damage, AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		damage = ability:GetSpecialValueFor("damage")
+		AMHC:Damage(caster,unit, damage + health, AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 	end
 end
 
