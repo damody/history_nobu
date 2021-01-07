@@ -5886,7 +5886,7 @@
 			}
 			"modifier_slow_down_movespeed"
 			{
-				"IsHidden"	"1"
+				"IsHidden"	"0"
 				"IsDebuff"	"1"
 				"Properties"
 				{

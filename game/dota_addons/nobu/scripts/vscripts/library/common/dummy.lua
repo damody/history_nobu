@@ -855,24 +855,18 @@ function slow_self_passive( keys )
   local ability = keys.ability
   -- slow movespeed
   local sum_ms_slow = 0
-  local ms_unslow = 100 - caster.ms_unslow
-  if not caster.ms_slow then
-    hSpawnedUnit.ms_slow = {}
-  end
   if caster.ms_slow then
     for k,v in pairs(caster.ms_slow) do
-      -- if v < sum_ms_slow then
-      --   sum_ms_slow = v
-      -- end
+      v = v * -1
       if sum_ms_slow == 0 then
-        sum_ms_slow = 100 * (v/100) * (ms_unslow/100)
+        sum_ms_slow = 100 * (v/100)
       else
-        sum_ms_slow = sum_ms_slow + (100 - sum_ms_slow * (v/100) * (ms_unslow/100))
+        sum_ms_slow = sum_ms_slow + ((100 - sum_ms_slow) * (v/100))
       end
     end
   end
-  if sum_ms_slow < 0 then
-    ability:ApplyDataDrivenModifier(caster, caster, "modifier_slow_down_movespeed", {duration = 0.15}):SetStackCount(sum_ms_slow*-1)
+  if sum_ms_slow > 0 then
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_slow_down_movespeed", {duration = 0.15}):SetStackCount(sum_ms_slow)
   end
   -- slow attackspeed
   local sum_as_slow = 0
