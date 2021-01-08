@@ -34,7 +34,7 @@
 		"MaxLevel"	"1"
 		"AbilityCooldown"	"60"
 		"AbilityManaCost"	"120 140 160 180"
-		"AbilityCastRange"	"300"
+		"AbilityCastRange"	"100"
 		"precache"
 		{
 		}

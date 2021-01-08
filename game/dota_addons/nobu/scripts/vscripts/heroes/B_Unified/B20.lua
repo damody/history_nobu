@@ -111,6 +111,12 @@ function B20R_OnAbilityExecuted( keys )
 	local maxMana = caster:GetMaxMana()
 	local newMana = caster:GetMana() + maxMana * mpRegen/100
 
+	if keys.event_ability:IsToggle() then return end
+	if keys.event_ability:GetName() == "item_logging" then return end
+	if keys.event_ability:GetName() == "item_tpscroll" then return end
+	if keys.event_ability:GetName() == "item_flash_shoes" then return end
+	if keys.event_ability:GetName() == "item_flash_ring" then return end
+
 	if newMana > maxMana then
 		caster:SetMana(maxMana)
 	else

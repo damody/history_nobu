@@ -76,7 +76,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"atkspd"	"40 75 110 175"
+				"atkspd"	"75 105 140 175"
 			}
 		}
 	}

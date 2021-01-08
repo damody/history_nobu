@@ -216,11 +216,10 @@ function A10E_OnProjectileHitUnit( keys )
 	local splash_radius = A10E:GetSpecialValueFor("splash_radius")
 	local damageMultiplier = 1
 	local mr = target:GetBaseMagicalResistanceValue()
-	local damage = ability:GetSpecialValueFor("damage")
+	local damage = A10E:GetSpecialValueFor("damage")
 	if ability:GetAbilityName() ~= "A10E" then
 		damageMultiplier = 0.4
 	end
-	
 	local ifx = ParticleManager:CreateParticle( "particles/a10e/a10e_hitalliance_explosion.vpcf", PATTACH_ABSORIGIN, target )
 	local direUnits = FindUnitsInRadius( caster:GetTeamNumber(), target:GetAbsOrigin(), nil, splash_radius, DOTA_UNIT_TARGET_TEAM_ENEMY,
 										 DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
@@ -308,7 +307,7 @@ function modifier_A10R_OnCreated( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
-	local damage = ability:GetSpecialValueFor("damage")
+	local damage = ability:GetSpecialValueFor("damage_change")
 	if target:GetTeamNumber() ~= caster:GetTeamNumber() then
 		ApplyDamage({
 			victim = target,
@@ -400,7 +399,7 @@ function modifier_A10T_OnIntervalThink( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
-	local damage = ability:GetSpecialValueFor("damage")
+	local damage = ability:GetSpecialValueFor("damage_ult")
 	if target:IsBuilding() then
 		ApplyDamage({
 			victim = target,

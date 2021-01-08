@@ -103,9 +103,9 @@ function C03R_OnAttackLanded( keys )
 			end)
 			if not target:IsMagicImmune() then
 				ability:ApplyDataDrivenModifier( caster, target, "modifier_stunned", {duration=0.4} )
-				AMHC:Damage(caster,target, dmg * (1-(mr/100)),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+				AMHC:Damage(caster,target, dmg ,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 			else
-				AMHC:Damage(caster,target, dmg* (1-(mr/100)),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+				ability:ApplyDataDrivenModifier( caster, target, "modifier_stunned", {duration=0.4} )
 			end
 		end
 	end
