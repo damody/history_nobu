@@ -286,49 +286,57 @@ local function chat_of_test(keys)
 	local nobu_id = _G.heromap[caster:GetName()]
 
 	if (s == "-skin" and nobu_id == "C17" and skin) then
-		caster.skin = "school"
-		caster:SetModel("models/c17/c17_school.vmdl")
-		caster:SetModelScale(1.3)
-		caster:SetOriginalModel("models/c17/c17_school.vmdl")
+		if caster.use_skin then
+			caster.use_skin = false
+			caster:SetModel("models/c17/oichi_yukata.vmdl")
+			caster:SetModelScale(0.5)
+			caster:SetOriginalModel("models/c17/oichi_yukata.vmdl")
+		else
+			caster.use_skin = true
+			caster.skin = "school"
+			caster:SetModel("models/c17/c17_school.vmdl")
+			caster:SetModelScale(1.3)
+			caster:SetOriginalModel("models/c17/c17_school.vmdl")
+		end
+		
 	end
 	if (s == "-skin" and nobu_id == "A26" and skin) then
-		caster.skin = "school"
-		caster:SetModel("models/a26/a26_school.vmdl")
-		caster:SetOriginalModel("models/a26/a26_school.vmdl")
+		if caster.use_skin then
+			caster.use_skin = false
+			caster:SetModel("models/a26/a26.vmdl")
+			caster:SetOriginalModel("models/a26/a26.vmdl")
+		else
+			caster.use_skin = true
+			caster.skin = "school"
+			caster:SetModel("models/a26/a26_school.vmdl")
+			caster:SetOriginalModel("models/a26/a26_school.vmdl")
+		end
 	end
 	if (s == "-skin" and nobu_id == "B16" and skin) then
-		caster.skin = "school"
-		caster:SetModel("models/b16/b16_school.vmdl")
-		caster:SetOriginalModel("models/b16/b16_school.vmdl")
+		if caster.use_skin then
+			caster.use_skin = false
+			caster:SetModel("models/b16/b16.vmdl")
+			caster:SetOriginalModel("models/b16/b16.vmdl")
+		else
+			caster.use_skin = true
+			caster.skin = "school"
+			caster:SetModel("models/b16/b16_school.vmdl")
+			caster:SetOriginalModel("models/b16/b16_school.vmdl")
+		end
 	end
 	if (s == "-skin" and nobu_id == "C19" and skin) then
-		caster.skin = "school"
-		caster:SetModel("models/c19/c19_school.vmdl")
-		caster:SetOriginalModel("models/c19/c19_school.vmdl")
-		caster:AddAbility("C19_school"):SetLevel(1)
-	end
-
-	if (s == "-uskin" and nobu_id == "C17" and skin) then
-		-- caster.skin = "school"
-		caster:SetModel("models/c17/oichi_yukata.vmdl")
-		caster:SetModelScale(0.5)
-		caster:SetOriginalModel("models/c17/oichi_yukata.vmdl")
-	end
-	if (s == "-uskin" and nobu_id == "A26" and skin) then
-		-- caster.skin = "school"
-		caster:SetModel("models/a26/a26.vmdl")
-		caster:SetOriginalModel("models/a26/a26.vmdl")
-	end
-	if (s == "-uskin" and nobu_id == "B16" and skin) then
-		-- caster.skin = "school"
-		caster:SetModel("models/b16/b16.vmdl")
-		caster:SetOriginalModel("models/b16/b16.vmdl")
-	end
-	if (s == "-uskin" and nobu_id == "C19" and skin) then
-		-- caster.skin = "school"
-		caster:SetModel("models/new/c19/c19_model.vmdl")
-		caster:SetOriginalModel("models/new/c19/c19_model.vmdl")
-		caster:RemoveAbility("C19_school")
+		if caster.use_skin then
+			caster.use_skin = false
+			caster:SetModel("models/new/c19/c19_model.vmdl")
+			caster:SetOriginalModel("models/new/c19/c19_model.vmdl")
+			caster:RemoveAbility("C19_school")
+		else
+			caster.use_skin = true
+			caster.skin = "school"
+			caster:SetModel("models/c19/c19_school.vmdl")
+			caster:SetOriginalModel("models/c19/c19_school.vmdl")
+			caster:AddAbility("C19_school"):SetLevel(1)
+		end
 	end
 	if (s == "-long" and nobu_id == "A31") then
 		caster:SetModel("models/a31/a31_long.vmdl")
