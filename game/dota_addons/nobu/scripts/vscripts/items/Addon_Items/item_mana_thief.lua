@@ -188,7 +188,9 @@ function Shock( keys )
 		if caster.orb then
 			mana_to_burn = mana_to_burn * caster.orb 
 		end
-
+		if target:IsHero() and (target:GetMana()/target:GetMaxMana() <= 0.4) then
+			mana_to_burn = mana_to_burn * 0.5
+		end
 		-- Apply effect of ability
 		target:ReduceMana( mana_to_burn )
 		local damageTable = {

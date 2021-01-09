@@ -283,8 +283,8 @@
 
 		"HotKeyOverride"	"R"
 		"MaxLevel"	"4"
-		"AbilityCastRange"				"900"
-		"AOERadius"						"900"
+		"AbilityCastRange"				"700"
+		"AOERadius"						"700"
 
 		"precache"
 		{
@@ -308,7 +308,7 @@
 	            "IsHidden"      "0"
 
 	            "Aura"        "modifier_A22R"
-        		"Aura_Radius" "900"
+        		"Aura_Radius" "700"
         		"Aura_Teams"  "DOTA_UNIT_TARGET_TEAM_ENEMY"
         		"Aura_Types"  "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
         		"Aura_Flags"  "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
