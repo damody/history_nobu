@@ -78,7 +78,12 @@
 						"EffectAttachType"	"attach_hitloc"	
 						"Target"			"TARGET"
 					}
-
+					"AttachEffect"
+					{
+						"EffectName"		"particles/a03/mage_slayer_debuff.vpcf"
+						"EffectAttachType"	"follow_overhead"	
+						"Target"			"TARGET"
+					}
 				}
 				"OnUnitMoved"
 				{

@@ -28,6 +28,7 @@ function A03W_OnUnitMoved( keys )
 	local lastpos = target.lastpos
 	local triggerlen = ability:GetSpecialValueFor("triggerlen")
 	local dmg = ability:GetSpecialValueFor("dmg")
+	local mr = target:GetBaseMagicalResistanceValue()
 	
 	if lastpos == nil then
 		lastpos = pos
@@ -36,7 +37,7 @@ function A03W_OnUnitMoved( keys )
 		local dis = (pos-lastpos):Length2D()
 		target.A03W_len = target.A03W_len + dis
 		if target.A03W_len > triggerlen then
-			AMHC:Damage( caster,target,dmg, AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+			AMHC:Damage( caster,target,dmg * (1-(mr/100)), AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 			target.A03W_len = target.A03W_len - triggerlen
 		end
 	end

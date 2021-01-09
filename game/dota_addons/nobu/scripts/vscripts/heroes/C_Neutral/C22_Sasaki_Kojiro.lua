@@ -25,7 +25,7 @@ function C22W_Damage( keys )
 	-- local dummy = CreateUnitByName("npc_dummy_unit_Ver2",caster:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
 	local dummy = CreateUnitByName("npc_dummy_unit",caster:GetAbsOrigin() ,false,caster,caster,caster:GetTeam())
 	dummy:FindAbilityByName("majia"):SetLevel(1)
-	ability:ApplyDataDrivenModifier(dummy,dummy,"modifier_C22W_EFFECT",{duration=5})
+	ability:ApplyDataDrivenModifier(dummy,dummy,"modifier_C22W_EFFECT",{duration=4})
 	dummy:AddNewModifier(dummy,nil,"modifier_kill",{duration=time})
 	caster.dummy = dummy
 	
