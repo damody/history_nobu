@@ -415,6 +415,12 @@ function modifier_A20T_model:OnCreated( keys )
 	local caster = self:GetParent()
 	local states_resistance1 = 0
 
+	local weap = SpawnEntityFromTableSynchronous("prop_dynamic", {
+		model = "models/heroes/tidehunter/tidehunter_anchor.vmdl",
+	})
+	weap:FollowEntity(caster, true)
+	caster.weap = weap
+
 	if caster.states_resistance == nil then
 		caster.states_resistance = 0
 	end
@@ -442,7 +448,7 @@ function modifier_A20T_model:OnDestroy( keys )
 	local states_resistance1 = 0
 	local caster = self:GetParent()
 	self:GetParent().states_res["A20T"] = nil
-
+	caster.weap:RemoveSelf()
 	if caster.states_res ~= nil then
         for k,v in pairs(caster.states_res) do
             if v > states_resistance1 then

@@ -119,6 +119,15 @@ function modifier_C23R_onSpell_OnTakeDamage( event )
 	end
 end
 
+function C23T_OnPhaseStart( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	local target = keys.target
+	if target:GetUnitName() == "npc_dota_cursed_warrior_souls" or target:GetUnitName() == "npc_dota_the_king_of_robbers" then
+		caster:Stop()
+	end
+end
+
 
 function C23T_OnSpellStart( keys )
 	local caster = keys.caster

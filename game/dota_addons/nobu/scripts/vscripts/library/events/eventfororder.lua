@@ -116,7 +116,6 @@ function spell_ability ( filterTable )
 	local caster = EntIndexToHScript(f.units["0"])
 	local ability = EntIndexToHScript(f.entindex_ability)
 	local target = EntIndexToHScript(f.entindex_target)
-	print(ability:GetCastRange())
 	if ability == nil then
 		return true
 	end

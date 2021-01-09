@@ -317,6 +317,14 @@
 		"AbilityCastRange"	"250"
 		// Precache
 		// -------------------------------------------------------------------------------------------------------------
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"						"scripts/vscripts/heroes/C_Neutral/C23.lua"
+				"Function"							"C23T_OnPhaseStart"
+			}
+		}
 		"OnSpellStart"
 		{
 			"RunScript"

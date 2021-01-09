@@ -109,7 +109,8 @@
 				"Orb"
 				{
 					"Priority"	"DOTA_ORB_PRIORITY_ABILITY"
-					"ProjectileName"	"particles/a21/a21wecon/items/luna/luna_eternal_eclipse/luna_attack_model_eternal_eclipse.vpcf"
+					// "ProjectileName"	"particles/a21/a21wecon/items/luna/luna_eternal_eclipse/luna_attack_model_eternal_eclipse.vpcf"
+					"ProjectileName"	"particles/econ/items/luna/luna_ti9_weapon/luna_ti9_base_attack.vpcf"
 				}
 				"OnAttackStart"
 				{
