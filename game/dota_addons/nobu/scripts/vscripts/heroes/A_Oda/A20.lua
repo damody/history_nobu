@@ -448,7 +448,10 @@ function modifier_A20T_model:OnDestroy( keys )
 	local states_resistance1 = 0
 	local caster = self:GetParent()
 	self:GetParent().states_res["A20T"] = nil
-	caster.weap:RemoveSelf()
+	if caster.weap then
+		caster.weap:RemoveSelf()
+	end
+
 	if caster.states_res ~= nil then
         for k,v in pairs(caster.states_res) do
             if v > states_resistance1 then
