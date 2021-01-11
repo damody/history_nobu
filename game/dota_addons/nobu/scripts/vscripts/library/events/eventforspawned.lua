@@ -96,10 +96,19 @@ function Nobu:OnHeroIngame( keys )
           hero:AddAbility("HealthRegen_self"):SetLevel(1)
           hero:AddAbility("ManaRegen_self"):SetLevel(1)
           hero:AddAbility("AtkSpeedBonus_self"):SetLevel(1)
-          hero:AddNewModifier(caster,nil,"modifier_stunned", {duration = 9} )
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
           hero:AddItem(CreateItem("item_logging", hero, hero))
+          local player_cnt = 0
+          for i=0, 9 do
+            local player = PlayerResource:GetPlayer(i)
+            if player then
+              player_cnt = player_cnt + 1
+            end
+          end
+          if player_cnt > 2 then
+            hero:AddNewModifier(caster,nil,"modifier_stunned", {duration = 9} )
+          end
           -- local allCouriers = Entities:FindAllByClassname('npc_dota_courier')
           -- for k, ent in pairs(allCouriers) do
           --   if ent:GetOwner():GetAssignedHero() == hero then
