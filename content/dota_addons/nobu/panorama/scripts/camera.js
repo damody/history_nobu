@@ -16,7 +16,6 @@ function Check() {
 }
 
 function UpdateDireScore(keys) {
-  $.Msg(keys)
   var y = $.GetContextPanel().GetParent().GetParent().GetParent();
   y = y.FindChildTraverse('HUDElements')
   y = y.FindChildTraverse('topbar')
@@ -41,15 +40,15 @@ function UpdateDireScore(keys) {
   inv1.visible = false
   
   y = y.FindChildTraverse('topbar')
-  var dire = y.FindChildTraverse('TopBarDireTeam')
+  // var dire = y.FindChildTraverse('TopBarDireTeam')
   var direScore = y.FindChildTraverse('TopBarDireScore')
   direScore.text = 0;
-  var radiant = y.FindChildTraverse('TopBarRadiantTeam')
-  var TopBarDirePlayers = dire.FindChildTraverse('TopBarDirePlayers')
-  var TopBarRadiantPlayers = radiant.FindChildTraverse('TopBarRadiantPlayers')
-  TopBarDirePlayers.SetParent('TopBarRadiantTeam')
-  TopBarRadiantPlayers.SetParent('TopBarDireTeam')
-  $.Msg(dire.id);
+  // var radiant = y.FindChildTraverse('TopBarRadiantTeam')
+  // var TopBarDirePlayers = dire.FindChildTraverse('TopBarDirePlayers')
+  // var TopBarRadiantPlayers = radiant.FindChildTraverse('TopBarRadiantPlayers')
+  // TopBarDirePlayers.SetParent('TopBarRadiantTeam')
+  // TopBarRadiantPlayers.SetParent('TopBarDireTeam')
+  // $.Msg(dire.id);
 
   // 暫時先讓所有和天賦樹的UI都點不到
   $.Msg("Disable Talent Tree")
@@ -94,32 +93,30 @@ function UpdateDireScore(keys) {
   sharedUnitsButton.hittestchildren = false
   $.Msg("testsetset")
   // 建立一個panel
-  var item_height = "34px"
-  var item_width = "34px"
+  var item_height = "36px"
+  var item_width = "36px"
   var HUDElements = $.GetContextPanel().GetParent().GetParent().GetParent()
-  HUDElements = HUDElements.FindChildTraverse('HUDElements')
-  this.panel = $.CreatePanel("Panel", $("#DotaHud_trasform"), "")
-  this.panel.BLoadLayoutSnippet("Shop")
+  // HUDElements = HUDElements.FindChildTraverse('HUDElements')
+  // this.panel = $.CreatePanel("Panel", $("#DotaHud_trasform"), "")
+  // this.panel.BLoadLayoutSnippet("Shop")
   var largeMainPanelWidth = '450px'
-  var largeMainPanelHeight = '1200px'
+  var largeMainPanelHeight = '1000px'
   var shop = $.GetContextPanel().GetParent().GetParent().GetParent()
   shop = shop.FindChildTraverse('HUDElements')
   shop = shop.FindChildTraverse('shop')
-  if (shop == null) {
-    shop = this.panel.FindChildTraverse("shop")
-  } else {
-    shop.SetParent(this.panel.FindChildTraverse("shop_transform"))
-  }
-  var shop_heightLimiter = shop.FindChildTraverse("HeightLimiter")
+  // if (shop == null) {
+  //   shop = this.panel.FindChildTraverse("shop")
+  // } else {
+  //   shop.SetParent(this.panel.FindChildTraverse("shop_transform"))
+  // }
   var shop_main = shop.FindChildTraverse("Main")
   var shop_grid = shop.FindChildTraverse("GridMainShopContents")
-  var shop_combines = shop.FindChildTraverse("ItemCombines")
-  $.Msg(shop_combines.GetChildCount())
-  var combines_items = shop_combines.FindChildTraverse("ItemsContainer")
   shop.FindChildTraverse("GuideFlyout").visible = false
+  // $.Msg(shop.style)
   shop.style.width = largeMainPanelWidth  
   shop.style.height = largeMainPanelHeight
-  shop.style.marginBottom = "0px"
+  shop.style.marginTop = "0px"
+  // shop.style.marginBottom = "0px"
   shop_main.style.width = largeMainPanelWidth
 
   // 調整商店物品大小
@@ -144,4 +141,7 @@ function UpdateDireScore(keys) {
       }
     }
   }
+
+  var test = HUDElements.FindChildTraverse("combat_events")
+  test.backgroundColor = "red"
 })();

@@ -6,13 +6,6 @@
     <include src="file://{resources}/styles/camera.vcss_c"/>
     <include src="file://{resources}/styles/hud/dota_hud_top_bar.vcss_c"/>
   </styles>
-  <snippets>
-    <snippet name="Shop">
-      <Panel class="Shop">
-        <Panel id="shop_transform" />
-      </Panel>
-    </snippet>
-  </snippets>
   <!-- 使用脚本 -->
   <scripts>
     <include src="file://{resources}/scripts/camera.js" />
@@ -20,6 +13,5 @@
 
   <Panel class="AddonLoadingRoot">
     <Slider class="HorizontalSlider" direction="horizontal" id="Slider1" />
-    <Panel id="DotaHud_trasform" />
   </Panel>
 </root>
