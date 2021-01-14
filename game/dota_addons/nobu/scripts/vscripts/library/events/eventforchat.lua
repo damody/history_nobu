@@ -783,8 +783,6 @@ local function chat_of_test(keys)
 		ParticleManager:ReleaseParticleIndex(ifx)
 	end
 	if s == "-jj1" then 
-		print(steam_id)
-		print(_G.haveSubscription[tostring(steam_id)]);
 		if _G.haveSubscription[tostring(steam_id)] or author[tostring(steamid)] or author[tostring(accountID)] then
 			local ifx = ParticleManager:CreateParticle("particles/title/jj1.vpcf", PATTACH_OVERHEAD_FOLLOW, caster)
 			ParticleManager:ReleaseParticleIndex(ifx)

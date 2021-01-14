@@ -133,12 +133,14 @@ function Trig_C21TActions( keys )
 		local newGroup = {}
 		--過濾dummy
 		for _,xx in pairs(group) do
-			if xx:HasAbility("majia") or _G.EXCLUDE_TARGET_NAME[u2:GetUnitName()] == true then
-			else
-				table.insert(newGroup,xx)
-			end
-			if u2:GetUnitName() == "npc_dota_the_king_of_robbers" or u2:GetUnitName() == "npc_dota_cursed_warrior_souls" then
-				table.insert(newGroup,xx)
+			if IsValidEntity(u2) then
+				if xx:HasAbility("majia") or _G.EXCLUDE_TARGET_NAME[u2:GetUnitName()] == true then
+				else
+					table.insert(newGroup,xx)
+				end
+				if u2:GetUnitName() == "npc_dota_the_king_of_robbers" or u2:GetUnitName() == "npc_dota_cursed_warrior_souls" then
+					table.insert(newGroup,xx)
+				end
 			end
 		end
 		--如果元素大於0個單位才隨機抓取
@@ -147,10 +149,10 @@ function Trig_C21TActions( keys )
 			u2 = newGroup[RandomInt(1,#newGroup)]
 			
 			--call function
-			if u2:GetUnitName() then
+			if IsValidEntity(u2) and u2:GetUnitName() then
+				EmitSoundOnLocationWithCaster( u2:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", u2)
 				C21T_Copy(u,i, u2)
 				C21T_Effect(u,u2,i)
-				EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 			end
 			return 0.15
 		else
