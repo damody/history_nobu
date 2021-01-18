@@ -474,5 +474,48 @@
 		"AbilityDamage"	"400 700 1000"
 	}
 
+	"B24T2"
+	{
+		// General
+		// -------------------------------------------------------------------------------------------------------------
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"earthshaker_fissure"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"FightRecapLevel"	"1"
+		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"	"6"
+		"LevelsBetweenUpgrades"	"6"
+		"AbilityCastPoint"          				"0.1"
+		// Time
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"	"10"
+		// Cost
+		// -------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"	"0"
+		"precache"
+		{
+			"soundfile"	"sounds/physics/damage/engines/dire_engine_destruction_03.vsnd"
+			"particle"	"particles/b24t/b01t.vpcf"
+			"particle"	"particles/b24w/b24w.vpcf"
+			"soundfile"	"soundevents/game_sounds_creeps.vsndevts"
+			"soundfile"	"soundevents/game_sounds_creeps.vsndevts"
+			"soundfile"	"soundevents/game_sounds_creeps.vsndevts"
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B24.lua"
+				"Function"	"B24T2"
+			}
+		}
+		"Modifiers"
+		{
+		}
+		"AbilityDuration"	"2 2.5 3"
+	}
 
 }

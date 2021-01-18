@@ -54,7 +54,7 @@ function B24T( keys )
 	for _,v in ipairs(group) do
 		ability:ApplyDataDrivenModifier(caster, v,"modifier_B24T_2",{})
 	end
-
+	caster.rocks = {}
 	--【For】
 	local pointx = point.x
 	local pointy = point.y
@@ -71,6 +71,7 @@ function B24T( keys )
 
 		local dummy = CreateUnitByName("B24T_HIDE_hero",point,false,nil,nil,caster:GetTeam())
 		dummy:RemoveModifierByName("modifier_invulnerable")
+		caster.rocks[#caster.rocks+1] = dummy
 		ability:ApplyDataDrivenModifier(dummy,dummy,"modifier_kill",{duration = 6})
 		ability:ApplyDataDrivenModifier(dummy, dummy,"modifier_B24T",nil)
 		Timers:CreateTimer(0.2, function()
@@ -81,6 +82,25 @@ function B24T( keys )
 			dummy.B24Tparticle = particle
 		end)
 	end
+	local lv = ability:GetLevel()
+	caster:RemoveAbility("B24T")
+	local B24T2 = caster:AddAbility("B24T2")
+	B24T2:SetLevel(1)
+	B24T2:EndCooldown()
+	B24T2:StartCooldown(2)
+    Timers:CreateTimer(6, function()
+        caster:RemoveAbility("B24T2")
+        caster:AddAbility("B24T"):SetLevel(lv)
+    end)
+end
+
+function B24T2( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	for i,v in ipairs(caster.rocks) do
+		v:ForceKill(true)
+	end
+	caster.rocks = {}
 end
 
 function B24T2_Death( keys )
@@ -465,5 +485,3 @@ function B24R( keys )
 		end)
 	end
 end
-
-
