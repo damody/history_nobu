@@ -240,11 +240,11 @@ end
 function B24W_Attack( keys )
 	local target = keys.target
 	local caster = keys.attacker
-	if keys.target:IsHero() then
+	if target:IsHero() or _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] then
 		caster:Stop()
 		local group = FindUnitsInRadius(caster:GetTeam(),caster:GetAbsOrigin(),nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, true)	
 		for i,v in ipairs(group) do
-			if v ~= dummy then
+			if v ~= dummy and _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
 				caster:MoveToTargetToAttack(v)
 			end
 		end
