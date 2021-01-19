@@ -346,9 +346,11 @@ function Nobu:OnGameRulesStateChange( keys )
 						local nobu_id = _G.heromap[caster:GetName()]
 						if (nobu_id == "C17") then
 							caster.skin = "school"
-							caster:SetModel("models/c17/c17_school.vmdl")
-							caster:SetModelScale(1.3)
-							caster:SetOriginalModel("models/c17/c17_school.vmdl")
+							-- caster:SetModel("models/c17/c17_school.vmdl")
+							caster:SetModel("models/oichi_student_new/oichi_student.vmdl")
+							caster:SetModelScale(0.6)
+							-- caster:SetOriginalModel("models/c17/c17_school.vmdl")
+							caster:SetOriginalModel("models/oichi_student_new/oichi_student.vmdl")
 						end
 						if (nobu_id == "A26") then
 							caster.skin = "school"
