@@ -173,8 +173,8 @@ function A21R_OnSpellStart(keys)
 	end
 	Timers:CreateTimer(1, function()
 		if IsValidEntity(roubang) and roubang:IsAlive() then
-			AddFOWViewer(DOTA_TEAM_GOODGUYS, roubang:GetAbsOrigin(), 300, 3, true)
- 			AddFOWViewer(DOTA_TEAM_BADGUYS, roubang:GetAbsOrigin(), 300, 3, true)
+			-- AddFOWViewer(DOTA_TEAM_GOODGUYS, roubang:GetAbsOrigin(), 300, 3, true)
+ 			-- AddFOWViewer(DOTA_TEAM_BADGUYS, roubang:GetAbsOrigin(), 300, 3, true)
  			return 1
 		end
 	end)
