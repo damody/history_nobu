@@ -5611,7 +5611,7 @@
 	{
 		// General
 		// ----------------------------------------------------------------
-		"BaseClass"	"npc_dota_building"
+		"BaseClass"	"npc_dota_creature"
 		// Add model
 		"Model"	"models/items/earthshaker/totem_dragon_wall/fissure_body.vmdl"
 		"ModelScale"	"2.5"
@@ -5634,8 +5634,8 @@
 		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
 		"AttackRate"	"0.6"
 		"AttackAnimationPoint"	"0.30"
-		"AttackAcquisitionRange"	"1100"
-		"AttackRange"	"500"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"	"0"
 		"ProjectileSpeed"	"900"
 		"ProjectileModel"	"particles/econ/items/rubick/rubick_staff_wandering/rubick_base_attack_b_whset.vpcf"
 		// Bounty

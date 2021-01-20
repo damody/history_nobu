@@ -238,17 +238,46 @@ function B24W( keys )
 end
 
 function B24W_Attack( keys )
-	local target = keys.target
-	local caster = keys.attacker
-	if target:IsHero() or _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] then
-		caster:Stop()
-		local group = FindUnitsInRadius(caster:GetTeam(),caster:GetAbsOrigin(),nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, true)	
-		for i,v in ipairs(group) do
-			if v ~= dummy and _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
-				caster:MoveToTargetToAttack(v)
-			end
-		end
+	local caster = keys.caster
+	local ability = keys.ability
+
+	local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
+		caster:GetAbsOrigin(),							-- 搜尋的中心點
+		nil,
+		500,					-- 搜尋半徑
+		ability:GetAbilityTargetTeam(),	-- 目標隊伍
+		DOTA_UNIT_TARGET_BASIC,	-- 目標類型
+		DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,-- 額外選擇或排除特定目標
+		FIND_ANY_ORDER,					-- 結果的排列方式
+		false)
+	if #units > 0 then
+		local v = units[RandomInt(1,#units)]
+		local split_shot_projectile = "particles/econ/items/rubick/rubick_staff_wandering/rubick_base_attack_b_whset.vpcf"
+		local projectile_info = 
+			{
+				EffectName = split_shot_projectile,
+				Ability = ability,
+				vSpawnOrigin = caster:GetAbsOrigin(),
+				Target = v,
+				Source = caster,
+				bHasFrontalCone = false,
+				iMoveSpeed = 900,
+				bReplaceExisting = false,
+				bProvidesVision = false
+			}
+		ProjectileManager:CreateTrackingProjectile(projectile_info)
 	end
+	-- local target = keys.target
+	-- local caster = keys.attacker
+	-- if target:IsHero() or _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] then
+	-- 	caster:Stop()
+	-- 	local group = FindUnitsInRadius(caster:GetTeam(),caster:GetAbsOrigin(),nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, true)	
+	-- 	for i,v in ipairs(group) do
+	-- 		if v ~= dummy and _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
+	-- 			caster:MoveToTargetToAttack(v)
+	-- 		end
+	-- 	end
+	-- end
 end
 
 function B24W2( keys )
