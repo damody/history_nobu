@@ -7,7 +7,9 @@ function Shock( keys )
 	for _,v in pairs(am) do
 		if IsValidEntity(v:GetCaster()) and v:GetParent().GetTeamNumber ~= nil then
 			if v:GetParent():GetTeamNumber() ~= caster:GetTeamNumber() or v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber() then
-				caster:RemoveModifierByName(v:GetName())
+				if v:GetName() ~= "modifier_truesight" then
+					caster:RemoveModifierByName(v:GetName())
+				end
 			end
 		end
 	end
