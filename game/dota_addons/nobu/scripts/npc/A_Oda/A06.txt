@@ -538,6 +538,11 @@
 				"var_type"	"FIELD_INTEGER"
 				"A06R_SPEED"	"4 6 8 10"
 			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"dmg"	"215 265 315 365"
+			}
 		}
 	}
 
