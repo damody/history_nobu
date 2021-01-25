@@ -114,7 +114,8 @@ function Trig_C21TActions( keys )
 
 	--斬擊次數判斷
 	ti = ability:GetSpecialValueFor("acount")
-
+	u:RemoveModifierByName("modifier_C21E")
+	ability:ApplyDataDrivenModifier(u, u, "modifier_C21T", {duration = 10})
 	--timer
 	AMHC:Timer( "C21T_T1"..tostring(i),function( )
     	ti = ti - 1 
@@ -134,7 +135,6 @@ function Trig_C21TActions( keys )
 		--過濾dummy
 		for _,xx in pairs(group) do
 			if IsValidEntity(xx) then
-				print(xx:GetUnitName())
 				if xx:HasAbility("majia") or _G.EXCLUDE_TARGET_NAME[xx:GetUnitName()] == true then
 				else
 					table.insert(newGroup,xx)
