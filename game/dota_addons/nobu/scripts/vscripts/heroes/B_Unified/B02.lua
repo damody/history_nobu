@@ -25,6 +25,14 @@ function B02D_End ( keys )
 	end
 end
 
+function B02W_check_target( keys )
+	local caster = keys.caster
+	local target = keys.target
+	if target:HasAbility("majia") or _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == true then
+		caster:Stop()
+	end
+end
+
 function B02W( keys )
 	local caster = keys.caster
 	local target = keys.target
