@@ -618,10 +618,6 @@ function Nobu:OnGameRulesStateChange( keys )
 	-- end)
 	
 
-    Timers:CreateTimer(210, function()
-    	_G.can_bomb = true
-	    GameRules:SendCustomMessage("可以開始使用爆裂彈了！",0,0)
-    end)
     
     Timers:CreateTimer(2, function ()
 			_G.war_magic_mana = 0

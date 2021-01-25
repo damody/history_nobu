@@ -14502,6 +14502,10 @@
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
+		"ItemStockMax"					"10"
+		"ItemStockInitial"				"0"
+		"ItemStockTime"					"0.01"
+		"ItemInitialStockTime"			"210"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"SideShop" "1"
 
