@@ -705,7 +705,13 @@ function warrior_souls_OnAttackLanded(keys)
 	target:SetMana(0)
 end
 
-function afk_gogo(keys)
+function disconnect_checker(keys)
+	local player_count = 0
+	for i=0,9 do
+		if _G.IsExist[i] == true then
+			player_count = player_count + 1;
+		end
+	end
 	for _,hero in ipairs(HeroList:GetAllHeroes()) do
 		local id = hero:GetPlayerID()
 		local team = PlayerResource:GetTeam(id)
@@ -721,8 +727,17 @@ function afk_gogo(keys)
 				local item = hero.donkey:GetItemInSlot(i)
 				hero.donkey:DropItemAtPositionImmediate(item, hero.spawn_location)
 			end
-			
-			hero.afk_time = hero.afk_time + 1
+			if hero.disconnect == false and player_count >= 10 and _G.isRecord == false then
+				local steam_id = PlayerResource:GetSteamID(hero:GetPlayerOwnerID())
+				playersData = {
+					steamID = tostring(steam_id)
+				}
+				local string = json.encode(playersData)
+				SendHTTPRequest("game_disconnect/", "POST",
+				string, function(res)
+				end)
+			end
+			hero.disconnect_time = hero.disconnect_time + 1
 			hero.disconnect = true
 			hero.donkey:ForceKill(true)
 			hero.donkey = nil
@@ -735,6 +750,16 @@ function afk_gogo(keys)
 		if state == 2 then
 			if not hero:IsIllusion() then
 				Timers:CreateTimer ( 3 , function ()
+					if hero.disconnect == true and player_count >= 10 and _G.isRecord == false then
+						local steam_id = PlayerResource:GetSteamID(hero:GetPlayerOwnerID())
+						playersData = {
+							steamID = tostring(steam_id)
+						}
+						local string = json.encode(playersData)
+						SendHTTPRequest("game_connect/", "POST",
+						string, function(res)
+						end)
+					end
 					hero.disconnect = false
 					if hero.donkey == nil then
 					local donkey = CreateUnitByName("npc_dota_courier2", hero:GetAbsOrigin()+Vector(100, 100, 0), true, hero, hero, hero:GetTeam())
@@ -790,4 +815,62 @@ function big_cp_purge(keys)
 			target:RemoveModifierByName(m:GetName())
 		end
 	end
+end
+
+function afk_checker ( keys )
+	local player_count = 0
+	for i=0,9 do
+		if _G.IsExist[i] == true then
+			player_count = player_count + 1;
+		end
+	end
+	local ability = keys.ability
+	local caster = keys.caster
+	if caster.origin_pos == nil then
+		caster.afk_count = 0
+		caster.origin_pos = caster:GetAbsOrigin()
+	else
+		if (caster:GetAbsOrigin() - caster.origin_pos):Length() < 300 then
+			caster.afk_count = caster.afk_count + 1
+		else
+			if caster.afk == true and player_count >= 10 and _G.isRecord == false then
+				local steam_id = PlayerResource:GetSteamID(caster:GetPlayerOwnerID())
+				playersData = {
+					steamID = tostring(steam_id)
+				}
+				local string = json.encode(playersData)
+				SendHTTPRequest("game_connect/", "POST",
+				string, function(res)
+				end)
+			end
+			caster.afk = false
+			caster.afk_count = 0
+		end
+		caster.origin_pos = caster:GetAbsOrigin()
+	end
+	if caster.afk_count >= 60 then
+		if caster.afk == false and player_count >= 10 and _G.isRecord == false then 
+			local steam_id = PlayerResource:GetSteamID(caster:GetPlayerOwnerID())
+			playersData = {
+				steamID = tostring(steam_id)
+			}
+			local string = json.encode(playersData)
+			SendHTTPRequest("game_disconnect/", "POST",
+			string, function(res)
+			end)
+		end
+		caster.afk = true
+	end
+  end
+
+function SendHTTPRequest(path, method, values, callback)
+	local req = CreateHTTPRequestScriptVM( method, "http://172.105.232.176:7878/"..path )
+	print("path : " .. path)
+	print("values : " .. values)
+    req:SetHTTPRequestRawPostBody("application/json", values)
+    req:Send(
+        function(result)
+            callback(result)
+        end
+    )
 end

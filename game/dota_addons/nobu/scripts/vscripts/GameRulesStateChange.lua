@@ -154,6 +154,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		_G.bStopGetFromClient = false
 		_G.bGameFromClient = false
 		_G.selectHero = {};
+		_G.IsExist = {};
 		-- 檢查這場遊戲是不是由client開的
 		Timers:CreateTimer(0, function()
 			if (_G.bStopGetFromClient == false) then

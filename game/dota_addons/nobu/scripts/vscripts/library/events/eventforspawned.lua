@@ -85,7 +85,9 @@ function Nobu:OnHeroIngame( keys )
           hero.multikill_count = 0
           hero.ability_order = {}
           hero.ability_map = {}
-          hero.afk_time = 0
+          hero.disconnect_time = 0
+          hero.disconnect = false
+          hero.afk = false
           for i=0,5 do 
             hero.ability_map[hero:GetAbilityByIndex(i):GetName()] = ability_index[i+1]
           end
@@ -96,6 +98,7 @@ function Nobu:OnHeroIngame( keys )
           hero:AddAbility("HealthRegen_self"):SetLevel(1)
           hero:AddAbility("ManaRegen_self"):SetLevel(1)
           hero:AddAbility("AtkSpeedBonus_self"):SetLevel(1)
+          hero:AddAbility("afk_checker"):SetLevel(1)
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
           hero:AddItem(CreateItem("item_logging", hero, hero))
