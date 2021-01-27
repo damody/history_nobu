@@ -351,7 +351,7 @@
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"enchantress_natures_attendants"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AOERadius"	"1400"
+		"AOERadius"	"800"
 		"AbilitySpecial"
 		{
 			"01"
@@ -371,7 +371,7 @@
 			"modifier_A29R"
 			{
 				"Aura"	"modifier_A29R_2"
-				"Aura_Radius"	"1400"
+				"Aura_Radius"	"800"
 				// for testing using:
 				// "Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_BOTH"
 				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
