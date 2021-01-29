@@ -129,7 +129,7 @@
 						[
 							{
 								m_influenceName = "Bip001"
-								m_vTranslationOffset = [ -0.043139, -0.492889, -20.359955 ]
+								m_vTranslationOffset = [ -0.043036, -0.492855, 99.714523 ]
 								m_vRotationOffset = [ -0.000016, 0.000049, 0.000055 ]
 								m_flWeight = 1.0
 								m_bRoot = false
