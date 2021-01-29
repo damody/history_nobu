@@ -54,13 +54,13 @@
 	"npc_dota_hero_silencer" "1" //立花道雪
 	"npc_dota_hero_puck" "1" //阿市
 
-	//"npc_dota_hero_earthshaker" "1" //秋山信友
+	"npc_dota_hero_earthshaker" "1" //秋山信友
 	//"npc_dota_hero_brewmaster" "1" //大熊朝秀
 	//"npc_dota_hero_beastmaster" "1"//武田勝賴
 	//"npc_dota_hero_huskar" "1" //鳥居元忠
 	"npc_dota_hero_invoker" "1" //羽柴秀吉
 	"npc_dota_hero_omniknight" "1" //柴田勝家
-	//"npc_dota_hero_oracle" "1" //石田三成
+	"npc_dota_hero_oracle" "1" //石田三成
 	"npc_dota_hero_jakiro" "1" //佐佐木小次郎
 	"npc_dota_hero_alchemist" "1" //宮本武藏
 	"npc_dota_hero_legion_commander" "1" // 明智秀滿
@@ -77,7 +77,7 @@
 	//"npc_dota_hero_razor" "1" //山本勘助
 	//"npc_dota_hero_witch_doctor" "1" //宇喜多秀家
 	//"npc_dota_hero_shadow_demon" "1" //武田信玄
-	//"npc_dota_hero_earth_spirit" "1" //山縣昌景
+	"npc_dota_hero_earth_spirit" "1" //山縣昌景
 	"npc_dota_hero_slark" "1" //霧隱才藏
 	"npc_dota_hero_terrorblade" "1" //長宗我部元親
 	//"npc_dota_hero_shadow_shaman" "1" // 本多正信
@@ -90,8 +90,8 @@
 	//"npc_dota_hero_meepo" "1" //片倉景綱
 	//"npc_dota_hero_monkey_king" "1" //蜂須賀政勝
 	//"npc_dota_hero_warlock"	"1" //平手政秀
-	//"npc_dota_hero_luna" "1"	//瑞龍院日秀
-	//"npc_dota_hero_sand_king"		"1"	//丹羽長秀
+	"npc_dota_hero_luna" "1"	//瑞龍院日秀
+	"npc_dota_hero_sand_king"		"1"	//丹羽長秀
 	"npc_dota_hero_lina" "1" //阿國
 	//"npc_dota_hero_furion" "1"	//足利義昭
 	//"npc_dota_hero_queenofpain" "1" //湖衣姬

@@ -257,8 +257,8 @@ function A27R( keys )
 			if (hModifier ~= nil) then
 				hModifier.A27R_level = keys.ability:GetLevel()
 			end
-			if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * ((hModifier.A25R_level*50 +150) / 100) then
-				caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * ((hModifier.A25R_level*50 +150) / 100)
+			if caster.maximum_critical_damage < caster:GetAverageTrueAttackDamage(target) * ((hModifier.A27R_level*50 +150) / 100) then
+				caster.maximum_critical_damage = caster:GetAverageTrueAttackDamage(target) * ((hModifier.A27R_level*50 +150) / 100)
 			end
 		end
 	end
@@ -436,4 +436,7 @@ function CreateMirror( caster, ability, spawn_point )
 	-- Set the illusion hp to be the same as the caster
 	illusion:SetHealth(caster:GetHealth())
 	illusion:SetMana(caster:GetMana())
+	illusion.magical_resistance = caster.magical_resistance
+	illusion.illusion_damage = (100 + outgoingDamage)*0.01
+	illusion.owner = caster
 end

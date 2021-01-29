@@ -346,7 +346,7 @@
 		}
 	}
 	// 中離右上角
-	"afk_gogo"
+	"disconnect_checker"
 	{
 		"BaseClass"             		"ability_datadriven"
 		"AbilityTextureName"			"custom/icon_128x128_26"
@@ -365,7 +365,7 @@
 					"RunScript"
 					{
 						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
-						"Function"		"afk_gogo"
+						"Function"		"disconnect_checker"
 					}
 				}
 			}
@@ -6216,6 +6216,29 @@
 				{
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
 				}
+			}
+		}
+	}
+	"afk_checker"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"passive_ninja_takedamage"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"IsDebuff"	"1"
+				"ThinkInterval"  "5"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
+						"Function"		"afk_checker"
+					}
+				}	
 			}
 		}
 	}

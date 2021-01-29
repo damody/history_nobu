@@ -154,6 +154,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		_G.bStopGetFromClient = false
 		_G.bGameFromClient = false
 		_G.selectHero = {};
+		_G.IsExist = {};
 		-- 檢查這場遊戲是不是由client開的
 		Timers:CreateTimer(0, function()
 			if (_G.bStopGetFromClient == false) then
@@ -346,9 +347,11 @@ function Nobu:OnGameRulesStateChange( keys )
 						local nobu_id = _G.heromap[caster:GetName()]
 						if (nobu_id == "C17") then
 							caster.skin = "school"
-							caster:SetModel("models/c17/c17_school.vmdl")
-							caster:SetModelScale(1.3)
-							caster:SetOriginalModel("models/c17/c17_school.vmdl")
+							-- caster:SetModel("models/c17/c17_school.vmdl")
+							caster:SetModel("models/oichi_student_new/oichi_student.vmdl")
+							caster:SetModelScale(0.6)
+							-- caster:SetOriginalModel("models/c17/c17_school.vmdl")
+							caster:SetOriginalModel("models/oichi_student_new/oichi_student.vmdl")
 						end
 						if (nobu_id == "A26") then
 							caster.skin = "school"
@@ -616,10 +619,6 @@ function Nobu:OnGameRulesStateChange( keys )
 	-- end)
 	
 
-    Timers:CreateTimer(210, function()
-    	_G.can_bomb = true
-	    GameRules:SendCustomMessage("可以開始使用爆裂彈了！",0,0)
-    end)
     
     Timers:CreateTimer(2, function ()
 			_G.war_magic_mana = 0

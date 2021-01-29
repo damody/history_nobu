@@ -135,20 +135,11 @@ function C23T_OnSpellStart( keys )
 	local target = keys.target
 	local casterhealth=caster:GetHealthPercent()
 	local targethealth=target:GetHealthPercent()
-
 	local ourhp = caster:GetMaxHealth()*targethealth/100 + 1
 	local targethp = target:GetMaxHealth()*casterhealth/100 + 1
-	if ourhp > caster:GetHealth() then
-		caster:Heal(ourhp-caster:GetHealth(),caster)
-	elseif ourhp < caster:GetHealth() then
-		AMHC:Damage( caster,caster,caster:GetHealth()-ourhp,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-	end
+	caster:SetHealth(ourhp)
 	if not target:IsMagicImmune() then
-		if targethp > target:GetHealth() then
-			target:Heal(targethp-target:GetHealth(),target)
-		elseif targethp < target:GetHealth() then
-			AMHC:Damage( caster,target,target:GetHealth()-targethp,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
-		end
+		target:SetHealth(targethp)
 	end
 	caster:StartGestureWithPlaybackRate(ACT_DOTA_ATTACK_EVENT,0.6)
 	Timers:CreateTimer(0.2,function()

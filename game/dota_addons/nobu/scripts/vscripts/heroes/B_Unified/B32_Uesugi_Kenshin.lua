@@ -29,7 +29,6 @@ function FireEffect_Destroy_IcePath_A( event )
 	local pfxIcePath	= ability.pfxIcePath
 
 	ParticleManager:DestroyParticle( pfxIcePath, false )
-	ParticleManager:DestroyParticle( ability.pfxIcePath2, false )
 
 	ability.pfxIcePath = nil
 end
@@ -62,16 +61,6 @@ function FireEffect_IcePath( event )
 	ParticleManager:SetParticleControl( pfx, 2, startPos )
 
 	ability.pfxIcePath = pfx
-
-	-- Create ice_path_b
-	particleName = "particles/b32e/b32e_b.vpcf"
-	pfx = ParticleManager:CreateParticle( particleName, PATTACH_WORLDORIGIN, nil)
-	ParticleManager:SetParticleControl( pfx, 0, startPos )
-	ParticleManager:SetParticleControl( pfx, 1, endPos )
-	ParticleManager:SetParticleControl( pfx, 2, Vector( pathDelay + pathDuration, 0, 0 ) )
-	ParticleManager:SetParticleControl( pfx, 9, startPos )
-
-	ability.pfxIcePath2 = pfx
 	local dummy = CreateUnitByName("hide_unit", endPos , true, nil, caster, caster:GetTeamNumber()) 
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=3})
 

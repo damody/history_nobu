@@ -54,7 +54,7 @@ function B24T( keys )
 	for _,v in ipairs(group) do
 		ability:ApplyDataDrivenModifier(caster, v,"modifier_B24T_2",{})
 	end
-
+	caster.rocks = {}
 	--【For】
 	local pointx = point.x
 	local pointy = point.y
@@ -71,6 +71,7 @@ function B24T( keys )
 
 		local dummy = CreateUnitByName("B24T_HIDE_hero",point,false,nil,nil,caster:GetTeam())
 		dummy:RemoveModifierByName("modifier_invulnerable")
+		caster.rocks[#caster.rocks+1] = dummy
 		ability:ApplyDataDrivenModifier(dummy,dummy,"modifier_kill",{duration = 6})
 		ability:ApplyDataDrivenModifier(dummy, dummy,"modifier_B24T",nil)
 		Timers:CreateTimer(0.2, function()
@@ -81,6 +82,25 @@ function B24T( keys )
 			dummy.B24Tparticle = particle
 		end)
 	end
+	local lv = ability:GetLevel()
+	caster:RemoveAbility("B24T")
+	local B24T2 = caster:AddAbility("B24T2")
+	B24T2:SetLevel(1)
+	B24T2:EndCooldown()
+	B24T2:StartCooldown(2)
+    Timers:CreateTimer(6, function()
+        caster:RemoveAbility("B24T2")
+        caster:AddAbility("B24T"):SetLevel(lv)
+    end)
+end
+
+function B24T2( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	for i,v in ipairs(caster.rocks) do
+		v:ForceKill(true)
+	end
+	caster.rocks = {}
 end
 
 function B24T2_Death( keys )
@@ -218,17 +238,46 @@ function B24W( keys )
 end
 
 function B24W_Attack( keys )
-	local target = keys.target
-	local caster = keys.attacker
-	if keys.target:IsHero() then
-		caster:Stop()
-		local group = FindUnitsInRadius(caster:GetTeam(),caster:GetAbsOrigin(),nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, true)	
-		for i,v in ipairs(group) do
-			if v ~= dummy then
-				caster:MoveToTargetToAttack(v)
-			end
-		end
+	local caster = keys.caster
+	local ability = keys.ability
+
+	local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
+		caster:GetAbsOrigin(),							-- 搜尋的中心點
+		nil,
+		500,					-- 搜尋半徑
+		ability:GetAbilityTargetTeam(),	-- 目標隊伍
+		DOTA_UNIT_TARGET_BASIC,	-- 目標類型
+		DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE,-- 額外選擇或排除特定目標
+		FIND_ANY_ORDER,					-- 結果的排列方式
+		false)
+	if #units > 0 then
+		local v = units[RandomInt(1,#units)]
+		local split_shot_projectile = "particles/econ/items/rubick/rubick_staff_wandering/rubick_base_attack_b_whset.vpcf"
+		local projectile_info = 
+			{
+				EffectName = split_shot_projectile,
+				Ability = ability,
+				vSpawnOrigin = caster:GetAbsOrigin(),
+				Target = v,
+				Source = caster,
+				bHasFrontalCone = false,
+				iMoveSpeed = 900,
+				bReplaceExisting = false,
+				bProvidesVision = false
+			}
+		ProjectileManager:CreateTrackingProjectile(projectile_info)
 	end
+	-- local target = keys.target
+	-- local caster = keys.attacker
+	-- if target:IsHero() or _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] then
+	-- 	caster:Stop()
+	-- 	local group = FindUnitsInRadius(caster:GetTeam(),caster:GetAbsOrigin(),nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, true)	
+	-- 	for i,v in ipairs(group) do
+	-- 		if v ~= dummy and _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
+	-- 			caster:MoveToTargetToAttack(v)
+	-- 		end
+	-- 	end
+	-- end
 end
 
 function B24W2( keys )
@@ -465,5 +514,3 @@ function B24R( keys )
 		end)
 	end
 end
-
-

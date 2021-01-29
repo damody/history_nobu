@@ -22,6 +22,9 @@ function nobu_modifier_magical_shield:GetModifierIncomingDamage_Percentage( keys
     local damage_type = keys.damage_type
     --if damage type is magical
     if damage_type == 2 then
+        if self.magical_shield <= 0 then
+            return 0
+        end
         self.magical_shield = self.magical_shield - keys.damage
         print(self.magical_shield)
         if self.magical_shield > 0 then

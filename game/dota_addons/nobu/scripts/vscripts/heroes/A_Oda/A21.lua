@@ -140,6 +140,7 @@ function A21R_OnSpellStart(keys)
 	local point = caster:GetAbsOrigin()
 	local radius = ability:GetLevelSpecialValueFor( "radius", level - 1 )
 	local dmg = ability:GetSpecialValueFor("dmg")
+	local hp = ability:GetSpecialValueFor("hp")
  	local player = caster:GetPlayerID()
  	local roubang = CreateUnitByName("a21_weapon",targetLoc ,false,caster,caster,caster:GetTeam())
  	local units = FindUnitsInRadius(caster:GetOpposingTeamNumber(), caster:GetOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, ability:GetAbilityTargetType(), DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false )
@@ -148,7 +149,7 @@ function A21R_OnSpellStart(keys)
 	end
 	roubang:SetControllableByPlayer(player, true)
 	caster.A21R_unit = roubang
-	roubang:SetBaseMaxHealth(800+level*150)
+	roubang:SetBaseMaxHealth(hp)
 	roubang:SetBaseDamageMin(dmg)
 	roubang:SetBaseDamageMax(dmg)
 	roubang:SetHealth(roubang:GetMaxHealth())
@@ -172,8 +173,8 @@ function A21R_OnSpellStart(keys)
 	end
 	Timers:CreateTimer(1, function()
 		if IsValidEntity(roubang) and roubang:IsAlive() then
-			AddFOWViewer(DOTA_TEAM_GOODGUYS, roubang:GetAbsOrigin(), 300, 3, true)
- 			AddFOWViewer(DOTA_TEAM_BADGUYS, roubang:GetAbsOrigin(), 300, 3, true)
+			-- AddFOWViewer(DOTA_TEAM_GOODGUYS, roubang:GetAbsOrigin(), 300, 3, true)
+ 			-- AddFOWViewer(DOTA_TEAM_BADGUYS, roubang:GetAbsOrigin(), 300, 3, true)
  			return 1
 		end
 	end)

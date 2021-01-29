@@ -254,9 +254,6 @@ function spell_ability ( filterTable )
 	if caster:GetUnitName() == "B07E_UNIT" and items_nosell[ability:GetName()] == true then
 		return false
 	end
-	if ability and ability:GetName() == "item_napalm_bomb" and _G.can_bomb == nil then
-		return false
-	end
 	if ability then
 		caster.abilityName = ability:GetAbilityName() --用來標記技能名稱
 	end

@@ -181,7 +181,7 @@ function modifier_magic_talisman2:OnTakeDamage(event)
 	    if (self.caster ~= nil) and IsValidEntity(self.caster) then
 		    if victim:GetTeam() ~= attacker:GetTeam() and attacker == self.caster then
 		        if damage_flags ~= DOTA_DAMAGE_FLAG_REFLECTION then
-		            if (damage_type == DAMAGE_TYPE_MAGICAL) then
+					if (damage_type == DAMAGE_TYPE_MAGICAL) then
 		            	if self.magic_shield > 0 then
 		            		if self.magic_shield > return_damage then
 		            			self.magic_shield = self.magic_shield - return_damage

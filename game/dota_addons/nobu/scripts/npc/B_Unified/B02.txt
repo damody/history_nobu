@@ -226,6 +226,14 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
 		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B02.lua"
+				"Function"	"B02W_check_target"
+			}
+		}
 		"OnSpellStart"
 		{
 			"FireSound"
