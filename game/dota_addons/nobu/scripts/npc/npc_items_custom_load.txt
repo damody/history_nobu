@@ -856,6 +856,7 @@
 		"precache"
 		{
 			"particle"	"particles/item/dragon.vpcf"
+			"particle"	"particles/units/heroes/hero_invoker/invoker_deafening_blast.vpcf"
 		}
 		"Modifiers"
 		{
@@ -883,7 +884,7 @@
 			"LinearProjectile"
 			{
 				"Target"	"POINT"
-				"EffectName"	"particles/item/dragon.vpcf"
+				"EffectName"	"particles/units/heroes/hero_invoker/invoker_deafening_blast.vpcf"
 				"MoveSpeed"	"1500"
 				"StartRadius"	"250"
 				"StartPosition"	"attach_origin"
