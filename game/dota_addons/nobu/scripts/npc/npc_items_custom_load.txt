@@ -3870,6 +3870,7 @@
                     "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
                     "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
                     "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+					"Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
                 }
                 "ModifierName"      "modifier_truesight"
                 "Duration"      "10"
@@ -3902,27 +3903,65 @@
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"
-	            "ThinkInterval"     "0.25"
+	            // "ThinkInterval"     "0.25"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"250"
 				}
-	            "OnIntervalThink"
-	            {
-	                "ApplyModifier"
-	                {
-	                    "Target"
-	                    {
-	                        "Center"    "CASTER"
-	                        "Radius"    "800"
+				"Aura"	"modifier_insight_gem_truesight"
+				"Aura_Radius"	"800"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	            // "OnIntervalThink"
+	            // {
+	            //     "ApplyModifier"
+	            //     {
+	            //         "Target"
+	            //         {
+	            //             "Center"    "CASTER"
+	            //             "Radius"    "800"
+	            //             "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	            //             "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	            //             "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	            //         }
+	            //         "ModifierName"      "modifier_truesight"
+	            //         "Duration"      "0.50"
+	            //     }
+	            // }
+			}
+			"modifier_insight_gem_truesight"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
 	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 	                    }
-	                    "ModifierName"      "modifier_truesight"
-	                    "Duration"      "0.50"
-	                }
-	            }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
 			}
 			"shield_modifier4"
 			{
@@ -4076,7 +4115,7 @@
                     "Radius"    "1200"
                     "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
                     "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
-                    "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                    "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
                 }
                 "ModifierName"      "modifier_truesight"
                 "Duration"      "10"
@@ -4104,23 +4143,61 @@
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"
-	            "ThinkInterval"     "0.25"
-	            "OnIntervalThink"
-	            {
-	                "ApplyModifier"
-	                {
-	                    "Target"
-	                    {
-	                        "Center"    "CASTER"
-	                        "Radius"    "600"
+				"Aura"	"modifier_insight_gem_truesight"
+				"Aura_Radius"	"600"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	            // "ThinkInterval"     "0.25"
+	            // "OnIntervalThink"
+	            // {
+	            //     "ApplyModifier"
+	            //     {
+	            //         "Target"
+	            //         {
+	            //             "Center"    "CASTER"
+	            //             "Radius"    "600"
+	            //             "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	            //             "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	            //             "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	            //         }
+	            //         "ModifierName"      "modifier_truesight"
+	            //         "Duration"      "0.50"
+	            //     }
+	            // }
+			}
+			"modifier_insight_gem_truesight"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
 	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 	                    }
-	                    "ModifierName"      "modifier_truesight"
-	                    "Duration"      "0.50"
-	                }
-	            }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
 			}
 			"modifier_lose_gem"
 			{
@@ -4185,7 +4262,7 @@
                     "Radius"    "1200"
                     "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
                     "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
-                    "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                    "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
                 }
                 "ModifierName"      "modifier_truesight"
                 "Duration"      "10"
@@ -4198,27 +4275,48 @@
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"
-	            "ThinkInterval"     "0.25"
+				"Aura"	"modifier_insight_gem_truesight"
+				"Aura_Radius"	"600"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"200"
 				}
-	            "OnIntervalThink"
-	            {
-	                "ApplyModifier"
-	                {
-	                    "Target"
-	                    {
-	                        "Center"    "CASTER"
-	                        "Radius"    "600"
+			}
+				"modifier_insight_gem_truesight"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
 	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 	                    }
-	                    "ModifierName"      "modifier_truesight"
-	                    "Duration"      "0.50"
-	                }
-	            }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
 			}
 		}
 		
@@ -6269,23 +6367,44 @@
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"
-	            "ThinkInterval"     "0.25"
-	            "OnIntervalThink"
-	            {
-	                "ApplyModifier"
-	                {
-	                    "Target"
-	                    {
-	                        "Center"    "CASTER"
-	                        "Radius"    "1100"
+				"Aura"	"modifier_insight_gem_truesight"
+				"Aura_Radius"	"1100"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+			}
+			"modifier_insight_gem_truesight"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
 	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 	                    }
-	                    "ModifierName"      "modifier_truesight"
-	                    "Duration"      "0.50"
-	                }
-	            }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
 			}
 			"shield_modifier1"
 			{
@@ -11181,7 +11300,7 @@
                     "Radius"    "1200"
                     "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
                     "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
-                    "Flags" "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+                    "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
                 }
                 "ModifierName"      "modifier_truesight"
                 "Duration"      "10"
@@ -11228,27 +11347,48 @@
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"
-	            "ThinkInterval"     "0.25"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"250"
 				}
-	            "OnIntervalThink"
-	            {
-	                "ApplyModifier"
-	                {
-	                    "Target"
-	                    {
-	                        "Center"    "CASTER"
-	                        "Radius"    "800"
+				"Aura"	"modifier_insight_gem_truesight"
+				"Aura_Radius"	"800"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+			}
+			"modifier_insight_gem_truesight"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
 	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 	                    }
-	                    "ModifierName"      "modifier_truesight"
-	                    "Duration"      "0.50"
-	                }
-	            }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
 			}
 			"shield_modifier"
 			{
@@ -11392,27 +11532,48 @@
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"
-	            "ThinkInterval"     "0.25"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"250"
 				}
-	            "OnIntervalThink"
-	            {
-	                "ApplyModifier"
-	                {
-	                    "Target"
-	                    {
-	                        "Center"    "CASTER"
-	                        "Radius"    "800"
+				"Aura"	"modifier_insight_gem_truesight"
+				"Aura_Radius"	"800"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+			}
+			"modifier_insight_gem_truesight"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
 	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 	                    }
-	                    "ModifierName"      "modifier_truesight"
-	                    "Duration"      "0.50"
-	                }
-	            }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
 			}
 			"shield_modifier"
 			{
@@ -15538,23 +15699,61 @@
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"
-	            "ThinkInterval"     "0.25"
-	            "OnIntervalThink"
-	            {
-	                "ApplyModifier"
-	                {
-	                    "Target"
-	                    {
-	                        "Center"    "CASTER"
-	                        "Radius"    "600"
+	            // "ThinkInterval"     "0.25"
+				"Aura"	"modifier_insight_gem_truesight"
+				"Aura_Radius"	"600"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	            // "OnIntervalThink"
+	            // {
+	            //     "ApplyModifier"
+	            //     {
+	            //         "Target"
+	            //         {
+	            //             "Center"    "CASTER"
+	            //             "Radius"    "600"
+	            //             "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	            //             "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING"
+	            //             "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	            //         }
+	            //         "ModifierName"      "modifier_truesight"
+	            //         "Duration"      "0.50"
+	            //     }
+	            // }
+			}
+			"modifier_insight_gem_truesight"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
 	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING"
 	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 	                    }
-	                    "ModifierName"      "modifier_truesight"
-	                    "Duration"      "0.50"
-	                }
-	            }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
 			}
 			"modifier_lose_gem"
 			{
@@ -15614,12 +15813,14 @@
 			}
 			"ApplyModifier"
             {
+				"CASTER"	"CASTER"
                 "Target"
                 {
                     "Center"    "CASTER"
                     "Radius"    "1200"
                     "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
                     "Types" "DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+					"Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
                 }
                 "ModifierName"      "modifier_truesight"
                 "Duration"      "10"
@@ -15647,23 +15848,61 @@
 			{
 				"Passive"          "1"  
 	            "IsHidden"      "1"
-	            "ThinkInterval"     "0.25"
-	            "OnIntervalThink"
-	            {
-	                "ApplyModifier"
-	                {
-	                    "Target"
-	                    {
-	                        "Center"    "CASTER"
-	                        "Radius"    "600"
+				"Aura"	"modifier_insight_gem_truesight"
+				"Aura_Radius"	"600"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	            // "ThinkInterval"     "0.25"
+	            // "OnIntervalThink"
+	            // {
+	            //     "ApplyModifier"
+	            //     {
+	            //         "Target"
+	            //         {
+	            //             "Center"    "CASTER"
+	            //             "Radius"    "600"
+	            //             "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	            //             "Types" "DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	            //             "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	            //         }
+	            //         "ModifierName"      "modifier_truesight"
+	            //         "Duration"      "0.50"
+	            //     }
+	            // }
+			}
+			"modifier_insight_gem_truesight"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
 	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	                        "Types" "DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
 	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 	                    }
-	                    "ModifierName"      "modifier_truesight"
-	                    "Duration"      "0.50"
-	                }
-	            }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
 			}
 			"modifier_lose_gem"
 			{
