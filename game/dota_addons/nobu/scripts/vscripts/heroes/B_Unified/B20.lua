@@ -144,13 +144,9 @@ function B20T_OnIntervalThink( keys )
 	local radius = ability:GetSpecialValueFor("B20T_radius")
 	local damage = ability:GetSpecialValueFor("B20T_damage")
 	local debuffDuration = ability:GetSpecialValueFor("B20T_debuffDuration")
-
-	local particle = ParticleManager:CreateParticle("particles/b20e/b20eburrowstrike.vpcf", PATTACH_ABSORIGIN, caster)
+	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_epicenter.vpcf", PATTACH_WORLDORIGIN, caster)
 	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
-	ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
-
-	local particle2 = ParticleManager:CreateParticle("particles/b20t/b20t.vpcf", PATTACH_ABSORIGIN, caster)
-	ParticleManager:SetParticleControl(particle2, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(particle, 1, Vector(600,600,128)) -- x軸是震波大小 y軸是石頭範圍 z軸好像沒作用
 
 	StartSoundEvent( "Hero_Brewmaster.ThunderClap" , caster )
 

@@ -10,6 +10,7 @@
 			"particle"  "particles/b20w/b20w.vpcf" //w
 			"particle"  "particles/b20e/b20eburrowstrike.vpcf" //e
 			"particle"  "particles/b20t/b20t.vpcf" //t
+			"particle"  "particles/units/heroes/hero_sandking/sandking_epicenter.vpcf" //t
 			"soundfile"	"soundevents/game_sounds_hero_pick.vsndevts" //w
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_brewmaster.vsndevts" //e
 		}

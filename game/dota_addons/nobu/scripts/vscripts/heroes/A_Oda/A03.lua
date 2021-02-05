@@ -4,7 +4,7 @@ function A03W_OnSpellStart( keys )
 	local target = keys.target
 	local ability = keys.ability
 	local projTable = {
-		EffectName = "particles/b33r/b33r.vpcf",
+		EffectName = "particles/b33/b33w_project.vpcf",
 		Ability = ability,
 		Target = target,
 		Source = caster,
