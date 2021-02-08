@@ -29,7 +29,6 @@ function A03W_OnUnitMoved( keys )
 	local triggerlen = ability:GetSpecialValueFor("triggerlen")
 	local dmg = ability:GetSpecialValueFor("dmg")
 	local mr = target:GetBaseMagicalResistanceValue()
-	
 	if lastpos == nil then
 		lastpos = pos
 		target.A03W_len = 0
