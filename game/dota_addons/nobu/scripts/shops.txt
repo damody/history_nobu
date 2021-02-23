@@ -99,7 +99,7 @@
 	"item"      "item_spell_book"			//法術書
 	"item"      "item_thunderstorms"			//天變之書
 	"item"      "item_frozen_book"			//冰爆之書
-	"item"      "item_frozen_staff"			//冰風爆之杖
+	"item"      "item_ice_storm_book"			//冰風暴之書
 
 }   
 
@@ -114,7 +114,7 @@
 	"item"      "item_variety_tachi"			//長捲
 	"item"      "item_logs_big_tachi"			//戒杖刀
 	"item"      "item_red_spear"			//皆朱槍
-	"item"      "item_ninja_protection"			//禦神法輪
+	"item"      "item_ninja_protection"			//大俱利伽羅
 	"item"      "item_moon_spear"			//斬月槍
 	"item"      "item_ronin_jitte"			//浪人十手
 	"item"      "item_sakabatou"			//逆刃刀

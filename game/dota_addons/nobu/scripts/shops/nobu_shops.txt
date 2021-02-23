@@ -167,12 +167,12 @@
 	"item"      "item_the_red_lightning_chapter_hyper"			//真．赤雷卷
 	"item"      "item_the_overflame_art_of_war"			//大炎上之書
 	"item"      "item_the_over_lightning_art_of_war"			//無上雷暴之書
-	"item"      "item_frozen_staff"			//冰風爆之杖
+	"item"      "item_ice_storm_book"			//冰風暴之書
 	"item"      "item_the_storm_call_book"			//天雷之書
 	"item"      "item_yubashiri"			//雪走
 	"item"      "item_kokumo"			//凍雲
 	"item"      "item_great_dragon"			//巨龍
-	"item"      "item_mana_thief"			//禦神法輪
+	"item"      "item_mana_thief"			//大俱利伽羅
 	"item"      "item_ronin_jitte"			//浪人十手
 }
 

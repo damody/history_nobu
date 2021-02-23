@@ -650,7 +650,7 @@
 	"item_thunderstorms"
 	{
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/thunderbolt_book"
+		"AbilityTextureName"	"item_custom/thunderstorms"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -6755,7 +6755,7 @@
 		}
 	}
 
-	// 禦神法輪
+	// 大俱利伽羅
 	"item_mana_thief"
 	{
 		// General
@@ -8312,7 +8312,7 @@
 		}
 	}
 	
-	//禦神法輪‧一階製作單
+	//大俱利伽羅‧一階製作單
 	"item_recipe_mana_thief" 
 	{
 	    "ID" "3006"
@@ -14187,7 +14187,7 @@
 		"AbilityCastPoint"	"0.2"
 		"AbilityCastRange"	"500"
 
-		"AbilitySharedCooldown" "item_frozen_staff"
+		"AbilitySharedCooldown" "item_ice_storm_book"
 		"ID"	"2514"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -16405,12 +16405,12 @@
 		}
 	}
 
-	// 冰風爆之杖
-	"item_frozen_staff"
+	// 冰風暴之書
+	"item_ice_storm_book"
 	{
 		// General
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/frozen_staff"
+		"AbilityTextureName"	"item_custom/ice_storm_book"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -16675,8 +16675,8 @@
 		}
 	}
 	
-	// 冰風爆之杖製作單
-	"item_recipe_frozen_staff" 
+	// 冰風暴之書製作單
+	"item_recipe_ice_storm_book" 
 	{
 	    "ID" "2840"
 	    "BaseClass" "item_recipe_arcane_boots"
@@ -16684,7 +16684,7 @@
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"SideShop"						"0"
-		"ItemResult" "item_frozen_staff"  //合成後物品
+		"ItemResult" "item_ice_storm_book"  //合成後物品
 		"ItemRequirements"
 		{
 			"01" "item_frozen_book;item_storm_book"  //合成所需物品
@@ -17724,7 +17724,7 @@
 	"item_earth_wall_book"
 	{
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/icon_128x128_120"
+		"AbilityTextureName"	"item_custom/earth_wall_book"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
