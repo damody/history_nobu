@@ -140,12 +140,12 @@
 			"01"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"atk"	"30 50 70 90"
+				"atk"	"0 25 50 75"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"dmg"	"70 100 130 160"
+				"dmg"	"45 90 135 180"
 			}
 			"03"
 			{
