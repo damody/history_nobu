@@ -37,7 +37,8 @@ function C01W2( keys )
 		nil,  400 , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 		DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
 	for _,enemy in pairs(group) do
-		AMHC:Damage(caster,enemy, damage,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		local mr = enemy:GetBaseMagicalResistanceValue()
+		AMHC:Damage(caster,enemy, damage * (1-(mr/100)),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 	end
 end
 
