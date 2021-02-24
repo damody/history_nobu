@@ -427,7 +427,7 @@
 
 		"AbilityCastPoint"          				"0.0"
 		"AbilityCooldown"           				"80 70 60"
-		"AbilityManaCost"           				"205"
+		"AbilityManaCost"           				"280"
 		
 		"OnSpellStart"
 		{

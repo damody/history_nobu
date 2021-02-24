@@ -190,6 +190,9 @@ function B17T_End( keys )
 			EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_NyxAssassin.Vendetta.Crit", target)
 			PopupCriticalDamage(target, abilityDamage)
 			AMHC:Damage( caster, target, abilityDamage, AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+			if target:IsHero() and target:IsAlive() == false then
+				ability:EndCooldown()
+			end
 		end	
 		keys.caster:RemoveModifierByName( "modifier_B17T" )
 		keys.caster:RemoveModifierByName( "modifier_invisible" )
