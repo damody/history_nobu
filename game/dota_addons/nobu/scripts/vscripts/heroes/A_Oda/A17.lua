@@ -27,6 +27,18 @@ function A17W2( keys )
 	end
 end
 
+function A17W_first_shock( keys ) 
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local dmg = ability:GetSpecialValueFor("first_shock")
+	local group = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(), nil, ability:GetSpecialValueFor("radius"), 
+		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
+	for _, it in pairs(group) do
+		AMHC:Damage( caster,it,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		ability:ApplyDataDrivenModifier(caster, it, "modifier_A17W_first_shock_slow", {})
+	end
+end
 
 function shrapnel_fire( keys )
 	local caster = keys.caster
@@ -44,9 +56,9 @@ function shrapnel_fire( keys )
 	local dummy = CreateUnitByName("hide_unit", target , true, nil, caster, caster:GetTeamNumber())
 	dummy:AddNewModifier(nil,nil,"modifier_kill",{duration=0.3})
 	-- Create particle at caster
-	local fxLaunchIndex = ParticleManager:CreateParticle( launch_particle_name, PATTACH_CUSTOMORIGIN, dummy )
-	ParticleManager:SetParticleControl( fxLaunchIndex, 0, target )
-	ParticleManager:SetParticleControl( fxLaunchIndex, 1, Vector( target.x, target.y, 800 ) )
+	local fxLaunchIndex = ParticleManager:CreateParticle( launch_particle_name, PATTACH_CUSTOMORIGIN, caster )
+	ParticleManager:SetParticleControl( fxLaunchIndex, 0, caster:GetAbsOrigin() )
+	ParticleManager:SetParticleControl( fxLaunchIndex, 1, caster:GetAbsOrigin() + Vector( 0, 0, 800 ) )
 
 	StartSoundEvent( launch_sound_name, caster )
 
@@ -126,6 +138,16 @@ function shrapnel_fire2( keys )
 		end
 	)
 
+end
+
+function A17E_OnAttacked( keys ) 
+	if keys.target:IsRangedAttacker() then
+		local rand = RandomInt( 0, 100 )
+		if rand <= keys.ability:GetSpecialValueFor("doge_range_attack_percentage") then
+			keys.caster:SetHealth(keys.caster:GetHealth() + keys.dmg)
+		end
+	end
+	
 end
 
 function A17T_OnToggleOn( keys )
