@@ -8,6 +8,7 @@
 		"precache"
 		{
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+			"soundfile" "sounds/items/cheese.vsnd"
 			"particle"	"particles/status_fx/status_effect_base.vpcf"
 			"particle"	"particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta_start.vpcf"
 			"particle"	"particles/econ/items/bristleback/bristle_spikey_spray/bristle_spikey_quill_spray_sparks.vpcf"
