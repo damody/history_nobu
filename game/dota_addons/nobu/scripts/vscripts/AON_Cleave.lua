@@ -208,23 +208,21 @@ function AON_Cleave_A06(keys)
 		local per_atk = 0
 		local targetArmor = target:GetPhysicalArmorValue(true)
 		local damageReduction = ((0.06 * targetArmor) / (1 + 0.06 * targetArmor))
-		--local dmg = dmg / (1 - damageReduction)
+		dmg = dmg / (1 - damageReduction)
 		local group = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(),
 			nil,  ability:GetLevelSpecialValueFor("CleaveRadius",level) , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
 			DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 0, false)
 
-		dmg = dmg * ability:GetLevelSpecialValueFor("CleavePercent",level) / 100
-
 
 		for _, it in pairs(group) do
 			local distance = (caster:GetAbsOrigin() - it:GetAbsOrigin()):Length()
-			if _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil then
-				if distance < 550 then
-				AMHC:Damage( caster,it,keys.dmg*dmgp,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
-				elseif distance < 750 and distance > 550 then
-				AMHC:Damage( caster,it,keys.dmg*dmgp*0.3,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
-				elseif distance < 1000 and distance > 750 then
-				AMHC:Damage( caster,it,keys.dmg*dmgp*0.1,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+			if _G.EXCLUDE_TARGET_NAME[it:GetUnitName()] == nil and it ~= target then
+				if distance < ability:GetLevelSpecialValueFor("CleaveRadius3",level) then
+					AMHC:Damage( caster,it,keys.dmg*ability:GetSpecialValueFor("CleavePercent")/100,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				elseif distance < ability:GetLevelSpecialValueFor("CleaveRadius2",level) and distance > ability:GetLevelSpecialValueFor("CleaveRadius3",level) then
+					AMHC:Damage( caster,it,keys.dmg*ability:GetSpecialValueFor("CleavePercent2")/100,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+				elseif distance < ability:GetLevelSpecialValueFor("CleaveRadius",level) and distance > ability:GetLevelSpecialValueFor("CleaveRadius2",level) then
+					AMHC:Damage( caster,it,keys.dmg*ability:GetSpecialValueFor("CleavePercent3")/100,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
 				end
 			end
 		end

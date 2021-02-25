@@ -135,7 +135,7 @@
 		"HotKeyOverride"	"W"
 		"MaxLevel"	"4"
 		"AbilityCooldown"	"15"
-		"AbilityManaCost"	"50"
+		"AbilityManaCost"	"110"
 		// Stats
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"	"0"
@@ -308,7 +308,7 @@
 		"RequiredLevel"	"1"
 		"AbilityCastPoint"          				"0.35"	
 		"AbilityCooldown"	"18 15 12 9"
-		"AbilityManaCost"	"80"
+		"AbilityManaCost"	"125"
 		"AbilityCastRange"	"500 650 800 950"
 		"precache"
 		{
@@ -380,6 +380,10 @@
 					}
 				}
 			}
+			"RunScript" {
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A06_Ii_Naomasa.lua"
+				"Function"	"A06E_OnHit"
+			}
 		}
 		"Modifiers"
 		{
@@ -395,6 +399,14 @@
 				}
 				"IsBuff"	"0"
 				"IsDebuff"	"1"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"300"
 			}
 		}
 	}
@@ -536,7 +548,7 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"A06R_SPEED"	"4 6 8 10"
+				"A06R_SPEED"	"4 5 6 7"
 			}
 			"02"
 			{
@@ -663,12 +675,6 @@
 						"dmg"	"%attack_damage"
 						"Target"	"TARGET"
 					}
-					"CleaveAttack"
-					{
-						"CleaveEffect"	"particles/dire_fx/dire_ancient_base001_destruction_l1.vpcf"
-						"CleaveRadius"	"525"
-						"CleavePercent"	"100"
-					}
 					"FireSound"
 					{
 						"Target"	"CASTER"
@@ -693,12 +699,32 @@
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"CleavePercent"	"1"
+				"CleavePercent"	"100"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
 				"CleaveRadius"	"1000"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"CleaveRadius2"	"750"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"CleaveRadius3"	"550"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"CleavePercent2"	"40"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"CleavePercent3"	"25"
 			}
 		}
 		"OnCastbar"	"1"
