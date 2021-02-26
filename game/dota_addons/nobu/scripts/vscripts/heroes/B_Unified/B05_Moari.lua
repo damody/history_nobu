@@ -365,6 +365,7 @@ function B05T( event )
 	local point = ability:GetCursorPosition()
 	local radius = ability:GetSpecialValueFor("radius")
 	local duration = ability:GetSpecialValueFor("duration")
+	local damage = ability:GetSpecialValueFor("damage")
 	AddFOWViewer(caster:GetTeamNumber(), point, 1500.0, 3.0, false)
 	
 	--外圍
@@ -380,15 +381,13 @@ function B05T( event )
 
 	--effect:傷害+暈眩
 	for _,it in pairs(direUnits) do
-		if it:IsHero() then
+		if it:IsBuilding() then
+			ApplyDamage({victim = it, attacker = caster, damage = damage*0.3, damage_type = ability:GetAbilityDamageType()})
+		else
 			ParticleManager:CreateParticle("particles/shake2.vpcf", PATTACH_ABSORIGIN, it)
 			ability:ApplyDataDrivenModifier(caster, it, "modifier_B05T_stunned1", {duration = duration})
-			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
-		elseif it:IsBuilding() then
-			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage()*0.3, damage_type = ability:GetAbilityDamageType()})
-		else
-			ability:ApplyDataDrivenModifier(caster, it, "modifier_B05T_stunned1", {duration = duration})
-			ApplyDamage({victim = it, attacker = caster, damage = ability:GetAbilityDamage(), damage_type = ability:GetAbilityDamageType()})
+			ability:ApplyDataDrivenModifier(caster, it, "modifier_B05T_blind", {duration = ability:GetSpecialValueFor("blind_duration")})
+			ApplyDamage({victim = it, attacker = caster, damage = damage, damage_type = ability:GetAbilityDamageType()})
 		end
 		--ability:ApplyDataDrivenModifier(caster, it,"modifier_B05T",nil)
 	end
