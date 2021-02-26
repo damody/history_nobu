@@ -4854,7 +4854,7 @@
  		// Movement
  		//----------------------------------------------------------------
  		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
- 		"MovementSpeed"				"380"		// Speed.
+ 		"MovementSpeed"				"445"		// Speed.
 
  		// Status
  		//----------------------------------------------------------------
