@@ -299,7 +299,7 @@
 		"AbilityTextureName"                        "custom/C23/C23T"
 		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitTargetFlags""DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -332,11 +332,6 @@
 				"ScriptFile"						"scripts/vscripts/heroes/C_Neutral/C23.lua"
 				"Function"							"C23T_OnSpellStart"
 				"Target"	"TARGET"
-			}
-			"ApplyModifier"
-			{
-				"Target"	"TARGET"
-				"ModifierName"	"modifier_C23T"
 			}
 		}
 		"Modifiers"
