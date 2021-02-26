@@ -245,6 +245,7 @@
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
 				"Duration"	"%Stun_Time"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -329,6 +330,7 @@
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
 				"Duration"	"%Stun_Time"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"

@@ -779,6 +779,7 @@
 			{
 				"IsHidden"	"0"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -804,6 +805,7 @@
 				"IsDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 				"Duration"	"%duration"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -816,6 +818,7 @@
 				"IsDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 				"Duration"	"%duration2"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -927,6 +930,7 @@
 				"IsHidden"	"0"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Duration"	"2"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"

@@ -196,6 +196,7 @@
 				"IsDebuff"		"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Duration"	"%C01E_Duration"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -363,6 +364,7 @@
 				"IsHidden"	"0"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Duration"	"%C01T_Duration"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -777,6 +779,7 @@
 				"IsHidden"	"0"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Duration"	"%C01T_Duration"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"

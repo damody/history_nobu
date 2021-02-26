@@ -152,6 +152,7 @@
 				"EffectAttachType"		"follow_hitloc"
 				"StatusEffectName"		"particles/econ/items/effigies/status_fx_effigies/status_effect_effigy_gold_lvl2.vpcf"
 				"StatusEffectPriority"	"10"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"

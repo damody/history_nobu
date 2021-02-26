@@ -460,6 +460,7 @@
 						"Function"		"modifier_C08T_OnDestroy"
 					}
 				}
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_BLIND" "MODIFIER_STATE_VALUE_ENABLED"
@@ -471,6 +472,7 @@
 			"modifier_in_belly"
 			{
 				"IsHidden"	"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_BLIND" "MODIFIER_STATE_VALUE_ENABLED"

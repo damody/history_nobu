@@ -802,6 +802,7 @@
 				"IsHidden"	"0"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Duration"	"0.01"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -3666,6 +3667,7 @@
 				"IsDebuff"		"1"
 				"EffectName"	"particles/generic_gameplay/generic_sleep.vpcf"
 				"EffectAttachType"	"follow_overhead"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -4784,6 +4786,7 @@
 			}
 			"modifier_sakabatou"
 			{
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -5176,6 +5179,7 @@
 				"IsHidden"	"0"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Duration"	"1.1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -14877,6 +14881,7 @@
 			}
 			"modifier_blowgun"
 			{
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"

@@ -196,6 +196,7 @@
 			{
 				"EffectName"	"particles/a04e/a04e.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -360,6 +361,7 @@
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 				"EffectName"	"particles/a04e/a04e.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -569,6 +571,7 @@
 				"Duration"	"%duration"
 				"EffectName"	"particles/a04e/a04e.vpcf"
 				"Properties"	{}
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -1132,6 +1135,7 @@
 			{
 				"EffectName"	"particles/a04e/a04e.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -1261,6 +1265,7 @@
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 				"EffectName"	"particles/a04e/a04e.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"

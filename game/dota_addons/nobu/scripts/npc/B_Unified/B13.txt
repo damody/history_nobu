@@ -241,7 +241,8 @@
 				"IsDebuff"							"1"
 				"Duration"							"4.5"
 				"EffectName" 						"particles/generic_gameplay/generic_sleep.vpcf"
-                "EffectAttachType" 					"follow_overhead"	
+                "EffectAttachType" 					"follow_overhead"
+				"IsStunDebuff"	"1"	
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -571,6 +572,7 @@
 				"EffectName" 						"particles/generic_gameplay/generic_sleep.vpcf"
                 "EffectAttachType" 					"follow_overhead"
                 "Attributes"  "MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"

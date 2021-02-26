@@ -171,6 +171,7 @@
 						"Damage"		"%A11E_damage"
 					}
 				}
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -641,6 +642,7 @@
 						"Damage"		"%A11E_damage"
 					}
 				}
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"

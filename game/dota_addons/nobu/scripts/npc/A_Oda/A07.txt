@@ -80,6 +80,86 @@
 				"var_type"	"FIELD_INTEGER"
 				"atk_speed"	"60 70 80 90 100"
 			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"heal_percentage"	"4"
+			}
+		}
+	}
+
+	// 本多忠勝 奮起
+	"A07D2"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/dianwei_yaohuo"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"HotKeyOverride"	"D"
+		"MaxLevel"	"5"
+		"AbilityCooldown"	"5"
+		"AbilityManaCost"	"0"
+		"AbilityCastAnimation"	"ACT_DOTA_ATTACK"
+		"precache"
+		{
+			"particle"	"particles/a07d/a07d.vpcf"
+			"particle"	"particles/a07d2/a07d2.vpcf"
+			"particle"	"particles/a07d/a07d.vpcf"
+			"particle"	"particles/a07d2/a07d2.vpcf"
+		}
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"A07D.vo1"
+			}
+			"ApplyModifier"
+			{
+				"Target"	"CASTER"
+				"ModifierName"	"modifier_A07D"
+			}
+			"RunScript"
+			{
+				"Target"	"CASTER"
+				"Function"	"A07D_HealHP"
+				"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A07_Honda_Tadakatsu.lua"
+			}
+			"AttachEffect"
+			{
+				"Target"	"CASTER"
+				"EffectName"	"particles/a07d/a07d.vpcf"
+				"EffectAttachType"	"follow_hitloc"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_A07D"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%atk_speed"
+				}
+				"IsBuff"	"1"
+				"AllowIllusionDuplicate"	"1"
+				"Duration"	"3"
+				"EffectName"	"particles/a07d2/a07d2.vpcf"
+				"EffectAttachType"	"attach_hitloc"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"atk_speed"	"60 70 80 90 100"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"heal_percentage"	"4"
+			}
 		}
 	}
 
@@ -102,7 +182,7 @@
 		"AbilityCooldown"	"13"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"100 120 140 160"
+		"AbilityManaCost"	"100 110 120 130"
 		"precache"
 		{
 			"particle"	"particles/a07w5/a07w5.vpcf"
@@ -187,7 +267,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_FLOAT"
-				"duration"	"1 2 3 4"
+				"duration"	"1.25 2.25 3.25 4.25"
 			}
 			"03"
 			{
@@ -531,7 +611,7 @@
 							"Damage"
 							{
 								"Target"	"TARGET"
-								"Damage"	"%AbilityDamage"
+								"Damage"	"%damage"
 								"Type"	"DAMAGE_TYPE_MAGICAL"
 							}
 							"ApplyModifier"
@@ -546,6 +626,19 @@
 						"Target"	"CASTER"
 						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A07_Honda_Tadakatsu.lua"
 						"Function"	"A07E_SE"
+					}
+				}
+			}
+			"DelayedAction"
+			{
+				"Delay"	"1"
+				"Action"
+				{
+					"RunScript"
+					{
+						"Target"	"CASTER"
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A07_Honda_Tadakatsu.lua"
+						"Function"	"A07E_Unslow"
 					}
 				}
 			}
@@ -610,10 +703,12 @@
 				"var_type"	"FIELD_FLOAT"
 				"stun_duration"	"1.53 1.53 1.53 1.53"
 			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"150 250 350 450"
+			}
 		}
-		// Damage.
-		// -------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"	"150 250 350 450"
 		// Stats
 		// -------------------------------------------------------------------------------------------------------------
 		// applies 2 modifiers
@@ -684,6 +779,7 @@
 			{
 				"IsDebuff"	"1"
 				"Duration"	"%duration"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -725,7 +821,7 @@
 	{
 		"BaseClass"	"ability_datadriven"
 		"AbilityTextureName"	"custom/A07T_Ver2"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
@@ -848,20 +944,55 @@
 						"EffectName"	"particles/a07t2/a07t2.vpcf"
 						"EffectAttachType"	"follow_origin"
 					}
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_states_resistance.lua"
+						"Function"	"OnEquip"
+						"name"	"modifier_A07T"
+						"ms_unslow"	"%unslow_percentage"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Add_magical_resistance"
+						"magical_resistance"	"%magical_resistance"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_states_resistance.lua"
+						"Function"	"OnUnequip"
+						"name"	"modifier_A07T"
+						"ms_unslow"	"%unslow_percentage"
+					}
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Return_magical_resistance"
+						"magical_resistance"	"%magical_resistance"
+					}
+					"RunScript"
+					{
+						"Target"	"CASTER"
+						"ScriptFile"	"scripts/vscripts/heroes/A_Oda/A07_Honda_Tadakatsu.lua"
+						"Function"	"A07T_OnDestory"
+					}
 				}
 
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_movement_speed"
 					"MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE"	"3"
-					// "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"90"
 					"MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT"	"0.8"
 					"MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS" "alternate"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%str"
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%damage_incoming_percentage"
 				}
 				"States"
 				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+					// "MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Duration"	"%duration"
 				"IsBuff"	"1"
@@ -922,6 +1053,27 @@
 				"var_type"	"FIELD_INTEGER"
 				"CleavePercent"	"100"
 			}
+			"07"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"unslow_percentage"	"50"
+			}
+			"08"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"magical_resistance" "50"
+			}
+			"09"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"states_resistance"	"50"
+			}
+			"10"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"damage_incoming_percentage"	"-50"
+			}
+			
 		}
 		// Stats
 		// -------------------------------------------------------------------------------------------------------------
@@ -1472,6 +1624,7 @@
 			{
 				"IsDebuff"	"1"
 				"Duration"	"%duration"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
