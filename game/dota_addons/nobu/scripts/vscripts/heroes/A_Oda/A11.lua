@@ -122,9 +122,8 @@ end
 
 function A11E_Stop( keys )
 	local caster = keys.caster
-	local target = keys.target
 	local ability = keys.ability
-	target:RemoveModifierByName("modifier_A11E")
+	caster.A11E_target:RemoveModifierByName("modifier_A11E")
 end
 
 modifier_A11E = class({})
