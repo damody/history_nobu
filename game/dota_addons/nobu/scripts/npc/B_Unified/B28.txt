@@ -221,6 +221,16 @@
 			{
 				"IsHidden"	"1"
 				"Passive"	"0"
+				"OnTakeDamage"
+				//"%attack_damage"is set to the damage value after mitigation
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B28.lua"
+						"Function"	"B28E_OnTakeDamage"
+						"damage"	"%attack_damage"
+					}
+				}
 				"OnAbilityExecuted"
 				{
 					"RunScript"
@@ -265,6 +275,11 @@
 			{
 				"var_type"						"FIELD_INTEGER"
 				"B28E_damage"					"100"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"B28E_share_percentage"			"30"
 			}
 		}
 	}

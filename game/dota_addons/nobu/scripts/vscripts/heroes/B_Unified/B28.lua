@@ -1,12 +1,15 @@
 -- 松永久秀 by Nian Chen
 -- 2017.4.1
+LinkLuaModifier( "modifier_B28E_OnTakeDamage", "scripts/vscripts/heroes/B_Unified/B28.lua",LUA_MODIFIER_MOTION_NONE )
 
 function B28E( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
 	caster.B28E_target = target
+	caster.B28E_share_percentage = ability:GetSpecialValueFor("B28E_share_percentage")
 	local duration = keys.duration
+	caster:AddNewModifier(caster, ability, "modifier_B28E_OnTakeDamage", {duration = duration})
 	local dis = CalcDistanceBetweenEntityOBB(caster, target)
 	local r = 0
 	local r1 = 0
@@ -61,6 +64,36 @@ function B28E2_OnAbilityExecuted( keys )
 	if keys.event_ability:GetName() == "item_logging" or keys.event_ability:GetName() == "item_tpscroll" then return end
 	local caster = keys.caster
 	caster:RemoveModifierByName("modifier_B28E2")
+end
+
+function B28E_OnTakeDamage( keys ) 
+	local ability = keys.ability
+	local caster = keys.caster
+	local damage = keys.damage
+end
+modifier_B28E_OnTakeDamage = class({})
+
+function modifier_B28E_OnTakeDamage:DeclareFunctions()
+    local funcs = {
+        MODIFIER_EVENT_ON_TAKEDAMAGE
+    }
+    return funcs
+end
+-------------------------------------------------------------------------
+function modifier_B28E_OnTakeDamage:OnTakeDamage(event)
+	local unit = event.unit
+	local attacker = event.attacker
+	local damage = event.damage
+	local damage_type = event.damage_type
+	if IsServer() then
+		if unit:IsHero() and unit:HasModifier("modifier_B28E_OnTakeDamage") then
+			AMHC:Damage( unit,unit.B28E_target,damage*0.3,AMHC:DamageType("DAMAGE_TYPE_PURE") )
+		end
+	end
+end
+
+function modifier_B28E_OnTakeDamage:IsHidden()
+	return true
 end
 
 function B28R_OnProjectileHitUnit( keys )
