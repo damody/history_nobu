@@ -7087,7 +7087,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "1" //回血%
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "7" //跑速
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "15" //跑速
 				}
 			}
 			"Passive_item_glass_mitsutomo"

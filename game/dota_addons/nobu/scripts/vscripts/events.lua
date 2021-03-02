@@ -290,7 +290,7 @@ function Nobu:HealFilter(keys)
   if healer then
     if healer.HasModifier and healer:HasModifier("Passive_item_glass_mitsutomo") ~= nil then
       if healer ~= target then
-        keys.heal = keys.heal * 1.2
+        keys.heal = keys.heal * 1.25
       end
     end
   end
