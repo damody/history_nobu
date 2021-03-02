@@ -12247,7 +12247,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"magical_resistance"	"10"
+				"magical_resistance"	"15"
 			}
 		}
 	}
@@ -15363,7 +15363,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"magical_resistance"	"10"
+				"magical_resistance"	"15"
 			}
 		}
 	}
