@@ -130,6 +130,7 @@
 	"item"      "item_the_dark_yellow_teeth_and_zimbabwe"			//闇牙黃泉津
 	"item"		"item_Shintogo_Kunimitsu"	//新藤五國光
 	"item"		"item_Hannya_Onimaru"	//般若鬼丸
+	"item"		"item_wayumi"			//和弓
 }
 
 //高階道具
@@ -214,8 +215,8 @@
 	"item"      "item_the_sword_of_kaminaobi"			//神直毘御劍
 	"item"		"item_kat_steel" //吉鋼鐵
 	"item"		"item_death_of_scepter" // 逝者之笏
-	"item"		"item_wayumi" //和弓
 	"item"		"item_Oochidorijuumonnjiyari"
+	"item"		"item_wayumi2"			//改良和弓
 }
 
 

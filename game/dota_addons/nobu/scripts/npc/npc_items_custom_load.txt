@@ -17378,6 +17378,143 @@
 			}
 		}
 	}
+	//改良和弓 製作單
+	"item_recipe_wayumi2"
+	{
+		"ID" "2873"
+	    "BaseClass" "item_recipe_arcane_boots"
+		"ItemCost" "1000"
+		"ItemShopTags" ""
+		"ItemRecipe" "1"
+		"ItemResult" "item_wayumi2"
+		"ItemRequirements"
+		{
+			"01" "item_wayumi"
+		}
+	}
+	//改良和弓
+	"item_wayumi2"
+	{
+		// General
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/wayumi"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"	"1"
+		"AbilityManaCost"	"100"
+		"AbilityCooldown"	"45"
+		"AbilityCastRange"	"400"
+		"ID"	"2872"
+		"ItemQuality"	"component"
+		"Model"	"models/heroes/abaddon/weapon.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"ItemCost"	"2400"
+		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequirements"	{}
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items\Addon_Items\item_wayumi.lua"
+				"Function"	"OnEquip"
+			}
+		}
+		"OnUnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items\Addon_Items\item_wayumi.lua"
+				"Function"	"OnUnEquip"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items\Addon_Items\item_wayumi.lua"
+				"Function"	"OnSpellStart"
+			}
+		}
+		"Modifiers"
+		{
+			"passive_wayumi"
+			{
+				"IsHidden"	"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "15"	//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "28"	//攻
+					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
+					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦	
+				}
+			}
+			"modifier_wayumi"
+			{
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"125"
+				}
+			}
+			"modifier_wayumi_count_down"
+			{
+			}
+			"modifier_wayumi_target"
+			{
+				"IsDebuff"	"1"
+				"IsPurgable"	"0"
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items\Addon_Items\item_wayumi.lua"
+						"Function"	"OnAttacked"
+					}
+				}
+			}
+			"modifier_wayumi_snipe"
+			{
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items\Addon_Items\item_wayumi.lua"
+						"Function"	"OnAttackStart"
+					}
+				}
+				// "IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"9999999"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"50"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"duration"	"5"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"cnt"	"4"
+			}
+		}
+	}
 	"item_recipe_chidori"
 	{
 		"ID" "2867"
