@@ -11759,7 +11759,7 @@
 				// "EffectAttachType"	"follow_origin"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" 	"7"//抗魔
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" 	"10"//抗魔
 				}
 			}
 		}

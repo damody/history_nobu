@@ -79,8 +79,8 @@ end
 function ShockNew( keys )
 	local caster = keys.caster
 	local ability = keys.ability
-	keys.SHP1 = 400+caster:GetLevel()*20
-	keys.SHP2 = 400+caster:GetLevel()*20
+	keys.SHP1 = 800+caster:GetLevel()*20
+	keys.SHP2 = 800+caster:GetLevel()*20
 
 	local direUnits = FindUnitsInRadius(caster:GetTeamNumber(),
 	          caster:GetAbsOrigin(),
