@@ -10524,10 +10524,16 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"OnSpellStart"
 		{
-			"ApplyModifier"
+			// "ApplyModifier"
+			// {
+			// 	"ModifierName"	"modifier_arc_reito_lantern"
+			// 	"Target"	"TARGET"
+			// }
+			"RunScript"
 			{
-				"ModifierName"	"modifier_arc_reito_lantern"
-				"Target"	"TARGET"
+				"ScriptFile"	"items/Addon_Items/item_reito_lantern.lua"
+				"Function"	"reito_lantern_Jump"
+				"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
 			}
 			"FireSound"
 			{
@@ -10570,12 +10576,17 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"jump_count"	"8"
+				"jump_count"	"16"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_FLOAT"
 				"jump_delay"	"0.1"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"heal_cd"	"40"
 			}
 		}
 		
@@ -10598,6 +10609,12 @@
 		                "HealAmount"    "500"
 		            }
 				}
+			}
+			"modifier_arc_reito_lantern_cd"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"0"
+				"IsPurgable"	"0"
 			}
 			"modifier_item_reito_lantern_aura"
 			{

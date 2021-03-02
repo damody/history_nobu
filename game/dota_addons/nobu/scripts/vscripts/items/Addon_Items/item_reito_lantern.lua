@@ -6,6 +6,7 @@ function reito_lantern_Jump(keys)
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
+	local heal_cd = ability:GetSpecialValueFor("heal_cd")
 	local jump_delay = ability:GetLevelSpecialValueFor("jump_delay", (ability:GetLevel() -1))
 	local radius = ability:GetLevelSpecialValueFor("radius", (ability:GetLevel() -1))
 	local team = DOTA_UNIT_TARGET_TEAM_ENEMY
@@ -14,6 +15,10 @@ function reito_lantern_Jump(keys)
 	end
 	
 	-- Removes the hidden modifier
+	if not target:FindModifierByName("modifier_arc_reito_lantern_cd") then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_arc_reito_lantern", {})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_arc_reito_lantern_cd", {duration=heal_cd})
+	end
 	target:RemoveModifierByName("modifier_arc_reito_lantern")
 	local count = 0
 	-- Waits on the jump delay
@@ -75,7 +80,10 @@ function reito_lantern_Jump(keys)
 			-- Sets the new target as the current target for this instance
 			ability.target[current] = new_target
 			-- Applies the modifer to the new target, which runs this function on it
-			ability:ApplyDataDrivenModifier(caster, new_target, "modifier_arc_reito_lantern", {})
+			if not new_target:FindModifierByName("modifier_arc_reito_lantern_cd") then
+				ability:ApplyDataDrivenModifier(caster, new_target, "modifier_arc_reito_lantern", {})
+				ability:ApplyDataDrivenModifier(caster, new_target, "modifier_arc_reito_lantern_cd", {duration=heal_cd})
+			end
 		else
 			-- If there are no new targets, we set the current target to nil to indicate this instance is over
 			ability.target[current] = nil
