@@ -10524,11 +10524,6 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"OnSpellStart"
 		{
-			// "ApplyModifier"
-			// {
-			// 	"ModifierName"	"modifier_arc_reito_lantern"
-			// 	"Target"	"TARGET"
-			// }
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_reito_lantern.lua"
@@ -12963,11 +12958,6 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"OnSpellStart"
 		{
-			"ApplyModifier"
-			{
-				"ModifierName"	"modifier_arc_reito_lantern"
-				"Target"	"TARGET"
-			}
 			"FireSound"
 			{
 				"EffectName"	"Hero_Zuus.ArcLightning.Cast"
@@ -12975,8 +12965,8 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"items/Addon_Items/item_reito_lantern.lua"
-				"Function"	"reito_lantern"
+				"ScriptFile"	"items/Addon_Items/item_moon_mirror.lua"
+				"Function"	"moon_mirror"
 				"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf" 
 			}
 			"RunScript"
@@ -13009,26 +12999,31 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"jump_count"	"4"
+				"jump_count"	"8"
 			}
 			"03"
 			{
 				"var_type"	"FIELD_FLOAT"
 				"jump_delay"	"0.1"
 			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"heal_cd"	"40"
+			}
 		}
 		
 		"Modifiers"
 		{
-			"modifier_arc_reito_lantern"
+			"modifier_arc_moon_mirror"
 			{
 				"IsHidden"	"1"
 				"OnCreated"
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"items/Addon_Items/item_reito_lantern.lua"
-						"Function"	"reito_lantern_Jump"
+						"ScriptFile"	"items/Addon_Items/item_moon_mirror.lua"
+						"Function"	"moon_mirror_Jump"
 						"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
 					}
 					"Heal"
@@ -13037,6 +13032,18 @@
 		                "HealAmount"    "300"
 		            }
 				}
+			}
+			"modifier_arc_reito_lantern_cd"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"0"
+				"IsPurgable"	"0"
+			}
+			"modifier_arc_moon_mirror_cd"
+			{
+				"IsDebuff"	"1"
+				"IsHidden"	"0"
+				"IsPurgable"	"0"
 			}
 			"Passive_item_moon_mirror"
 			{
