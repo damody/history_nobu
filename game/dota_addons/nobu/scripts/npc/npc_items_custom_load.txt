@@ -3281,7 +3281,7 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "30"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "30"	//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "30"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "35"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "50"	//攻
 				}
 			}
 			"modifier_sword_of_invincible_passive"
@@ -3320,6 +3320,33 @@
 				}
 				"EffectAttachType"	"follow_origin"
 				"Duration"  "2"
+			}
+			"modifier_sword_of_invincible_str"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "15"	//力
+				}
+			}
+			"modifier_sword_of_invincible_agi"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "15"	//敏
+				}
+			}
+			"modifier_sword_of_invincible_int"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "15"	//智
+				}
 			}
 		}
 	}
