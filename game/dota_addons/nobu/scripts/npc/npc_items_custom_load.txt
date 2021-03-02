@@ -11153,6 +11153,11 @@
 			}
 			"RunScript"
 			{
+				"ScriptFile"	"items/Addon_Items/item_contemporary_armor.lua"
+				"Function"	"Shock"
+			}
+			"RunScript"
+			{
 			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
 				"Function"	"sound"
 				"sound"	"RestorationPotion"
@@ -11212,6 +11217,49 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "10"	//防禦
 				}
+			}
+			"modifier_contemporary_armor_block"
+			{
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_contemporary_armor.lua"
+						"Function"	"OnDestroy"
+					}
+				}
+				"Properties"
+			    {
+			        "MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK" "%block"
+			    }
+			}
+			"modifier_contemporary_armor_block_cd"
+			{
+				"IsDebuff"	"1"
+				"IsPurgable"	"0"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"block"	"200"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"block_duration"	"12"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"block_cd"	"40"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"block_radius"	"1200"
 			}
 		}
 	}
