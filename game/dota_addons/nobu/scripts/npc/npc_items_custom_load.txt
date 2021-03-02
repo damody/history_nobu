@@ -4030,7 +4030,7 @@
 		"ItemShopTags"		"damage"
 		"ItemRequirements"	{}
 		"AbilityManaCost"	"0"
-		"AbilityCooldown"	"25"
+		"AbilityCooldown"	"33"
 		"precache"
 		{
 			"particle"	"particles/item/d01/d01.vpcf"
@@ -4052,10 +4052,10 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "15"	//力
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "5"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"	//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "21"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "28"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "0" 	//回魔
@@ -4066,7 +4066,7 @@
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "100" //攻速
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "95" //攻速
 				}
 			}
 		}
