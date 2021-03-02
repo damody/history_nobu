@@ -10445,7 +10445,7 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT" "51"	//回魔
 				}
 			}
-			"Passive_lightning_katana"
+			"Passive_item_the_dark_armor"
 			{
 				"IsHidden"	"1"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
@@ -10524,12 +10524,6 @@
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"OnSpellStart"
 		{
-			"RunScript"
-			{
-				"ScriptFile"	"items/Addon_Items/item_reito_lantern.lua"
-				"Function"	"reito_lantern_Jump"
-				"particle"	"particles/units/heroes/hero_dazzle/dazzle_shadow_wave.vpcf"
-			}
 			"FireSound"
 			{
 				"EffectName"	"Hero_Zuus.ArcLightning.Cast"

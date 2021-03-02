@@ -108,7 +108,11 @@ function reito_lantern(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
-	
+	local heal_cd = ability:GetSpecialValueFor("heal_cd")
+	if not target:FindModifierByName("modifier_arc_reito_lantern_cd") then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_arc_reito_lantern", {})
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_arc_reito_lantern_cd", {duration=heal_cd})
+	end
 	-- Keeps track of the total number of instances of the ability (increments on cast)
 	if ability.instance == nil then
 		ability.instance = 0
