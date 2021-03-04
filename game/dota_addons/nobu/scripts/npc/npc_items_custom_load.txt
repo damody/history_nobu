@@ -13668,7 +13668,7 @@
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
 		
-		"AbilityCooldown"	"80"
+		"AbilityCooldown"	"60"
 		"AbilityCastRange"	"1000"
 		"AbilityManaCost"	"150"
 		
@@ -13718,7 +13718,7 @@
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"25"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%active_movespeed_percentage"
 				}
 				"Passive"	"0"
 				"Duration"	"1"
@@ -13730,7 +13730,7 @@
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"60"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%active_armor"
 				}
 				"Passive"	"0"
 				"Duration"	"8"
@@ -13746,7 +13746,8 @@
 						
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "6"	//防禦
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%aura_armor"	//防禦
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%aura_movespeed_percentage"	//防禦
 				}
 			}
 			"Passive_lost_art_of_war_2"
@@ -13762,9 +13763,9 @@
 				"Aura_ApplyToCaster" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "10"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "10"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "10"	//智
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%all_status"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%all_status"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%all_status"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
@@ -13782,6 +13783,34 @@
 				"Duration"	"30"
 				"IsDebuff"	"1"
 				"IsPurgable"	"0"
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_movespeed_percentage"			"3"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aura_armor"		"6"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"active_movespeed_percentage"			"25"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"active_armor"		"60"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"all_status"		"10"
 			}
 		}
 	}
