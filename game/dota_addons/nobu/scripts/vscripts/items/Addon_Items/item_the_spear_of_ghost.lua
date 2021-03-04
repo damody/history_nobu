@@ -67,16 +67,17 @@ function Shock( keys )
 				caster.scream_of_spiders = 0
 			end
 			caster.scream_of_spiders = caster.scream_of_spiders + 1
-			local trigger = 4
+			local trigger = 3
 			if caster:GetBaseAttackRange() < 200 then
 				trigger = 3
+				dmg_precentage = 8
 			end
 			if caster.scream_of_spiders >= trigger then
 	
 				caster.scream_of_spiders = 0
 				EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 	
-				local dmg = keys.target:GetMaxHealth() * keys.dmg * 0.01
+				local dmg = keys.target:GetMaxHealth() * dmg_precentage * 0.01
 				if not target:IsHero() then
 					if skill:GetName() == "item_the_scream_of_spiders"then 
 						if dmg > 350 then
