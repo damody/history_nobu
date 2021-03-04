@@ -14443,7 +14443,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "0"	//跑速
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "6" //技能傷害
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "4.5" //技能傷害
 				}
 			}
 		}
@@ -16887,14 +16887,14 @@
 	{
 	    "ID" "2835"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1250"
+		"ItemCost" "1400"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"SideShop"						"0"
 		"ItemResult" "item_ignite_book"  //合成後物品
 		"ItemRequirements"
 		{
-			"01" "item_spell_book;item_fire_scroll"  //合成所需物品
+			"01" "item_spell_book;item_intelligence_ingot"  //合成所需物品
 		}
 	}
 	// 天變之書製作單
