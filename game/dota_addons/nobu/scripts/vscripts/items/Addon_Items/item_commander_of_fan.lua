@@ -112,21 +112,65 @@ function Shock3( keys )
 	end
 end
 
--- function AuraHR (keys)
--- 	local caster = keys.caster
--- 	local target = keys.target
--- 	if not target.decrease_health then
--- 		target.decrease_health = 0.5
--- 	else
--- 		if target.decrease_health < 0.5 then
--- 			return
--- 	end
--- end
+function OnProjectileHit( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local range = ability:GetSpecialValueFor("range")
+	local push_time = ability:GetSpecialValueFor("push_time")
+	local maximum_push_distance = ability:GetSpecialValueFor("maximum_push_distance")
+	local silence_duration = ability:GetSpecialValueFor("silence_duration")
+	local debuff_duration = ability:GetSpecialValueFor("debuff_duration")
+	local pushVec = (target:GetAbsOrigin() - caster:GetAbsOrigin())
+	print(debuff_duration)
+	print(silence_duration)
+	AMHC:Damage(caster,target, 1,AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
+	Physics:Unit(target)
+	Physics:Unit(caster)
+	target:SetPhysicsVelocity(pushVec:Normalized()*(maximum_push_distance - (pushVec:Length() * maximum_push_distance / range)) / push_time)
+	target:StartPhysicsSimulation()
+	Timers:CreateTimer(push_time, function()
+		target:StopPhysicsSimulation()
+	end)
+	if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
+		if not (target:IsMagicImmune()) then
+			if target:IsHero() then
+				ability:ApplyDataDrivenModifier(caster,target,"modifier_decrease_HR",{duration=debuff_duration})
+				ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan1",{duration=silence_duration})
+				if target:IsIllusion() then
+					AMHC:Damage(caster,target,2000,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+				end
+			else
+				ability:ApplyDataDrivenModifier(caster,target,"modifier_decrease_HR",{duration=debuff_duration})
+				ability:ApplyDataDrivenModifier(caster,target,"modifier_commander_of_fan1",{duration=silence_duration})
+				if target:GetName() == "npc_dota_creature" then
+					AMHC:Damage(caster,target,2000,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+				end
+			end
+		end
+	end
+end
 
--- function AuraHR2 (keys)
--- 	local caster = keys.caster
--- 	local target = keys.target
--- 	if target:IsHero then
--- 		target.decrease_health = 1
--- 	end
--- end
+function Sound( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	EmitSoundOn( "Hero_MonkeyKing.Spring.Target" , caster )
+end
+
+function OnCreated( keys )
+	local target = keys.target
+	local ability = keys.ability
+	if target.states_resistance_decrease == nil then
+		target.states_resistance_decrease = 0
+	end
+	target.states_resistance_decrease = target.states_resistance_decrease - ability:GetSpecialValueFor("state_decrease")
+end
+
+function OnDestroy( keys )
+	local target = keys.target
+	local ability = keys.ability
+	if target.states_resistance_decrease == nil then
+		target.states_resistance_decrease = 0
+	end
+	target.states_resistance_decrease = target.states_resistance_decrease + ability:GetSpecialValueFor("state_decrease")
+end

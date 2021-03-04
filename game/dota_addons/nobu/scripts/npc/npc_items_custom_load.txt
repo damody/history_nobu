@@ -7570,22 +7570,43 @@
 		"ItemCost"	"2600"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+			"particle"	"particles/units/heroes/hero_drow/drow_silence_wave.vpcf"
+		}
 		"OnSpellStart"
 		{
+			"LinearProjectile"
+			{
+				"Target"	"POINT"
+				"EffectName"	"particles/units/heroes/hero_drow/drow_silence_wave.vpcf"
+				"MoveSpeed"	"%projectile_speed"
+				"StartRadius"	"%start_radius"
+				"StartPosition"	"attach_origin"
+				"EndRadius"	"%end_radius"
+				"FixedDistance"	"%range"
+				"TargetTeams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"TargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"HasFrontalCone"	"1"
+				"ProvidesVision"	"0"
+			}
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_commander_of_fan.lua"
-				"Function"	"Shock"
-				"Target"	"POINT"
-			}
-			"RunScript"
-			{
-			  	"ScriptFile"	"items/Addon_Items/item_soul_adder.lua"
-				"Function"	"sound"
-				"sound"	"Silence1"
+				"Function"	"Sound"
 			}
 		}
-		
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_commander_of_fan.lua"
+				"Function"	"OnProjectileHit"
+			}
+		}
 		"Modifiers"
 		{
 			"Passive_commander_of_fan"
@@ -7608,11 +7629,6 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "0"	//防禦
 				}
-				"Aura"	"modifier_decrease_HR"
-				"Aura_Radius"	"700"
-				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 			}
 			"modifier_commander_of_fan1"
 			{
@@ -7620,43 +7636,11 @@
 				"IsHidden"			"0"
 				"IsPurgable"	"1"
 				"IsDebuff"		"1"
-				"Duration"			"3"
 				"EffectName"	"particles/generic_gameplay/generic_silenced_old.vpcf"
 				"EffectAttachType"	"follow_hitloc"
 				"States"
 				{
 					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_commander_of_fan2"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsPurgable"	"1"
-				"IsDebuff"		"1"
-				"Duration"			"3"
-				"EffectName"	"particles/generic_gameplay/generic_silenced_old.vpcf"
-				"EffectAttachType"	"follow_hitloc"
-				"States"
-				{
-					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-			"modifier_commander_of_fan3"
-			{
-				"Passive"			"0"
-				"IsHidden"			"0"
-				"IsPurgable"	"1"
-				"IsDebuff"		"1"
-				"Duration"			"10"
-				"EffectName"	"particles/generic_gameplay/generic_silenced_old.vpcf"
-				"EffectAttachType"	"follow_hitloc"
-				"States"
-				{
-					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 			"modifier_decrease_HR"
@@ -7664,7 +7648,75 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
-				"Duration"			"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_commander_of_fan.lua"
+						"Function"	"OnCreated"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_commander_of_fan.lua"
+						"Function"	"OnDestroy"
+					}
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type" "FIELD_INTEGER"
+				"projectile_speed" "2000"
+			}
+			"02"
+			{
+				"var_type" "FIELD_INTEGER"
+				"start_radius" "250"
+			}
+			"03"
+			{
+				"var_type" "FIELD_INTEGER"
+				"end_radius" "250"
+			}
+			"04"
+			{
+				"var_type" "FIELD_INTEGER"
+				"range" "900"
+			}
+			"05"
+			{
+				"var_type" "FIELD_INTEGER"
+				"debuff_duration" "8"
+			}
+			"06"
+			{
+				"var_type" "FIELD_INTEGER"
+				"silence_duration" "3"
+			}
+			"07"
+			{
+				"var_type" "FIELD_INTEGER"
+				"maximum_push_distance" "200"
+			}
+			"08"
+			{
+				"var_type" "FIELD_FLOAT"
+				"push_time" "0.5"
+			}
+			"09"
+			{
+				"var_type" "FIELD_FLOAT"
+				"minion_damage" "2000"
+			}
+			"10"
+			{
+				"var_type" "FIELD_FLOAT"
+				"state_decrease" "50"
 			}
 		}
 	}
@@ -17383,7 +17435,7 @@
 	{
 		"ID" "2873"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1000"
+		"ItemCost" "2000"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_wayumi2"
