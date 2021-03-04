@@ -3591,10 +3591,6 @@
 				{
 					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-          		"Properties"
-           		{
-                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "101"
-           		}
 			}
 		}
 		// Special
@@ -10210,7 +10206,7 @@
 		
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/raikiri"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
@@ -10224,6 +10220,14 @@
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequirements"	{}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_lightning_scroll.lua"
+				"Function"	"Shock"
+			}
+		}
 		"OnEquip"
 		{
 			"RunScript"
@@ -10283,10 +10287,6 @@
 				{
 					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
-          		"Properties"
-           		{
-                	"MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE"    "101"
-           		}
 			}
 		}
 		"AbilitySpecial"
@@ -10319,7 +10319,7 @@
 			"06"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"400"
+				"damage"	"350"
 			}
 			"07"
 			{
