@@ -10023,16 +10023,18 @@
 		
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/kokumo"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
+		"AbilityCooldown"	"25"
 		
-		"AbilityCooldown"	"0"
-		
-		"AbilityManaCost"	"0"
+		"AbilityManaCost"	"60"
+		"AbilityCastPoint"	"0.2"
+		"AbilityCastRange"	"600"
+		"AbilitySharedCooldown" "item_yubashiri"
 		"ID"	"2525"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -10041,7 +10043,19 @@
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequirements"	{}
-
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_frozen_ring.lua"
+				"Function"	"Shock2"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Ability.FrostNova"
+				"Target"	"TARGET"
+			}
+		}
 		"OnEquip"
 		{
 			"RunScript"
@@ -10220,6 +10234,11 @@
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemRequirements"	{}
+		"AbilityCooldown"	"20"
+		"AbilitySharedCooldown" "share_lightning_scroll"
+		"AbilityManaCost"	"120"
+		"AbilityCastPoint"	"0.1"
+		"AbilityCastRange"	"500"
 		"OnSpellStart"
 		{
 			"RunScript"
