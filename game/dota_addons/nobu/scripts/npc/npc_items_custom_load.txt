@@ -9223,7 +9223,7 @@
 	{
 	    "ID" "3062"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "1430"
+		"ItemCost" "430"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_satsuma_gun"  //合成後物品
@@ -13232,7 +13232,7 @@
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
-		"ItemCost"	"4500"
+		"ItemCost"	"3500"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"precache"
@@ -13289,21 +13289,21 @@
 				"IsDebuff"	"1"
 			}
 		}
-		"OnProjectileHitUnit"
-		{
-			"DeleteOnHit"	"0"
-			"RunScript"
-			{
-				"TARGET"	"TARGET"
-				"ScriptFile"	"items/Addon_Items/item_satsuma_gun.lua"
-				"Function"	"OnProjectileHit"
-			}
-			"FireSound"
-			{
-				"Target"	"TARGET"
-				"EffectName"	"Hero_Sniper.AssassinateDamage"
-			}
-		}
+		// "OnProjectileHitUnit"
+		// {
+		// 	"DeleteOnHit"	"0"
+		// 	"RunScript"
+		// 	{
+		// 		"TARGET"	"TARGET"
+		// 		"ScriptFile"	"items/Addon_Items/item_satsuma_gun.lua"
+		// 		"Function"	"OnProjectileHit"
+		// 	}
+		// 	"FireSound"
+		// 	{
+		// 		"Target"	"TARGET"
+		// 		"EffectName"	"Hero_Sniper.AssassinateDamage"
+		// 	}
+		// }
 	}
 
 	// 孫子兵法．山之章
