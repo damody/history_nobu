@@ -13514,7 +13514,7 @@
 		"AbilitySharedCooldown"	"share_forest_scroll"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"30"
+		"AbilityCooldown"	"60"
 		"AbilityManaCost"	"100"
 
 		"ID"	"2534"
