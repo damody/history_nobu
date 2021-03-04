@@ -12647,7 +12647,7 @@
 				"ScriptFile"	"items/Addon_Items/item_states_resistance.lua"
 				"Function"	"OnEquip"
 				"name"	"swiftness_boots"
-				"ms_unslow"	"40"
+				"ms_unslow"	"20"
 			}
 			"RunScript"
 			{
@@ -12662,7 +12662,7 @@
 				"ScriptFile"	"items/Addon_Items/item_states_resistance.lua"
 				"Function"	"OnUnequip"
 				"name"	"swiftness_boots"
-				"ms_unslow"	"40"
+				"ms_unslow"	"20"
 			}
 			"RunScript"
 			{
@@ -12749,7 +12749,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"states_resistance"	"30"
+				"states_resistance"	"25"
 			}
 		}
 	}
@@ -12798,7 +12798,7 @@
 				"ScriptFile"	"items/Addon_Items/item_states_resistance.lua"
 				"Function"	"OnEquip"
 				"name"	"swiftness_boots1"
-				"ms_unslow"	"40"
+				"ms_unslow"	"20"
 			}
 			"RunScript"
 			{
@@ -12813,7 +12813,7 @@
 				"ScriptFile"	"items/Addon_Items/item_states_resistance.lua"
 				"Function"	"OnUnequip"
 				"name"	"swiftness_boots1"
-				"ms_unslow"	"40"
+				"ms_unslow"	"20"
 			}
 			"RunScript"
 			{
@@ -12900,7 +12900,7 @@
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"states_resistance"	"30"
+				"states_resistance"	"25"
 			}
 		}
 	}
