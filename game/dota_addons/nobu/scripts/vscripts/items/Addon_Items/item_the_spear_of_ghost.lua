@@ -11,6 +11,7 @@ function Shock( keys )
 	local target = keys.target
 	local skill = keys.ability
 	local name = skill:GetAbilityName()
+	local dmg_precentage = keys.dmg
 	if name == "item_the_spear_of_ghost" then
 		if not target:IsBuilding() then
 			local ran =  RandomInt(0, 100)
@@ -18,16 +19,17 @@ function Shock( keys )
 				caster.spear_of_ghost = 0
 			end
 			caster.spear_of_ghost = caster.spear_of_ghost + 1
-			local trigger = 4
+			local trigger = 3
 			if caster:GetBaseAttackRange() < 200 and caster.name ~= "B04" then
 				trigger = 3
+				dmg_precentage = 5
 			end
 			if caster.spear_of_ghost >= trigger then
 	
 				caster.spear_of_ghost = 0
 				EmitSoundOnLocationWithCaster( keys.target:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", keys.target)
 	
-				local dmg = keys.target:GetMaxHealth() * keys.dmg * 0.01
+				local dmg = keys.target:GetMaxHealth() * dmg_precentage * 0.01
 				if not target:IsHero() then
 					if skill:GetName() == "item_the_scream_of_spiders"then 
 						if dmg > 350 then

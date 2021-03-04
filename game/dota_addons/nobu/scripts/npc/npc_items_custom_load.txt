@@ -8249,7 +8249,7 @@
 					{
 						"ScriptFile"	"items/Addon_Items/item_the_spear_of_ghost.lua"
 						"Function"	"Shock"
-						"dmg"	"5"
+						"dmg"	"3"
 					}
 				}
 			}
