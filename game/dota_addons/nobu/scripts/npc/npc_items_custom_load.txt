@@ -1491,7 +1491,7 @@
 		"AbilityTextureName"	"item_custom/the_art_of_war_forest_chapter"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"	"1"
-		"AbilityCooldown"	"25"
+		"AbilityCooldown"	"60"
 		"AbilityManaCost"	"60"
 		// Valve's version of this item uses the ID "1".
 		"ID"	"2531"
