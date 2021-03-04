@@ -7260,8 +7260,8 @@
 		"AbilityCooldown"	"25"
 		"AbilityManaCost"	"120"
 		"AbilityCastPoint"	"0.2"
-		"AbilityCastRange"	"700"
-		"AbilityDamage"		"350"
+		"AbilityCastRange"	"500"
+		"AbilityDamage"		"310"
 		"ID"	"2584"
 		"ItemQuality"	"component"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
@@ -7321,7 +7321,7 @@
 				"StartRadius"	"250"
 				"StartPosition"	"attach_origin"
 				"EndRadius"	"250"
-				"FixedDistance"	"900"
+				"FixedDistance"	"%radius"
 				"TargetTeams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				"TargetTypes"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 				"TargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
@@ -7357,13 +7357,18 @@
 			"01"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"damage"	"350"
+				"damage"	"310"
 			}
 			"02"
 			{
 				"var_type"	"FIELD_INTEGER"
 				"extra_damage"	"30"
 			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"radius"	"500"
+			}			
 		}
 	}
 
@@ -8659,7 +8664,7 @@
 	{
 	    "ID" "3022"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "500"
+		"ItemCost" "600"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_the_club_of_nebula"  //合成後物品
