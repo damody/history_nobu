@@ -9755,10 +9755,10 @@
 				"Passive"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "5"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "5"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "5"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "50"	//攻
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%all_stats"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%all_stats"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%all_stats"	//智
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "%atk"	//攻
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "0"	//魔抗
 				}
 				"OnAttackLanded"
@@ -9768,12 +9768,16 @@
 						"dmg"	"%attack_damage"
 						"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
 						"Function"	"StealLife2"
-						"StealPercent"	"15"
+						"StealPercent"	"%life_steal_percentage"
 					}
-					"ApplyModifier"
+				}
+				"ThinkInterval"		"0.8"
+				"OnIntervalThink"
+				{
+					"RunScript"
 					{
-						"Target"	"CASTER"
-						"ModifierName"	"modifier_move_speed_bonus"
+						"ScriptFile"	"items/Addon_Items/item_muramasa_katana.lua"
+						"Function"		"OnIntervalThink"
 					}
 				}
 				"OnHeroKilled"
@@ -9785,14 +9789,53 @@
 					}
 				}
 			}
-			"modifier_move_speed_bonus"
+			"modifier_blade_of_blood_devourer"
 			{
 				"IsBuff"	"1"
 				"Duration"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"15"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movespeed_percentage"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%atk_speed"
 				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"all_stats"			"5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"atk"				"50"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"atk_speed"			"30"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"movespeed_percentage"		"10"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"life_steal_percentage"		"15"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"1000"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"heal_percentage"			"10"
 			}
 		}
 	}
@@ -13763,9 +13806,9 @@
 				"Aura_ApplyToCaster" "1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%all_status"	//力
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%all_status"		//敏
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%all_status"	//智
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%all_stats"	//力
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%all_stats"		//敏
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%all_stats"	//智
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "0" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
@@ -13810,7 +13853,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"all_status"		"10"
+				"all_stats"		"10"
 			}
 		}
 	}
