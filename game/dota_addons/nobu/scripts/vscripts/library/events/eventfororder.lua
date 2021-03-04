@@ -187,7 +187,7 @@ function spell_ability ( filterTable )
 						print("item:StartCooldown", item:GetCooldown(-1))
 						item:StartCooldown(item:GetCooldown(-1))
 						if item:GetName() == "item_nannbann_armor" then
-							item:ApplyDataDrivenModifier(target,target,"modifier_nannbann_purge",{duration = 2.5})
+							item:ApplyDataDrivenModifier(target,target,"modifier_nannbann_purge",{duration = 1.75})
 						elseif item:GetName() ~= "item_protection_amulet" then
 							target:AddNewModifier(target, nil, "nobu_modifier_magical_shield", {duration = 5})
 						end
