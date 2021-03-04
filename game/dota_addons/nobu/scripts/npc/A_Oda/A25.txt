@@ -475,7 +475,7 @@
 			"03"
 			{
 				"var_type"	"FIELD_INTEGER"
-				"buff_mov_spd"	"50"
+				"buff_mov_spd"	"20"
 			}
 		}
 	}	

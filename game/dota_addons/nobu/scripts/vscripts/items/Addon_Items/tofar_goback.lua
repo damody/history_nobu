@@ -864,13 +864,13 @@ function afk_checker ( keys )
   end
 
 function SendHTTPRequest(path, method, values, callback)
-	local req = CreateHTTPRequestScriptVM( method, "http://nobu.gg/clientApi//"..path )
-	print("path : " .. path)
-	print("values : " .. values)
-    req:SetHTTPRequestRawPostBody("application/json", values)
-    req:Send(
-        function(result)
-            callback(result)
-        end
-    )
+	-- local req = CreateHTTPRequestScriptVM( method, "http://nobu.gg/clientApi//"..path )
+	-- print("path : " .. path)
+	-- print("values : " .. values)
+    -- req:SetHTTPRequestRawPostBody("application/json", values)
+    -- req:Send(
+    --     function(result)
+    --         callback(result)
+    --     end
+    -- )
 end

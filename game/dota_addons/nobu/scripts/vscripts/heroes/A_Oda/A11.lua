@@ -1,5 +1,6 @@
 -- 齋藤道三 by Nian Chen
 -- 2017.3.28
+LinkLuaModifier("modifier_A11E", "scripts/vscripts/heroes/A_Oda/A11.lua",LUA_MODIFIER_MOTION_NONE)
 
 function A11W( keys )
 	local caster = keys.caster
@@ -59,6 +60,21 @@ end
 function A11E( keys )
 	local caster = keys.caster
 	local target = keys.target
+	local ability = keys.ability
+	local duration = ability:GetSpecialValueFor("A11E_duration")
+	local distance_percentage = ability:GetSpecialValueFor("distance_percentage")
+	local caster_pos = caster:GetAbsOrigin()
+	local target_pos = target:GetAbsOrigin()
+	local pos = (caster_pos + target_pos) * distance_percentage / 100
+	local distance = (pos - target_pos):Length()
+	target.A11E_move_speed = distance / duration
+	ExecuteOrderFromTable({
+		UnitIndex = target:entindex(),
+		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION,
+		Position = pos,
+		Queue = false
+	})
+	target:AddNewModifier(target, ability, "modifier_A11E", {duration = duration})
 	local particle = ParticleManager:CreateParticle("particles/a11e/a11e_rope.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(particle, 4, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
@@ -67,7 +83,84 @@ function A11E( keys )
 	local particle3 = ParticleManager:CreateParticle("particles/a11e/a11e_rope_flames.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControlEnt(particle3, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(particle3, 4, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
-	
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_A11E_increase_int", {}):SetStackCount(1)
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_A11E_descrease_int", {}):SetStackCount(1)
+	local A11E_count = 0
+	Timers:CreateTimer(0.2, function ()
+      	if target ~= nil and IsValidEntity(target) and target:HasModifier("modifier_A11E") then
+      		local particle2 = ParticleManager:CreateParticle("particles/a11e/a11e_rope_flames.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			ParticleManager:SetParticleControlEnt(particle2, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
+			ParticleManager:SetParticleControlEnt(particle2, 4, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+			A11E_count = A11E_count + 0.2
+			print(A11E_count)
+			if A11E_count > 1 then
+				if target:HasModifier("modifier_A11E_descrease_int") then
+					local stack_count = target:FindModifierByName("modifier_A11E_descrease_int"):GetStackCount()
+					target:FindModifierByName("modifier_A11E_descrease_int"):SetStackCount(stack_count + 1)
+				else
+					ability:ApplyDataDrivenModifier(caster, target, "modifier_A11E_descrease_int", {}):SetStackCount(1)
+				end
+				if caster:HasModifier("modifier_A11E_increase_int") then
+					local stack_count = caster:FindModifierByName("modifier_A11E_increase_int"):GetStackCount()
+					caster:FindModifierByName("modifier_A11E_increase_int"):SetStackCount(stack_count + 1)
+				else
+					ability:ApplyDataDrivenModifier(caster, caster, "modifier_A11E_increase_int", {}):SetStackCount(1)
+				end
+				A11E_count = 0
+			end
+      		return 0.2
+      	else
+      		if IsValidEntity(target) then
+				target:RemoveModifierByName("modifier_A11E")  
+      		end
+      		caster.A11E_target = nil
+      		ParticleManager:DestroyParticle(particle,false)
+      		return nil
+      	end
+    end)
+end
+
+function A11E_Stop( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	caster.A11E_target:RemoveModifierByName("modifier_A11E")
+end
+
+modifier_A11E = class({})
+-------------------------------------------------------------------
+function modifier_A11E:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
+	}
+	return funcs
+end
+
+function modifier_A11E:CheckState()
+	local state = {
+		[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+	}
+	return state
+end
+
+function modifier_A11E:IsDebuff()
+	return true
+end
+
+function modifier_A11E:GetModifierMoveSpeed_Absolute( params )
+	return self:GetCaster().A11E_move_speed
+end
+
+function A11E_old( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local particle = ParticleManager:CreateParticle("particles/a11e/a11e_rope.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(particle, 4, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+	caster.A11E_target = target
+
+	local particle3 = ParticleManager:CreateParticle("particles/a11e/a11e_rope_flames.vpcf", PATTACH_CUSTOMORIGIN, caster)
+	ParticleManager:SetParticleControlEnt(particle3, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack2", caster:GetAbsOrigin(), true)
+	ParticleManager:SetParticleControlEnt(particle3, 4, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	Timers:CreateTimer(0.2, function ()
       	if target ~= nil and IsValidEntity(target) and target:HasModifier("modifier_A11E") and caster:HasModifier("modifier_A11E2") then
       		local particle2 = ParticleManager:CreateParticle("particles/a11e/a11e_rope_flames.vpcf", PATTACH_CUSTOMORIGIN, caster)

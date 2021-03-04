@@ -552,11 +552,24 @@ function Nobu:eventfororder( filterTable )
 				return true
 			end
 			local pos = caster:GetAbsOrigin()
-			local target = target:GetAbsOrigin()
-			local forward = target - pos
+			local target_pos = target:GetAbsOrigin()
+			local forward = target_pos - pos
 			forward.z = 0
 			if forward:Length2D() > 1 and not caster:HasModifier("modifier_knockback") then
 				caster:SetForwardVector(forward)
+			end
+			if target:HasModifier("modifier_wayumi_target") and caster:HasModifier("modifier_wayumi_count_down") then
+				for i = 0, 6 do
+					local item = caster:GetItemInSlot( i )
+					if item then
+						if item:GetName() == "item_wayumi2" then
+							local wayumi = item
+							local distance = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length()
+							wayumi:ApplyDataDrivenModifier(caster, caster, "modifier_wayumi_snipe", {duration=1/caster:GetAttackSpeed() + distance/caster:GetProjectileSpeed() + 0.1})
+							break;
+						end
+					end
+				end
 			end
 		end
 		return EventForAttackTarget(filterTable)

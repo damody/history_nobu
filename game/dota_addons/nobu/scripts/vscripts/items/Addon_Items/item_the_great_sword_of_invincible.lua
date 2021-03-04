@@ -5,8 +5,15 @@ function OnEquip( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	caster.Is_invincible_equip = true
+	local attribute = caster:GetPrimaryAttribute()
+	if attribute == 0 then
+		caster:RemoveModifierByName("modifier_sword_of_invincible_str")
+	elseif attribute == 1 then
+		caster:RemoveModifierByName("modifier_sword_of_invincible_agi")
+	else
+		caster:RemoveModifierByName("modifier_sword_of_invincible_int")
+	end
 	caster:RemoveModifierByName("modifier_sword_of_invincible_passive")
-	print(ability:GetCooldownTimeRemaining())
 	ability.timer = Timers:CreateTimer(0, function() 
 		if not caster.Is_invincible_equip then
 			return nil
@@ -45,7 +52,8 @@ function Shock( keys )
 	-- target:Purge( RemovePositiveBuffs, RemoveDebuffs, BuffsCreatedThisFrameOnly, RemoveStuns, RemoveExceptions)
 
 	-- Particle. Need to wait one frame for the older particle to be destroyed
-	
+	target.ms_slow = {}
+	target.as_slow = {}
 	target.ShieldParticle = ParticleManager:CreateParticle("particles/a07w5/a07w5.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 	ParticleManager:SetParticleControl(target.ShieldParticle, 1, Vector(shield_size,0,shield_size))
 	ParticleManager:SetParticleControl(target.ShieldParticle, 2, Vector(shield_size,0,shield_size))

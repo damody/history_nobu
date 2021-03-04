@@ -155,7 +155,7 @@ end
 
 function OnCreated( keys )
 	local target = keys.caster
-	target.nannbann_shield = ParticleManager:CreateParticle("particles/item/supressor_armor.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+	target.nannbann_shield = ParticleManager:CreateParticle("particles/item/nannbann_armor.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
     ParticleManager:SetParticleControl(target.nannbann_shield, 1, target:GetAbsOrigin()+Vector(0, 0, 0))
 							
 end

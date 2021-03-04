@@ -202,7 +202,11 @@ function A07E_SE( keys )
 	end
 end
 
-
+function A07E_Unslow( keys )
+	local caster = keys.caster
+	caster.as_slow = {}
+	caster.ms_slow = {}
+end
 
 --[[Author: LinWeiHan
 	Date: 03.05.2016.
@@ -211,17 +215,17 @@ function A07D_HealHP( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local level = ability:GetLevel()
-	local hModifier = caster:FindModifierByNameAndCaster("modifier_A07T", caster)--獲取modifier
+	-- local hModifier = caster:FindModifierByNameAndCaster("modifier_A07T", caster)--獲取modifier
 	local float_healhp
 
-	if hModifier ~= nil then
-		float_healhp = ((caster:GetHealth()) + (0.06 * caster:GetMaxHealth()))
-		caster:SetHealth(float_healhp)
-		ability:ApplyDataDrivenModifier(caster, caster, "modifier_A07D", {duration = duration})
-	else
-		float_healhp = ((caster:GetHealth()) + (0.03 * caster:GetMaxHealth()))
-		caster:SetHealth(float_healhp)	
-	end
+	-- if hModifier ~= nil then
+	-- 	float_healhp = ((caster:GetHealth()) + (0.06 * caster:GetMaxHealth()))
+	-- 	caster:SetHealth(float_healhp)
+	-- 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_A07D", {duration = duration})
+	-- else
+	float_healhp = ((caster:GetHealth()) + (0.03 * caster:GetMaxHealth()))
+	caster:SetHealth(float_healhp)	
+	-- end
 end
 
 --[[
@@ -239,6 +243,11 @@ function A07R_Learn_Skill( keys )
 		ability:SetLevel(level+1)
 		ability:SetActivated(true)
 	end
+	local ability2 = caster:FindAbilityByName("A07D2")
+	if ability2 ~= nil then
+		ability2:SetLevel(level+1)
+		ability2:SetActivated(true)
+	end
 end
 
 --[[Author: LinWeiHan
@@ -251,9 +260,32 @@ function A07T_Transform( keys )
 
 	local duration = ability:GetLevelSpecialValueFor("duration",level - 1)
 	local am = caster:FindAllModifiers()
+	local A07W_ability = caster:FindAbilityByName("A07W")
+	local A07W_cooldown = A07W_ability:GetCooldownTime()
+	local A07E_ability = caster:FindAbilityByName("A07E")
+	local A07E_cooldown = A07E_ability:GetCooldownTime()
+	A07W_ability:EndCooldown()
+	A07E_ability:EndCooldown()
+	caster:CastAbilityImmediately(A07W_ability, 0)
+	caster:SetMana(caster:GetMana() + A07W_ability:GetManaCost(A07W_ability:GetLevel()))
+	caster:CastAbilityImmediately(A07E_ability, 0)
+	caster:SetMana(caster:GetMana() + A07E_ability:GetManaCost(A07E_ability:GetLevel()))
+	A07W_ability:EndCooldown()
+	A07W_ability:StartCooldown(A07W_cooldown)
+	A07E_ability:EndCooldown()
+	A07E_ability:StartCooldown(A07E_cooldown)
+	local A07D_ability = caster:FindAbilityByName("A07D")
+	local A07D_level = A07D_ability:GetLevel()
+	local A07D_cooldown = A07D_ability:GetCooldownTime()
+	caster:RemoveAbility("A07D")
+	caster:AddAbility("A07D2")
+	caster:FindAbilityByName("A07D2"):SetLevel(A07D_level)
+	caster:FindAbilityByName("A07D2"):StartCooldown(A07D_cooldown)
 	for _,v in pairs(am) do
 		if v:GetParent():GetTeamNumber() ~= caster:GetTeamNumber() or v:GetCaster():GetTeamNumber() ~= caster:GetTeamNumber() then
-			caster:RemoveModifierByName(v:GetName())
+			if v:IsStunDebuff() then
+				caster:RemoveModifierByName(v:GetName())
+			end
 		end
 	end
 	local particle1 = ParticleManager:CreateParticle("particles/a07/a07t2.vpcf", PATTACH_POINT_FOLLOW, caster)
@@ -277,6 +309,18 @@ function A07T_Transform( keys )
 		end
 	end)
 	
+end
+
+function A07T_OnDestory (keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local A07D2_ability = caster:FindAbilityByName("A07D2")
+	local A07D2_level = A07D2_ability:GetLevel()
+	local A07D2_cooldown = A07D2_ability:GetCooldownTime()
+	caster:RemoveAbility("A07D2")
+	caster:AddAbility("A07D")
+	caster:FindAbilityByName("A07D"):SetLevel(A07D2_level)
+	caster:FindAbilityByName("A07D"):StartCooldown(A07D2_cooldown)
 end
 
 function A07T_SE( keys )

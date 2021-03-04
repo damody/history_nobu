@@ -88,7 +88,7 @@ function item_kokumo( keys )
 								DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 								FIND_ANY_ORDER,
 								false)
-			local dmg = 375
+			local dmg = 300
 			if caster.orb then
 				dmg = dmg * caster.orb
 			end

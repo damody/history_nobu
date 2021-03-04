@@ -151,6 +151,7 @@ function Trig_C21TActions( keys )
 			
 			--call function
 			if IsValidEntity(u2) and u2:GetUnitName() then
+				AddFOWViewer(caster:GetTeamNumber(), caster:GetAbsOrigin(), 200, 1, false)	
 				EmitSoundOnLocationWithCaster( u2:GetAbsOrigin(),"Hero_SkeletonKing.CriticalStrike", u2)
 				C21T_Copy(u,i, u2)
 				C21T_Effect(u,u2,i)

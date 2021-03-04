@@ -413,6 +413,7 @@
 			}
 			"modifier_C15T_2"
 			{
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -753,6 +754,7 @@
 			}
 			"modifier_C15T_2"
 			{
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"

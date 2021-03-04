@@ -286,12 +286,21 @@ function Nobu:HealFilter(keys)
 	local target = EntIndexToHScript(keys.entindex_target_const)
 	local heal = keys.heal
   local healer = keys.entindex_inflictor_const and EntIndexToHScript(keys.entindex_inflictor_const) or nil
-  
   if healer then
-    if healer.HasModifier and healer:HasModifier("Passive_item_glass_mitsutomo") ~= nil then
-      if healer ~= target then
-        keys.heal = keys.heal * 1.2
+    if healer ~= target then
+      if healer:HasModifier("Passive_item_glass_mitsutomo") ~= nil then
+          keys.heal = keys.heal * 1.25
       end
+      if healer:HasModifier("modifier_item_reito_lantern") ~= nil then
+        keys.heal = keys.heal * 1.30
+      end
+      if target:HasModifier("Passive_item_the_dark_armor") then
+        keys.heal = keys.heal * 1.20
+      end
+    end
+  else
+    if target:HasModifier("Passive_item_the_dark_armor") then
+      keys.heal = keys.heal * 1.20
     end
   end
 
@@ -350,10 +359,10 @@ function Nobu:HealFilter(keys)
     end
   end
   
-  if not target:HasModifier("modifier_spawn_spiderlings_datadriven") or not target:HasModifier("modifier_decrease_HR") or not target:HasModifier("modifier_satsuma_gun_DH")
-   or not target:HasModifier("modifier_C07T_2") or not target:HasModifier("modifier_the_great_sword_of_toxic_DH") then
-    target.decrease_health = 1
-  end
+  -- if not target:HasModifier("modifier_spawn_spiderlings_datadriven") or not target:HasModifier("modifier_decrease_HR") or not target:HasModifier("modifier_satsuma_gun_DH")
+  --  or not target:HasModifier("modifier_C07T_2") or not target:HasModifier("modifier_the_great_sword_of_toxic_DH") then
+  --   target.decrease_health = 1
+  -- end
 
   if target.decrease_health then
     keys.heal = keys.heal * target.decrease_health
@@ -381,9 +390,14 @@ function Nobu:ModifierGainedFilter( filterTable )
       return true
     end
   end
-
+  if target.states_resistance == nil then
+    target.states_resistance = 0
+  end
   if target:IsHero() and target.states_resistance ~= nil and caster:GetTeamNumber() ~= target:GetTeamNumber() then
-    filterTable.duration = filterTable.duration * (1 - target.states_resistance*0.01)
+    if target.states_resistance_decrease == nil then
+      target.states_resistance_decrease = 0
+    end
+    filterTable.duration = filterTable.duration * (1 - target.states_resistance*0.01 - target.states_resistance_decrease*0.01)
   end
   --強王
   if target:GetUnitName() == "npc_dota_the_king_of_robbers" then

@@ -829,18 +829,26 @@ function Slow ( keys )
   if caster.illusion_damage ~= nil then
     if target.ms_unslow then
       target.ms_slow[keys.name] = keys.ms_slow  * (1 - unslow/100) * caster.illusion_damage
-      target.as_slow[keys.name] = keys.as_slow  * (1 - unslow/100) * caster.illusion_damage
+      if target:FindModifierByName("modifier_C14T") == nil then
+        target.as_slow[keys.name] = keys.as_slow  * (1 - unslow/100) * caster.illusion_damage
+      end
     else
       target.ms_slow[keys.name] = keys.ms_slow * caster.illusion_damage
-      target.as_slow[keys.name] = keys.as_slow * caster.illusion_damage
+      if target:FindModifierByName("modifier_C14T") == nil then
+        target.as_slow[keys.name] = keys.as_slow * caster.illusion_damage
+      end
     end
   else
     if target.ms_unslow ~= nil then
       target.ms_slow[keys.name] = keys.ms_slow * (1 - unslow/100)
-      target.as_slow[keys.name] = keys.as_slow * (1 - unslow/100)
+      if target:FindModifierByName("modifier_C14T") == nil then
+        target.as_slow[keys.name] = keys.as_slow * (1 - unslow/100)
+      end
     else
       target.ms_slow[keys.name] = keys.ms_slow 
-      target.as_slow[keys.name] = keys.as_slow 
+      if target:FindModifierByName("modifier_C14T") == nil then
+        target.as_slow[keys.name] = keys.as_slow 
+      end
     end
   end
 end
@@ -1017,5 +1025,38 @@ function barrier_interval ( keys )
     if v:GetName() ~= "modifier_A09T_tentacle" and v:GetName() ~= "modifier_barrier" and v:GetName() ~= "modifier_record" and v:GetName() ~= "modifier_for_magic_immune" and v:GetName() ~= "modifier_kill" then
       caster:RemoveModifierByName(v:GetName())
     end
+  end
+end
+
+function Add_magical_resistance(keys)
+  local caster = keys.caster
+  local ability = keys.ability
+  local magical_resistance = keys.magical_resistance
+  if caster.items == nil then
+      caster.items = {}
+  end
+  if caster.magical_resistance == nil then
+      caster.magical_resistance = 30
+  end
+  if caster.items[ability:GetName()] == nil then
+      caster.items[ability:GetName()] = 1
+      caster.magical_resistance = caster.magical_resistance + magical_resistance
+  else
+      caster.items[ability:GetName()] = caster.items[ability:GetName()] + 1 
+  end
+end
+function Return_magical_resistance(keys)
+  local caster = keys.caster
+  local ability = keys.ability
+  local magical_resistance = keys.magical_resistance
+  if caster.items == nil then
+      caster.items = {}
+  end
+  if caster.items[ability:GetName()] then
+      caster.items[ability:GetName()] = caster.items[ability:GetName()] - 1
+      if caster.items[ability:GetName()] == 0 then
+          caster.items[ability:GetName()] = nil
+          caster.magical_resistance = caster.magical_resistance - magical_resistance
+      end
   end
 end

@@ -276,7 +276,7 @@ function item_raikiri( keys )
 						
 						--【DMG】
 						if ability:GetName() == "item_raikiri" then
-							local dmg = 375
+							local dmg = 250
 							if caster.orb then
 								dmg = dmg * caster.orb
 							end

@@ -1,7 +1,9 @@
 function OnHeroKilled(keys)
 	local caster = keys.caster
-	caster:Heal(caster:GetMaxHealth()*0.1,caster)
-	caster:SetMana(caster:GetMana() + caster:GetMaxMana()*0.1)
+	local ability = keys.ability
+	local heal_percentage = ability:GetSpecialValueFor("heal_percentage")/100
+	caster:Heal(caster:GetMaxHealth()*heal_percentage,caster)
+	caster:SetMana(caster:GetMana() + caster:GetMaxMana()*heal_percentage)
 end
 
 function OnEquip( keys )	
@@ -130,6 +132,26 @@ function StealLife2(keys)
 			end
 			caster:Heal(dmg*keys.StealPercent*0.01*(1-damageReduction), ability)
 		    ParticleManager:CreateParticle("particles/generic_gameplay/generic_lifesteal.vpcf",PATTACH_ABSORIGIN_FOLLOW, caster)
+		end
+	end
+end
+
+function OnIntervalThink( keys )
+	local ability = keys.ability
+	local caster = keys.caster
+	local radius = ability:GetSpecialValueFor("radius")
+	local group = FindUnitsInRadius(caster:GetTeamNumber(),
+		caster:GetAbsOrigin(),
+		nil,
+		radius,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
+		FIND_ANY_ORDER,
+		false)
+	for _,target in pairs(group) do
+		if target:GetHealth() / target:GetMaxHealth() <= 0.3 then
+			ability:ApplyDataDrivenModifier(caster, caster, "modifier_blade_of_blood_devourer", {duration=1})
 		end
 	end
 end

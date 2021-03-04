@@ -63,6 +63,18 @@ function A06E_old( keys )
 	target:SetPhysicsVelocity((target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()*2000)
 end
 
+function A06E_OnHit(keys)
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local group = FindUnitsInRadius(caster:GetTeamNumber(), target:GetAbsOrigin(),
+		nil,  ability:GetSpecialValueFor("radius") , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
+	for _, it in pairs(group) do
+		ability:ApplyDataDrivenModifier(caster, it, "modifier_A06E", {})
+	end
+end
+
 function A06R_OnAttack(keys)
 	local caster = keys.caster
 	local id  = caster:GetPlayerID()

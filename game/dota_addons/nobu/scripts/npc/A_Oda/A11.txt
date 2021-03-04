@@ -71,9 +71,110 @@
 			}
 		}
 	}
+	//妖術。陰邪凝視
+	"A11E"
+	{
+		"BaseClass"                       			"ability_datadriven"
+		"AbilityBehavior"                        	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetType"                		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"                		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityType"  								"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityUnitDamageType"               		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"    					"custom/A11/A11E"
+
+		"AbilityCooldown"							"24 22 20 18"
+		"AbilityCastPoint" 							"0.25" //stun
+		"AbilityManaCost"                      		"120 130 140 150"
+		"AbilityCastRange"              			"600"
+		"AnimationPlaybackRate"						"0.5"
+		"AbilityChannelTime"						"%A11E_duration"
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"						"scripts/vscripts/heroes/A_Oda/A11.lua"
+				"Function"							"A11E"
+			}
+			"FireSound"
+			{
+				"EffectName"						"Hero_Warlock.FatalBonds"
+				"Target" 							"TARGET"
+			}
+		}
+
+		"OnChannelInterrupted"
+		{
+			"RunScript"
+			{
+				"ScriptFile"						"scripts/vscripts/heroes/A_Oda/A11.lua"
+				"Function"							"A11E_Stop"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RunScript"
+			{
+				"ScriptFile"						"scripts/vscripts/heroes/A_Oda/A11.lua"
+				"Function"							"A11E_Stop"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_A11E_descrease_int"
+			{
+				"Duration" "%steal_int_duration"
+				"IsDebuff" "1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%int_decrease"	//智
+				}
+			}
+			"modifier_A11E_increase_int"
+			{
+				"Duration" "%steal_int_duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%int_steal"	//智
+				}
+			}
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"                		"FIELD_FLOAT"
+				"A11E_duration"                	"2.0 2.5 3.0 3.5"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"distance_percentage"			"32 38 44 50"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"steal_int_duration"			"15 18 21 24"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"int_steal"						"5"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"int_decrease"						"-5"
+			}
+		}
+	}
 
 	//妖術．冥鎖
-	"A11E"
+	"A11E_old"
 	{
 		"BaseClass"                       			"ability_datadriven"
 		"AbilityBehavior"                        	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
@@ -171,6 +272,7 @@
 						"Damage"		"%A11E_damage"
 					}
 				}
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -641,6 +743,7 @@
 						"Damage"		"%A11E_damage"
 					}
 				}
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"

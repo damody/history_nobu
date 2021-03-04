@@ -298,11 +298,13 @@
 				"Passive"			"0"
 				"IsHidden"			"0"
 				"IsDebuff"			"1"
+				"IsStunDebuff"		"1"
 		
 				"Duration"	"%stun_time"
 
 				"EffectName"		"particles/c11/c11r.vpcf"
 				"EffectAttachType"	"follow_origin"
+				"IsStunDebuff"	"1"
 		
 				"States"
 				{
@@ -455,6 +457,7 @@
 				"Duration"	"%stun_duration"
 				"EffectName"		"particles/c11/c11r.vpcf"
 				"EffectAttachType"	"follow_origin"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
@@ -797,6 +800,7 @@
 
 				"EffectName"		"particles/c11/c11r.vpcf"
 				"EffectAttachType"	"follow_origin"
+				"IsStunDebuff"	"1"
 		
 				"States"
 				{
@@ -1222,6 +1226,7 @@
 
 				"EffectName"		"particles/c11/c11r.vpcf"
 				"EffectAttachType"	"follow_origin"
+				"IsStunDebuff"	"1"
 		
 				"States"
 				{

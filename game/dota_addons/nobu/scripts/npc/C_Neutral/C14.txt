@@ -206,7 +206,119 @@
 				"damage"	"30 50 70 90"
 			}
 		}
-
+	}
+	// 火龍吐息術
+	"C14E2"
+	{
+		"BaseClass"			"ability_datadriven"
+		"AbilityTextureName"                        "custom/C14/C14E"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DIRECTIONAL"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityCastPoint"          				"0.2"
+		"AbilityCastAnimation"	"ACT_DOTA_ATTACK"
+		"AbilityCooldown"	"8"
+		"AbilityManaCost"	"0"
+		"AbilityDamage"	"150 270 390 510"
+		"AbilityCastRange"			"700"
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_C14E"
+				"Target" 		"CASTER"
+			}
+			// "RunScript"
+			// {
+			// 	"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C14.lua"
+			// 	"Function"		"C14E"
+			// }
+			"LinearProjectile"
+			{
+				"Target"	"POINT"
+				"EffectName"	"particles/c14e/c14e.vpcf"
+				"MoveSpeed"	"%shock_speed"
+				"StartRadius"	"100"
+				"StartPosition"	"attach_orgin"
+				"EndRadius"		"300"
+				"FixedDistance"	"800"
+				"TargetTeams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"TargetTypes"	"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+				"TargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
+				"HasFrontalCone"	"1"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"	"0"
+			"Damage"
+			{
+				"Target"	"TARGET"
+				"Type"	"DAMAGE_TYPE_MAGICAL"
+				"Damage"	"%AbilityDamage"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_Magnataur.ShockWave.Target"
+				"Target"	"TARGET"
+			}
+			"RunScript"
+			{
+				"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C14.lua"
+				"Function"		"C14E_OnProjectileHitUnit"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_C14E_effect"
+			{
+				"EffectName" 						"particles/econ/courier/courier_greevil_red/courier_greevil_red_ambient_3.vpcf"
+				"IsDebuff"							"1"
+				"IsPurgable"						"0"
+				"Duration" 						"7"
+				"ThinkInterval"		"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"						"scripts/vscripts/heroes/C_Neutral/C14.lua"
+						"Function"							"modifier_C14E_effect_OnIntervalThink"
+					}
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"						"scripts/vscripts/heroes/C_Neutral/C14.lua"
+						"Function"							"modifier_C14E_effect_OnIntervalThink"
+					}
+				}
+			}
+			"modifier_C14E"
+			{
+				"IsHidden"			"0"
+				"Duration"			"0.1"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"shock_speed"	"2000"
+			}
+			"02"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"30 50 70 90"
+			}
+		}
 	}
 	//龍脈強韌
 	"C14R"
@@ -269,7 +381,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"150 145 140"
+		"AbilityCooldown"				"120 110 100"
 		"AbilityManaCost"				"185"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 		"OnSpellStart"
@@ -304,11 +416,12 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%speed_bonus"
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"	"472"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor"
 				}
 				"States"
 				{
 					//"MODIFIER_STATE_FLYING" "MODIFIER_STATE_VALUE_DISABLED"
-					"MODIFIER_STATE_MAGIC_IMMUNE" "MODIFIER_STATE_VALUE_ENABLED"
+					// "MODIFIER_STATE_MAGIC_IMMUNE" "MODIFIER_STATE_VALUE_ENABLED"
 				}
 				"Duration"	"%During"
 				//"EffectName"	"particles/b06t/b06t.vpcf"
@@ -348,7 +461,50 @@
 					}
 				}
 			}
-
+			"modifier_C14T_burn"
+			{
+				"IsDebuff"							"1"
+				"IsPurgable"						"1"
+				"Duration"							"%burn_duration"
+				"ThinkInterval"	"0.1"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/heroes/C_Neutral/C14.lua"
+						"Function"		"C14T_burn"
+					}
+				}
+				"EffectName"	"particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_fire.vpcf"
+				"EffectAttachType"	"follow_hitloc"
+			}
+			"modifier_C14T_slow"
+			{
+				"IsPurgable"	"1"
+				"IsDebuff"	"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Slow"
+						"name"	"A14T"
+						"ms_slow"	"%slow"
+						"as_slow"	"%slow"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"ReturnSpeed"
+						"name"	"A14T"
+					}
+				}
+				"EffectName"	"particles/econ/courier/courier_wyvern_hatchling/courier_wyvern_hatchling_fire.vpcf"
+				"EffectAttachType"	"follow_hitloc"
+			}
 		}
 		"AbilitySpecial"
 		{
@@ -361,6 +517,36 @@
 			{
 				"var_type"	"FIELD_FLOAT"
 				"During"	"30 37 44"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"armor"	"50 100 150"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"burn_damage"	"100"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"fire_duration"	"3"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"burn_duration"	"1"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"fire_radius"	"500"
+			}
+			"08"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"slow"	"-20"
 			}
 		}
 	}

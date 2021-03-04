@@ -779,6 +779,7 @@
 			{
 				"IsHidden"	"0"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -804,6 +805,7 @@
 				"IsDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 				"Duration"	"%duration"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -816,10 +818,22 @@
 				"IsDebuff"	"1"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 				"Duration"	"%duration2"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
+			}
+			"modifier_B05T_blind"
+			{
+				"IsHidden"	"0"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE"	"%miss_chance"
+				}
+				"EffectName"	"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_blinding_light_debuff.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"IsDebuff"	"1"
 			}
 		}
 		"OnAbilityPhaseStart"
@@ -851,31 +865,6 @@
 				"ScriptFile"	"scripts/vscripts/heroes/B_Unified/B05_Moari.lua"
 				"Function"	"B05T"
 			}
-			// "ActOnTargets"
-			// {
-			// 	"Target"
-			// 	{
-			// 		"Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
-			// 		"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-			// 		"Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-			// 		"Center"	"POINT"
-			// 		"Radius"	"600"
-			// 	}
-			// 	"Action"
-			// 	{
-			// 		"Stun"
-			// 		{
-			// 			"Target"	"TARGET"
-			// 			"Duration"	"%duration"
-			// 		}
-			// 		"Damage"
-			// 		{
-			// 			"Target"	"TARGET"
-			// 			"Type"	"DAMAGE_TYPE_MAGICAL"
-			// 			"Damage"	"%AbilityDamage"
-			// 		}
-			// 	}
-			// }
 			"DestroyTrees"
 			{
 				"Target"	"POINT"
@@ -899,8 +888,22 @@
 				"var_type"	"FIELD_FLOAT"
 				"duration2"	"2.5 3 3.5"
 			}
+			"04"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"blind_duration"	"5"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_FLOAT"
+				"miss_chance"	"22 33 44"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"damage"	"900 1100 1300"
+			}
 		}
-		"AbilityDamage"	"900 1100 1300"
 	}
 
 	//毛利元就 氣霸西國
@@ -927,6 +930,7 @@
 				"IsHidden"	"0"
 				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
 				"Duration"	"2"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"

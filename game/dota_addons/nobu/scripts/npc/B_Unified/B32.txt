@@ -303,6 +303,7 @@
 				"Passive"	"0"
 				"IsDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED" "MODIFIER_STATE_VALUE_ENABLED"
@@ -434,6 +435,7 @@
 				"Passive"	"0"
 				"IsDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED" "MODIFIER_STATE_VALUE_ENABLED"
@@ -573,6 +575,7 @@
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 				"EffectName"	"particles/a04e/a04e.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -724,6 +727,7 @@
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 				"EffectName"	"particles/a04e/a04e.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -1453,6 +1457,7 @@
 				"Passive"	"0"
 				"IsDebuff"	"1"
 				"EffectName"	"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED" "MODIFIER_STATE_VALUE_ENABLED"
@@ -1582,6 +1587,7 @@
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
 				"EffectName"	"particles/a04e/a04e.vpcf"
 				"EffectAttachType"	"attach_origin"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"

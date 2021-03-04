@@ -130,6 +130,7 @@
 	"item"      "item_the_dark_yellow_teeth_and_zimbabwe"			//闇牙黃泉津
 	"item"		"item_Shintogo_Kunimitsu"	//新藤五國光
 	"item"		"item_Hannya_Onimaru"	//般若鬼丸
+	"item"		"item_wayumi"			//和弓
 }
 
 //高階道具
@@ -167,13 +168,14 @@
 	"item"      "item_the_red_lightning_chapter_hyper"			//真．赤雷卷
 	"item"      "item_the_overflame_art_of_war"			//大炎上之書
 	"item"      "item_the_over_lightning_art_of_war"			//無上雷暴之書
-	"item"      "item_frozen_staff"			//冰風爆之杖
+	"item"      "item_ice_storm_book"			//冰風暴之書
 	"item"      "item_the_storm_call_book"			//天雷之書
 	"item"      "item_yubashiri"			//雪走
 	"item"      "item_kokumo"			//凍雲
 	"item"      "item_great_dragon"			//巨龍
-	"item"      "item_mana_thief"			//禦神法輪
+	"item"      "item_mana_thief"			//大俱利伽羅
 	"item"      "item_ronin_jitte"			//浪人十手
+	"item"      "item_commander_of_fan"			//統率者鐵扇
 }
 
 //高階防具
@@ -201,7 +203,6 @@
 {
 	"item"      "item_izuminokami_kanesada"			//和泉守兼定
 	"item"      "item_ninja_sword"			//忍者刀
-	"item"      "item_commander_of_fan"			//統率者鐵扇
 	"item"      "item_the_spear_of_saddle"			//鞍切
 	"item"      "item_the_spear_of_ghost"			//鬼切
 	"item"      "item_the_spear_of_spiders"			//蜘蛛切
@@ -214,8 +215,8 @@
 	"item"      "item_the_sword_of_kaminaobi"			//神直毘御劍
 	"item"		"item_kat_steel" //吉鋼鐵
 	"item"		"item_death_of_scepter" // 逝者之笏
-	"item"		"item_wayumi" //和弓
 	"item"		"item_Oochidorijuumonnjiyari"
+	"item"		"item_wayumi2"			//改良和弓
 }
 
 

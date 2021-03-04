@@ -123,8 +123,16 @@ function C23T_OnPhaseStart( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
+	local casterhealth=caster:GetHealthPercent()
+	local targethealth=target:GetHealthPercent()
 	if target:GetUnitName() == "npc_dota_cursed_warrior_souls" or target:GetUnitName() == "npc_dota_the_king_of_robbers" then
 		caster:Stop()
+	end
+	if target:GetTeamNumber() == caster:GetTeamNumber() then
+		if targethealth >= casterhealth then
+			caster:Stop()
+			return
+		end
 	end
 end
 
@@ -165,6 +173,9 @@ function C23T_OnSpellStart( keys )
 		end)
 	local ability2 = caster:FindAbilityByName("C23R")
 	ability2:ApplyDataDrivenModifier(caster,caster,"modifier_C23R_onSpell",{duration=4})
+	if target:GetTeamNumber() ~= caster:GetTeamNumber() then
+		ability:ApplyDataDrivenModifier(caster, target, "modifier_C23T", {})
+	end
 end
 
 function modifier_C23E_aura_onAttackLanded( keys )

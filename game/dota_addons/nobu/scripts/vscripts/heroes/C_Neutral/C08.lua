@@ -442,8 +442,7 @@ function C08T_OnSpellStart( keys )
 	local damage = ability:GetSpecialValueFor("damage")
 	local duration = ability:GetSpecialValueFor("duration")
 	if _G.EXCLUDE_TARGET_NAME[target:GetUnitName()] == nil then
-		EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"lion_manadrain",caster)
-		EmitSoundOnLocationWithCaster( target:GetAbsOrigin(),"Hero_NyxAssassin.Vendetta.Crit", target)
+		EmitSoundOnLocationWithCaster( caster:GetAbsOrigin(),"DOTA_Item.Cheese.Activate", target)
 		
 		local fxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_nyx_assassin/nyx_assassin_vendetta.vpcf", PATTACH_CUSTOMORIGIN, caster )
 		ParticleManager:SetParticleControl( fxIndex, 0, caster:GetAbsOrigin() )
@@ -502,6 +501,7 @@ function C08T_OnSpellStart( keys )
 	caster:RemoveAbilityByHandle(caster.steal_ability)
 	caster:AddAbility(target_ability:GetName()):SetLevel(target_ability_level)
 	caster.steal_ability = caster:FindAbilityByName(target_ability:GetName())
+	caster.steal_ability:SetOverrideCastPoint(0)
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_C08T_steal_stack",{}):SetStackCount(ability:GetLevel())
 	use_count = 0
 end

@@ -165,6 +165,7 @@
 			{
 				"Duration"			"%Duration"
 				"IsDebuff"			"1"
+				"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"

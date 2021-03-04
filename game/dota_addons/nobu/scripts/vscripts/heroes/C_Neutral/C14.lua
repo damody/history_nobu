@@ -91,11 +91,26 @@ function C14T_OnSpellStart( event )
 	--local ifx = ParticleManager:CreateParticle( "particles/c20r_real/c20r.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	--ParticleManager:SetParticleControl( ifx, 0, caster:GetAbsOrigin())
 	ability:ApplyDataDrivenModifier(caster,caster,"modifier_C14T_model", {duration=duration})
+	caster.as_slow = {}
+	local C14E_ability = caster:FindAbilityByName("C14E")
+	local C14E_level = C14E_ability:GetLevel()
+	local C14E_cooldown = C14E_ability:GetCooldownTime()
+	caster:RemoveAbility("C14E")
+	caster:AddAbility("C14E2")
+	caster:FindAbilityByName("C14E2"):SetLevel(C14E_level)
+	caster:FindAbilityByName("C14E2"):StartCooldown(C14E_cooldown)
 end
 
 function C14T_OnDestroy( event )
 	local caster = event.caster
 	caster:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK)
+	local C14E_ability = caster:FindAbilityByName("C14E2")
+	local C14E_level = C14E_ability:GetLevel()
+	local C14E_cooldown = C14E_ability:GetCooldownTime()
+	caster:RemoveAbility("C14E2")
+	caster:AddAbility("C14E")
+	caster:FindAbilityByName("C14E"):SetLevel(C14E_level)
+	caster:FindAbilityByName("C14E"):StartCooldown(C14E_cooldown)
 end
 
 function modifier_C14T_OnAttackLanded(keys)
@@ -103,7 +118,7 @@ function modifier_C14T_OnAttackLanded(keys)
 	local ability = keys.ability
 	local target =keys.target
 	local point = target:GetAbsOrigin()
-	local tickPerSec = 1
+	local tickPerSec = 0.1
 
 	local pos = target:GetAbsOrigin()
 	local count = 0
@@ -116,17 +131,21 @@ function modifier_C14T_OnAttackLanded(keys)
 		damage_flags = DOTA_DAMAGE_FLAG_NONE,
 	}
 	Timers:CreateTimer(0, function()
-		count = count + 1
+		count = count + tickPerSec
 		if IsValidEntity(caster) and IsValidEntity(ability) then
-			local group = FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, 400, 
-				DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false)
+			local group = FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, ability:GetSpecialValueFor("fire_radius"), 
+				DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING, 0, 0, false)
 			for _,v in ipairs(group) do
-				damageTable.victim = v
-				ApplyDamage(damageTable)
+				ability:ApplyDataDrivenModifier(caster, v, "modifier_C14T_burn", {})
+			end
+			local group2 = FindUnitsInRadius(caster:GetTeamNumber(), pos, nil, ability:GetSpecialValueFor("fire_radius"), 
+			DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 0, 0, false)
+			for _,v in ipairs(group2) do
+				ability:ApplyDataDrivenModifier(caster, v, "modifier_C14T_slow", {duration = 0.15})
 			end
 		end
-		if count <= 3 then
-			return 1
+		if count <= ability:GetSpecialValueFor("fire_duration") then
+			return tickPerSec
 		else
 			return nil
 		end
@@ -158,6 +177,17 @@ function modifier_C14T_effect_OnIntervalThink( keys )
 		if not target:IsBuilding() then
 			ApplyDamage(damageTable)
 		end
+	end
+end
+
+function C14T_burn( keys )
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	if target:IsBuilding() then
+		AMHC:Damage( caster,target,ability:GetSpecialValueFor("burn_damage")*0.1*0.5,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+	else
+		AMHC:Damage( caster,target,ability:GetSpecialValueFor("burn_damage")*0.1,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
 	end
 end
 
