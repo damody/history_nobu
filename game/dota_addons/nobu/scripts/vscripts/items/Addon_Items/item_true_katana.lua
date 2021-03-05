@@ -7,3 +7,4 @@ function chance_cannot_miss( keys )
         ability:ApplyDataDrivenModifier(caster,caster,"modifier_chance_cannot_miss",{duration = rate})
     end
 end
+

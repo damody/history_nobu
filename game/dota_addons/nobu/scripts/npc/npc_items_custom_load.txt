@@ -15256,6 +15256,63 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔%
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "0" //攻速
 				}
+				"OnAttackLanded"
+				{
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_the_great_sword_of_soul_hyper1"
+						"Target" 		"TARGET"
+					}
+				}
+				"Aura"	"modifier_the_great_sword_of_soul_hyper_aura"
+				"Aura_Radius"	"1000"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+			}
+			"modifier_the_great_sword_of_soul_hyper1"
+			{
+				"Duration"	"5"
+				"IsHidden"	"0"
+				"IsDebuff"		"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_soul.lua"
+						"Function"		"onHit_Create"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_soul.lua"
+						"Function"		"onHit_Destroy"
+					}
+				}
+			}
+			"modifier_the_great_sword_of_soul_hyper2"
+			{
+				"Duration"	"8"
+				"IsHidden"	"0"
+				"IsDebuff"		"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_soul.lua"
+						"Function"		"Shock_Create"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_soul.lua"
+						"Function"		"Shock_Destroy"
+					}
+				}
 			}
 			"modifier_the_great_sword_of_soul_hyper"
 			{
@@ -15267,6 +15324,27 @@
 				"IsDebuff"	"1"
 				"EffectName"	"particles/econ/items/necrolyte/necronub_base_attack/necrolyte_base_attack_ka_glow.vpcf"
 				"EffectAttachType"	"follow_overhead"
+			}
+			"modifier_the_great_sword_of_soul_hyper_aura"
+			{
+				"IsHidden"	"0"
+				"IsDebuff"		"1"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_soul.lua"
+						"Function"		"Aura_Create"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/item_the_great_sword_of_soul.lua"
+						"Function"		"Aura_Destroy"
+					}
+				}
 			}
 		}
 	}
