@@ -804,7 +804,7 @@ function Nobu:eventfororder( filterTable )
 			if item:GetName() == "item_logging" then
 				return false
 			end
-
+			print(GameRules:GetGameTime() - item:GetPurchaseTime())
 			if GameRules:GetGameTime() - item:GetPurchaseTime() > 10 then
 				if unit:GetUnitName() == "npc_dota_courier2" then
 					local playerID = unit:GetPlayerOwnerID()
@@ -812,14 +812,14 @@ function Nobu:eventfororder( filterTable )
 					if not hero:IsAlive() then
 						return false
 					else
-						AMHC:GivePlayerGold_UnReliable(unit:GetPlayerOwnerID(), 0.35*itemcost)
-						_G.PlayerEarnedGold[unit:GetPlayerOwnerID()] = _G.PlayerEarnedGold[unit:GetPlayerOwnerID()] - 0.35*itemcost
-						_G.SpentGold[unit:GetPlayerOwnerID()] = _G.SpentGold[unit:GetPlayerOwnerID()] - 0.85*itemcost
+						AMHC:GivePlayerGold_UnReliable(unit:GetPlayerOwnerID(), 0.25*itemcost)
+						_G.PlayerEarnedGold[unit:GetPlayerOwnerID()] = _G.PlayerEarnedGold[unit:GetPlayerOwnerID()] - 0.25*itemcost
+						_G.SpentGold[unit:GetPlayerOwnerID()] = _G.SpentGold[unit:GetPlayerOwnerID()] - 0.75*itemcost
 					end
 				else 
-					AMHC:GivePlayerGold_UnReliable(unit:GetPlayerOwnerID(), 0.35*itemcost)
-						_G.PlayerEarnedGold[unit:GetPlayerOwnerID()] = _G.PlayerEarnedGold[unit:GetPlayerOwnerID()] - 0.35*itemcost
-						_G.SpentGold[unit:GetPlayerOwnerID()] = _G.SpentGold[unit:GetPlayerOwnerID()] - 0.85*itemcost
+					AMHC:GivePlayerGold_UnReliable(unit:GetPlayerOwnerID(), 0.25*itemcost)
+						_G.PlayerEarnedGold[unit:GetPlayerOwnerID()] = _G.PlayerEarnedGold[unit:GetPlayerOwnerID()] - 0.25*itemcost
+						_G.SpentGold[unit:GetPlayerOwnerID()] = _G.SpentGold[unit:GetPlayerOwnerID()] - 0.75*itemcost
 				end
 				
 				
