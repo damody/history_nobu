@@ -957,7 +957,8 @@ function preRegistKill ( keys )
   local target = keys.unit
   local caster = keys.caster
   local targetVector = target:GetAbsOrigin()
-  local ifx = ParticleManager:CreateParticle("particles/a25e4/a25e4_c0.vpcf",PATTACH_POINT,target)
+  local ifx = ParticleManager:CreateParticle("particles/econ/items/legion/legion_weapon_voth_domosh/legion_commander_duel_arcana.vpcf",PATTACH_OVERHEAD_FOLLOW,caster)
+  -- local ifx = ParticleManager:CreateParticle("particles/a25e4/a25e4_c0.vpcf",PATTACH_POINT,target)
   -- local ifx = ParticleManager:CreateParticle("particles/econ/items/faceless_void/faceless_void_jewel_of_aeons/fv_time_walk_pentagon_jewel.vpcf",PATTACH_POINT,target)
   ParticleManager:ReleaseParticleIndex(ifx)
 end

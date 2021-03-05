@@ -24,35 +24,6 @@ function SendHTTPRequest(path, method, values, callback)
 	end)
 end
 
--- function SendHTTPRequestGetHero(path, method, values, callback)
--- 	local req = CreateHTTPRequestScriptVM( method, "http://nobu.gg/clientApi/")
--- 	for key, value in pairs(values) do
--- 		req:SetHTTPRequestGetOrPostParameter(key, value)
--- 	end 
--- 	req:Send(function(result)
--- 		print(result)
--- 		local count = 0
--- 		local table = {}
--- 		for key, value in string.gmatch(tostring(result.Body), "(%w+)=(%w+)") do 
--- 			table[key] = value
--- 		end
--- 		if (table["hero"] ~= "X") then
--- 			local player = PlayerResource:GetPlayer(tonumber(table["id"]))
--- 			local hero = ""
--- 			for k, v in pairs(_G.heromap) do
--- 				if table["hero"] == v then
--- 					hero = k;
--- 					break
--- 				end
--- 			end
--- 			if (hero ~= "") then
--- 				player:SetSelectedHero(hero)
--- 			end
--- 		end
--- 		callback(result.Body)
--- 	end)
--- end
-
 function SendHTTPRequestCheckSubscription(path, method, values, callback)
 	local req = CreateHTTPRequestScriptVM( method, "http://nobu.gg/clientApi/"..path)
 	for key, value in pairs(values) do
