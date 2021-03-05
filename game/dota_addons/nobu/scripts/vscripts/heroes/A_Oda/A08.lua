@@ -6,24 +6,18 @@ local incoming_damage_percentage = 0
 function A08E_OnSpellStart( event )
 	-- Variables
 	local ability = event.ability
-	local damage = ability:GetSpecialValueFor("damage")
 	local duration = ability:GetSpecialValueFor("stun")
+	local heal_percentage = ability:GetSpecialValueFor("heal_percentage")
+	local heal_regen_duration = ability:GetSpecialValueFor("heal_regen_duration")
 	local caster = event.caster
-	caster:Heal(caster:GetMaxHealth()*0.2,caster)	
+	caster:Heal(caster:GetMaxHealth()*heal_percentage/100,caster)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_A08E", {duration = heal_regen_duration})
 	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(),"Hero_Nevermore.ROS_Flames",caster)
 	local ifx = ParticleManager:CreateParticle( "particles/c20r_real/c20r.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl( ifx, 0, caster:GetAbsOrigin())
 	local units = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 550, ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(), ability:GetAbilityTargetFlags(), FIND_ANY_ORDER, false )
 
 	for _,unit in ipairs(units) do
-		damageTable = {
-		victim = unit,
-		attacker = caster,
-		ability = ability,
-		damage = damage,
-		damage_type = ability:GetAbilityDamageType(),
-		damage_flags = DOTA_DAMAGE_FLAG_NONE,
-		}
 		if not unit:IsBuilding() then
 			ability:ApplyDataDrivenModifier(caster,unit,"modifier_stunned", {duration=duration})
 			ApplyDamage(damageTable)
@@ -35,13 +29,15 @@ function A08R_OnAttackLanded( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
-	local dmg1 = ability:GetSpecialValueFor("dmg1")
 	local dmg2 = ability:GetSpecialValueFor("dmg2")
 
-	local buff = math.floor((100-caster:GetHealthPercent())*0.1)
-	local dmg = dmg1+dmg2*buff
+	local buff = math.floor((100-caster:GetHealthPercent())/5)
+	print(buff)
+	print(caster:GetHealthPercent())
+	local dmg = dmg2*buff
 	if not target:IsBuilding() then
-		AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+		local mr = target:GetBaseMagicalResistanceValue()
+		AMHC:Damage( caster,target,dmg * (1-(mr/100)),AMHC:DamageType( "DAMAGE_TYPE_PURE" ) )
 	end
 end
 
