@@ -331,7 +331,7 @@
 				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
 				"EffectAttachType"	"follow_overhead"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
-				"IsStunDebuff"	"1"
+"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -715,7 +715,7 @@
 				"EffectName"	"particles/generic_gameplay/generic_stunned.vpcf"
 				"EffectAttachType"	"follow_overhead"
 				"OverrideAnimation"	"ACT_DOTA_DISABLED"
-				"IsStunDebuff"	"1"
+"IsStunDebuff"	"1"
 				"States"
 				{
 					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"

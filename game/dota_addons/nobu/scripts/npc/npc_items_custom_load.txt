@@ -832,9 +832,9 @@
 		
 		"BaseClass"	"item_datadriven"
 		"AbilityTextureName"	"item_custom/great_dragon"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"	"1"
@@ -842,7 +842,8 @@
 		"AbilityCooldown"	"25"
 		
 		"AbilityManaCost"	"75"
-		"AbilityCastPoint"	"0.2"
+		"AbilityCastPoint"	"0.1"
+		
 		
 		"AOERadius"	"350"
 		"AbilityCastRange"	"600"
@@ -871,7 +872,7 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "0"	//力
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "0"		//敏
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "0"	//智
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "14"	//攻
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE" "0"	//攻
 					"MODIFIER_PROPERTY_HEALTH_BONUS" "300" 			//血
 					"MODIFIER_PROPERTY_MANA_BONUS" "0"				//魔
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "0"	//回血
@@ -879,34 +880,55 @@
 					"MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE" "0" 	//回魔
 				}
 			}
+			"modifier_BackSwing"
+			{
+				"IsHidden"			"1"
+				"Duration"			"0.05"
+				"States"
+				{
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_great_dragon_str"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS" "%stats"	//力
+				}
+			}
+			"modifier_great_dragon_agi"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%stats"	//敏
+				}
+			}
+			"modifier_great_dragon_int"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS" "%stats"	//智
+				}
+			}
 		}
 		"OnSpellStart"
 		{
-			"LinearProjectile"
-			{
-				"Target"	"POINT"
-				"EffectName"	"particles/units/heroes/hero_invoker/invoker_deafening_blast.vpcf"
-				"MoveSpeed"	"1500"
-				"StartRadius"	"250"
-				"StartPosition"	"attach_origin"
-				"EndRadius"	"250"
-				"FixedDistance"	"700"
-				"TargetTeams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
-				"TargetTypes"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-				"TargetFlags"	"DOTA_UNIT_TARGET_FLAG_NONE"
-				"HasFrontalCone"	"1"
-				"ProvidesVision"	"0"
-			}
-			"FireSound"
-			{
-				"EffectName"	"Hero_DragonKnight.BreathFire"
-				"Target"	"CASTER"
-			}
 			"RunScript"
 			{
 				"ScriptFile"	"items/Addon_Items/item_great_dragon.lua"
 				"Function"	"Shock"
 				"Target"	"POINT"
+			}
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_BackSwing"
+				"Target"		"CASTER"
 			}
 		}
 		"OnProjectileHitUnit"
@@ -917,6 +939,14 @@
 				"Target"	"TARGET"
 				"Type"	"DAMAGE_TYPE_MAGICAL"
 				"Damage"	"%damage"
+			}
+		}
+		"OnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_great_dragon.lua"
+				"Function"	"OnEquip"
 			}
 		}
 		// Special
@@ -932,6 +962,31 @@
 			{
 				"var_type"	"FIELD_INTEGER"
 				"extra_damage"	"60"
+			}
+			"03"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"distance"	"700"
+			}
+			"04"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"collision_radius"	"250"
+			}
+			"05"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"projectile_speed"	"1500"
+			}
+			"06"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"move_distance"		"600"
+			}
+			"07"
+			{
+				"var_type"	"FIELD_INTEGER"
+				"stats"		"14"
 			}
 		}
 	}
