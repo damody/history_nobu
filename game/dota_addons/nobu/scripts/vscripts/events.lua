@@ -297,6 +297,10 @@ function Nobu:HealFilter(keys)
       if target:HasModifier("Passive_item_the_dark_armor") then
         keys.heal = keys.heal * 1.20
       end
+    else
+      if healer:HasModifier("Passive_bizennosafunekanemitsu") ~= nil then
+        keys.heal = keys.heal * 1.5
+      end
     end
   else
     if target:HasModifier("Passive_item_the_dark_armor") then

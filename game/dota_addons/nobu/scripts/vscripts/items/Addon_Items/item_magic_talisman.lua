@@ -116,7 +116,7 @@ function OnEquip( keys )
 					ParticleManager:DestroyParticle(caster.magic_talisman_effect,false)
 				end
 				local shield_size = 1000
-				caster.magic_talisman_effect = ParticleManager:CreateParticle("particles/item/protection.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+				caster.magic_talisman_effect = ParticleManager:CreateParticle("particles/item/magic_talisman_protection.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 				ParticleManager:SetParticleControl(caster.magic_talisman_effect, 1, Vector(shield_size,0,shield_size))
 				ParticleManager:SetParticleControl(caster.magic_talisman_effect, 2, Vector(shield_size,0,shield_size))
 				ParticleManager:SetParticleControl(caster.magic_talisman_effect, 4, Vector(shield_size,0,shield_size))

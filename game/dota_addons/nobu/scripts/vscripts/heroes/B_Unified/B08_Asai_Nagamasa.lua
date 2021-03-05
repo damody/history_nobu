@@ -252,6 +252,7 @@ function B08R_Action( keys )
 	if keys.event_ability:IsToggle() then return end
 	if keys.event_ability:GetName() == "item_logging" then return end
 	if keys.event_ability:GetName() == "item_tpscroll" then return end
+	if keys.event_ability:GetName() == "item_samurai_cloth" then return end
 	local caster = keys.caster
 	local target = keys.target
 	local skill  = keys.ability	

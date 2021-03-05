@@ -104,6 +104,7 @@ function AbilityExecuted(keys)
 	if keys.event_ability:IsToggle() then return end
 	if keys.event_ability:GetName() == "item_logging" then return end
 	if keys.event_ability:GetName() == "item_tpscroll" then return end
+	if keys.event_ability:GetName() == "item_samurai_cloth" then return end
 
 	if caster:HasModifier("modifier_ancient_doll") == false then
 		skill:ApplyDataDrivenModifier(caster,caster,"modifier_ancient_doll",nil)
@@ -144,6 +145,7 @@ function AbilityExecuted2(keys)
 	if keys.event_ability:IsToggle() then return end
 	if keys.event_ability:GetName() == "item_logging" then return end
 	if keys.event_ability:GetName() == "item_tpscroll" then return end
+	if keys.event_ability:GetName() == "item_samurai_cloth" then return end
 	
 	if caster:HasModifier("modifier_dark_yellow_teeth_and_zimbabwe") == false then
 		skill:ApplyDataDrivenModifier(caster,caster,"modifier_dark_yellow_teeth_and_zimbabwe",nil)

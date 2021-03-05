@@ -109,7 +109,7 @@ function OnEquip( keys )
 				if caster.protection_amulet_effect then
 					ParticleManager:DestroyParticle(caster.protection_amulet_effect,false)
 				end
-				caster.protection_amulet_effect = ParticleManager:CreateParticle("particles/item/protection.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+				caster.protection_amulet_effect = ParticleManager:CreateParticle("particles/item/magic_talisman_protection.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 				ParticleManager:SetParticleControl(caster.protection_amulet_effect, 1, Vector(shield_size,0,shield_size))
 				ParticleManager:SetParticleControl(caster.protection_amulet_effect, 2, Vector(shield_size,0,shield_size))
 				ParticleManager:SetParticleControl(caster.protection_amulet_effect, 4, Vector(shield_size,0,shield_size))
