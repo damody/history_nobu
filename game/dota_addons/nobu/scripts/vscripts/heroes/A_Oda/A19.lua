@@ -111,6 +111,7 @@ function A19R_OnAbilityExecuted( keys )
 	if keys.event_ability:GetName() == "item_tpscroll" then return end
 	if keys.event_ability:GetName() == "item_flash_shoes" then return end
 	if keys.event_ability:GetName() == "item_flash_ring" then return end
+	if keys.event_ability:GetName() == "item_samurai_cloth" then return end
 	local units = FindUnitsInRadius(caster:GetTeamNumber(),	-- 關係參考
 		point,							-- 搜尋的中心點
 		nil,

@@ -6,6 +6,7 @@ function C18D_OnAbilityExecuted( keys )
 	if keys.event_ability:GetName() == "item_tpscroll" then return end
 	if keys.event_ability:GetName() == "item_flash_shoes" then return end
 	if keys.event_ability:GetName() == "item_flash_ring" then return end
+	if keys.event_ability:GetName() == "item_samurai_cloth" then return end
 	local caster = keys.caster
 	local ability = keys.ability
 	if caster:HasModifier("modifier_C18D") then

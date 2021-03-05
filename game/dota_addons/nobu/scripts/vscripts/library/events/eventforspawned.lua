@@ -1,5 +1,6 @@
 require("equilibrium_constant")
 LinkLuaModifier( "modifier_record", "items/Addon_Items/record.lua",LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_mix_samurai_cloth", "scripts/vscripts/items/Addon_Items/item_samurai_cloth.lua",LUA_MODIFIER_MOTION_NONE )
 --單位創建也會運行
 
 heromap = _G.heromap 
@@ -133,6 +134,10 @@ function Nobu:OnHeroIngame( keys )
             end
           end
         else
+          -- 有沒有吃武士服
+          if hero.mix_samurai_cloth then
+            hero:AddNewModifier(hero, nil, "modifier_mix_samurai_cloth", {})
+          end
           -- 裝備重放
           for i = 0, 6 do
             local item = caster:GetItemInSlot( i )

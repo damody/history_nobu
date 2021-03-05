@@ -116,6 +116,7 @@ function B20R_OnAbilityExecuted( keys )
 	if keys.event_ability:GetName() == "item_tpscroll" then return end
 	if keys.event_ability:GetName() == "item_flash_shoes" then return end
 	if keys.event_ability:GetName() == "item_flash_ring" then return end
+	if keys.event_ability:GetName() == "item_samurai_cloth" then return end
 
 	if newMana > maxMana then
 		caster:SetMana(maxMana)

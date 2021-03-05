@@ -67,6 +67,7 @@ function B34T( keys )
 	if keys.event_ability:GetName() == "item_tpscroll" then return end
 	if keys.event_ability:GetName() == "item_flash_shoes" then return end
 	if keys.event_ability:GetName() == "item_flash_ring" then return end
+	if keys.event_ability:GetName() == "item_samurai_cloth" then return end
 	local caster = keys.caster
 	local ability = keys.ability
 	local level = ability:GetLevel() - 1
