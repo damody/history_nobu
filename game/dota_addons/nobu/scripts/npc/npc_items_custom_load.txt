@@ -5993,7 +5993,10 @@
 		////"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SecretShop"						"1"
-		
+		"precache"
+		{
+			"particle"	"particles/great_sword_of_xnew_moon/great_sword_of_xnew_moon_debuff.vpcf"
+		}
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -6079,6 +6082,8 @@
 				"IsHidden"			"1"
 				"IsDebuff"			"1"			
 				"Duration"			"10"
+				"EffectName"		"particles/great_sword_of_xnew_moon/great_sword_of_xnew_moon_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
 				"States"
 				{
 					"MODIFIER_STATE_PROVIDES_VISION"	"MODIFIER_STATE_VALUE_ENABLED"
