@@ -2208,79 +2208,6 @@
 		"Ability15"	""
 	}
 
-	// 中忍
-	"ninja_unit2"
-	{
-		// General
-		// ----------------------------------------------------------------
-		"BaseClass"	"npc_dota_creature"
-		// Add model
-		"Model"	"models/heroes/rikimaru/rikimaru.vmdl"
-		"ModelScale"	"0.85"
-		"Level"	"2"
-		"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
-		"HealthBarOffset"	"180"
-
-		// Armor
-		// ----------------------------------------------------------------
-		"ArmorPhysical"	"5"
-		"MagicalResistance"	"0"
-		// Attack
-		// ----------------------------------------------------------------
-		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
-		"AttackAnimationPoint"	"0.30"
-		"AttackRate"				"1"
-		"AttackDamageMin"	"50"
-		"AttackDamageMax"	"70"
-		"AttackAcquisitionRange"	"600"
-		"AttackRange"	"128"
-		// Bounty
-		// ----------------------------------------------------------------
-		"BountyGoldMin"	"10.0"
-		"BountyGoldMax"	"10.0"
-		// Gold and Lumber
-		// ----------------------------------------------------------------
-		"GoldCost"	"55"
-		"LumberCost"	"55"
-		// Movement
-		// ----------------------------------------------------------------
-		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"	"300"
-		"MovementTurnRate"	"2"
-		// Status
-		// ----------------------------------------------------------------
-		"StatusHealth"	"700"
-		"StatusHealthRegen"	"3"
-		"StatusMana"	"200"
-		"StatusStartingMana"	"200"
-		// Vision
-		// ----------------------------------------------------------------
-		"VisionDaytimeRange"	"700"
-		"VisionNighttimeRange"	"700"
-		// Team
-		// ----------------------------------------------------------------
-		"TeamName"	"DOTA_TEAM_NEUTRALS"
-		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
-		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_BASIC"
-		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
-		"Ability1"	"ninja_hole"
-		"Ability2"	"true_gem"
-		"Ability3"	""
-		"Ability4"	""
-		"Ability5"	""
-		"Ability6"	""
-		"Ability7"	""
-		"Ability8"	""
-		"Ability9"	""
-		"Ability10"	""
-		"Ability11"	""
-		"Ability12"	""
-		"Ability13"	""
-		"Ability14"	""
-		"Ability15"	""
-	}
-
 	// 下忍
 	"ninja_unit1"
 	{
@@ -2341,6 +2268,75 @@
 		"Ability5"	"flash"
 		"Ability6"	"phased_dummy"
 		"Ability7"	"ninja_takedamage"
+		"Ability8"	""
+		"Ability9"	""
+		"Ability10"	""
+		"Ability11"	""
+		"Ability12"	""
+		"Ability13"	""
+		"Ability14"	""
+		"Ability15"	""
+	}
+	// 中忍
+	"ninja_unit2"
+	{
+		// General
+		// ----------------------------------------------------------------
+		"BaseClass"	"npc_dota_creature"
+		// Add model
+		"Model"	"models/heroes/rikimaru/rikimaru.vmdl"
+		"ModelScale"	"0.85"
+		"Level"	"2"
+		"BoundsHullName"	"DOTA_HULL_SIZE_HERO"
+		"HealthBarOffset"	"180"
+		// Armor
+		// ----------------------------------------------------------------
+		"ArmorPhysical"	"5"
+		"MagicalResistance"	"0"
+		// Attack
+		// ----------------------------------------------------------------
+		"AttackCapabilities"	"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageType"	"DAMAGE_TYPE_ArmorPhysical"
+		"AttackAnimationPoint"	"0.30"
+		"AttackAcquisitionRange"	"600"
+		"AttackRate"		"0.8"
+		"AttackRange"	"128"
+		// Bounty
+		// ----------------------------------------------------------------
+		"BountyGoldMin"	"15.0"
+		"BountyGoldMax"	"15.0"
+		// Gold and Lumber
+		// ----------------------------------------------------------------
+		"GoldCost"	"55"
+		"LumberCost"	"55"
+		// Movement
+		// ----------------------------------------------------------------
+		"MovementCapabilities"	"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"	"320"
+		"MovementTurnRate"	"2"
+		// Status
+		// ----------------------------------------------------------------
+		"StatusHealth"	"5"
+		"StatusHealthRegen"	"0"
+		"StatusMana"	"200"
+		"StatusStartingMana"	"200"
+		// Vision
+		// ----------------------------------------------------------------
+		"VisionDaytimeRange"	"800"
+		"VisionNighttimeRange"	"800"
+		// Team
+		// ----------------------------------------------------------------
+		"TeamName"	"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"	"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"	"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationShipClass"	"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		"Ability1"	"ninja_underground"
+		"Ability2"	"for_no_collision"
+		"Ability3"	"update_buy_ninja2"
+		"Ability4"	"phased_dummy"
+		"Ability5"	"ninja_takedamage"
+		"Ability6"	"ninja_true_sight"
+		"Ability7"	""
 		"Ability8"	""
 		"Ability9"	""
 		"Ability10"	""
@@ -14472,7 +14468,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"0"		// Experience earn.
+ 		"BountyXP"					"37"		// Experience earn.
  		//"BountyGoldMin"				"20"		// Gold earned min.
  		//"BountyGoldMax"				"20"		// Gold earned max.
 		"BountyGoldMin"				"40"		// Gold earned min.
@@ -14544,7 +14540,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"0"		// Experience earn.
+ 		"BountyXP"					"37"		// Experience earn.
  		//"BountyGoldMin"				"20"		// Gold earned min.
  		//"BountyGoldMax"				"20"		// Gold earned max.
 		"BountyGoldMin"				"40"		// Gold earned min.
@@ -14616,7 +14612,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"0"		// Experience earn.
+ 		"BountyXP"					"37"		// Experience earn.
  		//"BountyGoldMin"				"20"		// Gold earned min.
  		//"BountyGoldMax"				"20"		// Gold earned max.
 		"BountyGoldMin"				"40"		// Gold earned min.
@@ -14688,7 +14684,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"0"		// Experience earn.
+ 		"BountyXP"					"37"		// Experience earn.
  		//"BountyGoldMin"				"40"		// Gold earned min.
  		//"BountyGoldMax"				"40"		// Gold earned max.
 		"BountyGoldMin"				"64"		// Gold earned min.
@@ -14760,7 +14756,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"0"		// Experience earn.
+ 		"BountyXP"					"60"		// Experience earn.
  		//"BountyGoldMin"				"60"		// Gold earned min.
  		//"BountyGoldMax"				"60"		// Gold earned max.
 		"BountyGoldMin"				"85"		// Gold earned min.
@@ -14832,7 +14828,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"0"		// Experience earn.
+ 		"BountyXP"					"37"		// Experience earn.
  		//"BountyGoldMin"				"40"		// Gold earned min.
  		//"BountyGoldMax"				"40"		// Gold earned max.
 		"BountyGoldMin"				"66"		// Gold earned min.
@@ -14904,7 +14900,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"0"		// Experience earn.
+ 		"BountyXP"					"37"		// Experience earn.
  		//"BountyGoldMin"				"40"		// Gold earned min.
  		//"BountyGoldMax"				"40"		// Gold earned max.
 		"BountyGoldMin"				"48"		// Gold earned min.
@@ -14976,7 +14972,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"0"		// Experience earn.
+ 		"BountyXP"					"90"		// Experience earn.
  		//"BountyGoldMin"				"60"		// Gold earned min.
  		//"BountyGoldMax"				"60"		// Gold earned max.
 		"BountyGoldMin"				"70"		// Gold earned min.
@@ -15120,7 +15116,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"0"		// Experience earn.
+ 		"BountyXP"					"45"		// Experience earn.
  		//"BountyGoldMin"				"30"		// Gold earned min.
  		//"BountyGoldMax"				"30"		// Gold earned max.
 		"BountyGoldMin"				"64"		// Gold earned min.
@@ -15262,7 +15258,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"0"		// Experience earn.
+ 		"BountyXP"					"75"		// Experience earn.
  		"BountyGoldMin"				"70"		// Gold earned min.
  		"BountyGoldMax"				"70"		// Gold earned max.
 
@@ -15332,7 +15328,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"0"		// Experience earn.
+ 		"BountyXP"					"60"		// Experience earn.
  		"BountyGoldMin"				"110"		// Gold earned min.
  		"BountyGoldMax"				"110"		// Gold earned max.
 
@@ -15613,7 +15609,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"0"		// Experience earn.
+ 		"BountyXP"					"30"		// Experience earn.
  		//"BountyGoldMin"				"35"		// Gold earned min.
  		//"BountyGoldMax"				"35"		// Gold earned max.
 		"BountyGoldMin"				"46"		// Gold earned min.
@@ -15685,7 +15681,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"0"		// Experience earn.
+ 		"BountyXP"					"60"		// Experience earn.
  		"BountyGoldMin"				"50"		// Gold earned min.
  		"BountyGoldMax"				"50"		// Gold earned max.
 
@@ -15755,7 +15751,7 @@
 
  		// Bounty
  		//----------------------------------------------------------------
- 		"BountyXP"					"0"		// Experience earn.
+ 		"BountyXP"					"75"		// Experience earn.
  		"BountyGoldMin"				"77"		// Gold earned min.
  		"BountyGoldMax"				"77"		// Gold earned max.
 

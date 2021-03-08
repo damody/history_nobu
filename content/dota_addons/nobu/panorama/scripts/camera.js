@@ -35,8 +35,9 @@ function UpdateDireScore(keys) {
   var y = $.GetContextPanel().GetParent().GetParent().GetParent();
   y = y.FindChildTraverse('HUDElements')
   var inv1 = y.FindChildTraverse('RadarButton')
-  inv1.visible = false
+  // inv1.visible = false
   var inv1 = y.FindChildTraverse('GlyphScanContainer')
+  var inv1 = y.FindChildTraverse('glyph')
   inv1.visible = false
   
   y = y.FindChildTraverse('topbar')

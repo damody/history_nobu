@@ -1,9 +1,56 @@
 
 function Shock( keys )
 	local caster = keys.caster
+	local target = keys.target
 	local point = keys.target_points[1] 
 	local ability = keys.ability
-	
+	local distance = ability:GetSpecialValueFor("distance")
+	local collision_radius = ability:GetSpecialValueFor("collision_radius")
+	local projectile_speed = ability:GetSpecialValueFor("projectile_speed")
+	local forwardVec = caster:GetForwardVector()
+	local projectileTable = {
+		Ability = ability,
+		EffectName = "particles/units/heroes/hero_invoker/invoker_deafening_blast.vpcf",
+		vSpawnOrigin = caster:GetAbsOrigin(),
+		fDistance = distance,
+		fStartRadius = collision_radius,
+		fEndRadius = collision_radius,
+		Source = caster,
+		bHasFrontalCone = false,
+		bReplaceExisting = false,
+		bProvidesVision = false,
+		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NONE,
+		vVelocity = forwardVec * projectile_speed
+	}	
+	if target and target:GetTeamNumber() == caster:GetTeamNumber() then
+		distance = ability:GetSpecialValueFor("move_distance")
+		Physics:Unit(caster)
+		caster:SetPhysicsVelocity(forwardVec*1500)
+		caster:StartPhysicsSimulation()
+		Timers:CreateTimer(0.4, function()
+			caster:StopPhysicsSimulation()
+		end)
+		projectileTable = {
+			Ability = ability,
+			EffectName = "particles/units/heroes/hero_invoker/invoker_deafening_blast.vpcf",
+			vSpawnOrigin = caster:GetAbsOrigin(),
+			fDistance = distance - collision_radius/2,
+			fStartRadius = collision_radius,
+			fEndRadius = collision_radius,
+			Source = caster,
+			bHasFrontalCone = false,
+			bReplaceExisting = false,
+			bProvidesVision = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NONE,
+			vVelocity = forwardVec * projectile_speed
+		}
+	end
+	ProjectileManager:CreateLinearProjectile( projectileTable )
+	EmitSoundOn("Hero_DragonKnight.BreathFire", caster)
 	local start = caster:GetAbsOrigin()
 	local vec = point - start
 	vec = vec:Normalized()
@@ -59,4 +106,20 @@ end
 
 function dot(a,b)
 	return (a[1] * b[1] + a[2] * b[2] + a[3] * b[3])
+end
+
+function OnEquip( keys )
+	local caster = keys.caster
+	local attribute = caster:GetPrimaryAttribute()
+	print(attribute)
+	if attribute == 0 then
+		caster:RemoveModifierByName("modifier_great_dragon_agi")
+		caster:RemoveModifierByName("modifier_great_dragon_int")
+	elseif attribute == 1 then
+		caster:RemoveModifierByName("modifier_great_dragon_int")
+		caster:RemoveModifierByName("modifier_great_dragon_str")
+	else
+		caster:RemoveModifierByName("modifier_great_dragon_agi")
+		caster:RemoveModifierByName("modifier_great_dragon_str")
+	end
 end

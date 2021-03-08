@@ -2,6 +2,7 @@ LinkLuaModifier( "modifier_unit_armor", "scripts/vscripts/library/common/dummy.l
 LinkLuaModifier( "modifier_tower_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_tower_debuff", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_soul", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_B13D", "heroes/modifier_B13D.lua", LUA_MODIFIER_MOTION_NONE)
 modifier_soul = class({})
 
 
@@ -366,6 +367,7 @@ _G.EXCLUDE_TARGET_NAME = {
   npc_dummy = true,
   hide_unit = true,
   ninja_unit1 = true,
+  ninja_unit2 = true,
   a21_weapon = true,
 }
 
@@ -769,18 +771,18 @@ function hero_attack_tower( keys )
     caster.attack_tower = 1
   end
   -- 力量 0 敏捷1 智力2
-  if caster:GetPrimaryAttribute() == 2 then
-    local intellect = caster:GetIntellect()
-    if target:IsBuilding() then
-      if caster.attack_tower == 1 then
-        AMHC:Damage(caster,target,intellect,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ))
-        caster.attack_tower = 0
-        Timers:CreateTimer(5,function()
-          caster.attack_tower = 1 
-        end)
-      end
-    end
-	end
+  -- if caster:GetPrimaryAttribute() == 2 then
+  --   local intellect = caster:GetIntellect()
+  --   if target:IsBuilding() then
+  --     if caster.attack_tower == 1 then
+  --       AMHC:Damage(caster,target,intellect,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ))
+  --       caster.attack_tower = 0
+  --       Timers:CreateTimer(5,function()
+  --         caster.attack_tower = 1 
+  --       end)
+  --     end
+  --   end
+	-- end
 end
 
 function OnUnitDied( keys )
@@ -957,7 +959,8 @@ function preRegistKill ( keys )
   local target = keys.unit
   local caster = keys.caster
   local targetVector = target:GetAbsOrigin()
-  local ifx = ParticleManager:CreateParticle("particles/a25e4/a25e4_c0.vpcf",PATTACH_POINT,target)
+  local ifx = ParticleManager:CreateParticle("particles/econ/items/legion/legion_weapon_voth_domosh/legion_commander_duel_arcana.vpcf",PATTACH_OVERHEAD_FOLLOW,caster)
+  -- local ifx = ParticleManager:CreateParticle("particles/a25e4/a25e4_c0.vpcf",PATTACH_POINT,target)
   -- local ifx = ParticleManager:CreateParticle("particles/econ/items/faceless_void/faceless_void_jewel_of_aeons/fv_time_walk_pentagon_jewel.vpcf",PATTACH_POINT,target)
   ParticleManager:ReleaseParticleIndex(ifx)
 end
@@ -1045,6 +1048,7 @@ function Add_magical_resistance(keys)
       caster.items[ability:GetName()] = caster.items[ability:GetName()] + 1 
   end
 end
+
 function Return_magical_resistance(keys)
   local caster = keys.caster
   local ability = keys.ability
@@ -1060,6 +1064,7 @@ function Return_magical_resistance(keys)
       end
   end
 end
+
 
 function Attack_fail ( keys )
   local caster = keys.caster
@@ -1086,3 +1091,15 @@ function Attack_Landed ( keys )
     end
   end
 end 
+
+function ninja_underground( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	if caster:HasModifier("modifier_ninja_underground") == false then
+    ability:ApplyDataDrivenModifier( caster, caster, "modifier_ninja_underground", {} )
+    caster:AddNewModifier(caster, ability, "modifier_B13D", nil )
+	else
+    caster:RemoveModifierByName("modifier_ninja_underground")
+    caster:RemoveModifierByName("modifier_B13D")
+	end
+end

@@ -636,14 +636,21 @@ function update_buy_ninja1_old(keys)
 		caster.buy_ninja1 = caster.buy_ninja1 - 1
 	end
 end
+
 function update_ninja1(keys)
 	local caster = keys.caster
 	local owner = keys.caster.owner
 	if caster.number == 1 then
 		owner.ninja1 = nil
 	else
-		owner.ninja2 = nil
+		owner.ninja1_2 = nil
 	end
+end
+
+function update_ninja2(keys)
+	local caster = keys.caster
+	local owner = keys.caster.owner
+	owner.ninja2 = nil
 end
 
 function call_ninja1_OnAbilityPhaseStart(keys)

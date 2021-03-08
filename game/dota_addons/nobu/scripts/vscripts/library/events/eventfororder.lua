@@ -804,7 +804,7 @@ function Nobu:eventfororder( filterTable )
 			if item:GetName() == "item_logging" then
 				return false
 			end
-
+			print(GameRules:GetGameTime() - item:GetPurchaseTime())
 			if GameRules:GetGameTime() - item:GetPurchaseTime() > 10 then
 				if unit:GetUnitName() == "npc_dota_courier2" then
 					local playerID = unit:GetPlayerOwnerID()
@@ -859,12 +859,12 @@ function Nobu:eventfororder( filterTable )
 
 	elseif ordertype == DOTA_UNIT_ORDER_TAUNT	 then --22
 	elseif ordertype == DOTA_UNIT_ORDER_BUYBACK	 then --23
-	elseif ordertype == DOTA_UNIT_ORDER_GLYPH	 then --24
+	elseif ordertype == DOTA_UNIT_ORDER_GLYPH	 then --24  防御浮雕
 		return false
 	elseif ordertype == DOTA_UNIT_ORDER_EJECT_ITEM_FROM_STASH	 then --25
 	elseif ordertype == DOTA_UNIT_ORDER_CAST_RUNE	 then --26
-	elseif ordertype == 31	 then --24
-		return false
+	elseif ordertype == 31	 then --24 雷達
+		return true
 	elseif ordertype ==	33	 then --案s一開始
 		-- DeepPrintTable(filterTable)
 		-- [   VScript              ]: {

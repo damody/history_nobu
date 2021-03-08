@@ -1085,6 +1085,99 @@
 			}
 		}
 	}
+		// 叫下忍
+	"update_buy_ninja2"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"custom/liubei_hujia"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
+		"AbilityCooldown"	"1"
+		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastRange"	"50000"
+		"AbilityManaCost"	"0"
+		"AbilityGoldCost"	"150"
+		"AbilityCastPoint"          				"0.35"
+		"Modifiers"
+		{
+			"modifier_update_buy_ninja2"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+		
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/Addon_Items/tofar_goback.lua"
+						"Function"	"update_ninja2"
+					}
+				}
+			}
+		}
+	}
+	// 忍者看隱形
+	"ninja_true_sight"
+	{
+		// General
+		
+		"BaseClass"	"ability_datadriven"
+		"AbilityTextureName"	"item_custom/insight_gem_s"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"FightRecapLevel"	"1"
+		"AOERadius"	"900"
+		"Modifiers"
+		{
+			"Passive_insight_gem_shard"
+			{
+				"Passive"          "1"  
+	            "IsHidden"      "1"
+				"Aura"	"modifier_insight_gem_truesight"
+				"Aura_Radius"	"900"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BUILDING | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+			}
+			"modifier_insight_gem_truesight"
+			{
+				"Passive"			"0"
+				"IsHidden"			"1"
+				"OnCreated"
+				{
+					"ApplyModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
+				"OnDestroy"
+				{
+					"RemoveModifier"
+					{
+						"Target"
+						{
+	                        "Center"	"TARGET"
+	                        "Teams" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	                        "Types" "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+	                        "Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+	                    }
+						"ModifierName"	"modifier_truesight"
+					}
+				}
+			}
+		}
+		
+	}
 	// 叫上忍
 	"update_buy_ninja3"
 	{
@@ -3012,7 +3105,7 @@
 				"Duration"	"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "20" 
+					"MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE" "10" 
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "30"
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "30"
 				}
@@ -6246,6 +6339,41 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"-100"
+				}
+			}
+		}
+	}
+	"ninja_underground"
+	{
+		"BaseClass"                                 "ability_datadriven"
+		"AbilityBehavior"                   		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"                        "rubick_telekinesis_land"
+		"AbilityType"  								"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityCastPoint"                        	"0.1"
+		"AbilityCooldown"                        	"6"
+		"AbilityManaCost"                           "0"
+		"MaxLevel"									"1"
+		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_3"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"						"scripts/vscripts/library/common/dummy.lua"
+				"Function"							"ninja_underground"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ninja_underground"
+			{
+				"OverrideAnimation"				"ACT_DOTA_CAST_ABILITY_2"
+				"IsHidden"						"1"
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVISIBLE"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_MAGIC_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}

@@ -341,12 +341,12 @@ function Nobu:OnUnitKill( keys )
 
     if string.match(name, "neutral_130")then
       
-      if AttackerUnit:IsHero() then
-        AttackerUnit:AddExperience(XP[name],0,false,false)
-      end
-      if AttackerUnit:IsIllusion() then
-        GetOwner():AddExperience(XP[name],0,false,false)
-      end
+      -- if AttackerUnit:IsHero() then
+      --   AttackerUnit:AddExperience(XP[name],0,false,false)
+      -- end
+      -- if AttackerUnit:IsIllusion() then
+      --   GetOwner():AddExperience(XP[name],0,false,false)
+      -- end
       --後追經驗
       if AttackerUnit:IsHero() then
         if AttackerUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
@@ -417,9 +417,9 @@ function Nobu:OnUnitKill( keys )
       end)
     elseif string.match(name, "neutral_160") then
 
-      if AttackerUnit:IsHero() then
-        AttackerUnit:AddExperience(XP[name],0,false,false)
-      end
+      -- if AttackerUnit:IsHero() then
+      --   AttackerUnit:AddExperience(XP[name],0,false,false)
+      -- end
       --後追經驗
       if AttackerUnit:IsHero() then
         if AttackerUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
