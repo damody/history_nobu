@@ -116,7 +116,6 @@ function Nobu:OnGameRulesStateChange( keys )
   print("[Nobu-lua] GameRules State Changed: ",gamestates[newState])
 
   if(newState == DOTA_GAMERULES_STATE_INIT) then
-
 	elseif(newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD) then
 		--self.bSeenWaitForPlayers = true
 	elseif(newState == DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP) then
@@ -149,6 +148,8 @@ function Nobu:OnGameRulesStateChange( keys )
 		-- 	end
 		-- end)
 	elseif(newState == DOTA_GAMERULES_STATE_HERO_SELECTION) then --選擇英雄階段
+		--取得掉落表
+		_G.DropTable = LoadKeyValues("scripts/npc/npc_neutral_items_custom.txt")
 		--取得訂閱資格
 		_G.haveSubscription = {};
 		for playerID = 0, 9 do

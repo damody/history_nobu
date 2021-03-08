@@ -14,6 +14,27 @@ npc_dota_neutral_130_wild_warrior = 75,npc_dota_neutral_130_pour_odd_person = 75
 npc_dota_neutral_130_robbers_remnants = 30
 }
 
+neutral = {
+  npc_dota_neutral_160_douchebag = true,
+  npc_dota_neutral_160_bandit = true,
+  npc_dota_neutral_160_assassin = true,
+  npc_dota_neutral_160_executor = true,
+  npc_dota_neutral_160_bandit_military_adviser = true,
+  npc_dota_neutral_130_wild_bear = true,
+  npc_dota_neutral_130_giant_tortoise = true,
+  npc_dota_neutral_130_fear_molang = true,
+  npc_dota_neutral_130_bear = true,
+  npc_dota_neutral_130_japanese_pirates_sea_people = true,
+  npc_dota_neutral_130_japanese_pirates_leader = true, 
+  npc_dota_neutral_130_wild_warrior = true,
+  npc_dota_neutral_130_pour_odd_person = true,
+  npc_dota_neutral_130_robbers_remnants = true,
+  npc_dota_the_king_of_robbers = true,
+  npc_dota_cursed_warrior_souls = true,
+}
+
+drop_level = {10, 15, 20, 25, 30}
+
 _G.CP_spawn_time = 60
 _G.CP_respawn_time = 120
 function Nobu:OnUnitKill( keys )
@@ -53,6 +74,7 @@ function Nobu:OnUnitKill( keys )
     -- [   VScript              ]: }
     local AttackerUnit = EntIndexToHScript( keys.entindex_attacker )
     local killedUnit = EntIndexToHScript( keys.entindex_killed )
+    neutral_item_drop(killedUnit)
     if killedUnit:IsBuilding() and not string.match(killedUnit:GetUnitName(),"_hero")  then
       local group = FindUnitsInRadius(AttackerUnit:GetTeamNumber(), killedUnit:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
       local count = 0
@@ -562,5 +584,34 @@ function CallExperience(value,scale)
   elseif value:GetLevel() < _G.average_level[DOTA_TEAM_GOODGUYS] then
       local diff = math.floor(_G.average_level[DOTA_TEAM_GOODGUYS] - _G.average_level[DOTA_TEAM_BADGUYS])
       value:AddExperience(XP[new_name]*diff*0.15*scale, 0, false, false)
+  end
+end
+
+function neutral_item_drop(unit)
+  if IsValidEntity(unit) and neutral[unit:GetUnitName()] then
+    print(#drop_level)
+    local heros = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, 750, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
+    local heros2 = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, 750, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
+    if #heros < 1 then
+      return
+    end
+    for _, hero in pairs(heros) do
+      for _, hero2 in pairs(heros2) do
+        if hero:GetTeamNumber() ~= hero2:GetTeamNumber() then
+          return
+        end
+      end
+    end
+    for i=#drop_level, 1, -1 do
+      for item_name, chance in pairs(_G.DropTable["level_" .. tostring(i)]) do
+        if RollPercentage(chance) then
+          print(item_name)
+          local item = CreateItem(item_name, nil, nil)
+          local pos = unit:GetAbsOrigin() + RandomVector(200)
+          CreateItemOnPositionSync()
+          item:LaunchLoot(false, RandomInt(1,200), RandomInt(300,500), pos)
+        end
+      end
+    end
   end
 end

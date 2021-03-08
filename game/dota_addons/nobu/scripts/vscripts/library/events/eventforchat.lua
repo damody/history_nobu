@@ -725,9 +725,10 @@ local function chat_of_test(keys)
 		end
 	end
 	if string.match(s,"-test") then
-		if author[tostring(steamid)] or author[tostring(accountID)] then
-			CustomGameEventManager:Send_ServerToAllClients("test", {})
-		end
+		_G.DropTable = LoadKeyValues("scripts/npc/npc_neutral_items_custom.txt")
+		-- if author[tostring(steamid)] or author[tostring(accountID)] then
+		-- 	CustomGameEventManager:Send_ServerToAllClients("test", {})
+		-- end
 		-- local pID = tonumber(string.match(s, '%d+'))
 		-- local steamID = PlayerResource:GetSteamAccountID(pID)
 		-- GameRules: SendCustomMessage(tostring(steamID),DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
