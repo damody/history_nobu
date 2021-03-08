@@ -99,6 +99,7 @@ function Nobu:OnHeroIngame( keys )
           hero:AddAbility("HealthRegen_self"):SetLevel(1)
           hero:AddAbility("ManaRegen_self"):SetLevel(1)
           hero:AddAbility("AtkSpeedBonus_self"):SetLevel(1)
+          hero:AddAbility("Attack_fail"):SetLevel(1)
           hero:AddAbility("afk_checker"):SetLevel(1)
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))

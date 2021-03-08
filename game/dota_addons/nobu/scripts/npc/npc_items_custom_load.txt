@@ -10472,15 +10472,49 @@
             	}
             }
 		}
+		"OnUnEquip"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items\Addon_Items\ninja_cloth.lua"
+				"Function"	"OnUnEquip"
+			}
+		}
 		"Modifiers"
 		{
 			"modifier_ninja_cloth2"
 			{
 				"IsHidden"	"1"
 				"Passive"	"1"
+				"ThinkInterval"	"1"
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"20"	//閃避
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items\Addon_Items\ninja_cloth.lua"
+						"Function"	"OnEquip"
+					}
+				}
+				"OnAttacked"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items\Addon_Items\ninja_cloth.lua"
+						"Function"	"OnAttacked"
+					}
+				}
+			}
+			"modifier_ninja_cloth_untake_damage"
+			{
+				"IsHidden"	"0"
+				"IsPurgable"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"1"	//閃避
 				}
 			}
 			"Passive_ninja_cloth"

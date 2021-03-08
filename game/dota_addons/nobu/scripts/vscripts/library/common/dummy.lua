@@ -1060,3 +1060,29 @@ function Return_magical_resistance(keys)
       end
   end
 end
+
+function Attack_fail ( keys )
+  local caster = keys.caster
+  local target = keys.target
+  local ability = keys.ability
+  if target:HasModifier("modifier_ninja_cloth_untake_damage") then
+    target:GiveMana(15)
+    AMHC:CreateNumberEffect(target,15,2,AMHC.MSG_MANA_ADD,"blue",3)
+    target:RemoveModifierByName("modifier_ninja_cloth_untake_damage")
+    if target.ninja_cloth then
+      target.ninja_cloth = 0
+    end
+  end
+end
+
+function Attack_Landed ( keys )
+  local caster = keys.caster
+  local target = keys.target
+  local ability = keys.ability
+  if target:HasModifier("modifier_ninja_cloth_untake_damage") then
+    target:RemoveModifierByName("modifier_ninja_cloth_untake_damage")
+    if target.ninja_cloth then
+      target.ninja_cloth = 0
+    end
+  end
+end 

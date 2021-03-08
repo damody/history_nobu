@@ -6031,6 +6031,36 @@
 			}
 		}
 	}
+	"Attack_fail"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"modifier_attack_fail"
+			{
+				"IsHidden"	"1"
+				"Passive"	"1"
+				"OnAttackFailed"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Attack_fail"
+					}
+				}
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"Attack_Landed"
+					}
+				}
+			}
+		}
+		
+	}
 	"preRegist"
 	{
 		"BaseClass"	"ability_datadriven"
