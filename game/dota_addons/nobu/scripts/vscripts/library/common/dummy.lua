@@ -2,6 +2,7 @@ LinkLuaModifier( "modifier_unit_armor", "scripts/vscripts/library/common/dummy.l
 LinkLuaModifier( "modifier_tower_armor", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_tower_debuff", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_soul", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier( "modifier_B13D", "heroes/modifier_B13D.lua", LUA_MODIFIER_MOTION_NONE)
 modifier_soul = class({})
 
 
@@ -366,6 +367,7 @@ _G.EXCLUDE_TARGET_NAME = {
   npc_dummy = true,
   hide_unit = true,
   ninja_unit1 = true,
+  ninja_unit2 = true,
   a21_weapon = true,
 }
 
@@ -1046,6 +1048,7 @@ function Add_magical_resistance(keys)
       caster.items[ability:GetName()] = caster.items[ability:GetName()] + 1 
   end
 end
+
 function Return_magical_resistance(keys)
   local caster = keys.caster
   local ability = keys.ability
@@ -1060,4 +1063,16 @@ function Return_magical_resistance(keys)
           caster.magical_resistance = caster.magical_resistance - magical_resistance
       end
   end
+end
+
+function ninja_underground( keys )
+	local caster = keys.caster
+	local ability = keys.ability
+	if caster:HasModifier("modifier_ninja_underground") == false then
+    ability:ApplyDataDrivenModifier( caster, caster, "modifier_ninja_underground", {} )
+    caster:AddNewModifier(caster, ability, "modifier_B13D", nil )
+	else
+    caster:RemoveModifierByName("modifier_ninja_underground")
+    caster:RemoveModifierByName("modifier_B13D")
+	end
 end

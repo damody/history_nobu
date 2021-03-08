@@ -15,6 +15,7 @@
 	"item"      "item_insight_gem_Shard"	//洞察碎片
 	"item"      "item_gold_to_prestige"		//兵力
 	"item"		"item_ninja1"				//下忍
+	"item"		"item_ninja2"				//中忍
 }
 
 //偷買

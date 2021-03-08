@@ -17235,6 +17235,47 @@
             }
 		}
 	}
+	// 中忍
+	"item_ninja2"
+	{
+		"BaseClass"	"item_datadriven"
+		"AbilityTextureName"	"item_custom/liubei_hujia"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityCooldown"	"1"
+		"AbilityCastRange"	"400"
+		"AbilityManaCost"	"0"
+		"ID"	"4002"
+		"ItemCost"	"100"
+		"ItemQuality"	"component"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemStockMax"					"5"
+		"ItemStockInitial"				"5"
+		"ItemStockTime"					"15"
+		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"Model"	"models/props_gameplay/tpscroll01.vmdl"
+		"Effect"	"particles/q09_2/q09_2.vpcf"
+		"AbilityCastRange"	"400"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/Addon_Items/item_ninja.lua"
+				"Function"	"Shock2"
+			}
+			"DelayedAction"
+            {
+            	"Delay"     "0.1"
+            	"Action"    
+            	{
+            		"SpendCharge"
+					{}
+            	}
+            }
+		}
+	}
 	// 逝者之笏
 	"item_death_of_scepter"
 	{
