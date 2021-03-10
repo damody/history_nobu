@@ -437,7 +437,7 @@ end
 
 function Nobu:Init_Event_and_Filter_GameMode()
   local self =  _G.Nobu
-
+  GameRules.DropTable = LoadKeyValues("scripts/kv/item_drops.kv")
 
   --【Filter】
   GameRules:GetGameModeEntity():SetExecuteOrderFilter( Nobu.eventfororder, self )

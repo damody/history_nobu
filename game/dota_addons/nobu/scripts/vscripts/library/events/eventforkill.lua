@@ -34,7 +34,7 @@ neutral = {
 }
 
 drop_level = {10, 15, 20, 25, 30}
-
+dropped = {}
 _G.CP_spawn_time = 60
 _G.CP_respawn_time = 120
 function Nobu:OnUnitKill( keys )
@@ -74,6 +74,11 @@ function Nobu:OnUnitKill( keys )
     -- [   VScript              ]: }
     local AttackerUnit = EntIndexToHScript( keys.entindex_attacker )
     local killedUnit = EntIndexToHScript( keys.entindex_killed )
+    -- print(killedUnit:GetUnitName())
+    -- if string.match(killedUnit:GetUnitName(),"npc_dota") then
+    --   print("match!!!")
+    --   RollDrops(killedUnit)
+    -- end
     neutral_item_drop(killedUnit)
     if killedUnit:IsBuilding() and not string.match(killedUnit:GetUnitName(),"_hero")  then
       local group = FindUnitsInRadius(AttackerUnit:GetTeamNumber(), killedUnit:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
@@ -587,11 +592,29 @@ function CallExperience(value,scale)
   end
 end
 
+function RollDrops(unit)
+  print("rolltest")
+  local DropInfo = GameRules.DropTable[unit:GetUnitName()]
+  PrintTable(DropInfo)
+  if DropInfo then
+    for item_name,chance in pairs (DropInfo) do
+      if RollPercentage(chance) then
+        print("rollPercentageTest")
+        local item = CreateItem(item_name, nil , nil)
+        local pos = unit:GetAbsOrigin() + RandomVector(200)
+        CreateItemOnPositionSync()
+      end
+    end
+  end
+end
+
 function neutral_item_drop(unit)
+  print("neutralDrop")
   if IsValidEntity(unit) and neutral[unit:GetUnitName()] then
     print(#drop_level)
     local heros = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, 750, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
     local heros2 = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, 750, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
+    local exist = false
     if #heros < 1 then
       return
     end
@@ -602,16 +625,32 @@ function neutral_item_drop(unit)
         end
       end
     end
-    for i=#drop_level, 1, -1 do
-      for item_name, chance in pairs(_G.DropTable["level_" .. tostring(i)]) do
-        if RollPercentage(chance) then
-          print(item_name)
+    local i = RandomInt(1,5)
+    for item_name, chance in pairs(_G.DropTable["level_" .. tostring(i)]) do
+      if RollPercentage(chance) then
+        print(item_name)
+        PrintTable(dropped)
+        for i,v in pairs(dropped) do
+          if v == item_name then
+              print("repeat")
+              exist = true
+            else
+
+          end
+        end
+        if exist == false then
+          table.insert(dropped,item_name)
           local item = CreateItem(item_name, nil, nil)
           local pos = unit:GetAbsOrigin() + RandomVector(200)
-          CreateItemOnPositionSync()
+          CreateItemOnPositionSync(pos, item)
           item:LaunchLoot(false, RandomInt(1,200), RandomInt(300,500), pos)
+          break
         end
+        
+        
+        -- item:CreateItemOnPositionSync(pos,nil)
       end
     end
+  
   end
 end
