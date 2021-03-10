@@ -4138,7 +4138,7 @@
 		"Effect"	"particles/generic_gameplay/dropped_item.vpcf"
 		// Item Info
 		
-		"ItemCost"	"2600"
+		"ItemCost"	"2100"
 		//"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemDeclarations"	"DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SideShop"	"0"
@@ -8619,13 +8619,13 @@
 	{
 	    "ID" "3015"
 	    "BaseClass" "item_recipe_arcane_boots"
-		"ItemCost" "50"
+		"ItemCost" "400"
 		"ItemShopTags" ""
 		"ItemRecipe" "1"
 		"ItemResult" "item_nagamaki"
 		"ItemRequirements"
 		{
-			"01" "item_moon_spear"
+			"01" "item_spear;item_spear;item_strength_ingot"
 		}
 	}
 
