@@ -665,7 +665,6 @@ function neutral_item_drop(unit, attackerUnit)
             team = "unified"
             canDrop = true
           end
-          print(item_name)
           local item = CreateItem(item_name, nil, nil)
           if item:IsPermanent() == false and _G.droped_notPerment[team][i] then
             canDrop = false
