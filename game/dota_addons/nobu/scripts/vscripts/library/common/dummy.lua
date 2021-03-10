@@ -1103,3 +1103,7 @@ function ninja_underground( keys )
     caster:RemoveModifierByName("modifier_B13D")
 	end
 end
+
+function logging( keys ) 
+  print("logging")
+end

@@ -725,7 +725,15 @@ local function chat_of_test(keys)
 		end
 	end
 	if string.match(s,"-test") then
-		_G.DropTable = LoadKeyValues("scripts/npc/npc_neutral_items_custom.txt")
+		-- _G.DropTable = LoadKeyValues("scripts/npc/npc_neutral_items_custom.txt")
+		for i = 0, 15 do
+            local item = caster:GetItemInSlot( i )
+            if item then
+              if item:GetName() == "item_logging" then
+                caster:SwapItems(i, 5)
+              end
+            end
+          end
 		-- if author[tostring(steamid)] or author[tostring(accountID)] then
 		-- 	CustomGameEventManager:Send_ServerToAllClients("test", {})
 		-- end

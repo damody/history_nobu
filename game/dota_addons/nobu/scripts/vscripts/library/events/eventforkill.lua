@@ -37,6 +37,18 @@ drop_level = {10, 15, 20, 25, 30}
 dropped = {}
 _G.CP_spawn_time = 60
 _G.CP_respawn_time = 120
+_G.droped = {
+  nobu = {},
+  unified = {},
+}
+_G.droped_notPerment = {
+  nobu = {},
+  unified = {},
+}
+_G.droped_count = {
+  nobu = {},
+  unified = {},
+}
 function Nobu:OnUnitKill( keys )
   --每当单位死亡，检查其是否符合条件，如果符合就刷新任务
   ------------------------------------------------------------------
@@ -79,7 +91,7 @@ function Nobu:OnUnitKill( keys )
     --   print("match!!!")
     --   RollDrops(killedUnit)
     -- end
-    neutral_item_drop(killedUnit)
+    neutral_item_drop(killedUnit, AttackerUnit)
     if killedUnit:IsBuilding() and not string.match(killedUnit:GetUnitName(),"_hero")  then
       local group = FindUnitsInRadius(AttackerUnit:GetTeamNumber(), killedUnit:GetAbsOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
       local count = 0
@@ -608,10 +620,9 @@ function RollDrops(unit)
   end
 end
 
-function neutral_item_drop(unit)
-  print("neutralDrop")
+function neutral_item_drop(unit, attackerUnit)
   if IsValidEntity(unit) and neutral[unit:GetUnitName()] then
-    print(#drop_level)
+    -- 看英雄
     local heros = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, 750, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
     local heros2 = FindUnitsInRadius(unit:GetTeamNumber(), unit:GetAbsOrigin(), nil, 750, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, 0, false)
     local exist = false
@@ -625,32 +636,60 @@ function neutral_item_drop(unit)
         end
       end
     end
-    local i = RandomInt(1,5)
-    for item_name, chance in pairs(_G.DropTable["level_" .. tostring(i)]) do
-      if RollPercentage(chance) then
-        print(item_name)
-        PrintTable(dropped)
-        for i,v in pairs(dropped) do
-          if v == item_name then
-              print("repeat")
-              exist = true
-            else
-
-          end
-        end
-        if exist == false then
-          table.insert(dropped,item_name)
-          local item = CreateItem(item_name, nil, nil)
-          local pos = unit:GetAbsOrigin() + RandomVector(200)
-          CreateItemOnPositionSync(pos, item)
-          item:LaunchLoot(false, RandomInt(1,200), RandomInt(300,500), pos)
-          break
-        end
-        
-        
-        -- item:CreateItemOnPositionSync(pos,nil)
+    -- 算時間
+    local level = 1
+    for i=1, #drop_level do
+      if GameRules:GetDOTATime(false, false) < drop_level[i]*60 then
+        level = i
+        break
       end
     end
-  
+    -- 掉東西
+    for i=level, 1, -1 do
+      local tmpKey = {}
+      local n = 1
+      for item_name, chance in pairs(_G.DropTable["level_" .. i]) do
+        tmpKey[n]=item_name
+        n = n + 1
+      end
+      for _, chance in pairs(_G.DropTable["level_" .. i]) do
+        if RollPercentage(chance) then
+          local item_name = tmpKey[RandomInt( 1, #tmpKey)]
+          local pos = unit:GetAbsOrigin() + RandomVector(200)
+          local team = ""
+          local canDrop = false
+          if attackerUnit:GetTeamNumber() == DOTA_TEAM_GOODGUYS and _G.droped["nobu"][item_name] == nil then
+            team = "nobu"
+            canDrop = true
+          elseif attackerUnit:GetTeamNumber() == DOTA_TEAM_BADGUYS and _G.droped["unified"][item_name] == nil then
+            team = "unified"
+            canDrop = true
+          end
+          print(item_name)
+          local item = CreateItem(item_name, nil, nil)
+          if item:IsPermanent() == false and _G.droped_notPerment[team][i] then
+            canDrop = false
+          end
+          if canDrop and _G.droped_count[team][i] == nil then
+            _G.droped_count[team][i] = 0
+          end
+          if canDrop and _G.droped_count[team][i] >= 4 then
+            canDrop = false
+          end
+          if canDrop then
+            if item:IsPermanent() == false then
+              _G.droped_notPerment[team][i] = true
+            else
+              _G.droped[team][item_name] = true
+            end
+            _G.droped_count[team][i] = _G.droped_count[team][i] + 1
+            CreateItemOnPositionForLaunch(pos, item)
+            return
+          end
+        else
+          break
+        end
+      end
+    end 
   end
 end

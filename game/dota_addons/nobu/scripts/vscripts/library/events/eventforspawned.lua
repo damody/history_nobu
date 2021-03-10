@@ -103,7 +103,7 @@ function Nobu:OnHeroIngame( keys )
           hero:AddAbility("afk_checker"):SetLevel(1)
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
-          hero:AddItem(CreateItem("item_logging", hero, hero))
+          -- hero:AddItem(CreateItem("item_logging", hero, hero))
           local player_cnt = 0
           for i=0, 9 do
             local player = PlayerResource:GetPlayer(i)
@@ -126,14 +126,14 @@ function Nobu:OnHeroIngame( keys )
             hero:FindAbilityByName("C19D"):StartCooldown(30)
           end
           --把砍樹移動到neutral item slot
-          for i = 0, 15 do
-            local item = caster:GetItemInSlot( i )
-            if item then
-              if item:GetName() == "item_logging" then
-                hero:SwapItems(i, 16)
-              end
-            end
-          end
+          -- for i = 0, 15 do
+          --   local item = caster:GetItemInSlot( i )
+          --   if item then
+          --     if item:GetName() == "item_logging" then
+          --       hero:SwapItems(i, 16)
+          --     end
+          --   end
+          -- end
         else
           -- 有沒有吃武士服
           if hero.mix_samurai_cloth then

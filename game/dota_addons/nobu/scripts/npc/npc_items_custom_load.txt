@@ -18461,13 +18461,14 @@
 		// General
 		// -------------------------------------------------------------------------------------------------------------
 		"BaseClass"	"item_datadriven"
-		"AbilityTextureName"	"item_custom/icon_128x128_47"
-		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"	"item_custom/icon_128x128_124"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_TREE"
+		"AbilityCastAnimation"	"ACT_DOTA_ATTACK"
 		"FightRecapLevel"	"1"
 		// Time
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"	"1"
+		"AbilityCooldown"	"0.3"
 		// Cost
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"	"0"
@@ -18476,37 +18477,15 @@
 		"AbilityCastRange"	"250"
 		"ID"	"5000"
 		"ItemQuality"	"component"
-		"ItemStackable"					"0"
-		"ItemPermanent"					"1"
 		"Model"	"models/props_gameplay/tpscroll01.vmdl"
 		"Effect"	"particles/q09_2/q09_2.vpcf"
 		"ItemCost"	"50"
-		"precache"
-		{
-			"particle"	"particles/gohome/gohome.vpcf"
-		}
 		"OnSpellStart"
 		{
-			"RunScript"
+			"DestroyTrees"
 			{
-				"ScriptFile"	"items/Addon_Items/item_tpscroll.lua"
-				"Function"		"Shock"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_speed_up"
-			{
-				"IsBuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"100"
-				}
-				"OntakeDamage"
-				{
-					"ScriptFile"	"items/Addon_Items/item_tpscroll.lua"
-					"Function"		"OnTakeDamage"
-				}
+				"Target"        "POINT"
+				"Radius"        "100"
 			}
 		}
 	}
