@@ -22,7 +22,7 @@
         "item_pupils_gift"				  "10"
         "item_vambrace"			          "10"
         "item_grove_bow"				  "10"
-        "item_philosophers_stone"		  "10"
+        // "item_philosophers_stone"		  "10"
         "item_essence_ring"				  "10"
         "item_bullwhip"			          "10"
         "item_quicksilver_amulet"		  "10"
