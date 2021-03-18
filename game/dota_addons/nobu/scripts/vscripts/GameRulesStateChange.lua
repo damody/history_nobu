@@ -129,13 +129,21 @@ function Nobu:OnGameRulesStateChange( keys )
 		Timers:CreateTimer(0, function()
 			if (_G.bStopGetFromClient == false) then
 				local steam_id = PlayerResource:GetSteamID(0)
-				print(steam_id)
-				SendHTTPRequestGetPlayers("get_players/", "POST",
-				{id = tostring(steam_id)}, function(res)
-					if (string.match(res, "error")) then
-						callback()
-					end
-				end)
+				if _G.aram then
+					SendHTTPRequestGetPlayers("get_players/", "POST",
+					{id = tostring(steam_id), mode = "aram"}, function(res)
+						if (string.match(res, "error")) then
+							callback()
+						end
+					end)
+				else
+					SendHTTPRequestGetPlayers("get_players/", "POST",
+					{id = tostring(steam_id), mode = "ng"}, function(res)
+						if (string.match(res, "error")) then
+							callback()
+						end
+					end)
+				end
 				return 3
 			end
 			return
@@ -282,25 +290,49 @@ function Nobu:OnGameRulesStateChange( keys )
       Nobu:OpenRoom()
     end
 		--刪除建築物無敵
-	  local allBuildings = Entities:FindAllByClassname('npc_dota_building')
-	  for i = 1, #allBuildings, 1 do
-	     local building = allBuildings[i]
-	     if building:HasModifier('modifier_invulnerable') then
-	        building:RemoveModifierByName('modifier_invulnerable')
-		 end
-	  end
+	local allBuildings = Entities:FindAllByClassname('npc_dota_building')
+	for i = 1, #allBuildings, 1 do
+		local building = allBuildings[i]
+		if building:HasModifier('modifier_invulnerable') then
+		building:RemoveModifierByName('modifier_invulnerable')
+		end
+	end
     --出兵觸發
     if _G.nobu_chubing_b then
-	  ShuaGuai()
-	  for i=0,9 do
+		if _G.aram then
+			ShuaGuai_Aram()
+		else
+			ShuaGuai()
+		end
+	for i=0,9 do
 		-- 跳錢
 		_G.PlayerEarnedGold[i] = 2000
-		Timers:CreateTimer(45, function()
-			local gold = PlayerResource:GetUnreliableGold(i)
-			PlayerResource:SetGold(i,gold + 5,false)
-			_G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + 5
-			return 2
-		end)
+		if _G.aram then
+			Timers:CreateTimer(45, function()
+				local gold = PlayerResource:GetUnreliableGold(i)
+				PlayerResource:SetGold(i,gold + 5,false)
+				_G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + 5
+				return 2
+			end)
+		else
+			Timers:CreateTimer(45, function()
+				local gold = PlayerResource:GetUnreliableGold(i)
+				PlayerResource:SetGold(i,gold + 10,false)
+				_G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + 10
+				return 2
+			end)
+		end
+		if _G.aram then
+			-- 跳經驗
+			Timers:CreateTimer(45, function()
+				local player = PlayerResource:GetPlayer(i)
+				if player then 
+					local hero = player:GetAssignedHero();
+					hero:AddExperience(5,0,false,false)
+				end
+				return 2
+			end)
+		end
 		-- 換skin
 		local steamid = PlayerResource:GetSteamID(i)
 		local accountID = PlayerResource:GetSteamAccountID(i)
@@ -313,6 +345,12 @@ function Nobu:OnGameRulesStateChange( keys )
 				-- 紀錄角色
 				_G.Hero[i] = player:GetAssignedHero()
 				if _G.Hero[i] ~= nil then
+					-- ARAM初始等級
+					if _G.aram then
+						if _G.Hero[i]:GetLevel() < 3 then
+							_G.Hero[i]:AddExperience(485,0,false,false)
+						end
+					end
 					if _G.skin_table[tostring(steamid)] == true or _G.skin_table[tostring(accountID)] == true then
 						local caster = player:GetAssignedHero()
 						caster.use_skin = true
@@ -502,7 +540,7 @@ function Nobu:OnGameRulesStateChange( keys )
 			end
 		end
 	end)
-	--60秒後出野怪
+	--45秒後出野怪
 	Timers:CreateTimer(45, function()
 		local allCPs = Entities:FindAllByClassname('npc_dota_creep_lane')
 		for k, ent in pairs(allCPs) do

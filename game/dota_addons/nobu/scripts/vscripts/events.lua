@@ -308,6 +308,11 @@ function Nobu:HealFilter(keys)
     end
   end
 
+  -- aram 降治療
+  if target.HasModifier and target:HasModifier("passive_aram_hero_debuff") ~= nil then
+    keys.heal = keys.heal * 0.4
+  end
+
   if target:HasModifier("modifier_spawn_spiderlings_datadriven") then
       if target.b33T == 1 then
         if target.decrease_health >= 0.4 then

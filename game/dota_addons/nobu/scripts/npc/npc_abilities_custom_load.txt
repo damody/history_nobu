@@ -6401,4 +6401,42 @@
 			}
 		}
 	}
+	"aram_hero_debuff"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"passive_aram_hero_debuff"
+			{
+				"Passive"	"1"
+				"IsHidden"	"0"
+				"Properties"
+				{
+					// "MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE"	"-60"
+				}
+			}
+		}
+	}
+	"aram_minion_dead"
+	{
+		"BaseClass"	"ability_datadriven"
+		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"Modifiers"
+		{
+			"passive_aram_minion_dead"
+			{
+				"Passive"	"1"
+				"IsHidden"	"1"
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"scripts/vscripts/library/common/dummy.lua"
+						"Function"	"aram_minion_death"
+					}
+				}
+			}
+		}
+	}
 }

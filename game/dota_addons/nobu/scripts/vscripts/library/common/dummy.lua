@@ -3,6 +3,8 @@ LinkLuaModifier( "modifier_tower_armor", "scripts/vscripts/library/common/dummy.
 LinkLuaModifier( "modifier_tower_debuff", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_soul", "scripts/vscripts/library/common/dummy.lua",LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_B13D", "heroes/modifier_B13D.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_pickup_health_thinker", "scripts/vscripts/library/common/dummy.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier( "modifier_pickup_health_buff", "scripts/vscripts/library/common/dummy.lua", LUA_MODIFIER_MOTION_NONE)
 modifier_soul = class({})
 
 
@@ -1107,3 +1109,117 @@ end
 function logging( keys ) 
   print("logging")
 end
+
+function aram_minion_death ( keys )
+  local ran =  RandomInt(0, 100)
+  if ran < 5 then
+    local pickup_loc = keys.caster:GetAbsOrigin()
+    local pickup_thinker = CreateModifierThinker(nil, nil, "modifier_pickup_health_thinker", {x = pickup_loc.x, y = pickup_loc.y, z = pickup_loc.z + 128}, pickup_loc, DOTA_TEAM_NEUTRALS, false) 
+  end
+end
+
+modifier_pickup_health_buff = class({})
+
+function modifier_pickup_health_buff:IsDebuff() return false end
+function modifier_pickup_health_buff:IsHidden() return false end
+function modifier_pickup_health_buff:IsPurgable() return false end
+function modifier_pickup_health_buff:GetAttributes() return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE + MODIFIER_ATTRIBUTE_PERMANENT end
+
+function modifier_pickup_health_buff:DeclareFunctions()
+	local funcs = {
+		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
+		MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE
+	}
+	return funcs
+end
+
+function modifier_pickup_health_buff:GetModifierHealthRegenPercentage()
+	return 12.5
+end
+
+function modifier_pickup_health_buff:GetModifierTotalPercentageManaRegen()
+	return 12.5
+end
+
+function modifier_pickup_health_buff:GetTexture()
+	return "rune_regen"
+end
+
+function modifier_pickup_health_buff:GetEffectName()
+	return "particles/generic_gameplay/rune_regen_owner.vpcf"
+end
+
+function modifier_pickup_health_buff:GetEffectAttachType()
+	return PATTACH_ABSORIGIN_FOLLOW
+end
+
+modifier_pickup_health_thinker = class({})
+
+function modifier_pickup_health_thinker:IsDebuff() return false end
+function modifier_pickup_health_thinker:IsHidden() return true end
+function modifier_pickup_health_thinker:IsPurgable() return false end
+function modifier_pickup_health_thinker:GetAttributes() return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE + MODIFIER_ATTRIBUTE_PERMANENT end
+
+function modifier_pickup_health_thinker:OnCreated(keys)
+  if IsServer() then
+		self.pickup_location = Vector(keys.x, keys.y, keys.z)
+		self.activated = false
+
+		AddFOWViewer(DOTA_TEAM_GOODGUYS, self.pickup_location, 375, 5, false)
+		AddFOWViewer(DOTA_TEAM_BADGUYS, self.pickup_location, 375, 5, false)
+
+		-- EmitSoundOnLocationWithCaster(self.pickup_location, "POG.Chalice.Spawn", Guardians.team_fountain[DOTA_TEAM_GOODGUYS])
+
+		self.pickup_pfx = ParticleManager:CreateParticle("particles/a15w/a15w_disarm_glow.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(self.pickup_pfx, 0, self.pickup_location)
+
+		self:StartIntervalThink(0.03)
+	end
+end
+
+function modifier_pickup_health_thinker:OnIntervalThink()
+	if IsServer() then
+		if not self.activated then
+			local units = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, self.pickup_location, nil, 128, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_OUT_OF_WORLD, FIND_CLOSEST, false)
+			if #units > 0 then
+				self.activated = true
+
+				-- EmitSoundOnLocationWithCaster(self.pickup_location, "POG.Chalice.Activate", Guardians.team_fountain[DOTA_TEAM_GOODGUYS])
+
+				ParticleManager:DestroyParticle(self.pickup_pfx, false)
+				ParticleManager:ReleaseParticleIndex(self.pickup_pfx)
+
+				local ring_pfx = ParticleManager:CreateParticle("particles/pickup_health/pickup_health_3.vpcf", PATTACH_CUSTOMORIGIN, nil)
+				ParticleManager:SetParticleControl(ring_pfx, 0, self.pickup_location)
+				ParticleManager:SetParticleControl(ring_pfx, 1, Vector(3, 375, 0))
+
+				AddFOWViewer(DOTA_TEAM_GOODGUYS, self.pickup_location, 375, 3.0, false)
+				AddFOWViewer(DOTA_TEAM_BADGUYS, self.pickup_location, 375, 3.0, false)
+
+				Timers:CreateTimer(3.2, function()
+					-- EmitSoundOnLocationWithCaster(self.pickup_location, "POG.Chalice.Heal", Guardians.team_fountain[DOTA_TEAM_GOODGUYS])
+
+					local healed_units = FindUnitsInRadius(DOTA_TEAM_NEUTRALS, self.pickup_location, nil, 375, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+					for _, unit in pairs(healed_units) do
+
+						local heal_pfx = ParticleManager:CreateParticle("particles/a09r/a09rdeath/monkey_king_spring_death_expanding.vpcf", PATTACH_ABSORIGIN_FOLLOW, unit)
+						ParticleManager:SetParticleControl(heal_pfx, 0, unit:GetAbsOrigin())
+						ParticleManager:ReleaseParticleIndex(heal_pfx)
+
+						if unit.GetPlayerID then
+							local remaining_duration = 0
+							if unit:HasModifier("modifier_pickup_health_buff") then
+								remaining_duration = unit:FindModifierByName("modifier_pickup_health_buff"):GetRemainingTime()
+							end
+						end
+
+						unit:AddNewModifier(unit, nil, "modifier_pickup_health_buff", {duration = 5})
+					end
+
+					ParticleManager:DestroyParticle(ring_pfx, true)
+					ParticleManager:ReleaseParticleIndex(ring_pfx)
+				end)
+			end
+		end
+	end
+end 

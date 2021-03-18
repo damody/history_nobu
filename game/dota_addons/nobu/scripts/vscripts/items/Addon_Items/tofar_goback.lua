@@ -462,12 +462,17 @@ function tofar_goback(keys)
 end
 
 Timers:CreateTimer( 3, function()
-_G.Unified_pos1 = Entities:FindByName(nil,"chubinluxian_location_of_wl_button"):GetAbsOrigin()
-_G.Unified_pos2 = Entities:FindByName(nil,"chubinluxian_location_of_wl_top"):GetAbsOrigin()
-_G.Unified_pos3 = Entities:FindByName(nil,"chubinluxian_location_of_wl_middle"):GetAbsOrigin()
-_G.Nobu_pos1 = Entities:FindByName(nil,"chubinluxian_location_of_nobu_button"):GetAbsOrigin()
-_G.Nobu_pos2 = Entities:FindByName(nil,"chubinluxian_location_of_nobu_top"):GetAbsOrigin()
-_G.Nobu_pos3 = Entities:FindByName(nil,"chubinluxian_location_of_nobu_middle"):GetAbsOrigin()
+	if _G.aram then
+		_G.Unified_pos3 = Entities:FindByName(nil,"chubinluxian_location_of_wl_middle"):GetAbsOrigin()
+		_G.Nobu_pos3 = Entities:FindByName(nil,"chubinluxian_location_of_nobu_middle"):GetAbsOrigin()
+	else
+		_G.Unified_pos1 = Entities:FindByName(nil,"chubinluxian_location_of_wl_button"):GetAbsOrigin()
+		_G.Unified_pos2 = Entities:FindByName(nil,"chubinluxian_location_of_wl_top"):GetAbsOrigin()
+		_G.Unified_pos3 = Entities:FindByName(nil,"chubinluxian_location_of_wl_middle"):GetAbsOrigin()
+		_G.Nobu_pos1 = Entities:FindByName(nil,"chubinluxian_location_of_nobu_button"):GetAbsOrigin()
+		_G.Nobu_pos2 = Entities:FindByName(nil,"chubinluxian_location_of_nobu_top"):GetAbsOrigin()
+		_G.Nobu_pos3 = Entities:FindByName(nil,"chubinluxian_location_of_nobu_middle"):GetAbsOrigin()
+	end
 end)
 
 function reset_pos(keys)
@@ -725,6 +730,10 @@ function disconnect_checker(keys)
 		local state = PlayerResource:GetConnectionState(id)
 		local nobuafk = Vector(7714.519043,-5177.663086,257.197266)
 		local unitafk = Vector(-5596.307129,7738.742676,256.000000)
+		if _G.aram then
+			nobuafk = Vector(3749.84,-3950.23,128)
+			unitafk = Vector(-5484.47,5088.38,128)
+		end
 		if hero.deathtime and hero.deathtime > 0 then
 			hero.deathtime = hero.deathtime - 1
 		end

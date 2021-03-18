@@ -31,6 +31,19 @@ function OnOwnerDied(keys)
                         AMHC:GivePlayerGold_UnReliable(hero:GetPlayerOwnerID(), extra_bounty + bounty)
                         -- _G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + extra_bounty + bounty
                         hero.assist_count = hero.assist_count+1
+                        if hero.item_death_of_scepter_count then
+                            hero.item_death_of_scepter_count = hero.item_death_of_scepter_count + 1
+                            if hero.item_death_of_scepter_count > 21 then
+                                hero.item_death_of_scepter_count = 21
+                            end
+                        end
+                        for i = 0, 6 do
+                            local item = hero:GetItemInSlot( i )
+                            if item and item:GetName() == "item_death_of_scepter" then
+                                item:ApplyDataDrivenModifier(hero, hero, "modifier_spell_amplify_stack", {})
+                                hero:FindModifierByName("modifier_spell_amplify_stack"):SetStackCount(hero.item_death_of_scepter_count)
+                            end   
+                        end
                     end
                 end
             end

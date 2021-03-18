@@ -79,14 +79,120 @@ Timers:CreateTimer( 2, function()
 	ShuaGuai_entity_point={} --誕生點
 	ShuaGuai_entity_forvec={} --誕生方向
 	for i=1,6 do
-		ShuaGuai_entity_point[i] = ShuaGuai_entity[i]:GetAbsOrigin()
-		--print(ShuaGuai_entity_point[i])
-		ShuaGuai_entity_forvec[i] = ShuaGuai_entity[i]:GetForwardVector()
+		if ShuaGuai_entity[i] then
+			ShuaGuai_entity_point[i] = ShuaGuai_entity[i]:GetAbsOrigin()
+			--print(ShuaGuai_entity_point[i])
+			ShuaGuai_entity_forvec[i] = ShuaGuai_entity[i]:GetForwardVector()
+		end
 	end
 	return nil
 end)
 
 -- 中路模式
+
+function ShuaGuai_Aram( )
+	--ShuaGuai_Of_A( )
+
+	--出兵觸發:足輕+弓箭手
+	--30秒出第一波，之後每30秒出一波
+	local speedup = 0.01
+	local ShuaGuai_count = -1
+	local start_time = 30
+	local no_buff = {
+		["com_general_oda"] = true,
+		["com_general_unified"] = true,
+	}
+	Timers:CreateTimer(300, function()
+		_G.armor_bonus = _G.armor_bonus + 1
+		return 300
+	end)
+	-- Timers:CreateTimer(1200, function()
+	-- 	ShuaGuai_Of_Cavalry_num = ShuaGuai_Of_Cavalry_num + 1
+	-- 	ShuaGuai_Of_Gunner_num = ShuaGuai_Of_Gunner_num + 1
+	-- 	return 1200
+	-- end)
+	Timers:CreateTimer(1800, function()
+		_G.bigminions = 70
+	end)
+	local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+	for k, ent in pairs(allBuildings) do
+		ent:AddNewModifier(caster, ability, "modifier_unit_armor", nil)
+		ent:FindModifierByName("modifier_unit_armor").caster = caster
+		if string.match(ent:GetUnitName(),"general") then
+			--1300 加技能
+			for i = 0 , ent:GetAbilityCount() - 1 do
+				if ent:GetAbilityByIndex(i) then
+					ent:GetAbilityByIndex(i):SetLevel(1)
+				end
+			end
+		end
+	end
+	Timers:CreateTimer(10, function()
+		local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+		for k, ent in pairs(allBuildings) do
+			ent:AddAbility("buff_tower"):SetLevel(1)
+			ent:SetPhysicalArmorBaseValue(5)
+			ent:AddNewModifier(ent, ent:FindAbilityByName("tower_armor"), "modifier_tower_armor", nil)
+			if ent:HasModifier("modifier_record") then
+				ent:RemoveModifierByName("modifier_record")
+			end
+			ent:AddNewModifier(ent, nil,"modifier_record",{})
+			ent:FindModifierByName("modifier_record").caster = ent
+		end
+		local allBuildings2 = Entities:FindAllByClassname('npc_dota_building')
+		for k, ent in pairs(allBuildings2) do
+			ent:AddAbility("buff_tower"):SetLevel(1)
+			if ent:HasModifier("modifier_record") then
+				ent:RemoveModifierByName("modifier_record")
+			end
+			ent:AddNewModifier(ent, nil,"modifier_record",{})
+			ent:FindModifierByName("modifier_record").caster = ent
+		end
+		_G.Oda_home:AddAbility("buff_tower"):SetLevel(1)
+		_G.Unified_home:AddAbility("buff_tower"):SetLevel(1)
+		end)
+
+	local armor = 15
+	Timers:CreateTimer(start_time, function()
+		--強化箭塔npc_dota_building
+		local allBuildings = Entities:FindAllByClassname('npc_dota_tower')
+		armor = armor - 1
+		if armor < 15 then
+			armor = 15
+		end
+		for k, ent in pairs(allBuildings) do
+		    if ent:IsTower() then
+		    	if no_buff[ent:GetUnitName()] == nil then
+			    	ent:SetBaseDamageMax(ent:GetBaseDamageMax() + 4)
+			    	ent:SetBaseDamageMin(ent:GetBaseDamageMin() + 4)
+			    end
+		    	ent:SetPhysicalArmorBaseValue(armor)
+			end
+		end
+		return 45
+	end)
+	-- 出足輕   
+ 	Timers:CreateTimer(start_time, function()
+		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num + 1,2,2)
+		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num + 1,3,5)
+		_G.A_count = _G.A_count + 1
+  		return _G.minions
+	 end)
+	 -- 出弓箭手
+	 Timers:CreateTimer(start_time+2, function()--50
+		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num + 1,2,2) 
+		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num + 1,3,5)
+		 return _G.minions
+	end)
+	-- 出鐵炮跟騎兵
+	Timers:CreateTimer(180,function()
+		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num + 1,2,2)
+		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,2,2)  
+		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num + 1,3,5)
+		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,5)
+	    return _G.bigminions
+	end)
+end
 
 function ShuaGuai( )
 	--ShuaGuai_Of_A( )
@@ -287,6 +393,9 @@ function ShuaGuai_Of_AA(num, team, pos)
 					if small_big then intensify = 1.3 end
 					if big then intensify = 1.3 end
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
+					if _G.aram then 
+						unit:AddAbility("aram_minion_dead"):SetLevel(1)
+					end
 					unit:AddAbility("set_level_1"):SetLevel(1)
 					unit:AddNewModifier(unit, unit:FindAbilityByName("unit_armor"), "modifier_unit_armor", nil)
 					local hp = (unit:GetMaxHealth() + 150) * intensify
@@ -396,6 +505,9 @@ function ShuaGuai_Of_AB(num, team, pos)
 					if small_big then intensify = 1.3 end
 					if big then intensify = 1.3 end
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
+					if _G.aram then 
+						unit:AddAbility("aram_minion_dead"):SetLevel(1)
+					end
 					unit:AddAbility("set_level_1"):SetLevel(1)
 					unit:AddNewModifier(unit, unit:FindAbilityByName("unit_armor"), "modifier_unit_armor", nil)
 					local hp = unit:GetMaxHealth() * intensify
@@ -497,6 +609,9 @@ function ShuaGuai_Of_B(num, team, pos)
 				if big then intensify = 2 end
 				for x=1,n do
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
+					if _G.aram then 
+						unit:AddAbility("aram_minion_dead"):SetLevel(1)
+					end
 					unit:AddAbility("set_level_1"):SetLevel(1)
 					unit:AddNewModifier(unit, unit:FindAbilityByName("unit_armor"), "modifier_unit_armor", nil)
 					local hp = (unit:GetMaxHealth()) * intensify
@@ -595,6 +710,10 @@ function ShuaGuai_Of_C(num, team, pos)
 				if big then intensify = 2 end
 				for x=1,n do
 					local unit = CreateUnitByName(unit_name, ShuaGuai_entity_point[i] , true, nil, nil, team)
+					if _G.aram then 
+						unit:AddAbility("aram_minion_dead"):SetLevel(1)
+					end
+					unit:AddAbility("set_level_1"):SetLevel(1)
 					local hp = (unit:GetMaxHealth()) * intensify
 					unit:SetBaseMaxHealth(hp+A_count * 10)
 					local dmgmax = (unit:GetBaseDamageMax()) * intensify

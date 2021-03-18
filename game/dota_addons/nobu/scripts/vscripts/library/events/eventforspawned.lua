@@ -40,6 +40,7 @@ function Nobu:OnHeroIngame( keys )
         if hero.init1 == nil then
           
           local donkey = CreateUnitByName("npc_dota_courier2", caster:GetAbsOrigin()+Vector(100, 100, 0), true, caster, caster, caster:GetTeam())
+          donkey.spawn_position = caster:GetAbsOrigin()+Vector(100, 100, 0)
           donkey:SetOwner(caster)
           donkey:SetControllableByPlayer(caster:GetPlayerID(), true)
           donkey:FindAbilityByName("courier_return_to_base"):SetLevel(1)
@@ -101,6 +102,9 @@ function Nobu:OnHeroIngame( keys )
           hero:AddAbility("AtkSpeedBonus_self"):SetLevel(1)
           hero:AddAbility("Attack_fail"):SetLevel(1)
           hero:AddAbility("afk_checker"):SetLevel(1)
+          if _G.aram then
+            hero:AddAbility("aram_hero_debuff"):SetLevel(1)
+          end
           hero:FindModifierByName("modifier_record").caster = caster
           hero:AddItem(CreateItem("item_S01", hero, hero))
           -- hero:AddItem(CreateItem("item_logging", hero, hero))

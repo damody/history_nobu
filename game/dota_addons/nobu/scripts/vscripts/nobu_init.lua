@@ -14,6 +14,9 @@ function _G.Nobu:InitGameMode()
     _G.game_level = 99
   end
 
+  if _G.GameMap == "nobu_aram" then
+    _G.aram = 1
+  end
   --【Setup rules】
   -- --LimitPathingSearchDepth(0.5)
   --GameRules:SetHeroRespawnEnabled( false )

@@ -37,6 +37,9 @@ drop_level = {10, 15, 20, 25, 30}
 dropped = {}
 _G.CP_spawn_time = 60
 _G.CP_respawn_time = 120
+if _G.aram then
+  _G.CP_respawn_time = 60
+end
 _G.droped = {
   nobu = {},
   unified = {},
@@ -212,7 +215,11 @@ function Nobu:OnUnitKill( keys )
       end
       
       if die_tim2[killedUnit:GetLevel()] then
-        killedUnit:SetTimeUntilRespawn(die_tim2[killedUnit:GetLevel()])
+        local time = die_tim2[killedUnit:GetLevel()]
+        if _G.aram then   
+          time = time / 2
+        end
+        killedUnit:SetTimeUntilRespawn(time)
         killedUnit.death = true
         killedUnit.deathtime = die_tim2[killedUnit:GetLevel()]
         Timers:CreateTimer(die_tim2[killedUnit:GetLevel()], function()
@@ -221,8 +228,8 @@ function Nobu:OnUnitKill( keys )
       else
         killedUnit:SetTimeUntilRespawn(140)
         killedUnit.death = true
-        killedUnit.deathtime = 140
-        Timers:CreateTimer(140, function()
+        killedUnit.deathtime = time
+        Timers:CreateTimer(time, function()
           killedUnit.death = nil
           end)
       end
@@ -322,7 +329,7 @@ function Nobu:OnUnitKill( keys )
     if string.match(name, "com_gunner")then
       local s,f = string.find(name,"com_gunner")
       local new_name = string.sub(name,s,f)
-      if AttackerUnit:IsHero()then
+      if _G.aram == nil and AttackerUnit:IsHero()then
         AttackerUnit:AddExperience(XP[new_name],0,false,false)
       end
       local enemyHero = FindUnitsInRadius(killedUnit:GetTeamNumber(), killedUnit:GetAbsOrigin(),
@@ -351,7 +358,7 @@ function Nobu:OnUnitKill( keys )
     if string.match(name, "com_cavalry")then
       local s,f = string.find(name,"com_cavalry")
       local new_name = string.sub(name,s,f)
-      if AttackerUnit:IsHero()then
+      if _G.aram == nil and AttackerUnit:IsHero()then
         AttackerUnit:AddExperience(XP[new_name],0,false,false)
       end
       local enemyHero = FindUnitsInRadius(killedUnit:GetTeamNumber(), killedUnit:GetAbsOrigin(),
@@ -529,10 +536,10 @@ function Nobu:OnUnitKill( keys )
       if owner.disconnect == false then
         if killedUnit:GetTeamNumber() == 2 then
           killedUnit:RespawnUnit()  
-          killedUnit:SetOrigin(Vector(6912,-7168,128))
+          killedUnit:SetOrigin(killedUnit.spawn_position)
         else
           killedUnit:RespawnUnit()
-          killedUnit:SetOrigin(Vector(-7168,6656,128))
+          killedUnit:SetOrigin(killedUnit.spawn_position)
         end
         Timers:CreateTimer(0.5,function() 
           for i = 0 , killedUnit:GetAbilityCount()-1 do
