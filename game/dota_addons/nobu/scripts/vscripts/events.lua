@@ -285,20 +285,20 @@ function Nobu:HealFilter(keys)
   ]]
 	local target = EntIndexToHScript(keys.entindex_target_const)
 	local heal = keys.heal
-  local healer = keys.entindex_inflictor_const and EntIndexToHScript(keys.entindex_inflictor_const) or nil
+  local healer = keys.entindex_healer_const and EntIndexToHScript(keys.entindex_healer_const) or nil
   if healer then
     if healer ~= target then
-      if healer:HasModifier("Passive_item_glass_mitsutomo") ~= nil then
+      if healer:HasModifier("Passive_item_glass_mitsutomo") then
           keys.heal = keys.heal * 1.25
       end
-      if healer:HasModifier("modifier_item_reito_lantern") ~= nil then
+      if healer:HasModifier("modifier_item_reito_lantern") then
         keys.heal = keys.heal * 1.30
       end
       if target:HasModifier("Passive_item_the_dark_armor") then
         keys.heal = keys.heal * 1.20
       end
     else
-      if healer:HasModifier("Passive_bizennosafunekanemitsu") ~= nil then
+      if healer:HasModifier("Passive_bizennosafunekanemitsu")  then
         keys.heal = keys.heal * 1.5
       end
     end
@@ -309,7 +309,7 @@ function Nobu:HealFilter(keys)
   end
 
   -- aram 降治療
-  if target.HasModifier and target:HasModifier("passive_aram_hero_debuff") ~= nil then
+  if target.HasModifier and target:HasModifier("passive_aram_hero_debuff") then
     keys.heal = keys.heal * 0.4
   end
 
