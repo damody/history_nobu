@@ -275,41 +275,59 @@ function ShuaGuai( )
 		end
 		return 45
 	end)
+	-- pos 2織田中 5聯合中 
 	-- 出足輕   
  	Timers:CreateTimer(start_time, function()
-		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,2,1)
-		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num + 1,2,2)
-		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,2,3)
-		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,3,4)
-		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num + 1,3,5)
-		ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,3,6)
+		if _G.oneOnOne == nil then
+			ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,2,1)
+			ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num + 1,2,2)
+			ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,2,3)
+			ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,3,4)
+			ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num + 1,3,5)
+			ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num,3,6)
+		else
+			ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num + 1,2,2)
+			ShuaGuai_Of_AA(ShuaGuai_Of_Walker_num + 1,3,5)
+		end
 		_G.A_count = _G.A_count + 1
   		return _G.minions
 	 end)
 	 -- 出弓箭手
 	 Timers:CreateTimer(start_time+2, function()--50
-		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,2,1)
-		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num + 1,2,2) 
-		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,2,3)
-		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,3,4)
-		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num + 1,3,5)
-		ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,3,6)
+		if _G.oneOnOne == nil then
+			ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,2,1)
+			ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num + 1,2,2) 
+			ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,2,3)
+			ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,3,4)
+			ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num + 1,3,5)
+			ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num,3,6)
+		else
+			ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num + 1,2,2) 
+			ShuaGuai_Of_AB(ShuaGuai_Of_Archer_num + 1,3,5)
+		end
 		 return _G.minions
 	end)
 	-- 出鐵炮跟騎兵
 	Timers:CreateTimer(180,function()
-		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,2,1)
-		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num + 1,2,2)
-		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,2,1)
-		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,2,2)  
-		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,2,3)
-		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,3,4)
-		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,2,3)
-		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,4)
-		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num + 1,3,5)
-		ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,3,6)
-		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,5)
-		ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,6)
+		if _G.oneOnOne == nil then
+			ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,2,1)
+			ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num + 1,2,2)
+			ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,2,1)
+			ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,2,2)  
+			ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,2,3)
+			ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,3,4)
+			ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,2,3)
+			ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,4)
+			ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num + 1,3,5)
+			ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num,3,6)
+			ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,5)
+			ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,6)
+		else
+			ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,2,2) 
+			ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num + 1,2,2)
+			ShuaGuai_Of_B(ShuaGuai_Of_Gunner_num + 1,3,5)
+			ShuaGuai_Of_C(ShuaGuai_Of_Cavalry_num,3,5)
+		end
 	    return _G.bigminions
 	end)
 end

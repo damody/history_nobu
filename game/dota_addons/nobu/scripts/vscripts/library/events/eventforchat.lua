@@ -862,7 +862,16 @@ local function chat_of_test(keys)
             end
         end
 	end
-
+	if sump <= 2 then
+		if s == "-1v1" then
+			GameRules:SendCustomMessage("開啟單挑模式...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+			_G.oneOnOne = true;
+		end
+		if s == "-x1v1" then
+			GameRules:SendCustomMessage("關閉單挑模式...", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
+			_G.oneOnOne = true;
+		end
+	end
 	if sump <= 4 then
 		
 		if s == "-gg" then
