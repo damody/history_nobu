@@ -112,7 +112,7 @@
 	//"npc_dota_hero_batrider"	"1" 
 	"npc_dota_hero_weaver"	"1"	//柳生宗嚴
 	//
-	//"npc_dota_hero_templar_assassin" "1"	//茶茶
+	"npc_dota_hero_templar_assassin" "1"	//茶茶
 	
 }
 

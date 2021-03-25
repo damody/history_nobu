@@ -1,4 +1,190 @@
-function C25D_Action1( keys )
+function C25W(keys)
+	local ability = keys.ability
+	local caster = keys.caster
+	local duration = ability:GetSpecialValueFor("duration")
+	local dir = caster:GetForwardVector()
+	local fake_center = caster:GetAbsOrigin() - dir
+	local distance = ability:GetSpecialValueFor("distance")
+	local speed = 2500
+	local kDuration = distance/speed
+	local knockbackProperties = {
+	    center_x = fake_center.x,
+	    center_y = fake_center.y,
+	    center_z = fake_center.z,
+	    duration = kDuration,
+	    knockback_duration = kDuration,
+	    knockback_distance = distance,
+	    knockback_height = 0,
+	    should_stun = 0,
+	}
+	ability:ApplyDataDrivenModifier(caster,caster,"modifier_knockback",knockbackProperties)
+	ability:ApplyDataDrivenModifier(caster, caster, "modifier_C25W", {duration=duration})
+end
+
+function C25E_OnAttackLanded(keys)
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local duration = ability:GetSpecialValueFor("duration")
+	ability:ApplyDataDrivenModifier(caster,target,"modifier_C25E_view",{duration=duration})
+	if target:HasModifier("modifier_C25E_dot") then
+		local stack = target:FindModifierByName("modifier_C25E_dot"):IncrementStackCount()
+		target:FindModifierByName("modifier_C25E_dot"):SetDuration(duration, true)
+	else
+		ability:ApplyDataDrivenModifier(caster,target,"modifier_C25E_dot",{duration=duration}):IncrementStackCount()
+	end
+	if caster.C25T and RandomInt(0, 100) < caster.C25T then
+		local group = FindUnitsInRadius(caster:GetTeamNumber(),
+							target:GetAbsOrigin(),
+							nil,
+							caster.C25T_radius,
+							DOTA_UNIT_TARGET_TEAM_ENEMY,
+							DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+							DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
+							FIND_ANY_ORDER,
+							false)
+		for _,it in pairs(group) do
+			if it ~= target then
+				if it:HasModifier("modifier_C25E_dot") then
+					local stack = it:FindModifierByName("modifier_C25E_dot"):IncrementStackCount()
+					it:FindModifierByName("modifier_C25E_dot"):SetDuration(duration, true)
+				else
+					ability:ApplyDataDrivenModifier(caster,it,"modifier_C25E_dot",{duration=duration}):IncrementStackCount()
+				end
+			end
+		end
+	end
+end
+
+function C25E_dot(keys) 
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local dot = ability:GetSpecialValueFor("dot")
+	local dmg = dot * target:FindModifierByName("modifier_C25E_dot"):GetStackCount()
+	AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ) )
+end
+
+function C25E_view(keys)
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	AddFOWViewer(caster:GetTeamNumber(), target:GetAbsOrigin(), 100, 0.11, false)
+	ParticleManager:SetParticleControl( target.C25E_Effect, 0, target:GetAbsOrigin() )
+	ParticleManager:SetParticleControl( target.C25E_Effect, 2, target:GetAbsOrigin()+ Vector(0,0,255) )
+	ParticleManager:SetParticleControl( target.C25E_Effect, 3, target:GetAbsOrigin() )
+end
+
+function C25E_OnCreated(keys)
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	target.C25E_Effect = ParticleManager:CreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf",PATTACH_ABSORIGIN_FOLLOW,target)
+end
+
+function C25E_OnDestroy(keys)
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	ParticleManager:DestroyParticle(target.C25E_Effect,true)
+end
+
+function C25R(keys)
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	local duration = ability:GetSpecialValueFor("duration")
+	local dmg = ability:GetSpecialValueFor("dmg")
+	AMHC:Damage( caster,target,dmg,AMHC:DamageType( "DAMAGE_TYPE_MAGICAL" ) )
+	local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_chaos_knight/chaos_knight_chaos_bolt_explosion.vpcf",PATTACH_ABSORIGIN_FOLLOW,target)
+	ParticleManager:SetParticleControl(ifx, 3, target:GetAbsOrigin() + Vector(0, 0, 100))
+	ability:ApplyDataDrivenModifier(caster, target, "modifier_C25R", {duration=duration})
+	local abilities = {}
+	for i=0, 2 do
+		local tAbility = target:GetAbilityByIndex(i)
+		if tAbility and tAbility:GetLevel() > 0 and tAbility:IsCooldownReady() and tAbility:IsPassive() == false and tAbility:IsToggle() == false then
+			table.insert(abilities, tAbility)
+		end
+	end
+	local rand = RandomInt(1, #abilities)
+	if abilities[rand] then
+		abilities[rand]:StartCooldown(abilities[rand]:GetCooldown(abilities[rand]:GetLevel()))
+	end
+end
+
+function C25T_OnUpgrade(keys) 
+	local caster = keys.caster
+	local target = keys.target
+	local ability = keys.ability
+	caster.C25T = ability:GetSpecialValueFor("splash_chance")
+	caster.C25T_radius = ability:GetSpecialValueFor("radius")
+end
+
+function C25T_OnAbilityPhaseStart(keys) 
+	local caster = keys.caster
+	local ability = keys.ability
+	local castRange = ability:GetCastRange(nil, nil)
+	local count = 0
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(),
+			caster:GetAbsOrigin(),
+			nil,
+			castRange,
+			DOTA_UNIT_TARGET_TEAM_ENEMY,
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
+			FIND_ANY_ORDER,
+			false)
+	for _, enemy in pairs(enemies) do
+		if enemy:HasModifier("modifier_C25E_dot") then
+			count = count + 1
+		end
+	end
+	if count == 0 then
+		caster:Stop()
+	end
+end
+
+function C25T(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local radius = ability:GetSpecialValueFor("radius")
+	local castRange = ability:GetCastRange(nil, nil)
+	local enemies = FindUnitsInRadius(caster:GetTeamNumber(),
+			caster:GetAbsOrigin(),
+			nil,
+			castRange,
+			DOTA_UNIT_TARGET_TEAM_ENEMY,
+			DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
+			FIND_ANY_ORDER,
+			false)
+	for _, enemy in pairs(enemies) do
+		if enemy:HasModifier("modifier_C25E_dot") then
+			local ifx = ParticleManager:CreateParticle("particles/units/heroes/hero_bloodseeker/bloodseeker_bloodritual_impact.vpcf",PATTACH_WORLDORIGIN,enemy)
+			ParticleManager:SetParticleControl( ifx, 0, enemy:GetAbsOrigin() )
+			ParticleManager:SetParticleControl( ifx, 1, enemy:GetAbsOrigin() )
+			ParticleManager:SetParticleControl( ifx, 2, enemy:GetAbsOrigin() )
+			local stack = enemy:FindModifierByName("modifier_C25E_dot"):GetStackCount()
+			local dmg = ability:GetSpecialValueFor("dmg") * stack
+			enemy:RemoveModifierByName("modifier_C25E_dot")
+			EmitSoundOnLocationWithCaster( enemy:GetAbsOrigin(),"Hero_Pudge.Dismember", target)	
+			local group = FindUnitsInRadius(caster:GetTeamNumber(),
+					enemy:GetAbsOrigin(),
+					nil,
+					radius,
+					DOTA_UNIT_TARGET_TEAM_ENEMY,
+					DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+					DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
+					FIND_ANY_ORDER,
+			false)
+			for _, it in pairs(group) do
+				AMHC:Damage( caster,it,dmg,AMHC:DamageType( "DAMAGE_TYPE_PHYSICAL" ))
+			end
+		end
+	end
+end
+
+function C25D_Action1_old( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
@@ -11,7 +197,7 @@ function C25D_Action1( keys )
 	end
 end
 
-function C25W_OnSpellStart( keys )
+function C25W_OnSpellStart_old( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local particle = ParticleManager:CreateParticle("particles/econ/items/bristleback/bristle_spikey_spray/bristle_spikey_quill_spray_sparks.vpcf", PATTACH_ABSORIGIN, caster)
@@ -46,7 +232,7 @@ function C25W_OnSpellStart( keys )
 	end
 end
 
-function C25R_OnSpellStart( keys )
+function C25R_OnSpellStart_old( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
@@ -57,7 +243,7 @@ function C25R_OnSpellStart( keys )
 	end
 end
 
-function C25E( keys )
+function C25E_old( keys )
 	local caster = keys.caster
 	local ability = keys.ability
 	local target = keys.target
@@ -91,7 +277,7 @@ function C25E( keys )
 end
 
 
-function C25T_OnSpellStart( keys )
+function C25T_OnSpellStart_old( keys )
 	local caster = keys.caster
 	local target = keys.target
 	local ability = keys.ability
@@ -115,7 +301,7 @@ function C25T_OnSpellStart( keys )
 end
 
 
-function modifier_C25T_bleeding_OnIntervalThink( keys )
+function modifier_C25T_bleeding_OnIntervalThink_old( keys )
 
 	local caster = keys.caster
 	local target = keys.target

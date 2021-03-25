@@ -19,9 +19,9 @@
 		"Ability2"	"C25E"
 		"Ability3"	"C25R"
 		"Ability4"	"magical_resistance"
-		"Ability5"	"C25D"
+		"Ability5"	"C25_precache"
 		"Ability6"	"C25T"
-		"Ability7"	"C25_precache"
+		"Ability7"	""
 		// Armor
 		// ----------------------------------------------------------------
 		"ArmorPhysical"	"5"
