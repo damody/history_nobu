@@ -327,6 +327,7 @@
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_PHYSICAL"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"	"SPELL_IMMUNITY_ENEMIES_YES"
+		"OverrideAnimation"		"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityCastPoint"	"0.1"
 		"AbilityCooldown"	"25"
 		"AbilityManaCost"	"0"
