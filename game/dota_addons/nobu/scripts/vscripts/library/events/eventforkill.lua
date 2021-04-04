@@ -438,6 +438,9 @@ function Nobu:OnUnitKill( keys )
     elseif string.match(name, "cursed_warrior_souls") then
       local unitname = name
       local pos = Vector(-3671.04,-3891.62,384)
+      if _G.aram then
+        pos = Vector(-4660.54, -3585.92, 256)
+      end
       local team = killedUnit:GetTeamNumber()
       if killedUnit.origin_pos == nil then
         killedUnit.origin_pos = pos
@@ -510,6 +513,9 @@ function Nobu:OnUnitKill( keys )
     elseif string.match(name, "king_of_robbers") then
       local unitname = name
       local pos = Vector(3487.55,3666,378)
+      if _G.aram then
+        pos = Vector(3449.93, 4404.84, 0)
+      end
       local team = killedUnit:GetTeamNumber()
       if killedUnit.origin_pos == nil then
         killedUnit.origin_pos = pos

@@ -193,8 +193,8 @@ function equilibrium_constant:x_OnNPCSpawned(keys)
     if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("for_cp_position") then
         hSpawnedUnit:FindAbilityByName("for_cp_position"):SetLevel(1)
     end
-    if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("tofar_goback") then
-        hSpawnedUnit:FindAbilityByName("tofar_goback"):SetLevel(1)
+    if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("hold_position") then
+        hSpawnedUnit:FindAbilityByName("hold_position"):SetLevel(1)
     end
     if IsValidEntity(hSpawnedUnit) and hSpawnedUnit.FindAbilityByName and hSpawnedUnit:FindAbilityByName("cp_recover") then
         hSpawnedUnit:FindAbilityByName("cp_recover"):SetLevel(1)

@@ -464,36 +464,53 @@ function Nobu:OnGameRulesStateChange( keys )
 		GameRules: SendCustomMessage("<font color='#ffff00'>強盜之王出現了</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 		unitname = "npc_dota_the_king_of_robbers"
 		local pos = Vector(3487.55,3666,378)
+		if _G.aram then
+			pos = Vector(3449.93, 4404.84, 0)
+		end
 		local team = 4
 		local CP_Monster = 0
 		local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
 		unit.origin_pos = pos
 		unit.deathbuff = 0
+		unit.pos = pos;
 		local hp = unit:GetMaxHealth()
 		unit:SetBaseMaxHealth(hp+CP_Monster * 50)
 		local dmgmax = unit:GetBaseDamageMax()
 		local dmgmin = unit:GetBaseDamageMin()
 		unit:SetBaseDamageMax(dmgmax+CP_Monster*12)
 		unit:SetBaseDamageMax(dmgmin+CP_Monster*12)
+		for i = 0 , unit:GetAbilityCount() - 1 do
+			if unit:GetAbilityByIndex(i) then
+				unit:GetAbilityByIndex(i):SetLevel(1)
+			end
+		end
 	end)
 	--出詛咒亡靈武士時間
 	Timers:CreateTimer(1200, function()
 		GameRules: SendCustomMessage("<font color='#ffff00'>受詛咒的武士亡靈出現了</font>", DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS, 0)
 		unitname = "npc_dota_cursed_warrior_souls"
 		local pos = Vector(-3671.04,-3891.62,384)
+		if _G.aram then
+			pos = Vector(-4660.54, -3585.92, 256)
+		end
 		local team = 4
 		local CP_Monster = 0
 		local unit = CreateUnitByName(unitname,pos,false,nil,nil,team)
 		local particle1 = ParticleManager:CreateParticle("particles/b06t/b06t.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, unit)
 		
 		unit.origin_pos = pos
+		unit.pos = pos
 		local hp = unit:GetMaxHealth()
 		unit:SetBaseMaxHealth(hp+CP_Monster * 50)
 		local dmgmax = unit:GetBaseDamageMax()
 		local dmgmin = unit:GetBaseDamageMin()
 		unit:SetBaseDamageMax(dmgmax+CP_Monster*12)
 		unit:SetBaseDamageMax(dmgmin+CP_Monster*12)
-		
+		for i = 0 , unit:GetAbilityCount() - 1 do
+			if unit:GetAbilityByIndex(i) then
+				unit:GetAbilityByIndex(i):SetLevel(1)
+			end
+		end
 	end)
 	Timers:CreateTimer(0, function()
 		local allUnits = Entities:FindAllByClassname('npc_dota_creep_lane')
