@@ -835,5 +835,7 @@ end
 --升級事件
 function LevelUpEvent( keys )
   local hero = EntIndexToHScript(keys.hero_entindex)
-  _G.average_level[hero:GetTeamNumber()] = _G.average_level[hero:GetTeamNumber()] + 0.25
+  if _G.average_level[hero:GetTeamNumber()] then
+    _G.average_level[hero:GetTeamNumber()] = _G.average_level[hero:GetTeamNumber()] + 0.25
+  end
 end

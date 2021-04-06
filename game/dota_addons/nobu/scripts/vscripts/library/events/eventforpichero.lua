@@ -79,10 +79,12 @@ function Nobu:PickHero( keys )
         end
       end
       if caster:GetTeamNumber() > 3 then
-        caster:AddAbility("OBW"):SetLevel(1)
-        caster:AddAbility("majia"):SetLevel(1)
-        caster:AddAbility("for_no_damage"):SetLevel(1)
+        -- caster:AddAbility("OBW"):SetLevel(1)
+        -- caster:AddAbility("majia"):SetLevel(1)
+        -- caster:AddAbility("for_no_damage"):SetLevel(1)
+        caster:AddAbility("when_cp_first_spawn"):SetLevel(1)
         caster:AddNoDraw()
+        caster:SetAbsOrigin(Vector(3749.84, -3950.23, 128))
         Timers:CreateTimer(0,function()
           caster:SetAbilityPoints(0)
           return 1

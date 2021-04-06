@@ -79,9 +79,10 @@ function MVP_OnTakeDamage( event )
 						function(game_id)
 							print(game_id)
 							local playersData = {};
-							for playerID = 0, 9 do
+							for playerID = 0, 20 do
 								local steam_id = PlayerResource:GetSteamID(playerID)
-								if _G.IsExist[playerID] then 
+								local player = PlayerResource:GetPlayer(playerID)
+								if _G.IsExist[playerID] and player:GetTeamNumber() < 4 then 
 									-- GameRules: SendCustomMessage("player " .. steam_id, DOTA_TEAM_GOODGUYS + DOTA_TEAM_BADGUYS,0)
 									local hero = _G.Hero[playerID]
 									local level = hero:GetLevel() or 0

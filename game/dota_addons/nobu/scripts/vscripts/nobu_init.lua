@@ -38,7 +38,7 @@ function _G.Nobu:InitGameMode()
   -- 別在顯示pk畫面了
   GameRules:SetStrategyTime( 20 )
   GameRules:SetShowcaseTime( 1 )
-  
+  GameRules:SetCustomGameTeamMaxPlayers(6, 5)
   --GameRules:SetCustomGameTeamMaxPlayers(2, 7)
   --GameRules:SetCustomGameTeamMaxPlayers(3, 7)
 

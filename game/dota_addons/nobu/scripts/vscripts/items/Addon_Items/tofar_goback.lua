@@ -766,6 +766,9 @@ function disconnect_checker(keys)
 		if state == 2 then
 			if not hero:IsIllusion() then
 				Timers:CreateTimer ( 3 , function ()
+					if hero:GetTeamNumber() > 3 then
+						return ;
+					end
 					if hero.disconnect == true and player_count >= 10 and _G.isRecord == false then
 						local steam_id = PlayerResource:GetSteamID(hero:GetPlayerOwnerID())
 						playersData = {

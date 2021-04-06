@@ -215,7 +215,17 @@ function Nobu:OnGameRulesStateChange( keys )
 				end
 			end
 		end
-
+		for i=0, 20 do 
+			local player = PlayerResource:GetPlayer(i)
+			for k, v in pairs(_G.heromap) do
+				if v == "A01" and player then
+					local team = PlayerResource:GetCustomTeamAssignment(i)
+					if team == 6 then
+						player:SetSelectedHero(k)
+					end
+				end
+			end
+		end
 		-- 沒選好用內嵌的網頁選
 		-- Timers:CreateTimer(50, function()
 		-- 	for playerID = 0, 9 do
@@ -285,6 +295,15 @@ function Nobu:OnGameRulesStateChange( keys )
 			_G.play_time = _G.play_time + 1;
 			return 1
 		end)
+		AddFOWViewer(6, Vector(0,0,256), 99999, 99999, true)
+		AddFOWViewer(6, Vector(3749.84, -3950.23, 256), 99999, 99999, true)
+		AddFOWViewer(6, Vector(-5484.47, 5088.38, 256), 99999, 99999, true)
+		AddFOWViewer(6, Vector(3449.93, 4404.84, 256), 99999, 99999, true)
+		AddFOWViewer(6, Vector(-4660.54, -3585.92, 256), 99999, 99999, true)
+		AddFOWViewer(6, Vector(2877.63, 166.084, 238.868), 99999, 99999, true)
+		AddFOWViewer(6, Vector(-926.625, 4379.81, 256), 99999, 99999, true)
+		AddFOWViewer(6, Vector(-4474, 955, 256), 99999, 99999, true)
+		AddFOWViewer(6, Vector(97, -3286, 256), 99999, 99999, true)
 		----------------------------------------------------------------------------------
 	if _G.nobu_server_b then
       Nobu:OpenRoom()
@@ -304,7 +323,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		else
 			ShuaGuai()
 		end
-	for i=0,9 do
+	for i=0,20 do
 		-- 跳錢
 		_G.PlayerEarnedGold[i] = 2000
 		if _G.aram then
@@ -338,7 +357,7 @@ function Nobu:OnGameRulesStateChange( keys )
 		local accountID = PlayerResource:GetSteamAccountID(i)
 		Timers:CreateTimer(0, function ()
 			local player = PlayerResource:GetPlayer(i)
-			if player then
+			if player and player:GetTeamNumber() < 4 then
 				-- 紀錄玩家
 				-- _G.matchCount = _G.matchCount + 1
 				_G.IsExist[i] = true
