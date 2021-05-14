@@ -160,9 +160,10 @@
 	"C09E"
 	{
 		"BaseClass"                       			"ability_datadriven"
-		"AbilityBehavior"                        	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"                        	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityType"  								"DOTA_ABILITY_TYPE_BASIC"
 		"AbilityTextureName"    					"custom/C09/C09E"
+		"AbilityCastPoint"							"0.1"
 		"AbilityCooldown"							"5"
 		"AbilityManaCost"                      		"80 90 100 110 120"
 		
