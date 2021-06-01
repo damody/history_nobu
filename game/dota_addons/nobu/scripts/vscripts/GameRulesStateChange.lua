@@ -329,15 +329,15 @@ function Nobu:OnGameRulesStateChange( keys )
 		if _G.aram then
 			Timers:CreateTimer(45, function()
 				local gold = PlayerResource:GetUnreliableGold(i)
-				PlayerResource:SetGold(i,gold + 5,false)
-				_G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + 5
+				PlayerResource:SetGold(i,gold + 5*3,false)
+				_G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + 5*3
 				return 2
 			end)
 		else
 			Timers:CreateTimer(45, function()
 				local gold = PlayerResource:GetUnreliableGold(i)
-				PlayerResource:SetGold(i,gold + 10,false)
-				_G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + 10
+				PlayerResource:SetGold(i,gold + 10*3,false)
+				_G.PlayerEarnedGold[i] = _G.PlayerEarnedGold[i] + 10*3
 				return 2
 			end)
 		end
